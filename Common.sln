@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionTool", "Common\EncryptionTool\EncryptionTool.csproj", "{7ABEB74E-C414-4599-9AA2-B52E8E09AEDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompressionTool", "Common\CompressionTool\CompressionTool.csproj", "{BBF07283-374C-412E-9965-4BEB74689C4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringTool", "Common\StringTool\StringTool.csproj", "{EB00C6D9-D584-49E5-B443-F7E644DA59D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Test", "Common\Common.Test\Common.Test.csproj", "{445F52DC-C39C-4848-951E-1471BDF5BCC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E06EB08F-9690-453C-BEC2-635CD9D787E6}"
+	ProjectSection(SolutionItems) = preProject
+		Common.vsmdi = Common.vsmdi
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyseTool", "Common\AnalyseTool\AnalyseTool.csproj", "{94BCB8F8-2500-4241-8F38-C39E875D1127}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Common.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7ABEB74E-C414-4599-9AA2-B52E8E09AEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ABEB74E-C414-4599-9AA2-B52E8E09AEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ABEB74E-C414-4599-9AA2-B52E8E09AEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ABEB74E-C414-4599-9AA2-B52E8E09AEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBF07283-374C-412E-9965-4BEB74689C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF07283-374C-412E-9965-4BEB74689C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF07283-374C-412E-9965-4BEB74689C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF07283-374C-412E-9965-4BEB74689C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB00C6D9-D584-49E5-B443-F7E644DA59D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB00C6D9-D584-49E5-B443-F7E644DA59D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB00C6D9-D584-49E5-B443-F7E644DA59D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB00C6D9-D584-49E5-B443-F7E644DA59D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{445F52DC-C39C-4848-951E-1471BDF5BCC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{445F52DC-C39C-4848-951E-1471BDF5BCC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{445F52DC-C39C-4848-951E-1471BDF5BCC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{445F52DC-C39C-4848-951E-1471BDF5BCC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94BCB8F8-2500-4241-8F38-C39E875D1127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94BCB8F8-2500-4241-8F38-C39E875D1127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94BCB8F8-2500-4241-8F38-C39E875D1127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94BCB8F8-2500-4241-8F38-C39E875D1127}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

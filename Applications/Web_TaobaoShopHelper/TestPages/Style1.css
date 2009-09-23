@@ -1,0 +1,34 @@
+﻿body
+{
+}
+
+div
+{
+    border: 1px solid #C0C0C0;
+    width: 183px;
+    height: 18px;
+    clip: rect(0px,18px,22px,0px);
+    overflow: hidden;
+}
+
+select
+{
+    position: relative;
+    left: -2px;
+    top: -2px;
+    font-size: 12px;
+    width: 185px;
+    line-height: 18px;
+    border: 0px;
+    color: #909993;
+}
+
+.o1
+{
+    color: Red;    
+}
+
+.o2
+{
+    color: Blue;
+}

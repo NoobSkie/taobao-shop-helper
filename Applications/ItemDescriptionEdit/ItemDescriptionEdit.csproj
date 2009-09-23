@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7AA4C089-1D94-403E-8C55-36C28D192088}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TOP.Applications.ItemDescriptionEdit</RootNamespace>
+    <AssemblyName>TOP.Applications.ItemDescriptionEdit</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CtrlImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlImage.Designer.cs">
+      <DependentUpon>CtrlImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlItem.Designer.cs">
+      <DependentUpon>CtrlItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlAttr.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlAttr.Designer.cs">
+      <DependentUpon>CtrlAttr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlProgress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlProgress.Designer.cs">
+      <DependentUpon>CtrlProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlSelectedItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlSelectedItem.Designer.cs">
+      <DependentUpon>CtrlSelectedItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAuthCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAuthCode.Designer.cs">
+      <DependentUpon>FrmAuthCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCodeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCodeView.Designer.cs">
+      <DependentUpon>FrmCodeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDescriptionEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDescriptionEdit.Designer.cs">
+      <DependentUpon>FrmDescriptionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelectItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelectItems.Designer.cs">
+      <DependentUpon>FrmSelectItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CtrlImage.resx">
+      <DependentUpon>CtrlImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlItem.resx">
+      <DependentUpon>CtrlItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlAttr.resx">
+      <DependentUpon>CtrlAttr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlProgress.resx">
+      <DependentUpon>CtrlProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlSelectedItem.resx">
+      <DependentUpon>CtrlSelectedItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAuthCode.resx">
+      <DependentUpon>FrmAuthCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCodeView.resx">
+      <DependentUpon>FrmCodeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDescriptionEdit.resx">
+      <DependentUpon>FrmDescriptionEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelectItems.resx">
+      <DependentUpon>FrmSelectItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AllowImageCopySiteList.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AllowImageExt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="default_attr.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template_test.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template_item.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template_attr.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template_img.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\TOP.Core.Domain\TOP.Core.Domain.csproj">
+      <Project>{94715AF1-20AD-4D8E-B6B6-BCC290621C3A}</Project>
+      <Name>TOP.Core.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\TOP.Core.Facade\TOP.Core.Facade.csproj">
+      <Project>{0412BEF3-4997-4A40-B25C-AAC25B70B068}</Project>
+      <Name>TOP.Core.Facade</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

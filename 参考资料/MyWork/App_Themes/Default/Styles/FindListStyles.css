@@ -1,0 +1,240 @@
+﻿body 
+{
+	width:1000px;
+	height:auto;
+	font-size:12px;
+	margin:auto;
+	margin-top:15px;
+	font-family:宋体;
+}
+
+.SummaryBottom
+{
+	padding-top:10px;
+	float:left;
+}
+
+.Attribute
+{
+	width:500px;
+	float:left;
+	padding-left:40px;
+	padding-top:10px;
+}
+
+
+.Shipping
+{
+	float:left;
+	width:50px;
+}
+
+.Place
+{
+	float:left;
+	padding-left:50px;
+}
+
+.Other
+{
+	float:left;
+	padding-left:50px;
+}
+
+.LeaveWord
+{
+	float:left;
+	padding-top:5px;
+	padding-left:5px;
+}
+
+
+/*****************************/
+
+/****************************/
+/*****      商品列表      *******/
+
+.ComminuteLine
+{
+	border-bottom:dashed 1px #CCCCCC;
+	height:103px;
+	padding-top:5px;
+}
+
+.Photo
+{
+	width:100px;
+	height:100px;
+	float:left;
+	text-align:center;
+	vertical-align:middle;
+	border:solid 1px #CCCCCC;
+}
+
+.Summary
+{
+	width:300px;
+	float:left;
+}
+
+.SummaryTop
+{
+	font-weight:bold;
+	color:Blue;
+	float:left;
+	padding-top:10px;
+	width:300px;
+	padding-left:10px;
+}
+
+.Price
+{
+	width:50px;
+	float:left;
+}
+
+.Number
+{
+	color:Red;
+	font-weight:bold;
+	padding-top:5px;
+}
+
+.Text
+{
+	text-align:center;
+}
+
+.Legend
+{
+	width:100px;
+	float:left;
+	padding-left:50px;
+}
+
+
+/*****************************/
+
+/****************************/
+/*****      商品图表      *******/
+
+.ComminuteLine_Diagram
+{
+	width:200px;
+	padding-top:5px;
+	text-align:center;
+	float:left;
+}
+
+.Photo_Diagram
+{
+	width:100px;
+	height:100px;
+	text-align:center;
+	vertical-align:middle;
+	border:solid 1px #CCCCCC;
+}
+
+.Summary_Diagram
+{
+	width:180px;
+	float:left;
+}
+
+
+.SummaryTop_Diagram
+{
+	font-weight:bold;
+	color:Blue;
+	padding-top:10px;
+}
+
+
+.Price__Diagram
+{
+	width:150px;
+}
+
+
+.Number_Diagram
+{
+	color:Red;
+	font-weight:bold;
+	padding-top:5px;
+	float:left;
+}
+
+.Text_Diagram
+{
+	padding-top:5px;
+	float:left
+}
+
+.Legend_Diagram
+{
+	width:100px;
+	padding-top:5px;
+}
+
+/*****************************/
+
+/****************************/
+/*****      店铺列表      *******/
+
+.Photo_Shop
+{
+	width:100px;
+	height:100px;
+	float:left;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.Legend_Shop
+{
+	float:left;
+}
+
+.Price_Shop
+{
+	width:100px;
+	float:left;
+	padding-left:50px;
+}
+
+.Number_Shop
+{
+	color:Red;
+	font-weight:bold;
+	padding-top:5px;
+	text-align:center;
+}
+
+.Text_Shop
+{
+	text-align:center;
+}
+
+/*****************************/
+
+/****************************/
+/*****      店铺商品列表      *******/
+
+.Attribute_Commodity
+{
+	width:500px;
+	float:right;
+	padding-top:10px;
+}
+
+.Text_Commodity
+{
+	text-align:right;
+	padding-top:5px;
+}
+
+.Text_CommodityDiagram
+{
+	text-align:left;
+	padding:5px 0px 0px 25px;
+}

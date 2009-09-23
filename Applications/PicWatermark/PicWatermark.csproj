@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F40EAEC-181D-4A96-92F6-2ACC0A1779BD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TOP.Applications.PicWatermark</RootNamespace>
+    <AssemblyName>TOP.Applications.PicWatermark</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ManifestCertificateThumbprint>94A3EB30A1319515E9655FAA333594FE683160DC</ManifestCertificateThumbprint>
+    <ManifestKeyFile>PicWatermark_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\TOP\Releases\PicWatermark\V1.0.0.1\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <CreateWebPageOnPublish>false</CreateWebPageOnPublish>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CtrlWatermarkConfiguration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlWatermarkConfiguration.Designer.cs">
+      <DependentUpon>CtrlWatermarkConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrlWatermarkItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlWatermarkItem.Designer.cs">
+      <DependentUpon>ctrlWatermarkItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrlWatermarkItem_Image.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlWatermarkItem_Image.Designer.cs">
+      <DependentUpon>ctrlWatermarkItem_Image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrlWatermarkItem_Text.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlWatermarkItem_Text.Designer.cs">
+      <DependentUpon>ctrlWatermarkItem_Text.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenPicFromHtml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenPicFromHtml.Designer.cs">
+      <DependentUpon>frmGenPicFromHtml.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTest.Designer.cs">
+      <DependentUpon>FrmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWatermark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWatermark.Designer.cs">
+      <DependentUpon>frmWatermark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="IWatermark.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrlWatermarkItem_Image.resx">
+      <DependentUpon>ctrlWatermarkItem_Image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlWatermarkItem_Text.resx">
+      <DependentUpon>ctrlWatermarkItem_Text.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenPicFromHtml.resx">
+      <DependentUpon>frmGenPicFromHtml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTest.resx">
+      <DependentUpon>FrmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWatermark.resx">
+      <DependentUpon>frmWatermark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="V01\CtrlConfigurationV01.resx">
+      <DependentUpon>CtrlConfigurationV01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="V02\CtrlConfigurationV02.resx">
+      <DependentUpon>CtrlConfigurationV02.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="PicWatermark_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="V01\CtrlConfigurationV01.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="V01\CtrlConfigurationV01.Designer.cs">
+      <DependentUpon>CtrlConfigurationV01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="V01\WatermarkV01.cs" />
+    <Compile Include="V02\CtrlConfigurationV02.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="V02\CtrlConfigurationV02.Designer.cs">
+      <DependentUpon>CtrlConfigurationV02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="V02\WatermarkV02.cs" />
+    <Compile Include="WatermarkBase.cs" />
+    <Compile Include="WebBrowserCapture.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

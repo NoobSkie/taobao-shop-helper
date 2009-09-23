@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopCsharp", "TopCsharp\TopCsharp.csproj", "{14BF5309-3AB1-456E-B3BA-928CF4F1A69F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14BF5309-3AB1-456E-B3BA-928CF4F1A69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14BF5309-3AB1-456E-B3BA-928CF4F1A69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14BF5309-3AB1-456E-B3BA-928CF4F1A69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14BF5309-3AB1-456E-B3BA-928CF4F1A69F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

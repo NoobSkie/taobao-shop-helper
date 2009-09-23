@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Top.master.cs" Inherits="TOP.Applications.TaobaoShopHelper.Top" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="HolderHeader" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div class="HeaderDiv">
+            <div class="LogoDiv">
+                Logo
+            </div>
+            <div class="UserInfoDiv">
+                <div class="UserInfoDivButtom">
+                    <span>您好，</span><span>太阳</span><span>！</span><span>[</span><a href="#">退出</a><span>]</span>
+                    <span class="Line">|</span> <a class="Text" href="#">信任计划</a> <span class="Line">|</span>
+                    <a class="Text" href="#">立即充值</a>
+                </div>
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="HolderContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

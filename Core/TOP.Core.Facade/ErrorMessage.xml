@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<error_message>
+  <error code="3" type="system" description="Upload fail" message="上传附件失败"></error>
+  <error code="5" type="system" description="Session Call limited" message="用户会话期呼叫频度受限"></error>
+  <error code="9" type="system" description="Http action not allowed" message="该方法不允许使用此Http动作"></error>
+  <error code="10" type="system" description="Service currently unavailable" message="服务不可用"></error>
+  <error code="11" type="system" description="Insufficient ISV permissions" message="第三方程序权限不够"></error>
+  <error code="12" type="system" description="Insufficient user permissions" message="用户权限不够"></error>
+  <error code="15" type="system" description="Remote service error" message="执行远程服务时出错"></error>
+  <error code="21" type="system" description="Missing Method" message="方法丢失"></error>
+  <error code="22" type="system" description="Invalid Method" message="方法无效"></error>
+  <error code="23" type="system" description="Invalid Format" message="响应格式无效"></error>
+  <error code="24" type="system" description="Missing signature" message="签名丢失"></error>
+  <error code="25" type="system" description="Invalid signature" message="签名无效"></error>
+  <error code="26" type="system" description="Missing session" message="会话期识别码丢失"></error>
+  <error code="27" type="system" description="Invalid session" message="会话期识别码无效"></error>
+  <error code="28" type="system" description="Missing API Key" message="App_Key丢失"></error>
+  <error code="29" type="system" description="Invalid API Key" message="App_Key无效"></error>
+  <error code="30" type="system" description="Missing timestamp" message="时间戳丢失"></error>
+  <error code="31" type="system" description="Invalid timestamp" message="时间戳无效"></error>
+  <error code="32" type="system" description="Missing version" message="版本丢失"></error>
+  <error code="33" type="system" description="Invalid version" message="版本错误"></error>
+  <error code="34" type="system" description="Unsupported version" message="版本未被该API支持"></error>
+  <error code="40" type="system" description="Missing required arguments" message="参数丢失，指除 method ,session ,timestamp ,format ,app_key ,v ,sign外的其他参数丢失"></error>
+  <error code="41" type="system" description="Invalid arguments" message="参数格式错误"></error>
+  
+  <error code="550" type="business" description="User service unavailable" message="用户数据服务不可用"></error>
+  <error code="551" type="business" description="Item service unavailable" message="商品数据服务不可用"></error>
+  <error code="552" type="business" description="Item image service unavailable" message="商品图片数据服务不可用"></error>
+  <error code="553" type="business" description="Item simple update service unavailable" message="上下架，推荐，取消推荐 服务不可用"></error>
+  <error code="560" type="business" description="Trade service unavailable" message="交易数据服务不可用"></error>
+  <error code="590" type="business" description="Shop service unavailable" message="店铺服务不可用"></error>
+  <error code="591" type="business" description="Shop showcase remainCount unavailable" message="店铺剩余推荐数 服务不可用"></error>
+  <error code="601" type="business" description="User not exist" message="用户不存在"></error>
+</error_message>

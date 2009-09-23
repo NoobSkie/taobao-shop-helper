@@ -1,0 +1,450 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{60483E9F-128D-40EE-9445-E6E0B11659FB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TOP.Applications.TaobaoShopHelper</RootNamespace>
+    <AssemblyName>TOP.Applications.TaobaoShopHelper</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentArt.Web.UI, Version=3.0.511.21, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\ComponentArt.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Authorizes\UnAuthorize.aspx" />
+    <Content Include="Authorizes\UnLogin.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="RequestPages\GetItemCategoryListFromTOP.aspx" />
+    <Content Include="Management\ItemCategoryManager.aspx" />
+    <Content Include="TestPages\MyItems.aspx" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\PageOperate.js" />
+    <Content Include="ShopHelper\AddItem.aspx" />
+    <Content Include="TaobaoPage\AuthCodeGetter.aspx" />
+    <Content Include="TestPages\TestIframe.aspx" />
+    <Content Include="TestPages\TestPage.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authorizes\UnAuthorize.aspx.cs">
+      <DependentUpon>UnAuthorize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Authorizes\UnAuthorize.aspx.designer.cs">
+      <DependentUpon>UnAuthorize.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Authorizes\UnLogin.aspx.cs">
+      <DependentUpon>UnLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Authorizes\UnLogin.aspx.designer.cs">
+      <DependentUpon>UnLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ItemView.aspx.cs">
+      <DependentUpon>ItemView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemView.aspx.designer.cs">
+      <DependentUpon>ItemView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\AreaManager.aspx.cs">
+      <DependentUpon>AreaManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\AreaManager.aspx.designer.cs">
+      <DependentUpon>AreaManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyWorkSpace.aspx.cs">
+      <DependentUpon>MyWorkSpace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyWorkSpace.aspx.designer.cs">
+      <DependentUpon>MyWorkSpace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NestedMainMenu.master.cs">
+      <DependentUpon>NestedMainMenu.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NestedMainMenu.master.designer.cs">
+      <DependentUpon>NestedMainMenu.master</DependentUpon>
+    </Compile>
+    <Compile Include="RequestPages\GetItemCategoryListFromTOP.aspx.cs">
+      <DependentUpon>GetItemCategoryListFromTOP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestPages\GetItemCategoryListFromTOP.aspx.designer.cs">
+      <DependentUpon>GetItemCategoryListFromTOP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ItemCategoryManager.aspx.cs">
+      <DependentUpon>ItemCategoryManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ItemCategoryManager.aspx.designer.cs">
+      <DependentUpon>ItemCategoryManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RequestPages\UpdateItemCategoryListToLocal.aspx.cs">
+      <DependentUpon>UpdateItemCategoryListToLocal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestPages\UpdateItemCategoryListToLocal.aspx.designer.cs">
+      <DependentUpon>UpdateItemCategoryListToLocal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\ItemQuery.aspx.cs">
+      <DependentUpon>ItemQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\ItemQuery.aspx.designer.cs">
+      <DependentUpon>ItemQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\QueryResult.aspx.cs">
+      <DependentUpon>QueryResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\QueryResult.aspx.designer.cs">
+      <DependentUpon>QueryResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\QueryResult_Item.aspx.cs">
+      <DependentUpon>QueryResult_Item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\QueryResult_Item.aspx.designer.cs">
+      <DependentUpon>QueryResult_Item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\QueryResult_Shop.aspx.cs">
+      <DependentUpon>QueryResult_Shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\QueryResult_Shop.aspx.designer.cs">
+      <DependentUpon>QueryResult_Shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\InitDbSchema.aspx.cs">
+      <DependentUpon>InitDbSchema.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\InitDbSchema.aspx.designer.cs">
+      <DependentUpon>InitDbSchema.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\MyItems.aspx.cs">
+      <DependentUpon>MyItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\MyItems.aspx.designer.cs">
+      <DependentUpon>MyItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShopHelper\AddItem.aspx.cs">
+      <DependentUpon>AddItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\AddItem.aspx.designer.cs">
+      <DependentUpon>AddItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TaobaoPage\AuthCodeGetter.aspx.cs">
+      <DependentUpon>AuthCodeGetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaobaoPage\AuthCodeGetter.aspx.designer.cs">
+      <DependentUpon>AuthCodeGetter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\TestIframe.aspx.cs">
+      <DependentUpon>TestIframe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\TestIframe.aspx.designer.cs">
+      <DependentUpon>TestIframe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\TestPage.aspx.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\TestPage.aspx.designer.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\TestSnapshot.aspx.cs">
+      <DependentUpon>TestSnapshot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\TestSnapshot.aspx.designer.cs">
+      <DependentUpon>TestSnapshot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\TestStyles.aspx.cs">
+      <DependentUpon>TestStyles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\TestStyles.aspx.designer.cs">
+      <DependentUpon>TestStyles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Top.Master.cs">
+      <DependentUpon>Top.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Top.Master.designer.cs">
+      <DependentUpon>Top.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\ItemList\CtrlItemListBlock.ascx.cs">
+      <DependentUpon>CtrlItemListBlock.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\ItemList\CtrlItemListBlock.ascx.designer.cs">
+      <DependentUpon>CtrlItemListBlock.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="_Common\AppUrlHelper.cs" />
+    <Compile Include="_Common\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Common\ConstVariables.cs" />
+    <Compile Include="_Common\BaseControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\TOP.Common.DbHelper\TOP.Common.DbHelper.csproj">
+      <Project>{BD1AFE9A-03AE-4524-94AE-E2DD1F23719A}</Project>
+      <Name>TOP.Common.DbHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\TOP.Common.Logic\TOP.Common.Logic.csproj">
+      <Project>{C6A7A214-78B8-4A35-98F9-1189D0AB420E}</Project>
+      <Name>TOP.Common.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\TOP.Common.StringTool\TOP.Common.StringTool.csproj">
+      <Project>{EB00C6D9-D584-49E5-B443-F7E644DA59D8}</Project>
+      <Name>TOP.Common.StringTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\TOP.Core.Domain\TOP.Core.Domain.csproj">
+      <Project>{94715AF1-20AD-4D8E-B6B6-BCC290621C3A}</Project>
+      <Name>TOP.Core.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\TOP.Core.Facade\TOP.Core.Facade.csproj">
+      <Project>{0412BEF3-4997-4A40-B25C-AAC25B70B068}</Project>
+      <Name>TOP.Core.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Html\TOP.Html.Snapshot\TOP.Html.Snapshot.csproj">
+      <Project>{67EDCA1D-171D-4068-ADE4-54445CA7241E}</Project>
+      <Name>TOP.Html.Snapshot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Management\TOP.Management.Domain\TOP.Management.Domain.csproj">
+      <Project>{D355B0EA-0750-429F-B7C9-62100976C6AE}</Project>
+      <Name>TOP.Management.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Management\TOP.Management.Facade\TOP.Management.Facade.csproj">
+      <Project>{5BA9FA7F-9905-41EA-BA6A-58617A6F1B8A}</Project>
+      <Name>TOP.Management.Facade</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Professional\Professional.skin" />
+    <Content Include="App_Themes\Professional\Main.css" />
+    <Content Include="App_Themes\Professional\TreeView.css" />
+    <Content Include="Images\Icos\admin_tools.gif" />
+    <Content Include="Images\Icos\ascx.gif" />
+    <Content Include="Images\Icos\aspx.gif" />
+    <Content Include="Images\Icos\Big\file.gif" />
+    <Content Include="Images\Icos\Big\floppy_disk.gif" />
+    <Content Include="Images\Icos\Big\folder.gif" />
+    <Content Include="Images\Icos\Big\folder_open.gif" />
+    <Content Include="Images\Icos\Big\hard_disk.gif" />
+    <Content Include="Images\Icos\Big\my_comp.gif" />
+    <Content Include="Images\Icos\Big\my_docs.gif" />
+    <Content Include="Images\Icos\Big\my_music.gif" />
+    <Content Include="Images\Icos\Big\my_network.gif" />
+    <Content Include="Images\Icos\Big\my_pictures.gif" />
+    <Content Include="Images\Icos\Big\recycle.gif" />
+    <Content Include="Images\Icos\calendar.gif" />
+    <Content Include="Images\Icos\cd.gif" />
+    <Content Include="Images\Icos\col.gif" />
+    <Content Include="Images\Icos\config.gif" />
+    <Content Include="Images\Icos\contacts.gif" />
+    <Content Include="Images\Icos\control_panel.gif" />
+    <Content Include="Images\Icos\cs.gif" />
+    <Content Include="Images\Icos\css.gif" />
+    <Content Include="Images\Icos\deleted.gif" />
+    <Content Include="Images\Icos\deletedFolder.gif" />
+    <Content Include="Images\Icos\desktop.gif" />
+    <Content Include="Images\Icos\dll.gif" />
+    <Content Include="Images\Icos\drafts.gif" />
+    <Content Include="Images\Icos\dvd.gif" />
+    <Content Include="Images\Icos\entire_network.gif" />
+    <Content Include="Images\Icos\exp.gif" />
+    <Content Include="Images\Icos\file.gif" />
+    <Content Include="Images\Icos\floppy.gif" />
+    <Content Include="Images\Icos\folder.gif" />
+    <Content Include="Images\Icos\folders.gif" />
+    <Content Include="Images\Icos\folder_docs.gif" />
+    <Content Include="Images\Icos\folder_fonts.gif" />
+    <Content Include="Images\Icos\folder_music.gif" />
+    <Content Include="Images\Icos\folder_open.gif" />
+    <Content Include="Images\Icos\folder_pictures.gif" />
+    <Content Include="Images\Icos\folder_shared.gif" />
+    <Content Include="Images\Icos\folder_tasks.gif" />
+    <Content Include="Images\Icos\folder_web.gif" />
+    <Content Include="Images\Icos\gif.gif" />
+    <Content Include="Images\Icos\hard_drive.gif" />
+    <Content Include="Images\Icos\image.gif" />
+    <Content Include="Images\Icos\inbox.gif" />
+    <Content Include="Images\Icos\journal.gif" />
+    <Content Include="Images\Icos\jpg.gif" />
+    <Content Include="Images\Icos\js.gif" />
+    <Content Include="Images\Icos\junk.gif" />
+    <Content Include="Images\Icos\mycomp.gif" />
+    <Content Include="Images\Icos\mynet.gif" />
+    <Content Include="Images\Icos\network_folder.gif" />
+    <Content Include="Images\Icos\network_node.gif" />
+    <Content Include="Images\Icos\net_connections.gif" />
+    <Content Include="Images\Icos\notes.gif" />
+    <Content Include="Images\Icos\outbox.gif" />
+    <Content Include="Images\Icos\printers.gif" />
+    <Content Include="Images\Icos\recycle.gif" />
+    <Content Include="Images\Icos\root_ajaxfile.gif" />
+    <Content Include="Images\Icos\root_outlook.gif" />
+    <Content Include="Images\Icos\scanners.gif" />
+    <Content Include="Images\Icos\scheduled_tasks.gif" />
+    <Content Include="Images\Icos\search.gif" />
+    <Content Include="Images\Icos\searchFolder.gif" />
+    <Content Include="Images\Icos\sentItems.gif" />
+    <Content Include="Images\Icos\spacer.gif" />
+    <Content Include="Images\Icos\tasks.gif" />
+    <Content Include="Images\Icos\vb.gif" />
+    <Content Include="Images\Icos\workgroup.gif" />
+    <Content Include="Images\Icos\xml.gif" />
+    <Content Include="Images\Lines\dash.gif" />
+    <Content Include="Images\Lines\dashminus.gif" />
+    <Content Include="Images\Lines\dashplus.gif" />
+    <Content Include="Images\Lines\i.gif" />
+    <Content Include="Images\Lines\l.gif" />
+    <Content Include="Images\Lines\lminus.gif" />
+    <Content Include="Images\Lines\lplus.gif" />
+    <Content Include="Images\Lines\minus.gif" />
+    <Content Include="Images\Lines\noexpand.gif" />
+    <Content Include="Images\Lines\plus.gif" />
+    <Content Include="Images\Lines\r.gif" />
+    <Content Include="Images\Lines\rminus.gif" />
+    <Content Include="Images\Lines\rplus.gif" />
+    <Content Include="Images\Lines\t.gif" />
+    <Content Include="Images\Lines\tminus.gif" />
+    <Content Include="Images\Lines\tplus.gif" />
+    <Content Include="ItemView.aspx" />
+    <Content Include="Management\AreaManager.aspx" />
+    <Content Include="RequestPages\UpdateItemCategoryListToLocal.aspx" />
+    <Content Include="TestPages\error_rsp.xml" />
+    <Content Include="TestPages\HTMLPage1.htm" />
+    <Content Include="MyWorkSpace.aspx" />
+    <Content Include="TestPages\InitDbSchema.aspx" />
+    <Content Include="TestPages\Style1.css" />
+    <Content Include="TestPages\TestStyles.aspx" />
+    <Content Include="TestPages\XMLFile1.xml" />
+    <Content Include="TestPages\XMLFile2.xml" />
+    <Content Include="WebControls\ItemList\CtrlItemListBlock.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Lines\Thumbs.db" />
+    <Content Include="ShopHelper\Default.aspx" />
+    <Content Include="ShopHelper\ItemQuery.aspx" />
+    <Content Include="NestedMainMenu.master" />
+    <Content Include="ShopHelper\QueryResult.aspx" />
+    <Content Include="ShopHelper\QueryResult_Item.aspx" />
+    <Content Include="ShopHelper\QueryResult_Shop.aspx" />
+    <Content Include="Templates\template1.htm" />
+    <Content Include="TestPages\TestSnapshot.aspx" />
+    <Content Include="Top.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="ErrorResponseLog\" />
+    <Folder Include="Images\Shops\" />
+    <Folder Include="Images\Snapshot\" />
+    <Folder Include="Logical\" />
+    <Folder Include="ShopHelper\WebControls\" />
+    <Folder Include="技术支持\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5861</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/TaobaoShopHelper</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
