@@ -160,6 +160,13 @@
     <Compile Include="ShopHelper\ItemQuery.aspx.designer.cs">
       <DependentUpon>ItemQuery.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShopHelper\NestedShopHelperPage.master.cs">
+      <DependentUpon>NestedShopHelperPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\NestedShopHelperPage.master.designer.cs">
+      <DependentUpon>NestedShopHelperPage.master</DependentUpon>
+    </Compile>
     <Compile Include="ShopHelper\QueryResult.aspx.cs">
       <DependentUpon>QueryResult.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -296,9 +303,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Themes\Professional\Professional.skin" />
-    <Content Include="App_Themes\Professional\Main.css" />
-    <Content Include="App_Themes\Professional\TreeView.css" />
+    <Content Include="App_Themes\Professional\03.WebControlSkins\Professional.skin" />
+    <Content Include="App_Themes\Professional\02.ControlStyles\TreeView.css" />
     <Content Include="Images\Icos\admin_tools.gif" />
     <Content Include="Images\Icos\ascx.gif" />
     <Content Include="Images\Icos\aspx.gif" />
@@ -401,6 +407,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Lines\Thumbs.db" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\02.Common.css" />
+    <Content Include="Images\Layout\Professional\hd_20090313.png" />
+    <Content Include="Images\Layout\Professional\page_menu_state.png" />
+    <Content Include="ShopHelper\NestedShopHelperPage.master" />
+    <Content Include="Images\Layout\Professional\page_menu_one_bg.gif" />
+    <Content Include="Images\Layout\Professional\page_menu_two_bg.png" />
+    <Content Include="Images\Layout\Professional\page_vertical.png" />
+    <Content Include="Styles\Content.css" />
+    <Content Include="Styles\FindListStyles.css" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\01.Main.css" />
+    <Content Include="Images\Layout\Professional\page_header_bg.jpg" />
     <Content Include="ShopHelper\Default.aspx" />
     <Content Include="ShopHelper\ItemQuery.aspx" />
     <Content Include="NestedMainMenu.master" />
@@ -408,6 +425,7 @@
     <Content Include="ShopHelper\QueryResult_Item.aspx" />
     <Content Include="ShopHelper\QueryResult_Shop.aspx" />
     <Content Include="Templates\template1.htm" />
+    <Content Include="TestPages\HTMLPage2.htm" />
     <Content Include="TestPages\TestSnapshot.aspx" />
     <Content Include="Top.Master" />
   </ItemGroup>

@@ -11,42 +11,33 @@
 namespace TOP.Applications.TaobaoShopHelper.ShopHelper {
     
     
-    public partial class ItemQuery {
+    public partial class NestedShopHelperPage {
         
         /// <summary>
-        /// hlnkType_Item control.
+        /// HeaderContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlnkType_Item;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeaderContent;
         
         /// <summary>
-        /// hlnkType_Shop control.
+        /// CommonContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlnkType_Shop;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder CommonContent;
         
         /// <summary>
-        /// txtQuery control.
+        /// HolderContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuery;
-        
-        /// <summary>
-        /// btnQuery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnQuery;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HolderContent;
     }
 }

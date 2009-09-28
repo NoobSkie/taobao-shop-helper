@@ -1,0 +1,99 @@
+﻿.HeaderDiv
+{
+	width:1000px;
+}
+
+.LogoDiv
+{
+	float:left;
+	width:100px;
+	height:50px;
+}
+
+.UserInfoDiv
+{
+    line-height:24px;
+}
+
+.MenuDiv
+{
+	
+}
+
+.MenuDivLevelOne
+{
+	font-size:14px;
+	height:25px;
+	font-weight:bold;
+}
+
+.MenuDivLevelTwo
+{
+	background-color:#E9E9EA;
+	font-size:14px;
+	height:25px;
+	font-weight:bold;
+}
+
+.PageDiv
+{
+}
+
+.FooterDiv
+{
+	
+}
+
+/*****************************/
+
+/****************************/
+/*****      MyStyles      *******/
+
+.UserInfoDivTop
+{
+}
+
+.UserInfoDivButtom
+{
+	padding-left:280px;
+	padding-top:5px;
+}
+
+.Text
+{
+	color:Blue;
+}
+.Line
+{
+	color:Red;
+}
+
+.Onmouse
+{
+	text-decoration:none;
+	color:#FFFFFF;
+}
+.Onmouse:hover 
+{
+	text-decoration:none; 
+	background-color:Black; 
+}
+
+.OnmouseTwo
+{
+	text-decoration:none;
+	color:#666666;
+}
+.OnmouseTwo:hover 
+{
+	text-decoration:none; 
+	background-color:#898989; 
+	color:Black;
+}
+
+.OnmouseTest
+{
+	background-color:#FFFFFF;
+	color:Black;
+	text-decoration:none;
+}

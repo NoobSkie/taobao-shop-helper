@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/NestedMainMenu.master" AutoEventWireup="true"
+    CodeBehind="NestedShopHelperPage.master.cs" Inherits="TOP.Applications.TaobaoShopHelper.ShopHelper.NestedShopHelperPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
+    <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="CommonContent" runat="server">
+    <asp:ContentPlaceHolder ID="CommonContent" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="HolderContent" runat="server">
+    <div class="MenuDivLevelTwo">
+        <ul class="MenuItemList">
+            <li class="Selected"><a href="ItemQuery.aspx"><span>导入宝贝</span></a></li>
+            <li><a href="ItemQuery.aspx"><span>批量增加宝贝</span></a></li>
+            <li><a href="ItemQuery.aspx"><span>店铺宝贝管理</span></a></li>
+        </ul>
+    </div>
+    <asp:ContentPlaceHolder ID="HolderContent" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

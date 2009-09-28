@@ -14,6 +14,24 @@ namespace TOP.Applications.TaobaoShopHelper {
     public partial class NestedMainMenu {
         
         /// <summary>
+        /// HeaderContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeaderContent;
+        
+        /// <summary>
+        /// CommonContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder CommonContent;
+        
+        /// <summary>
         /// HolderContent control.
         /// </summary>
         /// <remarks>

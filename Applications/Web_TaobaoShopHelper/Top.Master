@@ -11,15 +11,12 @@
     <form id="form1" runat="server">
     <div>
         <div class="HeaderDiv">
-            <div class="LogoDiv">
-                Logo
-            </div>
             <div class="UserInfoDiv">
-                <div class="UserInfoDivButtom">
-                    <span>您好，</span><span>太阳</span><span>！</span><span>[</span><a href="#">退出</a><span>]</span>
-                    <span class="Line">|</span> <a class="Text" href="#">信任计划</a> <span class="Line">|</span>
-                    <a class="Text" href="#">立即充值</a>
-                </div>
+                <span>您好，</span><span>太阳</span><span>！</span><span>[</span><a href="#">退出</a><span>]</span>
+            </div>
+            <div class="UserOperatorDiv">
+                <a class="Text" href="#">信任计划</a> <span class="SplitLine">|</span> <a class="Text"
+                    href="#">立即充值</a>
             </div>
         </div>
         <asp:ContentPlaceHolder ID="HolderContent" runat="server">

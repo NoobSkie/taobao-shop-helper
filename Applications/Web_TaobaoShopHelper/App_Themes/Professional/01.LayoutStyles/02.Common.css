@@ -1,0 +1,113 @@
+﻿.SearchDiv
+{
+    margin: 10px 0px 10px 200px;
+}
+
+.SearchDiv ul.SearchCategory
+{
+    position: relative;
+    padding: 0px 0px 0px 2px;
+    margin: 0px 60px;
+    width: 322px;
+    height: 20px;
+    clear: both;
+    overflow: hidden;
+}
+
+.SearchDiv ul.SearchCategory li
+{
+    text-align: center;
+    line-height: 18px;
+    margin: 0px 0px 0px -1px;
+    display: inline;
+    background-position: 100% -57px;
+    float: left;
+    height: 20px;
+}
+
+.SearchDiv ul.SearchCategory li a
+{
+    color: #36c;
+    text-decoration: none;
+    padding: 0px 12px 0px 11px;
+    line-height: 20px;
+    outline-style: none;
+    display: block;
+    white-space: nowrap;
+    height: 20px;
+}
+
+.SearchDiv ul.SearchCategory li a:hover
+{
+    color: #ff7300;
+}
+
+.SearchDiv ul.SearchCategory li.Selected
+{
+    background: url(../../../Images/Layout/Professional/hd_20090313.png) no-repeat;
+    background-position: 1px -31px;
+    margin-left: -2px;
+}
+
+.SearchDiv ul.SearchCategory li.Selected a
+{
+    padding: 0px 11px 0px 11px;
+    line-height: 21px;
+    font-weight: 700;
+    background: url(../../../Images/Layout/Professional/hd_20090313.png) no-repeat;
+    background-position: 100% -31px;
+}
+
+.SearchDiv .SearchForm
+{
+    height: 34px;
+    width: 580px;
+    margin: -1px 0px 0px;
+    background: url(../../../Images/Layout/Professional/hd_20090313.png) no-repeat;
+    background-position: 0px -78px;
+}
+
+.SearchForm .Key
+{
+}
+
+.SearchForm .Key input
+{
+    font: 100% Tahoma,Helvetica,Arial,sans-serif;
+    border: none;
+    padding: 4px 0px 0px 5px;
+    margin: 5px 0px 0px 4px;
+    background: none transparent scroll repeat 0% 0%;
+    height: 18px;
+    width: 460px;
+}
+
+.SearchForm .Do
+{
+    text-align: center;
+    font-family: inherit;
+    font: 100% Tahoma,Helvetica,Arial,sans-serif;
+    background: none transparent scroll repeat 0% 0%;
+    font-size: 1.19em;
+    font-weight: 700;
+    width: 99px;
+    height: 22px;
+    line-height: 22px;
+    margin: 0px;
+    padding-top: 1px;
+    border: none;
+    cursor: pointer;
+}
+
+.SearchForm .Do span
+{
+    text-align: center;
+    font-family: inherit;
+    font: 100% Tahoma,Helvetica,Arial,sans-serif;
+    background: none transparent scroll repeat 0% 0%;
+    font-size: 1.19em;
+    font-weight: 700;
+    padding: 0px 20px 0px 20px;
+    margin: 0px;
+    cursor: pointer;
+}
