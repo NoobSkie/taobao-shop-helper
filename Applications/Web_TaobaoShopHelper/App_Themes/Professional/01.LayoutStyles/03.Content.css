@@ -1,0 +1,138 @@
+﻿.LogoDiv
+{
+	float:left;
+	width:100px;
+	height:50px;
+}
+
+.UserInfoDiv
+{
+	float:right;
+}
+
+.PageDiv
+{
+}
+
+.FooterDiv
+{
+	
+}
+
+/*****************************/
+
+/****************************/
+/*****      MyStyles      *******/
+
+.UserInfoDivTop
+{
+}
+
+.UserInfoDivButtom
+{
+	padding-left:280px;
+	padding-top:5px;
+}
+
+.Text
+{
+	color:Blue;
+}
+.Line
+{
+	color:Red;
+	padding:0px 2px 0px 2px;
+}
+
+.Onmouse
+{
+	text-decoration:none;
+	color:#FFFFFF;
+}
+.Onmouse:hover 
+{
+	text-decoration:none; 
+	background-color:Black; 
+}
+
+.OnmouseTwo
+{
+	text-decoration:none;
+	color:#666666;
+}
+.OnmouseTwo:hover 
+{
+	text-decoration:none; 
+	background-color:#898989; 
+	color:Black;
+}
+
+.OnmouseTest
+{
+	background-color:#FFFFFF;
+	color:Black;
+	text-decoration:none;
+}
+
+/****************************/
+/***** DIV 圆角一级菜单 *******/
+
+u.Corner_Top_One u 
+    {
+        height: 1px;
+        font-size:1px;
+        display: block;
+        overflow: hidden;
+        text-decoration: none;
+        background-color:#FF0000;
+    }
+    
+u.Corner_Bottom_One u 
+    {
+        height: 1px;
+        font-size:1px;
+        display: block;
+        overflow: hidden;
+        text-decoration: none;
+        background-color:#FFCC66;
+    }
+u.Corner_Top_One u.H1{margin: 0 5px;}
+u.Corner_Top_One u.H2{margin: 0 3px;}
+u.Corner_Top_One u.H3{margin: 0 2px;}
+u.Corner_Top_One u.H4{margin: 0 1px; height: 2px}
+u.Corner_Bottom_One u.H1{margin: 0 5px;}
+u.Corner_Bottom_One u.H2{margin: 0 3px;}
+u.Corner_Bottom_One u.H3{margin: 0 2px;}
+u.Corner_Bottom_One u.H4{margin: 0 1px; height: 2px}
+/*****************************/
+/***** DIV 圆角二级菜单 *******/
+
+u.Corner_Top_Two u 
+    {
+        height: 1px;
+        font-size:1px;
+        display: block;
+        overflow: hidden;
+        text-decoration: none;
+        background-color:#F9F9F9;
+    }
+    
+u.Corner_Bottom_Two u 
+    {
+        height: 1px;
+        font-size:1px;
+        display: block;
+        overflow: hidden;
+        text-decoration: none;
+        background-color:#E7E7E6;
+    }
+u.Corner_Top_Two u.H1{margin: 0 5px;}
+u.Corner_Top_Two u.H2{margin: 0 3px;}
+u.Corner_Top_Two u.H3{margin: 0 2px;}
+u.Corner_Top_Two u.H4{margin: 0 1px; height: 2px}
+u.Corner_Bottom_Two u.H1{margin: 0 5px;}
+u.Corner_Bottom_Two u.H2{margin: 0 3px;}
+u.Corner_Bottom_Two u.H3{margin: 0 2px;}
+u.Corner_Bottom_Two u.H4{margin: 0 1px; height: 2px}
+/*****************************/
+

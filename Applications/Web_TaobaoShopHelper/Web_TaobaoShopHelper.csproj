@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{60483E9F-128D-40EE-9445-E6E0B11659FB}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -408,6 +408,8 @@
   <ItemGroup>
     <None Include="Images\Lines\Thumbs.db" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\02.Common.css" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\03.Content.css" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\04.FindListStyles.css" />
     <Content Include="Images\Layout\Professional\hd_20090313.png" />
     <Content Include="Images\Layout\Professional\page_menu_state.png" />
     <Content Include="ShopHelper\NestedShopHelperPage.master" />
@@ -457,9 +459,6 @@
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/TaobaoShopHelper</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
