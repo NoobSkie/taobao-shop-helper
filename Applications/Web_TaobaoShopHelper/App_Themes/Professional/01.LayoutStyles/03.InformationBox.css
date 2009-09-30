@@ -1,0 +1,38 @@
+﻿.InformationBox
+{
+    border: solid 0.1em gray;
+    padding: 10px;
+}
+
+.InformationBox img.IcoType
+{
+    width: 50px;
+    height: 50px;
+    border: 0px;
+    margin-right: 10px;
+    float: left;
+}
+
+.InformationBox ul
+{
+}
+
+.InformationBox ul li
+{
+    list-style-type: none;
+}
+
+.InformationBox ul li.Information
+{
+    font-size: 1.1em;
+}
+
+.InformationBox ul li.Information span
+{
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.InformationBox ul li.Information a
+{
+}

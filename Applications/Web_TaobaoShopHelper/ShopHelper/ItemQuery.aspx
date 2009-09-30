@@ -7,27 +7,26 @@
 
         var queryType = "item";
         function Query() {
-            var key = document.getElementById("<%= txtQuery.ClientID %>").value;
             location = "QueryResult.aspx?q=" + key + "&t=" + queryType;
         }
 
         var currentCategory;
         function ChangeType(type, obj) {
-            queryType = type;
+            document.getElementById("hiddenSearchType").value = type;
             if (currentCategory) {
                 currentCategory.parentNode.className = "";
             }
             obj.parentNode.className = "Selected";
             currentCategory = obj;
-
-            document.getElementById("<%= txtQuery.ClientID %>").focus();
         }
     
     </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CommonContent" runat="server">
+    <form id="formSearch" action="QueryResult.aspx" method="get">
     <div class="SearchDiv">
+        <input type="hidden" id="hiddenSearchType" name="t" value="item" />
         <ul class="SearchCategory">
             <li>
                 <asp:HyperLink ID="hlnkType_Item" NavigateUrl="javascript:void(0);" onclick="ChangeType('item', this);"
@@ -38,10 +37,11 @@
         </ul>
         <div class="SearchForm">
             <span class="Key">
-                <asp:TextBox ID="txtQuery" runat="server"></asp:TextBox></span>
-            <asp:Button ID="btnQuery" class="Do" runat="server" Text="搜索" />
+                <input type="text" name="q" /></span>
+            <input type="submit" class="Do" value="搜索" />
         </div>
     </div>
+    </form>
 
     <script type="text/javascript">
         ChangeType("item", document.getElementById("<%= hlnkType_Item.ClientID %>"));

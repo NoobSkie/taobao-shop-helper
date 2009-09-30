@@ -1,16 +1,55 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="QueryResult_Shop.aspx.cs" Inherits="TOP.Applications.TaobaoShopHelper.ShopHelper.QueryResult_Shop" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/ShopHelper/NestedShopHelperPage.master"
+    CodeBehind="QueryResult_Shop.aspx.cs" Inherits="TOP.Applications.TaobaoShopHelper.ShopHelper.QueryResult_Shop" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ Register Src="../WebControls/Common/CtrlInformationBox.ascx" TagName="CtrlInformationBox"
+    TagPrefix="uc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+    <script type="text/javascript">
+
+        var queryType = "item";
+        function Query() {
+            location = "QueryResult.aspx?q=" + key + "&t=" + queryType;
+        }
+
+        var currentCategory;
+        function ChangeType(type, obj) {
+            document.getElementById("hiddenSearchType").value = type;
+            if (currentCategory) {
+                currentCategory.parentNode.className = "";
+            }
+            obj.parentNode.className = "Selected";
+            currentCategory = obj;
+        }
     
+    </script>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="CommonContent" runat="server">
+    <form id="formSearch" action="QueryResult.aspx" method="get">
+    <div class="SearchDiv">
+        <input type="hidden" id="hiddenSearchType" name="t" value="item" />
+        <ul class="SearchCategory">
+            <li>
+                <asp:HyperLink ID="hlnkType_Item" NavigateUrl="javascript:void(0);" onclick="ChangeType('item', this);"
+                    runat="server">宝贝</asp:HyperLink></li>
+            <li>
+                <asp:HyperLink ID="hlnkType_Shop" NavigateUrl="javascript:void(0);" onclick="ChangeType('shop', this);"
+                    runat="server">店铺</asp:HyperLink></li>
+        </ul>
+        <div class="SearchForm">
+            <span class="Key">
+                <input type="text" name="q" /></span>
+            <input type="submit" class="Do" value="搜索" />
+        </div>
     </div>
     </form>
-</body>
-</html>
+
+    <script type="text/javascript">
+        ChangeType("shop", document.getElementById("<%= hlnkType_Shop.ClientID %>"));
+    </script>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="HolderContent" runat="server">
+    <uc1:CtrlInformationBox ID="ucInformationBox_Tip" runat="server" />
+</asp:Content>

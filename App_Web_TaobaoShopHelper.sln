@@ -57,6 +57,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOP.Html.Snapshot", "Html\T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOP.Html.Generater", "Html\TOP.Html.Generater\TOP.Html.Generater.csproj", "{712107F4-3751-4031-9682-76619CD871BE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{87E57E0A-F833-4D18-A8D9-67960A60969E}"
+	ProjectSection(SolutionItems) = preProject
+		Libs\ComponentArt.Web.UI.dll = Libs\ComponentArt.Web.UI.dll
+		Libs\ICSharpCode.SharpZipLib.dll = Libs\ICSharpCode.SharpZipLib.dll
+		Libs\Newtonsoft.Json.dll = Libs\Newtonsoft.Json.dll
+		Libs\okpower.Utility.dll = Libs\okpower.Utility.dll
+		Libs\Top4Net.dll = Libs\Top4Net.dll
+		Libs\Top4Net.dll.config = Libs\Top4Net.dll.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = App_Web_ItemDescTemplate.vsmdi
@@ -160,6 +170,7 @@ Global
 		{308AA4CE-94DC-47C4-B182-E41FA91623D4} = {684E2591-A590-4A3D-9009-C018C64090AD}
 		{C6A7A214-78B8-4A35-98F9-1189D0AB420E} = {684E2591-A590-4A3D-9009-C018C64090AD}
 		{EB00C6D9-D584-49E5-B443-F7E644DA59D8} = {684E2591-A590-4A3D-9009-C018C64090AD}
+		{87E57E0A-F833-4D18-A8D9-67960A60969E} = {684E2591-A590-4A3D-9009-C018C64090AD}
 		{D355B0EA-0750-429F-B7C9-62100976C6AE} = {876DF84B-B050-481B-B691-81E4268F6861}
 		{5BA9FA7F-9905-41EA-BA6A-58617A6F1B8A} = {876DF84B-B050-481B-B691-81E4268F6861}
 		{2668B8D3-F135-40C6-9D3E-9710E0DD6489} = {876DF84B-B050-481B-B691-81E4268F6861}

@@ -19,7 +19,9 @@
                 <li><a href="#"><span>系统设置</span></a></li>
             </ul>
         </div>
-        <asp:ContentPlaceHolder ID="HolderContent" runat="server">
+        <asp:ContentPlaceHolder ID="MenuContent" runat="server">
         </asp:ContentPlaceHolder>
     </div>
+    <asp:ContentPlaceHolder ID="HolderContent" runat="server">
+    </asp:ContentPlaceHolder>
 </asp:Content>

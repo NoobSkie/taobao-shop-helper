@@ -8,27 +8,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TOP.Applications.TaobaoShopHelper {
+namespace TOP.Applications.TaobaoShopHelper.WebControls.Common {
     
     
-    public partial class Top {
+    public partial class CtrlInformationBox {
         
         /// <summary>
-        /// HolderHeader control.
+        /// rptInformationList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HolderHeader;
-        
-        /// <summary>
-        /// HolderContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HolderContent;
+        protected global::System.Web.UI.WebControls.Repeater rptInformationList;
     }
 }

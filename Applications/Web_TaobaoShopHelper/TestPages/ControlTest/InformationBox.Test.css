@@ -1,0 +1,63 @@
+﻿.OneMessage
+{
+}
+
+.OneMessage .InformationBox
+{
+}
+
+/**********************************************************************/
+
+.MultiMessageNoSperator
+{
+}
+
+.MultiMessageNoSperator .InformationBox
+{
+}
+
+.MultiMessageNoSperator .InformationBox .SeparatorLine
+{
+    display: none;
+}
+
+/**********************************************************************/
+
+.MultiMessageCustomerSperator
+{
+}
+
+.MultiMessageCustomerSperator .InformationBox
+{
+    border: solid 1px gray;
+    padding: 0px;
+    margin: 10px;
+}
+
+.MultiMessageCustomerSperator .InformationBox li
+{
+    list-style-type: none;
+    margin-left: -30px;
+}
+
+.MultiMessageCustomerSperator .InformationBox .BlueText
+{
+    color: Blue;
+}
+
+.MultiMessageCustomerSperator .InformationBox .RedText
+{
+    color: Red;
+}
+
+.MultiMessageCustomerSperator .InformationBox .BlackText
+{
+    color: Gray;
+}
+
+.MultiMessageCustomerSperator .InformationBox .SeparatorLine
+{
+    border-top: 1px dotted gray;
+    height: 0;
+    margin: 0px 10px 0px 0px;
+}

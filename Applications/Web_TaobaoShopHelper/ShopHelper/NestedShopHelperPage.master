@@ -9,7 +9,7 @@
     <asp:ContentPlaceHolder ID="CommonContent" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="HolderContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="MenuContent" runat="server">
     <div class="MenuDivLevelTwo">
         <ul class="MenuItemList">
             <li class="Selected"><a href="ItemQuery.aspx"><span>导入宝贝</span></a></li>
@@ -17,6 +17,10 @@
             <li><a href="ItemQuery.aspx"><span>店铺宝贝管理</span></a></li>
         </ul>
     </div>
-    <asp:ContentPlaceHolder ID="HolderContent" runat="server">
-    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="HolderContent" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="HolderContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
 </asp:Content>

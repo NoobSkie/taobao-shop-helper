@@ -8,7 +8,6 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
     <div>
         <div class="HeaderDiv">
             <div class="UserInfoDiv">
@@ -22,6 +21,5 @@
         <asp:ContentPlaceHolder ID="HolderContent" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-    </form>
 </body>
 </html>

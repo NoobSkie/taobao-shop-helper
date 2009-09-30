@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{60483E9F-128D-40EE-9445-E6E0B11659FB}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -64,7 +64,6 @@
     <Content Include="RequestPages\GetItemCategoryListFromTOP.aspx" />
     <Content Include="Management\ItemCategoryManager.aspx" />
     <Content Include="TestPages\MyItems.aspx" />
-    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\PageOperate.js" />
     <Content Include="ShopHelper\AddItem.aspx" />
     <Content Include="TaobaoPage\AuthCodeGetter.aspx" />
@@ -96,6 +95,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ItemHelper\DescriptionEditer.aspx.cs">
+      <DependentUpon>DescriptionEditer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemHelper\DescriptionEditer.aspx.designer.cs">
+      <DependentUpon>DescriptionEditer.aspx</DependentUpon>
     </Compile>
     <Compile Include="ItemView.aspx.cs">
       <DependentUpon>ItemView.aspx</DependentUpon>
@@ -188,6 +194,13 @@
     <Compile Include="ShopHelper\QueryResult_Shop.aspx.designer.cs">
       <DependentUpon>QueryResult_Shop.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TestPages\ControlTest\TestInformationBox.aspx.cs">
+      <DependentUpon>TestInformationBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\ControlTest\TestInformationBox.aspx.designer.cs">
+      <DependentUpon>TestInformationBox.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestPages\InitDbSchema.aspx.cs">
       <DependentUpon>InitDbSchema.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -252,12 +265,41 @@
     <Compile Include="Top.Master.designer.cs">
       <DependentUpon>Top.Master</DependentUpon>
     </Compile>
+    <Compile Include="WebControls\Common\CtrlInformationBox.ascx.cs">
+      <DependentUpon>CtrlInformationBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Common\CtrlInformationBox.ascx.designer.cs">
+      <DependentUpon>CtrlInformationBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Common\CtrlInformationItem.ascx.cs">
+      <DependentUpon>CtrlInformationItem.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Common\CtrlInformationItem.ascx.designer.cs">
+      <DependentUpon>CtrlInformationItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Common\CtrlMessageBox.ascx.cs">
+      <DependentUpon>CtrlMessageBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Common\CtrlMessageBox.ascx.designer.cs">
+      <DependentUpon>CtrlMessageBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Common\InformationObject.cs" />
     <Compile Include="WebControls\ItemList\CtrlItemListBlock.ascx.cs">
       <DependentUpon>CtrlItemListBlock.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebControls\ItemList\CtrlItemListBlock.ascx.designer.cs">
       <DependentUpon>CtrlItemListBlock.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Shop\CtrlShopInfo.ascx.cs">
+      <DependentUpon>CtrlShopInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Shop\CtrlShopInfo.ascx.designer.cs">
+      <DependentUpon>CtrlShopInfo.ascx</DependentUpon>
     </Compile>
     <Compile Include="_Common\AppUrlHelper.cs" />
     <Compile Include="_Common\BasePage.cs">
@@ -267,6 +309,8 @@
     <Compile Include="_Common\BaseControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="_Common\Enumerations.cs" />
+    <Compile Include="_Common\PageObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\TOP.Common.DbHelper\TOP.Common.DbHelper.csproj">
@@ -412,6 +456,18 @@
     <Content Include="App_Themes\Professional\01.LayoutStyles\04.FindListStyles.css" />
     <Content Include="Images\Layout\Professional\hd_20090313.png" />
     <Content Include="Images\Layout\Professional\page_menu_state.png" />
+    <Content Include="Images\System\InformationIcos\default.png" />
+    <Content Include="Images\System\InformationIcos\error.png" />
+    <Content Include="Images\System\InformationIcos\grayinfo.png" />
+    <Content Include="Images\System\InformationIcos\information.png" />
+    <Content Include="Images\System\InformationIcos\person.png" />
+    <Content Include="Images\System\InformationIcos\stop.png" />
+    <Content Include="Images\System\InformationIcos\warning.png" />
+    <Content Include="ItemHelper\DescriptionEditer.aspx" />
+    <Content Include="Scripts\Libs\jquery.js" />
+    <Content Include="Scripts\Libs\motion-0.3.js" />
+    <Content Include="Scripts\TemplateBlock.js" />
+    <Content Include="Scripts\TemplateOperate.js" />
     <Content Include="ShopHelper\NestedShopHelperPage.master" />
     <Content Include="Images\Layout\Professional\page_menu_one_bg.gif" />
     <Content Include="Images\Layout\Professional\page_menu_two_bg.png" />
@@ -427,9 +483,15 @@
     <Content Include="ShopHelper\QueryResult_Item.aspx" />
     <Content Include="ShopHelper\QueryResult_Shop.aspx" />
     <Content Include="Templates\template1.htm" />
+    <Content Include="TestPages\ControlTest\InformationBox.Test.css" />
+    <Content Include="TestPages\ControlTest\TestInformationBox.aspx" />
     <Content Include="TestPages\HTMLPage2.htm" />
     <Content Include="TestPages\TestSnapshot.aspx" />
     <Content Include="Top.Master" />
+    <Content Include="WebControls\Common\CtrlInformationBox.ascx" />
+    <Content Include="WebControls\Common\CtrlInformationItem.ascx" />
+    <Content Include="WebControls\Common\CtrlMessageBox.ascx" />
+    <Content Include="WebControls\Shop\CtrlShopInfo.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -459,6 +521,9 @@
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/TaobaoShopHelper</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
