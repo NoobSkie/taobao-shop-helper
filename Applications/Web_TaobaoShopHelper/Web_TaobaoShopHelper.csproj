@@ -312,12 +312,12 @@
     <Compile Include="WebControls\Shop\CtrlShopInfo.ascx.designer.cs">
       <DependentUpon>CtrlShopInfo.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebControls\Template\CtrlBlock.ascx.cs">
-      <DependentUpon>CtrlBlock.ascx</DependentUpon>
+    <Compile Include="WebControls\Template\CtrlBlock_Container.ascx.cs">
+      <DependentUpon>CtrlBlock_Container.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebControls\Template\CtrlBlock.ascx.designer.cs">
-      <DependentUpon>CtrlBlock.ascx</DependentUpon>
+    <Compile Include="WebControls\Template\CtrlBlock_Container.ascx.designer.cs">
+      <DependentUpon>CtrlBlock_Container.ascx</DependentUpon>
     </Compile>
     <Compile Include="WebControls\Template\CtrlBlock_Item.ascx.cs">
       <DependentUpon>CtrlBlock_Item.ascx</DependentUpon>
@@ -541,7 +541,7 @@
     <Content Include="WebControls\Common\CtrlInformationItem.ascx" />
     <Content Include="WebControls\Common\CtrlMessageBox.ascx" />
     <Content Include="WebControls\Shop\CtrlShopInfo.ascx" />
-    <Content Include="WebControls\Template\CtrlBlock.ascx" />
+    <Content Include="WebControls\Template\CtrlBlock_Container.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Item.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_List.ascx" />
     <Content Include="WebControls\Template\CtrlInputItem_Text.ascx" />
