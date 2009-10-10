@@ -312,6 +312,34 @@
     <Compile Include="WebControls\Shop\CtrlShopInfo.ascx.designer.cs">
       <DependentUpon>CtrlShopInfo.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock.ascx.cs">
+      <DependentUpon>CtrlBlock.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock.ascx.designer.cs">
+      <DependentUpon>CtrlBlock.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock_Item.ascx.cs">
+      <DependentUpon>CtrlBlock_Item.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock_Item.ascx.designer.cs">
+      <DependentUpon>CtrlBlock_Item.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock_List.ascx.cs">
+      <DependentUpon>CtrlBlock_List.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock_List.ascx.designer.cs">
+      <DependentUpon>CtrlBlock_List.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlInputItem_Text.ascx.cs">
+      <DependentUpon>CtrlInputItem_Text.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlInputItem_Text.ascx.designer.cs">
+      <DependentUpon>CtrlInputItem_Text.ascx</DependentUpon>
+    </Compile>
     <Compile Include="_Common\AppUrlHelper.cs" />
     <Compile Include="_Common\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -513,6 +541,10 @@
     <Content Include="WebControls\Common\CtrlInformationItem.ascx" />
     <Content Include="WebControls\Common\CtrlMessageBox.ascx" />
     <Content Include="WebControls\Shop\CtrlShopInfo.ascx" />
+    <Content Include="WebControls\Template\CtrlBlock.ascx" />
+    <Content Include="WebControls\Template\CtrlBlock_Item.ascx" />
+    <Content Include="WebControls\Template\CtrlBlock_List.ascx" />
+    <Content Include="WebControls\Template\CtrlInputItem_Text.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

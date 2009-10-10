@@ -6,8 +6,10 @@
 <div>
 {template:list DisplayName="规格介绍" DefaultValue="型号#,尺寸#"}
 	<div>
-		<span style="font-family: 幼圆; font-size: 1.5em;"><img src="{template:item DisplayName="名称" ShowTitle="false" DataType="Text"}{/template}" /></span>
-		<span style="font-family: 幼圆; font-size: 1.5em;"><img src="{template:item DisplayName="规格" ShowTitle="true" TitleWidth="60" InputWidth="250" IsFloat="true" DataType="Text"}{/template}" /></span>
+		{template:item DisplayName="名称" ShowTitle="false" DataType="Text"}
+			<span style="font-family: 幼圆; font-size: 1.5em;"><img src="{template:input DisplayName="名称" ShowTitle="false" DataType="Text"}{/template}" /></span>
+			<span style="font-family: 幼圆; font-size: 1.5em;"><img src="{template:input DisplayName="规格" ShowTitle="true" TitleWidth="60" InputWidth="250" IsFloat="true" DataType="Text"}{/template}" /></span>
+		{/template}
 	</div>
 {/template}
 </div>
