@@ -87,13 +87,32 @@ namespace TOP.Template.Facade
                     int index = text.IndexOf("=");
                     string title = text.Substring(0, index);
                     string value = text.Substring(index + 1).Trim('"');
-                    if (title.Equals("DisplayName", StringComparison.OrdinalIgnoreCase))
+                    switch (title.ToLower())
                     {
-                        info.DisplayName = value;
-                    }
-                    else if (title.Equals("DataType", StringComparison.OrdinalIgnoreCase))
-                    {
-                        info.DataType = value;
+                        case "displayname":
+                            info.DisplayName = value;
+                            break;
+                        case "datatype":
+                            info.DataType = value;
+                            break;
+                        case "defaultvalue":
+                            info.DefaultValue = value;
+                            break;
+                        case "showtitle":
+                            info.ShowTitle = bool.Parse(value);
+                            break;
+                        case "titlewidth":
+                            info.TitleWidth = int.Parse(value);
+                            break;
+                        case "inputwidth":
+                            info.InputWidth = int.Parse(value);
+                            break;
+                        case "inputheight":
+                            info.InputHeight = int.Parse(value);
+                            break;
+                        case "isfloat":
+                            info.IsFloat = bool.Parse(value);
+                            break;
                     }
 
                     match_Property = match_Property.NextMatch();

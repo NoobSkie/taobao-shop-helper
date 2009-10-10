@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TOP.Core.Facade;
+using Taobao.Top.Api.Domain;
 
 namespace TOP.Applications.TaobaoShopHelper.ShopHelper
 {
@@ -15,10 +16,16 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
             QueryResult resultPage = Context.Handler as QueryResult;
             if (resultPage != null)
             {
-                foreach (ItemListItem item in resultPage.DataSource_Item)
+                Response.Write("查询结果：" + resultPage.DataSource_Item.TotalResults.ToString());
+                Response.Write("<BR />");
+                Response.Write("<BR />");
+                foreach (ItemSearch itemSearch in resultPage.DataSource_Item.Content)
                 {
-                    Response.Write(item.Title);
-                    Response.Write("<BR />");
+                    foreach (Item item in itemSearch.ItemList)
+                    {
+                        Response.Write(item.Title + "（" + item.Price + "）");
+                        Response.Write("<BR />");
+                    }
                 }
             }
         }

@@ -55,6 +55,10 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
+    <Reference Include="Top4Net, Version=0.8.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\Top4Net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Authorizes\UnAuthorize.aspx" />
@@ -194,6 +198,13 @@
     <Compile Include="ShopHelper\QueryResult_Shop.aspx.designer.cs">
       <DependentUpon>QueryResult_Shop.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Templates\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestPages\ControlTest\TestInformationBox.aspx.cs">
       <DependentUpon>TestInformationBox.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -311,6 +322,7 @@
     </Compile>
     <Compile Include="_Common\Enumerations.cs" />
     <Compile Include="_Common\PageObject.cs" />
+    <Compile Include="_Common\TopFieldsHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\TOP.Common.DbHelper\TOP.Common.DbHelper.csproj">
@@ -344,6 +356,10 @@
     <ProjectReference Include="..\..\Management\TOP.Management.Facade\TOP.Management.Facade.csproj">
       <Project>{5BA9FA7F-9905-41EA-BA6A-58617A6F1B8A}</Project>
       <Name>TOP.Management.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Template\TOP.Template.Facade\TOP.Template.Facade.csproj">
+      <Project>{AECC8961-6F82-4443-9F9F-E3E48D9137A9}</Project>
+      <Name>TOP.Template.Facade</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -453,7 +469,9 @@
     <None Include="Images\Lines\Thumbs.db" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\02.Common.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\03.Content.css" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\03.InformationBox.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\04.FindListStyles.css" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\05.TemplateBlock.css" />
     <Content Include="Images\Layout\Professional\hd_20090313.png" />
     <Content Include="Images\Layout\Professional\page_menu_state.png" />
     <Content Include="Images\System\InformationIcos\default.png" />
@@ -464,6 +482,7 @@
     <Content Include="Images\System\InformationIcos\stop.png" />
     <Content Include="Images\System\InformationIcos\warning.png" />
     <Content Include="ItemHelper\DescriptionEditer.aspx" />
+    <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\Libs\jquery.js" />
     <Content Include="Scripts\Libs\motion-0.3.js" />
     <Content Include="Scripts\TemplateBlock.js" />
@@ -483,6 +502,8 @@
     <Content Include="ShopHelper\QueryResult_Item.aspx" />
     <Content Include="ShopHelper\QueryResult_Shop.aspx" />
     <Content Include="Templates\template1.htm" />
+    <Content Include="Templates\WebForm1.aspx" />
+    <Content Include="Templates\test.txt" />
     <Content Include="TestPages\ControlTest\InformationBox.Test.css" />
     <Content Include="TestPages\ControlTest\TestInformationBox.aspx" />
     <Content Include="TestPages\HTMLPage2.htm" />

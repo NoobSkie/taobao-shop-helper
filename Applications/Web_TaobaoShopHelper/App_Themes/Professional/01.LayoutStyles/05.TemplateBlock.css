@@ -1,0 +1,42 @@
+﻿.TemplateContainer
+{
+}
+
+.TemplateContainer .TemplateBlock
+{
+    clear: both;
+    min-height: 40px;
+    border: solid 1px gray;
+}
+
+.TemplateContainer .TemplateBlock .BlockHeader
+{
+    height: 24px;
+    background-color: lightgray;
+}
+
+.TemplateContainer .TemplateBlock .BlockContent
+{
+}
+
+.TemplateContainer .TemplateBlock .BlockContent .ChildrenBlock
+{
+    clear: both;
+}
+
+.TemplateContainer .TemplateBlock .BlockFooter
+{
+}
+
+.TemplateContainer .ListBlock
+{
+}
+
+.TemplateContainer .ItemBlock
+{
+}
+
+.TemplateContainer .FloatLeft
+{
+    float: left;
+}
