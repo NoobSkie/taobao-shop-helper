@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SearchWinBase.master.cs"
+    Inherits="TOP.Applications.TaobaoShopHelper.SearchWin.SearchWinBase" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="PageHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="SearchWin">
+        <div class="Header">
+            <asp:ContentPlaceHolder ID="HeaderHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="Content">
+            <asp:ContentPlaceHolder ID="ContentHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="Footer">
+            <asp:ContentPlaceHolder ID="FooterHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

@@ -8,22 +8,24 @@ using TOP.Template.Facade;
 
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 {
-    public partial class CtrlInputItem_Text : System.Web.UI.UserControl
+    public partial class CtrlInputItem_ImageUrl : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "DisplayImagePreview_Script", "function DisplayImagePreview(imgId, objId) {document.getElementById(imgId).src = document.getElementById(objId).value;}", true);
+            txtContent.Attributes["onchange"] = "DisplayImagePreview('" + imgPreview.ClientID + "', '" + txtContent.ClientID + "');";
+            // imgPreview.Attributes["onerror"] = "javascript:this.src = '/TaobaoShopHelper/Images/Icos/warning.png';";
         }
 
         public TemplateInfo TemplateInfo
         {
             get
             {
-                return (TemplateInfo)ViewState["CtrlInputItem_Text.TemplateInfo"];
+                return (TemplateInfo)ViewState["CtrlInputItem_ImageUrl.TemplateInfo"];
             }
             set
             {
-                ViewState["CtrlInputItem_Text.TemplateInfo"] = value;
+                ViewState["CtrlInputItem_ImageUrl.TemplateInfo"] = value;
 
                 Title = value.DisplayName;
                 ShowTitle = value.ShowTitle;
@@ -72,6 +74,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             set
             {
                 txtContent.Text = value;
+                imgPreview.ImageUrl = value;
             }
         }
 

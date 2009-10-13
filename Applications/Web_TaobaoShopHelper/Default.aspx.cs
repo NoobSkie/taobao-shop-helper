@@ -22,10 +22,10 @@ namespace TOP.Applications.TaobaoShopHelper
                 if (!string.IsNullOrEmpty(Request["top_session"]))
                 {
                     TOP_SessionKey = Request["top_session"];
-                    if (!string.IsNullOrEmpty(LastAsseccPageUrl))
-                    {
-                        Response.Redirect(LastAsseccPageUrl, true);
-                    }
+                }
+                if (!string.IsNullOrEmpty(Request["ReturnUrl"]))
+                {
+                    Response.Redirect(Request["ReturnUrl"], true);
                 }
             }
         }

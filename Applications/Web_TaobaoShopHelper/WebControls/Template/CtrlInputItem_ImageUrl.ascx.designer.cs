@@ -11,24 +11,33 @@
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Template {
     
     
-    public partial class CtrlBlock_Container {
+    public partial class CtrlInputItem_ImageUrl {
         
         /// <summary>
-        /// ucCtrlBlockItem control.
+        /// lblTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlBlock_Item ucCtrlBlockItem;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
         
         /// <summary>
-        /// ucCtrlBlockList control.
+        /// txtContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlBlock_List ucCtrlBlockList;
+        protected global::System.Web.UI.WebControls.TextBox txtContent;
+        
+        /// <summary>
+        /// imgPreview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgPreview;
     }
 }

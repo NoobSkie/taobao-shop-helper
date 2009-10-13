@@ -8,36 +8,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TOP.Applications.TaobaoShopHelper.WebControls.Template {
+namespace TOP.Applications.TaobaoShopHelper.Templates {
     
     
-    public partial class CtrlBlock_List {
+    public partial class WebForm2 {
         
         /// <summary>
-        /// lblHeader control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHeader;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lbtnAddNew control.
+        /// btnPreview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnAddNew;
+        protected global::System.Web.UI.WebControls.Button btnPreview;
         
         /// <summary>
-        /// rtpBlockItems control.
+        /// hlnkReset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rtpBlockItems;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkReset;
+        
+        /// <summary>
+        /// lblPreview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPreview;
+        
+        /// <summary>
+        /// rptBlocks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptBlocks;
     }
 }

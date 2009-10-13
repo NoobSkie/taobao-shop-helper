@@ -15,12 +15,27 @@
     background-color: lightgray;
 }
 
+.TemplateContainer .TemplateBlock .BlockHeader .Title
+{
+    line-height: 24px;
+    font-weight: bold;
+    padding-left: 10px;
+    margin-right: 20px;
+}
+
+.TemplateContainer .TemplateBlock .BlockHeader .AddNew
+{
+    line-height: 24px;
+}
+
 .TemplateContainer .TemplateBlock .BlockContent
 {
+    padding: 10px;
 }
 
 .TemplateContainer .TemplateBlock .BlockContent .ChildrenBlock
 {
+    margin-bottom: 10px;
     clear: both;
 }
 
@@ -28,15 +43,54 @@
 {
 }
 
-.TemplateContainer .ListBlock
+.TemplateContainer .BlockList
 {
+    margin-bottom: 10px;
 }
 
-.TemplateContainer .ItemBlock
+.TemplateContainer .BlockItem
 {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
-.TemplateContainer .FloatLeft
+.BlockContent .InputUnit
 {
     float: left;
+    margin-right: 20px;
+}
+
+.BlockContent .Type_Text
+{
+}
+
+.BlockContent .Type_ImageUrl
+{
+}
+
+.BlockContent .Type_ImageUrl .ImageInput
+{
+    display:block;
+    float: left;
+}
+
+.BlockContent .Type_ImageUrl .ImageInput span
+{
+    display: block;
+    line-height: 22px;
+}
+
+.BlockContent .Type_ImageUrl .ImageInput input
+{
+}
+
+.BlockContent .Type_ImageUrl .ImagePreview
+{
+}
+
+.BlockContent .Type_ImageUrl .ImagePreview img
+{
+    border: solid 1px gray;
+    height: 43px;
+    margin-left:8px;
 }

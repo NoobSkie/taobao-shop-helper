@@ -47,7 +47,7 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
                     , template.DataType
                     , template.DefaultValue
                     , template.ShowTitle.ToString().ToLower()
-                    , template.IsFloat.ToString().ToLower()
+                    , true
                     , template.TitleWidth
                     , template.InputWidth
                     , template.InputHeight

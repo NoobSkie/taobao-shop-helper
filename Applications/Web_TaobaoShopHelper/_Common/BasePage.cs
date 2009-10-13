@@ -11,16 +11,17 @@ namespace TOP.Applications.TaobaoShopHelper._Common
     {
         private ConstVariables varHelper = new ConstVariables();
 
+        protected override void OnLoadComplete(EventArgs e)
+        {
+            base.OnLoadComplete(e);
+
+            LastAsseccPageUrl = Request.Url.AbsolutePath;
+        }
+
         public string TOP_SessionKey
         {
             get
             {
-                if (Session["TOP_SessionKey"] == null)
-                {
-                    LastAsseccPageUrl = Request.Url.AbsolutePath;
-                    // "~/Authorizes/UnAuthorize.aspx"
-                    Response.Redirect(AppUrlHelper.Url_UnAuthorize, true);
-                }
                 return (string)Session["TOP_SessionKey"];
             }
             set

@@ -1,0 +1,38 @@
+﻿.SearchWin
+{
+}
+
+.SearchWin .Header
+{
+    height: 32px;
+    background-color:lightgray;
+    padding-left:12px;
+}
+
+.SearchWin .Header span
+{
+    line-height:32px;
+    font-size:1.2em;
+    font-weight:bold;
+}
+
+.SearchWin .Content
+{
+    min-height:400px;
+}
+
+.SearchWin .Footer
+{
+    height: 32px;
+    background-color:lightgray;
+    text-align:right;
+    padding-right:30px;
+}
+
+.SearchWin .Footer a
+{
+    line-height: 32px;
+    margin-left:10px;
+    font-size:1.2em;
+    font-weight:bold;
+}

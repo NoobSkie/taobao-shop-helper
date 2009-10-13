@@ -8,27 +8,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TOP.Applications.TaobaoShopHelper.WebControls.Template {
+namespace TOP.Applications.TaobaoShopHelper.WebControls.Common {
     
     
-    public partial class CtrlBlock_Container {
+    public partial class CtrlSessionGetter {
         
         /// <summary>
-        /// ucCtrlBlockItem control.
+        /// hlnkGetAppKey control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlBlock_Item ucCtrlBlockItem;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkGetAppKey;
         
         /// <summary>
-        /// ucCtrlBlockList control.
+        /// txtAuthCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlBlock_List ucCtrlBlockList;
+        protected global::System.Web.UI.WebControls.TextBox txtAuthCode;
+        
+        /// <summary>
+        /// lbtnGetSessionKey control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnGetSessionKey;
     }
 }

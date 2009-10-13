@@ -156,6 +156,27 @@
     <Compile Include="RequestPages\UpdateItemCategoryListToLocal.aspx.designer.cs">
       <DependentUpon>UpdateItemCategoryListToLocal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SearchWin\SearchItems_Single.aspx.cs">
+      <DependentUpon>SearchItems_Single.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchWin\SearchItems_Single.aspx.designer.cs">
+      <DependentUpon>SearchItems_Single.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchWin\SearchMyItems_Multi.aspx.cs">
+      <DependentUpon>SearchMyItems_Multi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchWin\SearchMyItems_Multi.aspx.designer.cs">
+      <DependentUpon>SearchMyItems_Multi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchWin\SearchWinBase.Master.cs">
+      <DependentUpon>SearchWinBase.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchWin\SearchWinBase.Master.designer.cs">
+      <DependentUpon>SearchWinBase.Master</DependentUpon>
+    </Compile>
     <Compile Include="ShopHelper\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -204,6 +225,13 @@
     </Compile>
     <Compile Include="Templates\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestPages\ControlTest\TestInformationBox.aspx.cs">
       <DependentUpon>TestInformationBox.aspx</DependentUpon>
@@ -297,6 +325,20 @@
     <Compile Include="WebControls\Common\CtrlMessageBox.ascx.designer.cs">
       <DependentUpon>CtrlMessageBox.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebControls\Common\CtrlPager.ascx.cs">
+      <DependentUpon>CtrlPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Common\CtrlPager.ascx.designer.cs">
+      <DependentUpon>CtrlPager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Common\CtrlSessionGetter.ascx.cs">
+      <DependentUpon>CtrlSessionGetter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Common\CtrlSessionGetter.ascx.designer.cs">
+      <DependentUpon>CtrlSessionGetter.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WebControls\Common\InformationObject.cs" />
     <Compile Include="WebControls\ItemList\CtrlItemListBlock.ascx.cs">
       <DependentUpon>CtrlItemListBlock.ascx</DependentUpon>
@@ -319,6 +361,13 @@
     <Compile Include="WebControls\Template\CtrlBlock_Container.ascx.designer.cs">
       <DependentUpon>CtrlBlock_Container.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock_Input.ascx.cs">
+      <DependentUpon>CtrlBlock_Input.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock_Input.ascx.designer.cs">
+      <DependentUpon>CtrlBlock_Input.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WebControls\Template\CtrlBlock_Item.ascx.cs">
       <DependentUpon>CtrlBlock_Item.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -333,12 +382,26 @@
     <Compile Include="WebControls\Template\CtrlBlock_List.ascx.designer.cs">
       <DependentUpon>CtrlBlock_List.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebControls\Template\CtrlInputItem_ImageUrl.ascx.cs">
+      <DependentUpon>CtrlInputItem_ImageUrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlInputItem_ImageUrl.ascx.designer.cs">
+      <DependentUpon>CtrlInputItem_ImageUrl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WebControls\Template\CtrlInputItem_Text.ascx.cs">
       <DependentUpon>CtrlInputItem_Text.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebControls\Template\CtrlInputItem_Text.ascx.designer.cs">
       <DependentUpon>CtrlInputItem_Text.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlSearch_Item_Multi.ascx.cs">
+      <DependentUpon>CtrlSearch_Item_Multi.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlSearch_Item_Multi.ascx.designer.cs">
+      <DependentUpon>CtrlSearch_Item_Multi.ascx</DependentUpon>
     </Compile>
     <Compile Include="_Common\AppUrlHelper.cs" />
     <Compile Include="_Common\BasePage.cs">
@@ -351,6 +414,7 @@
     <Compile Include="_Common\Enumerations.cs" />
     <Compile Include="_Common\PageObject.cs" />
     <Compile Include="_Common\TopFieldsHelper.cs" />
+    <Compile Include="_Common\TopSessionRequestProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\TOP.Common.DbHelper\TOP.Common.DbHelper.csproj">
@@ -495,11 +559,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Lines\Thumbs.db" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\06.SearchWin.css" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\07.Pager.css" />
+    <Content Include="SearchWin\SearchItems_Single.aspx" />
+    <Content Include="SearchWin\SearchWinBase.Master" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\02.Common.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\03.Content.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\03.InformationBox.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\04.FindListStyles.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\05.TemplateBlock.css" />
+    <Content Include="Images\Icos\warning.png" />
     <Content Include="Images\Layout\Professional\hd_20090313.png" />
     <Content Include="Images\Layout\Professional\page_menu_state.png" />
     <Content Include="Images\System\InformationIcos\default.png" />
@@ -515,6 +584,7 @@
     <Content Include="Scripts\Libs\motion-0.3.js" />
     <Content Include="Scripts\TemplateBlock.js" />
     <Content Include="Scripts\TemplateOperate.js" />
+    <Content Include="SearchWin\SearchMyItems_Multi.aspx" />
     <Content Include="ShopHelper\NestedShopHelperPage.master" />
     <Content Include="Images\Layout\Professional\page_menu_one_bg.gif" />
     <Content Include="Images\Layout\Professional\page_menu_two_bg.png" />
@@ -532,6 +602,7 @@
     <Content Include="Templates\template1.htm" />
     <Content Include="Templates\WebForm1.aspx" />
     <Content Include="Templates\test.txt" />
+    <Content Include="Templates\WebForm2.aspx" />
     <Content Include="TestPages\ControlTest\InformationBox.Test.css" />
     <Content Include="TestPages\ControlTest\TestInformationBox.aspx" />
     <Content Include="TestPages\HTMLPage2.htm" />
@@ -540,18 +611,22 @@
     <Content Include="WebControls\Common\CtrlInformationBox.ascx" />
     <Content Include="WebControls\Common\CtrlInformationItem.ascx" />
     <Content Include="WebControls\Common\CtrlMessageBox.ascx" />
+    <Content Include="WebControls\Common\CtrlPager.ascx" />
+    <Content Include="WebControls\Common\CtrlSessionGetter.ascx" />
     <Content Include="WebControls\Shop\CtrlShopInfo.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Container.ascx" />
+    <Content Include="WebControls\Template\CtrlBlock_Input.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Item.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_List.ascx" />
+    <Content Include="WebControls\Template\CtrlInputItem_ImageUrl.ascx" />
     <Content Include="WebControls\Template\CtrlInputItem_Text.ascx" />
+    <Content Include="WebControls\Template\CtrlSearch_Item_Multi.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ErrorResponseLog\" />
     <Folder Include="Images\Shops\" />
     <Folder Include="Images\Snapshot\" />
-    <Folder Include="Logical\" />
     <Folder Include="ShopHelper\WebControls\" />
     <Folder Include="技术支持\" />
   </ItemGroup>

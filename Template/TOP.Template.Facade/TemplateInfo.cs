@@ -5,12 +5,12 @@ using System.Text;
 
 namespace TOP.Template.Facade
 {
+    [Serializable]
     public class TemplateInfo
     {
         public TemplateInfo()
         {
             ShowTitle = true;
-            IsFloat = true;
         }
 
         public string OuterHTML { get; set; }
@@ -23,6 +23,8 @@ namespace TOP.Template.Facade
 
         public string DataType { get; set; }
 
+        public string CurrentValue { get; set; }
+
         /// <summary>
         /// 默认值
         /// </summary>
@@ -32,11 +34,6 @@ namespace TOP.Template.Facade
         /// 是否显示标题
         /// </summary>
         public bool ShowTitle { get; set; }
-
-        /// <summary>
-        /// 是否与上一个标签在同一行
-        /// </summary>
-        public bool IsFloat { get; set; }
 
         /// <summary>
         /// 标题的宽度
@@ -64,6 +61,22 @@ namespace TOP.Template.Facade
                 }
                 return children;
             }
+        }
+
+        public TemplateInfo Clone()
+        {
+            TemplateInfo obj = new TemplateInfo();
+            obj.OuterHTML = OuterHTML;
+            obj.InnerHTML = InnerHTML;
+            obj.Category = Category;
+            obj.DisplayName = DisplayName;
+            obj.DataType = DataType;
+            obj.DefaultValue = DefaultValue;
+            obj.ShowTitle = ShowTitle;
+            obj.TitleWidth = TitleWidth;
+            obj.InputWidth = InputWidth;
+            obj.InputHeight = InputHeight;
+            return obj;
         }
     }
 }

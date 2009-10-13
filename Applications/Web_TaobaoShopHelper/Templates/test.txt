@@ -1,14 +1,18 @@
 ﻿<div>
 {template:list DisplayName="产品展示图片"}
-	<img src="{template:item DisplayName="图片链接" ShowTitle="true" DataType="ImageUrl" InputWidth="450"}{/template}" />
+	<div>
+		{template:item DisplayName="输入图片链接"}
+			<img src="{template:input DisplayName="图片链接" DataType="ImageUrl" InputWidth="450"}{/template}" />
+		{/template}
+	</div>
 {/template}
 </div>
 <div>
 {template:list DisplayName="规格介绍" DefaultValue="型号#,尺寸#"}
 	<div>
-		{template:item DisplayName="名称" ShowTitle="false" DataType="Text"}
-			<span style="font-family: 幼圆; font-size: 1.5em;"><img src="{template:input DisplayName="名称" ShowTitle="false" DataType="Text"}{/template}" /></span>
-			<span style="font-family: 幼圆; font-size: 1.5em;"><img src="{template:input DisplayName="规格" ShowTitle="true" TitleWidth="60" InputWidth="250" IsFloat="true" DataType="Text"}{/template}" /></span>
+		{template:item DisplayName="名称" DataType="Text"}
+			<span style="font-family: 幼圆; font-size: 1.5em;">{template:input DisplayName="名称" DataType="Text"}{/template}</span>
+			<span style="font-family: 幼圆; font-size: 1.5em;">{template:input DisplayName="规格" InputWidth="250" DataType="Text"}{/template}</span>
 		{/template}
 	</div>
 {/template}
@@ -26,3 +30,4 @@
     </div>
 {/template}
 </div>
+

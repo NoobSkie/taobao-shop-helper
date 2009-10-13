@@ -1,0 +1,63 @@
+﻿.Pager
+{
+    font: 12px/1 Tahoma,Helvetica,Arial, "宋体" ,sans-serif;
+    height: 28px;
+}
+
+.Pager .PageSignPrev
+{
+    width: 48px;
+    line-height: 18px;
+    border: solid 1px #ccc;
+    text-decoration: none;
+    margin: 0px 3px 0px 0px;
+    padding:0px 5px 0px 0px;
+    vertical-align: middle;
+    white-space: nowrap;
+    float: left;
+    text-align: center;
+    color: #36c;
+}
+
+.Pager .PageSignNext
+{
+    width: 58px;
+    line-height: 18px;
+    border: solid 1px #ccc;
+    text-decoration: none;
+    margin: 0px 3px 0px 0px;
+    vertical-align: middle;
+    white-space: nowrap;
+    float: left;
+    text-align: center;
+    color: #36c;
+}
+
+.Pager a.PageIndex
+{
+    width: 18px;
+    line-height: 18px;
+    border: solid 1px #ccc;
+    text-decoration: none;
+    margin: 0px 3px 0px 0px;
+    vertical-align: middle;
+    white-space: nowrap;
+    float: left;
+    text-align: center;
+    color: #36c;
+}
+
+.Pager input.PageIndex
+{
+    width: 30px;
+    border: solid 1px #999;
+    text-decoration: none;
+    margin: 0px 5px;
+    vertical-align: middle;
+    text-align: center;
+    color: #000;
+}
+
+.Pager .PageIndex span
+{
+}
