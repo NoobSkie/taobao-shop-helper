@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using Taobao.Top.Api;
 
 namespace TOP.Applications.TaobaoShopHelper._Common
 {
     public class BaseControl : UserControl
     {
+        private ConstVariables varHelper = new ConstVariables();
+
         public string TOP_SessionKey
         {
             get
@@ -90,6 +93,21 @@ namespace TOP.Applications.TaobaoShopHelper._Common
             {
                 Session["LastAsseccPageUrl"] = value;
             }
+        }
+
+        public ITopClient GetProductTopClient()
+        {
+            return new TopRestClient("http://gw.api.taobao.com/router/rest", varHelper.TOP_AppKey, varHelper.TOP_AppSecret, "json");
+        }
+
+        public string Encode(string content)
+        {
+            return content;
+        }
+
+        public string Decode(string content)
+        {
+            return content;
         }
     }
 }

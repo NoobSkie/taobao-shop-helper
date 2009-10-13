@@ -5,34 +5,51 @@
 .SearchWin .Header
 {
     height: 32px;
-    background-color:lightgray;
-    padding-left:12px;
+    background-color: lightgray;
+    padding-left: 12px;
 }
 
 .SearchWin .Header span
 {
-    line-height:32px;
-    font-size:1.2em;
-    font-weight:bold;
+    line-height: 32px;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .SearchWin .Content
 {
-    min-height:400px;
+    min-height: 400px;
+}
+
+.SearchWin .Content .TreeArea
+{
+    float: left;
+}
+
+.SearchWin .Content .MainArea
+{
+}
+
+.SearchWin .Content .MainArea .OperateArea
+{
+}
+
+.SearchWin .Content .MainArea .ListArea
+{
 }
 
 .SearchWin .Footer
 {
     height: 32px;
-    background-color:lightgray;
-    text-align:right;
-    padding-right:30px;
+    background-color: lightgray;
+    text-align: right;
+    padding-right: 30px;
 }
 
 .SearchWin .Footer a
 {
     line-height: 32px;
-    margin-left:10px;
-    font-size:1.2em;
-    font-weight:bold;
+    margin-left: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
 }

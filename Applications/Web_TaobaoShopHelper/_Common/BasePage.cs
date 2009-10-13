@@ -30,6 +30,23 @@ namespace TOP.Applications.TaobaoShopHelper._Common
             }
         }
 
+        public string SellerNick
+        {
+            get
+            {
+                if (Session["Seller.Nick"] == null)
+                {
+                    // TODO:
+                    Session["Seller.Nick"] = "zhongjy001";
+                }
+                return (string)Session["Seller.Nick"];
+            }
+            set
+            {
+                Session["Seller.Nick"] = value;
+            }
+        }
+
         public string CurrentUserId
         {
             get

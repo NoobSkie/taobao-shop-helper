@@ -50,7 +50,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
         {
             get
             {
-                return "<span>" + (Number + 1).ToString() + "</span>";
+                return (Number + 1).ToString();
             }
         }
 

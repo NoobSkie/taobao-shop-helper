@@ -55,7 +55,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
-    <Reference Include="Top4Net, Version=0.8.5.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Top4Net, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libs\Top4Net.dll</HintPath>
     </Reference>
@@ -304,6 +304,13 @@
     <Compile Include="Top.Master.designer.cs">
       <DependentUpon>Top.Master</DependentUpon>
     </Compile>
+    <Compile Include="WebControls\Category\CtrlShopCategoryTree.ascx.cs">
+      <DependentUpon>CtrlShopCategoryTree.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Category\CtrlShopCategoryTree.ascx.designer.cs">
+      <DependentUpon>CtrlShopCategoryTree.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WebControls\Common\CtrlInformationBox.ascx.cs">
       <DependentUpon>CtrlInformationBox.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -346,6 +353,34 @@
     </Compile>
     <Compile Include="WebControls\ItemList\CtrlItemListBlock.ascx.designer.cs">
       <DependentUpon>CtrlItemListBlock.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Search\CtrlItem_Check.ascx.cs">
+      <DependentUpon>CtrlItem_Check.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Search\CtrlItem_Check.ascx.designer.cs">
+      <DependentUpon>CtrlItem_Check.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Search\CtrlItem_Check_Image.ascx.cs">
+      <DependentUpon>CtrlItem_Check_Image.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Search\CtrlItem_Check_Image.ascx.designer.cs">
+      <DependentUpon>CtrlItem_Check_Image.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Search\CtrlItem_Check_List.ascx.cs">
+      <DependentUpon>CtrlItem_Check_List.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Search\CtrlItem_Check_List.ascx.designer.cs">
+      <DependentUpon>CtrlItem_Check_List.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Search\CtrlSearchItems_Multi.ascx.cs">
+      <DependentUpon>CtrlSearchItems_Multi.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Search\CtrlSearchItems_Multi.ascx.designer.cs">
+      <DependentUpon>CtrlSearchItems_Multi.ascx</DependentUpon>
     </Compile>
     <Compile Include="WebControls\Shop\CtrlShopInfo.ascx.cs">
       <DependentUpon>CtrlShopInfo.ascx</DependentUpon>
@@ -561,6 +596,7 @@
     <None Include="Images\Lines\Thumbs.db" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\06.SearchWin.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\07.Pager.css" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\08.Item.css" />
     <Content Include="SearchWin\SearchItems_Single.aspx" />
     <Content Include="SearchWin\SearchWinBase.Master" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\02.Common.css" />
@@ -608,11 +644,16 @@
     <Content Include="TestPages\HTMLPage2.htm" />
     <Content Include="TestPages\TestSnapshot.aspx" />
     <Content Include="Top.Master" />
+    <Content Include="WebControls\Category\CtrlShopCategoryTree.ascx" />
     <Content Include="WebControls\Common\CtrlInformationBox.ascx" />
     <Content Include="WebControls\Common\CtrlInformationItem.ascx" />
     <Content Include="WebControls\Common\CtrlMessageBox.ascx" />
     <Content Include="WebControls\Common\CtrlPager.ascx" />
     <Content Include="WebControls\Common\CtrlSessionGetter.ascx" />
+    <Content Include="WebControls\Search\CtrlItem_Check.ascx" />
+    <Content Include="WebControls\Search\CtrlItem_Check_Image.ascx" />
+    <Content Include="WebControls\Search\CtrlItem_Check_List.ascx" />
+    <Content Include="WebControls\Search\CtrlSearchItems_Multi.ascx" />
     <Content Include="WebControls\Shop\CtrlShopInfo.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Container.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Input.ascx" />

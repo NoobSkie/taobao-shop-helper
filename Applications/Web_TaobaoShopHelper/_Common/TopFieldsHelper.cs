@@ -12,11 +12,11 @@ namespace TOP.Applications.TaobaoShopHelper._Common
     {
         /// <summary>
         /// 商品字段 - 列表中的商品。
-        /// 包含iid，名称，卖家昵称，分类id，价格，类型
+        /// 包含iid，名称，卖家昵称，分类id，价格，类型，图片路径
         /// </summary>
         public static string GetItemFields_InList()
         {
-            return "iid,title,nick,cid,price,type";
+            return "iid,title,nick,cid,price,type,pic_path";
         }
     }
 }

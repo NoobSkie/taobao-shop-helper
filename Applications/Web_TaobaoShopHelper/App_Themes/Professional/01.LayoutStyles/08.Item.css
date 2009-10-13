@@ -1,0 +1,41 @@
+﻿.ItemList
+{
+}
+
+.ItemList .Item_Image
+{
+    float: left;
+    width: 150px;
+    margin-right: 10px;
+}
+
+.CheckItemList .Item_Image
+{
+}
+
+.CheckItemList .Item_Image .Image
+{
+    width: 150px;
+    height: 170px;
+}
+
+.CheckItemList .Item_Image .Image img
+{
+    width: 150px;
+}
+
+.CheckItemList .Item_Image .Check
+{
+}
+
+.CheckItemList .Item_Image .Price
+{
+}
+
+.CheckItemList .Item_Image .Price .Money
+{
+}
+
+.CheckItemList .Item_Image .Price .Unit
+{
+}

@@ -32,13 +32,22 @@ namespace TOP.Applications.TaobaoShopHelper.SearchWin {
         protected global::TOP.Applications.TaobaoShopHelper.WebControls.Common.CtrlSessionGetter ucCtrlSessionGetter;
         
         /// <summary>
-        /// rptItems control.
+        /// ucCtrlShopCategoryTree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptItems;
+        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Category.CtrlShopCategoryTree ucCtrlShopCategoryTree;
+        
+        /// <summary>
+        /// ucCtrlSearchItemsMulti control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Search.CtrlSearchItems_Multi ucCtrlSearchItemsMulti;
         
         /// <summary>
         /// ucCtrlPager control.

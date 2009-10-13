@@ -20,7 +20,8 @@ namespace TOP.Applications.TaobaoShopHelper.SearchWin
             {
                 ucCtrlSessionGetter.Parameters.Add("ReturnUrl", Request.Url.AbsolutePath);
                 ucCtrlSessionGetter.Visible = true;
-                rptItems.Visible = false;
+                ucCtrlSearchItemsMulti.Visible = false;
+                ucCtrlShopCategoryTree.Visible = false;
 
                 hlnkOk.Enabled = false;
                 hlnkCancel.Enabled = false;
@@ -28,21 +29,23 @@ namespace TOP.Applications.TaobaoShopHelper.SearchWin
             else
             {
                 ucCtrlSessionGetter.Visible = false;
-                rptItems.Visible = true;
+                ucCtrlSearchItemsMulti.Visible = true;
+                ucCtrlShopCategoryTree.Visible = true;
 
                 hlnkOk.Enabled = true;
                 hlnkCancel.Enabled = true;
 
+                ucCtrlShopCategoryTree.Nick = SellerNick;
+
                 ITopClient client = GetProductTopClient();
                 ItemsOnsaleGetRequest req = new ItemsOnsaleGetRequest();
-                req.Fields = "iid,title,nick,type,cid,num,props,price";
+                req.Fields = TopFieldsHelper.GetItemFields_InList();// "iid,title,nick,type,cid,num,props,price";
                 req.PageNo = ucCtrlPager.PageIndex + 1;
                 req.PageSize = ucCtrlPager.PageSize;
                 ITopRequest proxy = new TopSessionRequestProxy(req, TOP_SessionKey);
                 ResponseList<Item> rsp = client.Execute(proxy, new ItemListJsonParser());
                 ucCtrlPager.TotalCount = (int)rsp.TotalResults;
-                this.rptItems.DataSource = rsp.Content;
-                this.rptItems.DataBind();
+                ucCtrlSearchItemsMulti.ItemSource = rsp.Content;
             }
         }
     }
