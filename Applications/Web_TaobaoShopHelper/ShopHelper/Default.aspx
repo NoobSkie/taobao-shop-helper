@@ -162,7 +162,7 @@
         </div>
         <div class="Summary_Diagram">
             <div class="SummaryBottom">
-                <asp:CheckBox ID="CheckBox1" runat="server" /></div>
+                <%--<asp:CheckBox ID="CheckBox1" runat="server" />--%></div>
             <div class="SummaryTop_Diagram">
                 <asp:Label ID="Label27" runat="server">[特价双核电脑主机]AMD Ⅱ 250\昂达A785+\KST2G内存\板载HD420</asp:Label>
             </div>
@@ -189,7 +189,7 @@
         </div>
         <div class="Summary_Diagram">
             <div class="SummaryBottom">
-                <asp:CheckBox ID="CheckBox2" runat="server" /></div>
+                <%--<asp:CheckBox ID="CheckBox2" runat="server" />--%></div>
             <div class="SummaryTop_Diagram">
                 <asp:Label ID="Label30" runat="server">[特价双核电脑主机]AMD Ⅱ 250\昂达A785+\KST2G内存\板载HD420</asp:Label>
             </div>
@@ -216,7 +216,7 @@
         </div>
         <div class="Summary_Diagram">
             <div class="SummaryBottom">
-                <asp:CheckBox ID="CheckBox3" runat="server" /></div>
+                <%--<asp:CheckBox ID="CheckBox3" runat="server" />--%></div>
             <div class="SummaryTop_Diagram">
                 <asp:Label ID="Label33" runat="server">[特价双核电脑主机]AMD Ⅱ 250\昂达A785+\KST2G内存\板载HD420</asp:Label>
             </div>
@@ -243,7 +243,7 @@
         </div>
         <div class="Summary_Diagram">
             <div class="SummaryBottom">
-                <asp:CheckBox ID="CheckBox4" runat="server" /></div>
+                <%--<asp:CheckBox ID="CheckBox4" runat="server" />--%></div>
             <div class="SummaryTop_Diagram">
                 <asp:Label ID="Label36" runat="server">[特价双核电脑主机]AMD Ⅱ 250\昂达A785+\KST2G内存\板载HD420</asp:Label>
             </div>
@@ -289,7 +289,7 @@
                 <asp:Label ID="Label44" runat="server">重庆</asp:Label>
             </div>
             <div class="Other">
-                <asp:CheckBox ID="CheckBox5" runat="server" />
+                <%--<asp:CheckBox ID="CheckBox5" runat="server" />--%>
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@ using Taobao.Top.Api.Domain;
 
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
 {
-    public partial class CtrlSearchItems_Multi : System.Web.UI.UserControl
+    public partial class CtrlSearchItems_Multi : BaseControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {

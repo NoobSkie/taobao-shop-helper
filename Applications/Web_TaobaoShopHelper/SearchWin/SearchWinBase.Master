@@ -5,6 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <base target="_self" />
+    <script type="text/javascript">
+
+        var parentWindow = window.dialogArgument;
+    
+    </script>
     <asp:ContentPlaceHolder ID="PageHead" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -25,5 +31,46 @@
         </div>
     </div>
     </form>
+
+    <script type="text/javascript">
+
+        var selectedItemList = new Array();
+
+        function AddItem(item) {
+            selectedItemList.push(item);
+        }
+
+        function RemoveItem(itemId) {
+            var i = 0, n = 0;
+            for (; i < selectedItemList.length; i++) {
+                if (selectedItemList[i].Id != itemId) {
+                    selectedItemList[n++] = selectedItemList[i]
+                }
+            }
+            selectedItemList.length = n;
+        }
+
+        var isSystemClosed = false;
+
+        function CloseSearchWin() {
+            isSystemClosed = true;
+            window.returnValue = null;
+            window.close();
+        }
+
+        function ReturnSearchWin() {
+            isSystemClosed = true;
+            window.returnValue = selectedItemList;
+            window.close();
+        }
+
+        function window.onunload() {
+            if (!isSystemClosed) {
+                window.returnValue = null;
+            }
+        }
+    
+    </script>
+
 </body>
 </html>

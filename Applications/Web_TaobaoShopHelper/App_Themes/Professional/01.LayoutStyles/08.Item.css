@@ -11,17 +11,20 @@
 
 .CheckItemList .Item_Image
 {
+    margin-bottom:8px;
 }
 
 .CheckItemList .Item_Image .Image
 {
     width: 150px;
-    height: 170px;
+    height:120px;
+    display:block;
 }
 
 .CheckItemList .Item_Image .Image img
 {
     width: 150px;
+    max-height:120px;
 }
 
 .CheckItemList .Item_Image .Check

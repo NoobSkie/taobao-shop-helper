@@ -32,6 +32,15 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template {
         protected global::System.Web.UI.WebControls.LinkButton lbtnAddNew;
         
         /// <summary>
+        /// ucCtrlSearchButtonMulti control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Search.CtrlSearchButton_Multi ucCtrlSearchButtonMulti;
+        
+        /// <summary>
         /// rtpBlockItems control.
         /// </summary>
         /// <remarks>

@@ -18,15 +18,17 @@
 {/template}
 </div>
 <div>
-{template:list DisplayName="类似商品" DataType="SelectItem"}
+{template:list DisplayName="类似商品" DataType="MyItems"}
 	<div>
+		{template:item DisplayName="名称" DataType="Text"}
 		<div>
-			<a href="{template:item DisplayName="名称" DataType="this.Url"}{/template}" target="_blank">
-				<img src="{2}" alt="" />
+			<a href='{template:input DisplayName="名称" DataType="Text"}{/template}' target="_blank">
+				<img src="{template:input DisplayName="名称" DataType="Text"}{/template}" alt="" />
 			</a>
 		</div>
 		<div>
-			<a href="" target="_blank">{1}</a>
+			<a href="" target="_blank">{template:input DisplayName="名称" DataType="Text"}{/template}</a>
+		{/template}
     </div>
 {/template}
 </div>

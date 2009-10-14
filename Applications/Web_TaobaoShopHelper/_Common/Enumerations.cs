@@ -31,4 +31,9 @@ namespace TOP.Applications.TaobaoShopHelper._Common
         /// </summary>
         List = 1,
     }
+
+    public enum SearchWinType
+    {
+        Multi_MyItems,
+    }
 }

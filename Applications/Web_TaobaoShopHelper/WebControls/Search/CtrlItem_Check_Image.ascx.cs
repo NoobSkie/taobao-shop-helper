@@ -12,14 +12,34 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                string script = "function SelectItem(ctrlObj, type, iid, title, imgUrl, price){ }";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Script_SelectItem_Image", script, true);
+                if (this.Item != null)
+                {
+                    cbCheck.Attributes["onclick"] =
+                        string.Format("SelectItem(this, 'image', '{0}', '{1}', '{2}', '{3}')"
+                        , this.Item.Iid
+                        , this.Item.Title
+                        , this.Item.PicPath
+                        , this.Item.Price);
+                }
+            }
         }
 
+        private Item item;
         public Item Item
         {
+            get
+            {
+                return item;
+            }
             set
             {
-                imgImage.ImageUrl = value.PicPath;
+                item = value;
+
+                // imgImage.ImageUrl = value.PicPath;
                 cbCheck.Text = value.Title;
                 lblPrice.Text = value.Price;
             }

@@ -34,6 +34,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libs\ComponentArt.Web.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -283,6 +287,13 @@
     <Compile Include="TestPages\TestPage.aspx.designer.cs">
       <DependentUpon>TestPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TestPages\TestSearchItem.aspx.cs">
+      <DependentUpon>TestSearchItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\TestSearchItem.aspx.designer.cs">
+      <DependentUpon>TestSearchItem.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestPages\TestSnapshot.aspx.cs">
       <DependentUpon>TestSnapshot.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -375,6 +386,13 @@
     <Compile Include="WebControls\Search\CtrlItem_Check_List.ascx.designer.cs">
       <DependentUpon>CtrlItem_Check_List.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebControls\Search\CtrlSearchButton_Multi.ascx.cs">
+      <DependentUpon>CtrlSearchButton_Multi.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Search\CtrlSearchButton_Multi.ascx.designer.cs">
+      <DependentUpon>CtrlSearchButton_Multi.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WebControls\Search\CtrlSearchItems_Multi.ascx.cs">
       <DependentUpon>CtrlSearchItems_Multi.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -447,6 +465,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="_Common\Enumerations.cs" />
+    <Compile Include="_Common\JsonParser.cs" />
     <Compile Include="_Common\PageObject.cs" />
     <Compile Include="_Common\TopFieldsHelper.cs" />
     <Compile Include="_Common\TopSessionRequestProxy.cs" />
@@ -593,16 +612,16 @@
     <Content Include="WebControls\ItemList\CtrlItemListBlock.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\Lines\Thumbs.db" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\04.FindListStyles.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\06.SearchWin.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\07.Pager.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\08.Item.css" />
+    <Content Include="Scripts\Item.js" />
     <Content Include="SearchWin\SearchItems_Single.aspx" />
     <Content Include="SearchWin\SearchWinBase.Master" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\02.Common.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\03.Content.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\03.InformationBox.css" />
-    <Content Include="App_Themes\Professional\01.LayoutStyles\04.FindListStyles.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\05.TemplateBlock.css" />
     <Content Include="Images\Icos\warning.png" />
     <Content Include="Images\Layout\Professional\hd_20090313.png" />
@@ -642,6 +661,7 @@
     <Content Include="TestPages\ControlTest\InformationBox.Test.css" />
     <Content Include="TestPages\ControlTest\TestInformationBox.aspx" />
     <Content Include="TestPages\HTMLPage2.htm" />
+    <Content Include="TestPages\TestSearchItem.aspx" />
     <Content Include="TestPages\TestSnapshot.aspx" />
     <Content Include="Top.Master" />
     <Content Include="WebControls\Category\CtrlShopCategoryTree.ascx" />
@@ -653,6 +673,7 @@
     <Content Include="WebControls\Search\CtrlItem_Check.ascx" />
     <Content Include="WebControls\Search\CtrlItem_Check_Image.ascx" />
     <Content Include="WebControls\Search\CtrlItem_Check_List.ascx" />
+    <Content Include="WebControls\Search\CtrlSearchButton_Multi.ascx" />
     <Content Include="WebControls\Search\CtrlSearchItems_Multi.ascx" />
     <Content Include="WebControls\Shop\CtrlShopInfo.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Container.ascx" />
@@ -684,8 +705,8 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>5861</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/TaobaoShopHelper</IISUrl>

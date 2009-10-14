@@ -11,6 +11,21 @@ namespace TOP.Applications.TaobaoShopHelper._Common
     {
         private ConstVariables varHelper = new ConstVariables();
 
+        public string GetRootUrl()
+        {
+            string UrlAuthority = Request.Url.GetLeftPart(UriPartial.Authority);
+            if (Request.ApplicationPath == null || Request.ApplicationPath == "/")
+            {
+                //直接安装在Web站点
+                return UrlAuthority;
+            }
+            else
+            {
+                //安装在虚拟子目录下
+                return UrlAuthority + Request.ApplicationPath;
+            }
+        }
+
         public string TOP_SessionKey
         {
             get

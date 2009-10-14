@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm2.aspx.cs" Inherits="TOP.Applications.TaobaoShopHelper.Templates.WebForm2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm2.aspx.cs" EnableEventValidation="false"
+    Inherits="TOP.Applications.TaobaoShopHelper.Templates.WebForm2" %>
 
 <%@ Register Src="../WebControls/Template/CtrlBlock_Container.ascx" TagName="CtrlBlock_Container"
     TagPrefix="uc1" %>

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TOP.Template.Facade;
+using TOP.Applications.TaobaoShopHelper.WebControls.Search;
+using TOP.Applications.TaobaoShopHelper._Common;
 
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 {
@@ -12,7 +14,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ucCtrlSearchButtonMulti.AfterReturned += new AfterReturnedEventHadler(OnAfterReturnItems);
         }
 
         private List<TemplateInfo> currentDataSource
@@ -58,16 +60,37 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                     currentModule = value.Children[0];
                 }
                 currentDataSource = new List<TemplateInfo>();
-                if (string.IsNullOrEmpty(TemplateInfo.DefaultValue))
+                if (string.IsNullOrEmpty(value.DataType))
                 {
-                    CreateChild(string.Empty);
+                    ucCtrlSearchButtonMulti.Visible = false;
+                    lbtnAddNew.Visible = true;
+
+                    if (string.IsNullOrEmpty(value.DefaultValue))
+                    {
+                        CreateChild(string.Empty);
+                    }
+                    else
+                    {
+                        string[] values = value.DefaultValue.Split(',');
+                        foreach (string v in values)
+                        {
+                            CreateChild(v);
+                        }
+                    }
                 }
                 else
                 {
-                    string[] values = TemplateInfo.DefaultValue.Split(',');
-                    foreach (string v in values)
+                    switch (value.DataType.ToLower())
                     {
-                        CreateChild(v);
+                        case "myitems":
+                            ucCtrlSearchButtonMulti.Visible = true;
+                            lbtnAddNew.Visible = false;
+
+                            break;
+                        default:
+                            ucCtrlSearchButtonMulti.Visible = false;
+                            lbtnAddNew.Visible = false;
+                            break;
                     }
                 }
             }
@@ -77,6 +100,12 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
         {
             SaveCurrentValue();
             CreateChild(string.Empty);
+        }
+
+        public void OnAfterReturnItems(SearchWinReturnedEventArg e)
+        {
+            JsonObjectList<JsonItem> list = JsonParser.ParseJsonResponse<JsonItem>(e.Json);
+            Response.Write(list.TotalCount);
         }
 
         private void SaveCurrentValue()

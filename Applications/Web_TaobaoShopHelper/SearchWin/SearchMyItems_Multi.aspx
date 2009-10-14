@@ -16,7 +16,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentHolder" runat="server">
     <uc1:CtrlSessionGetter ID="ucCtrlSessionGetter" runat="server" Visible="false" />
     <div class="TreeArea">
-        <uc3:CtrlShopCategoryTree ID="ucCtrlShopCategoryTree" runat="server" />
+        <%--<uc3:CtrlShopCategoryTree ID="ucCtrlShopCategoryTree" runat="server" />--%>
     </div>
     <div class="MainArea">
         <div class="OperateArea">
@@ -28,6 +28,6 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="FooterHolder" runat="server">
-    <asp:HyperLink ID="hlnkOk" NavigateUrl="javascript:void(0);" runat="server">确定</asp:HyperLink>
-    <asp:HyperLink ID="hlnkCancel" NavigateUrl="javascript:void(0);" runat="server">取消</asp:HyperLink>
+    <asp:HyperLink ID="hlnkOk" NavigateUrl="javascript:ReturnSearchWin();" runat="server">确定</asp:HyperLink>
+    <asp:HyperLink ID="hlnkCancel" NavigateUrl="javascript:CloseSearchWin();" runat="server">取消</asp:HyperLink>
 </asp:Content>
