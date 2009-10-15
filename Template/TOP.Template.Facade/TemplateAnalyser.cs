@@ -95,11 +95,20 @@ namespace TOP.Template.Facade
                         case "datatype":
                             info.DataType = value;
                             break;
+                        case "datasource":
+                            info.DataSource = value;
+                            break;
                         case "defaultvalue":
                             info.DefaultValue = value;
                             break;
                         case "showtitle":
                             info.ShowTitle = bool.Parse(value);
+                            break;
+                        case "showthis":
+                            info.ShowThis = bool.Parse(value);
+                            break;
+                        case "index":
+                            info.Index = int.Parse(value);
                             break;
                         case "titlewidth":
                             info.TitleWidth = int.Parse(value);

@@ -22,7 +22,7 @@
     }
 
     function GetItemJson(item) {
-        var json = '{"Id":"' + item.Id + '","Title":"' + item.Title + '","ImageUrl":"' + item.ImageUrl + '","Price":"' + item.Price + '"}';
+        var json = '{"Id":"' + item.Id + '","Nick":"' + item.Nick + '","Title":"' + item.Title + '","DetailUrl":"' + item.DetailUrl + '","ImageUrl":"' + item.ImageUrl + '","Price":"' + item.Price + '"}';
         return json;
     }
 

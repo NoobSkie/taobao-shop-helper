@@ -52,11 +52,13 @@
 {
     margin-bottom: 10px;
     padding-bottom: 10px;
+    overflow:hidden;
 }
 
 .BlockContent .InputUnit
 {
     float: left;
+    overflow:visible;
     margin-right: 20px;
 }
 
@@ -93,4 +95,32 @@
     border: solid 1px gray;
     height: 43px;
     margin-left:8px;
+}
+
+/*************************************************/
+
+.BlockContent .DisplayUnit
+{
+}
+
+.BlockContent .Type_DisplayImage 
+{
+    float:left;
+    border: solid 1px gray;
+    width:100px;
+    height:100px;
+    vertical-align:middle;
+    text-align:center;
+    margin-right: 10px;
+}
+
+.BlockContent .Type_DisplayImage img
+{
+    max-width:100px;
+    max-height:100px;
+}
+
+.BlockContent .Type_DisplayText
+{
+    margin:8px;
 }

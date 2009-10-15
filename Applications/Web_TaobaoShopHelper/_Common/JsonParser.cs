@@ -52,10 +52,19 @@ namespace TOP.Applications.TaobaoShopHelper._Common
     {
         public string Id { get; set; }
 
+        public string Nick { get; set; }
+
         public string Title { get; set; }
+
+        public string DetailUrl { get; set; }
 
         public string ImageUrl { get; set; }
 
         public string Price { get; set; }
+
+        public string ToJsonString()
+        {
+            return JObject.FromObject(this).ToString();
+        }
     }
 }

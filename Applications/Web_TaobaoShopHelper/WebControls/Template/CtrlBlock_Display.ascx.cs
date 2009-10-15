@@ -8,11 +8,14 @@ using TOP.Template.Facade;
 
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 {
-    public partial class CtrlBlock_Input : System.Web.UI.UserControl
+    public partial class CtrlBlock_Display : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (TemplateInfo != null && !TemplateInfo.ShowThis)
+            {
+                this.Visible = false;
+            }
         }
 
         public TemplateInfo TemplateInfo
@@ -32,29 +35,14 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                 switch (value.DataType.ToLower())
                 {
                     case "text":
-                        ucCtrlInputItemText.Visible = true;
-                        ucCtrlInputItemText.TemplateInfo = value;
+                        ucCtrlDisplayItemText.Visible = true;
+                        ucCtrlDisplayItemText.TemplateInfo = value;
                         break;
-                    case "imageurl":
-                        ucCtrlInputItemImageUrl.Visible = true;
-                        ucCtrlInputItemImageUrl.TemplateInfo = value;
+                    case "image":
+                        ucCtrlDisplayItemImage.Visible = true;
+                        ucCtrlDisplayItemImage.TemplateInfo = value;
                         break;
                 }
-            }
-        }
-
-        public void SaveCurrentValue()
-        {
-            switch (TemplateInfo.DataType.ToLower())
-            {
-                case "text":
-                    ucCtrlInputItemText.SaveCurrentValue();
-                    TemplateInfo = ucCtrlInputItemText.TemplateInfo;
-                    break;
-                case "imageurl":
-                    ucCtrlInputItemImageUrl.SaveCurrentValue();
-                    TemplateInfo = ucCtrlInputItemImageUrl.TemplateInfo;
-                    break;
             }
         }
 
@@ -68,9 +56,9 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             switch (TemplateInfo.DataType.ToLower())
             {
                 case "text":
-                    return ucCtrlInputItemText.GetInputHTML();
-                case "imageurl":
-                    return ucCtrlInputItemImageUrl.GetInputHTML();
+                    return ucCtrlDisplayItemText.GetInputHTML();
+                case "image":
+                    return ucCtrlDisplayItemImage.GetInputHTML();
             }
             return string.Empty;
         }

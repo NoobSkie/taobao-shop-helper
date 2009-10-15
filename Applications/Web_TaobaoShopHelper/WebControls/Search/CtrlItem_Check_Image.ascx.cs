@@ -19,9 +19,11 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
                 if (this.Item != null)
                 {
                     cbCheck.Attributes["onclick"] =
-                        string.Format("SelectItem(this, 'image', '{0}', '{1}', '{2}', '{3}')"
+                        string.Format("SelectItem(this, 'image', '{0}', '{1}', '{2}', '{3}', '{4}', '{5}')"
                         , this.Item.Iid
+                        , this.Item.Nick
                         , this.Item.Title
+                        , this.item.DetailUrl
                         , this.Item.PicPath
                         , this.Item.Price);
                 }

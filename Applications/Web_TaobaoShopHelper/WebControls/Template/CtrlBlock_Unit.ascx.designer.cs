@@ -11,24 +11,24 @@
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Template {
     
     
-    public partial class CtrlBlock_Input {
+    public partial class CtrlBlock_Unit {
         
         /// <summary>
-        /// ucCtrlInputItemText control.
+        /// ucCtrlBlockInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlInputItem_Text ucCtrlInputItemText;
+        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlBlock_Input ucCtrlBlockInput;
         
         /// <summary>
-        /// ucCtrlInputItemImageUrl control.
+        /// ucCtrlBlockDisplay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlInputItem_ImageUrl ucCtrlInputItemImageUrl;
+        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlBlock_Display ucCtrlBlockDisplay;
     }
 }

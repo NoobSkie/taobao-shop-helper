@@ -11,6 +11,7 @@ namespace TOP.Template.Facade
         public TemplateInfo()
         {
             ShowTitle = true;
+            ShowThis = true;
         }
 
         public string OuterHTML { get; set; }
@@ -23,6 +24,8 @@ namespace TOP.Template.Facade
 
         public string DataType { get; set; }
 
+        public string DataSource { get; set; }
+
         public string CurrentValue { get; set; }
 
         /// <summary>
@@ -34,6 +37,16 @@ namespace TOP.Template.Facade
         /// 是否显示标题
         /// </summary>
         public bool ShowTitle { get; set; }
+
+        /// <summary>
+        /// 是否显示当前节点
+        /// </summary>
+        public bool ShowThis { get; set; }
+
+        /// <summary>
+        /// 当前显示序号
+        /// </summary>
+        public int Index { get; set; }
 
         /// <summary>
         /// 标题的宽度
@@ -78,5 +91,17 @@ namespace TOP.Template.Facade
             obj.InputHeight = InputHeight;
             return obj;
         }
+    }
+
+    public class TemplateComparer : IComparer<TemplateInfo>
+    {
+        #region IComparer<TemplateInfo> Members
+
+        public int Compare(TemplateInfo x, TemplateInfo y)
+        {
+            return x.Index.CompareTo(y.Index);
+        }
+
+        #endregion
     }
 }

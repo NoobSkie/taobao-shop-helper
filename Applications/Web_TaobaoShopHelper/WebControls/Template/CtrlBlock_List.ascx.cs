@@ -7,10 +7,14 @@ using System.Web.UI.WebControls;
 using TOP.Template.Facade;
 using TOP.Applications.TaobaoShopHelper.WebControls.Search;
 using TOP.Applications.TaobaoShopHelper._Common;
+using Taobao.Top.Api;
+using Taobao.Top.Api.Request;
+using Taobao.Top.Api.Domain;
+using Taobao.Top.Api.Parser;
 
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 {
-    public partial class CtrlBlock_List : System.Web.UI.UserControl
+    public partial class CtrlBlock_List : BaseControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -105,7 +109,23 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
         public void OnAfterReturnItems(SearchWinReturnedEventArg e)
         {
             JsonObjectList<JsonItem> list = JsonParser.ParseJsonResponse<JsonItem>(e.Json);
-            Response.Write(list.TotalCount);
+            foreach (JsonItem item in list)
+            {
+                if (string.IsNullOrEmpty(item.DetailUrl))
+                {
+                    ITopClient client = GetProductTopClient();
+                    ItemGetRequest req = new ItemGetRequest();
+                    req.Fields = "detail_url";
+                    req.Iid = item.Id;
+                    req.Nick = item.Nick;
+                    Item rsp = client.Execute<Item>(req, new ItemJsonParser());
+                    if (rsp != null && !string.IsNullOrEmpty(rsp.DetailUrl))
+                    {
+                        item.DetailUrl = rsp.DetailUrl;
+                    }
+                }
+                CreateChild(item.ToJsonString());
+            }
         }
 
         private void SaveCurrentValue()

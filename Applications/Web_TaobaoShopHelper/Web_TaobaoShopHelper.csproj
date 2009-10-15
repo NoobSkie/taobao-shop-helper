@@ -414,6 +414,13 @@
     <Compile Include="WebControls\Template\CtrlBlock_Container.ascx.designer.cs">
       <DependentUpon>CtrlBlock_Container.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock_Display.ascx.cs">
+      <DependentUpon>CtrlBlock_Display.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock_Display.ascx.designer.cs">
+      <DependentUpon>CtrlBlock_Display.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WebControls\Template\CtrlBlock_Input.ascx.cs">
       <DependentUpon>CtrlBlock_Input.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -434,6 +441,27 @@
     </Compile>
     <Compile Include="WebControls\Template\CtrlBlock_List.ascx.designer.cs">
       <DependentUpon>CtrlBlock_List.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock_Unit.ascx.cs">
+      <DependentUpon>CtrlBlock_Unit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlBlock_Unit.ascx.designer.cs">
+      <DependentUpon>CtrlBlock_Unit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlDisplayItem_Image.ascx.cs">
+      <DependentUpon>CtrlDisplayItem_Image.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlDisplayItem_Image.ascx.designer.cs">
+      <DependentUpon>CtrlDisplayItem_Image.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlDisplayItem_Text.ascx.cs">
+      <DependentUpon>CtrlDisplayItem_Text.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlDisplayItem_Text.ascx.designer.cs">
+      <DependentUpon>CtrlDisplayItem_Text.ascx</DependentUpon>
     </Compile>
     <Compile Include="WebControls\Template\CtrlInputItem_ImageUrl.ascx.cs">
       <DependentUpon>CtrlInputItem_ImageUrl.ascx</DependentUpon>
@@ -612,6 +640,7 @@
     <Content Include="WebControls\ItemList\CtrlItemListBlock.ascx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Professional\01.LayoutStyles\00.BasicStyle.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\04.FindListStyles.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\06.SearchWin.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\07.Pager.css" />
@@ -677,9 +706,13 @@
     <Content Include="WebControls\Search\CtrlSearchItems_Multi.ascx" />
     <Content Include="WebControls\Shop\CtrlShopInfo.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Container.ascx" />
+    <Content Include="WebControls\Template\CtrlBlock_Display.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Input.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Item.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_List.ascx" />
+    <Content Include="WebControls\Template\CtrlBlock_Unit.ascx" />
+    <Content Include="WebControls\Template\CtrlDisplayItem_Image.ascx" />
+    <Content Include="WebControls\Template\CtrlDisplayItem_Text.ascx" />
     <Content Include="WebControls\Template\CtrlInputItem_ImageUrl.ascx" />
     <Content Include="WebControls\Template\CtrlInputItem_Text.ascx" />
     <Content Include="WebControls\Template\CtrlSearch_Item_Multi.ascx" />

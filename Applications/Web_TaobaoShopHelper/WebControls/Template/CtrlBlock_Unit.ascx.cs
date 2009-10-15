@@ -8,7 +8,7 @@ using TOP.Template.Facade;
 
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 {
-    public partial class CtrlBlock_Input : System.Web.UI.UserControl
+    public partial class CtrlBlock_Unit : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,15 +29,15 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                 {
                     ctrl.Visible = false;
                 }
-                switch (value.DataType.ToLower())
+                switch (value.Category.ToLower())
                 {
-                    case "text":
-                        ucCtrlInputItemText.Visible = true;
-                        ucCtrlInputItemText.TemplateInfo = value;
+                    case "input":
+                        ucCtrlBlockInput.Visible = true;
+                        ucCtrlBlockInput.TemplateInfo = value;
                         break;
-                    case "imageurl":
-                        ucCtrlInputItemImageUrl.Visible = true;
-                        ucCtrlInputItemImageUrl.TemplateInfo = value;
+                    case "display":
+                        ucCtrlBlockDisplay.Visible = true;
+                        ucCtrlBlockDisplay.TemplateInfo = value;
                         break;
                 }
             }
@@ -45,15 +45,10 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 
         public void SaveCurrentValue()
         {
-            switch (TemplateInfo.DataType.ToLower())
+            switch (TemplateInfo.Category.ToLower())
             {
-                case "text":
-                    ucCtrlInputItemText.SaveCurrentValue();
-                    TemplateInfo = ucCtrlInputItemText.TemplateInfo;
-                    break;
-                case "imageurl":
-                    ucCtrlInputItemImageUrl.SaveCurrentValue();
-                    TemplateInfo = ucCtrlInputItemImageUrl.TemplateInfo;
+                case "input":
+                    ucCtrlBlockInput.SaveCurrentValue();
                     break;
             }
         }
@@ -65,12 +60,12 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 
         public string GetInputHTML()
         {
-            switch (TemplateInfo.DataType.ToLower())
+            switch (TemplateInfo.Category.ToLower())
             {
-                case "text":
-                    return ucCtrlInputItemText.GetInputHTML();
-                case "imageurl":
-                    return ucCtrlInputItemImageUrl.GetInputHTML();
+                case "input":
+                    return ucCtrlBlockInput.GetInputHTML();
+                case "display":
+                    return ucCtrlBlockDisplay.GetInputHTML();
             }
             return string.Empty;
         }

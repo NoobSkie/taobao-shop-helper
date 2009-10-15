@@ -10,7 +10,7 @@
 <div>
 {template:list DisplayName="规格介绍" DefaultValue="型号#,尺寸#"}
 	<div>
-		{template:item DisplayName="名称" DataType="Text"}
+		{template:item DisplayName="名称"}
 			<span style="font-family: 幼圆; font-size: 1.5em;">{template:input DisplayName="名称" DataType="Text"}{/template}</span>
 			<span style="font-family: 幼圆; font-size: 1.5em;">{template:input DisplayName="规格" InputWidth="250" DataType="Text"}{/template}</span>
 		{/template}
@@ -20,14 +20,18 @@
 <div>
 {template:list DisplayName="类似商品" DataType="MyItems"}
 	<div>
-		{template:item DisplayName="名称" DataType="Text"}
+		{template:item DisplayName="名称" DataType="Display"}
 		<div>
-			<a href='{template:input DisplayName="名称" DataType="Text"}{/template}' target="_blank">
-				<img src="{template:input DisplayName="名称" DataType="Text"}{/template}" alt="" />
+			<a href='{template:display DisplayName="商品路径" Index="3" ShowThis="false" DataType="Text" DataSource="DetailUrl"}{/template}' target="_blank">
+				<img src="{template:display DisplayName="图片路径" Index="1" DataType="Image" DataSource="ImageUrl"}{/template}" alt="" />
 			</a>
 		</div>
 		<div>
-			<a href="" target="_blank">{template:input DisplayName="名称" DataType="Text"}{/template}</a>
+			<a href="{template:display DisplayName="商品路径" ShowThis="false" DataType="Text" ShowTitle="false" DataSource="DetailUrl"}{/template}" target="_blank">
+				{template:display DisplayName="名称" Index="2" ShowTitle="false" DataType="Text" DataSource="Title"}{/template}
+			</a>
+			{template:display DisplayName="价格" Index="4" DataType="Text" ShowTitle="false" DataSource="Price"}{/template}
+		</div>
 		{/template}
     </div>
 {/template}

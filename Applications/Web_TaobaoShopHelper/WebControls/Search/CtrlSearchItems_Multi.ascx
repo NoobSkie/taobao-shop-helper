@@ -5,11 +5,13 @@
 <script src="<%= GetRootUrl() %>/Scripts/Item.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-    function SelectItem(ctrlObj, type, iid, title, imgUrl, price) {
+    function SelectItem(ctrlObj, type, iid, nick, title, detailUrl, imgUrl, price) {
         if (ctrlObj.checked) {
             var item = new Item();
             item.Id = iid;
+            item.Nick = nick;
             item.Title = title;
+            item.DetailUrl = detailUrl;
             item.ImageUrl = imgUrl;
             item.Price = price;
 
