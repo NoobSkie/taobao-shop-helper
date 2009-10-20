@@ -25,5 +25,13 @@ namespace TOP.Common.Logic
 
         [DbField(DbFieldName = "CurrentVersion", DbFieldType = DbDataType.INT, DefaultValue = "1", IsNotNull = true)]
         public int CurrentVersion { get; set; }
+
+        public static T GetEmptyObject<T>()
+            where T : FacadeInfoBase, new()
+        {
+            T t = new T();
+            t.Id = Guid.Empty.ToString();
+            return t;
+        }
     }
 }

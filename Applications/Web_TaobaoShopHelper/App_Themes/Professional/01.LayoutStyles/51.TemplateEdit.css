@@ -1,0 +1,44 @@
+﻿.PageContent .WaittingList
+{
+    float: left;
+}
+
+.WaittingList ul
+{
+    list-style-type: none;
+    overflow: hidden;
+    border: solid 1px gray;
+    position: relative;
+    margin: 0px;
+    float: left;
+}
+
+.WaittingList ul li
+{
+    height: 28px;
+    margin-left: -30px;
+    margin-right: 10px;
+    border-top: solid 1px gray;
+}
+
+.WaittingList ul li:first-child
+{
+    border-top: none;
+}
+
+.WaittingList ul li .Selected
+{
+}
+
+.WaittingList ul li a
+{
+    text-align: left;
+    line-height: 24px;
+    margin-top: 5px;
+    display: block;
+    height: 24px;
+    font-size: 1.19em;
+    font-weight: bold;
+    text-decoration: none;
+}
+

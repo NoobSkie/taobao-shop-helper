@@ -5,6 +5,7 @@ using System.Text;
 using TOP.Common.Logic;
 using TOP.Template.Domain;
 using TOP.Common.DbHelper;
+using System.Data;
 
 namespace TOP.Template.Facade
 {
@@ -41,6 +42,34 @@ namespace TOP.Template.Facade
             }
 
             #endregion
+        }
+
+        public TemplateContentInfo GetTemplateContentById(string templateId)
+        {
+            string sqlSelect = sqlHelper.GenerateSelectViewSql(typeof(TemplateContentInfo));
+            sqlSelect += string.Format(" WHERE [Id] = '{0}'", templateId);
+            using (DbOperator dbOperator = new DbOperator(ConnString))
+            {
+                DataTable dt = dbOperator.GetTable(sqlSelect);
+                if (dt.Rows.Count > 0)
+                {
+                    return TransferInfo<TemplateContentInfo>(dt.Rows[0]);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public List<TemplateInfo> GetTemplateInfoListByUserId(string userId)
+        {
+            string sqlSelect = sqlHelper.GenerateSelectViewSql(typeof(TemplateInfo));
+            using (DbOperator dbOperator = new DbOperator(ConnString))
+            {
+                DataTable dt = dbOperator.GetTable(sqlSelect);
+                return TransferList<TemplateInfo>(dt);
+            }
         }
     }
 }

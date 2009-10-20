@@ -821,6 +821,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Professional\01.LayoutStyles\09.WebPage.css" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\51.TemplateEdit.css" />
     <Content Include="ShopHelper\ImportItem_Step1_SelectItems.aspx" />
     <Content Include="ShopHelper\ImportItem_Step1_SelectItems_Item.aspx" />
     <Content Include="ShopHelper\ImportItem_Step2_Options.aspx" />

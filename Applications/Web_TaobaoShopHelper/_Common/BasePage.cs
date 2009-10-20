@@ -25,7 +25,7 @@ namespace TOP.Applications.TaobaoShopHelper._Common
             InformationObject obj = new InformationObject();
             obj.CssName = "Information";
             obj.Message = "您目前没有登录系统，或者登录已经过期。";
-            obj.AddLink("点击这里登录系统", "~/Authorizes/UnLogin.aspx?ReturnUrl=" + Server.UrlEncode(Request.Url.AbsolutePath));
+            obj.AddLink("点击这里登录系统", "~/Authorizes/UnLogin.aspx?ReturnUrl=" + Server.UrlEncode(Request.Url.AbsoluteUri));
             return obj;
         }
 

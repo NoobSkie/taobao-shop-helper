@@ -12,5 +12,32 @@ namespace TOP.Applications.TaobaoShopHelper.Templates {
     
     
     public partial class TemplateApp_Step3_Edit {
+        
+        /// <summary>
+        /// rptItemList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptItemList;
+        
+        /// <summary>
+        /// ddlTemplates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTemplates;
+        
+        /// <summary>
+        /// rptBlocks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptBlocks;
     }
 }

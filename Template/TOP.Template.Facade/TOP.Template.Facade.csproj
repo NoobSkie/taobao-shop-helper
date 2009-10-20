@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TemplateAnalyser.cs" />
+    <Compile Include="TemplateContentInfo.cs" />
     <Compile Include="TemplateFacade.cs" />
     <Compile Include="TemplateInfo.cs" />
     <Compile Include="TemplateObject.cs" />

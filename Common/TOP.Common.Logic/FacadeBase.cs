@@ -69,5 +69,16 @@ namespace TOP.Common.Logic
             }
             return t;
         }
+
+        protected List<T> TransferList<T>(DataTable dt)
+            where T : FacadeInfoBase, new()
+        {
+            List<T> rtn = new List<T>();
+            foreach(DataRow row in dt.Rows)
+            {
+                rtn.Add(TransferInfo<T>(row));
+            }
+            return rtn;
+        }
     }
 }
