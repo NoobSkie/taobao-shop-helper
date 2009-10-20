@@ -32,5 +32,22 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
                 rptItems.DataSource = value;
             }
         }
+
+        public List<string> SelectedItemIds
+        {
+            get
+            {
+                List<string> items = new List<string>();
+                foreach (RepeaterItem row in rptItems.Items)
+                {
+                    CtrlItem_Check ctrl = (CtrlItem_Check)row.FindControl("ucCtrlItemCheck");
+                    if (ctrl.IsChecked)
+                    {
+                        items.Add(ctrl.ItemId);
+                    }
+                }
+                return items;
+            }
+        }
     }
 }

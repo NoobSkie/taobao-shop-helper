@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/NestedMainMenu.master" AutoEventWireup="true"
+    CodeBehind="NestedTemplatePage.master.cs" Inherits="TOP.Applications.TaobaoShopHelper.Templates.NestedTemplatePage" %>
+
+<%@ Register Src="~/WebControls/Common/CtrlInformationBox.ascx" TagName="CtrlInformationBox"
+    TagPrefix="uc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
+    <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="CommonContent" runat="server">
+    <asp:ContentPlaceHolder ID="CommonContent" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MenuContent" runat="server">
+    <div class="MenuDivLevelTwo">
+        <ul class="MenuItemList">
+            <li class="Selected"><a href="TemplateApp.aspx"><span>模板应用</span></a></li>
+            <li><a href="TemplateApp.aspx"><span>模板设置</span></a></li>
+        </ul>
+    </div>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="HolderContent" runat="server">
+    <form id="form1" runat="server">
+    <div class="PageHeader">
+        <asp:ContentPlaceHolder ID="PageHeaderHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="InformationList">
+        <uc1:CtrlInformationBox ID="ucCtrlInformationBox" Visible="false" runat="server" />
+    </div>
+    <div class="PageContent">
+        <asp:ContentPlaceHolder ID="PageContentHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="PageFooter">
+        <asp:ContentPlaceHolder ID="PageFooterHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</asp:Content>

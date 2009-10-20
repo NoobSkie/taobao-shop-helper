@@ -15,11 +15,11 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 
         }
 
-        public TemplateInfo TemplateInfo
+        public TemplateObject TemplateInfo
         {
             get
             {
-                return (TemplateInfo)ViewState["CtrlBlock_Item.TemplateInfo"];
+                return (TemplateObject)ViewState["CtrlBlock_Item.TemplateInfo"];
             }
             set
             {
@@ -56,7 +56,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             }
         }
 
-        private void SortChildren(TemplateInfo value)
+        private void SortChildren(TemplateObject value)
         {
             value.Children.Sort(new TemplateComparer());
         }

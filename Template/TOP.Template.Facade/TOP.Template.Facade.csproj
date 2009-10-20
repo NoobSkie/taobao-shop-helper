@@ -46,8 +46,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TemplateAnalyser.cs" />
+    <Compile Include="TemplateFacade.cs" />
     <Compile Include="TemplateInfo.cs" />
+    <Compile Include="TemplateObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\TOP.Common.DbHelper\TOP.Common.DbHelper.csproj">
+      <Project>{BD1AFE9A-03AE-4524-94AE-E2DD1F23719A}</Project>
+      <Name>TOP.Common.DbHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\TOP.Common.Logic\TOP.Common.Logic.csproj">
+      <Project>{C6A7A214-78B8-4A35-98F9-1189D0AB420E}</Project>
+      <Name>TOP.Common.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TOP.Template.Domain\TOP.Template.Domain.csproj">
+      <Project>{FC863206-7E19-4A6A-ADBD-334BCDE6F9D6}</Project>
+      <Name>TOP.Template.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

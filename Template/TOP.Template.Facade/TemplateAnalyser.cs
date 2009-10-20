@@ -14,9 +14,9 @@ namespace TOP.Template.Facade
         private const string Pattern_Properties = "(?<=\\{template([\\S]*) ).*(?=\\})";
         private const string Pattern_Property = "\\w+\\s*=\\s*(?:\"[^\"]*\"|'[^']*')";
 
-        public static List<TemplateInfo> AnalyseTemplateList(string html)
+        public static List<TemplateObject> AnalyseTemplateList(string html)
         {
-            List<TemplateInfo> tempList = new List<TemplateInfo>();
+            List<TemplateObject> tempList = new List<TemplateObject>();
 
             Regex regex = new Regex(Pattern_OuterText, RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.IgnorePatternWhitespace);
             Match match = regex.Match(html);
@@ -29,13 +29,13 @@ namespace TOP.Template.Facade
             return tempList;
         }
 
-        public static TemplateInfo AnalyseTemplate(string html)
+        public static TemplateObject AnalyseTemplate(string html)
         {
             if (string.IsNullOrEmpty(html))
             {
                 throw new ArgumentException("分析模板 - 参数不能为空。", "html");
             }
-            TemplateInfo info = new TemplateInfo();
+            TemplateObject info = new TemplateObject();
 
             #region 外部文本
 

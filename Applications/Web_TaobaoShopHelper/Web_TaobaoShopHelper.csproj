@@ -188,12 +188,47 @@
     <Compile Include="ShopHelper\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShopHelper\ImportItem_Step1_SelectItems.aspx.cs">
+      <DependentUpon>ImportItem_Step1_SelectItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\ImportItem_Step1_SelectItems.aspx.designer.cs">
+      <DependentUpon>ImportItem_Step1_SelectItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\ImportItem_Step1_SelectItems_Item.aspx.cs">
+      <DependentUpon>ImportItem_Step1_SelectItems_Item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\ImportItem_Step1_SelectItems_Item.aspx.designer.cs">
+      <DependentUpon>ImportItem_Step1_SelectItems_Item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\ImportItem_Step2_Options.aspx.cs">
+      <DependentUpon>ImportItem_Step2_Options.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\ImportItem_Step2_Options.aspx.designer.cs">
+      <DependentUpon>ImportItem_Step2_Options.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\ImportItem_Step3_Preview.aspx.cs">
+      <DependentUpon>ImportItem_Step3_Preview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\ImportItem_Step3_Preview.aspx.designer.cs">
+      <DependentUpon>ImportItem_Step3_Preview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ShopHelper\ItemQuery.aspx.cs">
       <DependentUpon>ItemQuery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ShopHelper\ItemQuery.aspx.designer.cs">
       <DependentUpon>ItemQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\NestedImportItemStep.master.cs">
+      <DependentUpon>NestedImportItemStep.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\NestedImportItemStep.master.designer.cs">
+      <DependentUpon>NestedImportItemStep.master</DependentUpon>
     </Compile>
     <Compile Include="ShopHelper\NestedShopHelperPage.master.cs">
       <DependentUpon>NestedShopHelperPage.master</DependentUpon>
@@ -222,6 +257,48 @@
     </Compile>
     <Compile Include="ShopHelper\QueryResult_Shop.aspx.designer.cs">
       <DependentUpon>QueryResult_Shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\NestedTemplatePage.master.cs">
+      <DependentUpon>NestedTemplatePage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\NestedTemplatePage.master.designer.cs">
+      <DependentUpon>NestedTemplatePage.master</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TemplateApp.aspx.cs">
+      <DependentUpon>TemplateApp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\TemplateApp.aspx.designer.cs">
+      <DependentUpon>TemplateApp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TemplateApp_Step1_Choose.aspx.cs">
+      <DependentUpon>TemplateApp_Step1_Choose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\TemplateApp_Step1_Choose.aspx.designer.cs">
+      <DependentUpon>TemplateApp_Step1_Choose.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TemplateApp_Step2_SelectItems.aspx.cs">
+      <DependentUpon>TemplateApp_Step2_SelectItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\TemplateApp_Step2_SelectItems.aspx.designer.cs">
+      <DependentUpon>TemplateApp_Step2_SelectItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TemplateApp_Step3_Edit.aspx.cs">
+      <DependentUpon>TemplateApp_Step3_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\TemplateApp_Step3_Edit.aspx.designer.cs">
+      <DependentUpon>TemplateApp_Step3_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TemplateSet.aspx.cs">
+      <DependentUpon>TemplateSet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\TemplateSet.aspx.designer.cs">
+      <DependentUpon>TemplateSet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Templates\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -492,16 +569,32 @@
     <Compile Include="_Common\BaseControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="_Common\BaseMaster.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="_Common\Enumerations.cs" />
+    <Compile Include="_Common\IInformationPage.cs" />
     <Compile Include="_Common\JsonParser.cs" />
     <Compile Include="_Common\PageObject.cs" />
     <Compile Include="_Common\TopFieldsHelper.cs" />
     <Compile Include="_Common\TopSessionRequestProxy.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Authorize\TOP.Authorize.Domain\TOP.Authorize.Domain.csproj">
+      <Project>{466C25A1-6912-43BC-9C1A-824F807BDFA8}</Project>
+      <Name>TOP.Authorize.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Authorize\TOP.Authorize.Facade\TOP.Authorize.Facade.csproj">
+      <Project>{0BF822B0-B4A1-4744-89E2-B94942F772E3}</Project>
+      <Name>TOP.Authorize.Facade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\TOP.Common.DbHelper\TOP.Common.DbHelper.csproj">
       <Project>{BD1AFE9A-03AE-4524-94AE-E2DD1F23719A}</Project>
       <Name>TOP.Common.DbHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\TOP.Common.EncryptionTool\TOP.Common.EncryptionTool.csproj">
+      <Project>{929CE2B6-9DD7-4858-843B-6A79D74B7418}</Project>
+      <Name>TOP.Common.EncryptionTool</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\TOP.Common.Logic\TOP.Common.Logic.csproj">
       <Project>{C6A7A214-78B8-4A35-98F9-1189D0AB420E}</Project>
@@ -530,6 +623,10 @@
     <ProjectReference Include="..\..\Management\TOP.Management.Facade\TOP.Management.Facade.csproj">
       <Project>{5BA9FA7F-9905-41EA-BA6A-58617A6F1B8A}</Project>
       <Name>TOP.Management.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Template\TOP.Template.Domain\TOP.Template.Domain.csproj">
+      <Project>{FC863206-7E19-4A6A-ADBD-334BCDE6F9D6}</Project>
+      <Name>TOP.Template.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Template\TOP.Template.Facade\TOP.Template.Facade.csproj">
       <Project>{AECC8961-6F82-4443-9F9F-E3E48D9137A9}</Project>
@@ -718,11 +815,28 @@
     <Content Include="WebControls\Template\CtrlSearch_Item_Multi.ascx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Templates\NestedTemplatePage.master" />
+    <Content Include="Templates\TemplateApp.aspx" />
+    <Content Include="Templates\TemplateApp_Step1_Choose.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Professional\01.LayoutStyles\09.WebPage.css" />
+    <Content Include="ShopHelper\ImportItem_Step1_SelectItems.aspx" />
+    <Content Include="ShopHelper\ImportItem_Step1_SelectItems_Item.aspx" />
+    <Content Include="ShopHelper\ImportItem_Step2_Options.aspx" />
+    <Content Include="ShopHelper\ImportItem_Step3_Preview.aspx" />
+    <Content Include="ShopHelper\NestedImportItemStep.master" />
+    <Content Include="Templates\TemplateApp_Step2_SelectItems.aspx" />
+    <Content Include="Templates\TemplateApp_Step3_Edit.aspx" />
+    <Content Include="Templates\TemplateSet.aspx" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ErrorResponseLog\" />
     <Folder Include="Images\Shops\" />
     <Folder Include="Images\Snapshot\" />
     <Folder Include="ShopHelper\WebControls\" />
+    <Folder Include="Upfiles\Templates\" />
     <Folder Include="技术支持\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

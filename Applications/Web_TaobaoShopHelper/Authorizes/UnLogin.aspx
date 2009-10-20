@@ -12,10 +12,13 @@
             <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
         </div>
         <div>
-            <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox>
         </div>
         <div>
-            <asp:LinkButton ID="lbtnLogin" runat="server">登录</asp:LinkButton>
+            <asp:Label ID="lblMessage" runat="server"></asp:Label>
+        </div>
+        <div>
+            <asp:LinkButton ID="lbtnLogin" runat="server" OnClick="lbtnLogin_Click">登录</asp:LinkButton>
         </div>
     </div>
     </form>

@@ -9,6 +9,7 @@ using ComponentArt.Web.UI;
 using TOP.Common.DbHelper;
 using System.Configuration;
 using TOP.Common.Logic;
+using System.IO;
 
 namespace TOP.Applications.TaobaoShopHelper.TestPages
 {
@@ -81,27 +82,40 @@ namespace TOP.Applications.TaobaoShopHelper.TestPages
 
         private void InitSchema()
         {
-            TreeViewNode node;
+            foreach (Type t in GetTypeList("*.Domain.dll", typeof(DbEntity)))
+            {
+                TreeViewNode node = new TreeViewNode();
+                node.Text = t.Name;
+                node.Value = t.FullName + "," + t.Assembly.FullName; ;
+                nodeTable.Nodes.Add(node);
+            }
 
-            node = new TreeViewNode();
-            node.Text = "Area";
-            node.Value = "TOP.Management.Domain.Area, TOP.Management.Domain";
-            nodeTable.Nodes.Add(node);
+            foreach (Type t in GetTypeList("*.Facade.dll", typeof(FacadeInfoBase)))
+            {
+                TreeViewNode node = new TreeViewNode();
+                node.Text = t.Name;
+                node.Value = t.FullName + "," + t.Assembly.FullName; ;
+                nodeView.Nodes.Add(node);
+            }
+        }
 
-            node = new TreeViewNode();
-            node.Text = "ItemCategory";
-            node.Value = "TOP.Management.Domain.ItemCategory, TOP.Management.Domain";
-            nodeTable.Nodes.Add(node);
-
-            node = new TreeViewNode();
-            node.Text = "AreaInfo";
-            node.Value = "TOP.Management.Facade.AreaInfo, TOP.Management.Facade";
-            nodeView.Nodes.Add(node);
-
-            node = new TreeViewNode();
-            node.Text = "ItemCategoryInfo";
-            node.Value = "TOP.Management.Facade.ItemCategoryInfo, TOP.Management.Facade";
-            nodeView.Nodes.Add(node);
+        private List<Type> GetTypeList(string partten, Type parent)
+        {
+            string path = Server.MapPath("~/Bin");
+            DirectoryInfo dir = new DirectoryInfo(path);
+            List<Type> rtn = new List<Type>();
+            foreach (FileInfo file in dir.GetFiles(partten))
+            {
+                Assembly assem = Assembly.LoadFile(file.FullName);
+                foreach (Type type in assem.GetTypes())
+                {
+                    if (type.IsSubclassOf(parent))
+                    {
+                        rtn.Add(type);
+                    }
+                }
+            }
+            return rtn;
         }
     }
 }

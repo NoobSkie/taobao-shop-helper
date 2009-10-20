@@ -22,6 +22,10 @@
         <asp:ContentPlaceHolder ID="MenuContent" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-    <asp:ContentPlaceHolder ID="HolderContent" runat="server">
-    </asp:ContentPlaceHolder>
+    <div class="WebPage">
+        <asp:ContentPlaceHolder ID="HolderContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div>
+    </div>
 </asp:Content>

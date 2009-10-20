@@ -135,6 +135,21 @@ namespace TOP.Common.DbHelper
                 Dictionary<string, string> values = new Dictionary<string, string>();
                 foreach (PropertyInfo prop in entityType.GetProperties())
                 {
+                    if (prop.Name.Equals("CreateDate", StringComparison.OrdinalIgnoreCase))
+                    {
+                        values.Add("CreateDate", "GetDate()");
+                        continue;
+                    }
+                    else if (prop.Name.Equals("LastUpdateDate", StringComparison.OrdinalIgnoreCase))
+                    {
+                        values.Add("LastUpdateDate", "GetDate()");
+                        continue;
+                    }
+                    else if (prop.Name.Equals("CurrentVersion", StringComparison.OrdinalIgnoreCase))
+                    {
+                        values.Add("CurrentVersion", "1");
+                        continue;
+                    }
                     foreach (DbFieldAttribute attr in prop.GetCustomAttributes(typeof(DbFieldAttribute), true))
                     {
                         object value = prop.GetValue(entity, null);
@@ -218,7 +233,11 @@ namespace TOP.Common.DbHelper
             if (attrs[0].DbObjectType == DbObjectType.Table)
             {
                 string tableName = attrs[0].DbTableName;
-                return string.Format("DELETE FROM [{0}] ", tableName);
+                return string.Format("UPDATE [{0}] SET [CurrentVersion] = 0, [LastUpdateDate] = GetDate(), [LastUpdateUserId] = '{1}' WHERE [Id] = '{2}' AND [CurrentVersion] = {3}"
+                    , tableName
+                    , entity.LastUpdateUserId
+                    , entity.Id
+                    , entity.CurrentVersion);
             }
             else
             {
@@ -247,6 +266,28 @@ namespace TOP.Common.DbHelper
                 sqlUpdate.AppendLine("SET 1 = 1");
                 foreach (PropertyInfo prop in entityType.GetProperties())
                 {
+                    if (prop.Name.Equals("Id", StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+                    else if (prop.Name.Equals("CreateDate", StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+                    else if (prop.Name.Equals("CreateUserId", StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+                    else if (prop.Name.Equals("LastUpdateDate", StringComparison.OrdinalIgnoreCase))
+                    {
+                        sqlUpdate.AppendLine(", [LastUpdateDate] = GetDate()");
+                        continue;
+                    }
+                    else if (prop.Name.Equals("CurrentVersion", StringComparison.OrdinalIgnoreCase))
+                    {
+                        sqlUpdate.AppendLine(", [CurrentVersion] = [CurrentVersion] + 1");
+                        continue;
+                    }
                     foreach (DbFieldAttribute attr in prop.GetCustomAttributes(typeof(DbFieldAttribute), true))
                     {
                         if (!attr.IsKey)
@@ -285,6 +326,7 @@ namespace TOP.Common.DbHelper
                         }
                     }
                 }
+                sqlUpdate.AppendLine(string.Format("WHERE [Id] = '{0}' AND [CurrentVersion] = {1}", entity.Id, entity.CurrentVersion));
 
                 return sqlUpdate.ToString();
             }

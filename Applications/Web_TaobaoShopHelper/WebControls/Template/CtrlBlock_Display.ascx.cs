@@ -18,11 +18,11 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             }
         }
 
-        public TemplateInfo TemplateInfo
+        public TemplateObject TemplateInfo
         {
             get
             {
-                return (TemplateInfo)ViewState["CtrlBlock_Input.TemplateInfo"];
+                return (TemplateObject)ViewState["CtrlBlock_Input.TemplateInfo"];
             }
             set
             {

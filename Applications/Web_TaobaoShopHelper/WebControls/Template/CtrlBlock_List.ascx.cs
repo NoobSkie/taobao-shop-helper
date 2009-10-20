@@ -21,11 +21,11 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             ucCtrlSearchButtonMulti.AfterReturned += new AfterReturnedEventHadler(OnAfterReturnItems);
         }
 
-        private List<TemplateInfo> currentDataSource
+        private List<TemplateObject> currentDataSource
         {
             get
             {
-                return (List<TemplateInfo>)ViewState["CtrlBlock_List.currentDataSource"];
+                return (List<TemplateObject>)ViewState["CtrlBlock_List.currentDataSource"];
             }
             set
             {
@@ -33,11 +33,11 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             }
         }
 
-        private TemplateInfo currentModule
+        private TemplateObject currentModule
         {
             get
             {
-                return (TemplateInfo)ViewState["CtrlBlock_List.currentModule"];
+                return (TemplateObject)ViewState["CtrlBlock_List.currentModule"];
             }
             set
             {
@@ -45,11 +45,11 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             }
         }
 
-        public TemplateInfo TemplateInfo
+        public TemplateObject TemplateInfo
         {
             get
             {
-                return (TemplateInfo)ViewState["CtrlBlock_List.TemplateInfo"];
+                return (TemplateObject)ViewState["CtrlBlock_List.TemplateInfo"];
             }
             set
             {
@@ -63,7 +63,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                 {
                     currentModule = value.Children[0];
                 }
-                currentDataSource = new List<TemplateInfo>();
+                currentDataSource = new List<TemplateObject>();
                 if (string.IsNullOrEmpty(value.DataType))
                 {
                     ucCtrlSearchButtonMulti.Visible = false;
@@ -144,7 +144,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
         {
             if (currentModule != null)
             {
-                TemplateInfo clone = currentModule.Clone();
+                TemplateObject clone = currentModule.Clone();
                 clone.DefaultValue = defaultValue;
                 currentDataSource.Add(clone);
                 this.rtpBlockItems.DataSource = currentDataSource;

@@ -5,6 +5,7 @@
         <asp:Image ID="imgImage" runat="server" />
     </div>
     <div class="Check">
+        <asp:HiddenField ID="hiddIid" runat="server" />
         <asp:CheckBox ID="cbCheck" runat="server" />
     </div>
     <div class="Price">

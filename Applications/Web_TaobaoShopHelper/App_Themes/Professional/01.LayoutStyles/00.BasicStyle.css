@@ -1,9 +1,19 @@
-﻿.Price
+﻿span .Price_Detail
 {
     font: 12px/1.5 Tahoma,Helvetica,Arial, '宋体' ,sans-serif;
     line-height: 25px;
     font-style: normal;
     font-size: 24px;
+    color: #f50;
+    font-weight: normal;
+    vertical-align: baseline;
+}
+
+span .Price_List
+{
+    font: 12px/1.5 Tahoma,Helvetica,Arial, '宋体' ,sans-serif;
+    line-height: 25px;
+    font-style: normal;
     color: #f50;
     font-weight: normal;
     vertical-align: baseline;

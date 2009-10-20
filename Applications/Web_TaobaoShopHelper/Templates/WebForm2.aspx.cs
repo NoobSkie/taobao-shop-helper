@@ -24,7 +24,7 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
                     reader.Close();
                 }
                 HTML = template;
-                List<TemplateInfo> templateList = TemplateAnalyser.AnalyseTemplateList(template);
+                List<TemplateObject> templateList = TemplateAnalyser.AnalyseTemplateList(template);
                 rptBlocks.DataSource = templateList;
                 rptBlocks.DataBind();
             }

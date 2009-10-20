@@ -31,7 +31,7 @@ namespace TOP.Template.Test
                 reader.Close();
             }
 
-            TemplateInfo info = TemplateAnalyser.AnalyseTemplate(html);
+            TemplateObject info = TemplateAnalyser.AnalyseTemplate(html);
 
             Assert.IsNotNull(info);
             Assert.AreEqual("list", info.Category);
@@ -52,19 +52,19 @@ namespace TOP.Template.Test
                 reader.Close();
             }
 
-            List<TemplateInfo> infoList = TemplateAnalyser.AnalyseTemplateList(html);
+            List<TemplateObject> infoList = TemplateAnalyser.AnalyseTemplateList(html);
 
             Assert.IsNotNull(infoList);
             Assert.AreEqual(2, infoList.Count);
 
-            TemplateInfo info1 = infoList[0];
+            TemplateObject info1 = infoList[0];
             Assert.AreEqual("list", info1.Category);
             Assert.AreEqual("TestDisp1", info1.DisplayName);
             Assert.AreEqual("Image", info1.DataType);
             Assert.AreEqual(1, info1.Children.Count);
             Assert.AreEqual("Sub1", info1.Children[0].DisplayName);
 
-            TemplateInfo info2 = infoList[1];
+            TemplateObject info2 = infoList[1];
             Assert.AreEqual("item", info2.Category);
             Assert.AreEqual("TestDisp2", info2.DisplayName);
             Assert.AreEqual("String", info2.DataType);

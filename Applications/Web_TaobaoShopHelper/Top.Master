@@ -11,7 +11,8 @@
     <div>
         <div class="HeaderDiv">
             <div class="UserInfoDiv">
-                <span>您好，</span><span>太阳</span><span>！</span><span>[</span><a href="#">退出</a><span>]</span>
+                <span>您好，</span><span>太阳</span><span>！</span><span>[</span><asp:HyperLink ID="hlnkLogout"
+                    runat="server" NavigateUrl="~/Authorizes/UnLogin.aspx">退出</asp:HyperLink><span>]</span>
             </div>
             <div class="UserOperatorDiv">
                 <a class="Text" href="#">信任计划</a> <span class="SplitLine">|</span> <a class="Text"

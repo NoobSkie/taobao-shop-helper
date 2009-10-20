@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/ShopHelper/NestedShopHelperPage.master"
+    AutoEventWireup="true" CodeBehind="NestedImportItemStep.master.cs" Inherits="TOP.Applications.TaobaoShopHelper.ShopHelper.NestedImportItemStep" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
+    <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="CommonContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="HolderContent" runat="server">
+    <div class="StepHeader">
+        <asp:ContentPlaceHolder ID="StepHeaderHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="StepSearchOptions">
+        <asp:ContentPlaceHolder ID="StepSearchHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="StepDisplayOptions">
+        <asp:ContentPlaceHolder ID="StepDisplayHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <form runat="server" id="from1">
+    <div class="StepContent">
+        <asp:ContentPlaceHolder ID="StepContentHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="StepFooter">
+        <asp:ContentPlaceHolder ID="StepFooterHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</asp:Content>

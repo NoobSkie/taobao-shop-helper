@@ -16,11 +16,11 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 
         }
 
-        public TemplateInfo TemplateInfo
+        public TemplateObject TemplateInfo
         {
             get
             {
-                return (TemplateInfo)ViewState["CtrlInputItem_ImageUrl.TemplateInfo"];
+                return (TemplateObject)ViewState["CtrlInputItem_ImageUrl.TemplateInfo"];
             }
             set
             {

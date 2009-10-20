@@ -16,5 +16,9 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
         }
 
         public Item Item { get; set; }
+
+        public bool IsChecked { get; set; }
+
+        public string ItemId { get; set; }
     }
 }

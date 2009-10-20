@@ -1,0 +1,23 @@
+﻿.WebPage
+{
+}
+
+.WebPage .InformationList
+{
+}
+
+.WebPage .PageHeader
+{
+    height: 32px;
+    line-height: 32px;
+}
+
+.WebPage .PageContent
+{
+    min-height: 200px;
+}
+
+.WebPage .PageFooter
+{
+    height: 32px;
+}

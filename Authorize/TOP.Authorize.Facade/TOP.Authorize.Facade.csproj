@@ -61,10 +61,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecurityItem.cs" />
     <Compile Include="UiPage.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="UserInfo.cs" />
     <Compile Include="UserFacade.cs" />
     <Compile Include="_ControlItem.cs" />
     <Compile Include="_ControlList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\TOP.Common.DbHelper\TOP.Common.DbHelper.csproj">
+      <Project>{BD1AFE9A-03AE-4524-94AE-E2DD1F23719A}</Project>
+      <Name>TOP.Common.DbHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\TOP.Common.Logic\TOP.Common.Logic.csproj">
+      <Project>{C6A7A214-78B8-4A35-98F9-1189D0AB420E}</Project>
+      <Name>TOP.Common.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TOP.Authorize.Domain\TOP.Authorize.Domain.csproj">
+      <Project>{466C25A1-6912-43BC-9C1A-824F807BDFA8}</Project>
+      <Name>TOP.Authorize.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

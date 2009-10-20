@@ -16,11 +16,11 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 
         }
 
-        public TemplateInfo TemplateInfo
+        public TemplateObject TemplateInfo
         {
             get
             {
-                return (TemplateInfo)ViewState["CtrlInputItem_ImageUrl.TemplateInfo"];
+                return (TemplateObject)ViewState["CtrlInputItem_ImageUrl.TemplateInfo"];
             }
             set
             {
@@ -36,7 +36,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                     }
                     if (value.DataSource.Equals("Price", StringComparison.OrdinalIgnoreCase))
                     {
-                        lblText.CssClass = "Price";
+                        lblText.CssClass = "Price_List";
                     }
                     lblTitle.Visible = value.ShowTitle;
                     if (value.ShowTitle)

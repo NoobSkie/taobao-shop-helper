@@ -17,11 +17,11 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             // imgPreview.Attributes["onerror"] = "javascript:this.src = '/TaobaoShopHelper/Images/Icos/warning.png';";
         }
 
-        public TemplateInfo TemplateInfo
+        public TemplateObject TemplateInfo
         {
             get
             {
-                return (TemplateInfo)ViewState["CtrlInputItem_ImageUrl.TemplateInfo"];
+                return (TemplateObject)ViewState["CtrlInputItem_ImageUrl.TemplateInfo"];
             }
             set
             {

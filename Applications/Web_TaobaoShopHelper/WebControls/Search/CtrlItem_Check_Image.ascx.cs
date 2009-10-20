@@ -43,7 +43,16 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
 
                 // imgImage.ImageUrl = value.PicPath;
                 cbCheck.Text = value.Title;
+                hiddIid.Value = value.Nick + "__" + value.Iid;
                 lblPrice.Text = value.Price;
+            }
+        }
+
+        public string ItemId
+        {
+            get
+            {
+                return hiddIid.Value;
             }
         }
 

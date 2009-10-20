@@ -30,14 +30,14 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
 
         private void DisplayTemplate(string html)
         {
-            List<TemplateInfo> templateList = TemplateAnalyser.AnalyseTemplateList(html);
+            List<TemplateObject> templateList = TemplateAnalyser.AnalyseTemplateList(html);
             DisplayTemplate(templateList, -1);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "FinishInitTemplateContainer", "FinishInit();", true);
         }
 
-        private void DisplayTemplate(List<TemplateInfo> templateList, int parentId)
+        private void DisplayTemplate(List<TemplateObject> templateList, int parentId)
         {
-            foreach (TemplateInfo template in templateList)
+            foreach (TemplateObject template in templateList)
             {
                 currentIndex++;
                 string js = string.Format("InitContainer('{0}', '{1}', '{2}', '{3}', '{4}', {5}, {6}, {7}, {8}, {9}, {10});"

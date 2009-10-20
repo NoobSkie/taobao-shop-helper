@@ -40,5 +40,37 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
         public Item Item { get; set; }
 
         public ItemDisplayType DisplayType { get; set; }
+
+        public string ItemId
+        {
+            get
+            {
+                switch (DisplayType)
+                {
+                    case ItemDisplayType.Image:
+                        return ucCtrlItemCheckImage.ItemId;
+                    case ItemDisplayType.List:
+                        return ucCtrlItemCheckList.ItemId;
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        public bool IsChecked
+        {
+            get
+            {
+                switch (DisplayType)
+                {
+                    case ItemDisplayType.Image:
+                        return ucCtrlItemCheckImage.IsChecked;
+                    case ItemDisplayType.List:
+                        return ucCtrlItemCheckList.IsChecked;
+                    default:
+                        return false;
+                }
+            }
+        }
     }
 }

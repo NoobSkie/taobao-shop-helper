@@ -12,7 +12,10 @@ namespace TOP.Authorize.Domain
         [DbField(DbFieldName = "LoginName", DbFieldType = DbDataType.NVARCHAR, IsNotNull = true, Length = 20)]
         public string LoginName { get; set; }
 
-        [DbField(DbFieldName = "UserName", DbFieldType = DbDataType.NVARCHAR, IsNotNull = true, Length = 60)]
+        [DbField(DbFieldName = "UserName", DbFieldType = DbDataType.NVARCHAR, IsNotNull = false, Length = 60)]
         public string UserName { get; set; }
+
+        [DbField(DbFieldName = "Password", DbFieldType = DbDataType.NVARCHAR, IsNotNull = true, Length = 50)]
+        public string Password { get; set; }
     }
 }
