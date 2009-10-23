@@ -22,34 +22,29 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             ucCtrlSearchButtonMulti.AfterReturned += new AfterReturnedEventHadler(OnAfterReturnItems);
             if (!IsPostBack)
             {
-                this.rtpBlockItems.DataSource = currentDataSource;
+                this.rtpBlockItems.DataSource = CurrentDataSource;
                 this.rtpBlockItems.DataBind();
             }
         }
 
-        private List<TemplateObject> currentDataSource
+        private List<TemplateObject> currentDataSource;
+        private List<TemplateObject> CurrentDataSource
         {
             get
             {
-                return (List<TemplateObject>)ViewState["CtrlBlock_List.currentDataSource"];
+                if (currentDataSource == null)
+                {
+                    currentDataSource = new List<TemplateObject>();
+                }
+                return currentDataSource;
             }
             set
             {
-                ViewState["CtrlBlock_List.currentDataSource"] = value;
+                currentDataSource = value;
             }
         }
 
-        private TemplateObject currentModule
-        {
-            get
-            {
-                return (TemplateObject)ViewState["CtrlBlock_List.currentModule"];
-            }
-            set
-            {
-                ViewState["CtrlBlock_List.currentModule"] = value;
-            }
-        }
+        private TemplateObject currentModule { get; set; }
 
         public TemplateObject TemplateInfo
         {
@@ -72,7 +67,6 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                     ucCtrlSearchButtonMulti.DemoInput = value.Children[0].DemoInput;
                     ucCtrlSearchButtonMulti.Information = value.Children[0].Information;
                 }
-                currentDataSource = new List<TemplateObject>();
                 if (string.IsNullOrEmpty(value.DataType))
                 {
                     ucCtrlSearchButtonMulti.Visible = true;
@@ -150,7 +144,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             {
                 TemplateObject clone = currentModule.Clone();
                 clone.DefaultValue = defaultValue;
-                currentDataSource.Add(clone);
+                CurrentDataSource.Add(clone);
             }
         }
 

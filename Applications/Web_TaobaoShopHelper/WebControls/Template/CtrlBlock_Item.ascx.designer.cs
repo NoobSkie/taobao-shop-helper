@@ -23,6 +23,33 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template {
         protected global::System.Web.UI.WebControls.Label lblHeader;
         
         /// <summary>
+        /// lbtnMoveUp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnMoveUp;
+        
+        /// <summary>
+        /// lbtnMoveDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnMoveDown;
+        
+        /// <summary>
+        /// lbtnRemove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnRemove;
+        
+        /// <summary>
         /// rtpInputItems control.
         /// </summary>
         /// <remarks>

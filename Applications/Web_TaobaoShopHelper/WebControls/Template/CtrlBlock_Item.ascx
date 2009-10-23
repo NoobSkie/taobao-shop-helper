@@ -4,6 +4,9 @@
 <div class="TemplateBlock BlockItem">
     <div class="BlockHeader">
         <asp:Label ID="lblHeader" runat="server" CssClass="Title"></asp:Label>
+        <asp:LinkButton ID="lbtnMoveUp" runat="server" onclick="lbtnMoveUp_Click">上移</asp:LinkButton>
+        <asp:LinkButton ID="lbtnMoveDown" runat="server" onclick="lbtnMoveDown_Click">下移</asp:LinkButton>
+        <asp:LinkButton ID="lbtnRemove" runat="server" onclick="lbtnRemove_Click">移除</asp:LinkButton>
     </div>
     <div class="BlockContent">
         <asp:Repeater ID="rtpInputItems" runat="server">

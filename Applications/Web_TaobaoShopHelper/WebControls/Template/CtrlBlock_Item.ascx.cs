@@ -90,5 +90,20 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             }
             return html;
         }
+
+        protected void lbtnMoveUp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lbtnMoveDown_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lbtnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
