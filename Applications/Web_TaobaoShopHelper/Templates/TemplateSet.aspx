@@ -10,16 +10,19 @@
     <asp:LinkButton ID="lbtnAdd" runat="server">添加模板</asp:LinkButton>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PageContentHolder" runat="server">
-    <div class="TemplateListView">
-        <div class="Title">
-            <span>我的模板列表</span>
-        </div>
-        <div class="Content">
+    <div class="WaittingList">
+        <ul>
+            <li class="New">
+                <asp:HyperLink ID="hlinkCreate" runat="server" Text="添加模板" NavigateUrl="TemplateSet.aspx"></asp:HyperLink></li>
             <asp:Repeater ID="rptTemplateList" runat="server">
+                <ItemTemplate>
+                    <li class='<%# Eval("CssName") %>'>
+                        <asp:HyperLink ID="hlnk" runat="server" Text='<%# Eval("Name") %>' NavigateUrl='<%# Eval("Url") %>'></asp:HyperLink></li>
+                </ItemTemplate>
             </asp:Repeater>
-        </div>
+        </ul>
     </div>
-    <div class="TemplateItemView">
+    <div class="TemplateArea">
         <div class="Title">
             <asp:Label ID="lblTitle" runat="server" Text="添加宝贝模板"></asp:Label>
         </div>

@@ -13,12 +13,15 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
 
     public class SearchWinReturnedEventArg
     {
-        public SearchWinReturnedEventArg(string json)
+        public SearchWinReturnedEventArg(SearchWinType searchWinType, string json)
         {
-            Json = json;
+            PostData = json;
+            SearchWinType = searchWinType;
         }
 
-        public string Json { get; set; }
+        public string PostData { get; set; }
+
+        public SearchWinType SearchWinType { get; set; }
     }
 
     public partial class CtrlSearchButton_Multi : BaseControl
@@ -35,11 +38,20 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
                 {
                     WindowHeight = 500;
                 }
+                string url = SearchWinUrl;
+                url += "?CtrlId=" + this.ClientID;
+                url += "&Type=" + (int)SearchWinType;
+                url += "&Title=" + Server.UrlEncode(SearchWinTitle);
+                url += "&Info=" + Server.UrlEncode(Information);
+                url += "&Demo=" + Server.UrlEncode(DemoInput);
+                url += "&IsInTest=" + IsInTest;
                 hlnkSearch.Attributes["onclick"] =
-                    string.Format("ShowSearchWin('{0}', '{1}px', '{2}px', 'yes');"
-                    , SearchWinUrl
+                    string.Format("ShowSearchWin('{0}', '{1}px', '{2}px', 'yes', '{3}');"
+                    , url
                     , WindowWidth
-                    , WindowHeight);
+                    , WindowHeight
+                    , IsInTest);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), this.ClientID + "_SetSearchWinType", this.ClientID + "_SearchWinType = '" + SearchWinType.ToString() + "';", true);
             }
         }
 
@@ -48,7 +60,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
             string args = this.Request.Params["__EVENTARGUMENT"];
             if (AfterReturned != null)
             {
-                AfterReturned(new SearchWinReturnedEventArg(args));
+                AfterReturned(new SearchWinReturnedEventArg(SearchWinType, args));
             }
         }
 
@@ -60,9 +72,40 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
             }
         }
 
+        public bool IsInTest
+        {
+            get
+            {
+#if DEBUG
+                return true;
+#else
+                return false;
+#endif
+            }
+        }
+
         public event AfterReturnedEventHadler AfterReturned;
 
-        public SearchWinType SearchWinType { get; set; }
+        public SearchWinType SearchWinType
+        {
+            get
+            {
+                return (SearchWinType)ViewState[this.ClientID + ".SearchWinType"];
+            }
+            set
+            {
+                ViewState[this.ClientID + ".SearchWinType"] = value;
+            }
+        }
+
+        public string SearchWinTitle { get; set; }
+
+        /// <summary>
+        /// 显示的提示信息
+        /// </summary>
+        public string Information { get; set; }
+
+        public string DemoInput { get; set; }
 
         public string Text
         {
@@ -86,6 +129,12 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
                 {
                     case SearchWinType.Multi_MyItems:
                         pageName = "SearchMyItems_Multi.aspx";
+                        break;
+                    case SearchWinType.Input_Text:
+                        pageName = "Input_Text.aspx";
+                        break;
+                    case SearchWinType.Input_Image:
+                        pageName = "Input_Image.aspx";
                         break;
                     default:
                         pageName = SearchWinType.ToString() + ".aspx";

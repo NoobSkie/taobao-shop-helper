@@ -1,13 +1,13 @@
 ﻿.PageContent .WaittingList
 {
-    float: left;    
+    float: left;
     width: 250px;
 }
 
 .PageContent .TemplateArea
 {
-    display:block;
-    overflow:hidden;
+    display: block;
+    overflow: hidden;
 }
 
 .PageContent .TemplateArea .ItemInformation
@@ -20,7 +20,7 @@
 
 .WaittingList ul
 {
-    list-style-type: decimal;
+    list-style-type: none;
     border-top: solid 1px gray;
     border-bottom: solid 1px gray;
     margin: 0px;
@@ -31,8 +31,9 @@
 {
     font: 12px/1.5 Tahoma,Helvetica,Arial, '宋体' ,sans-serif;
     color: #36c;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    margin-left: -38px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     padding-left: 5px;
     padding-right: 3px;
     border-top: solid 1px gray;
@@ -42,6 +43,10 @@
 .WaittingList ul li:first-child
 {
     border-top: none;
+}
+
+.WaittingList ul li.New
+{
 }
 
 .WaittingList ul li.Selected

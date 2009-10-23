@@ -6,11 +6,54 @@
 <head runat="server">
     <title></title>
     <base target="_self" />
+
     <script type="text/javascript">
 
         var parentWindow = window.dialogArgument;
+        var ctrlId = new String();
+        var type = new String();
+        
+        var selectedItemList = new Array();
+
+        function SetInTest() {
+            parentWindow = window.opener;
+        }
+
+        function SetCtrlId(v) {
+            ctrlId = v;
+        }
+
+        function SetType(v) {
+            type = v;
+        }
+
+        function AddItem(item) {
+            selectedItemList.push(item);
+        }
+
+        function RemoveItem(itemId) {
+            var i = 0, n = 0;
+            for (; i < selectedItemList.length; i++) {
+                if (selectedItemList[i].Id != itemId) {
+                    selectedItemList[n++] = selectedItemList[i]
+                }
+            }
+            selectedItemList.length = n;
+        }
+
+        function CloseSearchWin() {
+            window.close();
+        }
+
+        function ReturnSearchWin() {
+            if (parentWindow) {
+                parentWindow.AfterReturnData(ctrlId, type, selectedItemList);
+            }
+            window.close();
+        }
     
     </script>
+
     <asp:ContentPlaceHolder ID="PageHead" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -31,46 +74,5 @@
         </div>
     </div>
     </form>
-
-    <script type="text/javascript">
-
-        var selectedItemList = new Array();
-
-        function AddItem(item) {
-            selectedItemList.push(item);
-        }
-
-        function RemoveItem(itemId) {
-            var i = 0, n = 0;
-            for (; i < selectedItemList.length; i++) {
-                if (selectedItemList[i].Id != itemId) {
-                    selectedItemList[n++] = selectedItemList[i]
-                }
-            }
-            selectedItemList.length = n;
-        }
-
-        var isSystemClosed = false;
-
-        function CloseSearchWin() {
-            isSystemClosed = true;
-            window.returnValue = null;
-            window.close();
-        }
-
-        function ReturnSearchWin() {
-            isSystemClosed = true;
-            window.returnValue = selectedItemList;
-            window.close();
-        }
-
-        function window.onunload() {
-            if (!isSystemClosed) {
-                window.returnValue = null;
-            }
-        }
-    
-    </script>
-
 </body>
 </html>

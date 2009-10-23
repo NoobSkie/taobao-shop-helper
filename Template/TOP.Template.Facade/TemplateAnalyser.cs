@@ -89,8 +89,14 @@ namespace TOP.Template.Facade
                     string value = text.Substring(index + 1).Trim('"');
                     switch (title.ToLower())
                     {
+                        case "id":
+                            info.Id = value;
+                            break;
                         case "displayname":
                             info.DisplayName = value;
+                            break;
+                        case "cssname":
+                            info.CssName = value;
                             break;
                         case "datatype":
                             info.DataType = value;
@@ -103,6 +109,12 @@ namespace TOP.Template.Facade
                             break;
                         case "showtitle":
                             info.ShowTitle = bool.Parse(value);
+                            break;
+                        case "demoinput":
+                            info.DemoInput = value;
+                            break;
+                        case "information":
+                            info.Information = value;
                             break;
                         case "showthis":
                             info.ShowThis = bool.Parse(value);

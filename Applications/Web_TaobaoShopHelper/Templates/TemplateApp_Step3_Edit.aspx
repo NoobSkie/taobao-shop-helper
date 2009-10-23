@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Templates/NestedTemplatePage.master"
     AutoEventWireup="true" CodeBehind="TemplateApp_Step3_Edit.aspx.cs" Inherits="TOP.Applications.TaobaoShopHelper.Templates.TemplateApp_Step3_Edit" %>
 
-<%@ Register Src="~/WebControls/Template/CtrlBlock_Container.ascx" TagName="CtrlBlock_Container"
-    TagPrefix="uc1" %>
+<%@ Register Src="~/WebControls/Template/CtrlTemplateEditor.ascx" TagName="CtrlTemplateEditor"
+    TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CommonContent" runat="server">
@@ -27,14 +27,11 @@
             </asp:DropDownList>
         </div>
         <div class="TemplateContainer">
-            <asp:Repeater ID="rptBlocks" runat="server">
-                <ItemTemplate>
-                    <uc1:CtrlBlock_Container ID="ucCtrlBlockContainer" TemplateInfo="<%# Container.DataItem %>"
-                        runat="server" />
-                </ItemTemplate>
-            </asp:Repeater>
+            <uc2:CtrlTemplateEditor ID="ucTemplateEditor" runat="server" />
         </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="PageFooterHolder" runat="server">
+    <asp:LinkButton ID="lbtnPreview" runat="server" OnClick="lbtnPreview_Click">效果预览及对比</asp:LinkButton>
+    <asp:LinkButton ID="lbtnSave" runat="server" OnClick="lbtnSave_Click">保存并继续下一个</asp:LinkButton>
 </asp:Content>

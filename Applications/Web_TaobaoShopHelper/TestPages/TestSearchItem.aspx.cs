@@ -18,7 +18,7 @@ namespace TOP.Applications.TaobaoShopHelper.TestPages
 
         public void OnAfterReturnItems(SearchWinReturnedEventArg e)
         {
-            JsonObjectList<JsonItem> list = JsonParser.ParseJsonResponse<JsonItem>(e.Json);
+            JsonObjectList<JsonItem> list = JsonParser.ParseJsonResponse<JsonItem>(e.PostData);
             Response.Write(list.TotalCount);
         }
     }

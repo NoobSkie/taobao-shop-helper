@@ -50,7 +50,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                             }
                         }
                     }
-                }                
+                }
                 this.rtpInputItems.DataSource = value.Children;
                 this.rtpInputItems.DataBind();
             }
@@ -67,8 +67,8 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             {
                 RepeaterItem item = rtpInputItems.Items[i];
 
-                CtrlBlock_Unit input = (CtrlBlock_Unit)item.FindControl("ucCtrlBlockUnit");
-                input.SaveCurrentValue();
+                CtrlBlock_Display input = (CtrlBlock_Display)item.FindControl("ucCtrlBlockDisplay");
+                // input.SaveCurrentValue();
                 TemplateInfo.Children[i] = input.TemplateInfo;
             }
         }
@@ -83,7 +83,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             string html = TemplateInfo.InnerHTML;
             foreach (RepeaterItem item in rtpInputItems.Items)
             {
-                CtrlBlock_Unit input = (CtrlBlock_Unit)item.FindControl("ucCtrlBlockUnit");
+                CtrlBlock_Display input = (CtrlBlock_Display)item.FindControl("ucCtrlBlockUnit");
                 string outerHtml = input.GetOuterHTML();
                 string itemHtml = input.GetInputHTML();
                 html = html.Replace(outerHtml, itemHtml);

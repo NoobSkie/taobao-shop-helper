@@ -1,0 +1,20 @@
+﻿<div>
+{template:list Id="ProductImageList" DisplayName="产品展示图片"}
+	<div>
+		{template:item Id="ProductImageList" DataType="Display" DisplayName="输入图片链接" DemoInput="" Information="注：可以输入多个图片链接，每行一个。"}
+			<img src="{template:display DisplayName="图片链接" Index="1" DataSource="0" DataType="Image"}{/template}" />
+			{template:display DisplayName="图片链接" CssName="Price_List" Index="2" DataSource="0" DataType="Text"}{/template}"
+		{/template}
+	</div>
+{/template}
+</div>
+<div>
+{template:list DisplayName="规格介绍" DataType="Text" DefaultValue="型号#,尺寸#"}
+	<div>
+		{template:item DisplayName="名称"}
+			<span style="font-family: 幼圆; font-size: 1.5em;">{template:input DisplayName="名称" Index="1" DataType="Text"}{/template}</span>
+			<span style="font-family: 幼圆; font-size: 1.5em;">{template:input DisplayName="规格" Index="2" InputWidth="250" DataType="Text"}{/template}</span>
+		{/template}
+	</div>
+{/template}
+</div>

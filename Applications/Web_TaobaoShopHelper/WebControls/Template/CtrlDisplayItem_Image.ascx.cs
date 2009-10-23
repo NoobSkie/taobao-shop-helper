@@ -29,10 +29,18 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                 string json = value.DefaultValue;
                 if (!string.IsNullOrEmpty(json) && !string.IsNullOrEmpty(value.DataSource))
                 {
-                    JObject obj = JObject.Parse(json);
-                    if (obj[value.DataSource] != null)
+                    int index;
+                    if (int.TryParse(value.DataSource, out index))
                     {
-                        imgImage.ImageUrl = obj[value.DataSource].Value<string>();
+                        imgImage.ImageUrl = json.Split(',')[index];
+                    }
+                    else
+                    {
+                        JObject obj = JObject.Parse(json);
+                        if (obj[value.DataSource] != null)
+                        {
+                            imgImage.ImageUrl = obj[value.DataSource].Value<string>();
+                        }
                     }
                 }
             }

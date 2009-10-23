@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TOP.Applications.TaobaoShopHelper.WebControls.Template {
+namespace TOP.Applications.TaobaoShopHelper.SearchWin {
     
     
-    public partial class CtrlInputItem_Text {
+    public partial class Input_Image {
         
         /// <summary>
         /// lblTitle control.
@@ -23,12 +23,30 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template {
         protected global::System.Web.UI.WebControls.Label lblTitle;
         
         /// <summary>
-        /// txtContent control.
+        /// txtImageUrlList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContent;
+        protected global::System.Web.UI.WebControls.TextBox txtImageUrlList;
+        
+        /// <summary>
+        /// hlnkOk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlnkOk;
+        
+        /// <summary>
+        /// hlnkCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlnkCancel;
     }
 }

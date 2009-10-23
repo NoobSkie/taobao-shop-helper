@@ -29,14 +29,22 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                 string json = value.DefaultValue;
                 if (!string.IsNullOrEmpty(json) && !string.IsNullOrEmpty(value.DataSource))
                 {
-                    JObject obj = JObject.Parse(json);
-                    if (obj[value.DataSource] != null)
+                    int index;
+                    if (int.TryParse(value.DataSource, out index))
                     {
-                        lblText.Text = obj[value.DataSource].Value<string>();
+                        lblText.Text = json.Split(',')[index];
                     }
-                    if (value.DataSource.Equals("Price", StringComparison.OrdinalIgnoreCase))
+                    else
                     {
-                        lblText.CssClass = "Price_List";
+                        JObject obj = JObject.Parse(json);
+                        if (obj[value.DataSource] != null)
+                        {
+                            lblText.Text = obj[value.DataSource].Value<string>();
+                        }
+                    }
+                    if (!string.IsNullOrEmpty(value.CssName))
+                    {
+                        lblText.CssClass = value.CssName;
                     }
                     lblTitle.Visible = value.ShowTitle;
                     if (value.ShowTitle)

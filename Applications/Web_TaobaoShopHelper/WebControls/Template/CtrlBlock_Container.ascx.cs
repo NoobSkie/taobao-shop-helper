@@ -47,6 +47,14 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             }
         }
 
+        public void CreateChild(string defaultValue)
+        {
+            if (ucCtrlBlockList.Visible)
+            {
+                ucCtrlBlockList.CreateChild(defaultValue);
+            }
+        }
+
         public string GetOuterHTML()
         {
             return TemplateInfo.OuterHTML;

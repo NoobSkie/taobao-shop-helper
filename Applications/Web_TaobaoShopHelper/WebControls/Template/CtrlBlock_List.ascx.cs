@@ -11,14 +11,20 @@ using Taobao.Top.Api;
 using Taobao.Top.Api.Request;
 using Taobao.Top.Api.Domain;
 using Taobao.Top.Api.Parser;
+using TOP.Applications.TaobaoShopHelper.Templates;
 
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 {
-    public partial class CtrlBlock_List : BaseControl
+    public partial class CtrlBlock_List : TemplateEditCtrlBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             ucCtrlSearchButtonMulti.AfterReturned += new AfterReturnedEventHadler(OnAfterReturnItems);
+            if (!IsPostBack)
+            {
+                this.rtpBlockItems.DataSource = currentDataSource;
+                this.rtpBlockItems.DataBind();
+            }
         }
 
         private List<TemplateObject> currentDataSource
@@ -62,25 +68,15 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                 if (value.Children.Count > 0)
                 {
                     currentModule = value.Children[0];
+                    ucCtrlSearchButtonMulti.SearchWinTitle = value.Children[0].DisplayName;
+                    ucCtrlSearchButtonMulti.DemoInput = value.Children[0].DemoInput;
+                    ucCtrlSearchButtonMulti.Information = value.Children[0].Information;
                 }
                 currentDataSource = new List<TemplateObject>();
                 if (string.IsNullOrEmpty(value.DataType))
                 {
-                    ucCtrlSearchButtonMulti.Visible = false;
-                    lbtnAddNew.Visible = true;
-
-                    if (string.IsNullOrEmpty(value.DefaultValue))
-                    {
-                        CreateChild(string.Empty);
-                    }
-                    else
-                    {
-                        string[] values = value.DefaultValue.Split(',');
-                        foreach (string v in values)
-                        {
-                            CreateChild(v);
-                        }
-                    }
+                    ucCtrlSearchButtonMulti.Visible = true;
+                    ucCtrlSearchButtonMulti.SearchWinType = SearchWinType.Input_Text;
                 }
                 else
                 {
@@ -88,67 +84,73 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                     {
                         case "myitems":
                             ucCtrlSearchButtonMulti.Visible = true;
-                            lbtnAddNew.Visible = false;
-
+                            ucCtrlSearchButtonMulti.SearchWinType = SearchWinType.Multi_MyItems;
                             break;
                         default:
-                            ucCtrlSearchButtonMulti.Visible = false;
-                            lbtnAddNew.Visible = false;
+                            ucCtrlSearchButtonMulti.Visible = true;
+                            ucCtrlSearchButtonMulti.SearchWinType = SearchWinType.Input_Text;
                             break;
                     }
                 }
             }
-        }
-
-        protected void lbtnAddNew_Click(object sender, EventArgs e)
-        {
-            SaveCurrentValue();
-            CreateChild(string.Empty);
         }
 
         public void OnAfterReturnItems(SearchWinReturnedEventArg e)
         {
-            JsonObjectList<JsonItem> list = JsonParser.ParseJsonResponse<JsonItem>(e.Json);
-            foreach (JsonItem item in list)
+            switch (e.SearchWinType)
             {
-                if (string.IsNullOrEmpty(item.DetailUrl))
-                {
-                    ITopClient client = GetProductTopClient();
-                    ItemGetRequest req = new ItemGetRequest();
-                    req.Fields = "detail_url";
-                    req.Iid = item.Id;
-                    req.Nick = item.Nick;
-                    Item rsp = client.Execute<Item>(req, new ItemJsonParser());
-                    if (rsp != null && !string.IsNullOrEmpty(rsp.DetailUrl))
+                case SearchWinType.Input_Text:
+                    foreach (string data in e.PostData.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
                     {
-                        item.DetailUrl = rsp.DetailUrl;
+                        AddChild(data);
                     }
-                }
-                CreateChild(item.ToJsonString());
+                    break;
+                default:
+                    JsonObjectList<JsonItem> list = JsonParser.ParseJsonResponse<JsonItem>(e.PostData);
+                    foreach (JsonItem item in list)
+                    {
+                        if (string.IsNullOrEmpty(item.DetailUrl))
+                        {
+                            ITopClient client = GetProductTopClient();
+                            ItemGetRequest req = new ItemGetRequest();
+                            req.Fields = "detail_url";
+                            req.Iid = item.Id;
+                            req.Nick = item.Nick;
+                            Item rsp = client.Execute<Item>(req, new ItemJsonParser());
+                            if (rsp != null && !string.IsNullOrEmpty(rsp.DetailUrl))
+                            {
+                                item.DetailUrl = rsp.DetailUrl;
+                            }
+                        }
+                        AddChild(item.ToJsonString());
+                    }
+                    break;
             }
+            Response.Redirect(Request.Url.AbsolutePath);
         }
 
-        private void SaveCurrentValue()
+        public void AddChild(string defaultValue)
         {
-            for (int i = 0; i < rtpBlockItems.Items.Count; i++)
+            if (currentModule != null)
             {
-                RepeaterItem item = rtpBlockItems.Items[i];
-
-                CtrlBlock_Item block = (CtrlBlock_Item)item.FindControl("ucCtrlBlockItem");
-                block.SaveCurrentValue();
-                currentDataSource[i] = block.TemplateInfo;
+                TemplateObject clone = currentModule.Clone();
+                clone.DefaultValue = defaultValue;
+                TemplateSetItem flow = new TemplateSetItem();
+                flow.Action = "Add";
+                flow.ChildrenCount = clone.Children.Count;
+                flow.ContainerId = clone.Id;
+                flow.Value = defaultValue;
+                CurrentTemplateSetFlow.CurrentFlow.Add(flow);
             }
         }
 
-        private void CreateChild(string defaultValue)
+        public void CreateChild(string defaultValue)
         {
             if (currentModule != null)
             {
                 TemplateObject clone = currentModule.Clone();
                 clone.DefaultValue = defaultValue;
                 currentDataSource.Add(clone);
-                this.rtpBlockItems.DataSource = currentDataSource;
-                this.rtpBlockItems.DataBind();
             }
         }
 

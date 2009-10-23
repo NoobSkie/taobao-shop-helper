@@ -109,7 +109,11 @@ namespace TOP.Applications.TaobaoShopHelper._Common
             Dictionary<string, string> list = new Dictionary<string, string>();
             foreach (string key in Request.QueryString.AllKeys)
             {
-                list.Add(key, Request.QueryString[key]);
+                if (!key.Equals("IsSuccess", StringComparison.OrdinalIgnoreCase)
+                    && !key.Equals("Message", StringComparison.OrdinalIgnoreCase))
+                {
+                    list.Add(key, Request.QueryString[key]);
+                }
             }
             return list;
         }

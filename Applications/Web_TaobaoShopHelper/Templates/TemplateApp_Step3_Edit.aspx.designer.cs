@@ -32,12 +32,30 @@ namespace TOP.Applications.TaobaoShopHelper.Templates {
         protected global::System.Web.UI.WebControls.DropDownList ddlTemplates;
         
         /// <summary>
-        /// rptBlocks control.
+        /// ucTemplateEditor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptBlocks;
+        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlTemplateEditor ucTemplateEditor;
+        
+        /// <summary>
+        /// lbtnPreview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnPreview;
+        
+        /// <summary>
+        /// lbtnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnSave;
     }
 }

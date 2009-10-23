@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TOP.Applications.TaobaoShopHelper.WebControls.Template {
+namespace TOP.Applications.TaobaoShopHelper.SearchWin {
     
     
-    public partial class CtrlInputItem_ImageUrl {
+    public partial class Input_Text {
         
         /// <summary>
         /// lblTitle control.
@@ -23,21 +23,39 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template {
         protected global::System.Web.UI.WebControls.Label lblTitle;
         
         /// <summary>
-        /// txtContent control.
+        /// lblInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContent;
+        protected global::System.Web.UI.WebControls.Label lblInfo;
         
         /// <summary>
-        /// imgPreview control.
+        /// txtTextList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgPreview;
+        protected global::System.Web.UI.WebControls.TextBox txtTextList;
+        
+        /// <summary>
+        /// hlnkOk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlnkOk;
+        
+        /// <summary>
+        /// hlnkCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlnkCancel;
     }
 }

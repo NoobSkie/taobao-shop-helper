@@ -8,6 +8,10 @@ using TOP.Applications.TaobaoShopHelper._Common;
 using TOP.Applications.TaobaoShopHelper.WebControls.Common;
 using TOP.Template.Facade;
 using TOP.Common.CompressionTool;
+using Taobao.Top.Api;
+using Taobao.Top.Api.Request;
+using Taobao.Top.Api.Parser;
+using Taobao.Top.Api.Domain;
 
 namespace TOP.Applications.TaobaoShopHelper.Templates
 {
@@ -17,17 +21,10 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
         {
             if (!IsPostBack)
             {
-                BindWaittingTemplateList();
-
                 List<InformationObject> infoList = new List<InformationObject>();
                 if (CurrentUser == null)
                 {
                     infoList.Add(GetUnLoginInformation());
-                }
-                else
-                {
-                    BindTemplateList();
-                    BindTemplateInfo();
                 }
                 if (string.IsNullOrEmpty(CurrentSessionKey) || string.IsNullOrEmpty(CurrentSellerNick))
                 {
@@ -36,6 +33,35 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
                 if (infoList.Count > 0)
                 {
                     DisplayInformations(infoList);
+
+                    lbtnSave.Enabled = false;
+                    lbtnPreview.Enabled = false;
+                }
+                else
+                {
+                    BindWaittingTemplateList();
+                    BindTemplateList();
+                    BindTemplateInfo();
+
+                    int isSuccess = 0;
+                    if (!string.IsNullOrEmpty(Request["IsSuccess"]))
+                    {
+                        isSuccess = int.Parse(Request["IsSuccess"]);
+                    }
+                    if (isSuccess > 0)
+                    {
+                        InformationObject obj = new InformationObject();
+                        obj.Message = Request["Message"];
+                        infoList.Add(obj);
+                        DisplayInformations(infoList, InformationIcoType.Information);
+                    }
+                    else if (isSuccess < 0)
+                    {
+                        InformationObject obj = new InformationObject();
+                        obj.Message = Request["Message"];
+                        infoList.Add(obj);
+                        DisplayInformations(infoList, InformationIcoType.Error);
+                    }
                 }
             }
         }
@@ -49,9 +75,7 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
                 TemplateContentInfo info = facade.GetTemplateContentById(templateId);
                 if (info != null)
                 {
-                    List<TemplateObject> templateList = TemplateAnalyser.AnalyseTemplateList(info.Content);
-                    rptBlocks.DataSource = templateList;
-                    rptBlocks.DataBind();
+                    ucTemplateEditor.TemplateHtml = info.Content;
                 }
             }
         }
@@ -147,6 +171,28 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
                     parameters.Add("Id", id);
                 }
             }
+            Response.Redirect(Request.Url.AbsolutePath + "?" + GetQueryByParameterList(parameters));
+        }
+
+        protected void lbtnPreview_Click(object sender, EventArgs e)
+        {
+            string html = ucTemplateEditor.GetHtml();
+            string arg = CompressionHelper.Compress(html);
+        }
+
+        protected void lbtnSave_Click(object sender, EventArgs e)
+        {
+            string html = ucTemplateEditor.GetHtml();
+            ITopClient client = GetProductTopClient();
+            ItemUpdateRequest req = new ItemUpdateRequest();
+            // SellerItemCatsGetRequest req = new SellerItemCatsGetRequest();
+            req.Desc = html;
+            req.Iid = Request["Current"];
+            Item item = client.Execute(req, new ItemJsonParser(), CurrentSessionKey);
+
+            Dictionary<string, string> parameters = GetParameterListByQuery();
+            parameters.Add("IsSuccess", "1");
+            parameters.Add("Message", "设置宝贝描述信息成功！");
             Response.Redirect(Request.Url.AbsolutePath + "?" + GetQueryByParameterList(parameters));
         }
     }

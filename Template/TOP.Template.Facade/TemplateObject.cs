@@ -14,6 +14,8 @@ namespace TOP.Template.Facade
             ShowThis = true;
         }
 
+        public string Id { get; set; }
+
         public string OuterHTML { get; set; }
 
         public string InnerHTML { get; set; }
@@ -21,6 +23,10 @@ namespace TOP.Template.Facade
         public string Category { get; set; }
 
         public string DisplayName { get; set; }
+
+        public string DemoInput { get; set; }
+
+        public string Information { get; set; }
 
         public string DataType { get; set; }
 
@@ -42,6 +48,8 @@ namespace TOP.Template.Facade
         /// 是否显示当前节点
         /// </summary>
         public bool ShowThis { get; set; }
+
+        public string CssName { get; set; }
 
         /// <summary>
         /// 当前显示序号
@@ -79,11 +87,15 @@ namespace TOP.Template.Facade
         public TemplateObject Clone()
         {
             TemplateObject obj = new TemplateObject();
+            obj.Id = Id;
+            obj.DemoInput = DemoInput;
+            obj.Information = Information;
             obj.OuterHTML = OuterHTML;
             obj.InnerHTML = InnerHTML;
             obj.Category = Category;
             obj.DisplayName = DisplayName;
             obj.DataType = DataType;
+            obj.CssName = CssName;
             obj.DefaultValue = DefaultValue;
             obj.ShowTitle = ShowTitle;
             obj.TitleWidth = TitleWidth;

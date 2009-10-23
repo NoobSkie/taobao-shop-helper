@@ -23,6 +23,15 @@ namespace TOP.Applications.TaobaoShopHelper.Templates {
         protected global::System.Web.UI.WebControls.LinkButton lbtnAdd;
         
         /// <summary>
+        /// hlinkCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlinkCreate;
+        
+        /// <summary>
         /// rptTemplateList control.
         /// </summary>
         /// <remarks>

@@ -19,5 +19,11 @@
 
 .WebPage .PageFooter
 {
+    clear: both;
     height: 32px;
+    text-align: right;
+}
+
+.WebPage .PageFooter a
+{
 }

@@ -6,7 +6,6 @@
 <div class="TemplateBlock BlockList">
     <div class="BlockHeader">
         <asp:Label ID="lblHeader" runat="server" CssClass="Title"></asp:Label>
-        <asp:LinkButton ID="lbtnAddNew" runat="server" CssClass="AddNew" OnClick="lbtnAddNew_Click">添加</asp:LinkButton>
         <uc2:CtrlSearchButton_Multi ID="ucCtrlSearchButtonMulti" SearchWinType="Multi_MyItems"
             Text="添加" runat="server" />
     </div>

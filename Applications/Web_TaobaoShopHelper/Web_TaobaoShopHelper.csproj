@@ -141,6 +141,20 @@
     <Compile Include="RequestPages\UpdateItemCategoryListToLocal.aspx.designer.cs">
       <DependentUpon>UpdateItemCategoryListToLocal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SearchWin\Input_Image.aspx.cs">
+      <DependentUpon>Input_Image.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchWin\Input_Image.aspx.designer.cs">
+      <DependentUpon>Input_Image.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchWin\Input_Text.aspx.cs">
+      <DependentUpon>Input_Text.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchWin\Input_Text.aspx.designer.cs">
+      <DependentUpon>Input_Text.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SearchWin\SearchItems_Single.aspx.cs">
       <DependentUpon>SearchItems_Single.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -281,6 +295,7 @@
     <Compile Include="Templates\TemplateSet.aspx.designer.cs">
       <DependentUpon>TemplateSet.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Templates\TemplateSetFlow.cs" />
     <Compile Include="Templates\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -465,13 +480,6 @@
     <Compile Include="WebControls\Template\CtrlBlock_Display.ascx.designer.cs">
       <DependentUpon>CtrlBlock_Display.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebControls\Template\CtrlBlock_Input.ascx.cs">
-      <DependentUpon>CtrlBlock_Input.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebControls\Template\CtrlBlock_Input.ascx.designer.cs">
-      <DependentUpon>CtrlBlock_Input.ascx</DependentUpon>
-    </Compile>
     <Compile Include="WebControls\Template\CtrlBlock_Item.ascx.cs">
       <DependentUpon>CtrlBlock_Item.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -485,13 +493,6 @@
     </Compile>
     <Compile Include="WebControls\Template\CtrlBlock_List.ascx.designer.cs">
       <DependentUpon>CtrlBlock_List.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="WebControls\Template\CtrlBlock_Unit.ascx.cs">
-      <DependentUpon>CtrlBlock_Unit.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebControls\Template\CtrlBlock_Unit.ascx.designer.cs">
-      <DependentUpon>CtrlBlock_Unit.ascx</DependentUpon>
     </Compile>
     <Compile Include="WebControls\Template\CtrlDisplayItem_Image.ascx.cs">
       <DependentUpon>CtrlDisplayItem_Image.ascx</DependentUpon>
@@ -507,26 +508,22 @@
     <Compile Include="WebControls\Template\CtrlDisplayItem_Text.ascx.designer.cs">
       <DependentUpon>CtrlDisplayItem_Text.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebControls\Template\CtrlInputItem_ImageUrl.ascx.cs">
-      <DependentUpon>CtrlInputItem_ImageUrl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebControls\Template\CtrlInputItem_ImageUrl.ascx.designer.cs">
-      <DependentUpon>CtrlInputItem_ImageUrl.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="WebControls\Template\CtrlInputItem_Text.ascx.cs">
-      <DependentUpon>CtrlInputItem_Text.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebControls\Template\CtrlInputItem_Text.ascx.designer.cs">
-      <DependentUpon>CtrlInputItem_Text.ascx</DependentUpon>
-    </Compile>
     <Compile Include="WebControls\Template\CtrlSearch_Item_Multi.ascx.cs">
       <DependentUpon>CtrlSearch_Item_Multi.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebControls\Template\CtrlSearch_Item_Multi.ascx.designer.cs">
       <DependentUpon>CtrlSearch_Item_Multi.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlTemplateEditor.ascx.cs">
+      <DependentUpon>CtrlTemplateEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Template\CtrlTemplateEditor.ascx.designer.cs">
+      <DependentUpon>CtrlTemplateEditor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Template\TemplateEditCtrlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="_Common\AppUrlHelper.cs" />
     <Compile Include="_Common\BasePage.cs">
@@ -771,14 +768,10 @@
     <Content Include="WebControls\Shop\CtrlShopInfo.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Container.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Display.ascx" />
-    <Content Include="WebControls\Template\CtrlBlock_Input.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_Item.ascx" />
     <Content Include="WebControls\Template\CtrlBlock_List.ascx" />
-    <Content Include="WebControls\Template\CtrlBlock_Unit.ascx" />
     <Content Include="WebControls\Template\CtrlDisplayItem_Image.ascx" />
     <Content Include="WebControls\Template\CtrlDisplayItem_Text.ascx" />
-    <Content Include="WebControls\Template\CtrlInputItem_ImageUrl.ascx" />
-    <Content Include="WebControls\Template\CtrlInputItem_Text.ascx" />
     <Content Include="WebControls\Template\CtrlSearch_Item_Multi.ascx" />
   </ItemGroup>
   <ItemGroup>
@@ -792,14 +785,18 @@
     <Content Include="App_Themes\Professional\01.LayoutStyles\50.TemplateSelectItems.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\10.LeftRightView.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\11.ControlLayout.css" />
+    <Content Include="SearchWin\Input_Image.aspx" />
+    <Content Include="SearchWin\Input_Text.aspx" />
     <Content Include="ShopHelper\ImportItem_Step1_SelectItems.aspx" />
     <Content Include="ShopHelper\ImportItem_Step1_SelectItems_Item.aspx" />
     <Content Include="ShopHelper\ImportItem_Step2_Options.aspx" />
     <Content Include="ShopHelper\ImportItem_Step3_Preview.aspx" />
     <Content Include="ShopHelper\NestedImportItemStep.master" />
+    <Content Include="Templates\test1.txt" />
     <Content Include="Templates\TemplateApp_Step2_SelectItems.aspx" />
     <Content Include="Templates\TemplateApp_Step3_Edit.aspx" />
     <Content Include="Templates\TemplateSet.aspx" />
+    <Content Include="WebControls\Template\CtrlTemplateEditor.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

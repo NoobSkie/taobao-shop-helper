@@ -34,6 +34,8 @@ namespace TOP.Applications.TaobaoShopHelper._Common
 
     public enum SearchWinType
     {
-        Multi_MyItems,
+        Multi_MyItems = 0,
+        Input_Text = 1,
+        Input_Image = 2,
     }
 }

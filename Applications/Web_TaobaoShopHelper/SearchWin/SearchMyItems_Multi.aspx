@@ -6,7 +6,7 @@
 <%@ Register Src="~/WebControls/Common/CtrlPager.ascx" TagName="CtrlPager" TagPrefix="uc2" %>
 <%@ Register Src="~/WebControls/Category/CtrlShopCategoryTree.ascx" TagName="CtrlShopCategoryTree"
     TagPrefix="uc3" %>
-<%@ Register Src="../WebControls/Search/CtrlSearchItems_Multi.ascx" TagName="CtrlSearchItems_Multi"
+<%@ Register Src="~/WebControls/Search/CtrlSearchItems_Multi.ascx" TagName="CtrlSearchItems_Multi"
     TagPrefix="uc4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageHead" runat="server">
 </asp:Content>
