@@ -101,7 +101,7 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
                     , itemDetail.InputStr
                     , "", "", "", "", ""
                     , string.Empty, string.Empty
-                    , TOP_SessionKey);
+                    , CurrentSessionKey);
                 Response.Write(province + "." + city + ".");
             }
             catch (TOPFacade.ResponseException ex)

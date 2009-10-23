@@ -32,7 +32,12 @@ namespace TOP.Applications.TaobaoShopHelper.Authorizes
             string authCode = txtAuthCode.Text;
             if (CheckAuthKey(authCode))
             {
-                Response.Redirect(string.Format(varHelper.TOP_Url_SessionKeyContainer, authCode), true);
+                string url = string.Format(varHelper.TOP_Url_SessionKeyContainer, authCode);
+                if (!string.IsNullOrEmpty(Request.Url.Query))
+                {
+                    url += "&" + Request.Url.Query.TrimStart('?');
+                }
+                Response.Redirect(url, true);
             }
             else
             {

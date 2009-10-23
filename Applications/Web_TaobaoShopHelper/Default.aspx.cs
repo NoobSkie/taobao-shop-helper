@@ -8,6 +8,7 @@ using TOP.Applications.TaobaoShopHelper._Common;
 using TOP.Core.Facade;
 using TOP.Core.Domain;
 using TOP.Common.StringTool;
+using System.Text;
 
 namespace TOP.Applications.TaobaoShopHelper
 {
@@ -21,13 +22,45 @@ namespace TOP.Applications.TaobaoShopHelper
             {
                 if (!string.IsNullOrEmpty(Request["top_session"]))
                 {
-                    TOP_SessionKey = Request["top_session"];
+                    CurrentSessionKey = Request["top_session"];
+                }
+                if (!string.IsNullOrEmpty(Request["top_parameters"]))
+                {
+                    Dictionary<string, string> parameters = GetParameters(Request["top_parameters"]);
+                    if (parameters.ContainsKey("visitor_nick"))
+                    {
+                        CurrentSellerNick = parameters["visitor_nick"];
+                    }
                 }
                 if (!string.IsNullOrEmpty(Request["ReturnUrl"]))
                 {
                     Response.Redirect(Request["ReturnUrl"], true);
                 }
             }
+        }
+
+        private Dictionary<string, string> GetParameters(string base64string)
+        {
+            byte[] output = Convert.FromBase64String(base64string);
+            string parameters = Encoding.Default.GetString(output);
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            foreach (string item in parameters.Split('&'))
+            {
+                string[] ss = item.Split('=');
+                if (ss.Length <= 0)
+                {
+                    continue;
+                }
+                else if (ss.Length == 1)
+                {
+                    dictionary.Add(ss[0], string.Empty);
+                }
+                else
+                {
+                    dictionary.Add(ss[0], ss[1]);
+                }
+            }
+            return dictionary;
         }
 
         protected void btnTest_Click(object sender, EventArgs e)

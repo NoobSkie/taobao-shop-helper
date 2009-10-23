@@ -27,7 +27,7 @@ namespace TOP.Applications.TaobaoShopHelper
             CategoryFacade categoryFacade = new CategoryFacade(varHelper.TOP_AppKey, varHelper.TOP_AppSecret);
             TOPDataList<SellerCategory> categories = categoryFacade.GetSellerCategories("zhongjy001");
             categories[1].SortOrder = 5;
-            SellerCategoryResult result = categoryFacade.UpdateSellerCategory(categories[1], TOP_SessionKey);
+            SellerCategoryResult result = categoryFacade.UpdateSellerCategory(categories[1], CurrentSessionKey);
             Response.Write(result.CategoryId);
             Response.Write("<BR />");
         }
@@ -169,7 +169,7 @@ namespace TOP.Applications.TaobaoShopHelper
                         }
                     }
                     Response.Write("<BR />");
-                    string sessionKey = TOP_SessionKey;
+                    string sessionKey = CurrentSessionKey;
                     string response = itemFacade.AddItem(itemDetail.Number
                         , itemDetail.Price
                         , itemDetail.ItemType
@@ -209,7 +209,7 @@ namespace TOP.Applications.TaobaoShopHelper
                         //, string.Empty  
                         //, string.Empty  
                         , string.Empty, itemDetail.OuterId, itemDetail.ProductId
-                        , TOP_SessionKey);
+                        , CurrentSessionKey);
                     Response.Write("从店铺\"" + itemDetail.Nick + "\"导入\"" + itemDetail.Title + "\"成功！");
                 }
             }

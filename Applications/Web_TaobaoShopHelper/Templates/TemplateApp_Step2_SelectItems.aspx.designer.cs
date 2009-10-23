@@ -14,6 +14,69 @@ namespace TOP.Applications.TaobaoShopHelper.Templates {
     public partial class TemplateApp_Step2_SelectItems {
         
         /// <summary>
+        /// tvCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TreeView tvCategory;
+        
+        /// <summary>
+        /// txtQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQuery;
+        
+        /// <summary>
+        /// cbDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbDiscount;
+        
+        /// <summary>
+        /// cbShowCase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbShowCase;
+        
+        /// <summary>
+        /// lbtnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnSearch;
+        
+        /// <summary>
+        /// rptItemList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptItemList;
+        
+        /// <summary>
+        /// ucCtrlPager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Common.CtrlPager ucCtrlPager;
+        
+        /// <summary>
         /// lblNext control.
         /// </summary>
         /// <remarks>

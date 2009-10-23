@@ -21,31 +21,6 @@
     min-height: 400px;
 }
 
-.SearchWin .Content .TreeArea
-{
-    float: left;
-    display:block;
-}
-
-.SearchWin .Content .MainArea
-{
-    display:block;
-    overflow: hidden;
-}
-
-.SearchWin .Content .MainArea .OperateArea
-{
-}
-
-.SearchWin .Content .MainArea .ListArea
-{
-}
-
-.SearchWin .Content .MainArea .Pager
-{
-    float:right;
-}
-
 .SearchWin .Footer
 {
     height: 32px;

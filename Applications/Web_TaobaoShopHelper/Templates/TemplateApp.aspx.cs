@@ -22,7 +22,7 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
                 obj.AddLink("点击这里登录系统", "~/Authorizes/UnLogin.aspx?ReturnUrl=" + Server.UrlEncode(Request.Url.AbsolutePath));
                 list.Add(obj);
             }
-            if (string.IsNullOrEmpty(TOP_SessionKey))
+            if (string.IsNullOrEmpty(CurrentSessionKey))
             {
                 InformationObject obj = new InformationObject();
                 obj.CssName = "Information";

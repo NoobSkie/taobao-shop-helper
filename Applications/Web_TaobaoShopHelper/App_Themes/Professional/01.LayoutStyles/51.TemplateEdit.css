@@ -1,24 +1,42 @@
 ﻿.PageContent .WaittingList
 {
-    float: left;
+    float: left;    
+    width: 250px;
+}
+
+.PageContent .TemplateArea
+{
+    display:block;
+    overflow:hidden;
+}
+
+.PageContent .TemplateArea .ItemInformation
+{
+}
+
+.PageContent .TemplateArea .TemplateContainer
+{
 }
 
 .WaittingList ul
 {
-    list-style-type: none;
-    overflow: hidden;
-    border: solid 1px gray;
-    position: relative;
+    list-style-type: decimal;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
     margin: 0px;
     float: left;
 }
 
 .WaittingList ul li
 {
-    height: 28px;
-    margin-left: -30px;
-    margin-right: 10px;
+    font: 12px/1.5 Tahoma,Helvetica,Arial, '宋体' ,sans-serif;
+    color: #36c;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 5px;
+    padding-right: 3px;
     border-top: solid 1px gray;
+    border-right: solid 1px gray;
 }
 
 .WaittingList ul li:first-child
@@ -26,19 +44,18 @@
     border-top: none;
 }
 
-.WaittingList ul li .Selected
+.WaittingList ul li.Selected
 {
+    border-right: none;
+    background-color: lightgray;
 }
 
 .WaittingList ul li a
 {
     text-align: left;
-    line-height: 24px;
-    margin-top: 5px;
     display: block;
-    height: 24px;
-    font-size: 1.19em;
     font-weight: bold;
+    overflow: visible;
     text-decoration: none;
 }
 

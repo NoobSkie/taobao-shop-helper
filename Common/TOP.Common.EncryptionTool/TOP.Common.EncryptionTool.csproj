@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encryption_Byte.cs" />
     <Compile Include="Encryption_Md5.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

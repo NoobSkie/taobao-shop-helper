@@ -14,7 +14,7 @@
         <ul>
             <asp:Repeater ID="rptItemList" runat="server">
                 <ItemTemplate>
-                    <li>
+                    <li class='<%# Eval("CssName") %>'>
                         <asp:HyperLink ID="hlnk" runat="server" Text='<%# Eval("Name") %>' NavigateUrl='<%# Eval("Url") %>'></asp:HyperLink></li>
                 </ItemTemplate>
             </asp:Repeater>
@@ -22,7 +22,8 @@
     </div>
     <div class="TemplateArea">
         <div class="ItemInformation">
-            <asp:DropDownList ID="ddlTemplates" runat="server" DataTextField="Name" DataValueField="Id">
+            <asp:DropDownList ID="ddlTemplates" runat="server" DataTextField="Name" AutoPostBack="true"
+                DataValueField="Id" OnSelectedIndexChanged="ddlTemplates_SelectedIndexChanged">
             </asp:DropDownList>
         </div>
         <div class="TemplateContainer">

@@ -1,0 +1,38 @@
+﻿.LeftRightView
+{
+}
+
+.LeftRightView .LeftArea
+{
+    float: left;
+    display: block;
+}
+
+.LeftRightView .RightArea
+{
+    border: solid 1px #c1dbff;
+    padding: 10px;
+    display: block;
+    overflow: hidden;
+}
+
+.LeftRightView .RightArea .HeaderArea
+{
+}
+
+.LeftRightView .RightArea .OptionArea
+{
+}
+
+.LeftRightView .RightArea .ContentArea
+{
+}
+
+.LeftRightView .RightArea .PagerArea
+{
+    float: right;
+}
+
+.LeftRightView .RightArea .FooterArea
+{
+}

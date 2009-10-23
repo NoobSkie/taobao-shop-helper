@@ -1,5 +1,6 @@
 ﻿.ItemList
 {
+    clear: both;
 }
 
 .ItemList .Item_Image
@@ -11,20 +12,20 @@
 
 .CheckItemList .Item_Image
 {
-    margin-bottom:8px;
+    margin-bottom: 8px;
 }
 
 .CheckItemList .Item_Image .Image
 {
     width: 150px;
-    height:120px;
-    display:block;
+    height: 120px;
+    display: block;
 }
 
 .CheckItemList .Item_Image .Image img
 {
     width: 150px;
-    max-height:120px;
+    max-height: 120px;
 }
 
 .CheckItemList .Item_Image .Check
@@ -42,3 +43,62 @@
 .CheckItemList .Item_Image .Price .Unit
 {
 }
+
+.ItemList .ListHeader
+{
+}
+
+.ItemList .Item_List
+{
+    clear: both;
+    display: block;
+    overflow: hidden;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.ItemList .Item_List .Partten
+{
+    float: left;
+    display: block;
+}
+
+.ItemList .Item_List .CheckPartten
+{
+    height: 50px;
+    margin-right: 8px;
+}
+
+.ItemList .Item_List .CheckPartten input
+{
+    margin-top: 16px;
+}
+
+.ItemList .Item_List .ImagePartten
+{
+    overflow: hidden;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border: solid 1px #cdcdcd;
+}
+
+.ItemList .Item_List .ImagePartten img
+{
+    width: 50px;
+    max-height: 50px;
+}
+
+.ItemList .Item_List .TitlePartten
+{
+    width: 250px;
+    padding-left: 8px;
+    overflow: hidden;
+    font: 12px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;    
+}
+
+.ItemList .Item_List .TitlePartten span
+{
+    color: #36c;
+}
+

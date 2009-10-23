@@ -1,0 +1,49 @@
+﻿.Field
+{
+}
+
+.FieldRow
+{
+}
+
+.FieldRow .FieldItem
+{
+    float: left;
+    margin-left: 20px;
+}
+
+.FieldRow .FieldItem:first-child
+{
+    margin-left: 0px;
+}
+
+.Field .Caption
+{
+    line-height:24px;
+    margin-right: 8px;
+    display: block;
+    float: left;
+}
+
+.Field .Input
+{
+}
+
+.Field span.Input 
+{
+}
+
+.Field span.Input label
+{
+    line-height:24px;
+}
+
+.Field .Submit
+{
+    line-height: 24px;
+}
+
+.FieldRow .FieldItem .Submit
+{
+    margin-left: 8px;
+}

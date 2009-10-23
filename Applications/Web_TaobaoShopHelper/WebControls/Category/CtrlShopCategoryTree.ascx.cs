@@ -9,7 +9,6 @@ using TOP.Applications.TaobaoShopHelper._Common;
 using Taobao.Top.Api.Request;
 using Taobao.Top.Api.Domain;
 using Taobao.Top.Api.Parser;
-using ComponentArt.Web.UI;
 
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Category
 {

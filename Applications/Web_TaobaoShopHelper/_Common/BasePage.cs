@@ -34,7 +34,7 @@ namespace TOP.Applications.TaobaoShopHelper._Common
             InformationObject obj = new InformationObject();
             obj.CssName = "Information";
             obj.Message = "我们没有接收到您对我们网站的淘宝网操作授权，或者授权码已经过期。";
-            obj.AddLink("点击这里获取淘宝授权", "~/Authorizes/UnAuthorize.aspx?ReturnUrl=" + Server.UrlEncode(Request.Url.AbsolutePath));
+            obj.AddLink("点击这里获取淘宝授权", "~/Authorizes/UnAuthorize.aspx?ReturnUrl=" + Server.UrlEncode(Request.Url.AbsoluteUri));
             string a = "<img src='" + GetRootURI() + "/Images/Icos/contacts.gif' title='什么是淘宝网授权码' />";
             obj.AddLink(a, "~/Authorizes/UnLogin.aspx");
             return obj;
@@ -104,32 +104,47 @@ namespace TOP.Applications.TaobaoShopHelper._Common
             }
         }
 
-        public string TOP_SessionKey
+        public Dictionary<string, string> GetParameterListByQuery()
+        {
+            Dictionary<string, string> list = new Dictionary<string, string>();
+            foreach (string key in Request.QueryString.AllKeys)
+            {
+                list.Add(key, Request.QueryString[key]);
+            }
+            return list;
+        }
+
+        public string GetQueryByParameterList(Dictionary<string, string> parameters)
+        {
+            string query = string.Empty;
+            foreach (KeyValuePair<string, string> item in parameters)
+            {
+                query += "&" + Server.UrlEncode(item.Key) + "=" + Server.UrlEncode(item.Value);
+            }
+            return query.TrimStart('&');
+        }
+
+        public string CurrentSessionKey
         {
             get
             {
-                return (string)Session["Global.TOP_SessionKey"];
+                return (string)Session["Global.CurrentSessionKey"];
             }
             set
             {
-                Session["Global.TOP_SessionKey"] = value;
+                Session["Global.CurrentSessionKey"] = value;
             }
         }
 
-        public string SellerNick
+        public string CurrentSellerNick
         {
             get
             {
-                if (Session["Seller.Nick"] == null)
-                {
-                    // TODO:
-                    Session["Seller.Nick"] = "zhongjy001";
-                }
-                return (string)Session["Seller.Nick"];
+                return (string)Session["Global.CurrentSellerNick"];
             }
             set
             {
-                Session["Seller.Nick"] = value;
+                Session["Global.CurrentSellerNick"] = value;
             }
         }
 

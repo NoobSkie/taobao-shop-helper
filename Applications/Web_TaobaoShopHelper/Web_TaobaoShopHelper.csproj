@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComponentArt.Web.UI, Version=3.0.511.21, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libs\ComponentArt.Web.UI.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libs\Newtonsoft.Json.dll</HintPath>
@@ -70,7 +66,6 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="RequestPages\GetItemCategoryListFromTOP.aspx" />
-    <Content Include="Management\ItemCategoryManager.aspx" />
     <Content Include="TestPages\MyItems.aspx" />
     <Content Include="Scripts\PageOperate.js" />
     <Content Include="ShopHelper\AddItem.aspx" />
@@ -118,13 +113,6 @@
     <Compile Include="ItemView.aspx.designer.cs">
       <DependentUpon>ItemView.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Management\AreaManager.aspx.cs">
-      <DependentUpon>AreaManager.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Management\AreaManager.aspx.designer.cs">
-      <DependentUpon>AreaManager.aspx</DependentUpon>
-    </Compile>
     <Compile Include="MyWorkSpace.aspx.cs">
       <DependentUpon>MyWorkSpace.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -145,13 +133,6 @@
     </Compile>
     <Compile Include="RequestPages\GetItemCategoryListFromTOP.aspx.designer.cs">
       <DependentUpon>GetItemCategoryListFromTOP.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\ItemCategoryManager.aspx.cs">
-      <DependentUpon>ItemCategoryManager.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Management\ItemCategoryManager.aspx.designer.cs">
-      <DependentUpon>ItemCategoryManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="RequestPages\UpdateItemCategoryListToLocal.aspx.cs">
       <DependentUpon>UpdateItemCategoryListToLocal.aspx</DependentUpon>
@@ -321,13 +302,6 @@
     <Compile Include="TestPages\ControlTest\TestInformationBox.aspx.designer.cs">
       <DependentUpon>TestInformationBox.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TestPages\InitDbSchema.aspx.cs">
-      <DependentUpon>InitDbSchema.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestPages\InitDbSchema.aspx.designer.cs">
-      <DependentUpon>InitDbSchema.aspx</DependentUpon>
-    </Compile>
     <Compile Include="TestPages\MyItems.aspx.cs">
       <DependentUpon>MyItems.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -391,13 +365,6 @@
     </Compile>
     <Compile Include="Top.Master.designer.cs">
       <DependentUpon>Top.Master</DependentUpon>
-    </Compile>
-    <Compile Include="WebControls\Category\CtrlShopCategoryTree.ascx.cs">
-      <DependentUpon>CtrlShopCategoryTree.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebControls\Category\CtrlShopCategoryTree.ascx.designer.cs">
-      <DependentUpon>CtrlShopCategoryTree.ascx</DependentUpon>
     </Compile>
     <Compile Include="WebControls\Common\CtrlInformationBox.ascx.cs">
       <DependentUpon>CtrlInformationBox.ascx</DependentUpon>
@@ -577,7 +544,6 @@
     <Compile Include="_Common\JsonParser.cs" />
     <Compile Include="_Common\PageObject.cs" />
     <Compile Include="_Common\TopFieldsHelper.cs" />
-    <Compile Include="_Common\TopSessionRequestProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Authorize\TOP.Authorize.Domain\TOP.Authorize.Domain.csproj">
@@ -587,6 +553,10 @@
     <ProjectReference Include="..\..\Authorize\TOP.Authorize.Facade\TOP.Authorize.Facade.csproj">
       <Project>{0BF822B0-B4A1-4744-89E2-B94942F772E3}</Project>
       <Name>TOP.Authorize.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\TOP.Common.CompressionTool\TOP.Common.CompressionTool.csproj">
+      <Project>{2EBA1EEA-E3DF-4B40-A844-86AAF37B7C3C}</Project>
+      <Name>TOP.Common.CompressionTool</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\TOP.Common.DbHelper\TOP.Common.DbHelper.csproj">
       <Project>{BD1AFE9A-03AE-4524-94AE-E2DD1F23719A}</Project>
@@ -724,12 +694,10 @@
     <Content Include="Images\Lines\tminus.gif" />
     <Content Include="Images\Lines\tplus.gif" />
     <Content Include="ItemView.aspx" />
-    <Content Include="Management\AreaManager.aspx" />
     <Content Include="RequestPages\UpdateItemCategoryListToLocal.aspx" />
     <Content Include="TestPages\error_rsp.xml" />
     <Content Include="TestPages\HTMLPage1.htm" />
     <Content Include="MyWorkSpace.aspx" />
-    <Content Include="TestPages\InitDbSchema.aspx" />
     <Content Include="TestPages\Style1.css" />
     <Content Include="TestPages\TestStyles.aspx" />
     <Content Include="TestPages\XMLFile1.xml" />
@@ -790,7 +758,6 @@
     <Content Include="TestPages\TestSearchItem.aspx" />
     <Content Include="TestPages\TestSnapshot.aspx" />
     <Content Include="Top.Master" />
-    <Content Include="WebControls\Category\CtrlShopCategoryTree.ascx" />
     <Content Include="WebControls\Common\CtrlInformationBox.ascx" />
     <Content Include="WebControls\Common\CtrlInformationItem.ascx" />
     <Content Include="WebControls\Common\CtrlMessageBox.ascx" />
@@ -822,6 +789,9 @@
   <ItemGroup>
     <Content Include="App_Themes\Professional\01.LayoutStyles\09.WebPage.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\51.TemplateEdit.css" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\50.TemplateSelectItems.css" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\10.LeftRightView.css" />
+    <Content Include="App_Themes\Professional\01.LayoutStyles\11.ControlLayout.css" />
     <Content Include="ShopHelper\ImportItem_Step1_SelectItems.aspx" />
     <Content Include="ShopHelper\ImportItem_Step1_SelectItems_Item.aspx" />
     <Content Include="ShopHelper\ImportItem_Step2_Options.aspx" />
@@ -838,6 +808,7 @@
     <Folder Include="Images\Snapshot\" />
     <Folder Include="ShopHelper\WebControls\" />
     <Folder Include="Upfiles\Templates\" />
+    <Folder Include="WebControls\Category\" />
     <Folder Include="技术支持\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
