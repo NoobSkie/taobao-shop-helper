@@ -8,11 +8,12 @@
         <asp:Label ID="lblHeader" runat="server" CssClass="Title"></asp:Label>
         <uc2:CtrlSearchButton_Multi ID="ucCtrlSearchButtonMulti" SearchWinType="Multi_MyItems"
             Text="添加" runat="server" />
+        <asp:LinkButton ID="lbtnClear" runat="server" onclick="lbtnClear_Click">清空</asp:LinkButton>
     </div>
     <div class="BlockContent">
         <asp:Repeater ID="rtpBlockItems" runat="server">
             <ItemTemplate>
-                <uc1:CtrlBlock_Item ID="ucCtrlBlockItem" TemplateInfo="<%# Container.DataItem %>"
+                <uc1:CtrlBlock_Item ID="ucCtrlBlockItem" TemplateFlow="<%# Container.DataItem %>"
                     runat="server" />
             </ItemTemplate>
         </asp:Repeater>

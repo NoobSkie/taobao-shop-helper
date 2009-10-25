@@ -13,51 +13,37 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        public TemplateObject TemplateInfo
-        {
-            get
+            if (!IsPostBack && TemplateInfo != null)
             {
-                return (TemplateObject)ViewState["CtrlInputItem_ImageUrl.TemplateInfo"];
-            }
-            set
-            {
-                ViewState["CtrlInputItem_ImageUrl.TemplateInfo"] = value;
-
-                string json = value.DefaultValue;
-                if (!string.IsNullOrEmpty(json) && !string.IsNullOrEmpty(value.DataSource))
+                string json = TemplateInfo.DefaultValue;
+                if (!string.IsNullOrEmpty(json) && !string.IsNullOrEmpty(TemplateInfo.DataSource))
                 {
                     int index;
-                    if (int.TryParse(value.DataSource, out index))
+                    if (int.TryParse(TemplateInfo.DataSource, out index))
                     {
                         lblText.Text = json.Split(',')[index];
                     }
                     else
                     {
                         JObject obj = JObject.Parse(json);
-                        if (obj[value.DataSource] != null)
+                        if (obj[TemplateInfo.DataSource] != null)
                         {
-                            lblText.Text = obj[value.DataSource].Value<string>();
+                            lblText.Text = obj[TemplateInfo.DataSource].Value<string>();
                         }
                     }
-                    if (!string.IsNullOrEmpty(value.CssName))
+                    if (!string.IsNullOrEmpty(TemplateInfo.CssName))
                     {
-                        lblText.CssClass = value.CssName;
+                        lblText.CssClass = TemplateInfo.CssName;
                     }
-                    lblTitle.Visible = value.ShowTitle;
-                    if (value.ShowTitle)
+                    lblTitle.Visible = TemplateInfo.ShowTitle;
+                    if (TemplateInfo.ShowTitle)
                     {
-                        lblTitle.Text = value.DisplayName;
+                        lblTitle.Text = TemplateInfo.DisplayName;
                     }
                 }
             }
         }
 
-        public string GetInputHTML()
-        {
-            return lblText.Text;
-        }
+        public TemplateObject TemplateInfo { get; set; }
     }
 }

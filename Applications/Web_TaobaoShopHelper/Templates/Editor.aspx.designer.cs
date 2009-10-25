@@ -8,45 +8,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TOP.Applications.TaobaoShopHelper.WebControls.Template {
+namespace TOP.Applications.TaobaoShopHelper.Templates {
     
     
-    public partial class CtrlBlock_List {
+    public partial class Editor {
         
         /// <summary>
-        /// lblHeader control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHeader;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ucCtrlSearchButtonMulti control.
+        /// btnPreview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Search.CtrlSearchButton_Multi ucCtrlSearchButtonMulti;
+        protected global::System.Web.UI.WebControls.Button btnPreview;
         
         /// <summary>
-        /// lbtnClear control.
+        /// hlnkReset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnClear;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkReset;
         
         /// <summary>
-        /// rtpBlockItems control.
+        /// lblPreview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rtpBlockItems;
+        protected global::System.Web.UI.WebControls.Label lblPreview;
+        
+        /// <summary>
+        /// ucTemplateEditor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlTemplateEditor ucTemplateEditor;
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TOP.Template.Facade;
+using TOP.Applications.TaobaoShopHelper.Templates;
 
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 {
@@ -15,15 +16,23 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 
         }
 
-        public TemplateObject TemplateInfo
+        public string TemplateId
         {
             get
             {
-                return (TemplateObject)ViewState["CtrlBlock_Container.TemplateInfo"];
+                return (string)ViewState["CtrlBlock_Container.Template.Id"];
             }
             set
             {
-                ViewState["CtrlBlock_Container.TemplateInfo"] = value;
+                ViewState["CtrlBlock_Container.Template.Id"] = value;
+            }
+        }
+
+        public TemplateObject TemplateInfo
+        {
+            set
+            {
+                TemplateId = value.Id;
 
                 switch (value.Category.ToLower())
                 {
@@ -47,29 +56,12 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             }
         }
 
-        public void CreateChild(string defaultValue)
+        public void CreateChild(TemplateSetItem flow)
         {
             if (ucCtrlBlockList.Visible)
             {
-                ucCtrlBlockList.CreateChild(defaultValue);
+                ucCtrlBlockList.AddTemplateItem(flow);
             }
-        }
-
-        public string GetOuterHTML()
-        {
-            return TemplateInfo.OuterHTML;
-        }
-
-        public string GetInputHTML()
-        {
-            switch (TemplateInfo.Category.ToLower())
-            {
-                case "list":
-                    return ucCtrlBlockList.GetInputHTML();
-                case "item":
-                    return ucCtrlBlockItem.GetInputHTML();
-            }
-            return string.Empty;
         }
     }
 }

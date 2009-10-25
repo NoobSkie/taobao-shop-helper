@@ -27,14 +27,14 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             }
         }
 
-        private List<TemplateObject> currentDataSource;
-        private List<TemplateObject> CurrentDataSource
+        private List<TemplateSetItem> currentDataSource;
+        private List<TemplateSetItem> CurrentDataSource
         {
             get
             {
                 if (currentDataSource == null)
                 {
-                    currentDataSource = new List<TemplateObject>();
+                    currentDataSource = new List<TemplateSetItem>();
                 }
                 return currentDataSource;
             }
@@ -44,18 +44,28 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             }
         }
 
-        private TemplateObject currentModule { get; set; }
+        public void AddTemplateItem(TemplateSetItem flow)
+        {
+            CurrentDataSource.Add(flow);
+        }
 
-        public TemplateObject TemplateInfo
+        private TemplateObject currentModule
         {
             get
             {
-                return (TemplateObject)ViewState["CtrlBlock_List.TemplateInfo"];
+                return (TemplateObject)ViewState["CtrlBlock_List." + this.ClientID + ".currentModule"];
             }
             set
             {
-                ViewState["CtrlBlock_List.TemplateInfo"] = value;
+                ViewState["CtrlBlock_List." + this.ClientID + ".currentModule"] = value;
 
+            }
+        }
+
+        public TemplateObject TemplateInfo
+        {
+            set
+            {
                 if (value.ShowTitle)
                 {
                     this.lblHeader.Text = value.DisplayName;
@@ -96,7 +106,10 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                 case SearchWinType.Input_Text:
                     foreach (string data in e.PostData.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
                     {
-                        AddChild(data);
+                        if (!string.IsNullOrEmpty(data))
+                        {
+                            AddChild(data);
+                        }
                     }
                     break;
                 default:
@@ -129,41 +142,29 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             {
                 TemplateObject clone = currentModule.Clone();
                 clone.DefaultValue = defaultValue;
-                TemplateSetItem flow = new TemplateSetItem();
-                flow.Action = "Add";
-                flow.ChildrenCount = clone.Children.Count;
-                flow.ContainerId = clone.Id;
-                flow.Value = defaultValue;
-                CurrentTemplateSetFlow.CurrentFlow.Add(flow);
+                if (defaultValue.Split(',').Length >= clone.Children.Count)
+                {
+                    TemplateSetItem flow = new TemplateSetItem();
+                    flow.Action = "Add";
+                    flow.ChildrenCount = clone.Children.Count;
+                    flow.ContainerId = clone.Id;
+                    flow.Value = defaultValue;
+                    flow.Template = clone;
+                    CurrentTemplateSetFlow.AddFlow(flow);
+                }
             }
         }
 
-        public void CreateChild(string defaultValue)
+        protected void lbtnClear_Click(object sender, EventArgs e)
         {
-            if (currentModule != null)
+            for (int i = CurrentTemplateSetFlow.CurrentFlowList.Count - 1; i >= 0; i--)
             {
-                TemplateObject clone = currentModule.Clone();
-                clone.DefaultValue = defaultValue;
-                CurrentDataSource.Add(clone);
+                if (CurrentTemplateSetFlow.CurrentFlowList[i].ContainerId == currentModule.Id)
+                {
+                    CurrentTemplateSetFlow.CurrentFlowList.RemoveAt(i);
+                }
             }
-        }
-
-        public string GetOuterHTML()
-        {
-            return TemplateInfo.OuterHTML;
-        }
-
-        public string GetInputHTML()
-        {
-            string html = TemplateInfo.InnerHTML;
-            string newHtml = string.Empty;
-            foreach (RepeaterItem item in rtpBlockItems.Items)
-            {
-                CtrlBlock_Item block = (CtrlBlock_Item)item.FindControl("ucCtrlBlockItem");
-                string itemHtml = html.Replace(currentModule.OuterHTML, block.GetInputHTML());
-                newHtml += itemHtml;
-            }
-            return TemplateInfo.OuterHTML.Replace(TemplateInfo.OuterHTML, newHtml);
+            Response.Redirect(Request.Url.AbsolutePath);
         }
     }
 }

@@ -13,42 +13,28 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        public TemplateObject TemplateInfo
-        {
-            get
+            if (!IsPostBack && TemplateInfo != null)
             {
-                return (TemplateObject)ViewState["CtrlInputItem_ImageUrl.TemplateInfo"];
-            }
-            set
-            {
-                ViewState["CtrlInputItem_ImageUrl.TemplateInfo"] = value;
-
-                string json = value.DefaultValue;
-                if (!string.IsNullOrEmpty(json) && !string.IsNullOrEmpty(value.DataSource))
+                string json = TemplateInfo.DefaultValue;
+                if (!string.IsNullOrEmpty(json) && !string.IsNullOrEmpty(TemplateInfo.DataSource))
                 {
                     int index;
-                    if (int.TryParse(value.DataSource, out index))
+                    if (int.TryParse(TemplateInfo.DataSource, out index))
                     {
                         imgImage.ImageUrl = json.Split(',')[index];
                     }
                     else
                     {
                         JObject obj = JObject.Parse(json);
-                        if (obj[value.DataSource] != null)
+                        if (obj[TemplateInfo.DataSource] != null)
                         {
-                            imgImage.ImageUrl = obj[value.DataSource].Value<string>();
+                            imgImage.ImageUrl = obj[TemplateInfo.DataSource].Value<string>();
                         }
                     }
                 }
             }
         }
 
-        public string GetInputHTML()
-        {
-            return imgImage.ImageUrl;
-        }
+        public TemplateObject TemplateInfo { get; set; }
     }
 }

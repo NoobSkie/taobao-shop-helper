@@ -19,17 +19,89 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                 rptBlocks.DataSource = templateList;
                 rptBlocks.DataBind();
 
-                foreach (TemplateSetItem flow in CurrentTemplateSetFlow.CurrentFlow)
+                if (CurrentTemplateSetFlow != null)
                 {
-                    foreach (RepeaterItem row in rptBlocks.Items)
+                    foreach (TemplateSetItem flow in CurrentTemplateSetFlow.CurrentFlowList)
                     {
-                        CtrlBlock_Container container = (CtrlBlock_Container)row.FindControl("ucCtrlBlockContainer");
-                        if (container.TemplateInfo.Id == flow.ContainerId)
+                        foreach (RepeaterItem row in rptBlocks.Items)
                         {
-                            container.CreateChild(flow.Value);
+                            CtrlBlock_Container container = (CtrlBlock_Container)row.FindControl("ucCtrlBlockContainer");
+                            if (container.TemplateId == flow.ContainerId)
+                            {
+                                container.CreateChild(flow);
+                            }
                         }
                     }
                 }
+            }
+        }
+
+        public string GetHtml()
+        {
+            string html = TemplateHtml;
+            List<TemplateObject> templateList = TemplateAnalyser.AnalyseTemplateList(html);
+            if (CurrentTemplateSetFlow != null)
+            {
+                foreach (TemplateObject obj in templateList)
+                {
+                    string oldText = obj.OuterHTML;
+                    string newText = string.Empty;
+                    foreach (TemplateSetItem flow in CurrentTemplateSetFlow.CurrentFlowList)
+                    {
+                        if (obj.Id == flow.ContainerId)
+                        {
+                            newText += GetItemHtmlByFlow(flow, obj);
+                        }
+                    }
+                    html = html.Replace(oldText, newText);
+                }
+            }
+            return html;
+        }
+
+        private string GetItemHtmlByFlow(TemplateSetItem flow, TemplateObject obj)
+        {
+            string html = flow.Template.InnerHTML;
+            if (obj.Category.Equals("List", StringComparison.OrdinalIgnoreCase))
+            {
+                TemplateObject item = obj.Children[0];
+                if (item.Children != null && item.Children.Count > 0 && item.Children.Count == flow.ChildrenCount)
+                {
+                    for (int i = 0; i < item.Children.Count; i++)
+                    {
+                        TemplateObject sub = item.Children[i];
+                        string oldText = sub.OuterHTML;
+                        if (sub.NoUse)
+                        {
+                            html = html.Replace(oldText, "");
+                        }
+                        else
+                        {
+                            int index;
+                            if (int.TryParse(sub.DataSource, out index))
+                            {
+                                string newText = flow.Value.Split(',')[index];
+                                html = html.Replace(oldText, newText);
+                            }
+                            else
+                            {
+                            }
+                        }
+                    }
+                }
+            }
+            return html;
+        }
+
+        public string TemplateId
+        {
+            get
+            {
+                return (string)ViewState["CtrlTemplateEditor.TemplateId"];
+            }
+            set
+            {
+                ViewState["CtrlTemplateEditor.TemplateId"] = value;
             }
         }
 
@@ -37,25 +109,21 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
         {
             get
             {
+                if (ViewState["CtrlTemplateEditor.TemplateHtml"] == null)
+                {
+                    TemplateFacade facade = new TemplateFacade();
+                    TemplateContentInfo content = facade.GetTemplateContentById(TemplateId);
+                    if (content != null)
+                    {
+                        ViewState["CtrlTemplateEditor.TemplateHtml"] = content.Content;
+                    }
+                }
                 return (string)ViewState["CtrlTemplateEditor.TemplateHtml"];
             }
             set
             {
                 ViewState["CtrlTemplateEditor.TemplateHtml"] = value;
             }
-        }
-
-        public string GetHtml()
-        {
-            string html = TemplateHtml;
-            foreach (RepeaterItem item in rptBlocks.Items)
-            {
-                CtrlBlock_Container block = (CtrlBlock_Container)item.FindControl("ucCtrlBlockContainer");
-                string outerHtml = block.GetOuterHTML();
-                string itemHtml = block.GetInputHTML();
-                html = html.Replace(outerHtml, itemHtml);
-            }
-            return html;
         }
     }
 }

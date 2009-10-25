@@ -253,6 +253,13 @@
     <Compile Include="ShopHelper\QueryResult_Shop.aspx.designer.cs">
       <DependentUpon>QueryResult_Shop.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Templates\Editor.aspx.cs">
+      <DependentUpon>Editor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Editor.aspx.designer.cs">
+      <DependentUpon>Editor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Templates\NestedTemplatePage.master.cs">
       <DependentUpon>NestedTemplatePage.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -785,6 +792,7 @@
     <Content Include="App_Themes\Professional\01.LayoutStyles\50.TemplateSelectItems.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\10.LeftRightView.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\11.ControlLayout.css" />
+    <Content Include="Scripts\SearchButtonJS.js" />
     <Content Include="SearchWin\Input_Image.aspx" />
     <Content Include="SearchWin\Input_Text.aspx" />
     <Content Include="ShopHelper\ImportItem_Step1_SelectItems.aspx" />
@@ -792,6 +800,7 @@
     <Content Include="ShopHelper\ImportItem_Step2_Options.aspx" />
     <Content Include="ShopHelper\ImportItem_Step3_Preview.aspx" />
     <Content Include="ShopHelper\NestedImportItemStep.master" />
+    <Content Include="Templates\Editor.aspx" />
     <Content Include="Templates\test1.txt" />
     <Content Include="Templates\TemplateApp_Step2_SelectItems.aspx" />
     <Content Include="Templates\TemplateApp_Step3_Edit.aspx" />

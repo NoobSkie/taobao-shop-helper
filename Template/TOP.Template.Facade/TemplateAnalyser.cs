@@ -131,6 +131,9 @@ namespace TOP.Template.Facade
                         case "inputheight":
                             info.InputHeight = int.Parse(value);
                             break;
+                        case "nouse":
+                            info.NoUse = bool.Parse(value);
+                            break;
                     }
 
                     match_Property = match_Property.NextMatch();

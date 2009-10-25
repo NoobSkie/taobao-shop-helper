@@ -18,15 +18,16 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             }
         }
 
+        private TemplateObject templateInfo;
         public TemplateObject TemplateInfo
         {
             get
             {
-                return (TemplateObject)ViewState["CtrlBlock_Input.TemplateInfo"];
+                return templateInfo;
             }
             set
             {
-                ViewState["CtrlBlock_Input.TemplateInfo"] = value;
+                templateInfo = value;
 
                 foreach (Control ctrl in this.Controls)
                 {
@@ -44,23 +45,6 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                         break;
                 }
             }
-        }
-
-        public string GetOuterHTML()
-        {
-            return TemplateInfo.OuterHTML;
-        }
-
-        public string GetInputHTML()
-        {
-            switch (TemplateInfo.DataType.ToLower())
-            {
-                case "text":
-                    return ucCtrlDisplayItemText.GetInputHTML();
-                case "image":
-                    return ucCtrlDisplayItemImage.GetInputHTML();
-            }
-            return string.Empty;
         }
     }
 }

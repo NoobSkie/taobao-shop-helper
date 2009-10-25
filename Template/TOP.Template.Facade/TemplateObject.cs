@@ -71,6 +71,8 @@ namespace TOP.Template.Facade
         /// </summary>
         public int InputHeight { get; set; }
 
+        public bool NoUse { get; set; }
+
         private List<TemplateObject> children = null;
         public List<TemplateObject> Children
         {
@@ -101,6 +103,7 @@ namespace TOP.Template.Facade
             obj.TitleWidth = TitleWidth;
             obj.InputWidth = InputWidth;
             obj.InputHeight = InputHeight;
+            obj.NoUse = NoUse;
             return obj;
         }
     }

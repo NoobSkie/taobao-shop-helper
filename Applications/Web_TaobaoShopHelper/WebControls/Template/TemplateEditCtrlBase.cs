@@ -9,7 +9,17 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
 {
     public class TemplateEditCtrlBase : BaseControl
     {
-        public string ItemIid { get; set; }
+        public string ItemIid
+        {
+            get
+            {
+                return (string)ViewState["CtrlTemplateEditor.ItemIid"];
+            }
+            set
+            {
+                ViewState["CtrlTemplateEditor.ItemIid"] = value;
+            }
+        }
 
         public TemplateSetFlow CurrentTemplateSetFlow
         {
