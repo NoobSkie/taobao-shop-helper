@@ -77,12 +77,6 @@
     <Compile Include="Objects\Video.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TOP.Core.Domain\TOP.Core.Domain.csproj">
-      <Project>{94715AF1-20AD-4D8E-B6B6-BCC290621C3A}</Project>
-      <Name>TOP.Core.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="ErrorMessage.xml">
     </EmbeddedResource>
   </ItemGroup>

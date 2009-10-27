@@ -123,7 +123,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Search
         {
             get
             {
-                string rootUrl = GetRootUrl();
+                string rootUrl = GetRootURI();
                 string pageName;
                 switch (SearchWinType)
                 {

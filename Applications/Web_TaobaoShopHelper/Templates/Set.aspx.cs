@@ -10,7 +10,7 @@ using TOP.Template.Facade;
 
 namespace TOP.Applications.TaobaoShopHelper.Templates
 {
-    public partial class TemplateSet : BasePage
+    public partial class Set : BasePage, IMenuPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,5 +48,19 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
         {
 
         }
+
+        #region IMenuPage Members
+
+        public string GetTopMenuId()
+        {
+            return "Template";
+        }
+
+        public string GetSecondMenuId()
+        {
+            return "Set";
+        }
+
+        #endregion
     }
 }

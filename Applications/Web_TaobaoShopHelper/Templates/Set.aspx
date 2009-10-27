@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Templates/NestedTemplatePage.master"
-    AutoEventWireup="true" CodeBehind="TemplateSet.aspx.cs" Inherits="TOP.Applications.TaobaoShopHelper.Templates.TemplateSet" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Templates/_Template.master"
+    AutoEventWireup="true" CodeBehind="Set.aspx.cs" Inherits="TOP.Applications.TaobaoShopHelper.Templates.Set" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
 </asp:Content>

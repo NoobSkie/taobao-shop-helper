@@ -2,7 +2,7 @@
     Inherits="TOP.Applications.TaobaoShopHelper.WebControls.Search.CtrlSearchItems_Multi" %>
 <%@ Register Src="CtrlItem_Check.ascx" TagName="CtrlItem_Check" TagPrefix="uc1" %>
 
-<script src="<%= GetRootUrl() %>/Scripts/Item.js" type="text/javascript"></script>
+<script src="<%= GetRootURI() %>/Scripts/Item.js" type="text/javascript"></script>
 
 <script type="text/javascript">
     function SelectItem(ctrlObj, type, iid, nick, title, detailUrl, imgUrl, price) {

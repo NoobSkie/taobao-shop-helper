@@ -9,10 +9,8 @@ using System.Text.RegularExpressions;
 
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
 {
-    public partial class CtrlSessionGetter : System.Web.UI.UserControl
+    public partial class CtrlSessionGetter : BaseControl
     {
-        private ConstVariables varHelper = new ConstVariables();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -40,7 +38,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
 
         private void InitUrls()
         {
-            string url = string.Format(varHelper.TOP_Url_AuthKeyContainer, varHelper.TOP_AppKey);
+            string url = string.Format(ContainerAuthKey, AppKey);
             hlnkGetAppKey.NavigateUrl = url;
         }
 
@@ -49,7 +47,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
             string authCode = txtAuthCode.Text;
             if (CheckAuthKey(authCode))
             {
-                string url = string.Format(varHelper.TOP_Url_SessionKeyContainer, authCode);
+                string url = string.Format(ContainerSessionKey, authCode);
                 if (Parameters != null && Parameters.Count > 0)
                 {
                     string p = string.Empty;

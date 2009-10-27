@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menus>
+  <Menu>
+    <Id>Default</Id>
+    <Title>概述</Title>
+    <Url>Default.aspx</Url>
+  </Menu>
+  <Menu>
+    <Id>App</Id>
+    <Title>模板应用</Title>
+    <Url>App1.aspx</Url>
+  </Menu>
+  <Menu>
+    <Id>Set</Id>
+    <Title>模板配置</Title>
+    <Url>Set.aspx</Url>
+  </Menu>
+</Menus>

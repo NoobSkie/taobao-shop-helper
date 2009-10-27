@@ -93,29 +93,20 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
             return html;
         }
 
-        public string TemplateId
-        {
-            get
-            {
-                return (string)ViewState["CtrlTemplateEditor.TemplateId"];
-            }
-            set
-            {
-                ViewState["CtrlTemplateEditor.TemplateId"] = value;
-            }
-        }
-
         public string TemplateHtml
         {
             get
             {
                 if (ViewState["CtrlTemplateEditor.TemplateHtml"] == null)
                 {
-                    TemplateFacade facade = new TemplateFacade();
-                    TemplateContentInfo content = facade.GetTemplateContentById(TemplateId);
-                    if (content != null)
+                    if (!string.IsNullOrEmpty(ItemIid))
                     {
-                        ViewState["CtrlTemplateEditor.TemplateHtml"] = content.Content;
+                        TemplateFacade facade = new TemplateFacade();
+                        TemplateContentInfo content = facade.GetTemplateContentById(ItemIid);
+                        if (content != null)
+                        {
+                            ViewState["CtrlTemplateEditor.TemplateHtml"] = content.Content;
+                        }
                     }
                 }
                 return (string)ViewState["CtrlTemplateEditor.TemplateHtml"];

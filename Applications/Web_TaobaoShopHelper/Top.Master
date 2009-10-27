@@ -4,23 +4,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <asp:ContentPlaceHolder ID="HolderHeader" runat="server">
+    <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <div>
         <div class="HeaderDiv">
             <div class="UserInfoDiv">
-                <span>您好，</span><span>太阳</span><span>！</span><span>[</span><asp:HyperLink ID="hlnkLogout"
-                    runat="server" NavigateUrl="~/Authorizes/UnLogin.aspx">退出</asp:HyperLink><span>]</span>
+                <span>您好，</span><asp:Label ID="lblUserName" runat="server"></asp:Label><span>！</span><asp:HyperLink
+                    ID="hlnkLogin" runat="server" NavigateUrl="~/Authorizes/UnLogin.aspx">[请登录]</asp:HyperLink><asp:HyperLink
+                        ID="hlnkLogout" runat="server" NavigateUrl="~/Authorizes/UnLogin.aspx">[退出]</asp:HyperLink><span></span>
             </div>
             <div class="UserOperatorDiv">
                 <a class="Text" href="#">信任计划</a> <span class="SplitLine">|</span> <a class="Text"
                     href="#">立即充值</a>
             </div>
         </div>
-        <asp:ContentPlaceHolder ID="HolderContent" runat="server">
+        <asp:ContentPlaceHolder ID="CommonContent" runat="server">
         </asp:ContentPlaceHolder>
+        <div class="MenuDiv">
+            <div class="MenuDivLevelOne">
+                <ul class="MenuItemList">
+                    <asp:Repeater ID="rptMenus" runat="server">
+                        <ItemTemplate>
+                            <li class='<%# Eval("CssName") %>'>
+                                <asp:HyperLink ID="hlnkMenu" NavigateUrl='<%# Eval("Url") %>' runat="server" Text='<%# "<span>" + Eval("Title") + "</span>" %>'></asp:HyperLink></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
+            </div>
+            <asp:ContentPlaceHolder ID="MenuContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="WebPage">
+            <asp:ContentPlaceHolder ID="HolderContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div>
+        </div>
     </div>
 </body>
 </html>

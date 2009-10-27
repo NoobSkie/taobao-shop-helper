@@ -4,93 +4,68 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using Taobao.Top.Api;
+using TOP.Authorize.Facade;
 
 namespace TOP.Applications.TaobaoShopHelper._Common
 {
     public class BaseControl : UserControl
     {
-        private ConstVariables varHelper = new ConstVariables();
+        private PageObject pageHelper = new PageObject();
 
-        public string GetRootUrl()
+        #region 页面Url处理
+
+        public string GetRootURI()
         {
-            string UrlAuthority = Request.Url.GetLeftPart(UriPartial.Authority);
-            if (Request.ApplicationPath == null || Request.ApplicationPath == "/")
-            {
-                //直接安装在Web站点
-                return UrlAuthority;
-            }
-            else
-            {
-                //安装在虚拟子目录下
-                return UrlAuthority + Request.ApplicationPath;
-            }
+            return pageHelper.GetRootURI(Request);
         }
 
-        public string TOP_SessionKey
+        public Dictionary<string, string> GetParameterListByQuery()
+        {
+            return pageHelper.GetParameterListByQuery(Request);
+        }
+
+        public string GetQueryByParameterList(Dictionary<string, string> parameters)
+        {
+            return pageHelper.GetQueryByParameterList(parameters, Server);
+        }
+
+        #endregion
+
+        #region 全局Session操作
+
+        public string CurrentSessionKey
         {
             get
             {
-                if (Session["TOP_SessionKey"] == null)
-                {
-                    LastAsseccPageUrl = Request.Url.AbsolutePath;
-                    // "~/Authorizes/UnAuthorize.aspx"
-                    Response.Redirect(AppUrlHelper.Url_UnAuthorize, true);
-                }
-                return (string)Session["TOP_SessionKey"];
+                return pageHelper.GetSessionValue<string>("Global.CurrentSessionKey", Session);
             }
             set
             {
-                Session["TOP_SessionKey"] = value;
+                pageHelper.SetSessionValue<string>("Global.CurrentSessionKey", value, Session);
             }
         }
 
-        public string CurrentUserId
+        public string CurrentSellerNick
         {
             get
             {
-                if (Session["CurrentUserId"] == null)
-                {
-                    LastAsseccPageUrl = Request.Url.AbsolutePath;
-                    // "~/Authorizes/UnLogin.aspx"
-                    Response.Redirect(AppUrlHelper.Url_UnLogin, true);
-                }
-                return (string)Session["CurrentUserId"];
+                return pageHelper.GetSessionValue<string>("Global.CurrentSellerNick", Session);
             }
             set
             {
-                Session["CurrentUserId"] = value;
+                pageHelper.SetSessionValue<string>("Global.CurrentSellerNick", value, Session);
             }
         }
 
-        public string CurrentUserName
+        public UserInfo CurrentUser
         {
             get
             {
-                if (Session["CurrentUserName"] == null)
-                {
-                    return string.Empty;
-                }
-                return (string)Session["CurrentUserName"];
+                return pageHelper.GetSessionValue<UserInfo>("Global.CurrentUser", Session);
             }
             set
             {
-                Session["CurrentUserName"] = value;
-            }
-        }
-
-        public string CurrentLoginName
-        {
-            get
-            {
-                if (Session["CurrentLoginName"] == null)
-                {
-                    return string.Empty;
-                }
-                return (string)Session["CurrentLoginName"];
-            }
-            set
-            {
-                Session["CurrentLoginName"] = value;
+                pageHelper.SetSessionValue<UserInfo>("Global.CurrentUser", value, Session);
             }
         }
 
@@ -98,31 +73,33 @@ namespace TOP.Applications.TaobaoShopHelper._Common
         {
             get
             {
-                if (Session["LastAsseccPageUrl"] == null)
-                {
-                    return string.Empty;
-                }
-                return (string)Session["LastAsseccPageUrl"];
+                return pageHelper.GetSessionValue<string>("Global.LastAsseccPageUrl", Session);
             }
             set
             {
-                Session["LastAsseccPageUrl"] = value;
+                pageHelper.SetSessionValue<string>("Global.LastAsseccPageUrl", value, Session);
             }
         }
 
+        #endregion
+
+        #region Top相关全局信息
+
         public ITopClient GetProductTopClient()
         {
-            return new TopRestClient("http://gw.api.taobao.com/router/rest", varHelper.TOP_AppKey, varHelper.TOP_AppSecret, "json");
+            return pageHelper.GetProductTopClient();
         }
 
-        public string Encode(string content)
-        {
-            return content;
-        }
+        public string AppKey { get { return pageHelper.AppKey; } }
 
-        public string Decode(string content)
-        {
-            return content;
-        }
+        public string AppSecret { get { return pageHelper.AppSecret; } }
+
+        public string ContainerAuthKey { get { return pageHelper.ContainerAuthKey; } }
+
+        public string ContainerSessionKey { get { return pageHelper.ContainerSessionKey; } }
+
+        public string ContainerApi { get { return pageHelper.ContainerApi; } }
+
+        #endregion
     }
 }

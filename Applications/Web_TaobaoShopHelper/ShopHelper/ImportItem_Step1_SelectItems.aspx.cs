@@ -18,8 +18,8 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string key = Decode(Request["v"]);
-            string type = Decode(Request["t"]);
+            string key = Request["v"];
+            string type = Request["t"];
             int? page_no = null;
             int? page_size = null;
             if (!string.IsNullOrEmpty(Request["page_no"]))
@@ -45,7 +45,7 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
                         Server.Transfer("ImportItem_Step1_SelectItems_Item.aspx");
                         break;
                     //case "shop":
-                    //    ShopFacade shopFacade = new ShopFacade(varHelper.TOP_AppKey, varHelper.TOP_AppSecret);
+                    //    ShopFacade shopFacade = new ShopFacade(AppKey, AppSecret);
                     //    DataSource_Shop = shopFacade.GetShopByNick(key);
                     //    Server.Transfer("QueryResult_Shop.aspx");
                     //    break;

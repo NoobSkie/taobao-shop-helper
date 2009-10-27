@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Templates/NestedTemplatePage.master"
-    AutoEventWireup="true" CodeBehind="TemplateApp_Step2_SelectItems.aspx.cs" Inherits="TOP.Applications.TaobaoShopHelper.Templates.TemplateApp_Step2_SelectItems" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Templates/_Template.master"
+    AutoEventWireup="true" CodeBehind="App1.aspx.cs" Inherits="TOP.Applications.TaobaoShopHelper.Templates.App1" %>
 
 <%@ Register Src="~/WebControls/Common/CtrlPager.ascx" TagName="CtrlPager" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">

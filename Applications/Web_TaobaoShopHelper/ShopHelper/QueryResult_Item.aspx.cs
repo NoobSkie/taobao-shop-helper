@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using TOP.Core.Facade;
 using Taobao.Top.Api.Domain;
 
 namespace TOP.Applications.TaobaoShopHelper.ShopHelper

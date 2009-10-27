@@ -12,8 +12,6 @@ namespace TOP.Applications.TaobaoShopHelper.Authorizes
 {
     public partial class UnAuthorize : BasePage
     {
-        private ConstVariables varHelper = new ConstVariables();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,7 +22,7 @@ namespace TOP.Applications.TaobaoShopHelper.Authorizes
 
         private void InitUrls()
         {
-            hlnkGetAppKey.NavigateUrl = string.Format(varHelper.TOP_Url_AuthKeyContainer, varHelper.TOP_AppKey);
+            hlnkGetAppKey.NavigateUrl = string.Format(ContainerAuthKey, AppKey);
         }
 
         protected void lbtnGetSessionKey_Click(object sender, EventArgs e)
@@ -32,7 +30,7 @@ namespace TOP.Applications.TaobaoShopHelper.Authorizes
             string authCode = txtAuthCode.Text;
             if (CheckAuthKey(authCode))
             {
-                string url = string.Format(varHelper.TOP_Url_SessionKeyContainer, authCode);
+                string url = string.Format(ContainerSessionKey, authCode);
                 if (!string.IsNullOrEmpty(Request.Url.Query))
                 {
                     url += "&" + Request.Url.Query.TrimStart('?');

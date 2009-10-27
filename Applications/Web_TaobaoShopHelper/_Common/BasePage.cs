@@ -9,15 +9,15 @@ using TOP.Applications.TaobaoShopHelper.WebControls.Common;
 
 namespace TOP.Applications.TaobaoShopHelper._Common
 {
-    public class BasePage : Page
+    public abstract class BasePage : Page
     {
-        private ConstVariables varHelper = new ConstVariables();
+        private PageObject pageHelper = new PageObject();
 
         protected override void OnLoadComplete(EventArgs e)
         {
             base.OnLoadComplete(e);
 
-            LastAsseccPageUrl = Request.Url.AbsolutePath;
+            LastAsseccPageUrl = Request.Url.AbsoluteUri;
         }
 
         public InformationObject GetUnLoginInformation()
@@ -89,54 +89,36 @@ namespace TOP.Applications.TaobaoShopHelper._Common
             return null;
         }
 
+        #region 页面Url处理
+
         public string GetRootURI()
         {
-            string UrlAuthority = Request.Url.GetLeftPart(UriPartial.Authority);
-            if (Request.ApplicationPath == null || Request.ApplicationPath == "/")
-            {
-                //直接安装在Web站点
-                return UrlAuthority;
-            }
-            else
-            {
-                //安装在虚拟子目录下
-                return UrlAuthority + Request.ApplicationPath;
-            }
+            return pageHelper.GetRootURI(Request);
         }
 
         public Dictionary<string, string> GetParameterListByQuery()
         {
-            Dictionary<string, string> list = new Dictionary<string, string>();
-            foreach (string key in Request.QueryString.AllKeys)
-            {
-                if (!key.Equals("IsSuccess", StringComparison.OrdinalIgnoreCase)
-                    && !key.Equals("Message", StringComparison.OrdinalIgnoreCase))
-                {
-                    list.Add(key, Request.QueryString[key]);
-                }
-            }
-            return list;
+            return pageHelper.GetParameterListByQuery(Request);
         }
 
         public string GetQueryByParameterList(Dictionary<string, string> parameters)
         {
-            string query = string.Empty;
-            foreach (KeyValuePair<string, string> item in parameters)
-            {
-                query += "&" + Server.UrlEncode(item.Key) + "=" + Server.UrlEncode(item.Value);
-            }
-            return query.TrimStart('&');
+            return pageHelper.GetQueryByParameterList(parameters, Server);
         }
+
+        #endregion
+
+        #region 全局Session操作
 
         public string CurrentSessionKey
         {
             get
             {
-                return (string)Session["Global.CurrentSessionKey"];
+                return pageHelper.GetSessionValue<string>("Global.CurrentSessionKey", Session);
             }
             set
             {
-                Session["Global.CurrentSessionKey"] = value;
+                pageHelper.SetSessionValue<string>("Global.CurrentSessionKey", value, Session);
             }
         }
 
@@ -144,11 +126,11 @@ namespace TOP.Applications.TaobaoShopHelper._Common
         {
             get
             {
-                return (string)Session["Global.CurrentSellerNick"];
+                return pageHelper.GetSessionValue<string>("Global.CurrentSellerNick", Session);
             }
             set
             {
-                Session["Global.CurrentSellerNick"] = value;
+                pageHelper.SetSessionValue<string>("Global.CurrentSellerNick", value, Session);
             }
         }
 
@@ -156,11 +138,11 @@ namespace TOP.Applications.TaobaoShopHelper._Common
         {
             get
             {
-                return (UserInfo)Session["Global.CurrentUser"];
+                return pageHelper.GetSessionValue<UserInfo>("Global.CurrentUser", Session);
             }
             set
             {
-                Session["Global.CurrentUser"] = value;
+                pageHelper.SetSessionValue<UserInfo>("Global.CurrentUser", value, Session);
             }
         }
 
@@ -168,31 +150,33 @@ namespace TOP.Applications.TaobaoShopHelper._Common
         {
             get
             {
-                if (Session["LastAsseccPageUrl"] == null)
-                {
-                    return string.Empty;
-                }
-                return (string)Session["LastAsseccPageUrl"];
+                return pageHelper.GetSessionValue<string>("Global.LastAsseccPageUrl", Session);
             }
             set
             {
-                Session["LastAsseccPageUrl"] = value;
+                pageHelper.SetSessionValue<string>("Global.LastAsseccPageUrl", value, Session);
             }
         }
 
+        #endregion
+
+        #region Top相关全局信息
+
         public ITopClient GetProductTopClient()
         {
-            return new TopRestClient("http://gw.api.taobao.com/router/rest", varHelper.TOP_AppKey, varHelper.TOP_AppSecret, "json");
+            return pageHelper.GetProductTopClient();
         }
 
-        public string Encode(string content)
-        {
-            return content;
-        }
+        public string AppKey { get { return pageHelper.AppKey; } }
 
-        public string Decode(string content)
-        {
-            return content;
-        }
+        public string AppSecret { get { return pageHelper.AppSecret; } }
+
+        public string ContainerAuthKey { get { return pageHelper.ContainerAuthKey; } }
+
+        public string ContainerSessionKey { get { return pageHelper.ContainerSessionKey; } }
+
+        public string ContainerApi { get { return pageHelper.ContainerApi; } }
+
+        #endregion
     }
 }

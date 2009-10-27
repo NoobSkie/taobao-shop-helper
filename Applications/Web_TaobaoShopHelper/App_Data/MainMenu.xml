@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menus>
+  <Menu>
+    <Id>MainPage</Id>
+    <Title>首页</Title>
+    <Url>~</Url>
+  </Menu>
+  <Menu>
+    <Id>MyShop</Id>
+    <Title>我的店铺</Title>
+    <Url>~/ShopHelper</Url>
+  </Menu>
+  <Menu>
+    <Id>Template</Id>
+    <Title>我的模板</Title>
+    <Url>~/Templates</Url>
+  </Menu>
+  <Menu>
+    <Id>PicStore</Id>
+    <Title>我的图片库</Title>
+    <Url></Url>
+  </Menu>
+  <Menu>
+    <Id>Taobaoke</Id>
+    <Title>淘宝客</Title>
+    <Url></Url>
+  </Menu>
+  <Menu>
+    <Id>System</Id>
+    <Title>系统管理</Title>
+    <Url></Url>
+  </Menu>
+</Menus>

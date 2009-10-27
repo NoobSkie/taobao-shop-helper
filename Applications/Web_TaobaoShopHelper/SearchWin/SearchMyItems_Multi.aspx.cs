@@ -18,7 +18,7 @@ namespace TOP.Applications.TaobaoShopHelper.SearchWin
         {
             //if (string.IsNullOrEmpty(TOP_SessionKey))
             //{
-            //    ucCtrlSessionGetter.Parameters.Add("ReturnUrl", Request.Url.AbsolutePath);
+            //    ucCtrlSessionGetter.Parameters.Add("ReturnUrl", Request.Url.AbsoluteUri);
             //    ucCtrlSessionGetter.Visible = true;
             //    ucCtrlSearchItemsMulti.Visible = false;
             //    ucCtrlShopCategoryTree.Visible = false;

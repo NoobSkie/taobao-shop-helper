@@ -1,5 +1,5 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/NestedMainMenu.master" AutoEventWireup="true"
-    CodeBehind="NestedTemplatePage.master.cs" Inherits="TOP.Applications.TaobaoShopHelper.Templates.NestedTemplatePage" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/Top.master" AutoEventWireup="true"
+    CodeBehind="_Template.master.cs" Inherits="TOP.Applications.TaobaoShopHelper.Templates._Template" %>
 
 <%@ Register Src="~/WebControls/Common/CtrlInformationBox.ascx" TagName="CtrlInformationBox"
     TagPrefix="uc1" %>
@@ -14,8 +14,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MenuContent" runat="server">
     <div class="MenuDivLevelTwo">
         <ul class="MenuItemList">
-            <li class="Selected"><a href="TemplateApp.aspx"><span>模板应用</span></a></li>
-            <li><a href="TemplateApp.aspx"><span>模板设置</span></a></li>
+            <asp:Repeater ID="rptMenus" runat="server">
+                <ItemTemplate>
+                    <li class='<%# Eval("CssName") %>'>
+                        <asp:HyperLink ID="hlnkMenu" NavigateUrl='<%# Eval("Url") %>' runat="server" Text='<%# "<span>" + Eval("Title") + "</span>" %>'></asp:HyperLink></li>
+                </ItemTemplate>
+            </asp:Repeater>
         </ul>
     </div>
 </asp:Content>

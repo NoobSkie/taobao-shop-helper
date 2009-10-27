@@ -11,6 +11,6 @@
 namespace TOP.Applications.TaobaoShopHelper.Templates {
     
     
-    public partial class TemplateApp_Step1_Choose {
+    public partial class Default {
     }
 }

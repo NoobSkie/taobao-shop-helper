@@ -16,7 +16,7 @@ using System.IO;
 
 namespace TOP.Applications.TaobaoShopHelper.Templates
 {
-    public partial class TemplateApp_Step2_SelectItems : BasePage
+    public partial class App1 : BasePage, IMenuPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -204,17 +204,6 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
             int pageSize = ucCtrlPager.PageSize;
             #endregion
 
-            //if (List == null)
-            //{
-            //    ITopClient client = GetProductTopClient();
-            //    ItemsGetRequest req = new ItemsGetRequest();
-            //    req.Fields = TopFieldsHelper.GetItemFields_InList();// "iid,title,nick,type,cid,num,props,price";
-            //    req.Nicks = "zhongjy001";
-            //    req.PageNo = ucCtrlPager.PageIndex + 1;
-            //    req.PageSize = ucCtrlPager.PageSize;
-            //    List = client.Execute(req, new ItemListJsonParser());
-            //}
-
             ITopClient client = GetProductTopClient();
             ITopRequest req = GetTopRequest(query, discount, showCase, type, filter, pageIndex, pageSize);
             if (req != null)
@@ -260,18 +249,6 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
             else
             {
                 return null;
-            }
-        }
-
-        private ResponseList<Item> List
-        {
-            get
-            {
-                return (ResponseList<Item>)Session["List.Temp"];
-            }
-            set
-            {
-                Session["List.Temp"] = value;
             }
         }
 
@@ -362,8 +339,22 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
                 }
             }
             string arg = CompressionHelper.Compress(iid);
-            string url = "TemplateApp_Step3_Edit.aspx?Count=" + count.ToString() + "&List=" + Server.UrlEncode(arg);
+            string url = "App2.aspx?Count=" + count.ToString() + "&List=" + Server.UrlEncode(arg);
             Response.Redirect(url, true);
         }
+
+        #region IMenuPage Members
+
+        public string GetTopMenuId()
+        {
+            return "Template";
+        }
+
+        public string GetSecondMenuId()
+        {
+            return "App";
+        }
+
+        #endregion
     }
 }

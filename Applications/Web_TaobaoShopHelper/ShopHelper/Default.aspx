@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NestedMainMenu.master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Top.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="TOP.Applications.TaobaoShopHelper.ShopHelper.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">

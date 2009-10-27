@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5BA9FA7F-9905-41EA-BA6A-58617A6F1B8A}</ProjectGuid>
+    <ProjectGuid>{E9D3BE6B-3098-4337-A9CF-8E8ED6582BB0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TOP.Management.Facade</RootNamespace>
-    <AssemblyName>TOP.Management.Facade</AssemblyName>
+    <RootNamespace>TOP.Menu.Facade</RootNamespace>
+    <AssemblyName>TOP.Menu.Facade</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -46,21 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreaInfo.cs" />
-    <Compile Include="AreaFacade.cs" />
-    <Compile Include="ItemCategoryFacade.cs" />
-    <Compile Include="ItemCategoryInfo.cs" />
+    <Compile Include="MenuAnalyser.cs" />
+    <Compile Include="MenuInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\TOP.Common.DbHelper\TOP.Common.DbHelper.csproj">
-      <Project>{BD1AFE9A-03AE-4524-94AE-E2DD1F23719A}</Project>
-      <Name>TOP.Common.DbHelper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\TOP.Common.Logic\TOP.Common.Logic.csproj">
-      <Project>{C6A7A214-78B8-4A35-98F9-1189D0AB420E}</Project>
-      <Name>TOP.Common.Logic</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

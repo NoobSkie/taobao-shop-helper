@@ -133,7 +133,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                     }
                     break;
             }
-            Response.Redirect(Request.Url.AbsolutePath);
+            Response.Redirect(Request.Url.AbsoluteUri);
         }
 
         public void AddChild(string defaultValue)
@@ -164,7 +164,7 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
                     CurrentTemplateSetFlow.CurrentFlowList.RemoveAt(i);
                 }
             }
-            Response.Redirect(Request.Url.AbsolutePath);
+            Response.Redirect(Request.Url.AbsoluteUri);
         }
     }
 }

@@ -10,13 +10,13 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <div class="TemplateContainer">
+            <uc2:CtrlTemplateEditor ID="ucTemplateEditor" runat="server" />
+        </div>
         <div>
             <asp:Button ID="btnPreview" runat="server" Text="预览" OnClick="btnPreview_Click" />
             <asp:HyperLink ID="hlnkReset" NavigateUrl="~/Templates/WebForm2.aspx" runat="server">重新开始</asp:HyperLink><br />
             <asp:Label ID="lblPreview" runat="server"></asp:Label>
-        </div>
-        <div class="TemplateContainer">
-            <uc2:CtrlTemplateEditor ID="ucTemplateEditor" runat="server" />
         </div>
     </div>
     </form>

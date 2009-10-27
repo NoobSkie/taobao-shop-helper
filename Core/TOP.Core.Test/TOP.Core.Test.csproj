@@ -49,10 +49,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TOP.Core.Domain\TOP.Core.Domain.csproj">
-      <Project>{94715AF1-20AD-4D8E-B6B6-BCC290621C3A}</Project>
-      <Name>TOP.Core.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TOP.Core.Facade\TOP.Core.Facade.csproj">
       <Project>{0412BEF3-4997-4A40-B25C-AAC25B70B068}</Project>
       <Name>TOP.Core.Facade</Name>

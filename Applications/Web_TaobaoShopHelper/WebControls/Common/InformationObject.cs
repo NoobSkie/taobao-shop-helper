@@ -6,7 +6,7 @@ using TOP.Applications.TaobaoShopHelper._Common;
 
 namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
 {
-    public class InformationObject : PageObject
+    public class InformationObject
     {
         public string Message { get; set; }
 

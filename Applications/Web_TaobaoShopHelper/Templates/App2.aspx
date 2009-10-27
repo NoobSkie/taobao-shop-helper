@@ -1,5 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Templates/NestedTemplatePage.master"
-    AutoEventWireup="true" CodeBehind="TemplateApp_Step3_Edit.aspx.cs" Inherits="TOP.Applications.TaobaoShopHelper.Templates.TemplateApp_Step3_Edit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Templates/_Template.master"
+    EnableEventValidation="false" AutoEventWireup="true" CodeBehind="App2.aspx.cs"
+    Inherits="TOP.Applications.TaobaoShopHelper.Templates.App2" %>
 
 <%@ Register Src="~/WebControls/Template/CtrlTemplateEditor.ascx" TagName="CtrlTemplateEditor"
     TagPrefix="uc2" %>
@@ -22,9 +23,15 @@
     </div>
     <div class="TemplateArea">
         <div class="ItemInformation">
-            <asp:DropDownList ID="ddlTemplates" runat="server" DataTextField="Name" AutoPostBack="true"
-                DataValueField="Id" OnSelectedIndexChanged="ddlTemplates_SelectedIndexChanged">
-            </asp:DropDownList>
+            <div>
+                <asp:Image ID="imgPreview" runat="server" />
+            </div>
+            <div>
+                <asp:Label ID="lblTitle" runat="server"></asp:Label>
+                <asp:DropDownList ID="ddlTemplates" runat="server" DataTextField="Name" AutoPostBack="true"
+                    DataValueField="Id" OnSelectedIndexChanged="ddlTemplates_SelectedIndexChanged">
+                </asp:DropDownList>
+            </div>
         </div>
         <div class="TemplateContainer">
             <uc2:CtrlTemplateEditor ID="ucTemplateEditor" runat="server" />

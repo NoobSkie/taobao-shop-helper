@@ -12,7 +12,6 @@
 .HeaderDiv
 {
     height: 24px;
-    background-image: url(../../../Images/Layout/Professional/page_header_bg.jpg);
 }
 
 .HeaderDiv .UserInfoDiv
@@ -20,6 +19,10 @@
     float: left;
     line-height: 24px;
     margin-left: 10px;
+}
+
+.HeaderDiv .UserInfoDiv .Name
+{
 }
 
 .HeaderDiv .UserOperatorDiv

@@ -11,43 +11,61 @@
 namespace TOP.Applications.TaobaoShopHelper.Templates {
     
     
-    public partial class TemplateApp_Step3_Edit {
+    public partial class Set {
         
         /// <summary>
-        /// rptItemList control.
+        /// lbtnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptItemList;
+        protected global::System.Web.UI.WebControls.LinkButton lbtnAdd;
         
         /// <summary>
-        /// ddlTemplates control.
+        /// hlinkCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTemplates;
+        protected global::System.Web.UI.WebControls.HyperLink hlinkCreate;
         
         /// <summary>
-        /// ucTemplateEditor control.
+        /// rptTemplateList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlTemplateEditor ucTemplateEditor;
+        protected global::System.Web.UI.WebControls.Repeater rptTemplateList;
         
         /// <summary>
-        /// lbtnPreview control.
+        /// lblTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnPreview;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
+        
+        /// <summary>
+        /// txtName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtName;
+        
+        /// <summary>
+        /// fuFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuFile;
         
         /// <summary>
         /// lbtnSave control.
@@ -57,5 +75,14 @@ namespace TOP.Applications.TaobaoShopHelper.Templates {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtnSave;
+        
+        /// <summary>
+        /// lbtnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnCancel;
     }
 }

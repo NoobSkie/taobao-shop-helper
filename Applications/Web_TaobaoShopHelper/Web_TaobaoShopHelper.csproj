@@ -120,13 +120,6 @@
     <Compile Include="MyWorkSpace.aspx.designer.cs">
       <DependentUpon>MyWorkSpace.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NestedMainMenu.master.cs">
-      <DependentUpon>NestedMainMenu.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NestedMainMenu.master.designer.cs">
-      <DependentUpon>NestedMainMenu.master</DependentUpon>
-    </Compile>
     <Compile Include="RequestPages\GetItemCategoryListFromTOP.aspx.cs">
       <DependentUpon>GetItemCategoryListFromTOP.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -253,6 +246,13 @@
     <Compile Include="ShopHelper\QueryResult_Shop.aspx.designer.cs">
       <DependentUpon>QueryResult_Shop.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Templates\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Templates\Editor.aspx.cs">
       <DependentUpon>Editor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -260,47 +260,33 @@
     <Compile Include="Templates\Editor.aspx.designer.cs">
       <DependentUpon>Editor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Templates\NestedTemplatePage.master.cs">
-      <DependentUpon>NestedTemplatePage.master</DependentUpon>
+    <Compile Include="Templates\_Template.master.cs">
+      <DependentUpon>_Template.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Templates\NestedTemplatePage.master.designer.cs">
-      <DependentUpon>NestedTemplatePage.master</DependentUpon>
+    <Compile Include="Templates\_Template.master.designer.cs">
+      <DependentUpon>_Template.master</DependentUpon>
     </Compile>
-    <Compile Include="Templates\TemplateApp.aspx.cs">
-      <DependentUpon>TemplateApp.aspx</DependentUpon>
+    <Compile Include="Templates\App1.aspx.cs">
+      <DependentUpon>App1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Templates\TemplateApp.aspx.designer.cs">
-      <DependentUpon>TemplateApp.aspx</DependentUpon>
+    <Compile Include="Templates\App1.aspx.designer.cs">
+      <DependentUpon>App1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Templates\TemplateApp_Step1_Choose.aspx.cs">
-      <DependentUpon>TemplateApp_Step1_Choose.aspx</DependentUpon>
+    <Compile Include="Templates\App2.aspx.cs">
+      <DependentUpon>App2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Templates\TemplateApp_Step1_Choose.aspx.designer.cs">
-      <DependentUpon>TemplateApp_Step1_Choose.aspx</DependentUpon>
+    <Compile Include="Templates\App2.aspx.designer.cs">
+      <DependentUpon>App2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Templates\TemplateApp_Step2_SelectItems.aspx.cs">
-      <DependentUpon>TemplateApp_Step2_SelectItems.aspx</DependentUpon>
+    <Compile Include="Templates\Set.aspx.cs">
+      <DependentUpon>Set.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Templates\TemplateApp_Step2_SelectItems.aspx.designer.cs">
-      <DependentUpon>TemplateApp_Step2_SelectItems.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\TemplateApp_Step3_Edit.aspx.cs">
-      <DependentUpon>TemplateApp_Step3_Edit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Templates\TemplateApp_Step3_Edit.aspx.designer.cs">
-      <DependentUpon>TemplateApp_Step3_Edit.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\TemplateSet.aspx.cs">
-      <DependentUpon>TemplateSet.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Templates\TemplateSet.aspx.designer.cs">
-      <DependentUpon>TemplateSet.aspx</DependentUpon>
+    <Compile Include="Templates\Set.aspx.designer.cs">
+      <DependentUpon>Set.aspx</DependentUpon>
     </Compile>
     <Compile Include="Templates\TemplateSetFlow.cs" />
     <Compile Include="Templates\WebForm1.aspx.cs">
@@ -532,7 +518,6 @@
     <Compile Include="WebControls\Template\TemplateEditCtrlBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="_Common\AppUrlHelper.cs" />
     <Compile Include="_Common\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -545,6 +530,7 @@
     </Compile>
     <Compile Include="_Common\Enumerations.cs" />
     <Compile Include="_Common\IInformationPage.cs" />
+    <Compile Include="_Common\IMenuPage.cs" />
     <Compile Include="_Common\JsonParser.cs" />
     <Compile Include="_Common\PageObject.cs" />
     <Compile Include="_Common\TopFieldsHelper.cs" />
@@ -578,25 +564,13 @@
       <Project>{EB00C6D9-D584-49E5-B443-F7E644DA59D8}</Project>
       <Name>TOP.Common.StringTool</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core\TOP.Core.Domain\TOP.Core.Domain.csproj">
-      <Project>{94715AF1-20AD-4D8E-B6B6-BCC290621C3A}</Project>
-      <Name>TOP.Core.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\TOP.Core.Facade\TOP.Core.Facade.csproj">
-      <Project>{0412BEF3-4997-4A40-B25C-AAC25B70B068}</Project>
-      <Name>TOP.Core.Facade</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Html\TOP.Html.Snapshot\TOP.Html.Snapshot.csproj">
       <Project>{67EDCA1D-171D-4068-ADE4-54445CA7241E}</Project>
       <Name>TOP.Html.Snapshot</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Management\TOP.Management.Domain\TOP.Management.Domain.csproj">
-      <Project>{D355B0EA-0750-429F-B7C9-62100976C6AE}</Project>
-      <Name>TOP.Management.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Management\TOP.Management.Facade\TOP.Management.Facade.csproj">
-      <Project>{5BA9FA7F-9905-41EA-BA6A-58617A6F1B8A}</Project>
-      <Name>TOP.Management.Facade</Name>
+    <ProjectReference Include="..\..\Menu\TOP.Menu.Facade\TOP.Menu.Facade.csproj">
+      <Project>{E9D3BE6B-3098-4337-A9CF-8E8ED6582BB0}</Project>
+      <Name>TOP.Menu.Facade</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Template\TOP.Template.Domain\TOP.Template.Domain.csproj">
       <Project>{FC863206-7E19-4A6A-ADBD-334BCDE6F9D6}</Project>
@@ -748,7 +722,6 @@
     <Content Include="Images\Layout\Professional\page_header_bg.jpg" />
     <Content Include="ShopHelper\Default.aspx" />
     <Content Include="ShopHelper\ItemQuery.aspx" />
-    <Content Include="NestedMainMenu.master" />
     <Content Include="ShopHelper\QueryResult.aspx" />
     <Content Include="ShopHelper\QueryResult_Item.aspx" />
     <Content Include="ShopHelper\QueryResult_Shop.aspx" />
@@ -782,11 +755,10 @@
     <Content Include="WebControls\Template\CtrlSearch_Item_Multi.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Templates\NestedTemplatePage.master" />
-    <Content Include="Templates\TemplateApp.aspx" />
-    <Content Include="Templates\TemplateApp_Step1_Choose.aspx" />
+    <Content Include="Templates\_Template.master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MainMenu.xml" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\09.WebPage.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\51.TemplateEdit.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\50.TemplateSelectItems.css" />
@@ -800,15 +772,16 @@
     <Content Include="ShopHelper\ImportItem_Step2_Options.aspx" />
     <Content Include="ShopHelper\ImportItem_Step3_Preview.aspx" />
     <Content Include="ShopHelper\NestedImportItemStep.master" />
+    <Content Include="Templates\Default.aspx" />
     <Content Include="Templates\Editor.aspx" />
+    <Content Include="Templates\_SecondMenu.xml" />
     <Content Include="Templates\test1.txt" />
-    <Content Include="Templates\TemplateApp_Step2_SelectItems.aspx" />
-    <Content Include="Templates\TemplateApp_Step3_Edit.aspx" />
-    <Content Include="Templates\TemplateSet.aspx" />
+    <Content Include="Templates\App1.aspx" />
+    <Content Include="Templates\App2.aspx" />
+    <Content Include="Templates\Set.aspx" />
     <Content Include="WebControls\Template\CtrlTemplateEditor.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="ErrorResponseLog\" />
     <Folder Include="Images\Shops\" />
     <Folder Include="Images\Snapshot\" />

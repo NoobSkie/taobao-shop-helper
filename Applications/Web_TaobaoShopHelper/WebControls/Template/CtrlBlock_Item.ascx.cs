@@ -73,19 +73,19 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Template
         protected void lbtnMoveUp_Click(object sender, EventArgs e)
         {
             this.CurrentTemplateSetFlow.MoveUp(TemplateFlow);
-            Response.Redirect(Request.Url.AbsolutePath);
+            Response.Redirect(Request.Url.AbsoluteUri);
         }
 
         protected void lbtnMoveDown_Click(object sender, EventArgs e)
         {
             this.CurrentTemplateSetFlow.MoveDown(TemplateFlow);
-            Response.Redirect(Request.Url.AbsolutePath);
+            Response.Redirect(Request.Url.AbsoluteUri);
         }
 
         protected void lbtnRemove_Click(object sender, EventArgs e)
         {
             this.CurrentTemplateSetFlow.Remove(TemplateFlow);
-            Response.Redirect(Request.Url.AbsolutePath);
+            Response.Redirect(Request.Url.AbsoluteUri);
         }
     }
 }

@@ -11,7 +11,7 @@
 namespace TOP.Applications.TaobaoShopHelper.Templates {
     
     
-    public partial class TemplateApp_Step2_SelectItems {
+    public partial class App1 {
         
         /// <summary>
         /// tvCategory control.

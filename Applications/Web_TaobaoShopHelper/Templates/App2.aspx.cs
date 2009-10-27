@@ -15,7 +15,7 @@ using Taobao.Top.Api.Domain;
 
 namespace TOP.Applications.TaobaoShopHelper.Templates
 {
-    public partial class TemplateApp_Step3_Edit : BasePage
+    public partial class App2 : BasePage, IMenuPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -70,13 +70,7 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
         {
             if (!string.IsNullOrEmpty(Request["Id"]))
             {
-                string templateId = Request["Id"];
-                TemplateFacade facade = new TemplateFacade();
-                TemplateContentInfo info = facade.GetTemplateContentById(templateId);
-                if (info != null)
-                {
-                    ucTemplateEditor.TemplateHtml = info.Content;
-                }
+                ucTemplateEditor.ItemIid = Request["Id"];
             }
         }
 
@@ -195,6 +189,20 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
             parameters.Add("Message", "设置宝贝描述信息成功！");
             Response.Redirect(Request.Url.AbsolutePath + "?" + GetQueryByParameterList(parameters));
         }
+
+        #region IMenuPage Members
+
+        public string GetTopMenuId()
+        {
+            return "Template";
+        }
+
+        public string GetSecondMenuId()
+        {
+            return "App";
+        }
+
+        #endregion
     }
 
     public class WaittingTemplate

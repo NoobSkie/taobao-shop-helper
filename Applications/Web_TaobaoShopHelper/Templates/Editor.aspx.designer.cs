@@ -23,6 +23,15 @@ namespace TOP.Applications.TaobaoShopHelper.Templates {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// ucTemplateEditor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlTemplateEditor ucTemplateEditor;
+        
+        /// <summary>
         /// btnPreview control.
         /// </summary>
         /// <remarks>
@@ -48,14 +57,5 @@ namespace TOP.Applications.TaobaoShopHelper.Templates {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPreview;
-        
-        /// <summary>
-        /// ucTemplateEditor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::TOP.Applications.TaobaoShopHelper.WebControls.Template.CtrlTemplateEditor ucTemplateEditor;
     }
 }

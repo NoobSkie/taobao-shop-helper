@@ -11,7 +11,7 @@
 namespace TOP.Applications.TaobaoShopHelper.Templates {
     
     
-    public partial class NestedTemplatePage {
+    public partial class _Template {
         
         /// <summary>
         /// HeaderContent control.
@@ -30,6 +30,15 @@ namespace TOP.Applications.TaobaoShopHelper.Templates {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder CommonContent;
+        
+        /// <summary>
+        /// rptMenus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptMenus;
         
         /// <summary>
         /// form1 control.
