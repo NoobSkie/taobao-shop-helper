@@ -10,6 +10,7 @@ using TOP.Applications.PicWatermark.V01;
 using TOP.Applications.PicWatermark.V02;
 using System.IO;
 using System.Threading;
+using TOP.Applications.PicWatermark.V03;
 
 namespace TOP.Applications.PicWatermark
 {
@@ -63,15 +64,18 @@ namespace TOP.Applications.PicWatermark
 
         private void DisplayImage()
         {
-            Image img = (Image)CurrentImage.Clone();
-            foreach (IWatermark watermark in CurrentWatermarks)
+            if (CurrentImage != null)
             {
-                if (watermark.ConfigurationControl.CanWatermark)
+                Image img = (Image)CurrentImage.Clone();
+                foreach (IWatermark watermark in CurrentWatermarks)
                 {
-                    img = watermark.Watermark(img);
+                    if (watermark.ConfigurationControl.CanWatermark)
+                    {
+                        img = watermark.Watermark(img);
+                    }
                 }
+                picImg.Image = img;
             }
-            picImg.Image = img;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -100,6 +104,10 @@ namespace TOP.Applications.PicWatermark
             else if (cbOption.SelectedIndex == 2)
             {
                 w = new WatermarkV02();
+            }
+            else if (cbOption.SelectedIndex == 3)
+            {
+                w = new WatermarkV03();
             }
 
             if (w != null && w.ConfigurationControl != null)

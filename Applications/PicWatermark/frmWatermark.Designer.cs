@@ -53,12 +53,12 @@
             this.grpOperate = new System.Windows.Forms.GroupBox();
             this.progressBarEvent = new System.Windows.Forms.ProgressBar();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblMsg = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
             this.openImage = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.folderBrowserDialogIn = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialogOut = new System.Windows.Forms.FolderBrowserDialog();
-            this.lblMsg = new System.Windows.Forms.Label();
             this.grpIn.SuspendLayout();
             this.grpOption.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
@@ -205,7 +205,8 @@
             this.cbOption.Items.AddRange(new object[] {
             "--添加水印--",
             "文本水印",
-            "图片水印"});
+            "图片水印",
+            "色带水印"});
             this.cbOption.Location = new System.Drawing.Point(6, 19);
             this.cbOption.Name = "cbOption";
             this.cbOption.Size = new System.Drawing.Size(150, 21);
@@ -325,6 +326,18 @@
             this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // lblMsg
+            // 
+            this.lblMsg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMsg.AutoEllipsis = true;
+            this.lblMsg.Location = new System.Drawing.Point(162, 19);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(822, 23);
+            this.lblMsg.TabIndex = 1;
+            this.lblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMsg.Visible = false;
+            // 
             // btnExport
             // 
             this.btnExport.Location = new System.Drawing.Point(6, 19);
@@ -347,18 +360,6 @@
             // folderBrowserDialogIn
             // 
             this.folderBrowserDialogIn.ShowNewFolderButton = false;
-            // 
-            // lblMsg
-            // 
-            this.lblMsg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMsg.AutoEllipsis = true;
-            this.lblMsg.Location = new System.Drawing.Point(162, 19);
-            this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(822, 23);
-            this.lblMsg.TabIndex = 1;
-            this.lblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMsg.Visible = false;
             // 
             // frmWatermark
             // 

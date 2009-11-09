@@ -18,7 +18,6 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
             {
                 if (CurrentUser == null)
                 {
-                    lbtnAdd.Enabled = false;
                     lbtnSave.Enabled = false;
                     lbtnCancel.Enabled = false;
 
@@ -26,8 +25,17 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
                 }
                 else
                 {
+                    BindTemplateList();
                 }
             }
+        }
+
+        private void BindTemplateList()
+        {
+            TemplateFacade facade = new TemplateFacade();
+            List<TemplateInfo> templateList = facade.GetTemplateInfoListByUserId(CurrentUser.Id);
+            rptTemplateList.DataSource = templateList;
+            rptTemplateList.DataBind();
         }
 
         protected void lbtnSave_Click(object sender, EventArgs e)

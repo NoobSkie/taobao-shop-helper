@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace TOP.Applications.PicWatermark
 {
@@ -22,6 +23,46 @@ namespace TOP.Applications.PicWatermark
         }
 
         #endregion
+
+        protected Rectangle CaculateRectangle(Size sizeParent, Orientation orientation, HorizontalAlignment align, int width, int destance, int offsetStart, int offsetEnd)
+        {
+            Rectangle rect = new Rectangle();
+            if (orientation == Orientation.Horizontal)
+            {
+                rect.Height = width;
+                rect.Width = sizeParent.Width - offsetStart - offsetEnd;
+                if (align == HorizontalAlignment.Left)
+                {
+                    rect.Location = new Point(offsetStart, destance);
+                }
+                else if (align == HorizontalAlignment.Center)
+                {
+                    rect.Location = new Point(offsetStart, (sizeParent.Height - width) / 2);
+                }
+                else
+                {
+                    rect.Location = new Point(offsetStart, sizeParent.Height - width - destance);
+                }
+            }
+            else
+            {
+                rect.Height = sizeParent.Height - offsetStart - offsetEnd;
+                rect.Width = width;
+                if (align == HorizontalAlignment.Left)
+                {
+                    rect.Location = new Point(destance, offsetStart);
+                }
+                else if (align == HorizontalAlignment.Center)
+                {
+                    rect.Location = new Point((sizeParent.Width - width) / 2, offsetStart);
+                }
+                else
+                {
+                    rect.Location = new Point(sizeParent.Width - width - destance, offsetStart);
+                }
+            }
+            return rect;
+        }
 
         protected void CaculateLocation(Size sizeParent, Size sizeChild, ContentAlignment align, int offsetX, int offsetY, out int x, out int y)
         {

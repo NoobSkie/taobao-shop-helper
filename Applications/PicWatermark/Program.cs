@@ -15,7 +15,7 @@ namespace TOP.Applications.PicWatermark
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmGenPicFromHtml());
+            Application.Run(new frmWatermark());
         }
     }
 }

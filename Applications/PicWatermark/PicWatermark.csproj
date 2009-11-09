@@ -142,6 +142,9 @@
     <EmbeddedResource Include="V02\CtrlConfigurationV02.resx">
       <DependentUpon>CtrlConfigurationV02.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="V03\CtrlConfigurationV03.resx">
+      <DependentUpon>CtrlConfigurationV03.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="PicWatermark_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -166,6 +169,13 @@
       <DependentUpon>CtrlConfigurationV02.cs</DependentUpon>
     </Compile>
     <Compile Include="V02\WatermarkV02.cs" />
+    <Compile Include="V03\CtrlConfigurationV03.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="V03\CtrlConfigurationV03.Designer.cs">
+      <DependentUpon>CtrlConfigurationV03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="V03\WatermarkV03.cs" />
     <Compile Include="WatermarkBase.cs" />
     <Compile Include="WebBrowserCapture.cs" />
   </ItemGroup>

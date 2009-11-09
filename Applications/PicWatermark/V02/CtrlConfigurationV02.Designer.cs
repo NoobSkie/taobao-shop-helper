@@ -45,9 +45,9 @@
             this.rbtnTopLeft = new System.Windows.Forms.RadioButton();
             this.grpFont = new System.Windows.Forms.GroupBox();
             this.txtPath = new System.Windows.Forms.TextBox();
+            this.picImg = new System.Windows.Forms.PictureBox();
             this.btnImg = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.picImg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numX)).BeginInit();
             this.grpLocation.SuspendLayout();
@@ -310,6 +310,17 @@
             this.txtPath.TabIndex = 2;
             this.txtPath.TextChanged += new System.EventHandler(this.txtPath_TextChanged);
             // 
+            // picImg
+            // 
+            this.picImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picImg.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picImg.Location = new System.Drawing.Point(266, 19);
+            this.picImg.Name = "picImg";
+            this.picImg.Size = new System.Drawing.Size(78, 81);
+            this.picImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picImg.TabIndex = 1;
+            this.picImg.TabStop = false;
+            // 
             // btnImg
             // 
             this.btnImg.Location = new System.Drawing.Point(6, 19);
@@ -324,17 +335,6 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             this.openFileDialog.Filter = "图片文件|*.jpg";
-            // 
-            // picImg
-            // 
-            this.picImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picImg.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picImg.Location = new System.Drawing.Point(266, 19);
-            this.picImg.Name = "picImg";
-            this.picImg.Size = new System.Drawing.Size(78, 81);
-            this.picImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picImg.TabIndex = 1;
-            this.picImg.TabStop = false;
             // 
             // CtrlConfigurationV02
             // 

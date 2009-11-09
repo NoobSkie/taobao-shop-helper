@@ -6,18 +6,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="CommonContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageHeaderHolder" runat="server">
-    <span>设置模板</span>
-    <asp:LinkButton ID="lbtnAdd" runat="server">添加模板</asp:LinkButton>
+    <span>模板配置</span>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PageContentHolder" runat="server">
     <div class="WaittingList">
         <ul>
             <li class="New">
-                <asp:HyperLink ID="hlinkCreate" runat="server" Text="添加模板" NavigateUrl="TemplateSet.aspx"></asp:HyperLink></li>
+                <asp:HyperLink ID="hlinkCreate" runat="server" Text="添加模板" NavigateUrl="Set.aspx"></asp:HyperLink></li>
             <asp:Repeater ID="rptTemplateList" runat="server">
                 <ItemTemplate>
-                    <li class='<%# Eval("CssName") %>'>
-                        <asp:HyperLink ID="hlnk" runat="server" Text='<%# Eval("Name") %>' NavigateUrl='<%# Eval("Url") %>'></asp:HyperLink></li>
+                    <li class=''>
+                        <asp:HyperLink ID="hlnk" runat="server" Text='<%# Eval("Name") %>' NavigateUrl=''></asp:HyperLink></li>
                 </ItemTemplate>
             </asp:Repeater>
         </ul>
