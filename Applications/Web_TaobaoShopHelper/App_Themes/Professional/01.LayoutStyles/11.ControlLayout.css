@@ -19,7 +19,7 @@
 
 .Field .Caption
 {
-    line-height:24px;
+    line-height: 24px;
     margin-right: 8px;
     display: block;
     float: left;
@@ -29,13 +29,13 @@
 {
 }
 
-.Field span.Input 
+.Field span.Input
 {
 }
 
 .Field span.Input label
 {
-    line-height:24px;
+    line-height: 24px;
 }
 
 .Field .Submit
@@ -46,4 +46,81 @@
 .FieldRow .FieldItem .Submit
 {
     margin-left: 8px;
+}
+
+.DisplayBlock
+{
+}
+
+.DisplayBlock .BlockHeader
+{
+    height: 24px;
+    line-height: 24px;
+    padding-left: 8px;
+    background-color: lightgray;
+}
+
+.DisplayBlock .BlockHeader span
+{
+    font-weight:bold;
+}
+
+.DisplayBlock .BlockHeader span.Tip
+{
+    font-weight:normal;
+    margin-left:12px;
+    color: Red;
+}
+
+.DisplayBlock .BlockList
+{
+    display: block;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+    padding-left: 128px;
+}
+
+.DisplayBlock .BlockList ul
+{
+    list-style-type: none;
+    margin: 0px;
+}
+
+.DisplayBlock .BlockList ul li
+{
+    font: 12px/1.5 Tahoma,Helvetica,Arial, '宋体' ,sans-serif;
+    color: #36c;
+    margin-left: -38px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 15px;
+    padding-right: 3px;
+    border-top: solid 1px gray;
+    border-left: solid 1px gray;
+    border-right: solid 1px gray;
+}
+
+.DisplayBlock .BlockList ul li:first-child
+{
+    border-top: none;
+}
+
+.DisplayBlock .BlockList ul li .Caption
+{
+    display: inline-block;
+}
+
+.DisplayBlock .BlockShopImage
+{
+    margin: 1px;
+    float: left;
+    width: 120px;
+    height: 120px;
+    border: solid 0px gray;
+}
+
+.DisplayBlock .BlockShopImage img
+{
+    max-width: 120px;
+    max-height: 120px;
 }

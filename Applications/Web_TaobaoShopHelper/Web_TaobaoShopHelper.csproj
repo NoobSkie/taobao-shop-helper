@@ -176,6 +176,13 @@
     <Compile Include="ShopHelper\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShopHelper\Default_1.aspx.cs">
+      <DependentUpon>Default_1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\Default_1.aspx.designer.cs">
+      <DependentUpon>Default_1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ShopHelper\ImportItem_Step1_SelectItems.aspx.cs">
       <DependentUpon>ImportItem_Step1_SelectItems.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,6 +210,27 @@
     </Compile>
     <Compile Include="ShopHelper\ImportItem_Step3_Preview.aspx.designer.cs">
       <DependentUpon>ImportItem_Step3_Preview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\ImportShop1.aspx.cs">
+      <DependentUpon>ImportShop1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\ImportShop1.aspx.designer.cs">
+      <DependentUpon>ImportShop1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\ImportShop2.aspx.cs">
+      <DependentUpon>ImportShop2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\ImportShop2.aspx.designer.cs">
+      <DependentUpon>ImportShop2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\ImportShop3.aspx.cs">
+      <DependentUpon>ImportShop3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\ImportShop3.aspx.designer.cs">
+      <DependentUpon>ImportShop3.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShopHelper\ItemQuery.aspx.cs">
       <DependentUpon>ItemQuery.aspx</DependentUpon>
@@ -245,6 +273,13 @@
     </Compile>
     <Compile Include="ShopHelper\QueryResult_Shop.aspx.designer.cs">
       <DependentUpon>QueryResult_Shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopHelper\_ShopHelper.master.cs">
+      <DependentUpon>_ShopHelper.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\_ShopHelper.master.designer.cs">
+      <DependentUpon>_ShopHelper.master</DependentUpon>
     </Compile>
     <Compile Include="Templates\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -310,6 +345,13 @@
     <Compile Include="TestPages\ControlTest\TestInformationBox.aspx.designer.cs">
       <DependentUpon>TestInformationBox.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TestPages\ImageOutput.aspx.cs">
+      <DependentUpon>ImageOutput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\ImageOutput.aspx.designer.cs">
+      <DependentUpon>ImageOutput.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestPages\MyItems.aspx.cs">
       <DependentUpon>MyItems.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -373,6 +415,13 @@
     </Compile>
     <Compile Include="Top.Master.designer.cs">
       <DependentUpon>Top.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Common\CtrlCredit.ascx.cs">
+      <DependentUpon>CtrlCredit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Common\CtrlCredit.ascx.designer.cs">
+      <DependentUpon>CtrlCredit.ascx</DependentUpon>
     </Compile>
     <Compile Include="WebControls\Common\CtrlInformationBox.ascx.cs">
       <DependentUpon>CtrlInformationBox.ascx</DependentUpon>
@@ -720,7 +769,7 @@
     <Content Include="Styles\FindListStyles.css" />
     <Content Include="App_Themes\Professional\01.LayoutStyles\01.Main.css" />
     <Content Include="Images\Layout\Professional\page_header_bg.jpg" />
-    <Content Include="ShopHelper\Default.aspx" />
+    <Content Include="ShopHelper\Default_1.aspx" />
     <Content Include="ShopHelper\ItemQuery.aspx" />
     <Content Include="ShopHelper\QueryResult.aspx" />
     <Content Include="ShopHelper\QueryResult_Item.aspx" />
@@ -772,6 +821,7 @@
     <Content Include="ShopHelper\ImportItem_Step2_Options.aspx" />
     <Content Include="ShopHelper\ImportItem_Step3_Preview.aspx" />
     <Content Include="ShopHelper\NestedImportItemStep.master" />
+    <Content Include="Templates\template2.htm" />
     <Content Include="Templates\Default.aspx" />
     <Content Include="Templates\Editor.aspx" />
     <Content Include="Templates\_SecondMenu.xml" />
@@ -779,7 +829,21 @@
     <Content Include="Templates\App1.aspx" />
     <Content Include="Templates\App2.aspx" />
     <Content Include="Templates\Set.aspx" />
+    <Content Include="TestPages\ImageOutput.aspx" />
     <Content Include="WebControls\Template\CtrlTemplateEditor.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\System\CreditIcos\b_blue_1.gif" />
+    <Content Include="Images\System\CreditIcos\b_red_3.gif" />
+    <Content Include="Images\System\CreditIcos\s_cap_2.gif" />
+    <Content Include="Images\System\CreditIcos\s_red_2.gif" />
+    <Content Include="ShopHelper\Default.aspx" />
+    <Content Include="ShopHelper\ImportShop1.aspx" />
+    <Content Include="ShopHelper\ImportShop2.aspx" />
+    <Content Include="ShopHelper\ImportShop3.aspx" />
+    <Content Include="ShopHelper\_SecondMenu.xml" />
+    <Content Include="ShopHelper\_ShopHelper.master" />
+    <Content Include="WebControls\Common\CtrlCredit.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ErrorResponseLog\" />

@@ -177,6 +177,8 @@ namespace TOP.Applications.TaobaoShopHelper._Common
 
         public string ContainerApi { get { return pageHelper.ContainerApi; } }
 
+        public string ShopLogUrlFormat { get { return pageHelper.ShopLogUrlFormat; } }
+
         #endregion
     }
 }

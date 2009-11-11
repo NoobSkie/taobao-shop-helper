@@ -48,6 +48,78 @@
 {
 }
 
+.ItemList .Item_Block
+{
+    float: left;
+    display: block;
+    margin:3px;
+}
+
+.ItemList .Item_Block .Partten
+{
+}
+
+.ItemList .Item_Block .CheckPartten
+{
+    text-align:center;
+}
+
+.ItemList .Item_Block .CheckPartten input
+{
+}
+
+.ItemList .Item_Block .ImagePartten
+{
+    overflow: hidden;
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    border: solid 1px #cdcdcd;
+}
+
+.ItemList .Item_Block .ImagePartten a
+{
+    width: 150px;
+    height: 150px;
+}
+
+.ItemList .Item_Block .ImagePartten a img
+{
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.ItemList .Item_Block .TitlePartten
+{
+    width: 150px;
+    padding-left: 1px;
+    padding-right: 1px;
+    text-overflow: ellipsis;
+    white-space : nowrap;
+    overflow: hidden;
+    font: 12px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;    
+}
+
+.ItemList .Item_Block .TitlePartten span
+{
+    color: #36c;
+}
+
+.ItemList .Item_Block .PricePartten
+{
+    text-align:center;
+}
+
+.ItemList .Item_Block .PricePartten .Price_List
+{
+    font: 12px/1.5 Tahoma,Helvetica,Arial, '宋体' ,sans-serif;
+    line-height: 25px;
+    font-style: normal;
+    color: #f50;
+    font-weight: normal;
+    vertical-align: baseline;
+}
+
 .ItemList .Item_List
 {
     clear: both;

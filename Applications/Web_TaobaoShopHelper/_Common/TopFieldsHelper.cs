@@ -18,5 +18,24 @@ namespace TOP.Applications.TaobaoShopHelper._Common
         {
             return "iid,title,nick,cid,price,type,pic_path";
         }
+
+        /// <summary>
+        /// 获取所有店铺的字段
+        /// </summary>
+        /// <returns></returns>
+        public static string GetShopFields_Common()
+        {
+            return "sid,cid,title,nick,bulletin,pic_path,created,modified";
+        }
+
+        public static string GetItemCatFields_Name()
+        {
+            return "cid,name,status";
+        }
+
+        public static string GetUserFields_All()
+        {
+            return "nick,sex,buyer_credit,seller_credit,location.city,location.state,location.country,created,last_visit";
+        }
     }
 }

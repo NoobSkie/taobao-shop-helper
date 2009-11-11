@@ -38,4 +38,11 @@ namespace TOP.Applications.TaobaoShopHelper._Common
         Input_Text = 1,
         Input_Image = 2,
     }
+
+    public enum UserType
+    {
+        Buyer = 0,
+        Seller = 1,
+        Mall = 2,
+    }
 }

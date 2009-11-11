@@ -38,20 +38,32 @@
 
 .InformationBox ul li.Information span
 {
-    float:left;
+    float: left;
     margin-right: 8px;
-    font-weight: bold;
 }
 
 .InformationBox ul li.Information a
 {
-    float:left;
+    float: left;
     margin-right: 6px;
 }
 
 .InformationBox ul li.Information a img
 {
-    float:left;
+    float: left;
     display: block;
     border: none;
+}
+
+.InformationBox ul li.ErrorMsg
+{
+    display: table;
+    line-height: 18px;
+}
+
+.InformationBox ul li.ErrorMsg span
+{
+    float: left;
+    margin-right: 8px;
+    color: Red;
 }

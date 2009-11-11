@@ -10,6 +10,16 @@
 {
     height: 32px;
     line-height: 32px;
+    padding-left: 8px;
+}
+
+.WebPage .PageHeader span
+{
+    font-size: 12px;
+    font-family: Tahoma,Helvetica,Arial, '宋体' ,sans-serif;
+    font-weight:bold;
+    height: 32px;
+    line-height: 32px;
 }
 
 .WebPage .PageContent
@@ -19,11 +29,68 @@
 
 .WebPage .PageFooter
 {
+    height: 37px;
+    border-top: solid 1px lightgray;
+    background: url(../../../Images/Layout/Professional/page_menu_two_bg.png) repeat-x 0px -37px;
     clear: both;
-    height: 32px;
     text-align: right;
 }
 
-.WebPage .PageFooter a
+.WebPage .PageFooter ul
+{
+    float:right;
+    list-style-type: none;
+    margin: 0px;
+    margin-left: 7px;
+    padding: 0px;
+    height: 37px;
+    overflow: hidden;
+}
+
+.WebPage .PageFooter ul li
+{
+    padding-top: 8px;
+    padding-bottom: 0px;
+    padding-left: 7px;
+    padding-right: 7px;
+    float: left;
+    margin: 0px;
+    list-style-type: none;
+    position: relative;
+}
+
+.WebPage .PageFooter ul li:first-child
+{
+    background: none;
+}
+
+.WebPage .PageFooter ul li a
+{
+    text-align: center;
+    line-height: 22px;
+    display: block;
+    height: 22px;
+    color: #666;
+    text-decoration: none;
+    background: url(../../../Images/Layout/Professional/page_menu_state.png) no-repeat -10px -130px;
+}
+
+.WebPage .PageFooter ul li a span
+{
+    padding-top: 1px;
+    padding-bottom: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: block;
+    font-size: 12px;
+    background: url(../../../Images/Layout/Professional/page_menu_state.png) no-repeat right -152px;
+}
+
+.WebPage .PageFooter ul li a:hover
+{
+    color: #ff7300;
+}
+
+.WebPage .PageFooter ul li a:hover span
 {
 }

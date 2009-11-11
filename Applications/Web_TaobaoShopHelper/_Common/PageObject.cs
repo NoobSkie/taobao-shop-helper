@@ -140,6 +140,19 @@ namespace TOP.Applications.TaobaoShopHelper._Common
             }
         }
 
+        private string shopLogUrlFormat = "http://logo.taobao.com/shop-logo/{0}";
+        public string ShopLogUrlFormat
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(ConfigurationManager.AppSettings["ShopLogUrlFormat"]))
+                {
+                    return shopLogUrlFormat;
+                }
+                return ConfigurationManager.AppSettings["ShopLogUrlFormat"];
+            }
+        }
+
         #endregion
     }
 }

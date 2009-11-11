@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menus>
+  <Menu>
+    <Id>Default</Id>
+    <Title>概述</Title>
+    <Url>Default.aspx</Url>
+  </Menu>
+  <Menu>
+    <Id>ImportShop</Id>
+    <Title>整店导入</Title>
+    <Url>ImportShop1.aspx</Url>
+  </Menu>
+  <Menu>
+    <Id>ImportItem</Id>
+    <Title>选择宝贝导入</Title>
+    <Url>ImportItem1.aspx</Url>
+  </Menu>
+</Menus>
