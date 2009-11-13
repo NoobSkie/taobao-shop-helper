@@ -77,6 +77,24 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper {
         protected global::System.Web.UI.WebControls.Label lblItemCount;
         
         /// <summary>
+        /// lblCreateDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCreateDate;
+        
+        /// <summary>
+        /// lblUpdateDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUpdateDate;
+        
+        /// <summary>
         /// rptItems control.
         /// </summary>
         /// <remarks>
@@ -95,21 +113,21 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper {
         protected global::TOP.Applications.TaobaoShopHelper.WebControls.Common.CtrlPager ucCtrlPager;
         
         /// <summary>
-        /// lbtnPrev control.
+        /// hlnkPrev control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnPrev;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkPrev;
         
         /// <summary>
-        /// lbtnNext control.
+        /// hlnkNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnNext;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkNext;
     }
 }

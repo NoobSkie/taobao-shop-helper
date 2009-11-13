@@ -28,7 +28,7 @@ namespace TOP.Common.DbHelper
 
         public abstract string GenerateDeleteSql(DbEntity entity);
 
-        public abstract string GenerateUpdateSql(DbEntity entity);
+        public abstract string GenerateUpdateSql(DbEntity entity, params string[] fieldsNeedUpdate);
 
         #endregion
     }

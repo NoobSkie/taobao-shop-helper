@@ -19,6 +19,16 @@ namespace TOP.Applications.TaobaoShopHelper._Common
             return "iid,title,nick,cid,price,type,pic_path";
         }
 
+        public static string GetItemFields_OnlyId()
+        {
+            return "iid";
+        }
+
+        public static string GetItemFields_All()
+        {
+            return "iid,title,nick,cid,price,type,pic_path";
+        }
+
         /// <summary>
         /// 获取所有店铺的字段
         /// </summary>
@@ -26,6 +36,11 @@ namespace TOP.Applications.TaobaoShopHelper._Common
         public static string GetShopFields_Common()
         {
             return "sid,cid,title,nick,bulletin,pic_path,created,modified";
+        }
+
+        public static string GetShopFields_OnlyTitle()
+        {
+            return "title";
         }
 
         public static string GetItemCatFields_Name()

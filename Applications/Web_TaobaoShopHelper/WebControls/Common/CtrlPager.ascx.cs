@@ -9,13 +9,17 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
 {
     public class PageNumber
     {
-        public PageNumber(int number, HttpRequest request)
+        public PageNumber(int number, HttpRequest request, bool isPost, string ctrlId)
         {
             Number = number;
             _request = request;
+            _isPost = isPost;
+            _doPostBackCtrlId = ctrlId;
         }
 
         private HttpRequest _request;
+        private bool _isPost;
+        private string _doPostBackCtrlId;
 
         public int PageIndex
         {
@@ -50,7 +54,33 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
         {
             get
             {
-                return (Number + 1).ToString();
+                if (Number != -1)
+                {
+                    return (Number + 1).ToString();
+                }
+                else
+                {
+                    return "…";
+                }
+            }
+        }
+
+        public string CssName
+        {
+            get
+            {
+                if (Number == -1)
+                {
+                    return "PageIndex More";
+                }
+                else if (PageIndex == Number)
+                {
+                    return "PageIndex Current";
+                }
+                else
+                {
+                    return "PageIndex Normal";
+                }
             }
         }
 
@@ -58,29 +88,40 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
         {
             get
             {
-                if (PageIndex == Number)
+                if (_isPost)
                 {
-                    return string.Empty;
-                }
-                string query = _request.Url.Query.TrimStart('?');
-                Dictionary<string, string> parameters = GetParameters(query);
-                if (parameters.ContainsKey("page_index"))
-                {
-                    parameters["page_index"] = Number.ToString();
+                    if (Number == -1 || PageIndex == Number)
+                    {
+                        return string.Empty;
+                    }
+                    return "javascript:__doPostBack('" + _doPostBackCtrlId + "', '" + Number + "');";
                 }
                 else
                 {
-                    parameters.Add("page_index", Number.ToString());
-                }
-                string url = _request.Url.AbsolutePath;
-                query = GetQuery(parameters);
-                if (string.IsNullOrEmpty(query))
-                {
-                    return url;
-                }
-                else
-                {
-                    return url + "?" + query;
+                    if (Number == -1 || PageIndex == Number)
+                    {
+                        return string.Empty;
+                    }
+                    string query = _request.Url.Query.TrimStart('?');
+                    Dictionary<string, string> parameters = GetParameters(query);
+                    if (parameters.ContainsKey("page_index"))
+                    {
+                        parameters["page_index"] = Number.ToString();
+                    }
+                    else
+                    {
+                        parameters.Add("page_index", Number.ToString());
+                    }
+                    string url = _request.Url.AbsolutePath;
+                    query = GetQuery(parameters);
+                    if (string.IsNullOrEmpty(query))
+                    {
+                        return url;
+                    }
+                    else
+                    {
+                        return url + "?" + query;
+                    }
                 }
             }
         }
@@ -128,6 +169,18 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
         }
     }
 
+    public class ChangePageIndexArgs
+    {
+        public ChangePageIndexArgs(int index)
+        {
+            PageIndex = index;
+        }
+
+        public int PageIndex { get; set; }
+    }
+
+    public delegate void BeforeChangePageIndexHandler(ChangePageIndexArgs e);
+
     public partial class CtrlPager : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -140,6 +193,8 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
                 txtPageIndex.Text = (PageIndex + 1).ToString();
             }
         }
+
+        public event BeforeChangePageIndexHandler BeforeChangePageIndex;
 
         public int PageIndex
         {
@@ -222,9 +277,40 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
         private void BindPageNumber()
         {
             List<PageNumber> pageNumberList = new List<PageNumber>();
-            for (int i = 0; i < PageCount; i++)
+            bool isPost = BeforeChangePageIndex != null;
+            string ctrlId = lbtnGoPage.ClientID.Replace('_', '$');
+            if (PageIndex <= 6)
             {
-                pageNumberList.Add(new PageNumber(i, Request));
+                for (int i = 0; i < PageIndex; i++)
+                {
+                    pageNumberList.Add(new PageNumber(i, Request, isPost, ctrlId));
+                }
+                for (int i = PageIndex; i < PageCount; i++)
+                {
+                    if (i > PageIndex + 4)
+                    {
+                        pageNumberList.Add(new PageNumber(-1, Request, isPost, ctrlId));
+                        break;
+                    }
+                    pageNumberList.Add(new PageNumber(i, Request, isPost, ctrlId));
+                }
+            }
+            else
+            {
+                pageNumberList.Add(new PageNumber(0, Request, isPost, ctrlId));
+                pageNumberList.Add(new PageNumber(1, Request, isPost, ctrlId));
+                pageNumberList.Add(new PageNumber(-1, Request, isPost, ctrlId));
+                pageNumberList.Add(new PageNumber(PageIndex - 2, Request, isPost, ctrlId));
+                pageNumberList.Add(new PageNumber(PageIndex - 1, Request, isPost, ctrlId));
+                for (int i = PageIndex; i < PageCount; i++)
+                {
+                    if (i > PageIndex + 4)
+                    {
+                        pageNumberList.Add(new PageNumber(-1, Request, isPost, ctrlId));
+                        break;
+                    }
+                    pageNumberList.Add(new PageNumber(i, Request, isPost, ctrlId));
+                }
             }
             rptPageNumber.DataSource = pageNumberList;
             rptPageNumber.DataBind();
@@ -326,30 +412,58 @@ namespace TOP.Applications.TaobaoShopHelper.WebControls.Common
             return rtn;
         }
 
+        public void GoToPageIndex(int pageIndex, params KeyValuePair<string, string>[] parameters)
+        {
+            foreach (KeyValuePair<string, string> p in parameters)
+            {
+                if (Parameters.ContainsKey(p.Key))
+                {
+                    Parameters[p.Key] = p.Value;
+                }
+                else
+                {
+                    Parameters.Add(p.Key, p.Value);
+                }
+            }
+            Response.Redirect(GetUrl(pageIndex), true);
+        }
+
         protected void lbtnGoPage_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPageIndex.Text.Trim()))
+            string args = this.Request.Params["__EVENTARGUMENT"];
+            if (!string.IsNullOrEmpty(args))
             {
-                txtPageIndex.Text = (PageIndex + 1).ToString();
-            }
-            int index;
-            if (int.TryParse(txtPageIndex.Text, out index))
-            {
-                index--;
-                if (index < 0)
+                int index = int.Parse(args);
+                if (BeforeChangePageIndex != null)
                 {
-                    index = 0;
-                }
-                else if (index >= PageCount)
-                {
-                    index = PageCount - 1;
+                    BeforeChangePageIndex(new ChangePageIndexArgs(index));
                 }
             }
             else
             {
-                index = PageIndex;
+                if (string.IsNullOrEmpty(txtPageIndex.Text.Trim()))
+                {
+                    txtPageIndex.Text = (PageIndex + 1).ToString();
+                }
+                int index;
+                if (int.TryParse(txtPageIndex.Text, out index))
+                {
+                    index--;
+                    if (index < 0)
+                    {
+                        index = 0;
+                    }
+                    else if (index >= PageCount)
+                    {
+                        index = PageCount - 1;
+                    }
+                }
+                else
+                {
+                    index = PageIndex;
+                }
+                Response.Redirect(GetUrl(index), true);
             }
-            Response.Redirect(GetUrl(index), true);
         }
     }
 }

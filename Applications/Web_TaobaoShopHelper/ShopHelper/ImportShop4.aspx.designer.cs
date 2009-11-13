@@ -11,7 +11,7 @@
 namespace TOP.Applications.TaobaoShopHelper.ShopHelper {
     
     
-    public partial class ImportShop3 {
+    public partial class ImportShop4 {
         
         /// <summary>
         /// imgShop control.
@@ -41,15 +41,6 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper {
         protected global::System.Web.UI.WebControls.Label lblShopTitle;
         
         /// <summary>
-        /// lblItemCount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblItemCount;
-        
-        /// <summary>
         /// lblImportCount control.
         /// </summary>
         /// <remarks>
@@ -59,21 +50,48 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper {
         protected global::System.Web.UI.WebControls.Label lblImportCount;
         
         /// <summary>
-        /// hlnkPrev control.
+        /// lblState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlnkPrev;
+        protected global::System.Web.UI.WebControls.Label lblState;
         
         /// <summary>
-        /// lbtnImport control.
+        /// lblSummary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnImport;
+        protected global::System.Web.UI.WebControls.Label lblSummary;
+        
+        /// <summary>
+        /// hlnkRefresh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlnkRefresh;
+        
+        /// <summary>
+        /// hlnkBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlnkBack;
+        
+        /// <summary>
+        /// hlnkImport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlnkImport;
     }
 }

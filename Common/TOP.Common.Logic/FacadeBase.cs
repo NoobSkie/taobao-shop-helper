@@ -40,21 +40,21 @@ namespace TOP.Common.Logic
                             prop.SetValue(t, dtRow[attr.DbFieldName].ToString(), null);
                         }
                     }
-                    else if (prop.PropertyType == typeof(DateTime))
+                    else if (prop.PropertyType == typeof(DateTime) || prop.PropertyType == typeof(DateTime?))
                     {
                         if (dtRow[attr.DbFieldName] != DBNull.Value)
                         {
                             prop.SetValue(t, DateTime.Parse(dtRow[attr.DbFieldName].ToString()), null);
                         }
                     }
-                    else if (prop.PropertyType == typeof(int))
+                    else if (prop.PropertyType == typeof(int) || prop.PropertyType == typeof(int?))
                     {
                         if (dtRow[attr.DbFieldName] != DBNull.Value)
                         {
                             prop.SetValue(t, int.Parse(dtRow[attr.DbFieldName].ToString()), null);
                         }
                     }
-                    else if (prop.PropertyType == typeof(bool))
+                    else if (prop.PropertyType == typeof(bool) || prop.PropertyType == typeof(bool?))
                     {
                         if (dtRow[attr.DbFieldName] != DBNull.Value)
                         {
@@ -63,7 +63,18 @@ namespace TOP.Common.Logic
                     }
                     else
                     {
-                        throw new ArgumentException("未能对该类型的字段赋值。 - " + attr.DbFieldType.ToString());
+                        // 枚举
+                        if (attr.DbFieldType == DbDataType.INT)
+                        {
+                            if (dtRow[attr.DbFieldName] != DBNull.Value)
+                            {
+                                prop.SetValue(t, int.Parse(dtRow[attr.DbFieldName].ToString()), null);
+                            }
+                        }
+                        else
+                        {
+                            throw new ArgumentException("未能对该类型的字段赋值。 - " + attr.DbFieldType.ToString());
+                        }
                     }
                 }
             }
@@ -74,7 +85,7 @@ namespace TOP.Common.Logic
             where T : FacadeInfoBase, new()
         {
             List<T> rtn = new List<T>();
-            foreach(DataRow row in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 rtn.Add(TransferInfo<T>(row));
             }

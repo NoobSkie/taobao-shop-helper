@@ -29,9 +29,6 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
             {
                 infoList.Add(GetUnAuthorizeInformation());
             }
-            else if (!IsPostBack)
-            {
-            }
             if (!string.IsNullOrEmpty(Request["Nick"]) && !string.IsNullOrEmpty(Request["ErrorMsg"]))
             {
                 string msg = "错误\"" + Request["Nick"] + "\" - " + CompressionHelper.Decompress(Request["ErrorMsg"]);
@@ -44,6 +41,11 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
             else if (infoList.Count > 0)
             {
                 DisplayInformations(infoList);
+            }
+            if (!IsPostBack && !string.IsNullOrEmpty(Request["Nick"]))
+            {
+                txtKey.Text = Request["Nick"];
+                txtKey.Focus();
             }
         }
 
@@ -59,7 +61,7 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
                 JavaScriptSerializer ser = new JavaScriptSerializer();
                 string json = ser.Serialize(shop); //JObject.FromObject(shop).ToString();
                 string arg = CompressionHelper.Compress(json);
-                string url = "ImportShop2.aspx?Shop=" + Server.UrlEncode(arg);
+                string url = "ImportShop2.aspx?Nick=" + Server.UrlEncode(txtKey.Text) + "&Shop=" + Server.UrlEncode(arg);
                 Response.Redirect(url, false);
             }
             catch (Exception ex)

@@ -232,6 +232,13 @@
     <Compile Include="ShopHelper\ImportShop3.aspx.designer.cs">
       <DependentUpon>ImportShop3.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShopHelper\ImportShop4.aspx.cs">
+      <DependentUpon>ImportShop4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopHelper\ImportShop4.aspx.designer.cs">
+      <DependentUpon>ImportShop4.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ShopHelper\ItemQuery.aspx.cs">
       <DependentUpon>ItemQuery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -351,6 +358,13 @@
     </Compile>
     <Compile Include="TestPages\ImageOutput.aspx.designer.cs">
       <DependentUpon>ImageOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\InitDbSchema.aspx.cs">
+      <DependentUpon>InitDbSchema.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\InitDbSchema.aspx.designer.cs">
+      <DependentUpon>InitDbSchema.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestPages\MyItems.aspx.cs">
       <DependentUpon>MyItems.aspx</DependentUpon>
@@ -605,6 +619,10 @@
       <Project>{929CE2B6-9DD7-4858-843B-6A79D74B7418}</Project>
       <Name>TOP.Common.EncryptionTool</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\TOP.Common.Enumerations\TOP.Common.Enumerations.csproj">
+      <Project>{EBEF4583-E707-4C63-A0B9-E4DB41F2EB69}</Project>
+      <Name>TOP.Common.Enumerations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\TOP.Common.Logic\TOP.Common.Logic.csproj">
       <Project>{C6A7A214-78B8-4A35-98F9-1189D0AB420E}</Project>
       <Name>TOP.Common.Logic</Name>
@@ -616,6 +634,22 @@
     <ProjectReference Include="..\..\Html\TOP.Html.Snapshot\TOP.Html.Snapshot.csproj">
       <Project>{67EDCA1D-171D-4068-ADE4-54445CA7241E}</Project>
       <Name>TOP.Html.Snapshot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Importor\TOP.Importor.Domain\TOP.Importor.Domain.csproj">
+      <Project>{0D3E9074-26E3-427A-8C76-E17D09CC675A}</Project>
+      <Name>TOP.Importor.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Importor\TOP.Importor.Facade\TOP.Importor.Facade.csproj">
+      <Project>{6F687A54-9CCF-4173-8A62-46C11FB8BEED}</Project>
+      <Name>TOP.Importor.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Management\TOP.Management.Domain\TOP.Management.Domain.csproj">
+      <Project>{D355B0EA-0750-429F-B7C9-62100976C6AE}</Project>
+      <Name>TOP.Management.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Management\TOP.Management.Facade\TOP.Management.Facade.csproj">
+      <Project>{5BA9FA7F-9905-41EA-BA6A-58617A6F1B8A}</Project>
+      <Name>TOP.Management.Facade</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Menu\TOP.Menu.Facade\TOP.Menu.Facade.csproj">
       <Project>{E9D3BE6B-3098-4337-A9CF-8E8ED6582BB0}</Project>
@@ -841,8 +875,10 @@
     <Content Include="ShopHelper\ImportShop1.aspx" />
     <Content Include="ShopHelper\ImportShop2.aspx" />
     <Content Include="ShopHelper\ImportShop3.aspx" />
+    <Content Include="ShopHelper\ImportShop4.aspx" />
     <Content Include="ShopHelper\_SecondMenu.xml" />
     <Content Include="ShopHelper\_ShopHelper.master" />
+    <Content Include="TestPages\InitDbSchema.aspx" />
     <Content Include="WebControls\Common\CtrlCredit.ascx" />
   </ItemGroup>
   <ItemGroup>

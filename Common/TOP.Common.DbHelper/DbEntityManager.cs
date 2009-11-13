@@ -15,9 +15,9 @@ namespace TOP.Common.DbHelper
             return sqlHelper.GenerateInsertSql(entity);
         }
 
-        public virtual string GetUpdateSql(T entity)
+        public virtual string GetUpdateSql(T entity, params string[] fieldsNeedUpdate)
         {
-            return sqlHelper.GenerateUpdateSql(entity);
+            return sqlHelper.GenerateUpdateSql(entity, fieldsNeedUpdate);
         }
 
         public virtual string GetDeleteSql(T entity)

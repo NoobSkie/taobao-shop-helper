@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ShopHelper/_ShopHelper.master"
-    AutoEventWireup="true" CodeBehind="ImportShop2.aspx.cs" Inherits="TOP.Applications.TaobaoShopHelper.ShopHelper.ImportShop2" %>
+    EnableEventValidation="false" AutoEventWireup="true" CodeBehind="ImportShop2.aspx.cs"
+    Inherits="TOP.Applications.TaobaoShopHelper.ShopHelper.ImportShop2" %>
 
 <%@ Register Src="~/WebControls/Common/CtrlCredit.ascx" TagName="CtrlCredit" TagPrefix="uc1" %>
 <%@ Register Src="~/WebControls/Common/CtrlPager.ascx" TagName="CtrlPager" TagPrefix="uc2" %>
@@ -30,6 +31,8 @@
                         runat="server" />
                     </li>
                     <li><span class="Caption">商品总数：</span><asp:Label ID="lblItemCount" runat="server"></asp:Label></li>
+                    <li><span class="Caption">创建日期：</span><asp:Label ID="lblCreateDate" runat="server"></asp:Label></li>
+                    <li><span class="Caption">最后更新日期：</span><asp:Label ID="lblUpdateDate" runat="server"></asp:Label></li>
                 </ul>
             </div>
         </div>
@@ -37,15 +40,15 @@
             <div class="BlockHeader">
                 <span>店铺拥有的宝贝</span> <span class="Tip">* 请勾选不需要导入的宝贝</span></div>
             <div class="ItemList">
-                <asp:Repeater ID="rptItems" runat="server" 
-                    onitemdatabound="rptItems_ItemDataBound">
+                <asp:Repeater ID="rptItems" runat="server" OnItemDataBound="rptItems_ItemDataBound">
                     <ItemTemplate>
                         <div class="Item_Block">
                             <div class="Partten ImagePartten">
                                 <asp:HyperLink ID="hlnkItemPic" runat="server" Target="_blank">
                                     <asp:Image ID="imgItemPic" runat="server" ImageUrl='<%# Eval("PicPath") %>' /></asp:HyperLink></div>
                             <div class="Partten TitlePartten">
-                                <asp:HyperLink ID="hlnkName" runat="server" Target="_blank" ToolTip='<%# Eval("Title") %>' Text='<%# Eval("Title") %>'></asp:HyperLink></div>
+                                <asp:HyperLink ID="hlnkName" runat="server" Target="_blank" ToolTip='<%# Eval("Title") %>'
+                                    Text='<%# Eval("Title") %>'></asp:HyperLink></div>
                             <div class="Partten PricePartten">
                                 <asp:Label ID="lblPriceTitle" runat="server" Text="价格:"></asp:Label>
                                 <asp:Label ID="lblPrice" CssClass="Price_List" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
@@ -56,7 +59,7 @@
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
-                <uc2:CtrlPager ID="ucCtrlPager" PageSize="40" runat="server" />
+                <uc2:CtrlPager ID="ucCtrlPager" PageSize="10" runat="server" />
             </div>
         </div>
     </div>
@@ -64,8 +67,8 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="PageFooterHolder" runat="server">
     <ul>
         <li>
-            <asp:LinkButton ID="lbtnPrev" runat="server" onclick="lbtnPrev_Click"><span>上一步</span></asp:LinkButton></li>
+            <asp:HyperLink ID="hlnkPrev" runat="server"><span>上一步</span></asp:HyperLink></li>
         <li>
-            <asp:LinkButton ID="lbtnNext" runat="server" onclick="lbtnNext_Click"><span>下一步</span></asp:LinkButton></li>
+            <asp:HyperLink ID="hlnkNext" runat="server"><span>下一步</span></asp:HyperLink></li>
     </ul>
 </asp:Content>

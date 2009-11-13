@@ -6,6 +6,9 @@ using System.Web.UI;
 using Taobao.Top.Api;
 using TOP.Authorize.Facade;
 using TOP.Applications.TaobaoShopHelper.WebControls.Common;
+using Taobao.Top.Api.Request;
+using Taobao.Top.Api.Domain;
+using Taobao.Top.Api.Parser;
 
 namespace TOP.Applications.TaobaoShopHelper._Common
 {
@@ -134,6 +137,22 @@ namespace TOP.Applications.TaobaoShopHelper._Common
             }
         }
 
+        private string _currentShopTitle;
+        public string CurrentShopTitle
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_currentShopTitle))
+                {
+                    if (!string.IsNullOrEmpty(CurrentSellerNick))
+                    {
+                        _currentShopTitle = GetShopTitle(CurrentSellerNick);
+                    }
+                }
+                return _currentShopTitle;
+            }
+        }
+
         public UserInfo CurrentUser
         {
             get
@@ -180,5 +199,24 @@ namespace TOP.Applications.TaobaoShopHelper._Common
         public string ShopLogUrlFormat { get { return pageHelper.ShopLogUrlFormat; } }
 
         #endregion
+
+        private string GetShopTitle(string nick)
+        {
+            ITopClient client = GetProductTopClient();
+            ShopGetRequest req = new ShopGetRequest();
+            req.Fields = TopFieldsHelper.GetShopFields_OnlyTitle();
+            req.Nick = nick;
+            User user = new User();
+            try
+            {
+                Shop shop = client.Execute<Shop>(req, new ShopJsonParser());
+                if (shop != null)
+                {
+                    return shop.Title;
+                }
+            }
+            catch { }
+            return string.Empty;
+        }
     }
 }

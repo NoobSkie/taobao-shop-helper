@@ -47,24 +47,6 @@ namespace TOP.Applications.TaobaoShopHelper.TestPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ComponentArt.Web.UI.TreeView tvSchema;
-        
-        /// <summary>
-        /// nodeTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ComponentArt.Web.UI.TreeViewNode nodeTable;
-        
-        /// <summary>
-        /// nodeView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ComponentArt.Web.UI.TreeViewNode nodeView;
+        protected global::System.Web.UI.WebControls.TreeView tvSchema;
     }
 }

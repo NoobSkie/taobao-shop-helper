@@ -11,26 +11,28 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PageContentHolder" runat="server">
     <div class="DisplayBlock">
-        <span class="BlockHeader">预览导入信息</span>
-        <asp:Image ID="imgShop" runat="server" />
-        <ul class="BlockList">
-            <li><span class="Caption">卖家昵称</span><asp:Label ID="lblNick" runat="server"></asp:Label></li>
-            <li><span class="Caption">店铺标题</span><asp:Label ID="lblShopTitle" runat="server"></asp:Label></li>
-            <li><span class="Caption">买家信用</span><uc1:CtrlCredit ID="ucCtrlCreditBuyer" UserType="Buyer"
-                runat="server" />
-            </li>
-            <li><span class="Caption">卖家信用</span><uc1:CtrlCredit ID="ucCtrlCreditSeller" UserType="Seller"
-                runat="server" />
-            </li>
-            <li><span class="Caption">店铺宝贝总数</span><asp:Label ID="lblItemCount" runat="server"></asp:Label></li>
-            <li><span class="Caption">即将导入的宝贝总数</span><asp:Label ID="lblImportCount" runat="server"></asp:Label></li>
-        </ul>
+        <div class="BlockHeader">
+            <span>导入信息预览</span></div>
+        <div class="BlockShopImage">
+            <asp:Image ID="imgShop" runat="server" /></div>
+        <div class="BlockList">
+            <ul>
+                <li><span class="Caption">卖家昵称</span><asp:Label ID="lblNick" runat="server"></asp:Label></li>
+                <li><span class="Caption">店铺标题</span><asp:Label ID="lblShopTitle" runat="server"></asp:Label></li>
+                <li><span class="Caption">店铺宝贝总数</span><asp:Label ID="lblItemCount" runat="server"></asp:Label></li>
+                <li><span class="Caption">即将导入的宝贝总数</span><asp:Label ID="lblImportCount" runat="server"></asp:Label></li>
+            </ul>
+        </div>
     </div>
     <div class="DisplayBlock">
         <span class="BlockHeader">导入宝贝信息调整</span>
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="PageFooterHolder" runat="server">
-    <asp:LinkButton ID="lbtnPrev" runat="server">上一步</asp:LinkButton>
-    <asp:LinkButton ID="lbtnImport" runat="server">导入店铺</asp:LinkButton>
+    <ul>
+        <li>
+            <asp:HyperLink ID="hlnkPrev" runat="server"><span>上一步</span></asp:HyperLink></li>
+        <li>
+            <asp:LinkButton ID="lbtnImport" runat="server" OnClick="lbtnImport_Click"><span>导入店铺</span></asp:LinkButton></li>
+    </ul>
 </asp:Content>

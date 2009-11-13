@@ -20,6 +20,8 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ucCtrlPager.BeforeChangePageIndex += new BeforeChangePageIndexHandler(ucCtrlPager_BeforeChangePageIndex);
+
             List<InformationObject> infoList = new List<InformationObject>();
             if (CurrentUser == null)
             {
@@ -42,11 +44,39 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
                     JavaScriptSerializer ser = new JavaScriptSerializer();
                     Shop shop = ser.Deserialize<Shop>(json);
                     DisplayShop(shop);
+                    hlnkPrev.NavigateUrl = "ImportShop1.aspx?Nick=" + Server.UrlEncode(shop.SellerNick);
+                    hlnkNext.NavigateUrl = "ImportShop3.aspx?Nick=" + Server.UrlEncode(Request["Nick"]) + "&Shop=" + Server.UrlEncode(Request["Shop"]);
                 }
                 else
                 {
                     Response.Redirect("ImportShop1.aspx");
                 }
+            }
+        }
+
+        private void ucCtrlPager_BeforeChangePageIndex(ChangePageIndexArgs e)
+        {
+            foreach (RepeaterItem item in rptItems.Items)
+            {
+                if (item.ItemType == ListItemType.Item)
+                {
+                    CheckBox cbCheck = item.FindControl("cbCheck") as CheckBox;
+                    if (cbCheck.Checked)
+                    {
+                        IgnoreList.Add(cbCheck.ID);
+                    }
+                }
+            }
+            if (IgnoreList.Count > 0)
+            {
+                JavaScriptSerializer ser = new JavaScriptSerializer();
+                string json = ser.Serialize(IgnoreList);
+                json = CompressionHelper.Compress(json);
+                ucCtrlPager.GoToPageIndex(e.PageIndex, new KeyValuePair<string, string>("IgnoreList", json));
+            }
+            else
+            {
+                ucCtrlPager.GoToPageIndex(e.PageIndex);
             }
         }
 
@@ -86,6 +116,8 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
             }
             lblNick.Text = shop.SellerNick;
             lblShopTitle.Text = shop.Title;
+            lblCreateDate.Text = shop.Created;
+            lblUpdateDate.Text = shop.Modified;
 
             ITopClient client = GetProductTopClient();
             UserGetRequest req = new UserGetRequest();
@@ -107,29 +139,22 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
             ucCtrlPager.TotalCount = (int)rsp.TotalResults;
             rptItems.DataSource = rsp.Content;
             rptItems.DataBind();
+
+            lblItemCount.Text = rsp.TotalResults.ToString();
         }
 
         protected void rptItems_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item)
             {
+                CheckBox cbCheck = e.Item.FindControl("cbCheck") as CheckBox;
                 Item item = e.Item.DataItem as Item;
+                cbCheck.ID = item.Iid;
                 if (IgnoreList.Contains(item.Iid))
                 {
-                    CheckBox cbCheck = e.Item.FindControl("cbCheck") as CheckBox;
                     cbCheck.Checked = true;
                 }
             }
-        }
-
-        protected void lbtnPrev_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void lbtnNext_Click(object sender, EventArgs e)
-        {
-
         }
 
         #region IMenuPage Members

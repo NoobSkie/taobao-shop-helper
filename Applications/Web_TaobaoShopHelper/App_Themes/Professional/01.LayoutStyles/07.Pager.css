@@ -48,6 +48,28 @@
     color: #36c;
 }
 
+.Pager a.Normal
+{
+}
+
+.Pager a.Normal:hover
+{
+    border: solid 1px #fd6d01;
+    color: #fd6d01;
+}
+
+.Pager a.Current
+{
+    color: #fd6d01;
+    border: solid 1px #fd6d01;
+    background-color: #ffede1;
+}
+
+.Pager a.More
+{
+    border: solid 0px #ccc;
+}
+
 .Pager input.PageIndex
 {
     width: 30px;

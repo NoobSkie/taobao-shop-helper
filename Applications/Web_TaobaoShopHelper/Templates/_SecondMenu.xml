@@ -2,7 +2,7 @@
 <Menus>
   <Menu>
     <Id>Default</Id>
-    <Title>概述</Title>
+    <Title>模板中心</Title>
     <Url>Default.aspx</Url>
   </Menu>
   <Menu>

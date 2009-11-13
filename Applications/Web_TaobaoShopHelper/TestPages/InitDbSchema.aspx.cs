@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Reflection;
-using ComponentArt.Web.UI;
 using TOP.Common.DbHelper;
 using System.Configuration;
 using TOP.Common.Logic;
@@ -36,14 +35,14 @@ namespace TOP.Applications.TaobaoShopHelper.TestPages
                 string sqlDrop = string.Empty;
                 string sqlCreate = string.Empty;
 
-                string parent = tvSchema.SelectedNode.ParentNode.Value;
-                if (parent == "table")
+                string parent = tvSchema.SelectedNode.Parent.Value;
+                if (parent.Equals("Table", StringComparison.OrdinalIgnoreCase))
                 {
                     DbSqlCreater dbSqlCreater = DbSqlCreater.GetDbSqlCreater(dbType);
                     sqlDrop = dbSqlCreater.GenerateDropTableSql(type);
                     sqlCreate = dbSqlCreater.GenerateCreateTableSql(type);
                 }
-                else if (parent == "view")
+                else if (parent.Equals("View", StringComparison.OrdinalIgnoreCase))
                 {
                     string baseDir = Server.MapPath("~");
                     baseDir += @"\..\..\Database\Scripts";
@@ -84,18 +83,18 @@ namespace TOP.Applications.TaobaoShopHelper.TestPages
         {
             foreach (Type t in GetTypeList("*.Domain.dll", typeof(DbEntity)))
             {
-                TreeViewNode node = new TreeViewNode();
+                TreeNode node = new TreeNode();
                 node.Text = t.Name;
                 node.Value = t.FullName + "," + t.Assembly.FullName; ;
-                nodeTable.Nodes.Add(node);
+                tvSchema.FindNode("Table").ChildNodes.Add(node);
             }
 
             foreach (Type t in GetTypeList("*.Facade.dll", typeof(FacadeInfoBase)))
             {
-                TreeViewNode node = new TreeViewNode();
+                TreeNode node = new TreeNode();
                 node.Text = t.Name;
                 node.Value = t.FullName + "," + t.Assembly.FullName; ;
-                nodeView.Nodes.Add(node);
+                tvSchema.FindNode("View").ChildNodes.Add(node);
             }
         }
 

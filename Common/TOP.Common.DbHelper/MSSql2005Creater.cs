@@ -184,7 +184,7 @@ namespace TOP.Common.DbHelper
                                         values.Add(attr.DbFieldName, "'" + value.ToString() + "'");
                                         break;
                                     case DbDataType.INT:
-                                        values.Add(attr.DbFieldName, value.ToString());
+                                        values.Add(attr.DbFieldName, ((int)value).ToString());
                                         break;
                                     case DbDataType.BIT:
                                         values.Add(attr.DbFieldName, "'" + value.ToString() + "'");
@@ -245,7 +245,7 @@ namespace TOP.Common.DbHelper
             }
         }
 
-        public override string GenerateUpdateSql(DbEntity entity)
+        public override string GenerateUpdateSql(DbEntity entity, params string[] fieldsNeedUpdate)
         {
             Type entityType = entity.GetType();
             if (!entityType.IsSubclassOf(typeof(DbEntity)))
@@ -263,7 +263,7 @@ namespace TOP.Common.DbHelper
 
                 StringBuilder sqlUpdate = new StringBuilder();
                 sqlUpdate.AppendLine(string.Format("UPDATE [{0}]", tableName));
-                sqlUpdate.AppendLine("SET 1 = 1");
+                sqlUpdate.AppendLine("SET [CreateDate] = [CreateDate]");
                 foreach (PropertyInfo prop in entityType.GetProperties())
                 {
                     if (prop.Name.Equals("Id", StringComparison.OrdinalIgnoreCase))
@@ -292,6 +292,13 @@ namespace TOP.Common.DbHelper
                     {
                         if (!attr.IsKey)
                         {
+                            if (fieldsNeedUpdate != null && fieldsNeedUpdate.Length > 0)
+                            {
+                                if (!prop.Name.Equals("LastUpdateUserId") && !fieldsNeedUpdate.Contains(prop.Name))
+                                {
+                                    continue;
+                                }
+                            }
                             object value = prop.GetValue(entity, null);
                             if (value != null)
                             {
@@ -313,7 +320,7 @@ namespace TOP.Common.DbHelper
                                             sqlUpdate.AppendLine(string.Format(", [{0}] = N'{1}'", attr.DbFieldName, value.ToString()));
                                             break;
                                         case DbDataType.INT:
-                                            sqlUpdate.AppendLine(string.Format(", [{0}] = {1}", attr.DbFieldName, value.ToString()));
+                                            sqlUpdate.AppendLine(string.Format(", [{0}] = {1}", attr.DbFieldName, ((int)value).ToString()));
                                             break;
                                         case DbDataType.BIT:
                                             sqlUpdate.AppendLine(string.Format(", [{0}] = N'{1}'", attr.DbFieldName, value.ToString()));

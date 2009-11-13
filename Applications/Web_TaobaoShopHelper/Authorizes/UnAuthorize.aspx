@@ -9,6 +9,9 @@
     <form id="form1" runat="server">
     <div>
         <div>
+            <asp:Label ID="lblTip" ForeColor="Red" runat="server"></asp:Label>
+        </div>
+        <div>
             <asp:HyperLink ID="hlnkGetAppKey" Target="_blank" runat="server">获取淘宝授权码</asp:HyperLink>
         </div>
         <div>

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using TOP.Applications.TaobaoShopHelper._Common;
 using System.Text.RegularExpressions;
+using TOP.Common.CompressionTool;
 
 namespace TOP.Applications.TaobaoShopHelper.Authorizes
 {
@@ -17,6 +18,11 @@ namespace TOP.Applications.TaobaoShopHelper.Authorizes
             if (!IsPostBack)
             {
                 InitUrls();
+                if (!string.IsNullOrEmpty(Request["Msg"]))
+                {
+                    string msg = Request["Msg"];
+                    lblTip.Text = CompressionHelper.Decompress(msg);
+                }
             }
         }
 

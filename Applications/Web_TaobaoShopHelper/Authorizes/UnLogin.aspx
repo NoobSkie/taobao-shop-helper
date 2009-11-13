@@ -9,6 +9,9 @@
     <form id="form1" runat="server">
     <div>
         <div>
+            <asp:Label ID="lblTip" ForeColor="Red" runat="server"></asp:Label>
+        </div>
+        <div>
             <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
         </div>
         <div>

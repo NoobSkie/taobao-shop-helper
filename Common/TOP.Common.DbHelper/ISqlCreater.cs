@@ -15,6 +15,6 @@ namespace TOP.Common.DbHelper
 
         string GenerateDeleteSql(DbEntity entity);
 
-        string GenerateUpdateSql(DbEntity entity);
+        string GenerateUpdateSql(DbEntity entity, params string[] fieldsNeedUpdate);
     }
 }

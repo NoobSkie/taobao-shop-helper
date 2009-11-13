@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using TOP.Authorize.Facade;
 using TOP.Common.EncryptionTool;
 using TOP.Applications.TaobaoShopHelper._Common;
+using TOP.Common.CompressionTool;
 
 namespace TOP.Applications.TaobaoShopHelper.Authorizes
 {
@@ -23,6 +24,11 @@ namespace TOP.Applications.TaobaoShopHelper.Authorizes
                     {
                         CurrentUser = null;
                     }
+                }
+                if (!string.IsNullOrEmpty(Request["Msg"]))
+                {
+                    string msg = Request["Msg"];
+                    lblTip.Text = CompressionHelper.Decompress(msg);
                 }
             }
         }

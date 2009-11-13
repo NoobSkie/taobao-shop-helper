@@ -11,7 +11,7 @@ namespace TOP.Management.Facade
 {
     public class AreaFacade : FacadeBase
     {
-        public string AddArea(string id, string areaId, AreaType areaType, string areaName, string parentId, string zip)
+        public string AddArea(string id, string areaId, AreaType areaType, string areaName, string parentId, string zip, string createUserId)
         {
             string areaTypeId = string.Empty;
             switch (areaType)
@@ -34,10 +34,10 @@ namespace TOP.Management.Facade
                 default:
                     throw new FacadeException("不能添加此类型的区域 - " + areaType.ToString());
             }
-            return AddArea(id, areaId, areaTypeId, areaName, parentId, zip);
+            return AddArea(id, areaId, areaTypeId, areaName, parentId, zip, createUserId);
         }
 
-        public string AddArea(string id, string areaId, string areaTypeId, string areaName, string parentId, string zip)
+        public string AddArea(string id, string areaId, string areaTypeId, string areaName, string parentId, string zip, string createUserId)
         {
             #region 构造要新增的对象
 
@@ -53,6 +53,10 @@ namespace TOP.Management.Facade
             area.AreaName = areaName;
             area.ParentId = parentId;
             area.Zip = zip;
+            area.CreateDate = DateTime.Now;
+            area.CreateUserId = createUserId;
+            area.LastUpdateDate = DateTime.Now;
+            area.LastUpdateUserId = createUserId;
 
             #endregion
 
@@ -80,7 +84,7 @@ namespace TOP.Management.Facade
             #endregion
         }
 
-        public void UpdateArea(string areaId, string areaTypeId, string areaName, string parentId, string zip)
+        public void UpdateArea(string areaId, string areaTypeId, string areaName, string parentId, string zip, string updateUserId)
         {
             #region 构造要修改的对象
 
@@ -89,6 +93,8 @@ namespace TOP.Management.Facade
             area.AreaName = areaName;
             area.ParentId = parentId;
             area.Zip = zip;
+            area.LastUpdateDate = DateTime.Now;
+            area.LastUpdateUserId = updateUserId; 
 
             #endregion
 
