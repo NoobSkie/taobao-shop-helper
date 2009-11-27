@@ -13,8 +13,6 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PageContentHolder" runat="server">
     <div>
-    </div>
-    <div>
         <div class="DisplayBlock">
             <div class="BlockHeader">
                 <span>店铺信息</span></div>

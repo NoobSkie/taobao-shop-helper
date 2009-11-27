@@ -179,7 +179,7 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
             string html = ucTemplateEditor.GetHtml();
             ITopClient client = GetProductTopClient();
             ItemUpdateRequest req = new ItemUpdateRequest();
-            // SellerItemCatsGetRequest req = new SellerItemCatsGetRequest();
+            // SellerCatsGetRequest req = new SellerCatsGetRequest();
             req.Desc = html;
             req.Iid = Request["Current"];
             Item item = client.Execute(req, new ItemJsonParser(), CurrentSessionKey);

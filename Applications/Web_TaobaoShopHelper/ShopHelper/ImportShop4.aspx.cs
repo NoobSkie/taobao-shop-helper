@@ -32,10 +32,9 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
             }
             if (string.IsNullOrEmpty(CurrentSessionKey) || string.IsNullOrEmpty(CurrentSellerNick))
             {
-                CurrentSellerNick = "zhandt";
-                //string msg = CompressionHelper.Compress("必须先获取淘宝授权，才能执行导入店铺的操作！");
-                //string url = "~/Authorizes/UnAuthorize.aspx?ReturnUrl=" + Server.UrlEncode(Request.Url.AbsoluteUri) + "&Msg=" + Server.UrlEncode(msg);
-                //Response.Redirect(url);
+                string msg = CompressionHelper.Compress("必须先获取淘宝授权，才能执行导入店铺的操作！");
+                string url = "~/Authorizes/UnAuthorize.aspx?ReturnUrl=" + Server.UrlEncode(Request.Url.AbsoluteUri) + "&Msg=" + Server.UrlEncode(msg);
+                Response.Redirect(url);
             }
             if (!IsPostBack)
             {

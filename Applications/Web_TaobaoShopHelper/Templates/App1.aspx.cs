@@ -97,35 +97,35 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
         private void BindCategories()
         {
             ITopClient client = GetProductTopClient();
-            SellerItemCatsGetRequest req = new SellerItemCatsGetRequest();
+            SellerCatsGetRequest req = new SellerCatsGetRequest();
             req.Nick = CurrentSellerNick;
-            ResponseList<SellerItemCat> rsp = client.Execute(req, new SellerItemCatListJsonParser());
+            ResponseList<SellerCat> rsp = client.Execute(req, new SellerCatListJsonParser());
             if (rsp.Content != null)
             {
                 TreeNode node = tvCategory.FindNode("onsale");
-                List<SellerItemCat> currentList = GetCatListByParent(rsp.Content, "0");
-                foreach (SellerItemCat children in currentList)
+                List<SellerCat> currentList = GetCatListByParent(rsp.Content, "0");
+                foreach (SellerCat children in currentList)
                 {
                     AddCategory(rsp.Content, children, node);
                 }
             }
         }
 
-        private void AddCategory(List<SellerItemCat> categoryList, SellerItemCat category, TreeNode parentNode)
+        private void AddCategory(List<SellerCat> categoryList, SellerCat category, TreeNode parentNode)
         {
             TreeNode node = GetNodeByCategory(category);
             parentNode.ChildNodes.Add(node);
-            List<SellerItemCat> currentList = GetCatListByParent(categoryList, category == null ? "0" : category.Cid);
-            foreach (SellerItemCat children in currentList)
+            List<SellerCat> currentList = GetCatListByParent(categoryList, category == null ? "0" : category.Cid);
+            foreach (SellerCat children in currentList)
             {
                 AddCategory(categoryList, children, node);
             }
         }
 
-        private List<SellerItemCat> GetCatListByParent(List<SellerItemCat> categoryList, string parentId)
+        private List<SellerCat> GetCatListByParent(List<SellerCat> categoryList, string parentId)
         {
-            List<SellerItemCat> rtn = new List<SellerItemCat>();
-            foreach (SellerItemCat cat in categoryList)
+            List<SellerCat> rtn = new List<SellerCat>();
+            foreach (SellerCat cat in categoryList)
             {
                 if (cat.ParentCid == parentId)
                 {
@@ -135,7 +135,7 @@ namespace TOP.Applications.TaobaoShopHelper.Templates
             return rtn;
         }
 
-        private TreeNode GetNodeByCategory(SellerItemCat category)
+        private TreeNode GetNodeByCategory(SellerCat category)
         {
             TreeNode node = new TreeNode();
             node.Text = category.Name;

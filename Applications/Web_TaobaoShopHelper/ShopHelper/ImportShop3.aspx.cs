@@ -40,7 +40,7 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper
                     JavaScriptSerializer ser = new JavaScriptSerializer();
                     Shop shop = ser.Deserialize<Shop>(json);
                     DisplayShop(shop);
-                    string url = "ImportShop2.aspx?Nick=" + Request["Nick"] + "&Shop=" + Request["Shop"];
+                    string url = "ImportShop2.aspx?Nick=" + Server.UrlEncode(Request["Nick"]) + "&Shop=" + Server.UrlEncode(Request["Shop"]);
                     hlnkPrev.NavigateUrl = url;
                 }
                 else
