@@ -42,6 +42,14 @@
                     <asp:CheckBox ID="cbNew" runat="server" Text="如果淘宝中没有此宝贝，则添加一个" />
                 </div>
                 <div>
+                    <span>宝贝导入以后</span>
+                </div>
+                <div>
+                    <asp:RadioButton ID="RadioButton3" runat="server" Text="放入仓库" GroupName="ItemLocation"
+                        Checked="true" />
+                    <asp:RadioButton ID="RadioButton4" runat="server" GroupName="ItemLocation" Text="直接上架" />
+                </div>
+                <div>
                     <span>宝贝价格调整</span>
                 </div>
                 <div>

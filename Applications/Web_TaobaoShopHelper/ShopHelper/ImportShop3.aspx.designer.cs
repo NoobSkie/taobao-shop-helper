@@ -113,6 +113,24 @@ namespace TOP.Applications.TaobaoShopHelper.ShopHelper {
         protected global::System.Web.UI.WebControls.CheckBox cbNew;
         
         /// <summary>
+        /// RadioButton3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton3;
+        
+        /// <summary>
+        /// RadioButton4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton4;
+        
+        /// <summary>
         /// rbtnPrice_Copy control.
         /// </summary>
         /// <remarks>
