@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<error_rsp>
+  <args>
+    <arg name="api_key"><![CDATA[12006575]]></arg>
+    <arg name="fields"><![CDATA[iid,detail_url,title,nick,type,cid,props,property_alias,pic_path,price,post_fee,express_fee,ems_fee,freight_payer,location,stuff_status]]></arg>
+    <arg name="format"><![CDATA[xml]]></arg>
+    <arg name="method"><![CDATA[taobao.items.get]]></arg>
+    <arg name="sign"><![CDATA[D7B8C7D5F3533DC2E0609B3471C8790D]]></arg>
+    <arg name="timestamp"><![CDATA[2009-09-28 11:02:40]]></arg>
+    <arg name="v"><![CDATA[1.0]]></arg>
+  </args>
+  <code>40</code>
+  <msg><![CDATA[Missing required arguments:missing parameter ]]></msg>
+</error_rsp>

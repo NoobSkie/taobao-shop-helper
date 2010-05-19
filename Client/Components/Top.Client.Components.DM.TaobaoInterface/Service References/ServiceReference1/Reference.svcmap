@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c16eae59-acc8-43e4-b858-7fb6a656af95" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8886/Top/WcfServer" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WcfServer.xsd" MetadataType="Schema" ID="75796fce-0664-4d34-89b7-b9131a55c1b7" SourceId="1" SourceUrl="http://localhost:8886/Top/WcfServer?xsd=xsd0" />
+    <MetadataFile FileName="WcfServer1.xsd" MetadataType="Schema" ID="88371360-ab85-40de-bf8b-a983fae61564" SourceId="1" SourceUrl="http://localhost:8886/Top/WcfServer?xsd=xsd2" />
+    <MetadataFile FileName="WcfServer2.xsd" MetadataType="Schema" ID="c2008a7d-ede3-4522-b596-893e203167d6" SourceId="1" SourceUrl="http://localhost:8886/Top/WcfServer?xsd=xsd1" />
+    <MetadataFile FileName="ShopApiFacade.wsdl" MetadataType="Wsdl" ID="55e97248-a632-470e-9143-aea06ed8a49e" SourceId="1" SourceUrl="http://localhost:8886/Top/WcfServer?wsdl" />
+    <MetadataFile FileName="WcfServer.disco" MetadataType="Disco" ID="a7028db8-ebc9-47b3-a089-f2890ee25e65" SourceId="1" SourceUrl="http://localhost:8886/Top/WcfServer?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
