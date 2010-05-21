@@ -13,7 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="divGoogleMap">
+    <div id="divGoogleMap" style="width: 500px; height: 300px;">
     </div>
     </form>
 
