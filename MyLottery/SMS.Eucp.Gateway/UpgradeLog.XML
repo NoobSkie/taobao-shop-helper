@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SMS.Eucp.Gateway">
+</Property><Property Name="解决方案文件" Value="C:\Documents and Settings\Administrator\桌面\Source\SMS.Eucp.Gateway_Source\SMS.Eucp.Gateway.sln">
+</Property><Property Name="Date" Value="2010年3月22日">
+</Property><Property Name="Time" Value="9:18:51">
+</Property></Properties><Event ErrorLevel="0" Project="SMS.Eucp.Gateway" Source="SMS.Eucp.Gateway.csproj" Description="项目文件已成功备份为 C:\Documents and Settings\Administrator\桌面\Source\SMS.Eucp.Gateway_Source\Backup\SMS.Eucp.Gateway.csproj">
+</Event><Event ErrorLevel="0" Project="SMS.Eucp.Gateway" Source="AssemblyInfo.cs" Description="文件已成功备份为 C:\Documents and Settings\Administrator\桌面\Source\SMS.Eucp.Gateway_Source\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SMS.Eucp.Gateway" Source="c000002.cs" Description="文件已成功备份为 C:\Documents and Settings\Administrator\桌面\Source\SMS.Eucp.Gateway_Source\Backup\c000002.cs">
+</Event><Event ErrorLevel="0" Project="SMS.Eucp.Gateway" Source="SMS.Eucp.Gateway\CallResult.cs" Description="文件已成功备份为 C:\Documents and Settings\Administrator\桌面\Source\SMS.Eucp.Gateway_Source\Backup\SMS.Eucp.Gateway\CallResult.cs">
+</Event><Event ErrorLevel="0" Project="SMS.Eucp.Gateway" Source="SMS.Eucp.Gateway\Gateway.cs" Description="文件已成功备份为 C:\Documents and Settings\Administrator\桌面\Source\SMS.Eucp.Gateway_Source\Backup\SMS.Eucp.Gateway\Gateway.cs">
+</Event><Event ErrorLevel="0" Project="SMS.Eucp.Gateway" Source="SMS.Eucp.Gateway\ReceiveSmsContents.cs" Description="文件已成功备份为 C:\Documents and Settings\Administrator\桌面\Source\SMS.Eucp.Gateway_Source\Backup\SMS.Eucp.Gateway\ReceiveSmsContents.cs">
+</Event><Event ErrorLevel="0" Project="SMS.Eucp.Gateway" Source="SMS.Eucp.Gateway\SMS.cs" Description="文件已成功备份为 C:\Documents and Settings\Administrator\桌面\Source\SMS.Eucp.Gateway_Source\Backup\SMS.Eucp.Gateway\SMS.cs">
+</Event><Event ErrorLevel="0" Project="SMS.Eucp.Gateway" Source="SMS.Eucp.Gateway.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SMS.Eucp.Gateway" Source="SMS.Eucp.Gateway.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SMS.Eucp.Gateway" Source="SMS.Eucp.Gateway.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>
