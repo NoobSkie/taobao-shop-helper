@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>和值号码分布图</title>
+<style type="text/css">
+<!--
+body {
+	scrollbar-face-color: #EAEAEA;
+	scrollbar-shadow-color: #EAEAEA;
+	scrollbar-3dlight-color: #FFffff;
+	scrollbar-arrow-color:  #3b3b3b;
+	scrollbar-track-color: #FFffff;
+	scrollbar-darkshadow-color: #3b3b3b;
+	margin-left: 0px;
+	margin-top: 20px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	cursor: crosshair;
+}
+.font11 {
+	font-family: "宋体";
+	font-size: 14px;
+	font-weight: bold;
+	color: #FF0000;
+}
+td {
+	font-family: "宋体";
+	font-size: 9pt;
+}
+-->
+</style>
+<script language="JavaScript">
+<!--
+var jsstr = ""
++ "<img src=\"about:blank\" id=\"leftright\" style=\"width:expression(document.body.clientWidth);height:1px;position:absolute;left:0;top:0;background-color:#6699cc;z-index:100;\" \/>\n"
++ "<img src=\"about:blank\" id=\"topdown\" style=\"height:expression(document.body.clientHeight);width:1px;position:absolute;left:0;top:0;background-color:#6699cc;z-index:100;\" \/>\n"
+document.writeln(jsstr);
+
+function followmouse(){
+	leftright.style.top = window.event.y-1+document.body.scrollTop
+	topdown.style.left = window.event.x-1+document.body.scrollLeft
+	topdown.style.height= document.getElementById("div_end").offsetTop;
+	leftright.style.width=document.body.clientWidth
+}
+document.onmousemove=followmouse
+//-->
+</script>
+ <link rel="shortcut icon" href="../../favicon.ico" /></head>
+
+<body style="overflow-x:hidden" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="return false" onselectstart="return false">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td height="28" background="../images/logobg2.gif"><table width="60%" height="100%" border="0" align="center" cellpadding="1" cellspacing="0">
+  <tr>
+    <td height="4" colspan="10" align="center" valign="middle"></td>
+    </tr>
+  <tr>
+    <td width="10" height="24" align="center" valign="middle">&nbsp;</td>
+    <td width="12%" align="center" ><a href="PL3_GD.aspx">和值号码</a></td>
+    <td width="12%" align="center" ><a href="HZHM.htm">合值号码</a></td>
+    <td width="12%" align="center" ><a href="DXJO.htm">大小-奇偶</a></td>
+    <td width="12%" align="center" ><a href="JODX.htm">奇偶-大小</a></td>
+    <td width="12%" align="center"  background="../images/tuibiao_topbg.gif" bgcolor="#FFFFFF"><a href="Dantuo.htm">胆拖号码</a></td>
+    <td width="12%" align="center" ><a href="Chu3.htm">除3余数</a></td>
+    <td width="12%" align="center" ><a href="Lianhao.htm">连号组合</a></td>
+    <td width="12%" align="center" ><a href="SouWei.htm">首尾边距组合</a></td>
+    <td width="10"></td>
+  </tr>
+</table>
+<br />
+<br />
+  <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td height="30" align="center" valign="top" class="font11">奇偶-大小分区表</td>
+    </tr>
+</table>
+  <table width="100%" height="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="25" align="center" valign="top"><img src="../image/04[1].gif" width="752" height="475"></td>
+  </tr>
+</table>
+<div id="div_end"></div>
+</body>
+</html>
+

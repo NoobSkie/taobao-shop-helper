@@ -1,0 +1,114 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+	无标题页
+</title><link href="Style/css.css" rel="stylesheet" type="text/css" />
+
+    <script language="javascript" type="text/javascript">
+    function UserInit()
+    {
+        try
+        {
+            parent.UserInit();
+        }
+        catch(e)
+        {
+        }
+    }
+    </script>
+
+</head>
+<body onload="return UserInit();">
+    <form name="form1" method="post" action="UserLoginDialog.aspx" id="form1">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE0ODE5OTcwMzEPZBYCAgMPZBYEAgEPZBYEAgEPD2QWAh4FdmFsdWVlZAIDDw8WAh4HQ2hhcnNldAspdlNob3ZlLldlYi5VSS5TaG92ZUNoZWNrQ29kZStDaGFyU2V0LCBTaG92ZS5XZWIuVUkuNCBGb3IuTkVUIDMuNSwgVmVyc2lvbj0yLjAuMC4yLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGwBZGQCAw8PFgIeB1Zpc2libGVoZGRkayp0gy8cYTr/dGlFaULAP4IzoLM=" />
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+    <div>
+        <table cellspacing="1" cellpadding="0" align="center" border="0" style="background-color: #CDCDCD;" width="948px;">
+            <!-- Login -->
+            <tr>
+                <td>
+                    <div id="Panel1" style="width:100%;">
+	
+                        <table cellspacing="0" cellpadding="0" width="100%" border="0" style="background-image: url(Images/Login_bg.jpg); height: 30px;" class="black12">
+                            <tr>
+                                <td valign="middle" width="17">
+                                </td>
+                                <td valign="middle" style="padding-left: 2px; height: 17px" align="center" class="black12">
+                                    &nbsp;用户名：
+                                </td>
+                                <td>
+                                    <input name="tbUserName" type="text" maxlength="16" id="tbUserName" class="in_text_hui" style="height:15px;width:77px;" />
+                                </td>
+                                <td style="width: 42px" class="black12">
+                                    密码：
+                                </td>
+                                <td>
+                                    <input name="tbUserPassword" type="password" id="tbUserPassword" class="in_text_hui" value="" style="height:15px;width:77px;" />
+                                </td>
+                                <td class="black12">
+                                    验证码：
+                                </td>
+                                <td>
+                                    <input name="tbCheckCode" type="text" maxlength="4" id="tbCheckCode" class="in_text_hui" style="height:15px;width:50px;" />
+                                </td>
+                                <td class="black12" valign="middle">
+                                    <div style="height: 22px;">
+                                        &nbsp;
+                                        
+<!-- Shove.Web.UI.ShoveCheckCode Start -->
+	<span id="ShoveCheckCode1" name="ShoveCheckCode1" style="display:inline-block;color:CornflowerBlue;background-color:SeaShell;height:20px;width:50px;">
+	<input name="ShoveCheckCode1:tbCode" type="hidden" id="ShoveCheckCode1_tbCode" value="0459L5g6g5Q56" /><img id="ShoveCheckCode1_imgCode" src="../../ShoveWebUI_client/Page/BuildImage.aspx?CheckCode=0459L5g6g5Q56&amp;ForeColor=0459L7ULB6B5BBKBw28K3Ba75BTHB0&amp;BackColor=0459LIBSb0IB3K3B3B7&amp;Width=0459L5R57BW25&amp;Height=0459LE057BW25&amp;FontName=&amp;FontSize=&amp;isInterferenceBackgroup=0459L8JPB9K6" border="0" style="color:CornflowerBlue;background-color:SeaShell;height:20px;width:50px;" />
+	</span>
+	<!-- Shove.Web.UI.ShoveCheckCode End -->
+	
+                                    </div>
+                                </td>
+                                <td>
+                                    
+<!-- Shove.Web.UI.ShoveConfirmButton Start -->
+	<input type="button" name="btnLogin" value="登 录" onclick="this.disabled=true;__doPostBack('btnLogin','')" language="javascript" id="btnLogin" style="border-style:None;height:22px;width:60px;cursor: hand; color: #000000; background-image: url(Images/Login.jpg);" />
+	<!-- Shove.Web.UI.ShoveConfirmButton End -->
+	
+                                </td>
+                                <td>
+                                    <a href="../../MemberSharing/Alipay/Login.aspx" target="_blank">
+                                        <img style="height: 22px; width: 150px;" src="Images/Login_Alipay.jpg" alt="支付宝用户登录" border="0" /></a>
+                                </td>
+                                <td style="padding-top: 6px; padding-left: 5px;" align="center" class="black12">
+                                    <a href="../../UserLogin.aspx" target="_parent">免费注册</a> | <a href="ForgetPassword.aspx" target="_parent">忘记密码</a>
+                                </td>
+                                <td valign="middle" width="37">
+                                </td>
+                            </tr>
+                        </table>
+                    
+</div>
+                    
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+        <div style="display: none;"><script type="text/javascript" src="http://js.tongji.linezing.com/1135959/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/1135959/tongji.gif"/></a></noscript></div>
+</body>
+</html>

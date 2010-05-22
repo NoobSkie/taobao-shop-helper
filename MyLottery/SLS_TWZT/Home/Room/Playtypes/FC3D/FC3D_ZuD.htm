@@ -1,0 +1,327 @@
+﻿<style type="text/css">
+    body
+    {
+        margin: 0px;
+        font-family: Arial, Helvetica, sans-serif, Tahoma;
+        font-size: 12px;
+    }
+    form
+    {
+        display: inline;
+    }
+    img
+    {
+        vertical-align: middle;
+        border: 0px;
+    }
+    .red
+    {
+        font-size: 12px;
+        color: #cc0000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    
+    .blue
+    {
+        font-size: 12px;
+        color: #3D5B96;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .blue A:link
+    {
+        font-family: "tahoma";
+        color: #3D5B96;
+        text-decoration: underline;
+    }
+    .black12
+    {
+        font-size: 12px;
+        color: #000000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .ball_num
+    {
+        font-family: "tahoma";
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+        color: #666666;
+        cursor: hand;
+        background-image: url( '../../images/zfb_huiball.gif' );
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .bai16
+    {
+        font-size: 14px;
+        color: #ffffff;
+        font-family: "tahoma";
+        line-height: 24px;
+        padding-bottom: 6px;
+        padding-right: 2px;
+        font-weight: bold;
+    }
+</style>
+
+<script type="text/javascript" src="../../javascript/Public.js" language="javascript" charset="gbk"></script>
+<table style="width: 100%; height: 95px" cellspacing="1" cellpadding="0">
+    <tbody style="text-align:center;">
+        <tr>
+            <td bgcolor="#FEDEDE" height="30" class="red">
+                选号区
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="background-image: url('../../images/bg_red.jpg'); padding-top: 10px;
+                padding-bottom: 10px;">
+                <table border="0" cellpadding="0" cellspacing="4">
+                    <tbody>
+                        <tr>
+                            <td class="ball_num" id="td_2_0_0" onclick="SelectBall(this);">
+                                0
+                            </td>
+                            <td class="ball_num" id="td_2_0_1" onclick="SelectBall(this);">
+                                1
+                            </td>
+                            <td class="ball_num" id="td_2_0_2" onclick="SelectBall(this);">
+                                2
+                            </td>
+                            <td class="ball_num" id="td_2_0_3" onclick="SelectBall(this);">
+                                3
+                            </td>
+                            <td class="ball_num" id="td_2_0_4" onclick="SelectBall(this);">
+                                4
+                            </td>
+                            <td class="ball_num" id="td_2_0_5" onclick="SelectBall(this);">
+                                5
+                            </td>
+                            <td class="ball_num" id="td_2_0_6" onclick="SelectBall(this);">
+                                6
+                            </td>
+                            <td class="ball_num" id="td_2_0_7" onclick="SelectBall(this);">
+                                7
+                            </td>
+                            <td class="ball_num" id="td_2_0_8" onclick="SelectBall(this);">
+                                8
+                            </td>
+                            <td class="ball_num" id="td_2_0_9" onclick="SelectBall(this);">
+                                9
+                            </td>
+                        </tr>
+                    </tbody>
+                </table></td>
+        </tr>
+        <tr>
+            <td>
+                <font class="red">说明：请选择3个数字(或者选择2个数字其中一个数字需要选择2次)。当在一个号上选择2次时，将变成红色。</font>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<center>
+<table width="95%" border="0" cellpadding="0" cellspacing="1" bgcolor="#E2EAED">
+    <tr>
+        <td bgcolor="#F4F9FD" class="black12" style="padding: 5px 10px 5px 10px;">
+            【注】请选择 <font class="red">3</font>个数字。您选择了
+            <div style="display: inline; height: 15px" class="red" id="lab_2_Selected">
+                0 个号，0 注，0.00 元</div>
+            &nbsp;
+        </td>
+    </tr>
+</table>
+</center>
+<div style="padding: 10px; padding-left:20px;text-align:center">
+    <img alt="" src="../../images/zfb_bt_queren.jpg" id="btn_2_Add" name="btn_2_Add" onclick="return btn_2_AddClick();"
+        style="cursor: hand;" visible="false" disabled />
+</div>
+
+
+    
+<script type="text/javascript" language="javascript">
+<!--
+    function SelectBall(sender) {
+        var Selected = GetBallState(sender);
+        if (Selected == 2) {
+            SetBallState(sender, 0);
+            CheckFull();
+            return;
+        }
+
+        if (Selected == 1) {
+            if (GetBallSelectedNum(0) >= 3)
+                SetBallState(sender, 0);
+            else
+                SetBallState(sender, 2);
+            CheckFull();
+            return;
+        }
+
+        if ((GetBallSelectedNum(0) >= 3)) {
+            alert("只能选择三个数字(或者选择二个数字其中一个数字需要选择二次)。");
+            return;
+        }
+
+        SetBallState(sender, 1);
+        CheckFull();
+    }
+
+    function GetBallRow(sender) {
+        var str = sender.id;
+        return parseInt(str.substring(5, 6));
+    }
+
+    function GetBallCol(sender) {
+        var str = sender.id;
+        return parseInt(str.substring(7, 8));
+    }
+
+    function GetBallObject(row, col) {
+        var obj = document.all["td_2_" + row + "_" + col];
+        return obj;
+    }
+
+    function GetBallSelectedNum(row)	//被选择球的个数，含一个球选2次
+    {
+        var Count = 0;
+        for (var i = 0; i < 10; i++) {
+            var obj = GetBallObject(row, i);
+            Count += GetBallState(obj);
+        }
+        return Count;
+    }
+
+    function GetBallSelectedNum2(row)	//被选择球的个数，不含一个球选2次
+    {
+        var Count = 0;
+        for (var i = 0; i < 10; i++) {
+            var obj = GetBallObject(row, i);
+            if (GetBallState(obj) > 0)
+                Count++;
+        }
+        return Count;
+    }
+
+    function GetBallState(sender) {
+        if (sender.style.backgroundImage == "url(../../Images/zfb_huiball.gif)")
+            return 0;
+        if (sender.style.backgroundImage == "url(../../Images/zfb_blueball.gif)")
+            return 1;
+        return 2;
+    }
+
+    function SetBallState(sender, SelectState) {
+        if (SelectState == 0) {
+            sender.style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+            sender.style.color = "#454545";
+        }
+        else if (SelectState == 1) {
+        sender.style.backgroundImage = "url(../../Images/zfb_blueball.gif)";
+            sender.style.color = "#fffffe";
+        }
+        else {
+            sender.style.backgroundImage = "url(../../Images/zfb_redball.gif)";
+            sender.style.color = "White";
+        }
+    }
+
+    function CheckFull() {
+        var Num = GetBallSelectedNum(0);
+        document.all["lab_2_Selected"].innerText = Num + " 个号，" + GetLotteryInvestNum() + " 注，" + GetLotteryInvestNum() * 2 + " 元";
+        document.all["btn_2_Add"].disabled = (Num < 3);
+    }
+
+    function GetLotteryNumber() {
+        var LotteryNumber = "";
+        for (var i = 0; i < 1; i++) {
+            var temp = " ";
+            for (var j = 0; j < 10; j++) {
+                var obj = GetBallObject(i, j);
+                if (GetBallState(obj) == 1)
+                    temp += obj.innerText.trim();
+                else if (GetBallState(obj) == 2)
+                    temp += obj.innerText.trim() + obj.innerText.trim();
+            }
+            temp = temp.trim();
+            LotteryNumber += temp;
+        }
+        return LotteryNumber.trim();
+    }
+
+    function GetLotteryInvestNum()	//取注数
+    {
+        var Count = GetBallSelectedNum(0);
+        if (Count < 3)
+            return 0;
+        if (Count == 3)
+            return 1;
+
+        var InvestNum = 1;
+        for (var i = 4; i <= Count; i++)
+            InvestNum *= i;
+        for (var i = 2; i <= (Count - 3); i++)
+            InvestNum = Math.round(InvestNum / i);
+
+        return InvestNum;
+    }
+
+    function ClearSelect() {
+        for (var i = 0; i < 1; i++)
+            for (var j = 0; j < 10; j++) {
+            var obj = GetBallObject(i, j);
+            SetBallState(obj, 0);
+        }
+    }
+
+    function btn_2_AddClick() {
+        var customOptions = document.createElement("OPTION");
+        customOptions.text = GetLotteryNumber();
+        customOptions.value = GetLotteryInvestNum();
+        parent.o_list_LotteryNumber.add(customOptions, parent.o_list_LotteryNumber.length);
+
+        parent.o_tb_LotteryNumber.value += GetLotteryNumber() + "\n";
+        parent.o_lab_Num.innerText = StrToInt(parent.o_lab_Num.innerText) + GetLotteryInvestNum();
+        ClearSelect();
+        document.all["lab_2_Selected"].innerText = "0 个号，0 注，0.00 元";
+        document.all["btn_2_Add"].disabled = true;
+        parent.CalcResult();
+
+        parent.calculateAllMoney();
+        parent.ClearSMS();
+
+        return true;
+    }
+
+    function SelectLotteryNumber() {
+        ClearSelect();
+        var lotteryNumber = parent.document.getElementById("HidSelectedLotteryNumber").value;
+        var num = "";
+        for (var i = 0; i < lotteryNumber.length; i++) {
+            num = lotteryNumber.substr(i, 1);
+
+            var obj = GetBallObject(0, num);
+            var Selected = GetBallState(obj);
+            if (Selected == 2) {
+                SetBallState(obj, 0);
+            }
+            else
+                if (Selected == 1) {
+                if (GetBallSelectedNum(0) >= 3)
+                    SetBallState(obj, 0);
+                else
+                    SetBallState(obj, 2);
+            }
+            else {
+                SetBallState(obj, 1);
+            }
+        }
+        CheckFull();
+    }
+    
+    ClearSelect();
+-->
+</script>

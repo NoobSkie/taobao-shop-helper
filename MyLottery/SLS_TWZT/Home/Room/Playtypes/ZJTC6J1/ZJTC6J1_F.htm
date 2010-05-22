@@ -1,0 +1,861 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        body
+        {
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif, Tahoma;
+        }
+        form
+        {
+            display: inline;
+        }
+        img
+        {
+            vertical-align: middle;
+            border: 0px;
+        }
+        .red
+        {
+            font-size: 12px;
+            color: #cc0000;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .blue
+        {
+            font-size: 12px;
+            color: #3D5B96;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .blue A:link
+        {
+            font-family: "tahoma";
+            color: #3D5B96;
+            text-decoration: underline;
+        }
+        .black12
+        {
+            font-size: 11px;
+            color: #000000;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .ball_num
+        {
+            font-family: "tahoma";
+            height: 25px;
+            width: 26px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            color: #666666;
+            cursor: hand;
+            background-image: url( '../../images/zfb_huiball.gif' );
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .bai16
+        {
+            font-size: 14px;
+            color: #ffffff;
+            font-family: "tahoma";
+            line-height: 24px;
+            padding-bottom: 6px;
+            padding-right: 2px;
+            font-weight: bold;
+        }
+        .style1
+        {
+            font-size: 11px;
+            color: #000000;
+            font-family: "tahoma";
+            line-height: 20px;
+            cursor: hand;
+            width: 38px;
+        }
+        .style2
+        {
+            font-size: 11px;
+            color: #000000;
+            font-family: "tahoma";
+            line-height: 20px;
+            cursor: hand;
+            width: 32px;
+        }
+        .style3
+        {
+            font-size: 11px;
+            color: #000000;
+            font-family: "tahoma";
+            line-height: 20px;
+            cursor: hand;
+            width: 33px;
+        }
+        .style4
+        {
+            font-size: 11px;
+            color: #000000;
+            font-family: "tahoma";
+            line-height: 20px;
+            cursor: hand;
+            width: 31px;
+        }
+    </style>
+
+    <script type="text/javascript" src="../../javaScript/Public.js"></script>
+
+    <script type="text/javascript">
+<!--
+        var o_tb_2_LotteryNumber;
+        var o_list_2_LotteryNumber;
+        var o_tb_2_Multiple;
+        var o_tb_2_Share;
+        var o_tb_2_AssureShare;
+        var o_tb_2_BuyShare;
+        var o_tb_2_Title;
+        var o_lab_2_Num;
+        var o_lab_2_SumMoney;
+        var o_lab_2_ShareMoney;
+        var o_lab_2_AssureMoney;
+        var o_lab_2_BuyMoney;
+        var o_lab_2_Balance;
+        var o_tb_2_SchemeFileName;
+        var o_TR2_Rand;
+        var o_TR5_Rand;
+        var o_TR10_Rand;
+
+        function Init() {
+            o_tb_2_LotteryNumber = parent.document.all["tb_LotteryNumber"];
+            o_list_2_LotteryNumber = parent.document.all["list_LotteryNumber"];
+            o_tb_2_Multiple = parent.document.all["tb_Multiple"];
+            o_tb_2_Share = parent.document.all["tb_Share"];
+            o_tb_2_AssureShare = parent.document.all["tb_AssureShare"];
+            o_tb_2_BuyShare = parent.document.all["tb_BuyShare"];
+            o_tb_2_Title = parent.document.all["tb_Title"];
+            o_lab_2_Num = parent.document.all["lab_Num"];
+            o_lab_2_SumMoney = parent.document.all["lab_SumMoney"];
+            o_lab_2_ShareMoney = parent.document.all["lab_ShareMoney"];
+            o_lab_2_AssureMoney = parent.document.all["lab_AssureMoney"];
+            o_lab_2_BuyMoney = parent.document.all["lab_BuyMoney"];
+            o_lab_2_Balance = parent.document.all["lab_Balance"];
+            o_tb_2_SchemeFileName = parent.document.all["tb_SchemeFileName"];
+
+            o_tb_2_LotteryNumber.value = "";
+            o_tb_2_Multiple.value = "1";
+            //o_tb_2_Share.value = "1";
+            //o_tb_2_AssureShare.value = "0";
+            //o_tb_2_BuyShare.value = "1";
+            o_tb_2_Title.value = "";
+            o_lab_2_Num.innerText = "0";
+            o_lab_2_SumMoney.innerText = "0.00";
+            //o_lab_2_ShareMoney.innerText = "0.00";
+            //o_lab_2_AssureMoney.innerText = "0.00";	//o_lab_2_BuyMoney.innerText = "0.00";
+
+            HideawayParentBtnRand();
+            ClearSelect();
+        }
+
+        function SelectBall(sender) {
+            var Selected = GetBallState(sender);
+            if (Selected) {
+                SetBallState(sender, false);
+                CheckFull();
+                return;
+            }
+
+            SetBallState(sender, true);
+            CheckFull();
+        }
+
+        function QuickSelect(sender) {
+            var str = sender.id;
+            var row = parseInt(str.substring(5, 6));
+            var Type = str.substring(7, 8);
+
+            for (var i = 0; i < 10; i++) {
+                var obj = GetBallObject(row, i);
+                SetBallState(obj, false);
+            }
+            if (Type == "Q") {
+                for (var i = 0; i < 10; i++) {
+                    var obj = GetBallObject(row, i);
+                    SetBallState(obj, true);
+                }
+            }
+            if (Type == "D") {
+                for (var i = 5; i < 10; i++) {
+                    var obj = GetBallObject(row, i);
+                    SetBallState(obj, true);
+                }
+            }
+            if (Type == "X") {
+                for (var i = 0; i < 5; i++) {
+                    var obj = GetBallObject(row, i);
+                    SetBallState(obj, true);
+                }
+            }
+            if (Type == "J") {
+                for (var i = 1; i < 10; i += 2) {
+                    var obj = GetBallObject(row, i);
+                    SetBallState(obj, true);
+                }
+            }
+            if (Type == "O") {
+                for (var i = 0; i < 10; i += 2) {
+                    var obj = GetBallObject(row, i);
+                    SetBallState(obj, true);
+                }
+            }
+            CheckFull();
+        }
+
+        function GetBallRow(sender) {
+            var str = sender.id;
+            return parseInt(str.substring(5, 6));
+        }
+
+        function GetBallCol(sender) {
+            var str = sender.id;
+            return parseInt(str.substring(7, 8));
+        }
+
+        function GetBallObject(row, col) {
+            var obj = document.all["td_2_" + row + "_" + col];
+            return obj;
+        }
+
+        function GetBallSelectedNum(row) {
+            var Count = 0;
+            for (var i = 0; i < 10; i++) {
+                var obj = GetBallObject(row, i);
+                if (GetBallState(obj))
+                    Count++;
+            }
+            return Count;
+        }
+
+        function GetBallState(sender) {
+            return (sender.style.backgroundImage != "url(../../images/zfb_huiball.gif)");
+        }
+
+        function SetBallState(sender, SelectState) {
+            if (!SelectState) {
+                sender.style.backgroundImage = "url(../../images/zfb_huiball.gif)";
+                sender.innerHTML = "<font color='black'><strong>" + sender.innerText + "</strong></font>";
+            }
+            else {
+                if (GetBallRow(sender) < 6)
+                    sender.style.backgroundImage = "url(../../images/zfb_redball.gif)";
+                else
+                    sender.style.backgroundImage = "url(../../images/zfb_blueball.gif)";
+                sender.innerHTML = "<font color='white'><strong>" + sender.innerText + "</strong></font>";
+            }
+        }
+
+        function CheckFull() {
+            var Full = true;
+            for (var i = 0; i < 7; i++) {
+                if (GetBallSelectedNum(i) < 1) {
+                    Full = false;
+                    break;
+                }
+            }
+
+            document.all["lab_2_Selected"].innerText = GetLotteryInvestNum() + " 注，" + GetLotteryInvestNum() * 2 + " 元";
+            document.all["btn_2_Add"].disabled = (GetLotteryInvestNum() < 2);
+        }
+
+        function GetLotteryNumber() {
+            var LotteryNumber = "";
+            for (var i = 0; i < 6; i++) {
+                var tempr = " ";
+                for (var j = 0; j < 10; j++) {
+                    var obj = GetBallObject(i, j);
+                    if (GetBallState(obj))
+                        tempr += obj.innerText.trim();
+                }
+                tempr = tempr.trim();
+                if (tempr.length != 1)
+                    tempr = "(" + tempr + ")";
+                LotteryNumber += tempr;
+            }
+
+            var tempb = "";
+            for (var j = 0; j < 10; j++) {
+                var obj = GetBallObject(6, j);
+                if (GetBallState(obj))
+                    tempb += obj.innerText.trim();
+            }
+            tempb = tempb.trim();
+            if (tempb.length != 1)
+                tempb = "(" + tempb + ")";
+            LotteryNumber += "-" + tempb;
+
+            return LotteryNumber.trim();
+        }
+
+        function GetLotteryInvestNum()	//取注数
+        {
+            var InvestNum = 1;
+            for (var i = 0; i < 7; i++)
+                InvestNum *= GetBallSelectedNum(i);
+            return InvestNum;
+        }
+
+        function ClearSelect() {
+            for (var i = 0; i < 7; i++)
+                for (var j = 0; j < 10; j++) {
+                var obj = GetBallObject(i, j);
+                SetBallState(obj, false);
+            }
+        }
+
+        function btn_2_AddClick() {
+            if (GetLotteryInvestNum() * 2 > 20000) {
+                alert("浙江风采4+1单注复式彩票金额不能超过 2 万元。");
+                return false;
+            }
+
+            if (GetLotteryInvestNum() < 2) {
+                alert("您选择的不是一注复式票！");
+                return false;
+            }
+
+            var customOptions = parent.document.createElement("OPTION");
+            customOptions.text = GetLotteryNumber();
+            customOptions.value = GetLotteryInvestNum();
+            o_list_2_LotteryNumber.add(customOptions, o_list_2_LotteryNumber.length);
+
+            o_tb_2_LotteryNumber.value += GetLotteryNumber() + "\n";
+            o_lab_2_Num.innerText = StrToInt(o_lab_2_Num.innerText) + GetLotteryInvestNum();
+            ClearSelect();
+            document.all["lab_2_Selected"].innerText = "0 注，0.00 元";
+            document.all["btn_2_Add"].disabled = true;
+            parent.window.CalcResult();
+            o_tb_2_SchemeFileName.value = "";
+
+            parent.calculateAllMoney();
+
+            return true;
+        }
+
+        function HideawayParentBtnRand() {
+            o_TR2_Rand = parent.document.all["btn_2_Rand"];
+            o_TR5_Rand = parent.document.all["btn_2_Rand5"];
+
+            if (!document.all["btn_2_Rand"]) {
+                o_TR2_Rand.style.display = "none";
+                o_TR5_Rand.style.display = "none";
+            }
+            else {
+                o_TR2_Rand.style.display = "inline";
+                o_TR5_Rand.style.display = "inline";
+            }
+        }
+-->
+    </script>
+
+</head>
+<body onload="Init()">
+    <table style="width: 100%; height: 95px" cellspacing="0" cellpadding="0" border="0">
+        <tbody>
+            <tr>
+                <td colspan="2" height="30" align="center" bgcolor="#FEDEDE" class="red">
+                    选号区
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="height: 0.1px">
+                </td>
+            </tr>
+            <tr style="background-color: #F9F9F9;">
+                <td valign="top" align="left" style="padding-top: 10px; padding-bottom: 10px; padding-left: 30px;"
+                    background="../../images/zfb_bg_red.jpg">
+                    <table width="336" border="0" align="left" cellpadding="0" cellspacing="5">
+                        <tbody>
+                            <tr>
+                                <td class="ball_num" id="td_2_0_0" onclick="SelectBall(this);">
+                                    0
+                                </td>
+                                <td class="ball_num" id="td_2_0_1" onclick="SelectBall(this);">
+                                    1
+                                </td>
+                                <td class="ball_num" id="td_2_0_2" onclick="SelectBall(this);">
+                                    2
+                                </td>
+                                <td class="ball_num" id="td_2_0_3" onclick="SelectBall(this);">
+                                    3
+                                </td>
+                                <td class="ball_num" id="td_2_0_4" onclick="SelectBall(this);">
+                                    4
+                                </td>
+                                <td class="ball_num" id="td_2_0_5" onclick="SelectBall(this);">
+                                    5
+                                </td>
+                                <td class="ball_num" id="td_2_0_6" onclick="SelectBall(this);">
+                                    6
+                                </td>
+                                <td class="ball_num" id="td_2_0_7" onclick="SelectBall(this);">
+                                    7
+                                </td>
+                                <td class="ball_num" id="td_2_0_8" onclick="SelectBall(this);">
+                                    8
+                                </td>
+                                <td class="ball_num" id="td_2_0_9" onclick="SelectBall(this);">
+                                    9
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ball_num" id="td_2_1_0" onclick="SelectBall(this);">
+                                    0
+                                </td>
+                                <td class="ball_num" id="td_2_1_1" onclick="SelectBall(this);">
+                                    1
+                                </td>
+                                <td class="ball_num" id="td_2_1_2" onclick="SelectBall(this);">
+                                    2
+                                </td>
+                                <td class="ball_num" id="td_2_1_3" onclick="SelectBall(this);">
+                                    3
+                                </td>
+                                <td class="ball_num" id="td_2_1_4" onclick="SelectBall(this);">
+                                    4
+                                </td>
+                                <td class="ball_num" id="td_2_1_5" onclick="SelectBall(this);">
+                                    5
+                                </td>
+                                <td class="ball_num" id="td_2_1_6" onclick="SelectBall(this);">
+                                    6
+                                </td>
+                                <td class="ball_num" id="td_2_1_7" onclick="SelectBall(this);">
+                                    7
+                                </td>
+                                <td class="ball_num" id="td_2_1_8" onclick="SelectBall(this);">
+                                    8
+                                </td>
+                                <td class="ball_num" id="td_2_1_9" onclick="SelectBall(this);">
+                                    9
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ball_num" id="td_2_2_0" onclick="SelectBall(this);">
+                                    0
+                                </td>
+                                <td class="ball_num" id="td_2_2_1" onclick="SelectBall(this);">
+                                    1
+                                </td>
+                                <td class="ball_num" id="td_2_2_2" onclick="SelectBall(this);">
+                                    2
+                                </td>
+                                <td class="ball_num" id="td_2_2_3" onclick="SelectBall(this);">
+                                    3
+                                </td>
+                                <td class="ball_num" id="td_2_2_4" onclick="SelectBall(this);">
+                                    4
+                                </td>
+                                <td class="ball_num" id="td_2_2_5" onclick="SelectBall(this);">
+                                    5
+                                </td>
+                                <td class="ball_num" id="td_2_2_6" onclick="SelectBall(this);">
+                                    6
+                                </td>
+                                <td class="ball_num" id="td_2_2_7" onclick="SelectBall(this);">
+                                    7
+                                </td>
+                                <td class="ball_num" id="td_2_2_8" onclick="SelectBall(this);">
+                                    8
+                                </td>
+                                <td class="ball_num" id="td_2_2_9" onclick="SelectBall(this);">
+                                    9
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ball_num" id="td_2_3_0" onclick="SelectBall(this);">
+                                    0
+                                </td>
+                                <td class="ball_num" id="td_2_3_1" onclick="SelectBall(this);">
+                                    1
+                                </td>
+                                <td class="ball_num" id="td_2_3_2" onclick="SelectBall(this);">
+                                    2
+                                </td>
+                                <td class="ball_num" id="td_2_3_3" onclick="SelectBall(this);">
+                                    3
+                                </td>
+                                <td class="ball_num" id="td_2_3_4" onclick="SelectBall(this);">
+                                    4
+                                </td>
+                                <td class="ball_num" id="td_2_3_5" onclick="SelectBall(this);">
+                                    5
+                                </td>
+                                <td class="ball_num" id="td_2_3_6" onclick="SelectBall(this);">
+                                    6
+                                </td>
+                                <td class="ball_num" id="td_2_3_7" onclick="SelectBall(this);">
+                                    7
+                                </td>
+                                <td class="ball_num" id="td_2_3_8" onclick="SelectBall(this);">
+                                    8
+                                </td>
+                                <td class="ball_num" id="td_2_3_9" onclick="SelectBall(this);">
+                                    9
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ball_num" id="td_2_4_0" onclick="SelectBall(this);">
+                                    0
+                                </td>
+                                <td class="ball_num" id="td_2_4_1" onclick="SelectBall(this);">
+                                    1
+                                </td>
+                                <td class="ball_num" id="td_2_4_2" onclick="SelectBall(this);">
+                                    2
+                                </td>
+                                <td class="ball_num" id="td_2_4_3" onclick="SelectBall(this);">
+                                    3
+                                </td>
+                                <td class="ball_num" id="td_2_4_4" onclick="SelectBall(this);">
+                                    4
+                                </td>
+                                <td class="ball_num" id="td_2_4_5" onclick="SelectBall(this);">
+                                    5
+                                </td>
+                                <td class="ball_num" id="td_2_4_6" onclick="SelectBall(this);">
+                                    6
+                                </td>
+                                <td class="ball_num" id="td_2_4_7" onclick="SelectBall(this);">
+                                    7
+                                </td>
+                                <td class="ball_num" id="td_2_4_8" onclick="SelectBall(this);">
+                                    8
+                                </td>
+                                <td class="ball_num" id="td_2_4_9" onclick="SelectBall(this);">
+                                    9
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ball_num" id="td_2_5_0" onclick="SelectBall(this);">
+                                    0
+                                </td>
+                                <td class="ball_num" id="td_2_5_1" onclick="SelectBall(this);">
+                                    1
+                                </td>
+                                <td class="ball_num" id="td_2_5_2" onclick="SelectBall(this);">
+                                    2
+                                </td>
+                                <td class="ball_num" id="td_2_5_3" onclick="SelectBall(this);">
+                                    3
+                                </td>
+                                <td class="ball_num" id="td_2_5_4" onclick="SelectBall(this);">
+                                    4
+                                </td>
+                                <td class="ball_num" id="td_2_5_5" onclick="SelectBall(this);">
+                                    5
+                                </td>
+                                <td class="ball_num" id="td_2_5_6" onclick="SelectBall(this);">
+                                    6
+                                </td>
+                                <td class="ball_num" id="td_2_5_7" onclick="SelectBall(this);">
+                                    7
+                                </td>
+                                <td class="ball_num" id="td_2_5_8" onclick="SelectBall(this);">
+                                    8
+                                </td>
+                                <td class="ball_num" id="td_2_5_9" onclick="SelectBall(this);">
+                                    9
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ball_num" id="td_2_6_0" onclick="SelectBall(this);">
+                                    0
+                                </td>
+                                <td class="ball_num" id="td_2_6_1" onclick="SelectBall(this);">
+                                    1
+                                </td>
+                                <td class="ball_num" id="td_2_6_2" onclick="SelectBall(this);">
+                                    2
+                                </td>
+                                <td class="ball_num" id="td_2_6_3" onclick="SelectBall(this);">
+                                    3
+                                </td>
+                                <td class="ball_num" id="td_2_6_4" onclick="SelectBall(this);">
+                                    4
+                                </td>
+                                <td class="ball_num" id="td_2_6_5" onclick="SelectBall(this);">
+                                    5
+                                </td>
+                                <td class="ball_num" id="td_2_6_6" onclick="SelectBall(this);">
+                                    6
+                                </td>
+                                <td class="ball_num" id="td_2_6_7" onclick="SelectBall(this);">
+                                    7
+                                </td>
+                                <td class="ball_num" id="td_2_6_8" onclick="SelectBall(this);">
+                                    8
+                                </td>
+                                <td class="ball_num" id="td_2_6_9" onclick="SelectBall(this);">
+                                    9
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td valign="top" align="left" style="padding-top: 10px; padding-bottom: 10px; text-align: center;"
+                    background="../../images/zfb_bg_red.jpg">
+                    <table border="0" align="left" cellpadding="0" cellspacing="3" 
+                        style="width: 82%; height: 215px; margin-right: 19px">
+                        <tbody>
+                            <tr>
+                                <td style="background-repeat: no-repeat;" id="td_2_0_Q"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    全
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_0_D"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style1" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    大
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_0_X"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style2" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    小
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_0_J"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style4" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    奇
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_0_O"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    偶
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_0_C"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    清
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-repeat: no-repeat;" id="td_2_1_Q"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    全
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_1_D"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style1" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    大
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_1_X"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style2" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    小
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_1_J"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style4" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    奇
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_1_O"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    偶
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_1_C"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    清
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-repeat: no-repeat;" id="td_2_2_Q"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    全
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_2_D"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style1" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    大
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_2_X"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style2" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    小
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_2_J"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style4" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    奇
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_2_O"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    偶
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_2_C"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    清
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-repeat: no-repeat;" id="td_2_3_Q"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    全
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_3_D"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style1" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    大
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_3_X"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style2" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    小
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_3_J"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style4" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    奇
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_3_O"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    偶
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_3_C"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    清
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-repeat: no-repeat;" id="td_2_4_Q"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    全
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_4_D"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style1" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    大
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_4_X"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style2" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    小
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_4_J"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style4" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    奇
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_4_O"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    偶
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_4_C"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    清
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-repeat: no-repeat;" id="td_2_5_Q"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    全
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_5_D"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style1" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    大
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_5_X"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style2" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    小
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_5_J"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style4" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    奇
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_5_O"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    偶
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_5_C"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    清
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-repeat: no-repeat;" id="td_2_6_Q"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    全
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_6_D"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style1" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    大
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_6_X"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style2" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    小
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_6_J"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style4" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    奇
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_6_O"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    偶
+                                </td>
+                                <td style="background-repeat: no-repeat;" id="td_2_6_C"
+                                    onclick="QuickSelect(this);" align="center" height="25" class="style3" 
+                                    background="../../images/cyw_font_ball.gif">
+                                    清
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" height="3">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table width="95%" border="0" cellpadding="0" cellspacing="1" bgcolor="#E2EAED" align="center">
+        <tr>
+            <td bgcolor="#F4F9FD" class="black12" style="padding: 5px 10px 5px 10px;">
+                <font color="#ff0000">【注】</font>每行可以选择多个数字。您选择了
+                                <div style="display: inline; color: red; height: 15px" id="lab_2_Selected">
+                                    0 注，0.00 元</div>
+                                &nbsp;
+            </td>
+        </tr>
+    </table>
+    <div style="padding: 10px; padding-left: 20px; text-align: center">
+        <img alt="" src="../../Images/zfb_bt_queren.jpg" id="btn_2_Add" name="btn_2_Add"
+                                    onclick="return btn_2_AddClick();" style="cursor: hand;" visible="false" disabled />
+    </div>
+</body>
+</html>

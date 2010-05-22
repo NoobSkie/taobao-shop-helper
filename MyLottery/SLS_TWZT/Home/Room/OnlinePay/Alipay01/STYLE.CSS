@@ -1,0 +1,60 @@
+﻿BODY {
+	LINE-HEIGHT: 16px
+}
+TABLE {
+	FONT-SIZE: 12px; COLOR: #333333; LINE-HEIGHT: 16px
+}
+A {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 16px; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #ff6600; TEXT-DECORATION: none
+}
+.cn_12px {
+	FONT-SIZE: 12px; FONT-FAMILY: "Tahoma"; TEXT-DECORATION: none
+}
+.cn_12px_v20 {
+	FONT-SIZE: 12px; LINE-HEIGHT: 20px; FONT-FAMILY: "Tahoma"; TEXT-DECORATION: none
+}
+.news_title {
+	FONT-WEIGHT: bold; FONT-SIZE: 24px; COLOR: #cc0000; LINE-HEIGHT: 20px; FONT-FAMILY: "Tahoma"; TEXT-DECORATION: none
+}
+.news_title_fu {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #999999; LINE-HEIGHT: normal; FONT-FAMILY: "Tahoma"; TEXT-DECORATION: none
+}
+.news_text {
+	FONT-SIZE: 14px; LINE-HEIGHT: 22px; FONT-FAMILY: "Tahoma"; TEXT-DECORATION: none
+}
+.en_12px {
+	FONT-SIZE: 12px; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.cn_12px_white {
+	FONT-SIZE: 12px; COLOR: #ffffff; LINE-HEIGHT: 23px; FONT-FAMILY: "Tahoma"; TEXT-DECORATION: none
+}
+.inputComment {
+	WIDTH: 100%
+}
+.inputBtn {
+	BORDER-RIGHT: #6699cc 1px solid; BORDER-TOP: #6699cc 1px solid; BACKGROUND: #ffffff; BORDER-LEFT: #6699cc 1px solid; COLOR: #6699cc; BORDER-BOTTOM: #6699cc 1px solid; TEXT-DECORATION: none
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-FAMILY: "黑体"; TEXT-DECORATION: none
+}
+.cn_12px_blue_1 {
+	FONT-SIZE: 12px; COLOR: #0099cc; FONT-FAMILY: "Tahoma"; TEXT-DECORATION: none
+}
+.cn_12px_hui_1 {
+	FONT-SIZE: 12px; COLOR: #cccccc; FONT-FAMILY: "Tahoma"; TEXT-DECORATION: none
+}
+cn_12px_hui_2 {
+	FONT-SIZE: 12px; COLOR: #999999; FONT-FAMILY: "Tahoma"; TEXT-DECORATION: none
+}
+.cn_12px_hui_2 {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "Tahoma"; TEXT-DECORATION: none
+}
+.en_9px {
+	FONT-SIZE: 9px; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.cn_12px_hui_1-2 {
+	FONT-SIZE: 12px; COLOR: #999999; FONT-FAMILY: "Tahoma"; TEXT-DECORATION: none
+}

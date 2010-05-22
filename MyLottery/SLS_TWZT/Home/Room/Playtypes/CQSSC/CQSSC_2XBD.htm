@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style type="text/css">
+        body
+        {
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif, Tahoma;
+            font-size: 12px;
+        }
+        form
+        {
+            display: inline;
+        }
+        img
+        {
+            vertical-align: middle;
+            border: 0px;
+        }
+        .red
+        {
+            font-size: 12px;
+            color: #cc0000;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .blue
+        {
+            font-size: 12px;
+            color: #3D5B96;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .blue A:link
+        {
+            font-family: "tahoma";
+            color: #3D5B96;
+            text-decoration: underline;
+        }
+        .black12
+        {
+            font-size: 12px;
+            color: #000000;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .ball_num
+        {
+            font-family: "tahoma";
+            height: 25px;
+            width: 25px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            color: #666666;
+            cursor: hand;
+            background-image: url( '../../images/zfb_huiball.gif' );
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .bai16
+        {
+            font-size: 14px;
+            color: #ffffff;
+            font-family: "tahoma";
+            line-height: 24px;
+            padding-bottom: 6px;
+            padding-right: 2px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script type="text/javascript" src="../../javascript/Public.js" language="javascript"
+        charset="gbk"></script>
+
+    <script type="text/javascript" language="javascript">
+
+        function SelectBall(sender)
+        {
+	        var Selected = GetBallState(sender);
+	        if (Selected)
+	        {
+		        SetBallState(sender, false);
+		        CheckFull();
+		        return;
+	        }
+
+        	if (GetBallSelectedNum(GetBallRow(sender)) >= 1)
+            {
+	            alert("每位只能选择一个数字。");
+	            return;
+            }
+
+	        SetBallState(sender, true);
+	        CheckFull();
+        }
+        
+        function GetBallRow(sender)
+        {
+            var str = sender.id;
+            return parseInt(str.substring(5, 6));
+        }
+
+        function GetBallObject(Num)
+        {
+	        var obj = document.all["td_2_" + GetBallNum(Num)];
+	        return obj;
+        }
+
+        function GetBallNum(Num)
+        {
+	        var BallNum = "" + Num;
+	        if (BallNum.length == 1)
+		        BallNum = "0" + BallNum;
+        		
+	        return BallNum;
+        }
+
+        function GetBallSelectedNum()
+        {
+	        var Count = 0;
+	        for (var i = 0; i <= 18; i ++)
+	        {
+		        var obj = GetBallObject(i);
+		        if (GetBallState(obj))
+			        Count ++;
+	        }
+	        return Count;
+        }
+
+        function GetBallState(sender) {
+            return (sender.style.color != "#454545");
+        }
+
+        function SetBallState(sender, SelectState) {
+            if (!SelectState) {
+                sender.style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+                sender.style.color = "#454545";
+            }
+            else {
+                sender.style.backgroundImage = "url(../../Images/zfb_redball.gif)";
+                sender.style.color = "White";
+            }
+        }
+
+
+        function CheckFull()
+        {
+	        var Num = GetBallSelectedNum();
+	        document.all["lab_2_Selected"].innerText = Num + " 个号，" + GetLotteryInvestNum() + " 注，" + GetLotteryInvestNum() * 2 + " 元";
+	        document.all["btn_2_Add"].disabled = (Num < 1);
+        }
+
+        function GetLotteryNumber()
+        {
+	        var LotteryNumber = "";
+	        for (var i = 0; i <= 18; i ++)
+	        {
+		        var obj = GetBallObject(i);
+		        if (GetBallState(obj))
+			        LotteryNumber += (obj.innerText.trim() + "\n");
+	        }
+        	
+	        return LotteryNumber.trim().rtrimWithReturn();
+        }
+
+        function GetLotteryInvestNum()	//取注数
+        {
+	        var InvestNum = 0;
+	        for(var i = 0; i <= 18; i++)
+	        {
+		        var obj = GetBallObject(i);
+		        if (GetBallState(obj))
+			        InvestNum += GetNumbersInversNum(parseInt(obj.innerText, 10));
+	        }
+	        return InvestNum;
+        }
+
+        function GetNumbersInversNum(BallNum)	//取不同和值的可投注数
+        {
+	        if (BallNum == 0)	return 1;
+	        if (BallNum == 1)	return 2;
+	        if (BallNum == 2)	return 3;
+	        if (BallNum == 3)	return 4;
+	        if (BallNum == 4)	return 5;
+	        if (BallNum == 5)	return 6;
+	        if (BallNum == 6)	return 7;
+	        if (BallNum == 7)	return 8;
+	        if (BallNum == 8)	return 9;
+	        if (BallNum == 9)	return 10;
+	        if (BallNum == 10)	return 9;
+	        if (BallNum == 11)	return 8;
+	        if (BallNum == 12)	return 7;
+	        if (BallNum == 13)	return 6;
+	        if (BallNum == 14)	return 5;
+	        if (BallNum == 15)	return 4;
+	        if (BallNum == 16)	return 3;
+	        if (BallNum == 17)	return 2;
+	        if (BallNum == 18)	return 1;
+	        return 0;
+        }
+
+        function ClearSelect()
+        {
+	        for (var i = 0; i <= 18; i ++)
+	        {
+		        var obj = GetBallObject(i);
+		        SetBallState(obj, false);
+	        }
+        }
+
+        function btn_2_AddClick()
+        {
+	        var str = GetLotteryNumber().split("\n");
+	        for (var i = 0; i < str.length; i ++)
+	        {
+		        var customOptions = parent.document.createElement("OPTION");
+		        customOptions.text = str[i];
+		        customOptions.value = GetNumbersInversNum(parseInt(str[i], 10));
+		        parent.o_list_LotteryNumber.add(customOptions, parent.o_list_LotteryNumber.length);
+	        }
+	        parent.o_tb_LotteryNumber.value += GetLotteryNumber() + "\n";
+	        parent.o_lab_Num.innerText = StrToInt(parent.o_lab_Num.innerText) + GetLotteryInvestNum();
+	        ClearSelect();
+	        document.all["lab_2_Selected"].innerText = "0 个号，0 注，0.00 元";
+	        document.all["btn_2_Add"].disabled = true;
+
+	        parent.window.CalcResult();
+	        parent.calculateAllMoney();
+	        parent.ClearSMS();
+	        
+	        return true;
+        }
+    </script>
+
+</head><link rel="shortcut icon" href="../favicon.ico"/>
+<body>
+    <table style="width: 100%; height: 95px ;" background="../../images/zfb_bg_red.jpg" cellspacing="0" cellpadding="0" width="526"
+        border="0">
+        <tr>
+            <td valign="top" style="text-align: left; padding: 10px;">
+                <table cellpadding="0" cellspacing="4">
+                    <tbody>
+                        <tr>
+                            <td style="cursor: hand; height: 26px; width: 26px;" id="td_2_00" onclick="SelectBall(this);"
+                                class="ball_num">
+                                0
+                            </td>
+                            <td style="cursor: hand; width: 26px;" id="td_2_01" onclick="SelectBall(this);" class="ball_num">
+                                1
+                            </td>
+                            <td style="cursor: hand; width: 26px;" id="td_2_02" onclick="SelectBall(this);" class="ball_num">
+                                2
+                            </td>
+                            <td style="cursor: hand; width: 26px;" id="td_2_03" onclick="SelectBall(this);" class="ball_num">
+                                3
+                            </td>
+                            <td style="cursor: hand; width: 26px;" id="td_2_04" onclick="SelectBall(this);" class="ball_num">
+                                4
+                            </td>
+                            <td style="cursor: hand; width: 26px;" id="td_2_05" onclick="SelectBall(this);" class="ball_num">
+                                5
+                            </td>
+                            <td style="cursor: hand; width: 26px;" id="td_2_06" onclick="SelectBall(this);" class="ball_num">
+                                6
+                            </td>
+                            <td style="cursor: hand; width: 26px;" id="td_2_07" onclick="SelectBall(this);" class="ball_num">
+                                7
+                            </td>
+                            <td style="cursor: hand; width: 26px;" id="td_2_08" onclick="SelectBall(this);" class="ball_num">
+                                8
+                            </td>
+                            <td style="cursor: hand; width: 26px;" id="td_2_09" onclick="SelectBall(this);" class="ball_num">
+                                9
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="cursor: hand; width: 26px;" id="td_2_10" onclick="SelectBall(this);" class="ball_num">
+                                10
+                            </td>
+                            <td style="cursor: hand; width: 26px;" id="td_2_11" onclick="SelectBall(this);" class="ball_num">
+                                11
+                            </td>
+                            <td style="cursor: hand; width: 26px;" id="td_2_12" onclick="SelectBall(this);" class="ball_num">
+                                12
+                            </td>
+                            <td style="cursor: hand; height: 26px; width: 26px;" id="td_2_13" onclick="SelectBall(this);"
+                                class="ball_num">
+                                13
+                            </td>
+                            <td style="cursor: hand; height: 26px; width: 26px;" id="td_2_14" onclick="SelectBall(this);"
+                                class="ball_num">
+                                14
+                            </td>
+                            <td style="cursor: hand; height: 26px; width: 26px;" id="td_2_15" onclick="SelectBall(this);"
+                                class="ball_num">
+                                15
+                            </td>
+                            <td style="cursor: hand; height: 26px; width: 26px;" id="td_2_16" onclick="SelectBall(this);"
+                                class="ball_num">
+                                16
+                            </td>
+                            <td style="cursor: hand; height: 26px; width: 26px;" id="td_2_17" onclick="SelectBall(this);"
+                                class="ball_num">
+                                17
+                            </td>
+                            <td style="cursor: hand; height: 26px; width: 26px;" id="td_2_18" onclick="SelectBall(this);"
+                                class="ball_num">
+                                18
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="3">
+            </td>
+        </tr>
+    </table>
+    <table width="95%" border="0" cellpadding="0" cellspacing="1" bgcolor="#E2EAED" align="center">
+        <tr>
+            <td bgcolor="#F4F9FD" class="black12" style="padding: 5px 10px 5px 10px;">
+                &nbsp;&nbsp; 【注】请选择 1 个数字进行包点和值投注。您选择了
+                <div style="display: inline; height: 15px" class="red" id="lab_2_Selected">
+                    0 个号，0 注，0.00 元</div>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align: center; padding: 10px;">
+        <img alt="" src="../../images/zfb_bt_queren.jpg" id="Img1" name="btn_2_Add" onclick="return btn_2_AddClick();"
+            visible="false" style="cursor: pointer;" />
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    ClearSelect();
+</script>
+

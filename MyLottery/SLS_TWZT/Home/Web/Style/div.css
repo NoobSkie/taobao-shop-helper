@@ -1,0 +1,49 @@
+/*布局样式*/
+
+#box {
+	overflow:hidden;
+	width:980px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0px;
+	}
+#head {
+	width: 980px;
+	padding: 0px;
+	overflow:hidden;
+	
+}
+
+.content {
+	width: 980px;
+	padding: 0px;
+	overflow:hidden;
+}
+
+#hr {border-top:1px dashed #cccccc;height: 1px;overflow:hidden;}
+
+.content1_l { float: left; width: 230px;padding: 0px; overflow:hidden; }
+.content1_c { float: left; width: 400px;padding: 0px 0px 0px 10px; overflow:hidden; }
+.content1_r { float: left; width: 330px;padding: 0px 0px 0px 10px; overflow:hidden; }
+
+.content1_740 { float: left; width: 740px;padding: 0px 0px 0px 10px; overflow:hidden; }
+
+
+.content2_l { float: left; width: 640px;padding: 0px; overflow:hidden; }
+.content2_r { float: left; width: 330px;padding: 0px 0px 0px 10px; overflow:hidden; }
+
+.content3_l { float: left; width: 180px;padding: 0px; overflow:hidden; }
+.content3_r { float: left; width: 800px;padding: 0px; overflow:hidden; }
+
+
+#bottom {
+	width: 980px;
+	padding: 0px;
+	overflow:hidden;
+	
+}
+#height5{ height:5px; *height:5px; _height:5px;} 
+#height6{ height:6px;} 
+#height7{ height:7px;} 
+#height8{ height:8px;} 
+#height10{ height:10px;} 

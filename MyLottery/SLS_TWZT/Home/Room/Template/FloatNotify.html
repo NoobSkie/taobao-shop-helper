@@ -1,0 +1,112 @@
+﻿<style type="text/css">
+    .tg12
+    {
+        font-size: 12px;
+        color: #103875;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .tg14
+    {
+        font-size: 14px;
+        color: #103875;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+</style>
+
+<script type="text/javascript" language="javascript">
+    <!--
+    window.onload = getMsg;
+    window.onresize = resizeDiv;
+    window.onerror = function(){}
+    var divTop,divLeft,divWidth,divHeight,docHeight,docWidth,objTimer,iNotifyTime = 0;
+    function getMsg()
+    {
+        try
+        {
+            divTop = parseInt(document.getElementById("eMeng").style.top,10);
+            divLeft = parseInt(document.getElementById("eMeng").style.left,10);
+            divHeight = parseInt(document.getElementById("eMeng").offsetHeight,10);
+            divWidth = parseInt(document.getElementById("eMeng").offsetWidth,10);
+            docWidth = document.body.clientWidth;
+            docHeight = window.screen.availHeight - window.screenTop - document.body.offsetTop - 26;//document.body.clientHeight;
+            document.getElementById("eMeng").style.top = parseInt(document.documentElement.scrollTop,10) + docHeight + 10;//  divHeight
+            document.getElementById("eMeng").style.left = parseInt(document.body.scrollLeft,10) + docWidth - divWidth;
+            document.getElementById("eMeng").style.visibility="visible"
+            objTimer = window.setInterval("moveDiv()",10)
+        }
+        catch(e){}
+    }
+
+    function resizeDiv()
+    {
+        iNotifyTime += 1;
+        var FloatNotifyTimeOut = 500;
+        if(iNotifyTime > FloatNotifyTimeOut && FloatNotifyTimeOut > 0)
+        {
+            closeDiv();
+        }
+        
+        try
+        {
+            divHeight = parseInt(document.getElementById("eMeng").offsetHeight,10);
+            divWidth = parseInt(document.getElementById("eMeng").offsetWidth,10);
+            docWidth = document.body.clientWidth;
+            docHeight = window.screen.availHeight - window.screenTop - document.body.offsetTop - 26;//document.body.clientHeight;
+            document.getElementById("eMeng").style.top = docHeight - divHeight + parseInt(document.documentElement.scrollTop,10)
+            document.getElementById("eMeng").style.left = docWidth - divWidth + parseInt(document.body.scrollLeft,10)
+        }
+        catch(e){}
+    }
+
+    function moveDiv()
+    {
+        try
+        {
+            if(parseInt(document.getElementById("eMeng").style.top,10) <= (docHeight - divHeight + parseInt(document.documentElement.scrollTop,10)))
+            {
+                window.clearInterval(objTimer);
+                objTimer = window.setInterval("resizeDiv()",1);
+            }
+            divTop = parseInt(document.getElementById("eMeng").style.top,10);
+            document.getElementById("eMeng").style.top = divTop - 1;
+        }
+        catch(e){}
+    }
+
+    function closeDiv()
+    {
+        document.getElementById('eMeng').style.visibility='hidden';
+        if(objTimer) 
+        {
+            window.clearInterval(objTimer);
+        }
+    }
+    -->
+</script>
+
+<div id="eMeng" style="z-index: 99999; left: 0px; visibility: hidden; width: 255px;
+    position: absolute; top: 0px; background-color: #c9d3f3">
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#9BBFCA">
+        <tr>
+            <td height="26" bgcolor="#C9E0F5" style="padding-left: 10px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="tg14">
+                            晓风彩票软件-门户版通知
+                        </td>
+                        <td class="tg14" style="text-align:right; padding-right:8px;">
+                            <a href="javascript:;" onclick="closeDiv()" style="text-decoration:none; color:#103875;">×</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#E8F2FB" style="padding: 10px;" class="tg12">
+                $FloatNotifyContent$
+            </td>
+        </tr>
+    </table>
+</div>

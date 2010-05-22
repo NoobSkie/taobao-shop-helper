@@ -1,0 +1,552 @@
+﻿<style type="text/css">
+    body
+    {
+        margin: 0px;
+        font-family: Arial, Helvetica, sans-serif, Tahoma;
+        font-size: 12px;
+    }
+    form
+    {
+        display: inline;
+    }
+    img
+    {
+        vertical-align: middle;
+        border: 0px;
+    }
+    .red
+    {
+        font-size: 12px;
+        color: #cc0000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .blue1
+    {
+        font-size: 12px;
+        color: #3D5B96;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .blue1 A:link
+    {
+        font-family: "tahoma";
+        color: #3D5B96;
+        text-decoration: underline;
+    }
+    .black12
+    {
+        font-size: 12px;
+        color: #000000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .ball_num
+    {
+        font-family: "tahoma";
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+        color: #666666;
+        cursor: hand;
+        background-image: url( '../../images/zfb_huiball.gif' );
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .bai16
+    {
+        font-size: 14px;
+        color: #ffffff;
+        font-family: "tahoma";
+        line-height: 24px;
+        padding-bottom: 6px;
+        padding-right: 2px;
+        font-weight: bold;
+    }
+   .black30
+    {
+        height: 25px;
+        width: 25px;
+        text-align: center;	
+        font-size: 12px;
+    }
+    .black100
+    {
+        height: 25px;
+        width: 100px;
+        text-align: center;	
+        font-size: 12px;
+    }
+            .blue
+    {
+        cursor: hand;
+        font-size :12px;
+        background-repeat: no-repeat;
+        width :18px;
+        height :18px;
+        background-color: #6699CC;
+        color :White ;
+    }
+    .red1
+    {
+	    cursor: hand;
+        font-size :12px;
+        background-repeat: no-repeat;
+        width :18px;
+        height :18px;
+        background-color: #f60;
+        color :White ;
+    }
+</style>
+
+<script type="text/javascript" src="../../javascript/Public.js" language="javascript"
+    charset="gbk"></script>
+
+<table style="width: 100%; background-color: #F9F9F9;" cellspacing="0"
+    cellpadding="0" border="0">
+    <tbody>
+        <tr style="background-color: #F9F9F9;">
+            <td valign="top" align="left" style="padding-top: 10px; padding-bottom: 10px; " background="../../images/zfb_bg_red.jpg">
+                <table width="525" border="0" cellpadding="0" cellspacing="5" >
+                    <tbody>
+                       <tr>
+                <!--    <td colspan ="18">
+                        <div style="position:absolute; left:430px;top:8px; color:#CC0000; cursor:pointer; font-size :12px;" onclick="showMiss()">冷热分析</div>
+                    </td>-->
+                
+                    </tr>
+                        <tr>
+                            <td width="70px"></td>
+                            <td id="td_2_01" onclick="SelectBall(this);" class="ball_num">
+                                1
+                            </td>
+                            <td id="td_2_02" onclick="SelectBall(this);" class="ball_num">
+                                2
+                            </td>
+                            <td id="td_2_03" onclick="SelectBall(this);" class="ball_num">
+                                3
+                            </td>
+                            <td id="td_2_04" onclick="SelectBall(this);" class="ball_num">
+                                4
+                            </td>
+                            <td id="td_2_05" onclick="SelectBall(this);" class="ball_num">
+                                5
+                            </td>
+                            <td id="td_2_06" onclick="SelectBall(this);" class="ball_num">
+                                6
+                            </td>
+                            <td id="td_2_07" onclick="SelectBall(this);" class="ball_num">
+                                7
+                            </td>
+                            <td id="td_2_08" onclick="SelectBall(this);" class="ball_num">
+                                8
+                            </td>
+                            <td id="td_2_09" onclick="SelectBall(this);" class="ball_num">
+                                9
+                            </td>
+                            <td id="td_2_10" onclick="SelectBall(this);" class="ball_num">
+                                10
+                            </td>
+                            <td id="td_2_11" onclick="SelectBall(this);" class="ball_num">
+                                11
+                            </td>
+                          <td width="5">
+                            </td>
+                            <td>
+                                <span style="cursor: pointer;" onmouseover="divSelect.style.display = ''">
+                                    <img src="../../Images/sx.gif" /></span>
+                            </td>
+                                <td width="50">  <div style="position:absolute; top:28px; color:#CC0000; cursor:pointer; font-size :12px;" onclick="showMiss()">冷热分析</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="divCount">
+                </div>
+                <div  id="divHotAndCool">
+                </div>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+<table width="95%" border="0" cellpadding="0" cellspacing="1" bgcolor="#E2EAED" align="center">
+    <tr>
+        <td bgcolor="#F4F9FD" class="black12" style="padding: 5px 10px 5px 10px;">
+            &nbsp;&nbsp; 【注】：您选择了
+            <div style="display: inline; height: 15px" class="red" id="lab_2_Selected">
+               0 注，0.00 元</div>
+            &nbsp;
+        </td>
+    </tr>
+</table>
+<div style="padding: 10px; padding-left:20px;text-align:center">
+    <img alt="" src="../../images/zfb_bt_queren.jpg" id="Img2" name="btn_2_Add" onclick="return btn_2_AddClick();"
+        style="cursor: hand;" visible="false"  disabled/>
+</div>
+
+<div id="divSelect" style="position: absolute; background:#E1EFFC;  display :none ; padding-top :8px; padding-bottom :8px; width:120px; text-align :center;left:405px; border: 1px solid #ffffff;top:10px " onmouseover="divSelect.style.display = ''" onmouseout="divSelect.style.display = 'none'" align="center" >
+    <table  cellspacing="5" align="center" >
+        <tr>
+            <td class ="blue" id="td_2_0_D" onclick="QuickSelect(this);" align="center" > 
+                
+               <strong >大</strong> 
+            </td>
+         
+            <td class ="blue" id="td_2_0_X" onclick="QuickSelect(this);" align="center" >
+               
+               <strong > 小</strong> 
+            </td>
+            <td class ="blue" id="td_2_0_J" onclick="QuickSelect(this);" align="center" >
+             
+                <strong >奇</strong> 
+            </td>
+            <td class ="blue" id="td_2_0_O" onclick="QuickSelect(this);" align="center"   >
+            
+                <strong >偶</strong> 
+            </td>
+        </tr>
+        <tr>
+         <td class ="blue" id="td_2_0_Z" onclick="QuickSelect(this);" align="center" >
+               
+                <strong >质</strong> 
+            </td>
+            <td class ="blue" id="td_2_0_H" onclick="QuickSelect(this);" align="center" >
+                
+                <strong >合</strong> 
+            </td>
+            <td class ="blue" id="td_2_0_Q" onclick="QuickSelect(this);" align="center" >
+                
+                <strong >全</strong> 
+            </td>
+            <td class ="blue" id="td_2_0_C" onclick="QuickSelect(this);" align="center">
+                
+                <strong >清</strong>
+            </td>
+           
+        </tr>
+    </table>
+</div>
+<script language="javascript" type="text/javascript">
+    var miss = false;
+    function showMiss() {
+        if (!miss) {
+            if (divCount.innerHTML == "") {
+                var v = parent.document.all["lbMiss"];
+                var s = v.innerHTML.split('|');
+                if (s.length == 3) {
+                    s = s[0].split('-');
+                    if (s.length == 2) {
+                        divCount.innerHTML = s[0];
+                        divHotAndCool.innerHTML = s[1];
+                    }
+                }
+            }
+            divCount.style.display = "";
+            divHotAndCool.style.display = "";
+        } else {
+        divCount.style.display = "none";
+        divHotAndCool.style.display = "none";
+        }
+        miss = !miss;
+        parent.document.getElementById('iframe_playtypes').style.height = parent.iframe_playtypes.document.body.scrollHeight;
+    }
+    
+    function SelectBall(sender) {
+        var Selected = GetBallState(sender);
+        if (Selected) {
+            SetBallState(sender, false);
+            CheckFull();
+            return;
+        }
+
+        SetBallState(sender, true);
+        CheckFull();
+    }
+    function QuickSelect(sender) {
+        var str = sender.id;
+
+        var Type = str.substring(7, 8);
+
+        for (var i = 1; i < 12; i++) {
+            var obj = GetBallObject(i);
+            SetBallState(obj, false);
+        }
+        if (Type == "Q") {
+            for (var i = 1; i < 12; i++) {
+                var obj = GetBallObject(i);
+                SetBallState(obj, true);
+
+                document.getElementById('td_2_0_Q').className = "red1";
+                document.getElementById('td_2_0_D').className = "blue";
+                document.getElementById('td_2_0_X').className = "blue";
+                document.getElementById('td_2_0_J').className = "blue";
+                document.getElementById('td_2_0_O').className = "blue";
+                document.getElementById('td_2_0_Z').className = "blue";
+                document.getElementById('td_2_0_H').className = "blue";
+                document.getElementById('td_2_0_C').className = "blue";
+
+            }
+        }
+        if (Type == "D") {
+            for (var i = 6; i < 12; i++) {
+                var obj = GetBallObject(i);
+                SetBallState(obj, true);
+
+                document.getElementById('td_2_0_Q').className = "blue";
+                document.getElementById('td_2_0_D').className = "red1";
+                document.getElementById('td_2_0_X').className = "blue";
+                document.getElementById('td_2_0_J').className = "blue";
+                document.getElementById('td_2_0_O').className = "blue";
+                document.getElementById('td_2_0_Z').className = "blue";
+                document.getElementById('td_2_0_H').className = "blue";
+                document.getElementById('td_2_0_C').className = "blue";
+
+            }
+        }
+        if (Type == "X") {
+            for (var i = 1; i < 6; i++) {
+                var obj = GetBallObject(i);
+                SetBallState(obj, true);
+                document.getElementById('td_2_0_Q').className = "blue";
+                document.getElementById('td_2_0_D').className = "blue";
+                document.getElementById('td_2_0_X').className = "red1";
+                document.getElementById('td_2_0_J').className = "blue";
+                document.getElementById('td_2_0_O').className = "blue";
+                document.getElementById('td_2_0_Z').className = "blue";
+                document.getElementById('td_2_0_H').className = "blue";
+                document.getElementById('td_2_0_C').className = "blue";
+            }
+        }
+        if (Type == "J") {
+            for (var i = 1; i < 12; i += 2) {
+                var obj = GetBallObject(i);
+                SetBallState(obj, true);
+                document.getElementById('td_2_0_Q').className = "blue";
+                document.getElementById('td_2_0_D').className = "blue";
+                document.getElementById('td_2_0_X').className = "blue";
+                document.getElementById('td_2_0_J').className = "red1";
+                document.getElementById('td_2_0_O').className = "blue";
+                document.getElementById('td_2_0_Z').className = "blue";
+                document.getElementById('td_2_0_H').className = "blue";
+                document.getElementById('td_2_0_C').className = "blue";
+            }
+        }
+        if (Type == "O") {
+            for (var i = 2; i < 12; i += 2) {
+                var obj = GetBallObject(i);
+                SetBallState(obj, true);
+                document.getElementById('td_2_0_Q').className = "blue";
+                document.getElementById('td_2_0_D').className = "blue";
+                document.getElementById('td_2_0_X').className = "blue";
+                document.getElementById('td_2_0_J').className = "blue";
+                document.getElementById('td_2_0_O').className = "red1";
+                document.getElementById('td_2_0_Z').className = "blue";
+                document.getElementById('td_2_0_H').className = "blue";
+                document.getElementById('td_2_0_C').className = "blue";
+            }
+        }
+
+        var z = "1,2,3,5,7,11";
+        if (Type == "Z") {
+            for (var i = 1; i < 12; i++) {
+                var obj = GetBallObject(i);
+                if (z.indexOf(obj.innerHTML.trim()) > -1) {
+                    SetBallState(obj, true);
+                    document.getElementById('td_2_0_Q').className = "blue";
+                    document.getElementById('td_2_0_D').className = "blue";
+                    document.getElementById('td_2_0_X').className = "blue";
+                    document.getElementById('td_2_0_J').className = "blue";
+                    document.getElementById('td_2_0_O').className = "blue";
+                    document.getElementById('td_2_0_Z').className = "red1";
+                    document.getElementById('td_2_0_H').className = "blue";
+                    document.getElementById('td_2_0_C').className = "blue";
+                }
+            }
+        }
+
+        var h = "4,6,8,9,10";
+        if (Type == 'H') {
+            for (var i = 3; i < 12; i++) {
+                var obj = GetBallObject(i);
+                if (h.indexOf(obj.innerHTML.trim()) > -1) {
+                    SetBallState(obj, true);
+
+                    document.getElementById('td_2_0_Q').className = "blue";
+                    document.getElementById('td_2_0_D').className = "blue";
+                    document.getElementById('td_2_0_X').className = "blue";
+                    document.getElementById('td_2_0_J').className = "blue";
+                    document.getElementById('td_2_0_O').className = "blue";
+                    document.getElementById('td_2_0_Z').className = "blue";
+                    document.getElementById('td_2_0_H').className = "red1";
+                    document.getElementById('td_2_0_C').className = "blue";
+                }
+            }
+        }
+        if (Type == 'C') {
+
+            document.getElementById('td_2_0_Q').className = "blue";
+            document.getElementById('td_2_0_D').className = "blue";
+            document.getElementById('td_2_0_X').className = "blue";
+            document.getElementById('td_2_0_J').className = "blue";
+            document.getElementById('td_2_0_O').className = "blue";
+            document.getElementById('td_2_0_Z').className = "blue";
+            document.getElementById('td_2_0_H').className = "blue";
+            document.getElementById('td_2_0_C').className = "red1";
+        }
+        CheckFull();
+    }
+    function GetBallObject(Num) {
+        var obj = document.all["td_2_" + GetBallNum(Num)];
+        return obj;
+    }
+
+    function GetBallNum(Num) {
+        var BallNum = "" + Num;
+        if (BallNum.length == 1)
+            BallNum = "0" + BallNum;
+
+        return BallNum;
+    }
+
+    function GetBallSelectedNum() {
+        var Count = 0;
+        for (var i = 1; i <= 11; i++) {
+            var obj = GetBallObject(i);
+            if (GetBallState(obj))
+                Count++;
+        }
+        return Count;
+    }
+
+    function GetBallState(sender) {
+        return (sender.style.color != "#454545");
+    }
+
+    function SetBallState(sender, SelectState) {
+        if (SelectState) {
+            //选中
+            sender.style.backgroundImage = "url(../../Images/zfb_redball.gif)";
+            sender.style.color = "White";
+        }
+        else {
+            //未选中
+            sender.style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+            sender.style.color = "#454545";
+        }
+    }
+
+    function CheckFull() {
+        var Num = GetBallSelectedNum();
+
+        document.all["btn_2_Add"].disabled = (GetLotteryInvestNum() < 1);
+        document.all["lab_2_Selected"].innerText = Num + " 个号，" + GetLotteryInvestNum() + " 注，" + GetLotteryInvestNum() * 2 + " 元";
+    }
+
+    function GetLotteryNumber() {
+        var LotteryNumber = "";
+        for (var i = 1; i <= 11; i++) {
+            var obj = GetBallObject(i);
+            if (GetBallState(obj))
+                LotteryNumber += GetBallNum(i) + " ";
+        }
+        return LotteryNumber.trim();
+    }
+
+    function GetLotteryInvestNum()	//取注数
+    {
+        var Count = GetBallSelectedNum();
+        if (Count < 4)
+            return 0;
+        if (Count == 4)
+            return 1;
+
+        var InvestNum = 1;
+        for (var i = 5; i <= Count; i++)
+            InvestNum *= i;
+        for (var i = 2; i <= (Count - 4); i++)
+            InvestNum = Math.round(InvestNum / i);
+
+        return InvestNum;
+    }
+    
+    function ClearSelect() {
+        for (var i = 1; i <= 11; i++) {
+            var obj = GetBallObject(i);
+            SetBallState(obj, false);
+        }
+    }
+
+    function btn_2_AddClick() {
+        var customOptions = parent.document.createElement("OPTION");
+        customOptions.text = GetLotteryNumber();
+        customOptions.value = GetLotteryInvestNum();
+        parent.o_list_LotteryNumber.add(customOptions, parent.o_list_LotteryNumber.length);
+
+        parent.o_tb_LotteryNumber.value += GetLotteryNumber() + "\n";
+        parent.o_lab_Num.innerText = StrToInt(parent.o_lab_Num.innerText) + GetLotteryInvestNum();
+        //ClearSelect();
+        document.all["lab_2_Selected"].innerText = "0 注，0.00 元";
+        document.all["btn_2_Add"].disabled = true;
+
+        parent.window.CalcResult();
+        parent.calculateAllMoney();
+        parent.ClearSMS();
+
+        return true;
+    }
+
+    function btn_2_RandClick() {
+        ClearSelect();
+        document.all["btn_2_Add"].disabled = true;
+
+        for (var i = 0; i < 4; i++) {
+            while (true) {
+                var obj = GetBallObject(GetRandNumber(11));
+                if (!GetBallState(obj)) {
+                    SetBallState(obj, true);
+                    break;
+                }
+            }
+        }
+
+        document.all["lab_2_Selected"].innerText = "1 注，2 元";
+        document.all["btn_2_Add"].disabled = false; 
+        btn_2_AddClick();
+        return true;
+    }
+
+    function btn_2_RandManyClick(Number) {
+        var OldCursor = document.body.style.cursor;
+        document.body.style.cursor = "wait";
+        for (var i = 0; i < Number; i++) {
+            btn_2_RandClick();
+//            if (Number > 1) {
+//                btn_2_AddClick();
+//            }
+        }
+        document.body.style.cursor = OldCursor;
+        ClearSelect();
+        return true;
+    }
+
+    function SelectLotteryNumber() {
+        ClearSelect();
+        var lotteryNumber = parent.document.getElementById("HidSelectedLotteryNumber").value.split(" ");
+
+        for (var i = 0; i < lotteryNumber.length; i++) {
+
+            var obj = GetBallObject(lotteryNumber[i]);
+            SetBallState(obj, true);
+        }
+        CheckFull();
+    }
+    
+    parent.document.all["btn_2_Rand"].disabled = false;
+    parent.document.all["btn_2_Rand5"].disabled = false;
+    parent.document.all["btn_2_Rand"].style.cursor = "pointer";
+    parent.document.all["btn_2_Rand5"].style.cursor = "pointer";
+    
+    ClearSelect();
+</script>

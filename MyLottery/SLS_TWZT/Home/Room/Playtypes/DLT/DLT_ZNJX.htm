@@ -1,0 +1,517 @@
+﻿<style type="text/css">
+    body
+    {
+        margin: 0px;
+        font-family: Arial, Helvetica, sans-serif, Tahoma;
+        font-size: 12px;
+    }
+    form
+    {
+        display: inline;
+    }
+    img
+    {
+        vertical-align: middle;
+        border: 0px;
+    }
+    .red
+    {
+        font-size: 12px;
+        color: #cc0000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .blue
+    {
+        font-size: 12px;
+        color: #3D5B96;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .blue A:link
+    {
+        font-family: "tahoma";
+        color: #3D5B96;
+        text-decoration: underline;
+    }
+    .black12
+    {
+        font-size: 12px;
+        color: #000000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .ball_num
+    {
+        font-family: "tahoma";
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+        color: #666666;
+        cursor: hand;
+        background-image: url( '../../images/zfb_huiball.gif' );
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .bai16
+    {
+        font-size: 14px;
+        color: #ffffff;
+        font-family: "tahoma";
+        line-height: 24px;
+        padding-bottom: 6px;
+        padding-right: 2px;
+        font-weight: bold;
+    }
+</style>
+
+<script type="text/javascript" src="../../javascript/Public.js" language="javascript"
+    charset="gbk"></script>
+
+<table width="100%" border="0" cellspacing="1" cellpadding="0">
+    <tr style="background-color: #E2EAED">
+        <td width="62%" height="30" align="left" class="red" colspan="2" style="padding-left: 40px">
+            条件设定：<input type='radio' name='playType' id='playType1' value='1' checked='checked' />选号
+            <input type='radio' name='playType' id='playType2' value='2' />杀号
+        </td>
+    </tr>
+    <tr>
+        <td width="62%" height="30" align="center" bgcolor="#FEDEDE" class="red">
+            前区选择区
+        </td>
+        <td width="38%" align="center" bgcolor="#E1F1FF" class="blue">
+            后区选择区
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="top" background="../../images/zfb_bg_red.jpg" style="padding-top: 10px; padding-left:10px; padding-right:10px;
+            padding-bottom: 10px;">
+            <table width="365" border="0" cellspacing="5" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_r_01" onclick="SelectBall('r','01');">
+                        01
+                    </td>
+                    <td class="ball_num" id="td_r_02" onclick="SelectBall('r','02');">
+                        02
+                    </td>
+                    <td class="ball_num" id="td_r_03" onclick="SelectBall('r','03');">
+                        03
+                    </td>
+                    <td class="ball_num" id="td_r_04" onclick="SelectBall('r','04');">
+                        04
+                    </td>
+                    <td class="ball_num" id="td_r_05" onclick="SelectBall('r','05');">
+                        05
+                    </td>
+                    <td class="ball_num" id="td_r_06" onclick="SelectBall('r','06');">
+                        06
+                    </td>
+                    <td class="ball_num" id="td_r_07" onclick="SelectBall('r','07');">
+                        07
+                    </td>
+                    <td class="ball_num" id="td_r_08" onclick="SelectBall('r','08');">
+                        08
+                    </td>
+                    <td class="ball_num" id="td_r_09" onclick="SelectBall('r','09');">
+                        09
+                    </td>
+                    <td class="ball_num" id="td_r_10" onclick="SelectBall('r','10');">
+                        10
+                    </td>
+                     <td class="ball_num" id="td_r_11" onclick="SelectBall('r','11');">
+                        11
+                    </td>
+                    <td class="ball_num" id="td_r_12" onclick="SelectBall('r','12');">
+                        12
+                    </td>
+                   
+                </tr>
+                <tr>
+                    
+                    <td class="ball_num" id="td_r_13" onclick="SelectBall('r','13');">
+                        13
+                    </td>
+                    <td class="ball_num" id="td_r_14" onclick="SelectBall('r','14');">
+                        14
+                    </td>
+                    <td class="ball_num" id="td_r_15" onclick="SelectBall('r','15');">
+                        15
+                    </td>
+                    <td class="ball_num" id="td_r_16" onclick="SelectBall('r','16');">
+                        16
+                    </td>
+                    <td class="ball_num" id="td_r_17" onclick="SelectBall('r','17');">
+                        17
+                    </td>
+                    <td class="ball_num" id="td_r_18" onclick="SelectBall('r','18');">
+                        18
+                    </td>
+                    <td class="ball_num" id="td_r_19" onclick="SelectBall('r','19');">
+                        19
+                    </td>
+                    <td class="ball_num" id="td_r_20" onclick="SelectBall('r','20');">
+                        20
+                    </td>
+                     <td class="ball_num" id="td_r_21" onclick="SelectBall('r','21');">
+                        21
+                    </td>
+                    <td class="ball_num" id="td_r_22" onclick="SelectBall('r','22');">
+                        22
+                    </td>
+                    <td class="ball_num" id="td_r_23" onclick="SelectBall('r','23');">
+                        23
+                    </td>
+                    <td class="ball_num" id="td_r_24" onclick="SelectBall('r','24');">
+                        24
+                    </td>
+                    
+                </tr>
+                <tr>
+                   
+                    <td class="ball_num" id="td_r_25" onclick="SelectBall('r','25');">
+                        25
+                    </td>
+                    <td class="ball_num" id="td_r_26" onclick="SelectBall('r','26');">
+                        26
+                    </td>
+                    <td class="ball_num" id="td_r_27" onclick="SelectBall('r','27');">
+                        27
+                    </td>
+                    <td class="ball_num" id="td_r_28" onclick="SelectBall('r','28');">
+                        28
+                    </td>
+                    <td class="ball_num" id="td_r_29" onclick="SelectBall('r','29');">
+                        29
+                    </td>
+                    <td class="ball_num" id="td_r_30" onclick="SelectBall('r','30');">
+                        30
+                    </td>
+                    <td class="ball_num" id="td_r_31" onclick="SelectBall('r','31');">
+                        31
+                    </td>
+                    <td class="ball_num" id="td_r_32" onclick="SelectBall('r','32');">
+                        32
+                    </td>
+                    <td class="ball_num" id="td_r_33" onclick="SelectBall('r','33');">
+                        33
+                    </td>
+                    <td class="ball_num" id="td_r_34" onclick="SelectBall('r','34');">
+                        34
+                    </td>
+                    <td class="ball_num" id="td_r_35" onclick="SelectBall('r','35');">
+                        35
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td align="center" valign="top" background="../../images/zfb_bg_blue.jpg" style="padding-top: 10px;
+            padding-bottom: 10px;">
+            <table width="125" border="0" cellspacing="5" cellpadding="0">
+                <tr class="ball_num">
+                    <td class="ball_num" id="td_b_01" onclick="SelectBall('b','01');">
+                        01
+                    </td>
+                    <td class="ball_num" id="td_b_02" onclick="SelectBall('b','02');">
+                        02
+                    </td>
+                    <td class="ball_num" id="td_b_03" onclick="SelectBall('b','03');">
+                        03
+                    </td>
+                    <td class="ball_num" id="td_b_04" onclick="SelectBall('b','04');">
+                        04
+                    </td>
+                    
+                </tr>
+                <tr class="ball_num">
+                    <td class="ball_num" id="td_b_05" onclick="SelectBall('b','05');">
+                        05
+                    </td>
+                    <td class="ball_num" id="td_b_06" onclick="SelectBall('b','06');">
+                        06
+                    </td>
+                    <td class="ball_num" id="td_b_07" onclick="SelectBall('b','07');">
+                        07
+                    </td>
+                    <td class="ball_num" id="td_b_08" onclick="SelectBall('b','08');">
+                        08
+                    </td>
+                   
+                </tr>
+                 <tr class="ball_num">
+                    <td class="ball_num" id="td_b_09" onclick="SelectBall('b','09');">
+                        09
+                    </td>
+                    <td class="ball_num" id="td_b_10" onclick="SelectBall('b','10');">
+                        10
+                    </td>
+                    <td class="ball_num" id="td_b_11" onclick="SelectBall('b','11');">
+                        11
+                    </td>
+                    <td class="ball_num" id="td_b_12" onclick="SelectBall('b','12');">
+                        12
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+<script type="text/javascript" language="javascript">
+    function SelectBall(BallColor, BallNum) {
+        var Selected = GetBallState(BallColor, BallNum);
+        if (Selected) {
+            SetBallState(BallColor, BallNum, false);
+            
+            return;
+        }
+
+        SetBallState(BallColor, BallNum, true);
+        
+        return;
+    }
+
+    function GetBallNum(i) {
+        var BallNum = "" + i;
+        if (BallNum.length == 1)
+            BallNum = "0" + BallNum;
+
+        return BallNum;
+    }
+
+    function GetBallState(BallColor, BallNum) {
+        return (document.all["td_" + BallColor + "_" + BallNum].style.color != "#454545");
+    }
+
+    function SetBallState(BallColor, BallNum, SelectState) {
+        if (SelectState) {
+            //选中
+            document.all["td_" + BallColor + "_" + BallNum].style.backgroundImage = "url(../../Images/zfb_" + (BallColor == "r" ? "red" : "blue") + "ball.gif)";
+            document.all["td_" + BallColor + "_" + BallNum].style.color = "White";
+        }
+        else {
+            //未选中
+            document.all["td_" + BallColor + "_" + BallNum].style.color = "#454545";
+            document.all["td_" + BallColor + "_" + BallNum].style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+        }
+    }
+
+    function ClearSelect() {
+        for (var i = 1; i <= 35; i++)
+            SetBallState("r", GetBallNum(i), false);
+
+        for (var i = 1; i <= 12; i++)
+            SetBallState("b", GetBallNum(i), false);
+    }
+
+    function GetRedNumber() {
+        var LotteryNumber = "";
+        var BallNum;
+        for (var i = 1; i <= 35; i++) {
+            BallNum = GetBallNum(i);
+            if (GetBallState("r", BallNum))
+                LotteryNumber += (BallNum + " ");
+        }
+
+        return LotteryNumber.trim();
+    }
+
+    function GetBlueNumber() {
+        var LotteryNumber = "";
+        var BallNum;
+        for (var i = 1; i <= 12; i++) {
+            BallNum = GetBallNum(i);
+            if (GetBallState("b", BallNum)) {
+                LotteryNumber += (BallNum + " ");
+            }
+        }
+
+        return LotteryNumber.trim();
+    }
+    
+    function btn_2_AddClick(xh) {
+       
+        if (xh.length < 14) {
+            return;
+        }
+
+        var customOptions = document.createElement("OPTION");
+        customOptions.text = xh;
+        customOptions.value = 1;
+        parent.o_list_LotteryNumber.add(customOptions, parent.o_list_LotteryNumber.length);
+        parent.o_tb_LotteryNumber.value += xh + "\n";
+        parent.o_lab_Num.innerText = StrToInt(parent.o_lab_Num.innerText) + 1;
+
+        
+        parent.CalcResult();
+        parent.calculateAllMoney();
+        parent.ClearSMS();
+
+        return true;
+    }
+
+    //机选 1 注
+    function btn_2_RandClick() {
+        btn_2_RandManyClick(1);
+    }
+
+    //机选 n 注 
+    function btn_2_RandManyClick(n) {
+        parent.document.all["btn_2_Rand"].disabled = true;
+        parent.document.all["btn_2_Rand5"].disabled = true;
+        parent.document.all["btn_ClearSelect"].disabled = true;
+        parent.document.all["btn_Clear"].disabled = true;
+        parent.document.all["btn_OK"].disabled = true;
+
+        var Red = GetRedNumber();
+        var Blue = GetBlueNumber();
+        var Reds = Red.split(" ");
+        var Blues = Blue.split(" ");
+        var RedLength = Reds.length;
+        var BlueLength = Blues.length;
+        if (Red == "") {
+            RedLength = 0;
+        }
+        if (Blue == "") {
+            BlueLength = 0;
+        }
+        for (var i = 1; i <= n; i++) {
+            var Q = new Array();
+            var Q1 = new Array();
+            var str = "";
+
+            if (playType1.checked) {
+                if (RedLength <= 5) {
+                    for (var r = 0; r < RedLength; r++) {
+                        Q.push(Reds[r]);
+                        str = Red;
+                    }
+
+                    for (var j = 0; j < 5 - RedLength; j++) {
+                        var BallNum = GetBallNum(GetRandNumber(35));
+
+                        while (str.indexOf(BallNum) > -1) {
+                            BallNum = GetBallNum(GetRandNumber(35));
+                        }
+
+                        str += " " + BallNum;
+                        Q.push(BallNum);
+                    }
+                }
+                else {
+                    for (var a = 0; a < 5; a++) {
+                        var BallNum = Reds[GetRandNumber(RedLength) - 1];
+
+                        while (str.indexOf(BallNum) > -1) {
+                            BallNum = Reds[GetRandNumber(RedLength) - 1];
+                        }
+
+                        str += " " + BallNum;
+                        Q.push(BallNum);
+                    }
+                }
+
+                str = "";
+                if (BlueLength <= 2) {
+                    for (var r = 0; r < BlueLength; r++) {
+                        Q1.push(Blues[r]);
+                        str = Blue;
+                    }
+
+                    for (var j = 0; j < 2 - BlueLength; j++) {
+                        var BallNum = GetBallNum(GetRandNumber(12));
+
+                        while (str.indexOf(BallNum) > -1) {
+                            BallNum = GetBallNum(GetRandNumber(12));
+                        }
+
+                        str += " " + BallNum;
+                        Q1.push(BallNum);
+                    }
+                }
+                else {
+                    for (var a = 0; a < 2; a++) {
+                        var BallNum = Blues[GetRandNumber(BlueLength) - 1];
+
+                        while (str.indexOf(BallNum) > -1) {
+                            BallNum = Blues[GetRandNumber(BlueLength) - 1];
+                        }
+
+                        str += " " + BallNum;
+                        Q1.push(BallNum);
+                    }
+                }
+            } else {
+                if (RedLength > 29 || BlueLength > 10) {
+                    alert("没有满足的条件，请重新选择！");
+                    enableBtn();
+                    return;
+                } else {
+
+                    for (var j = 0; j < 5; j++) {
+                        var BallNum = GetBallNum(GetRandNumber(35));
+
+                        while (str.indexOf(BallNum) > -1 || Red.indexOf(BallNum) > -1) {
+                            BallNum = GetBallNum(GetRandNumber(35));
+                        }
+
+                        str += " " + BallNum;
+                        Q.push(BallNum);
+                    }
+
+                    str = "";
+                    for (var j = 0; j < 2; j++) {
+                        var BallNum = GetBallNum(GetRandNumber(12));
+
+                        while (str.indexOf(BallNum) > -1 || Blue.indexOf(BallNum) > -1) {
+                            BallNum = GetBallNum(GetRandNumber(12));
+                        }
+
+                        str += " " + BallNum;
+                        Q1.push(BallNum);
+                    }
+                }
+            }
+
+            Q.sort(function f(a, b) { return Number(a) - Number(b) });
+            Q1.sort(function f(a, b) { return Number(a) - Number(b) })
+            str = "";
+
+            for (var k = 0; k < Q.length; k++) {
+                str += " " + String(Q[k]);
+            }
+
+            str += " +";
+            for (var a = 0; a < 2; a++) {
+                str += " " + String(Q1[a]);
+            }
+            
+            str = str.trim();
+
+            btn_2_AddClick(str, true);
+        }
+
+        enableBtn();
+
+        return true;
+    }
+
+    function enableBtn() {
+        parent.document.all["btn_2_Rand"].disabled = false;
+        parent.document.all["btn_2_Rand5"].disabled = false;
+        parent.document.all["btn_OK"].disabled = false;
+        parent.document.all["btn_ClearSelect"].disabled = false;
+        parent.document.all["btn_Clear"].disabled = false;
+    }
+
+    function SelectLotteryNumber() {
+        
+    }
+    
+    ClearSelect();
+</script>
+

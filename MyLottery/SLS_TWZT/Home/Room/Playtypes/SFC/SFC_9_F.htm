@@ -1,0 +1,689 @@
+﻿<style type="text/css">
+    body
+    {
+        margin: 0px;
+        font-family: Arial, Helvetica, sans-serif, Tahoma;
+        font-size: 12px;
+    }
+    form
+    {
+        display: inline;
+    }
+    img
+    {
+        vertical-align: middle;
+        border: 0px;
+    }
+    .red
+    {
+        font-size: 12px;
+        color: #cc0000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .blue
+    {
+        font-size: 12px;
+        color: #3D5B96;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .blue A:link
+    {
+        font-family: "tahoma";
+        color: #3D5B96;
+        text-decoration: underline;
+    }
+    .black12
+    {
+        font-size: 12px;
+        color: #000000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .ball_num
+    {
+        font-family: "tahoma";
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+        color: #666666;
+        cursor: hand;
+        background-image: url( '../../images/zfb_huiball.gif' );
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .bai16
+    {
+        font-size: 14px;
+        color: #ffffff;
+        font-family: "tahoma";
+        line-height: 24px;
+        padding-bottom: 6px;
+        padding-right: 2px;
+        font-weight: bold;
+    }
+</style>
+
+<script type="text/javascript" src="../../javascript/Public.js" language="javascript"
+    charset="gbk"></script>
+
+<table width="98%" border="1" cellspacing="0" cellpadding="0" bordercolor="#FFFFFF"
+    bordercolorlight="#BCD2E9" bgcolor="#E9F1F8" style="margin-top: 10px; text-align: center; margin-left :7px">
+    <tr>
+        <td width="27" height="28" align="center" bgcolor="#E5EFF9" class="black12">
+            NO
+        </td>
+        <td  align="center" bgcolor="#E5EFF9" class="black12">
+            对阵
+        </td>
+        <td  align="center" bgcolor="#E5EFF9" class="black12">
+            开赛时间
+        </td>
+        <td width="122" align="center" bgcolor="#E5EFF9" class="black12">
+            选号区
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            1
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team1">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime1">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_00_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_00_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_00_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            2
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team2">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime2">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#F8F8F8" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_01_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_01_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_01_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            3
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team3">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime3">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_02_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_02_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_02_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            4
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team4">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime4">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#F8F8F8" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_03_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_03_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_03_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            5
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team5">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime5">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_04_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_04_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_04_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            6
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team6">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime6">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#F8F8F8" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_05_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_05_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_05_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            7
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team7">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime7">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_06_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_06_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_06_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            8
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team8">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime8">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#F8F8F8" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_07_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_07_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_07_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            9
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team9">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime9">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_08_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_08_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_08_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            10
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team10">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime10">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#F8F8F8" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_09_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_09_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_09_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            11
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team11">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime11">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_10_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_10_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_10_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            12
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team12">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime12">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#F8F8F8" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_11_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_11_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_11_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            13
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team13">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime13">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_12_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_12_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_12_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="36" align="center" bgcolor="#FEECEC" class="black12">
+            14
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="blue" id="Team14">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#FFFFFF" class="black12" id="DateTime14">
+            &nbsp;
+        </td>
+        <td align="center" bgcolor="#F8F8F8" class="blue">
+            <table width="85" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ball_num" id="td_2_13_0" onclick="SelectBall(this);">
+                        3
+                    </td>
+                    <td id="td_2_13_1" onclick="SelectBall(this);" class="ball_num">
+                        1
+                    </td>
+                    <td id="td_2_13_2" onclick="SelectBall(this);" class="ball_num">
+                        0
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<center>
+    <table width="95%" border="0" cellpadding="0" cellspacing="1" bgcolor="#E2EAED">
+        <tr>
+            <td bgcolor="#F4F9FD" class="black12" style="padding: 5px 10px 5px 10px;">
+                【注】您选择了
+                <div style="display: inline; color: red; height: 15px" id="lab_2_Selected">
+                    0，0 注，0.00 元</div>
+            </td>
+        </tr>
+    </table>
+</center>
+<div style="text-align: center; padding: 10px;">
+    <img alt="" src="../../images/zfb_bt_queren.jpg" id="btn_2_Add" name="btn_2_Add"
+        onclick="return btn_2_AddClick();" style="cursor: hand;" visible="false" disabled/>
+</div>
+
+<script type="text/javascript">
+<!--
+    //填充父页传来的球队信息
+    var o_tbAddone = parent.document.all["tbAddone"];
+    var Teams = o_tbAddone.value.split(';');
+
+    if (Teams.length == 14) {
+        for (var i = 0; i < 14; i++) {
+            var Team = Teams[i].split(',');
+
+            if (Team.length != 3)
+                continue;
+
+            var o_Team = document.all["Team" + (i + 1)];
+            o_Team.innerHTML = FormatTeam(Team[0]) + "&nbsp;<font color='red'>VS</font>&nbsp;" + FormatTeam(Team[1]);
+
+            o_Team = document.all["DateTime" + (i + 1)];
+            o_Team.innerHTML = Team[2];
+        }
+    }
+
+    function FormatTeam(team) {
+        team = team.trim();
+
+        if (team.length == 2) {
+            team = team.substr(0, 1) + "&nbsp;&nbsp;&nbsp" + team.substr(1,1);
+        }
+
+        return team;
+    }
+    function SelectBall(sender) {
+        var Selected = GetBallState(sender);
+        if (Selected) {
+            SetBallState(sender, false);
+            CheckFull();
+            return;
+        }
+
+        if ((GetBallSelectedRowCount() >= 9) && (GetBallSelectedNum(GetBallRow(sender)) == 0)) {
+            alert("只能选择其中九个场次。");
+            return;
+        }
+
+        SetBallState(sender, true);
+        CheckFull();
+    }
+
+    function GetBallRow(sender) {
+        var str = sender.id;
+        return parseInt(str.substring(5, 7), 10);
+    }
+
+    function GetBallCol(sender) {
+        var str = sender.id;
+        return parseInt(str.substring(8, 9), 10);
+    }
+
+    function GetBallObject(row, col) {
+        var obj = document.all["td_2_" + GetBallNum(row) + "_" + col];
+        return obj;
+    }
+
+    function GetBallNum(i) {
+        var BallNum = "" + i;
+        if (BallNum.length == 1)
+            BallNum = "0" + BallNum;
+
+        return BallNum;
+    }
+
+    function GetBallSelectedNum(row) {
+        var Count = 0;
+        for (var i = 0; i < 3; i++) {
+            var obj = GetBallObject(row, i);
+            if (GetBallState(obj))
+                Count++;
+        }
+        return Count;
+    }
+
+    function GetBallSelectedRowCount() {
+        var Count = 0;
+        for (var i = 0; i < 14; i++) {
+            if (GetBallSelectedNum(i) > 0)
+                Count++;
+        }
+        return Count;
+    }
+
+    function GetBallState(sender) {
+        return (sender.style.color != "#454545");
+    }
+
+    function SetBallState(sender, SelectState) {
+        if (!SelectState) {
+            sender.style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+            sender.style.color = "#454545";
+        }
+        else {
+            sender.style.backgroundImage = "url(../../Images/zfb_redball.gif)";
+            sender.style.color = "White";
+        }
+    }
+
+    function CheckFull() {
+        var Full = (GetBallSelectedRowCount() == 9);
+
+        document.all["lab_2_Selected"].innerText = GetLotteryInvestNum() + " 注，" + GetLotteryInvestNum() * 2 + " 元";
+        document.all["btn_2_Add"].disabled = (GetLotteryInvestNum() < 2);
+    }
+
+    function GetLotteryNumber() {
+        var LotteryNumber = "";
+        for (var i = 0; i < 14; i++) {
+            var temp = " ";
+            for (var j = 0; j < 3; j++) {
+                var obj = GetBallObject(i, j);
+                if (GetBallState(obj))
+                    temp += obj.innerText.trim();
+            }
+            temp = temp.trim();
+            if (temp.length > 1)
+                temp = "(" + temp + ")";
+            else if (temp.length < 1)
+                temp = "-";
+
+            LotteryNumber += temp;
+        }
+        return LotteryNumber.trim();
+    }
+
+    function GetLotteryInvestNum()	//取注数
+    {
+        if (GetBallSelectedRowCount() != 9)
+            return 0;
+        var InvestNum = 1;
+        for (var i = 0; i < 14; i++) {
+            var BallCount = GetBallSelectedNum(i);
+            if (BallCount == 0)
+                BallCount = 1;
+            InvestNum *= BallCount;
+        }
+        return InvestNum;
+    }
+
+    function ClearSelect() {
+        for (var i = 0; i < 14; i++)
+            for (var j = 0; j < 3; j++) {
+            var obj = GetBallObject(i, j);
+            SetBallState(obj, false);
+        }
+    }
+
+    function btn_2_AddClick() {
+        if (Teams.length != 14) {
+            alert("期号信息不完整！");
+            return false;
+        }
+        if (GetLotteryInvestNum() * 2 > 20000) {
+            alert("任九场胜负单注复式彩票金额不能超过 2 万元。");
+            return false;
+        }
+
+        if (GetLotteryInvestNum() < 2) {
+            alert("您选择的不是一注复式票！");
+            return false;
+        }
+        var customOptions = parent.document.createElement("OPTION");
+        customOptions.text = GetLotteryNumber();
+        customOptions.value = 1;
+        parent.o_list_LotteryNumber.add(customOptions, parent.o_list_LotteryNumber.length);
+
+        parent.o_tb_LotteryNumber.value += GetLotteryNumber() + "\n";
+        parent.o_lab_Num.innerText = StrToInt(parent.o_lab_Num.innerText) + GetLotteryInvestNum();
+
+        document.all["lab_2_Selected"].innerText = "0 注，0.00 元";
+        document.all["btn_2_Add"].disabled = true;
+
+        ClearSelect();
+        parent.CalcResult();
+        parent.calculateAllMoney();
+        parent.ClearSMS();
+        return true;
+    }
+
+    function SelectLotteryNumber() {
+        ClearSelect();
+        var lotteryNumber = parent.document.getElementById("HidSelectedLotteryNumber").value;
+        var num = "";
+        var row = -1;
+        var no = false;
+        for (var i = 0; i < lotteryNumber.length; i++) {
+            if (!no) {
+                row++;
+            }
+            num = lotteryNumber.substr(i, 1);
+            if (num == "(") {
+                no = true;
+                continue;
+            } else
+                if (num == ")") {
+                no = false;
+                continue;
+            } else {
+            if (num == "-") {
+                continue;
+            }
+                num = num == "3" ? "0" : (num == "1" ? "1" : "2");
+
+                var obj = GetBallObject(row, num);
+                SetBallState(obj, true);
+            }
+        }
+        CheckFull();
+    }
+    
+    ClearSelect();
+-->
+</script>
+

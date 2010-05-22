@@ -1,0 +1,280 @@
+/*-------------------北单样式开始---------------------*/
+
+#cont_box {	overflow:hidden; width:1002px; margin-right: auto;	margin-left: auto;	padding: 0px;}
+#content_dc {	width: 1002px;	padding: 0px;	overflow:hidden;}
+#zc_menu {	width: 1002px;	padding: 0px;	overflow:hidden;}
+
+#gc_left { float: left; width: 450px;padding: 0px; overflow:hidden; }
+#gc_right { float: left; width: 542px;padding: 0px 0px 0px 10px; overflow:hidden; }
+
+#zc_left { float: left; width: 240px;padding: 0px; overflow:hidden; }
+#zc_center { float: left; width: 360px;padding: 0px 0px 0px 10px; overflow:hidden; }
+#zc_right { float: right; width: 382px;padding: 0px 0px 0px 10px; overflow:hidden; }
+
+.tab1 a{ FONT-SIZE: 12px;COLOR: #333333; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 10px; border-bottom:1px dashed #9CBEDF; margin-right:8px; line-height:30px; padding-left:5px; text-decoration:none;padding-right:20px; background-image:url(../images/zc_point_blue.gif) no-repeat;}
+
+.tab1 li{ list-style: none;}
+
+.news { float:left; width:320px; height:241px; background:url(/images/info/public/img_04.gif) repeat-x bottom; margin-left:10px; border:#8bc0e7 solid 1px; overflow:hidden;}
+
+.topnews { text-align:center; line-height:24px;}
+.topnews h1 { font-size:14px; font-family:"tahoma"; font-weight:normal; }
+.topnews h1 a:link,.topnews h1 a:visited { color:#FF0065;}
+.topnews .list1 { margin:8px 0 0 0px;}
+.list1 li { padding-left:10px; line-height:22px; text-align:left;}
+.list1 .line,.list2 .line,.list3 .line { background:url(/images/info/public/line_01.gif) repeat-x; height:1px; font-size:1px; line-height:1px; margin:7px 0px 7px 0;}
+
+#hr {border-top:1px dashed #cccccc;height: 1px;overflow:hidden;}
+
+body {	margin-top: 0px;margin-left: 0px;margin-bottom: 0px;margin-right: 0px;background-color:#FFF;background-repeat: repeat-x;background-position: center top;font-size:12px;}
+
+.left_menu { border: 1px #CCC; width:100%;	}
+
+
+.cyw_menu { FONT-SIZE: 12px;COLOR: #FFFFFF; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.cyw_menu A:link { FONT-FAMILY: "tahoma"; COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.cyw_menu A:active { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.cyw_menu A:visited { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.cyw_menu A:hover { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+
+.bai14 { FONT-SIZE: 14px;COLOR: #FFFFFF; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.bai14 A:link { FONT-FAMILY: "tahoma"; COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai14 A:active { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai14 A:visited { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai14 A:hover { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+
+.ssc_ball { FONT-SIZE: 20px;COLOR: #FFFFFF; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 25px; font-weight:600;}
+
+.bai12 { FONT-SIZE: 12px;COLOR: #FFFFFF; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.bai12 A:link { FONT-FAMILY: "tahoma"; COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai12 A:active { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai12 A:visited { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+
+.bai12_2 { FONT-SIZE: 12px;COLOR: #FFFFFF; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.bai12_2 A:link { FONT-FAMILY: "tahoma"; COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai12_2 A:active { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai12_2 A:visited { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai12_2 A:hover { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+
+.red14 { FONT-SIZE: 14px;COLOR: #FF0065; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.red14 A:link { FONT-FAMILY: "tahoma"; COLOR: #FF0065; TEXT-DECORATION: none;}
+.red14 A:active { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+.red14 A:visited { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+.red14 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.red14_2 { FONT-SIZE: 14px;COLOR: #cc0000; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+
+.red14_3 { FONT-SIZE: 14px;COLOR: #FF0065; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+
+.red12 { FONT-SIZE: 12px;COLOR: #cc0000; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.red12 A:link { FONT-FAMILY: "tahoma"; COLOR: #cc0000; TEXT-DECORATION: none;}
+.red12 A:active { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+.red12 A:visited { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+.red12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.red12_2 { FONT-SIZE: 12px;COLOR: #FF0065; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.red12_2 A:link { FONT-FAMILY: "tahoma"; COLOR: #FF0065; TEXT-DECORATION: underline;}
+.red12_2 A:active { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: underline;}
+.red12_2 A:visited { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: underline;}
+.red12_2 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.green12 { FONT-SIZE: 12px;COLOR: #009900; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.green12 A:link { FONT-FAMILY: "tahoma"; COLOR: #009900; TEXT-DECORATION: underline;}
+.green12 A:active { FONT-FAMILY: "tahoma";COLOR: #009900; TEXT-DECORATION: underline;}
+.green12 A:visited { FONT-FAMILY: "tahoma";COLOR: #009900; TEXT-DECORATION: underline;}
+.green12 A:hover { FONT-FAMILY: "tahoma";COLOR: #009900; TEXT-DECORATION: none;}
+
+.jt_green12 { FONT-SIZE: 12px;COLOR: #009900; FONT-FAMILY: "宋体"; LINE-HEIGHT: 20px;}
+.jt_green12 A:link { FONT-FAMILY: "宋体"; COLOR: #009900; TEXT-DECORATION: underline;}
+.jt_green12 A:active { FONT-FAMILY: "宋体";COLOR: #009900; TEXT-DECORATION: underline;}
+.jt_green12 A:visited { FONT-FAMILY: "宋体";COLOR: #009900; TEXT-DECORATION: underline;}
+.jt_green12 A:hover { FONT-FAMILY: "宋体";COLOR: #009900; TEXT-DECORATION: none;}
+
+.jt_red12 { FONT-SIZE: 12px;COLOR: #FF0000; FONT-FAMILY: "宋体"; LINE-HEIGHT: 20px;}
+.jt_red12 A:link { FONT-FAMILY: "宋体"; COLOR: #FF0000; TEXT-DECORATION: underline;}
+.jt_red12 A:active { FONT-FAMILY: "宋体";COLOR: #FF0000; TEXT-DECORATION: underline;}
+.jt_red12 A:visited { FONT-FAMILY: "宋体";COLOR: #FF0000; TEXT-DECORATION: underline;}
+.jt_red12 A:hover { FONT-FAMILY: "宋体";COLOR: #FF0000; TEXT-DECORATION: none;}
+
+.blue14 { FONT-SIZE: 14px;COLOR: #216699; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.blue14 A:link { FONT-FAMILY: "tahoma"; COLOR: #216699; TEXT-DECORATION: none;}
+.blue14 A:active { FONT-FAMILY: "tahoma";COLOR: #216699; TEXT-DECORATION: none;}
+.blue14 A:visited { FONT-FAMILY: "tahoma";COLOR: #216699; TEXT-DECORATION: none;}
+.blue14 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.blue18 { FONT-SIZE: 18px;COLOR: #226699; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 25px; font-weight:bold; }
+.blue18 A:link { FONT-FAMILY: "tahoma"; COLOR: #226699; TEXT-DECORATION: none;}
+.blue18 A:active { FONT-FAMILY: "tahoma";COLOR: #226699; TEXT-DECORATION: none;}
+.blue18 A:visited { FONT-FAMILY: "tahoma";COLOR: #226699; TEXT-DECORATION: none;}
+.blue18 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.blue12 { FONT-SIZE: 12px;COLOR: #226699; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.blue12 A:link { FONT-FAMILY: "tahoma"; COLOR: #226699; TEXT-DECORATION: none;}
+.blue12 A:active { FONT-FAMILY: "tahoma";COLOR: #226699; TEXT-DECORATION: none;}
+.blue12 A:visited { FONT-FAMILY: "tahoma";COLOR: #226699; TEXT-DECORATION: none;}
+.blue12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: underline;}
+
+.hui12 { FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.hui12 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: underline;}
+
+.yellow12 { FONT-SIZE: 12px;COLOR: #FFFF00; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.yellow12 A:link { FONT-FAMILY: "tahoma"; COLOR: #FFFF00; TEXT-DECORATION: none;}
+.yellow12 A:active { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+.yellow12 A:visited { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+.yellow12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+
+.hui14 { FONT-SIZE: 14px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.hui14 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: none;}
+.hui14 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui14 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui14 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.hui14_2 { FONT-SIZE: 14px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.hui14_2 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: none;}
+.hui14_2 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui14_2 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui14_2 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.hui122 { FONT-SIZE: 12px;COLOR: #999999; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.hui122 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: none;}
+.hui122 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui122 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui122 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.blue12_line { FONT-SIZE: 12px;COLOR: #226699; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.blue12_line A:link { FONT-FAMILY: "tahoma"; COLOR: #226699; TEXT-DECORATION: underline;}
+.blue12_line A:active { FONT-FAMILY: "tahoma";COLOR: #226699; TEXT-DECORATION: underline;}
+.blue12_line A:visited { FONT-FAMILY: "tahoma";COLOR: #226699; TEXT-DECORATION: underline;}
+.blue12_line A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: underline;}
+
+.black12 { FONT-SIZE: 12px;COLOR: #333333; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.black12 A:link { FONT-FAMILY: "tahoma"; COLOR: #333333; TEXT-DECORATION: none;}
+.black12 A:active { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.black12 A:visited { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.black12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+
+
+.black12_lt { FONT-SIZE: 12px;COLOR: #333333; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 25px; }
+.black12_lt A:link { FONT-FAMILY: "tahoma"; COLOR: #333333; TEXT-DECORATION: none;}
+.black12_lt A:active { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.black12_lt A:visited { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.black12_lt A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.black14 { FONT-SIZE: 14px;COLOR: #333333; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.black14 A:link { FONT-FAMILY: "tahoma"; COLOR: #333333; TEXT-DECORATION: none;}
+.black14 A:active { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.black14 A:visited { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.black14 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.hui12_line { FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.hui12_line A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: underline;}
+.hui12_line A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: underline;}
+.hui12_line A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: underline;}
+.hui12_line A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.img{padding:2px;border:1px solid #cccccc;margin:1px;}
+
+.hei14 { FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.hei14 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: none;}
+.hei14 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hei14 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hei14 A:hover { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+
+.in_text{
+	height:19px;
+	border: 1px solid #cccccc;
+	background-color:#FFFFFF;
+	color:#666666;
+	font-size:14px;
+	vertical-align:middle;
+	padding-left:10px;
+	font-family: "tahoma";
+	background-image: url(../images/bg_text_30.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+	padding-top:3px;
+}
+
+.num_red {
+	FONT-SIZE: 18px;
+	COLOR: #ff0000;
+	FONT-FAMILY: Georgia, "Times New Roman", Times, serif;
+	LINE-HEIGHT: 20px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.editTextarea{ FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; width:100%;}
+
+.form_tr { background-color:#FFFFFF; text-align:center; FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.form_tr_2 {background-color:#E9F1F8; text-align:center;FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.form_tr_3 {background-color:#FAFAD4;text-align:center; FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+
+.win_tr{background-color:#FFFFFF; text-align:center;}
+.win_tr_2{background-color:#EDF5F8; text-align:center;}
+
+.td01 { background:#EAEAEA;FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.td02 { background:#FFFFFF;FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.sp_bg { }
+.sp_sbg { background:#ffdaa4}
+
+/* 奖金评测 */
+.sg_bonus1
+{
+    color: black;
+    font-weight: normal;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.sg_bonus2
+{
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: default;
+}
+ul
+{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+ul
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/*弹出层样式*/
+
+.flickdiv {position:absolute; width:550px;  border:1px #1A7CB4 solid; background:#2196C4;padding:5pfcfd}
+.f_box1 {background:url(../images/tantopbg.gif) repeat-x; height:31px; background:#FFFFFF}
+.f_box1 span { float:right; padding-right:10px; padding-top:6px;}
+
+.choosetd { background-color:#FFFF00; line-height: 20px;}
+.mousetd {}
+
+.table1 {BORDER: #7F87BB 1px solid;BACKGROUND-COLOR: #ffffff}
+.td5 {BORDER-bottom: #BCBCBC 1px solid;BACKGROUND-COLOR: #E0E0E0;TEXT-ALIGN:center}
+.td6 {BORDER-bottom: #BCBCBC 1px solid;BACKGROUND-COLOR: #F6F6F6;TEXT-ALIGN:center}
+.td12 { border-bottom:#BCBCBC solid 1px; BACKGROUND-COLOR:#1989D7; COLOR:#fff; TEXT-ALIGN:center;padding:5px;}
+
+/*比分玩法的sp样式*/
+.bf_sp_box{FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma";text-align:center;border:2px solid #73BCEF}
+.bf_sp_tb{BACKGROUND-COLOR: #CCCCCC;width:100%;text-align:center;border:none;FONT-FAMILY: "tahoma";}
+
+.bf_sp_tr1{BACKGROUND-COLOR: #FFF0EA;}
+.bf_sp_tr2{BACKGROUND-COLOR: #FFFEED;}
+.bf_sp_tr3{BACKGROUND-COLOR: #F1F8FF;}
+.bf_sp_tb TD
+{
+    height:55px;
+}
+
+

@@ -1,0 +1,36 @@
+2010-05-22 12:26:47:783		Error, PageName: http://localhost:7575/SLS_TWZT/Error.aspx?ErrorNumber=1&Tip=域名无效，限制访问&ClassName=050F0E5B9ACE1E3923E643AF008390C253。 ErrorMsg: T_Options 表读取发生错误，请检查数据连接或者数据库是否完整 Source:App_Code.cy25wuso StackTrace:   at SystemOptions.get_Item(String Key) in d:\TOP\MyLottery\SLS_TWZT\App_Code\SystemOptions.cs:line 30
+   at ASP.global_asax.Application_Start(Object sender, EventArgs e) in d:\TOP\MyLottery\SLS_TWZT\Global.asax:line 9。
+
+2010-05-22 12:35:26:623		Error, PageName: http://localhost:7575/SLS_TWZT/Default.aspx。 ErrorMsg: T_Options 表读取发生错误，请检查数据连接或者数据库是否完整 Source:App_Code.cy25wuso StackTrace:   at SystemOptions.get_Item(String Key) in d:\TOP\MyLottery\SLS_TWZT\App_Code\SystemOptions.cs:line 30
+   at ASP.global_asax.Application_Start(Object sender, EventArgs e) in d:\TOP\MyLottery\SLS_TWZT\Global.asax:line 9。
+
+2010-05-22 12:39:26:967		Error, PageName: http://localhost:7575/SLS_TWZT/images/zjphb.jpg。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-22 12:39:27:62		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_t.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-22 12:39:27:83		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_b.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-22 12:40:16:258		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-22 12:40:16:267		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+

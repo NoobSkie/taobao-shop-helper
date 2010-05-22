@@ -1,0 +1,41 @@
+body {
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+}
+
+.bai12 { FONT-SIZE: 12px;COLOR: #ffffff; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 25px;}
+.bai12 A:link { FONT-FAMILY: "tahoma"; COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai12 A:active { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai12 A:visited { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai12 A:hover { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+
+.black12 { FONT-SIZE: 12px;COLOR: #000000; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 25px;}
+.black12 A:link { FONT-FAMILY: "tahoma"; COLOR: #ff6600; TEXT-DECORATION: none;}
+.black12 A:active { FONT-FAMILY: "tahoma";COLOR: #000000; TEXT-DECORATION: none;}
+.black12 A:visited { FONT-FAMILY: "tahoma";COLOR: #000000; TEXT-DECORATION: none;}
+.black12 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.bai14 { FONT-SIZE: 14px;COLOR: #ffffff; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 18px; font-weight:bold;}
+.bai14 A:link { FONT-FAMILY: "tahoma"; COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai14 A:active { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai14 A:visited { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai14 A:hover { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+
+.black14 { FONT-SIZE: 14px;COLOR: #000000; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 25px;}
+.black14 A:link { FONT-FAMILY: "tahoma"; COLOR: #000000; TEXT-DECORATION: none;}
+.black14 A:active { FONT-FAMILY: "tahoma";COLOR: #000000; TEXT-DECORATION: none;}
+.black14 A:visited { FONT-FAMILY: "tahoma";COLOR: #000000; TEXT-DECORATION: none;}
+.black14 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.td14 { FONT-SIZE: 14px;COLOR: #ff6600; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 18px; font-weight:bold;}
+.td14 A:link { FONT-FAMILY: "tahoma"; COLOR: #ff6600; TEXT-DECORATION: none;}
+.td14 A:active { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+.td14 A:visited { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+.td14 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.red14 { FONT-SIZE: 16px;COLOR: #ff6600; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 22px; font-weight:bold;}
+
+.num { FONT-SIZE: 18px;COLOR: #ff6600; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 30px;}

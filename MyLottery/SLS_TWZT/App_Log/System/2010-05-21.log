@@ -1,0 +1,20 @@
+2010-05-21 14:53:25:723		Error, PageName: http://localhost:7575/SLS_TWZT/Index.htm。 ErrorMsg: T_Options 表读取发生错误，请检查数据连接或者数据库是否完整 Source:App_Code.n2npimzl StackTrace:   at SystemOptions.get_Item(String Key) in d:\TOP\MyLottery\SLS_TWZT\App_Code\SystemOptions.cs:line 30
+   at ASP.global_asax.Application_Start(Object sender, EventArgs e) in d:\TOP\MyLottery\SLS_TWZT\Global.asax:line 9。
+
+2010-05-21 16:59:39:470		Error, PageName: http://localhost:7575/SLS_TWZT/LotteryWebUI/Default.aspx。 ErrorMsg: It is an error to use a section registered as allowDefinition='MachineToApplication' beyond application level.  This error can be caused by a virtual directory not being configured as an application in IIS. (D:\TOP\MyLottery\SLS_TWZT\lotterywebui\web.config line 46) Source:System.Configuration StackTrace:   at System.Configuration.ConfigurationSchemaErrors.ThrowIfErrors(Boolean ignoreLocal)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey, Boolean getLkg, Boolean checkPermission)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   at System.Web.Configuration.RuntimeConfig.GetSectionObject(String sectionName)
+   at System.Web.Configuration.RuntimeConfig.GetSection(String sectionName, Type type, ResultsIndex index)
+   at System.Web.Configuration.RuntimeConfig.get_Identity()
+   at System.Web.HttpContext.get_ImpersonationToken()
+   at System.Web.ClientImpersonationContext.Start(HttpContext context, Boolean throwOnError)
+   at System.Web.HttpApplication.ThreadContext.SetImpersonationContext()
+   at System.Web.HttpApplication.ThreadContext.Enter(Boolean setImpersonationContext)
+   at System.Web.HttpApplication.OnThreadEnterPrivate(Boolean setImpersonationContext)
+   at System.Web.HttpApplication.ApplicationStepManager.ResumeSteps(Exception error)。
+
+2010-05-21 17:00:26:659		Error, PageName: http://localhost:7575/SLS_TWZT/LotteryWebUI/Default.aspx。 ErrorMsg: T_Options 表读取发生错误，请检查数据连接或者数据库是否完整 Source:App_Code.n2npimzl StackTrace:   at SystemOptions.get_Item(String Key) in d:\TOP\MyLottery\SLS_TWZT\App_Code\SystemOptions.cs:line 30
+   at ASP.global_asax.Application_Start(Object sender, EventArgs e) in d:\TOP\MyLottery\SLS_TWZT\Global.asax:line 9。
+

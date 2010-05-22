@@ -1,0 +1,393 @@
+﻿<style type="text/css">
+    body
+    {
+        margin: 0px;
+        font-family: Arial, Helvetica, sans-serif, Tahoma;
+        font-size: 12px;
+    }
+    form
+    {
+        display: inline;
+    }
+    img
+    {
+        vertical-align: middle;
+        border: 0px;
+    }
+    .red
+    {
+        font-size: 12px;
+        color: #cc0000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    
+    .blue
+    {
+        font-size: 12px;
+        color: #3D5B96;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .blue A:link
+    {
+        font-family: "tahoma";
+        color: #3D5B96;
+        text-decoration: underline;
+    }
+    .black12
+    {
+        font-size: 12px;
+        color: #000000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .ball_num
+    {
+        font-family: "tahoma";
+        height: 25px;
+        width: 26px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+        color: #666666;
+        cursor: hand;
+        background-image: url( '../../images/zfb_huiball.gif' );
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .bai16
+    {
+        font-size: 14px;
+        color: #ffffff;
+        font-family: "tahoma";
+        line-height: 24px;
+        padding-bottom: 6px;
+        padding-right: 2px;
+        font-weight: bold;
+    }
+    .hui12
+        {
+            font-size: 12px;
+            color: #666666;
+            font-family: "tahoma";
+            width:26px;
+            height:25px;
+            text-align:center;
+        }
+        .red12
+        {
+            font-size: 12px;
+            color: #ff0000;
+            font-family: "tahoma";
+            width:26px;
+            height:25px;
+            text-align:center;
+        }
+</style>
+
+<script type="text/javascript" src="../../javascript/Public.js" language="javascript" charset="gbk"></script>
+<table style="text-align:center;width: 100%; height: 95px" cellspacing="1" cellpadding="0" width="526">
+    <tbody>
+        <tr>
+            <td bgcolor="#FEDEDE" height="30" class="red">
+                选号区
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="background-image: url('../../images/bg_red.jpg'); padding-top: 10px;
+                padding-bottom: 10px; text-align:left; padding-left:10px;" >
+                <table border="0" cellpadding="0" cellspacing="4">
+                    <tbody>
+                        <tr>
+                            <td width="80px" class="blue"></td>
+                            <td class="ball_num" id="td_2_00" onclick="SelectBall(this);">
+                                0
+                            </td>
+                            <td class="ball_num" id="td_2_01" onclick="SelectBall(this);">
+                                1
+                            </td>
+                            <td class="ball_num" id="td_2_02" onclick="SelectBall(this);">
+                                2
+                            </td>
+                            <td class="ball_num" id="td_2_03" onclick="SelectBall(this);">
+                                3
+                            </td>
+                            <td class="ball_num" id="td_2_04" onclick="SelectBall(this);">
+                                4
+                            </td>
+                            <td class="ball_num" id="td_2_05" onclick="SelectBall(this);">
+                                5
+                            </td>
+                            <td class="ball_num" id="td_2_06" onclick="SelectBall(this);">
+                                6
+                            </td>
+                            <td class="ball_num" id="td_2_07" onclick="SelectBall(this);">
+                                7
+                            </td>
+                            <td class="ball_num" id="td_2_08" onclick="SelectBall(this);">
+                                8
+                            </td>
+                            <td class="ball_num" id="td_2_09" onclick="SelectBall(this);">
+                                9
+                            </td>
+                            <td class="ball_num" id="td_2_10" onclick="SelectBall(this);">
+                                10
+                            </td>
+                            <td class="ball_num" id="td_2_11" onclick="SelectBall(this);">
+                                11
+                            </td>
+                            <td class="ball_num" id="td_2_12" onclick="SelectBall(this);">
+                                12
+                            </td>
+                            <td class="ball_num" id="td_2_13" onclick="SelectBall(this);">
+                                13
+                            </td>
+                        </tr>
+                      
+                    </tbody>
+                </table>
+                <div id="divMiss1"></div>
+                 <table border="0" cellpadding="0" cellspacing="4">
+                    <tbody>
+                          <tr>
+                            <td width="80px" class="blue"></td>
+                            <td class="ball_num" id="td_2_14" onclick="SelectBall(this);">
+                                14
+                            </td>
+                            <td class="ball_num" id="td_2_15" onclick="SelectBall(this);">
+                                15
+                            </td>
+                            <td class="ball_num" id="td_2_16" onclick="SelectBall(this);">
+                                16
+                            </td>
+                            <td class="ball_num" id="td_2_17" onclick="SelectBall(this);">
+                                17
+                            </td>
+                            <td class="ball_num" id="td_2_18" onclick="SelectBall(this);">
+                                18
+                            </td>
+                            <td class="ball_num" id="td_2_19" onclick="SelectBall(this);">
+                                19
+                            </td>
+                            <td class="ball_num" id="td_2_20" onclick="SelectBall(this);">
+                                20
+                            </td>
+                            <td class="ball_num" id="td_2_21" onclick="SelectBall(this);">
+                                21
+                            </td>
+                            <td class="ball_num" id="td_2_22" onclick="SelectBall(this);">
+                                22
+                            </td>
+                            <td class="ball_num" id="td_2_23" onclick="SelectBall(this);">
+                                23
+                            </td>
+                            <td class="ball_num" id="td_2_24" onclick="SelectBall(this);">
+                                24
+                            </td>
+                            <td class="ball_num" id="td_2_25" onclick="SelectBall(this);">
+                                25
+                            </td>
+                            <td class="ball_num" id="td_2_26" onclick="SelectBall(this);">
+                                26
+                            </td>
+                            <td class="ball_num" id="td_2_27" onclick="SelectBall(this);">
+                                27
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                  <div id="divMiss3"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<center>
+<table width="95%" border="0" cellpadding="0" cellspacing="1" bgcolor="#E2EAED">
+    <tr>
+        <td bgcolor="#F4F9FD" class="black12" style="padding: 5px 10px 5px 10px;">
+            【注】请选择包点和值投注。您选择了
+            <div style="display: inline; height: 15px" class="red" id="lab_2_Selected">
+                0 个号，0 注，0.00 元，中奖奖金1000元</div>
+            &nbsp;
+        </td>
+    </tr>
+</table>
+</center>
+<div style="padding: 10px; padding-left:20px;text-align:center">
+    <img alt="" src="../../images/zfb_bt_queren.jpg" id="btn_2_Add" name="btn_2_Add" onclick="return btn_2_AddClick();"
+        style="cursor: hand;" visible="false" disabled />
+</div>
+
+
+    
+<script type="text/javascript" language="javascript">
+<!--
+    var v = parent.document.all["lbMiss"];
+    var s = v.innerHTML.split('-');
+
+    if (s.length == 3) {
+        
+        divMiss1.innerHTML = s[0];
+        divMiss3.innerHTML = s[1];
+        }
+   
+    function SelectBall(sender) {
+        var Selected = GetBallState(sender);
+        if (Selected) {
+            SetBallState(sender, false);
+            CheckFull();
+            return;
+        }
+
+        //	if (GetBallSelectedNum() >= 28)
+        //	{
+        //		alert("最多只能选择 28 个号。");
+        //		return;
+        //	}
+
+        SetBallState(sender, true);
+        CheckFull();
+    }
+
+    function GetBallObject(Num) {
+        var obj = document.all["td_2_" + GetBallNum(Num)];
+        return obj;
+    }
+
+    function GetBallNum(Num) {
+        var BallNum = "" + Num;
+        if (BallNum.length == 1)
+            BallNum = "0" + BallNum;
+
+        return BallNum;
+    }
+
+    function GetBallSelectedNum() {
+        var Count = 0;
+        for (var i = 0; i <= 27; i++) {
+            var obj = GetBallObject(i);
+            if (GetBallState(obj))
+                Count++;
+        }
+        return Count;
+    }
+
+    function GetBallState(sender) {
+        return (sender.style.color != "#454545");
+    }
+
+    function SetBallState(sender, SelectState) {
+        if (!SelectState) {
+            sender.style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+            sender.style.color = "#454545";
+        }
+        else {
+            sender.style.backgroundImage = "url(../../Images/zfb_redball.gif)";
+            sender.style.color = "White";
+        }
+    }
+
+    function CheckFull() {
+        var Num = GetBallSelectedNum();
+
+        document.all["lab_2_Selected"].innerText = Num + " 个号，" + GetLotteryInvestNum() + " 注，" + GetLotteryInvestNum() * 2 + " 元，中奖奖金1000元";
+        document.all["btn_2_Add"].disabled = (Num < 1);
+    }
+
+    function GetLotteryNumber() {
+        var LotteryNumber = "";
+        for (var i = 0; i <= 27; i++) {
+            var obj = GetBallObject(i);
+            if (GetBallState(obj))
+                LotteryNumber += (i + "\n");
+        }
+        return LotteryNumber.trim().rtrimWithReturn();
+    }
+
+    function GetLotteryInvestNum()	//取注数
+    {
+        var InvestNum = 0;
+        for (var i = 0; i <= 27; i++) {
+            var obj = GetBallObject(i);
+            if (GetBallState(obj))
+                InvestNum += GetNumbersInversNum(i);
+        }
+        return InvestNum;
+    }
+
+    function GetNumbersInversNum(BallNum)	//取不同和值的可投注数
+    {
+        if (BallNum == 0) return 1;
+        if (BallNum == 1) return 3;
+        if (BallNum == 2) return 6;
+        if (BallNum == 3) return 10;
+        if (BallNum == 4) return 15;
+        if (BallNum == 5) return 21;
+        if (BallNum == 6) return 28;
+        if (BallNum == 7) return 36;
+        if (BallNum == 8) return 45;
+        if (BallNum == 9) return 55;
+        if (BallNum == 10) return 63;
+        if (BallNum == 11) return 69;
+        if (BallNum == 12) return 73;
+        if (BallNum == 13) return 75;
+        if (BallNum == 14) return 75;
+        if (BallNum == 15) return 73;
+        if (BallNum == 16) return 69;
+        if (BallNum == 17) return 63;
+        if (BallNum == 18) return 55;
+        if (BallNum == 19) return 45;
+        if (BallNum == 20) return 36;
+        if (BallNum == 21) return 28;
+        if (BallNum == 22) return 21;
+        if (BallNum == 23) return 15;
+        if (BallNum == 24) return 10;
+        if (BallNum == 25) return 6;
+        if (BallNum == 26) return 3;
+        if (BallNum == 27) return 1;
+        return 0;
+    }
+
+    function ClearSelect() {
+        for (var i = 0; i <= 27; i++) {
+            var obj = GetBallObject(i);
+            SetBallState(obj, false);
+        }
+    }
+
+    function btn_2_AddClick() {
+        var str = GetLotteryNumber().split("\n");
+        for (var i = 0; i < str.length; i++) {
+            var customOptions = document.createElement("OPTION");
+            customOptions.text = str[i];
+            customOptions.value = GetNumbersInversNum(parseInt(str[i], 10));
+            parent.o_list_LotteryNumber.add(customOptions, parent.o_list_LotteryNumber.length);
+        }
+
+        parent.o_tb_LotteryNumber.value += GetLotteryNumber() + "\n";
+        parent.o_lab_Num.innerText = StrToInt(parent.o_lab_Num.innerText) + GetLotteryInvestNum();
+        ClearSelect();
+        document.all["lab_2_Selected"].innerText = "0 个号，0 注，0.00 元，中奖奖金1000元";
+        document.all["btn_2_Add"].disabled = true;
+        parent.CalcResult();
+
+        parent.calculateAllMoney();
+        parent.ClearSMS();
+
+        return true;
+    }
+
+    function SelectLotteryNumber() {
+        ClearSelect();
+        var lotteryNumber = parent.document.getElementById("HidSelectedLotteryNumber").value;
+
+        var obj = GetBallObject(lotteryNumber);
+        SetBallState(obj, true);
+
+        CheckFull();
+    }
+    
+    ClearSelect();
+-->
+</script>

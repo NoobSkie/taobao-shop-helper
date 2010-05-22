@@ -1,0 +1,94 @@
+晓风彩票软件门户版 安装说明：
+
+1 服务器要求：
+    (1) 操作系统：
+        windows2003 Server，IIS 6（或更高版本）, 微软 ASP.NET 3.5 框架
+    (2) 数据库：
+        MS SQLServer 2005（或更高版本） 数据库，数据库空间大小最少需要50MB，随着运营，空间需要会越来越大，一般购买100M 以上空间即可。
+
+2 本系统压缩包文件说明：
+    (1) 将本系统 rar 压缩包解压，会得到本系统的所有文件。
+    (2) 数据库备份文件.rar解压后的SLS_mhb.bak,SLS_mhb_bbs.bak文件 是MSSQLServer 数据库 的备份文件。
+    (3)SLS.Resource.Task.rar,SLS.Score.Task.rar,SLS.TWZT.Task.rar 是本系统的任务安装文件。
+    (4) 其他所有文件都是本系统的文件。
+
+3 安装本系统：
+    a. 将服务器安装好操作系统 (Windows 2003 Server)。
+    b. 安装好 Windows 2003 Server 后，打上 Win2003 的补丁 SP2。
+    c. 从 window2003 “增加删除程序”中增加组件“IIS”、“ASP.NET”、"消息队列"。
+    d. 安装微软 ASP.NET 3.5 框架。
+    e. 安装 MSSQLServer 2005 数据库，并打好 MSSQLServer2005 的补丁程序(要求SP4)。微软官方网站提供下载。
+    f. 重新启动服务器。
+
+    g. 打开 MSSQLServer 企业管理器，把“数据库备份文件.rar”解压后的SLS_mhb.bak,SLS_mhb_bbs.bak 文件恢复数据库。下面假设恢复的数据库名称为：SLS_mhb,SLS_mhb_bbs
+    h. 设置好 MSSQLServer 的用户密码，访问数据库权限等等。关闭 MSSQLServer 企业管理器。下面假设 MSSQLServer 的用户名为 sa, 密码为 shove。
+
+    i. 将SLS.Club.rar和SLS_MHB.rar解压复制到站点的目录下。如：d:\wwwroot\ShoveLottery。
+    j. 打开 IIS 管理，新建一个站点，目录指向 d:\wwwroot\ShoveLottery\SLS_MHB。设置好站点相关参数后，
+	   再在站点里面新建一个虚拟目录取名叫 bbs, 目录指向 d:\wwwroot\ShoveLottery\SLS.Club ,退出 IIS 管理。
+       注意：站点需要 ASP.NET 3.5 框架运行。
+
+    k. 系统如下目录及文件需要授予来宾帐号和 IIS_WPG 用户的写权限：
+           目录：SLS.Club\cache,SLS.Club\config,SLS.Club\avatars\upload, SLS.Club\App_Log
+				 SLS.TWZT\Private\1，SLS.TWZT\Uploadfile,SLS.TWZT\Temp,SLS.TWZT\App_Log
+
+    l. 打开 SLS_MHB\Web.config 文件，找到如下文字：
+		a、<add key="ConnectionString" value="server=(local);Uid=sa;Pwd=shove;Database=SLS_mhb" />
+		b、 3 个任务压缩包中的 Config.ini 文件 ConnectionString="server=(local);uid=sa;pwd=shove;Database=SLS_mhb" 也是同样的修改;
+        c、 SLS.Club 目录下的 Web.config、DNT.config 中的数据库链接也一样的修改；
+
+
+       将其中的 server=(local) 改为相应的MS SQLServer 2005 的地址，如果是本机，可以保持 (local) 不变；
+       将其中的 User id=sa 改为相应的 MS SQLServer 2005 的用户名，如果是 sa,则不变；
+       将其中的 Pwd=shove 改为相应的 MS SQLServer 2005 的用户密码；
+       将其中的 Database=SLS_mhb 改为刚恢复的 MS SQLServer 2005 数据库名，其中 a,b 中的 数据库明是SLS_mhb, c中的数据库名是SLS_mhb_bbs。
+       保存并退出。
+       
+    m. 找到 SLS.Club\config\config.xml 文件进行修改
+		<SiteUrl>http://localhost:1934/sls.twzt</SiteUrl> 改成您的域名
+		<ClubUrl>http://localhost:2275/sls.club</ClubUrl> 改成您的域名/bbs
+		<GovUrl>http://localhost:1934/sls.twzt</GovUrl> 改成您的域名
+		<GovName>晓风彩票软件-门户版社区</GovName> 改成社区的名称
+
+	n. 三个任务安装文件解压后， 双击 "安装" 进行任务安装， 安装完成后 到服务里面分别手动启动一次，注意， 这些任务 要设置成自动启动
+		注意，在安装 SLS.Resource.Task 这个任务时，要先做两个修改：
+			1、SLS.Resource.Task\Config.ini 中的 JsFilePath=D:\wwwroot\SLS_MHB\Home\Room\JavaScript 要改成 d:\wwwroot\ShoveLottery\SLS_MHB\Home\Room\JavaScript
+			2、d:\wwwroot\ShoveLottery\SLS_MHB\Home\Room\JavaScript\JScript.js 中的 FileUrl(搜索 "资源文件服务器(即时读取十一运，时时彩开奖号码)"即可找到) 要改成网站域名下的/Home/Room/JavaScript/ 如：http://mhb.shovesoft.com/Home/Room/JavaScript/
+
+    o. 结束。
+
+=============================================================================
+
+附注：邮件系统发送的问题
+
+    为什么我的网站系统不能发送邮件？
+
+    (1) 请在管理后台设置一个正确的邮件发送方服务器参数：
+	smtp 服务器名，邮箱登陆名,  邮箱登陆密码。
+	以 163 邮箱为例，如果您的邮箱是 yourname@163.com, 那么您的 smtp 服务器名为 smtp.163.com, 您的邮箱登陆名为 yourname, 您的邮箱密码为您登陆邮箱的密码；
+	以 qq 邮箱为例， 如果您的邮箱是 yourname@qq.com,  那么您的 smtp 服务器名为 smtp.qq.com, 您的邮箱登陆名为  yourname, 您的邮箱密码为您登陆邮箱的密码；
+	部分企业邮局系统，邮箱登陆名往往不是 @ 前面的部分，而是整个邮箱名，如：
+	您的邮箱是 master@yourdomain.com, 您的 smtp 服务器名为 mail.yourdomain.com, 那么您的邮箱登陆名为 master@yourdomain.com, 您的邮箱密码为您登陆邮箱的密码。
+
+	部分 163, 263，qq 邮箱不支持此自动发送功能。请联系他们以获得支持。
+
+    (2) 服务器配置：
+	如果启用了硬件防火墙，不要关闭 25, 110, 143 端口，并做好此端口对主机的映射。
+	如果启用了网卡TCP筛选，请不要关闭 25, 110, 143 端口。
+
+    (3) 杀毒软件与软件防火墙：
+	部分软件防火墙默认关闭了 25, 110, 143 端口，请开放这些端口。
+	部分杀毒软件限制了 25, 110, 143，请更改设置。
+	以 McAfee 企业版为例，打开 VirusScan 控制台：
+	禁用默认的“电子邮件传递扫描程序”，在“访问保护”里面，去掉“禁止大量发送邮件的蠕虫病毒发送邮件 - 端口25”。
+
+    (4) 以上设置均无误后，如果还不能发送邮件：
+	a 检查您的邮箱是否被 163, 263, QQ 等邮局收录成了黑名单，导致您的邮件不能发出；
+	b 检查您的服务器 IP 地址是否被一个或多个“国际反垃圾邮件组织”收录进了黑名单，查询的方法：
+		登陆 http://www.kloth.net/services/dnsbl.php， 输入您的服务器IP进行查询。如果被一个或多个组织封杀了你的 IP, 请自行按说明从里面移出。
+		
+		
+		
+	注意： 1、系统默认管理员帐号 用户名： admin   密码： 1
+	
+	       2、注册成功后，登录到网站超级管理后台，到系统管理——》软件序列号找到机器码，提供给晓风软件获取序列号

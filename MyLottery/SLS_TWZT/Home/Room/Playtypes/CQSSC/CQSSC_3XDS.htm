@@ -1,0 +1,581 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../../Style/css.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        body
+        {
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif, Tahoma;
+            font-size: 12px;
+        }
+        form
+        {
+            display: inline;
+        }
+        img
+        {
+            vertical-align: middle;
+            border: 0px;
+        }
+        .red
+        {
+            font-size: 12px;
+            color: #cc0000;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .blue
+        {
+            font-size: 12px;
+            color: #3D5B96;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .blue A:link
+        {
+            font-family: "tahoma";
+            color: #3D5B96;
+            text-decoration: underline;
+        }
+        .black12
+        {
+            font-size: 12px;
+            color: #000000;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .ball_num
+        {
+            font-family: "tahoma";
+            height: 25px;
+            width: 25px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            color: #666666;
+            cursor: hand;
+            background-image: url( '../../images/zfb_huiball.gif' );
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .bai16
+        {
+            font-size: 14px;
+            color: #ffffff;
+            font-family: "tahoma";
+            line-height: 24px;
+            padding-bottom: 6px;
+            padding-right: 2px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script type="text/javascript" src="../../javascript/Public.js" language="javascript"
+        charset="gbk"></script>
+
+    <script type="text/javascript">
+        function SelectBall(sender) {
+            var Selected = GetBallState(sender);
+            if (Selected) {
+                SetBallState(sender, false);
+                CheckFull();
+                return;
+            }
+
+            if (GetBallSelectedNum(GetBallRow(sender)) >= 1) {
+                alert("每位只能选择一个数字。");
+                return;
+            }
+
+            SetBallState(sender, true);
+            CheckFull();
+        }
+
+        function GetBallRow(sender) {
+            var str = sender.id;
+            return parseInt(str.substring(5, 6));
+        }
+
+        function GetBallCol(sender) {
+            var str = sender.id;
+            return parseInt(str.substring(7, 8));
+        }
+
+        function GetBallObject(row, col) {
+            var obj = document.all["td_2_" + row + "_" + col];
+            return obj;
+        }
+
+        function GetBallSelectedNum(row) {
+            var Count = 0;
+            for (var i = 0; i < 10; i++) {
+                var obj = GetBallObject(row, i);
+                if (GetBallState(obj))
+                    Count++;
+            }
+            return Count;
+        }
+
+        function GetBallState(sender) {
+            return (sender.style.color != "#454545");
+        }
+
+        function SetBallState(sender, SelectState) {
+            if (!SelectState) {
+                sender.style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+                sender.style.color = "#454545";
+            }
+            else {
+                sender.style.backgroundImage = "url(../../Images/zfb_redball.gif)";
+                sender.style.color = "White";
+            }
+        }
+
+        var xing = 5;
+
+        function CheckFull() {
+            var Full = true;
+            for (var i = 2; i < xing; i++) {
+                if (GetBallSelectedNum(i) < 1) {
+                    Full = false;
+                    break;
+                }
+            }
+
+            document.all["lab_2_Selected"].innerText = GetLotteryInvestNum() + " 注，" + GetLotteryInvestNum() * 2 + " 元";
+            document.all["btn_2_Add"].disabled = !Full;
+        }
+
+        function GetLotteryNumber() {
+            var LotteryNumber = "";
+            for (var i = 2; i < xing; i++) {
+                var temp = " ";
+                for (var j = 0; j < 10; j++) {
+                    var obj = GetBallObject(i, j);
+                    if (GetBallState(obj))
+                        temp += obj.innerText.trim();
+                }
+                temp = temp.trim();
+                if (temp.length != 1)
+                    temp = "(" + temp + ")";
+                LotteryNumber += temp;
+            }
+            return LotteryNumber.trim();
+        }
+
+        function GetLotteryInvestNum()	//取注数
+        {
+            var InvestNum = 1;
+            for (var i = 2; i < xing; i++)
+                InvestNum *= GetBallSelectedNum(i);
+            return InvestNum;
+        }
+
+        function ClearSelect() {
+            for (var i = 2; i < xing; i++)
+                for (var j = 0; j < 10; j++) {
+                var obj = GetBallObject(i, j);
+                SetBallState(obj, false);
+
+            }
+        }
+
+        function btn_2_AddClick(str) {
+
+            if (str == undefined) {
+                str = GetLotteryNumber();
+            }
+
+            if (str.length < 3 || str.indexOf("()") > -1) {
+                return;
+            }
+
+            var customOptions = parent.document.createElement("OPTION");
+
+            customOptions.text = "--" + str;
+            customOptions.value = 1;
+            parent.o_list_LotteryNumber.add(customOptions, parent.o_list_LotteryNumber.length);
+
+            parent.o_tb_LotteryNumber.value += "--" + str + "\n";
+            parent.o_lab_Num.innerText = StrToInt(parent.o_lab_Num.innerText) + 1;
+            document.all["btn_2_Add"].disabled = true;
+            parent.window.CalcResult();
+
+            parent.calculateAllMoney();
+            parent.ClearSMS();
+            ClearSelect();
+            return true;
+        }
+        //机选 1 注
+        function btn_2_RandClick() {
+            ClearSelect();
+            document.all["btn_2_Add"].disabled = true;
+
+            for (var i = 2; i < 5; i++) {
+                var col = GetRandNumber(10) - 1;
+                var obj = GetBallObject(i, col);
+                SetBallState(obj, true);
+            }
+
+            document.all["btn_2_Add"].disabled = false;
+            btn_2_AddClick();
+            ClearSelect();
+            return true;
+        }
+        function btn_2_RandManyClick(n) {
+            document.all["btn_2_Add"].disabled = true;
+            parent.document.all["btn_2_Rand"].disabled = true;
+            parent.document.all["btn_2_Rand5"].disabled = true;
+            parent.document.all["btn_ClearSelect"].disabled = true;
+            parent.document.all["btn_Clear"].disabled = true;
+            parent.document.all["btn_OK"].disabled = true;
+
+            for (var j = 1; j <= n; j++) {
+                var str = "";
+                for (var i = 2; i < 5; i++) {
+                    var col = GetRandNumber(10) - 1;
+                    var obj = GetBallObject(i, col);
+                    str += String(col);
+                }
+
+                btn_2_AddClick(str);
+                ClearSelect();
+            }
+
+            enableBtn();
+
+            return true;
+        }
+
+        function enableBtn() {
+            document.all["btn_2_Add"].disabled = false;
+            parent.document.all["btn_2_Rand"].disabled = false;
+            parent.document.all["btn_2_Rand5"].disabled = false;
+            parent.document.all["btn_OK"].disabled = false;
+            parent.document.all["btn_ClearSelect"].disabled = false;
+            parent.document.all["btn_Clear"].disabled = false;
+        }
+    </script>
+
+</head><link rel="shortcut icon" href="../favicon.ico"/>
+<body>
+    <table style="width: 100%; height: 95px ;" background="../../images/zfb_bg_red.jpg" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td valign="top" style="text-align: left; padding: 10px;">
+                <table border="0" cellpadding="0" cellspacing="4">
+                    <tbody>
+                        <tr>
+                            <td>
+                                百位
+                            </td>
+                            <td id="td_2_2_0" onclick="SelectBall(this);" class="ball_num">
+                                0
+                            </td>
+                            <td id="td_2_2_1" onclick="SelectBall(this);" class="ball_num">
+                                1
+                            </td>
+                            <td id="td_2_2_2" onclick="SelectBall(this);" class="ball_num">
+                                2
+                            </td>
+                            <td id="td_2_2_3" onclick="SelectBall(this);" class="ball_num">
+                                3
+                            </td>
+                            <td id="td_2_2_4" onclick="SelectBall(this);" class="ball_num">
+                                4
+                            </td>
+                            <td id="td_2_2_5" onclick="SelectBall(this);" class="ball_num">
+                                5
+                            </td>
+                            <td id="td_2_2_6" onclick="SelectBall(this);" class="ball_num">
+                                6
+                            </td>
+                            <td id="td_2_2_7" onclick="SelectBall(this);" class="ball_num">
+                                7
+                            </td>
+                            <td id="td_2_2_8" onclick="SelectBall(this);" class="ball_num">
+                                8
+                            </td>
+                            <td id="td_2_2_9" onclick="SelectBall(this);" class="ball_num">
+                                9
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="blue12">
+                                遗漏
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_0">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_1">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_2">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_3">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_4">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_5">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_6">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_7">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_8">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_9">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                十位
+                            </td>
+                            <td id="td_2_3_0" onclick="SelectBall(this);" class="ball_num">
+                                0
+                            </td>
+                            <td id="td_2_3_1" onclick="SelectBall(this);" class="ball_num">
+                                1
+                            </td>
+                            <td id="td_2_3_2" onclick="SelectBall(this);" class="ball_num">
+                                2
+                            </td>
+                            <td id="td_2_3_3" onclick="SelectBall(this);" class="ball_num">
+                                3
+                            </td>
+                            <td id="td_2_3_4" onclick="SelectBall(this);" class="ball_num">
+                                4
+                            </td>
+                            <td id="td_2_3_5" onclick="SelectBall(this);" class="ball_num">
+                                5
+                            </td>
+                            <td id="td_2_3_6" onclick="SelectBall(this);" class="ball_num">
+                                6
+                            </td>
+                            <td id="td_2_3_7" onclick="SelectBall(this);" class="ball_num">
+                                7
+                            </td>
+                            <td id="td_2_3_8" onclick="SelectBall(this);" class="ball_num">
+                                8
+                            </td>
+                            <td id="td_2_3_9" onclick="SelectBall(this);" class="ball_num">
+                                9
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="blue12">
+                                遗漏
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_0">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_1">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_2">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_3">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_4">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_5">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_6">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_7">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_8">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_9">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                个位
+                            </td>
+                            <td id="td_2_4_0" onclick="SelectBall(this);" class="ball_num">
+                                0
+                            </td>
+                            <td id="td_2_4_1" onclick="SelectBall(this);" class="ball_num">
+                                1
+                            </td>
+                            <td id="td_2_4_2" onclick="SelectBall(this);" class="ball_num">
+                                2
+                            </td>
+                            <td id="td_2_4_3" onclick="SelectBall(this);" class="ball_num">
+                                3
+                            </td>
+                            <td id="td_2_4_4" onclick="SelectBall(this);" class="ball_num">
+                                4
+                            </td>
+                            <td id="td_2_4_5" onclick="SelectBall(this);" class="ball_num">
+                                5
+                            </td>
+                            <td id="td_2_4_6" onclick="SelectBall(this);" class="ball_num">
+                                6
+                            </td>
+                            <td id="td_2_4_7" onclick="SelectBall(this);" class="ball_num">
+                                7
+                            </td>
+                            <td id="td_2_4_8" onclick="SelectBall(this);" class="ball_num">
+                                8
+                            </td>
+                            <td id="td_2_4_9" onclick="SelectBall(this);" class="ball_num">
+                                9
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="blue12">
+                                遗漏
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_0">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_1">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_2">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_3">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_4">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_5">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_6">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_7">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_8">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_9">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table width="95%" border="0" cellpadding="0" cellspacing="1" bgcolor="#E2EAED" align="center">
+        <tr>
+            <td bgcolor="#F4F9FD" class="black12" style="padding: 5px 10px 5px 10px;">
+                &nbsp;&nbsp; 【注】每行只能选择 1个数字。您选择了
+                <div style="display: inline; height: 15px" class="red" id="lab_2_Selected">
+                    0 注，0.00 元</div>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    <div style="text-align: center; padding: 10px;">
+        <img alt="" src="../../images/zfb_bt_queren.jpg" id="btn_2_Add" name="btn_2_Add"
+            onclick="return btn_2_AddClick();" visible="false" style="cursor: pointer;" disabled />
+    </div>
+
+    <script type="text/javascript" language="javascript">
+        //遗漏信息
+        var o_tbAddone = parent.document.all["tbMiss"];
+        var Miss_s = o_tbAddone.value.split(';');
+        var baiMax = 0;
+        var shiMax = 0;
+        var geMax = 0;
+
+        for (var i = 0; i <= 9; i++) {
+            var temp = 'Miss_0_' + i;
+            document.getElementById(temp).innerHTML = Miss_s[i];
+            if (baiMax < Number(Miss_s[i])) {
+                baiMax = Number(Miss_s[i]);
+            }
+            
+            temp = 'Miss_1_' + i;
+            document.getElementById(temp).innerHTML = Miss_s[10 + i];
+            if (shiMax < Number(Miss_s[10 + i])) {
+                shiMax = Number(Miss_s[10 + i]);
+            }
+            
+            temp = 'Miss_2_' + i;
+            document.getElementById(temp).innerHTML = Miss_s[20 + i];
+            if (geMax < Number(Miss_s[20 + i])) {
+                geMax = Number(Miss_s[20 + i]);
+            }
+        }
+
+        for (var i = 0; i < 10; i++) {
+            var temp = 'Miss_0_' + i;
+            var number = document.getElementById(temp).innerHTML;
+            if (number == baiMax)
+                document.getElementById(temp).className = "red12";
+
+            temp = 'Miss_1_' + i;
+            number = document.getElementById(temp).innerHTML;
+            if (number == shiMax)
+                document.getElementById(temp).className = "red12";
+
+            temp = 'Miss_2_' + i;
+            number = document.getElementById(temp).innerHTML;
+            if (number == geMax)
+                document.getElementById(temp).className = "red12";
+        }
+    </script>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    ClearSelect();
+</script>
+

@@ -1,0 +1,24 @@
+/*布局样式*/
+
+#box {
+	padding: 0px;
+	overflow:hidden;
+	background-color:#cc0000;
+	width:1004px;
+	MARGIN-RIGHT: auto;
+	MARGIN-LEFT: auto;
+	background-image: url(../images/bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+}
+
+#title { padding: 0px; overflow:hidden; MARGIN-RIGHT: auto; MARGIN-LEFT: auto; width: 770px;}
+#head_logo{ width: 980px; padding: 0px; overflow:hidden; MARGIN-RIGHT: auto; MARGIN-LEFT: auto;}
+#head_l { float: left; width: 360px;padding: 0px; overflow:hidden;}
+#head_r { float: right; width: 560px;padding: 0px; overflow:hidden; padding-top:45px;}
+
+#index_flash { width: 980px; padding: 0px; overflow:hidden; MARGIN-RIGHT: auto; MARGIN-LEFT: auto; }
+
+#content { width: 980px; padding: 0px; overflow:hidden; MARGIN-RIGHT: auto; MARGIN-LEFT: auto; }
+#content_l { float: left; width: 235px;padding: 0px; overflow:hidden;}
+#content_r { float: left; width: 980px;padding: 0px; overflow:hidden;}

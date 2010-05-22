@@ -1,0 +1,409 @@
+﻿<style type="text/css">
+    body
+    {
+        margin: 0px;
+        font-family: Arial, Helvetica, sans-serif, Tahoma;
+        font-size: 12px;
+    }
+    form
+    {
+        display: inline;
+    }
+    img
+    {
+        vertical-align: middle;
+        border: 0px;
+    }
+    .red
+    {
+        font-size: 12px;
+        color: #cc0000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .blue
+    {
+        font-size: 12px;
+        color: #3D5B96;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .blue A:link
+    {
+        font-family: "tahoma";
+        color: #3D5B96;
+        text-decoration: underline;
+    }
+    .black12
+    {
+        font-size: 12px;
+        color: #000000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .ball_num
+    {
+        font-family: "tahoma";
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+        color: #454545;
+        cursor: hand;
+        background-image: url( '../../images/zfb_huiball.gif' );
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .bai16
+    {
+        font-size: 14px;
+        color: #ffffff;
+        font-family: "tahoma";
+        line-height: 24px;
+        padding-bottom: 6px;
+        padding-right: 2px;
+        font-weight: bold;
+    }
+</style>
+
+<script type="text/javascript" src="../../javascript/Public.js" language="javascript"
+    charset="gbk"></script>
+
+<table style="text-align: center; width: 100%; height: 95px; background-image: url('../../images/zfb_bg_red.jpg');" cellspacing="1" cellpadding="0">
+    <tr>
+        <td valign="top" style="background-color: #F9F9F9; padding-top: 10px;
+            padding-bottom: 10px;">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td style="color: #FF0000; font-size: small; font-weight: bold;">
+                            胆码：
+                        </td>
+                        <td class="ball_num" id="td_DB_01" onclick="SelectBall('DB','01');">
+                            01
+                        </td>
+                        <td class="ball_num" id="td_DB_02" onclick="SelectBall('DB','02');">
+                            02
+                        </td>
+                        <td class="ball_num" id="td_DB_03" onclick="SelectBall('DB','03');">
+                            03
+                        </td>
+                        <td class="ball_num" id="td_DB_04" onclick="SelectBall('DB','04');">
+                            04
+                        </td>
+                        <td class="ball_num" id="td_DB_05" onclick="SelectBall('DB','05');">
+                            05
+                        </td>
+                        <td class="ball_num" id="td_DB_06" onclick="SelectBall('DB','06');">
+                            06
+                        </td>
+                        <td class="ball_num" id="td_DB_07" onclick="SelectBall('DB','07');">
+                            07
+                        </td>
+                        <td class="ball_num" id="td_DB_08" onclick="SelectBall('DB','08');">
+                            08
+                        </td>
+                        <td class="ball_num" id="td_DB_09" onclick="SelectBall('DB','09');">
+                            09
+                        </td>
+                        <td class="ball_num" id="td_DB_10" onclick="SelectBall('DB','10');">
+                            10
+                        </td>
+                        <td class="ball_num" id="td_DB_11" onclick="SelectBall('DB','11');">
+                            11
+                        </td>
+                        <td class="ball_num" id="td_DB_12" onclick="SelectBall('DB','12');">
+                            12
+                        </td>
+                        <td class="ball_num" id="td_DB_13" onclick="SelectBall('DB','13');">
+                            13
+                        </td>
+                        <td class="ball_num" id="td_DB_14" onclick="SelectBall('DB','14');">
+                            14
+                        </td>
+                        <td class="ball_num" id="td_DB_15" onclick="SelectBall('DB','15');">
+                            15
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td style="color: #FF0000; font-size: small; font-weight: bold;">
+                            托码：
+                        </td>
+                        <td class="ball_num" id="td_TB_01" onclick="SelectBall('TB','01');">
+                            01
+                        </td>
+                        <td class="ball_num" id="td_TB_02" onclick="SelectBall('TB','02');">
+                            02
+                        </td>
+                        <td class="ball_num" id="td_TB_03" onclick="SelectBall('TB','03');">
+                            03
+                        </td>
+                        <td class="ball_num" id="td_TB_04" onclick="SelectBall('TB','04');">
+                            04
+                        </td>
+                        <td class="ball_num" id="td_TB_05" onclick="SelectBall('TB','05');">
+                            05
+                        </td>
+                        <td class="ball_num" id="td_TB_06" onclick="SelectBall('TB','06');">
+                            06
+                        </td>
+                        <td class="ball_num" id="td_TB_07" onclick="SelectBall('TB','07');">
+                            07
+                        </td>
+                        <td class="ball_num" id="td_TB_08" onclick="SelectBall('TB','08');">
+                            08
+                        </td>
+                        <td class="ball_num" id="td_TB_09" onclick="SelectBall('TB','09');">
+                            09
+                        </td>
+                        <td class="ball_num" id="td_TB_10" onclick="SelectBall('TB','10');">
+                            10
+                        </td>
+                        <td class="ball_num" id="td_TB_11" onclick="SelectBall('TB','11');">
+                            11
+                        </td>
+                        <td class="ball_num" id="td_TB_12" onclick="SelectBall('TB','12');">
+                            12
+                        </td>
+                        <td class="ball_num" id="td_TB_13" onclick="SelectBall('TB','13');">
+                            13
+                        </td>
+                        <td class="ball_num" id="td_TB_14" onclick="SelectBall('TB','14');">
+                            14
+                        </td>
+                        <td class="ball_num" id="td_TB_15" onclick="SelectBall('TB','15');">
+                            15
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+</table>
+<center>
+    <table width="95%" border="0" cellpadding="0" cellspacing="1" bgcolor="#E2EAED">
+        <tr>
+            <td bgcolor="#F4F9FD" class="black12" style="padding: 5px 10px 5px 10px;">
+                【注】胆码可以选择<font class="red"> 1~4 </font>个，拖码可以选择<span class="red"> 2～14</span> 个。胆拖共<span class="red"> 6 </span>个或以上。您选择了
+                <div style="display: inline; height: 15px" class="red" id="lab_2_Selected">
+                     胆码：0 拖码：0，0 注，0.00 元</div>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+</center>
+<div style="padding: 10px; padding-left: 20px;text-align:center">
+    <img alt="" src="../../images/zfb_bt_queren.jpg" id="Img2" name="btn_2_Add" onclick="return btn_2_AddClick();"
+        style="cursor: hand;" visible="false" disabled />
+</div>
+
+<script type="text/javascript" language="javascript">
+<!--
+    function SelectBall(BallColor, BallNum) {
+        var Selected = GetBallState(BallColor, BallNum);
+        if (Selected) {
+            SetBallState(BallColor, BallNum, false);
+            CheckFull();
+            return;
+        }
+        
+       if ((GetDanBallSelectedNum() >= 4) && (BallColor == "DB")) {
+            alert("胆码最多只能选择 4 个。");
+            return;
+       }
+       
+      if ((GetTuoBallSelectedNum() >= 14) && (BallColor == "TB")) {
+            alert("托码最多只能选择 14 个。");
+            return;
+       }            
+            
+        SetBallState(BallColor, BallNum, true);
+        CheckFull();
+    }
+
+    function GetBallSelectedNum() {
+        var Count = 0;
+        for (var i = 1; i <= 15; i++) {
+            if (GetBallState("DB", GetBallNum(i)) || GetBallState("TB", GetBallNum(i)))
+                Count++;
+        }
+        return Count;
+    }
+
+    function GetDanBallSelectedNum() {
+        var Count = 0;
+        for (var i = 1; i <= 15; i++) {
+             if (GetBallState("DB", GetBallNum(i)))
+                 Count++;
+        }
+        return Count;
+    }
+
+    function GetTuoBallSelectedNum() {
+        var Count = 0;
+        for (var i = 1; i <= 15; i++) {
+            if (GetBallState("TB", GetBallNum(i)))
+                Count++;
+        }
+        return Count;
+    }
+
+    function GetBallNum(i) {
+        var BallNum = "" + i;
+        if (BallNum.length == 1)
+            BallNum = "0" + BallNum;
+
+        return BallNum;
+    }
+
+    function GetBallState(BallColor, BallNum) {
+        return (document.all["td_" + BallColor + "_" + BallNum].style.color != "#454545");
+    }
+
+    function SetBallState(BallColor, BallNum, SelectState) {
+        if (SelectState) {
+            //选中
+            document.all["td_" + BallColor + "_" + BallNum].style.backgroundImage = "url(../../Images/zfb_redball.gif)";
+            document.all["td_" + BallColor + "_" + BallNum].style.color = "White";
+            
+            if (BallColor == "DB")
+            {
+                document.all["td_TB_" + BallNum].style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+                document.all["td_TB_" + BallNum].style.color = "#454545";
+            }
+
+            if (BallColor == "TB")
+            {
+                document.all["td_DB_" + BallNum].style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+                document.all["td_DB_" + BallNum].style.color = "#454545";
+            }
+        }
+        else {
+            //未选中
+            document.all["td_" + BallColor + "_" + BallNum].style.color = "#454545";
+            document.all["td_" + BallColor + "_" + BallNum].style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+        }
+    }
+    
+    function CheckFull() {
+        var Dan = GetDanBallSelectedNum();
+        var Tuo = GetTuoBallSelectedNum();
+
+        document.all["btn_2_Add"].disabled = ((GetLotteryInvestNum() < 2) || (GetBallSelectedNum() < 6));
+        document.all["lab_2_Selected"].innerText = "胆码：" + Dan + " 拖码：" + Tuo + "，" + GetLotteryInvestNum() + " 注，" + GetLotteryInvestNum() * 2 + " 元";
+    }
+
+    function GetLotteryNumber() {
+        var LotteryNumber = "";
+        var BallNum;
+        var tempDan = "";
+        var tempTuo = "";
+
+        for (var i = 1; i <= 15; i++) {
+            BallNum = GetBallNum(i);
+            if (GetBallState("DB", BallNum))
+                tempDan += (BallNum + " ");
+
+            if (GetBallState("TB", BallNum))
+                tempTuo +=  (BallNum + " ");
+        }
+
+        LotteryNumber = tempDan + ", " + tempTuo;
+
+        return LotteryNumber.trim();
+    }
+
+    function GetLotteryInvestNum()	//取注数
+    {
+        var BallNum;
+        var tempDan = 0;
+        var tempTuo = 0;
+        var tempTuoNum = 1;
+        var tempDanNum = 1;
+        var InvestNum;
+
+        for (var i = 1; i <= 15; i++) {
+            BallNum = GetBallNum(i);
+            if (GetBallState("DB", BallNum))
+                tempDan++;
+
+            if (GetBallState("TB", BallNum))
+                tempTuo++;
+        }
+        
+        if (((tempDan + tempTuo) < 6) || tempDan < 1 || tempTuo < 1) {
+            return 0;
+        }
+        
+        for (var i = 0; i < (5 - tempDan); i++) {
+            tempTuoNum *= (tempTuo - i);
+        }
+        
+        for (var i = 0; i < (5 - tempDan); i++) {
+            tempDanNum *= (5 - tempDan - i);
+        }
+        
+        InvestNum = (tempTuoNum/tempDanNum);
+        
+        return InvestNum;
+    }
+
+    function ClearSelect() {
+        for (var i = 1; i <= 15; i++) {
+            SetBallState("DB", GetBallNum(i), false);
+            SetBallState("TB", GetBallNum(i), false);
+        }
+    }
+
+    function btn_2_AddClick() {
+        if (GetLotteryInvestNum() < 2) {
+            alert("您选择的不是一注复式票！");
+            return false;
+        }
+        
+        var customOptions = document.createElement("OPTION");
+        customOptions.text = GetLotteryNumber();
+        customOptions.value = GetLotteryInvestNum();
+        parent.o_list_LotteryNumber.add(customOptions, parent.o_list_LotteryNumber.length);
+
+        parent.o_tb_LotteryNumber.value += GetLotteryNumber() + "\n";
+        parent.o_lab_Num.innerText = StrToInt(parent.o_lab_Num.innerText) + GetLotteryInvestNum();
+        ClearSelect();
+        document.all["lab_2_Selected"].innerText = "胆码：0 拖码：0，0 注，0.00 元";
+        document.all["btn_2_Add"].disabled = true;
+
+        parent.window.CalcResult();
+        parent.calculateAllMoney();
+        parent.ClearSMS();
+
+        return true;
+    }
+
+    function SelectLotteryNumber() {
+        ClearSelect();
+        var lotteryNumber = parent.document.getElementById("HidSelectedLotteryNumber").value.split(",");
+        var d = lotteryNumber[0].trim().split(" ");
+        var t = lotteryNumber[1].trim().split(" ");
+        for (var i = 0; i < d.length; i++) {
+
+            SetBallState("DB",d[i], true);
+        }
+
+        for (var i = 0; i < t.length; i++) {
+
+            SetBallState("TB", t[i], true);
+        }
+        
+        CheckFull();
+    }
+    
+    ClearSelect();
+-->
+</script>
+

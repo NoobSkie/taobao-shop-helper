@@ -1,0 +1,164 @@
+body {
+	background-color: #ffffff;
+	margin: 0px;
+}
+
+.STYLE4 {font-size: 14px; color: #000000; }
+body,td,th {
+	font-size: 12px;
+	color: #000000;
+}
+.STYLE9 {color: #FFFFFF}
+.STYLE10 {	font-size: 12px;
+	color: #FFFFFF;
+}
+.STYLE12 {font-size: 12px}
+.STYLE13 {
+	font-size: 12px;
+	font-weight: bold;}
+.STYLE14 {
+	font-size: 14px;
+	color: #02019B;
+	font-weight: bold;
+}
+.STYLE15 {
+  line-height: 16pt;
+	font-size: 12px;
+	color: #FF0000;
+	
+}
+.STYLE16 {color: #FF0000}
+
+.STYLE14 {
+	font-size: 16px;
+	color: #FF0000;
+}
+
+.hei {
+	FONT-SIZE: 12px; COLOR: #2464AA; LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.hei A:link {
+	COLOR: #2464AA; TEXT-DECORATION: none
+}
+.hei A:active {
+	COLOR: #2464AA; TEXT-DECORATION: none
+}
+.hei A:visited {
+	COLOR: #2464AA; TEXT-DECORATION: none
+}
+.hei A:hover {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.bai {
+	FONT-SIZE: 12px; COLOR: #ffffff; LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.bai A:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.bai A:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.bai A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.bai A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+.bai {
+	FONT-SIZE: 12px; COLOR: #ffffff; LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.hon A:link {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.hon A:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.hon A:visited {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.hon A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.LAN A:link {
+	COLOR: #0099FF; TEXT-DECORATION: none
+}
+.LAN A:active {
+	COLOR: #0099FF; TEXT-DECORATION: none
+}
+.LAN A:visited {
+	COLOR: #0099FF; TEXT-DECORATION: none
+}
+.LAN A:hover {
+	COLOR: #0099FF; TEXT-DECORATION: underline
+}
+.honhon A:link {
+	COLOR: #FF0000; font-size: 14px; TEXT-DECORATION: none
+}
+.honhon A:active {
+	COLOR: #FF0000; font-size: 14px; TEXT-DECORATION: none
+}
+.honhon A:visited {
+	COLOR: #FF0000;font-size: 14px; TEXT-DECORATION: none
+}
+.honhon A:hover {
+	COLOR: #FF0000;font-size: 14px; TEXT-DECORATION: underline
+}
+.linese A:link {
+	COLOR: #02019B; font-size: 14px; TEXT-DECORATION: none
+}
+.linese A:active {
+	COLOR: #02019B; font-size: 14px; TEXT-DECORATION: none
+}
+.linese A:visited {
+	COLOR: #02019B;font-size: 14px; TEXT-DECORATION: none
+}
+.linese A:hover {
+	COLOR: #02019B;font-size: 14px; TEXT-DECORATION: underline
+}
+.linese2 A:link {
+	COLOR: #02019B; font-size: 14px; TEXT-DECORATION: none
+}
+.linese2 A:active {
+	COLOR: #02019B; font-size: 14px; TEXT-DECORATION: none
+}
+.linese2 A:visited {
+	COLOR: #02019B;font-size: 14px; TEXT-DECORATION: none
+}
+.linese2 A:hover {
+	COLOR: #02019B;font-size: 14px; TEXT-DECORATION: underline
+}
+.bai2 {
+	FONT-SIZE: 14px; COLOR: #ffffff; LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.bai2 A:link {
+	FONT-SIZE: 14px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+.bai2 A:active {
+	FONT-SIZE: 14px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+.bai2 A:visited {
+	FONT-SIZE: 14px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+.bai2 A:hover {
+	FONT-SIZE: 14px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+.bai2 {
+	FONT-SIZE: 14px; COLOR: #ffffff; LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+
+a:link {
+	color: #000000;
+	text-decoration: none;
+}
+a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	color: #000000;
+	text-decoration: none;
+}
+a:active {
+	color: #000000;
+	text-decoration: none;
+}

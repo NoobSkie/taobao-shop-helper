@@ -1,0 +1,335 @@
+body {
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+}
+
+img{ vertical-align:middle;}
+
+.blue14 { FONT-SIZE: 14px;COLOR: #103875; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight: 600;}
+.blue14 A:link { FONT-FAMILY: "tahoma"; COLOR: #103875; TEXT-DECORATION: none;}
+.blue14 A:active { FONT-FAMILY: "tahoma";COLOR: #103875; TEXT-DECORATION: none;}
+.blue14 A:visited { FONT-FAMILY: "tahoma";COLOR: #103875; TEXT-DECORATION: none;}
+.blue14 A:hover { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+
+.blue_num { FONT-SIZE: 14px;COLOR: #103875; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+
+.hui { FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.hui A:link {
+	FONT-FAMILY: tahoma;
+	COLOR: #666666;
+	TEXT-DECORATION: underline;
+}
+.hui A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.hui2 { FONT-SIZE: 12px;COLOR: #999999; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.hui2 A:link {
+	FONT-FAMILY: tahoma;
+	COLOR: #999999;
+	TEXT-DECORATION: underline;
+}
+.hui2 A:active { FONT-FAMILY: "tahoma";COLOR: #999999; TEXT-DECORATION: none;}
+.hui2 A:visited { FONT-FAMILY: "tahoma";COLOR: #999999; TEXT-DECORATION: none;}
+.hui2 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.red { FONT-SIZE: 12px;COLOR: #cc0000; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.red A:link { FONT-FAMILY: "tahoma"; COLOR: #cc0000; TEXT-DECORATION: underline;}
+.red A:active { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+.red A:visited { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+.red A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.red20 { FONT-SIZE: 20px;COLOR: #cc0000; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 32px; font-weight:300;}
+
+.blue12 { FONT-SIZE: 12px;COLOR: #103875; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.blue12 A:link { FONT-FAMILY: "tahoma"; COLOR: #103875; TEXT-DECORATION: none;}
+.blue12 A:active { FONT-FAMILY: "tahoma";COLOR: #103875; TEXT-DECORATION: none;}
+.blue12 A:visited { FONT-FAMILY: "tahoma";COLOR: #103875; TEXT-DECORATION: none;}
+.blue12 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.blue_point { FONT-SIZE: 18px;COLOR: #103875; FONT-FAMILY: "tahoma"; font-weight:bold; line-height:15px;}
+
+.lan14 { FONT-SIZE: 14px;COLOR: #103875; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.lan14 A:link { FONT-FAMILY: "tahoma"; COLOR: #103875; TEXT-DECORATION: none;}
+.lan14 A:active { FONT-FAMILY: "tahoma";COLOR: #103875; TEXT-DECORATION: none;}
+.lan14 A:visited { FONT-FAMILY: "tahoma";COLOR: #103875; TEXT-DECORATION: none;}
+.lan14 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.blue_menu { FONT-SIZE: 12px;COLOR: #103875; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.blue_menu A:link { FONT-FAMILY: "tahoma"; COLOR: #103875; TEXT-DECORATION: none;}
+.blue_menu A:active { FONT-FAMILY: "tahoma";COLOR: #103875; TEXT-DECORATION: none;}
+.blue_menu A:visited { FONT-FAMILY: "tahoma";COLOR: #103875; TEXT-DECORATION: none;}
+.blue_menu A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.blue { FONT-SIZE: 12px;COLOR: #103875; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.blue A:link { FONT-FAMILY: "tahoma"; COLOR: #103875; TEXT-DECORATION: underline;}
+.blue A:active { FONT-FAMILY: "tahoma";COLOR: #103875; TEXT-DECORATION: underline;}
+.blue A:visited { FONT-FAMILY: "tahoma";COLOR: #103875; TEXT-DECORATION: underline;}
+.blue A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: underline;}
+
+.bg_s {
+	FONT-SIZE: 12px;
+	COLOR: #103875;
+	FONT-FAMILY: "tahoma";
+	LINE-HEIGHT: 20px;
+	background-image: url(../images/bg_s.jpg);
+	background-repeat: repeat-x;
+	background-position: center bottom;
+}
+
+.bg_x {
+	FONT-SIZE: 12px;
+	COLOR: #103875;
+	FONT-FAMILY: "tahoma";
+	LINE-HEIGHT: 20px;
+	background-image: url(../images/bg_x.jpg);
+	background-repeat: repeat-x;
+	background-position: top;
+}
+
+.news_bg_hui {
+	FONT-SIZE: 12px;
+	COLOR: #103875;
+	FONT-FAMILY: "tahoma";
+	LINE-HEIGHT: 20px;
+	background-repeat: repeat-x;
+	background-image:url(../images/news_bg_hui.jpg);
+	background-position: top;
+}
+
+
+.black12 { FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.black12 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: underline;}
+.black12 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: underline;}
+.black12 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: underline;}
+.black12 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: underline;}
+
+.zs { FONT-SIZE: 14px;COLOR: #7B2E00; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.zs A:link { FONT-FAMILY: "tahoma"; COLOR: #7B2E00; TEXT-DECORATION: underline;}
+.zs A:active { FONT-FAMILY: "tahoma";COLOR: #7B2E00; TEXT-DECORATION: underline;}
+.zs A:visited { FONT-FAMILY: "tahoma";COLOR: #7B2E00; TEXT-DECORATION: underline;}
+.zs A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: underline;}
+
+.zs12 { FONT-SIZE: 12px;COLOR: #7B2E00; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 18px;}
+.zs12 A:link { FONT-FAMILY: "tahoma"; COLOR: #7B2E00; TEXT-DECORATION: none;}
+.zs12 A:active { FONT-FAMILY: "tahoma";COLOR: #7B2E00; TEXT-DECORATION: none;}
+.zs12 A:visited { FONT-FAMILY: "tahoma";COLOR: #7B2E00; TEXT-DECORATION: none;}
+.zs12 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.black_menu { FONT-SIZE: 12px;COLOR: #000000; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.black_menu A:link { FONT-FAMILY: "tahoma"; COLOR: #000000; TEXT-DECORATION: none;}
+.black_menu A:active { FONT-FAMILY: "tahoma";COLOR: #000000; TEXT-DECORATION: none;}
+.black_menu A:visited { FONT-FAMILY: "tahoma";COLOR: #000000; TEXT-DECORATION: none;}
+.black_menu A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+
+.bai14 { FONT-SIZE: 14px;COLOR: #ffffff; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.bai14 A:link { FONT-FAMILY: "tahoma"; COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai14 A:active { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai14 A:visited { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai14 A:hover { FONT-FAMILY: "tahoma";COLOR: #ffff00; TEXT-DECORATION: none;}
+
+.bai12 { FONT-SIZE: 12px;COLOR: #ffffff; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:600;}
+.bai12 A:link { FONT-FAMILY: "tahoma"; COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai12 A:active { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai12 A:visited { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai12 A:hover { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+
+.bai1cz { FONT-SIZE: 12px;COLOR: #ffffff; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 18px;}
+.bai1cz A:link { FONT-FAMILY: "tahoma"; COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai1cz A:active { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai1cz A:visited { FONT-FAMILY: "tahoma";COLOR: #ffffff; TEXT-DECORATION: none;}
+.bai1cz A:hover { FONT-FAMILY: "tahoma";COLOR: #ffff00; TEXT-DECORATION: none;}
+
+.td14 { FONT-SIZE: 14px;COLOR: #333333; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.td14 A:link { FONT-FAMILY: "tahoma"; COLOR: #333333; TEXT-DECORATION: none;}
+.td14 A:active { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.td14 A:visited { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.td14 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.td14_2 { FONT-SIZE: 14px;COLOR: #333333; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.td14_2 A:link { FONT-FAMILY: "tahoma"; COLOR: #333333; TEXT-DECORATION: none;}
+.td14_2 A:active { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.td14_2 A:visited { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.td14_2 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.red14 { FONT-SIZE: 14px;COLOR: #cc0000; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 22px; font-weight:bold;}
+.red14 A:link { FONT-FAMILY: "tahoma"; COLOR: #cc0000; TEXT-DECORATION: underline;}
+.red14 A:active { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+.red14 A:visited { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+.red14 A:hover { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+
+.red142 { FONT-SIZE: 14px;COLOR: #cc0000; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 22px;}
+.red142 A:link { FONT-FAMILY: "tahoma"; COLOR: #cc0000; TEXT-DECORATION: none;}
+.red142 A:active { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+.red142 A:visited { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+.red142 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.cheng12 { FONT-SIZE: 12px;COLOR: #ff6600; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.cheng12 A:link { FONT-FAMILY: "tahoma"; COLOR: #ff6600; TEXT-DECORATION: none;}
+.cheng12 A:active { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+.cheng12 A:visited { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+.cheng12 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.num { FONT-SIZE: 18px;COLOR: #ff6600; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 30px;}
+.ball {
+    font-family:"tahoma";
+	height: 20px;
+	width: 30px;
+	text-align: center;
+	font-size: 12px;
+	color:#464646;
+	cursor:hand;
+	border:solid 1px;
+	border-color:#9FC8EA;
+	background:#ffffff;
+}
+.ball_num {
+font-family:"tahoma";
+	height: 20px;
+	width: 20px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+	color:#464646;
+	cursor:hand;
+	border:solid 1px;
+	border-color:#ccc;
+	background:#e9e9e9;
+}
+
+
+.ball_red {
+    font-family:"tahoma";
+	height: 21px;
+	width: 21px;
+	text-align: center;	
+	font-size: 13px;
+	color:#ffffff;
+	font-weight:bold;
+	cursor:hand;
+	background-image:url(../images/ball_red_21.gif);
+}
+.ball_blue {
+    font-family:"tahoma";
+	height: 21px;
+	width: 21px;
+	text-align: center;	
+	font-size: 13px;
+	color:#ffffff;
+	font-weight:bold;
+	cursor:hand;
+	background-image:url(../images/ball_blue_21.gif);
+}
+.ball_cheng {
+    font-family:"tahoma";
+	height: 21px;
+	width: 21px;
+	text-align: center;	
+	font-size: 13px;
+	color:#ffffff;
+	font-weight:bold;
+	cursor:hand;
+	background-image:url(../images/ball_orange_21.gif);
+}
+.ball_r {
+    font-family:"tahoma";
+	height: 20px;
+	width: 30px;
+	text-align: center;
+	font-size: 12px;
+	color:#ffffff;
+	cursor:hand;
+	border:solid 1px;
+	border-color:#9FC8EA;
+	background:#0869AD;
+}
+.ball_c {
+    font-family:"tahoma";
+	height: 20px;
+	width: 30px;
+	text-align: center;
+	font-size: 12px;
+	color:#464646;
+	border:solid 1px;
+	border-color:#CCCCCC;
+	background:#ffffff;
+}
+
+.ball_50 {
+    font-family:"tahoma";
+	height: 20px;
+	width: 30px;
+	font-size: 12px;
+	color:#464646;
+	border:solid 1px;
+	border-color:#9BBFCA;
+	background:#ffffff; 
+	padding-top:5px;	
+}
+
+.ball_80 {
+    font-family:"tahoma";
+	height: 20px;
+	width: 80px;
+	text-align: center;
+	
+	font-size: 12px;
+	color:#464646;
+	cursor:hand;
+	border:solid 1px;
+	border-color:#cccccc;
+	background:#ffffff;
+}
+
+.in_text{
+	height:18px;
+	border: 1px solid #9BBDD3;
+	background-color:#FFFFFF;
+	color:#666666;
+	font-size:12px;
+	font-family: "tahoma";
+	background-image: url(../images/bg_text_30.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+}
+
+.in_help_text{
+	height:19px;
+	vertical-align:middle;	
+	border: 1px solid #cccccc;
+	background-color:#FFFFFF;
+	color:#777777;
+	font-size:14px;
+	font-family: "tahoma";	
+	background-image: url(../images/bg_text_30.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+	padding-top:7px;
+	padding-left:10px;
+}
+
+.in_text_hui{ height:18px; border: 1px solid #cccccc; background-color:#FFFFFF; color:#666666; font-size:12px;	font-family: "tahoma" ;}
+.bg_red {
+	FONT-SIZE: 12px;
+	COLOR: #103875;
+	FONT-FAMILY: "tahoma";
+	LINE-HEIGHT: 20px;
+	background-repeat: repeat-x;
+	background-position: top;
+	background-image:url(../images/bg_red.jpg);
+}
+
+.red12 { FONT-SIZE: 12px;COLOR: #cc0000; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 18px;}
+.red12 A:link { FONT-FAMILY: "tahoma"; COLOR: #cc0000; TEXT-DECORATION: none;}
+.red12 A:active { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+.red12 A:visited { FONT-FAMILY: "tahoma";COLOR: #cc0000; TEXT-DECORATION: none;}
+.red12 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: none;}
+
+.hei12 { FONT-SIZE: 12px;COLOR: #333333; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.hei12 A:link { FONT-FAMILY: "tahoma"; COLOR: #333333; TEXT-DECORATION: none;}
+.hei12 A:active { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.hei12 A:visited { FONT-FAMILY: "tahoma";COLOR: #333333; TEXT-DECORATION: none;}
+.hei12 A:hover { FONT-FAMILY: "tahoma";COLOR: #ff6600; TEXT-DECORATION: underline;}

@@ -1,0 +1,76 @@
+﻿A {COLOR:#585858; TEXT-DECORATION: none}
+A:visited {color: #585858; text-decoration:none}
+A:hover {COLOR:#FB7C00; TEXT-DECORATION: underline}
+
+A.tr:link{COLOR: #585858; TEXT-DECORATION: none}
+A.tr:visited {COLOR: #585858; TEXT-DECORATION: none}
+A.tr:hover {COLOR: #585858; TEXT-DECORATION: underline}
+
+BODY 
+{
+	SCROLLBAR-FACE-COLOR:#CECBCE;
+     SCROLLBAR-HIGHLIGHT-COLOR:WHITE;
+     SCROLLBAR-SHADOW-COLOR:#848284;
+     SCROLLBAR-3DLIGHT-COLOR:#848284;
+     SCROLLBAR-ARROW-COLOR:WHITE;
+     SCROLLBAR-TRACK-COLOR:#EAEAEA;
+     SCROLLBAR-DARKSHADOW-COLOR:WHITE;FONT-FAMILY: "宋体"; COLOR: #3C3C3C; FONT-SIZE: 9pt;line-height: 14pt; margin: 0px;
+}
+P {COLOR: black; FONT-FAMILY: "宋体"; FONT-SIZE: 9pt;line-height: 14pt}
+TD {FONT-FAMILY: "宋体"; FONT-SIZE: 9pt;line-height: 14pt}
+IMG {BORDER:0}
+
+input  { font-size: 9pt; font-family: 宋体 }
+select { font-size: 9pt; font-family: 宋体 }
+textarea { font-size: 9pt; font-family: 宋体 }
+
+.input {BORDER: #838383 1px solid;BACKGROUND-COLOR: white}
+.button {BORDER: #838383 1px solid;BACKGROUND-COLOR: #A51818;COLOR: white;font-weight: bold}
+.button1 {BORDER: #838383 1px solid;BACKGROUND-COLOR: #4957C2;COLOR: white;font-weight: bold}
+.button2 {BORDER: #B2B2B2 1px solid;BACKGROUND-COLOR: #E0E0E0;COLOR: #A51818}
+.bk {position:relative;left : 4%;}
+
+.td1 {BORDER-bottom: #7F87BB 1px solid;BACKGROUND-COLOR: #E5E7F3}
+.td2 {BORDER-bottom: #7F87BB 1px solid}
+.td3 {BACKGROUND-COLOR: #F2F2F2;BORDER-right: #C5C5C5 1px solid}
+.td4 {BACKGROUND-COLOR: #F2F2F2;BORDER-bottom: #7F87BB 1px solid}
+.td5 {BORDER-bottom: #7F87BB 1px solid;BACKGROUND-COLOR: #E5E7F3;text-indent: 0.5em;COLOR:#4453B0;font-weight: bold}
+.td6 {BORDER-bottom: #7F87BB 1px solid;text-indent: 0.5em;height:30px}
+.td7 {BORDER-bottom: #C5C5C5 1px solid;padding-left: 0.5em}
+.td8 {BACKGROUND-COLOR: #FFBD00;BORDER-bottom: #A51B1B 1px solid;COLOR:#000000;font-weight: bold;text-indent: 0.5em}
+.td9 {BACKGROUND-COLOR: #F3F3F3;BORDER-bottom: #A51B1B 1px solid}
+.td10 {BORDER-bottom: #C5C5C5 1px solid;padding-left: 1.5em}
+.td11 {BORDER-bottom: #7F87BB 1px solid;BACKGROUND-COLOR: #99CCCC;TEXT-ALIGN:center;COLOR:#000000;font-weight: bold}
+.td12 {BORDER-bottom: #BCBCBC 1px solid;BACKGROUND-COLOR: #EDEDED;TEXT-ALIGN:center}
+.td13 {BORDER-bottom: #BCBCBC 1px solid;BACKGROUND-COLOR: #F6F6F6;TEXT-ALIGN:center}
+.td14 {BACKGROUND-COLOR: #E4E7FC;BORDER-bottom: #C5C5C5 1px solid;TEXT-ALIGN:center}
+.td15 {BACKGROUND-COLOR: #5361C8;BORDER-bottom: #ffffff 1px solid;COLOR:#ffffff;font-weight: bold;text-indent: 0.5em}
+.td16 {BACKGROUND-COLOR: #5361C8;BORDER-bottom: #000000 1px solid;COLOR:#ffffff;font-weight: bold;text-indent: 0.5em}
+.td17 {BORDER-bottom: #BCBCBC 1px solid;BACKGROUND-COLOR: #BFBFBF;TEXT-ALIGN:center;COLOR:#ffffff;font-weight: bold}
+.td18 {BACKGROUND-COLOR: #5361C8;BORDER-bottom: #000000 1px solid;COLOR:#ffffff;font-weight:bold;TEXT-ALIGN:center}
+.td19 {BORDER-bottom: #BCBCBC 1px solid;BACKGROUND-COLOR: #EDEDED}
+.td20 {BORDER-bottom: #BCBCBC 1px solid;BACKGROUND-COLOR: #F6F6F6}
+.td12b {BORDER-bottom: #BCBCBC 1px solid;BACKGROUND-COLOR: #EDEDED}
+.td13b {BORDER-bottom: #BCBCBC 1px solid;BACKGROUND-COLOR: #F6F6F6}
+.td121 {BORDER-bottom: #DADADA 1px solid;height:21px}
+
+.td12a {BORDER-bottom: #BCBCBC 1px solid;BORDER-right: #BCBCBC 1px solid;BACKGROUND-COLOR: #EDEDED;TEXT-ALIGN:center}
+.td13a {BORDER-bottom: #BCBCBC 1px solid;BORDER-right: #BCBCBC 1px solid;BACKGROUND-COLOR: #F6F6F6;TEXT-ALIGN:center}
+
+.sfctd {BACKGROUND-COLOR: #FFE9DB;BORDER-bottom: #BCBCBC 1px solid;TEXT-ALIGN:center}
+.sfctd1 {BORDER-bottom: #000000 1px solid;BACKGROUND-COLOR: #FFCD7F;TEXT-ALIGN:center}
+.jqctd {BACKGROUND-COLOR: #FFF7D6;BORDER-bottom: #BCBCBC 1px solid;TEXT-ALIGN:center}
+.jqctd1 {BORDER-bottom: #000000 1px solid;BACKGROUND-COLOR: #FEEA98;TEXT-ALIGN:center}
+.ssqtd {BACKGROUND-COLOR: #E4E4FF;BORDER-bottom: #BCBCBC 1px solid;TEXT-ALIGN:center}
+.ssqtd1 {BORDER-bottom: #000000 1px solid;BACKGROUND-COLOR: #CECEFF;TEXT-ALIGN:center}
+.qxctd {BACKGROUND-COLOR: #EDDCFF;BORDER-bottom: #BCBCBC 1px solid;TEXT-ALIGN:center}
+.qxctd1 {BORDER-bottom: #000000 1px solid;BACKGROUND-COLOR: #DBC0F5;TEXT-ALIGN:center}
+ 
+.wzgreen {COLOR:#20782F;font-weight: bold}
+.wzred {COLOR:red;font-weight: bold;text-indent: 0.5em}
+.wzred1 {COLOR:red}
+.wzred2 {COLOR:#BB3C1A;FONT-SIZE: 12pt}
+.dotLineStyle
+{
+	border-bottom:1px dotted Silver;
+}

@@ -1,0 +1,35 @@
+﻿body {
+}
+
+A
+{
+	font-size: 9pt;
+	font-family: Arial;
+	color: navy;
+	text-decoration : none;
+}
+
+.l
+{
+	background-color : Red;
+}
+
+.SelectedStyle
+{
+	background-color: #99cccc;
+	/*background-image: url(../images/btnred.jpg);*/
+	border-right: black 0px solid;
+	border-top: black 0px solid;
+	border-left: black 0px solid;
+	border-bottom: black 0px solid;
+}
+
+.UnSelectedStyle
+{
+	background-color: scrollbar;
+	/*background-image: url(../images/btnwhite.jpg);*/
+	border-right: 1px solid;
+	border-top: 0px solid;
+	border-left: 1px solid;
+	border-bottom: 0px solid;
+}

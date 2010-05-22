@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>合值号码分布图</title>
+<style type="text/css">
+
+body {
+	margin-left: 0px;
+	margin-top: 20px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	cursor: crosshair;
+	font-family: "宋体";
+	font-size: 12px;
+}
+.font11 {
+	font-family: "宋体";
+	font-size: 14px;
+	font-weight: bold;
+	color: #FF0000;
+}
+</style>
+<script type="text/javascript" language="JavaScript">
+
+var jsstr = ""
++ "<img src=\"about:blank\" id=\"leftright\" style=\"width:expression(document.body.clientWidth);height:1px;position:absolute;left:0;top:0;background-color:#6699cc;z-index:100;\" \/>\n"
++ "<img src=\"about:blank\" id=\"topdown\" style=\"height:expression(document.body.clientHeight);width:1px;position:absolute;left:0;top:0;background-color:#6699cc;z-index:100;\" \/>\n"
+document.writeln(jsstr);
+
+function followmouse(){
+	leftright.style.top = window.event.y-1+document.body.scrollTop
+	topdown.style.left = window.event.x-1+document.body.scrollLeft
+	topdown.style.height= document.getElementById("div_end").offsetTop;
+	leftright.style.width=document.body.clientWidth
+}
+document.onmousemove=followmouse
+
+</script>
+ <link rel="shortcut icon" href="../../favicon.ico" /></head>
+<body style="overflow-x:hidden" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="return false" onselectstart="return false">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td height="28" background="../images/logobg2.gif"><table width="60%" height="100%" border="0" align="center" cellpadding="1" cellspacing="0">
+  <tr>
+    <td height="4" colspan="10" align="center" valign="middle"></td>
+    </tr>
+  <tr>
+    <td width="10" height="24" align="center" valign="middle">&nbsp;</td>
+    <td width="12%" align="center" ><a href="PL3_GD.aspx">和值号码</a></td>
+    <td width="12%" align="center" ><a href="HZHM.htm">合值号码</a></td>
+    <td width="12%" align="center" ><a href="DXJO.htm">大小-奇偶</a></td>
+    <td width="12%" align="center" ><a href="JODX.htm">奇偶-大小</a></td>
+    <td width="12%" align="center"  background="../images/tuibiao_topbg.gif" bgcolor="#FFFFFF"><a href="Dantuo.htm">胆拖号码</a></td>
+    <td width="12%" align="center" ><a href="Chu3.htm">除3余数</a></td>
+    <td width="12%" align="center" ><a href="Lianhao.htm">连号组合</a></td>
+    <td width="12%" align="center" ><a href="SouWei.htm">首尾边距组合</a></td>
+    <td width="10"></td>
+  </tr>
+</table>
+<br />
+<br />
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td height="30" align="center" valign="top" class="font11">合值号码分布表</td>
+    </tr>
+</table>
+<table width="770" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#003366">
+  <tr>
+    <td width="60" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">合数</font></strong></td>
+    <td colspan="3" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">0</font></strong></td>
+    <td colspan="3" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">1</font></strong></td>
+    <td colspan="3" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">2</font></strong></td>
+    <td colspan="3" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">3</font></strong></td>
+    <td colspan="3" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">4</font></strong></td>
+    <td colspan="3" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">5</font></strong></td>
+    <td colspan="3" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">6</font></strong></td>
+    <td colspan="3" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">7</font></strong></td>
+    <td colspan="2" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">8</font></strong></td>
+    <td colspan="2" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">9</font></strong></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">和值</font></strong></td>
+    <td align="center" bgcolor="#D9ECFF">0</td>
+    <td align="center" bgcolor="#D9ECFF">10</td>
+    <td align="center" bgcolor="#D9ECFF">20</td>
+    <td align="center" bgcolor="#D9ECFF">1</td>
+    <td align="center" bgcolor="#D9ECFF">11</td>
+    <td align="center" bgcolor="#D9ECFF">21</td>
+    <td align="center" bgcolor="#D9ECFF">2</td>
+    <td align="center" bgcolor="#D9ECFF">12</td>
+    <td align="center" bgcolor="#D9ECFF">22</td>
+    <td align="center" bgcolor="#D9ECFF">3</td>
+    <td align="center" bgcolor="#D9ECFF">13</td>
+    <td align="center" bgcolor="#D9ECFF">23</td>
+    <td align="center" bgcolor="#D9ECFF">4</td>
+    <td align="center" bgcolor="#D9ECFF">14</td>
+    <td align="center" bgcolor="#D9ECFF">24</td>
+    <td align="center" bgcolor="#D9ECFF">5</td>
+    <td align="center" bgcolor="#D9ECFF">15</td>
+    <td align="center" bgcolor="#D9ECFF">25</td>
+    <td align="center" bgcolor="#D9ECFF">6</td>
+    <td align="center" bgcolor="#D9ECFF">16</td>
+    <td align="center" bgcolor="#D9ECFF">26</td>
+    <td align="center" bgcolor="#D9ECFF">7</td>
+    <td align="center" bgcolor="#D9ECFF">17</td>
+    <td align="center" bgcolor="#D9ECFF">27</td>
+    <td align="center" bgcolor="#D9ECFF">8</td>
+    <td align="center" bgcolor="#D9ECFF">18</td>
+    <td align="center" bgcolor="#D9ECFF">9</td>
+    <td align="center" bgcolor="#D9ECFF">19</td>
+  </tr>
+  <tr>
+    <td height="1" colspan="29" align="center"></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">单选</font></strong></td>
+    <td align="center" bgcolor="#FFECB3">000</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">777</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">444</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">111</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">888</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">555</td>
+    <td align="center" bgcolor="#F0FFD0"><a href="http://www.178cpw.com" target="_blank"><font color="#F0FFD0">178</font></a></td>
+    <td align="center" bgcolor="#FFECB3">222</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">999</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">666</td>
+    <td align="center" bgcolor="#F0FFD0">333</td>
+    <td align="center" bgcolor="#F0FFD0">559</td>
+  </tr>
+  <tr>
+    <td height="1" colspan="29" align="center"></td>
+  </tr>
+  <tr>
+    <td rowspan="5" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">组三</font></strong></td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">118</td>
+    <td align="center" bgcolor="#FFECB3">668</td>
+    <td align="center" bgcolor="#F0FFD0">001</td>
+    <td align="center" bgcolor="#F0FFD0">119</td>
+    <td align="center" bgcolor="#F0FFD0">669</td>
+    <td align="center" bgcolor="#FFECB3">002</td>
+    <td align="center" bgcolor="#FFECB3">228</td>
+    <td align="center" bgcolor="#FFECB3">778</td>
+    <td align="center" bgcolor="#F0FFD0">003</td>
+    <td align="center" bgcolor="#F0FFD0">229</td>
+    <td align="center" bgcolor="#F0FFD0">779</td>
+    <td align="center" bgcolor="#FFECB3">004</td>
+    <td align="center" bgcolor="#FFECB3">338</td>
+    <td align="center" bgcolor="#FFECB3">996</td>
+    <td align="center" bgcolor="#F0FFD0">005</td>
+    <td align="center" bgcolor="#F0FFD0">339</td>
+    <td align="center" bgcolor="#F0FFD0">889</td>
+    <td align="center" bgcolor="#FFECB3">006</td>
+    <td align="center" bgcolor="#FFECB3">448</td>
+    <td align="center" bgcolor="#FFECB3">998</td>
+    <td align="center" bgcolor="#F0FFD0">007</td>
+    <td align="center" bgcolor="#F0FFD0">449</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">008</td>
+    <td align="center" bgcolor="#FFECB3">558</td>
+    <td align="center" bgcolor="#F0FFD0">009</td>
+    <td align="center" bgcolor="#F0FFD0">667</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">226</td>
+    <td align="center" bgcolor="#FFECB3">776</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">227</td>
+    <td align="center" bgcolor="#F0FFD0">885</td>
+    <td align="center" bgcolor="#FFECB3">110</td>
+    <td align="center" bgcolor="#FFECB3">336</td>
+    <td align="center" bgcolor="#FFECB3">886</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">337</td>
+    <td align="center" bgcolor="#F0FFD0">887</td>
+    <td align="center" bgcolor="#FFECB3">112</td>
+    <td align="center" bgcolor="#FFECB3">446</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">113</td>
+    <td align="center" bgcolor="#F0FFD0">447</td>
+    <td align="center" bgcolor="#F0FFD0">997</td>
+    <td align="center" bgcolor="#FFECB3">114</td>
+    <td align="center" bgcolor="#FFECB3">556</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">115</td>
+    <td align="center" bgcolor="#F0FFD0">557</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">116</td>
+    <td align="center" bgcolor="#FFECB3">774</td>
+    <td align="center" bgcolor="#F0FFD0">117</td>
+    <td align="center" bgcolor="#F0FFD0">775</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">334</td>
+    <td align="center" bgcolor="#FFECB3">884</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">335</td>
+    <td align="center" bgcolor="#F0FFD0">993</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">552</td>
+    <td align="center" bgcolor="#FFECB3">994</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">445</td>
+    <td align="center" bgcolor="#F0FFD0">995</td>
+    <td align="center" bgcolor="#FFECB3">220</td>
+    <td align="center" bgcolor="#FFECB3">554</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">221</td>
+    <td align="center" bgcolor="#F0FFD0">663</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">330</td>
+    <td align="center" bgcolor="#FFECB3">664</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">223</td>
+    <td align="center" bgcolor="#F0FFD0">665</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">224</td>
+    <td align="center" bgcolor="#FFECB3">882</td>
+    <td align="center" bgcolor="#F0FFD0">225</td>
+    <td align="center" bgcolor="#F0FFD0">883</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">442</td>
+    <td align="center" bgcolor="#FFECB3">992</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">443</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">660</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">553</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">662</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">771</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">772</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">331</td>
+    <td align="center" bgcolor="#F0FFD0">773</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">332</td>
+    <td align="center" bgcolor="#FFECB3">990</td>
+    <td align="center" bgcolor="#F0FFD0">441</td>
+    <td align="center" bgcolor="#F0FFD0">991</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">550</td>
+    <td align="center" bgcolor="#FFECB3"><a href="http://www.178cpw.com" target="_blank"><font color="#FFECB3">178</font></a></td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">551</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">661</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">770</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">880</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">881</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">440</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="1" colspan="29" align="center"></td>
+  </tr>
+  <tr>
+    <td rowspan="10" align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">组六</font></strong></td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">019</td>
+    <td align="center" bgcolor="#FFECB3">389</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">029</td>
+    <td align="center" bgcolor="#F0FFD0">489</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">039</td>
+    <td align="center" bgcolor="#FFECB3">589</td>
+    <td align="center" bgcolor="#F0FFD0">021</td>
+    <td align="center" bgcolor="#F0FFD0">049</td>
+    <td align="center" bgcolor="#F0FFD0">689</td>
+    <td align="center" bgcolor="#FFECB3">013</td>
+    <td align="center" bgcolor="#FFECB3">059</td>
+    <td align="center" bgcolor="#FFECB3">789</td>
+    <td align="center" bgcolor="#F0FFD0">014</td>
+    <td align="center" bgcolor="#F0FFD0">069</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">015</td>
+    <td align="center" bgcolor="#FFECB3">079</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">016</td>
+    <td align="center" bgcolor="#F0FFD0">089</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">017</td>
+    <td align="center" bgcolor="#FFECB3">189</td>
+    <td align="center" bgcolor="#F0FFD0">018</td>
+    <td align="center" bgcolor="#F0FFD0">289</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">028</td>
+    <td align="center" bgcolor="#FFECB3">479</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">038</td>
+    <td align="center" bgcolor="#F0FFD0">579</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">048</td>
+    <td align="center" bgcolor="#FFECB3">679</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">058</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">068</td>
+    <td align="center" bgcolor="#FFECB3"><a href="http://www.178cpw.com" target="_blank"><font color="#FFECB3">178</font></a></td>
+    <td align="center" bgcolor="#F0FFD0">023</td>
+    <td align="center" bgcolor="#F0FFD0">078</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">024</td>
+    <td align="center" bgcolor="#FFECB3">169</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">025</td>
+    <td align="center" bgcolor="#F0FFD0">179</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">026</td>
+    <td align="center" bgcolor="#FFECB3">279</td>
+    <td align="center" bgcolor="#F0FFD0">027</td>
+    <td align="center" bgcolor="#F0FFD0">379</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">037</td>
+    <td align="center" bgcolor="#FFECB3">569</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">047</td>
+    <td align="center" bgcolor="#F0FFD0">678</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">057</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">067</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">149</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">159</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">123</td>
+    <td align="center" bgcolor="#FFECB3">178</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">034</td>
+    <td align="center" bgcolor="#F0FFD0">269</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">035</td>
+    <td align="center" bgcolor="#FFECB3">369</td>
+    <td align="center" bgcolor="#F0FFD0">036</td>
+    <td align="center" bgcolor="#F0FFD0">469</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">046</td>
+    <td align="center" bgcolor="#FFECB3">578</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">056</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">129</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">139</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">158</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">168</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">259</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">124</td>
+    <td align="center" bgcolor="#F0FFD0">278</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">125</td>
+    <td align="center" bgcolor="#FFECB3">378</td>
+    <td align="center" bgcolor="#F0FFD0">045</td>
+    <td align="center" bgcolor="#F0FFD0">478</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">127</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">128</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">138</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">148</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">167</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">249</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">268</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">359</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">134</td>
+    <td align="center" bgcolor="#FFECB3">459</td>
+    <td align="center" bgcolor="#F0FFD0">126</td>
+    <td align="center" bgcolor="#F0FFD0">568</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">136</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">137</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">147</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">157</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">239</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">258</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">349</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">368</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3"><a href="http://www.178cpw.com" target="_blank"><font color="#FFECB3">178</font></a></td>
+    <td align="center" bgcolor="#FFECB3">468</td>
+    <td align="center" bgcolor="#F0FFD0">135</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">145</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">146</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">156</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">238</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">248</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">267</td>
+    <td align="center" bgcolor="#F0FFD0"><a href="http://www.178cpw.com" target="_blank"><font color="#F0FFD0">178</font></a></td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">358</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">458</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">567</td>
+    <td align="center" bgcolor="#F0FFD0">234</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">235</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">236</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">237</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">247</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">257</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">348</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">367</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">467</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">245</td>
+    <td align="center" bgcolor="#F0FFD0"><a href="http://www.178cpw.com" target="_blank"><font color="#F0FFD0">178</font></a></td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">246</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">256</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">347</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">357</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">457</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">345</td>
+    <td align="center" bgcolor="#FFECB3"><a href="http://www.178cpw.com" target="_blank"><font color="#FFECB3">178</font></a></td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">346</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">356</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">456</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#FFECB3">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+    <td align="center" bgcolor="#F0FFD0">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="1" colspan="29" align="center"></td>
+  </tr>
+  <tr>
+    <td align="center" nowrap="nowrap" bgcolor="#37709D"><strong><font color="#FFFFFF">组选注数</font></strong></td>
+    <td colspan="3" align="center" bgcolor="#FFECB3">21</td>
+    <td colspan="3" align="center" bgcolor="#F0FFD0">21</td>
+    <td colspan="3" align="center" bgcolor="#FFECB3">21</td>
+    <td colspan="3" align="center" bgcolor="#F0FFD0">21</td>
+    <td colspan="3" align="center" bgcolor="#FFECB3">21</td>
+    <td colspan="3" align="center" bgcolor="#F0FFD0">21</td>
+    <td colspan="3" align="center" bgcolor="#FFECB3">21</td>
+    <td colspan="3" align="center" bgcolor="#F0FFD0">21</td>
+    <td colspan="2" align="center" bgcolor="#FFECB3">21</td>
+    <td colspan="2" align="center" bgcolor="#F0FFD0">21</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#37709D"><strong><font color="#FFFFFF">单选注数</font></strong></td>
+    <td colspan="3" align="center" bgcolor="#FFECB3">100</td>
+    <td colspan="3" align="center" bgcolor="#F0FFD0">100</td>
+    <td colspan="3" align="center" bgcolor="#FFECB3">100</td>
+    <td colspan="3" align="center" bgcolor="#F0FFD0">100</td>
+    <td colspan="3" align="center" bgcolor="#FFECB3">100</td>
+    <td colspan="3" align="center" bgcolor="#F0FFD0">100</td>
+    <td colspan="3" align="center" bgcolor="#FFECB3">100</td>
+    <td colspan="3" align="center" bgcolor="#F0FFD0">100</td>
+    <td colspan="2" align="center" bgcolor="#FFECB3">100</td>
+    <td colspan="2" align="center" bgcolor="#F0FFD0">100</td>
+  </tr>
+</table>
+<div id="div_end"></div>
+
+
+</body>
+</html>

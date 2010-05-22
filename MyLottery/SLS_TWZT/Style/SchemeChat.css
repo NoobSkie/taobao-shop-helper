@@ -1,0 +1,265 @@
+/* CSS Document */
+.zw1 {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	color: #1B4C7F;
+	text-decoration: none;
+}
+.zw2 {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 22px;
+	color: #ffffff;
+	text-decoration: none;
+}
+.zw3 {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #333333;
+	text-decoration: none;
+}
+.zw4 {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 18px;
+	color: #333333;
+	text-decoration: none;
+}
+.zw5 {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #FF0000;
+	text-decoration: none;
+	line-height: 18px;
+}
+a.li1:link {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 17px;
+	color: #1B4C7F;
+	text-decoration: none;
+}
+a.li1:visited {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 17px;
+	color: #1B4C7F;
+	text-decoration: none;
+}
+a.li1:hover {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 17px;
+	color: #FF6600;
+	text-decoration: underline;
+}
+a.li1:active {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 17px;
+	color: #1B4C7F;
+	text-decoration: none;
+}
+a.li2:link {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #333333;
+	text-decoration: none;
+}
+a.li2:visited {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #333333;
+	text-decoration: none;
+}
+a.li2:hover {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #FF6600;
+	text-decoration: none;
+}
+a.li2:active {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #333333;
+	text-decoration: none;
+}
+a.li3:link {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #666666;
+	text-decoration: none;
+}
+a.li3:visited {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #666666;
+	text-decoration: none;
+}
+a.li3:hover {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #CCCCCC;
+	text-decoration: none;
+}
+a.li3:active {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #666666;
+	text-decoration: none;
+}
+.kk5 {
+	line-height: 17px;
+	height: 17px;
+}
+.kkk {
+	border-right-width: 1px;
+	border-right-style: dashed;
+	border-right-color: #000000;
+}
+a.li4:link {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #003366;
+	text-decoration: none;
+	font-weight: bold;
+}
+a.li4:visited {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #003366;
+	text-decoration: none;
+	font-weight: bold;
+}
+a.li4:hover {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #FF9900;
+	text-decoration: none;
+	font-weight: bold;
+}
+a.li4:active {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #003366;
+	text-decoration: none;
+	font-weight: bold;
+}
+.ai1 {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #000000;
+	text-decoration: none;
+}
+.button{
+	BORDER-RIGHT: #999999 1px solid;
+	PADDING-RIGHT: 3px;
+	BORDER-TOP: #999999 1px solid;
+	PADDING-LEFT: 3px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 9pt;
+	BACKGROUND: #f7f7f7;
+	BORDER-LEFT: #999999 1px solid;
+	CURSOR: hand;
+	LINE-HEIGHT: normal;
+	BORDER-BOTTOM: #999999 1px solid;
+	FONT-STYLE: normal;
+	HEIGHT: 18px;
+	TEXT-ALIGN: center;
+	FONT-VARIANT: normal
+}
+.TextBox{ BACKGROUND-COLOR:#ffffff;
+	scrollbar-base-color:#CDE4FF;
+	scrollbar-face-color:#CDE4FF;
+	scrollbar-track-color:#E0EDFF;
+	scrollbar-arrow-color:#ffffff;
+	scrollbar-3dlight-color:#DDEEFF;
+	scrollbar-highlight-color:#CDE4FF;
+	scrollbar-shadow-color:#CDE4FF;
+	scrollbar-darkshadow-color:#DDEEFF;
+	font-size:12;
+}
+a.bai:link {
+	font-size: 9px;
+	line-height: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a.bai:visited {
+	font-size: 9px;
+	line-height: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a.bai:hover {
+	font-size: 9px;
+	line-height: normal;
+	color: #FFFFCC;
+	text-decoration: underline;
+}
+a.dh:link {
+	font-size: 9px;
+	line-height: normal;
+	color: #000000;
+	text-decoration: none;
+}
+a.dh:visited {
+	font-size: 9px;
+	line-height: normal;
+	color: #000000;
+	text-decoration: none;
+}
+a.dh:hover {
+	background: url(../images/lh/dhbg2.jpg) repeat-x bottom #9AD429;
+	font-size: 9px;
+	line-height: normal;
+	color: #000000;
+	text-decoration: NONE;
+}
+a.red:link {
+	font-size: 9px;
+	line-height: normal;
+	color: #990000;
+	text-decoration: none;
+}
+a.red:visited {
+	font-size: 9px;
+	line-height: normal;
+	color: #990000;
+	text-decoration: none;
+}
+a.red:hover {
+	background-color:#FFFFFF;
+	font-size: 9px;
+	line-height: normal;
+	color: #990000;
+	text-decoration: underline;
+}
+a.foot:link {
+	font-size: 9px;
+	line-height: normal;
+	color: #424542;
+	text-decoration: none;
+}
+a.foot:visited {
+	font-size: 9px;
+	line-height: normal;
+	color: #424542;
+	text-decoration: none;
+}
+a.foot:hover {
+	font-size: 9px;
+	line-height: normal;
+	color: #333333;
+	text-decoration: NONE;
+}
+
+TD  {
+	font-size : 9pt;
+	font-weight : normal;
+	font-style : normal;
+}
+
+P{margin: 0}

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="~/Admin/OnlinePayment/Alipay/AlipayNotify.aspx.cs" Inherits="Admin_OnlinePayment_Alipay_AlipayNotify" enableEventValidation="false" %>

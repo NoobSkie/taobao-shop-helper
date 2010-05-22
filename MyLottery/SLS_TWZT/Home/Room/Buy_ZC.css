@@ -1,0 +1,131 @@
+﻿
+.rb
+{
+    background-image: url(images/zfb_redball.gif);
+    font-size: 14px;
+    color: White;
+    width: 25px;
+}
+.bb
+{
+    background-image: url(images/zfb_blueball.gif);
+    font-size: 14px;
+    color: White;
+    width: 25px;
+}
+.redMenu
+{
+    font-size: 13px;
+    color: #fff;
+    line-height: 29px;
+    font-weight: bold;
+    background-color: #f60;
+    border: #f60 1px solid;
+    border-bottom: 0px;
+    width: 72px;
+    cursor: pointer;
+    float: left;
+    margin-bottom: 0px;
+}
+.whiteMenu
+{
+    font-size: 13px;
+    line-height: 29px;
+    font-weight: normal;
+    background-color: #fff;
+    border: #e3e3e3 1px solid;
+    border-bottom: 0px;
+    width: 72px;
+    cursor: pointer;
+    float: left;
+}
+
+.splay
+{
+    background-color: #f60;
+    border-left: #fff 2px solid;
+    width: 66px;
+    height: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    color: White;
+    height: 29px;
+}
+.msplay
+{
+    background: url(images/cz_qh_72_1.jpg);
+    font-size: 12px;
+    color: #226699;
+    font-family: "tahoma";
+    line-height: 20px;
+    width: 72px;
+    height: 29px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.nsplay
+{
+    background: url(images/cz_qh_72_2.jpg);
+    font-size: 12px;
+    color: #226699;
+    font-family: "tahoma";
+    line-height: 20px;
+    width: 72px;
+    font-weight: normal;
+    cursor: pointer;
+}
+.hui12
+{
+    font-size: 12px;
+    color: #666666;
+    font-family: "tahoma";
+    line-height: 20px;
+}
+.num_1
+{
+    font-size: 18px;
+    color: #ff0000;
+    font-family: Georgia, "Times New Roman" , Times, serif;
+    line-height: 20px;
+    font-style: italic;
+    font-weight: bold;
+}
+.red2
+{
+    font-size: 12px;
+    color: #FF0065;
+    font-family: "tahoma";
+    line-height: 20px;
+}
+.red16
+{
+    font-size: 18px;
+    color: #FF0065;
+    font-family: "tahoma";
+    line-height: 20px;
+    font-weight: bold;
+}
+.red16 A:link
+{
+    font-family: "tahoma";
+    color: #FF0065;
+    text-decoration: none;
+}
+.red16 A:active
+{
+    font-family: "tahoma";
+    color: #FF0065;
+    text-decoration: none;
+}
+.red16 A:visited
+{
+    font-family: "tahoma";
+    color: #FF0065;
+    text-decoration: none;
+}
+.red16 A:hover
+{
+    font-family: "tahoma";
+    color: #FF0065;
+    text-decoration: none;
+}

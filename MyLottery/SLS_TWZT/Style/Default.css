@@ -1,0 +1,51 @@
+﻿#divExpertsPredict
+{
+	height: 136px;
+}
+.style1
+{
+	font-size: 14px;
+	color: #216699;
+	font-family: "tahoma";
+	line-height: 20px;
+	width: 56%;
+}
+.style2
+{
+	font-size: 12px;
+	color: #666666;
+	font-family: "tahoma";
+	line-height: 20px;
+	width: 56%;
+}
+.red12
+{
+	font-size: 12px;
+	color: #CC0000;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.red12 A:link
+{
+	font-family: "tahoma";
+	color: #CC0000;
+	text-decoration: none;
+}
+.red12 A:active
+{
+	font-family: "tahoma";
+	color: #CC0000;
+	text-decoration: none;
+}
+.red12 A:visited
+{
+	font-family: "tahoma";
+	color: #CC0000;
+	text-decoration: none;
+}
+.red12 A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: none;
+}

@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="../Style/css.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" language="javascript" src="../../../javaScript/Public.js"></script>
+
+    <script type="text/javascript" language="javascript">
+        <!--
+        var o_tb_2_LotteryNumber;
+        var o_list_2_LotteryNumber;
+        var o_tb_2_Multiple;
+        var o_tb_2_Share;
+        var o_tb_2_AssureShare;
+        var o_tb_2_BuyShare;
+        var o_tb_2_Title;
+        var o_lab_2_Num;
+        var o_lab_2_SumMoney;
+        var o_lab_2_ShareMoney;
+        var o_lab_2_AssureMoney;
+        var o_lab_2_BuyMoney;
+        var o_lab_2_Balance;
+
+        function Init()
+        {
+	        o_tb_2_LotteryNumber = parent.document.all["tb_LotteryNumber"];
+            o_list_2_LotteryNumber = parent.document.all["list_LotteryNumber"];
+            o_tb_2_Multiple = parent.document.all["tb_Multiple"];
+            o_tb_2_Share = parent.document.all["tb_Share"];
+            o_tb_2_AssureShare = parent.document.all["tb_AssureShare"];
+            o_tb_2_BuyShare = parent.document.all["tb_BuyShare"];
+            o_tb_2_Title = parent.document.all["tb_Title"];
+            o_lab_2_Num = parent.document.all["lab_Num"];
+            o_lab_2_SumMoney = parent.document.all["lab_SumMoney"];
+            o_lab_2_ShareMoney = parent.document.all["lab_ShareMoney"];
+            o_lab_2_AssureMoney = parent.document.all["lab_AssureMoney"];
+            o_lab_2_BuyMoney = parent.document.all["lab_BuyMoney"];
+            o_lab_2_Balance = parent.document.all["lab_Balance"];
+
+            ClearSelect();
+        }
+
+        function SelectBall(sender)
+        {
+	        var Selected = GetBallState(sender);
+	        if (Selected)
+	        {
+		        SetBallState(sender, false);
+		        CheckFull();
+		        return;
+	        }
+
+	        SetBallState(sender, true);
+	        CheckFull();
+        }
+
+        function GetBallRow(sender)
+        {
+	        var str = sender.id;
+	        return parseInt(str.substring(5, 6));
+        }
+
+        function GetBallCol(sender)
+        {
+	        var str = sender.id;
+	        return parseInt(str.substring(7, 8));
+        }
+
+        function GetBallObject(row, col)
+        {
+	        var obj = document.all["td_2_" + row + "_" + col];
+	        return obj;
+        }
+
+        function GetBallSelectedNum(row)
+        {
+	        var Count = 0;
+	        for (var i = 0; i < 10; i ++)
+	        {
+		        var obj = GetBallObject(row, i);
+		        if (GetBallState(obj))
+			        Count ++;
+	        }
+	        return Count;
+        }
+
+        function GetBallState(sender) {
+            return (sender.style.color != "#454545");
+        }
+
+        function SetBallState(sender, SelectState) {
+            if (!SelectState) {
+                sender.style.backgroundImage = "url(../Images/ball_white.gif)";
+                sender.style.color = "#454545";
+            }
+            else {
+                sender.style.backgroundImage = "url(../Images/ball_red.gif)";
+                sender.style.color = "White";
+            }
+        }
+
+        function CheckFull()
+        {
+	        var Full = true;
+	        for (var i = 0; i < 2; i ++)
+	        {
+		        if (GetBallSelectedNum(i) < 2)
+		        {
+			        Full = false;
+			        break;
+		        }
+	        }
+        	
+	        document.all["lab_2_Selected"].innerText = GetLotteryInvestNum() + " 注，" + GetLotteryInvestNum() * 2 + " 元";
+	        document.all["btn_2_Add"].disabled = (GetLotteryInvestNum() < 2);
+        }
+
+        function GetLotteryNumber()
+        {
+	        var LotteryNumber = "";
+	        for (var i = 0; i < 2; i ++)
+	        {
+		        var temp = " ";
+		        for (var j = 0; j < 10; j++)
+		        {
+			        var obj = GetBallObject(i, j);
+			        if (GetBallState(obj))
+			        temp += obj.innerText.trim();
+		        }
+		        temp = temp.trim();
+		        if (temp.length != 1)
+			        temp = "(" + temp + ")";
+                
+		        LotteryNumber += temp;
+	        }
+
+	        return LotteryNumber.trim();
+        }
+
+        function GetLotteryInvestNum()	//取注数
+        {
+	        var InvestNum = 1;
+	        for (var i = 0; i < 2; i ++)
+		        InvestNum *= GetBallSelectedNum(i);
+	        return InvestNum;
+        }
+
+        function ClearSelect()
+        {
+	        for (var i = 0; i < 2; i ++)
+		        for (var j = 0; j < 10; j++)
+		        {
+			        var obj = GetBallObject(i, j);
+			        SetBallState(obj, false);
+		        }
+        }
+
+        function btn_2_AddClick()
+        {
+	        var customOptions = parent.document.createElement("OPTION");
+	        customOptions.text = GetLotteryNumber();
+	        customOptions.value = 1;
+	        o_list_2_LotteryNumber.add(customOptions, o_list_2_LotteryNumber.length);
+
+	        o_tb_2_LotteryNumber.value += GetLotteryNumber() + "\n";
+	        o_lab_2_Num.innerText = StrToInt(o_lab_2_Num.innerText) + GetLotteryInvestNum();
+	        ClearSelect();
+	        document.all["lab_2_Selected"].innerText = "0 注，0.00 元";
+	        document.all["btn_2_Add"].disabled = true;
+	        
+	        parent.window.CalcResult();
+	        parent.window.CalculateAllMoney();
+
+	        return true;
+        }
+        -->
+    </script>
+
+</head><link rel="shortcut icon" href="../favicon.ico"/>
+<body onload="Init()">
+    <table style="width: 100%; height: 95px ; background-color: #FEECEC;" cellspacing="0" cellpadding="0" border="0">
+        <tbody>
+            <tr>
+                <td valign="top" style="text-align: left; padding: 10px;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td width="40">
+                                    十位
+                                </td>
+                                <td style="cursor: hand; height: 26px" id="td_2_0_0" onclick="SelectBall(this);"
+                                    class="ball_num">
+                                    0
+                                </td>
+                                <td style="cursor: hand" id="td_2_0_1" onclick="SelectBall(this);" class="ball_num">
+                                    1
+                                </td>
+                                <td style="cursor: hand" id="td_2_0_2" onclick="SelectBall(this);" class="ball_num">
+                                    2
+                                </td>
+                                <td style="cursor: hand" id="td_2_0_3" onclick="SelectBall(this);" class="ball_num">
+                                    3
+                                </td>
+                                <td style="cursor: hand" id="td_2_0_4" onclick="SelectBall(this);" class="ball_num">
+                                    4
+                                </td>
+                                <td style="cursor: hand" id="td_2_0_5" onclick="SelectBall(this);" class="ball_num">
+                                    5
+                                </td>
+                                <td style="cursor: hand" id="td_2_0_6" onclick="SelectBall(this);" class="ball_num">
+                                    6
+                                </td>
+                                <td style="cursor: hand" id="td_2_0_7" onclick="SelectBall(this);" class="ball_num">
+                                    7
+                                </td>
+                                <td style="cursor: hand" id="td_2_0_8" onclick="SelectBall(this);" class="ball_num">
+                                    8
+                                </td>
+                                <td style="cursor: hand" id="td_2_0_9" onclick="SelectBall(this);" class="ball_num">
+                                    9
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    个位
+                                </td>
+                                <td style="cursor: hand; height: 26px" id="td_2_1_0" onclick="SelectBall(this);"
+                                    class="ball_num">
+                                    0
+                                </td>
+                                <td style="cursor: hand" id="td_2_1_1" onclick="SelectBall(this);" class="ball_num">
+                                    1
+                                </td>
+                                <td style="cursor: hand" id="td_2_1_2" onclick="SelectBall(this);" class="ball_num">
+                                    2
+                                </td>
+                                <td style="cursor: hand" id="td_2_1_3" onclick="SelectBall(this);" class="ball_num">
+                                    3
+                                </td>
+                                <td style="cursor: hand" id="td_2_1_4" onclick="SelectBall(this);" class="ball_num">
+                                    4
+                                </td>
+                                <td style="cursor: hand" id="td_2_1_5" onclick="SelectBall(this);" class="ball_num">
+                                    5
+                                </td>
+                                <td style="cursor: hand" id="td_2_1_6" onclick="SelectBall(this);" class="ball_num">
+                                    6
+                                </td>
+                                <td style="cursor: hand" id="td_2_1_7" onclick="SelectBall(this);" class="ball_num">
+                                    7
+                                </td>
+                                <td style="cursor: hand" id="td_2_1_8" onclick="SelectBall(this);" class="ball_num">
+                                    8
+                                </td>
+                                <td style="cursor: hand" id="td_2_1_9" onclick="SelectBall(this);" class="ball_num">
+                                    9
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-bottom: 15px; text-align: left;">
+                    <div style="margin-bottom: 10px; text-align: center;">
+                        <font color="#ff0000">【注】</font><span id="Lbl_Memo" class="Lbl_Title">从个位和十位中分别选1个以上数字</span>。您选择了
+                        <div style="display: inline; color: red; height: 15px" id="lab_2_Selected">
+                            0 注，0.00 元</div>
+                    </div>
+                    <table align="center" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td align="center">
+                                <img alt="" src="../Images/kt_ok.gif" id="btn_2_Add" name="btn_2_Add" onclick="return btn_2_AddClick();"
+                                    style="cursor: hand;" visible="false" disabled />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
