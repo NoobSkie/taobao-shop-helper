@@ -1,0 +1,455 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Shove</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Shove</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>http://localhost/Shove/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Utils.Zip, Version=1.3.0.0, Culture=neutral, PublicKeyToken=c551e179877da246, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel">
+      <Name>Microsoft.Office.Interop.Excel</Name>
+      <HintPath>Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Name>Microsoft.VisualBasic</Name>
+      <HintPath>Microsoft.VisualBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Name>mscorlib</Name>
+      <HintPath>mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <Name>MySql.Data</Name>
+      <HintPath>MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+      <HintPath>System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+      <HintPath>System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite">
+      <Name>System.Data.SQLite</Name>
+      <HintPath>bin\Debug\System.Data.SQLite.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices">
+      <Name>System.DirectoryServices</Name>
+      <HintPath>System.DirectoryServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management">
+      <Name>System.Management</Name>
+      <HintPath>System.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+      <HintPath>System.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+      <HintPath>System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
+      <HintPath>System.Xml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ICSharpCode.SharpZipLib.BZip2\BZip2.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.BZip2\BZip2Constants.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.BZip2\BZip2Exception.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.BZip2\BZip2InputStream.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.BZip2\BZip2OutputStream.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Checksums\Adler32.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Checksums\Crc32.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Checksums\IChecksum.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Checksums\StrangeCRC.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Core\FileSystemScanner.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Core\INameTransform.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Core\IScanFilter.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Core\NameFilter.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Core\PathFilter.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Core\StreamUtils.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Core\WindowsPathUtils.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Encryption\PkzipClassic.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.GZip\GZIPConstants.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.GZip\GZipException.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.GZip\GzipInputStream.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.GZip\GzipOutputStream.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Tar\InvalidHeaderException.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Tar\TarArchive.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Tar\TarBuffer.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Tar\TarEntry.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Tar\TarException.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Tar\TarHeader.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Tar\TarInputStream.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Tar\TarOutputStream.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression.Streams\DeflaterOutputStream.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression.Streams\InflaterInputStream.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression.Streams\OutputWindow.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression.Streams\StreamManipulator.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression\Deflater.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression\DeflaterConstants.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression\DeflaterEngine.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression\DeflaterHuffman.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression\DeflaterPending.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression\Inflater.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression\InflaterDynHeader.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip.Compression\PendingBuffer.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\FastZip.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\IEntryFactory.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\WindowsNameTransform.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\ZipConstants.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\ZipEntry.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\ZipEntryFactory.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\ZipException.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\ZipExtraData.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\ZipFile.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\ZipHelperStream.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\ZipInputStream.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\ZipNameTransform.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib.Zip\ZipOutputStream.cs" />
+    <Compile Include="ICSharpCode.SharpZipLib\SharpZipBaseException.cs" />
+    <Compile Include="ICSharpCode\ZIPPER.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.Alipay\Alipay.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.Alipay\AlipayCommon.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.Alipay\CreateBytes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.Alipay\HttpClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.Database\Access.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.Database\Data.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.Database\MSSQL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.Database\MySQL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.Database\SQLite.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.HtmlParse\Attribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.HtmlParse\AttributeList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.HtmlParse\Parse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.HtmlParse\ParseHTML.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\AttDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\AttList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\Attribute.cs" />
+    <Compile Include="Shove.HTML.SgmlReader\AttributePresence.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\AttributeType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\CaseFolding.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\ContentModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\DeclaredContent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\ElementDecl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\Entity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\Group.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\GroupType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\HtmlStream.cs" />
+    <Compile Include="Shove.HTML.SgmlReader\HWStack.cs" />
+    <Compile Include="Shove.HTML.SgmlReader\LiteralType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\Node.cs" />
+    <Compile Include="Shove.HTML.SgmlReader\Occurrence.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\SgmlDtd.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\SgmlReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.HTML.SgmlReader\State.cs" />
+    <Compile Include="Shove.HTML.SgmlReader\StringUtilities.cs" />
+    <Compile Include="Shove.HTML.SgmlReader\Ucs4Decoder.cs" />
+    <Compile Include="Shove.HTML.SgmlReader\Ucs4DecoderBigEngian.cs" />
+    <Compile Include="Shove.HTML.SgmlReader\Ucs4DecoderLittleEndian.cs" />
+    <Compile Include="Shove.HTML\HTML.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.NewtonServices\getSICompletedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.NewtonServices\getSICompletedEventHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.NewtonServices\Service.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shove.Properties\Settings.cs" />
+    <Compile Include="Shove.WordSplit\CheryWordSplit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.WordSplit\Dictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove.WordSplit\WordsList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._IO\File.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._IO\IniFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._IO\Log.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net.Ftp\FtpClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net.Ftp\TransferStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net.Ftp\TransmissionProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net.Ftp\TransProcessCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net.Ftp\TransProcessDelegate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net.Ftp\TransStatusChangedEnventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net.Ftp\TransStatusDelegate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net.Mail\POP3.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net.Mail\SMTP.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net\Email.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net\Internet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net\IPAddress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Net\SetFileSystemAccessRights.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Security\Encrypt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Security\GetSIService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shove._System\Processes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._System\SystemInformation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Web\Cache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Web\IIS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Web\JavaScript.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Web\Session.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Web\Utility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Web\WebConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove._Web\WebServiceCallResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove\ControlExt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove\_Byte.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove\_Convert.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove\_Excel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove\_String.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shove\_Xml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
