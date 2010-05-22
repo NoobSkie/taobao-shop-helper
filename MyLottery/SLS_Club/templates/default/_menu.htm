@@ -1,0 +1,63 @@
+﻿<div class="pannelmenu">
+<%if {userid}>0%>
+      <%if {pagename}=="usercptopic.aspx"||{pagename}=="usercppost.aspx"||{pagename}=="usercpdigest.aspx"||{pagename}=="usercpprofile.aspx"
+      ||{pagename}=="usercpnewpassword.aspx"||{pagename}=="usercppreference.aspx"%>
+	   <a href="usercpprofile.aspx" class="current"><span>个人设置</span></a>
+	   <%else%>
+	   <a href="usercpprofile.aspx">个人设置</a>
+	   <%/if%>
+	   
+	  <%if {pagename}=="usercpinbox.aspx"||{pagename}=="usercpsentbox.aspx"||{pagename}=="usercpdraftbox.aspx"||{pagename}=="usercppostpm.aspx"||{pagename}=="usercpshowpm.aspx"||{pagename}=="usercppmset.aspx"%>
+	   <a href="usercpinbox.aspx" class="current"><span>短消息</span></a>
+	   <%else%>
+	   <a href="usercpinbox.aspx">短消息</a>
+	   <%/if%>
+	   	  
+	  <%if {pagename}=="usercpsubscribe.aspx"%>
+	   <a href="usercpsubscribe.aspx" class="current"><span>收藏夹</span></a>
+	   <%else%>
+	   <a href="usercpsubscribe.aspx">收藏夹</a>
+	   <%/if%>
+      
+	   <%if {pagename}=="usercpcreditspay.aspx"||{pagename}=="usercpcreditstransfer.aspx"||{pagename}=="usercpcreditspayoutlog.aspx"||{pagename}=="usercpcreditspayinlog.aspx"
+	   ||{pagename}=="usercpcreaditstransferlog.aspx"%>
+       <a href="usercpcreditspay.aspx" class="current"><span>金币交易</span></a>
+	   <%else%>
+       <a href="usercpcreditspay.aspx">金币交易</a>
+       <%/if%>
+		<%if {pagename}=="usercpforumsetting.aspx"%>
+			<a href="usercpforumsetting.aspx" class="current"><span>论坛设置</span></a>
+		<%else%>
+			<a href="usercpforumsetting.aspx">论坛设置</a>
+		<%/if%>
+       <%if {config.enablespace}==1 && {user.spaceid}>0%>
+		   <%if {pagename}=="usercpspacepostblog.aspx"||{pagename}=="usercpspacemanageblog.aspx"||{pagename}=="usercpspaceeditblog.aspx"||{pagename}=="usercpspacelinklist.aspx"||{pagename}=="usercpspacelinkedit.aspx"||{pagename}=="usercpspacelinkadd.aspx"||{pagename}=="usercpspacecomment.aspx"||{pagename}=="usercpspacemanagecategory.aspx"||{pagename}=="usercpspacecategoryadd.aspx"||{pagename}=="usercpspacecategoryedit.aspx"||{pagename}=="usercpspacemanageattachment.aspx"||{pagename}=="usercpspaceset.aspx"%>
+		   <a href="usercpspacemanageblog.aspx" class="current"><span>{config.spacename}</span></a>
+		   <%else%>
+		   <a href="usercpspacemanageblog.aspx">{config.spacename}</a>
+		   <%/if%>
+	   <%/if%>
+	   <%if {config.enablealbum}==1%>
+	       <%if {pagename}=="usercpspacemanagealbum.aspx"||{pagename}=="usercpspacemanagephoto.aspx"||{pagename}=="usercpspacephotoadd.aspx"||{pagename}=="usercpeditphoto.aspx"%>
+	            <a href="usercpspacemanagealbum.aspx" class="current"><span>{config.albumname}</span></a>
+	       <%else%>
+	            <a href="usercpspacemanagealbum.aspx">{config.albumname}</a>
+	       <%/if%>
+	   <%/if%>
+	   <%if {config.enablemall}>=1%>
+	       <%if {pagename}=="usercpmygoods.aspx"%>
+	            <a href="usercpmygoods.aspx" class="current"><span>我的商品</span></a>
+	       <%else%>
+	            <a href="usercpmygoods.aspx">我的商品</a>
+	       <%/if%>     
+       <%/if%>
+       <%if {config.enablemall}==2%>
+	       <%if {pagename}=="usercpshopcategory.aspx"%>
+	            <a href="usercpshopcategory.aspx?item=shopcategory" class="current"><span>店铺管理</span></a>
+	       <%else%>
+	            <a href="usercpshopcategory.aspx?item=shopcategory">店铺管理</a>
+	       <%/if%>     
+       <%/if%>
+       
+<%/if%>       
+	</div>

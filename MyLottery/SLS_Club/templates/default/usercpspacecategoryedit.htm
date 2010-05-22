@@ -1,0 +1,73 @@
+﻿<%inherits "Discuz.Space.Pages.usercpspacecategoryedit"%>
+<%template _header%>
+<!--header end-->
+
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>  &raquo; <strong>编辑日志分类</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+<!--主体-->
+<script type="text/javascript">
+function checkform()
+{
+	if(document.getElementById("title").value == "")
+	{
+		alert("分类名称为空");
+		document.getElementById("title").focus();
+		return false;
+	}
+	if(document.getElementById("categorydescription").value.length > 1000)
+	{
+		alert("分类描述长度最大为1000字"); 
+		return false;
+	}
+	if(!(/^\d+$/.test(document.getElementById("displayorder").value)))
+	{
+		alert("分类序号必须是整数");
+		document.getElementById("displayorder").focus();
+		return false;
+	}
+	return true;
+}
+</script>
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%template _spacemenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if page_err==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+						<form id="postpm" name="postpm" method="post" action="">
+							<label for="user" class="labelshort">分类名称:</label>
+							<input name="title" type="text" id="title" value="{spacecategoryinfo.title}" size="40" maxlength="50"/><br />
+							<label for="email" class="labelshort">分类描述:</label>
+							<textarea name="description" cols="50" rows="6" id="categorydescription" style="width:80%;">{spacecategoryinfo.description}</textarea><br />
+							<label for="comment" class="labelshort">分类序号:</label>
+							<input name="displayorder" type="text" id="displayorder" value="{spacecategoryinfo.displayorder}" size="2" maxlength="2"/><br/>
+							<input type="submit" name="Submit" value="确定" onclick="return checkform();" ID="Submit1"/>
+						</form>
+						<%/if%>
+						</div>
+					<%else%>
+					<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主体-->
+</div>
+<%template _copyright%>
+<%template _footer%>

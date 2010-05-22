@@ -1,0 +1,89 @@
+/*
+Editor Offical Style for Discuz!NT(R)
+URL: http://NT.discuz.net
+(C) 2001-2007 Comsenz Inc.
+*/
+/*PostForm & Editor*/
+.editor_cell { vertical-align: top; }
+#editor { border: solid; border-color: #CAD9EA; border-width: 1px 1px 0; background: #F7F7F7; }
+	#editor td { border: none; padding: 2px; }
+.editortoolbar table { width: auto; }
+.editortoolbar a, .editortoolbar .a { display: block; padding: 1px; border: 1px solid #F7F7F7; cursor: pointer; }
+	.editortoolbar a.hover, .editortoolbar a:hover, .editortoolbar .a1 { background-color: #E8F3FD; border: 1px solid #9DB3C5; text-decoration: none; }
+.editor_switcher_bar {  position: relative; }
+	.editor_switcher_bar a { float: right; padding: 0 3px; margin-right: 5px; }
+	.editor_switcher_bar button { font-size:12px; border: 1px solid; border-color: #E2E2E2 #E2E2E2 #FFF #E2E2E2; font-weight: bold; height: 30px; he\ight: 28px; line-height: 28px; background: #FFF; margin: 0 2px; position: relative; cursor: pointer; }
+		*+html .editor_switcher_bar button { top: 1px; }
+		* html .editor_switcher_bar button { top: 1px; }
+		.editor_switcher_bar .editor_switcher { border-bottom-color: #E2E2E2; font-weight: normal; }
+.editor_text { border: 1px solid; border-color: #E2E2E2; background:#FFF;  }
+	.editor_text textarea { border: none; width: 99%; font: 12px/1.6em "Courier New", Courier, monospace; }
+.editor_button { background: #F7F7F7; border: solid #E2E2E2; border-width: 0 1px 0; margin-bottom: 10px; }
+	.editor_button button { background: transparent; border-width: 0 0 0 1px; color: #DD0000; }
+.editor_attach {  border: 1px solid #CAD9EA; }
+#wysiwyg { font: 14px/1.6em Helvetica, Arial, sans-serif !important; }
+	#wysiwyg * { line-height: normal; }
+	#wysiwyg a { text-decoration:underline; color: #069 !important; color: #069; }
+	#wysiwyg li { margin-left: 2em; }
+	#wysiwyg strong, #wysiwyg b { font-weight: bold; }
+	#wysiwyg em, #wysiwyg i { font-style: italic; }	
+	#wysiwyg .t_table { border-left:1px solid #CCC; border-top:1px solid #CCC; }
+	#wysiwyg .t_table td { border-right:1px solid #CCC; border-bottom:1px solid #CCC; }
+.fontname_menu { width: 97px; }
+.fontsize_menu { width: 27px; line-height: normal; }
+.fontsize_menu ul li{ line-height: normal; }
+#posteditor_popup_table_menu { width: 250px; }
+.fontname_menu li, .fontsize_menu li { cursor: pointer; }
+.editor_colornormal, .editor_colorhover { border: none !important; padding: 2px !important; }
+	.editor_colornormal div { width: 10px; height: 10px; overflow: hidden; cursor: pointer; border: 1px solid #FFF; }
+		.editor_colorhover div { width: 10px; height: 10px; overflow: hidden; cursor: pointer; border: 1px solid #000; }
+
+.editor { border: solid; border-color: #E2E2E2; border-width: 1px 1px 0; background: #F7F7F7; text-align: left; }
+	 .editorrow { padding: 3px; overflow: hidden; }
+		* html .editor div { height: 1%; }
+	.editor em { margin: 0 5px; float: left; display: block; height: 20px; width: 3px; background:url(../../editor/images/editor.gif) no-repeat 0 -701px; border: 1px solid #F7F7F7; }
+	.editor a { margin-bottom: 6px; float: left; text-align: left; text-decoration: none; display: block; height: 20px; width: 21px; background:url(../../editor/images/editor.gif) no-repeat; text-indent: -9999px; overflow: hidden; border: 1px solid #F7F7F7;  }
+		a.oneditor, .editor a:hover { background: #F5F5F0 url(../../editor/images/editor.gif) no-repeat 0 21px; border: 1px solid #E2E2E2; }
+		#posteditor_cmd_bold { background-position: 0 0; }
+		#posteditor_cmd_italic { background-position: 0 -21px; }
+		#posteditor_cmd_underline { background-position: 0 -41px;}
+		#posteditor_popup_fontname { margin-right: 6px; width: 116px; background-position: 106px -721px; text-indent: 2px; }
+		#posteditor_popup_fontsize { margin-right: 6px; width: 40px; background-position: 30px -721px; text-indent: 2px; }
+		#posteditor_popup_forecolor { text-indent: 0px; width: 40px; background-position: 30px -721px; }
+		#posteditor_cmd_justifyleft { background-position: 0 -61px;}
+		#posteditor_cmd_justifycenter { background-position: 0 -81px;}
+		#posteditor_cmd_justifyright { background-position: 0 -101px;}
+		#posteditor_cmd_createlink { background-position: 0 -121px;}
+		#posteditor_cmd_email { background-position: 0 -141px;}
+		#posteditor_cmd_insertimage { background-position: 0 -161px;}
+		#posteditor_cmd_removeformat { background-position: 0 -181px;}
+		#posteditor_cmd_unlink { background-position: 0 -201px;}
+		#posteditor_cmd_undo { background-position: 0 -221px;}
+		#posteditor_cmd_redo { background-position: 0 -241px;}
+		#posteditor_cmd_insertunorderedlist { background-position: 0 -261px;}
+		#posteditor_cmd_insertorderedlist { background-position: 0 -281px;}
+		#posteditor_cmd_outdent { background-position: 0 -301px;}
+		#posteditor_cmd_indent { background-position: 0 -321px;}
+		#posteditor_cmd_floatleft { background-position: 0 -341px;}
+		#posteditor_cmd_floatright { background-position: 0 -361px;}
+		#posteditor_popup_table { background-position: 0 -381px;}
+		#posteditor_cmd_free { background-position: 0 -401px;}
+		#posteditor_cmd_hide { background-position: 0 -421px;}
+		#posteditor_cmd_quote { background-position: 0 -441px;}
+		#posteditor_cmd_code { background-position: 0 -461px;}
+		#posteditor_popup_media { background-position: 0 -541px;}
+		#posteditor_popup_media_menu td,#posteditor_popup_table_menu td{ border:none; }
+		#posteditor_cmd_custom1_wma { background-position: 0 -619px;}
+		#posteditor_cmd_custom3_wmv { background-position: 0 -638px;}
+		#posteditor_cmd_custom3_rm { background-position: 0 -580px;}
+		#posteditor_cmd_custom1_ra { background-position: 0 -600px;}
+		#posteditor_cmd_custom1_fly { background-position: 0 -560px;}
+		#posteditor_cmd_custom3_silverlight { background-position: 0 -760px;}
+		#posteditor_cmd_custom1_flash { background-position: 0 -660px;}		
+		a.editormode { width: 60px; text-align: center; float: right; }
+		a.plugeditor { text-indent: 0; background-position: 0 40px; }
+		a.upmedia { width: 68px; }
+	.popupmenu_popup ul { margin:0; padding:0; }
+	.popupmenu_popup li { list-style:none;}
+	.popupmenu_popup { text-align: left; line-height: 1.4em; padding: 10px; overflow: hidden; border: 1px solid #E2E2E2; background: #FFF url("images/portalbox_bg.gif"); background-repeat: repeat-x; background-position: 0 1px;  }
+

@@ -1,0 +1,66 @@
+<%template _header%>
+<%if page_err==0%>
+    <%if {showversion}==1%>
+        <div class="NavHelp">
+        <div style="border:0px; background-color:#F3F3F3; width:100%; margin:auto; padding:6px">Discuz!NT 版本信息</div>       
+         <ul style="margin: 8px 16px;">
+            Discuz.Aggregation.dll : {dllver_discuzaggregation} <br />
+            Discuz.Cache.dll : {dllver_discuzcache} <br />
+            Discuz.Common.dll : {dllver_discuzcommon} <br />
+            Discuz.Config.dll : {dllver_discuzconfig} <br />
+            Discuz.Control.dll : {dllver_discuzcontrol} <br />
+            Discuz.Data.dll : {dllver_discuzdata} <br />
+            Discuz.Data.SqlServer.dll : {dllver_discuzdatasqlserver} <br />
+            Discuz.Data.Access.dll : {dllver_discuzdataaccess} <br />
+            Discuz.Data.MySql.dll : {dllver_discuzdatamysql} <br />
+            Discuz.Entity.dll : {dllver_discuzentity} <br />
+            Discuz.Forum.dll : {dllver_discuzforum} <br />
+            Discuz.Plugin.dll : {dllver_discuzplugin} <br />
+            Discuz.Plugin.SysMail.dll : {dllver_discuzpluginsysmail} <br />
+            Discuz.Space.dll : {dllver_discuzspace} <br />
+            Discuz.Web.dll : {dllver_discuzweb} <br />
+            Discuz.Web.UI.dll : {dllver_discuzwebui} <br /><br />       
+            数据库类型 : {dbtype} <br />
+            产品名称 : {assemblyproductname} <br />
+            版权信息 : {Assemblycopyright} <br />
+        </ul>
+       </div> 
+    <%else%>
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}">{config.forumtitle}</a> &raquo; <script type="text/javascript">if (getQueryString('hid')!='') document.write(' <strong><a href="help.aspx">帮助</a></strong>');</script>
+	</div>
+</div>
+<div class="mainbox viewthread specialthread">	
+	<table cellspacing="0" cellpadding="0" summary="在线帮助">	
+		<td class="postcontent helpcontent">
+			<h3>在线帮助</h3>
+			<%loop (HelpInfo) helpcontent helplist%>
+				<%if {helpcontent.pid}==0%>
+						<h2>{helpcontent.title}</h2>
+				<%else%>
+						<ul>
+							<li class="helpsubtitle"><a name="h_{helpcontent.pid}_{helpcontent.id}"></a>{helpcontent.title}</li>
+							<li>{helpcontent.message}</li>
+						</ul>
+				<%/if%>
+			<%/loop%>
+		</td>
+		<td class="postauthor helpmenu">
+				<%loop (HelpInfo) help helplist%>
+					<%if {help.pid}==0%>
+						<p><strong><a href="?hid={help.id}">{help.title}</a></strong></p>
+					<%else%>
+						<p><a href="#h_{help.pid}_{help.id}" style="padding-left: 8px;">{help.title}</a></p>
+					<%/if%>
+				<%/loop%>
+		</td>
+	</table>
+</div>
+  <%/if%>
+<%else%>
+	<%template _errmsgbox%>
+<%/if%>
+</div>
+<%template _copyright%>
+<%template _footer%>

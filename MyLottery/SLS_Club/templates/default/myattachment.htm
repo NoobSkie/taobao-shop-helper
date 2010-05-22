@@ -1,0 +1,74 @@
+﻿<%template _header%>
+<%namespace "Discuz.Config"%>
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}">{config.forumtitle}</a>&raquo;<a href="usercp.aspx">用户中心</a>&raquo;<strong>附件</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	function checkCheckBox(form,objtag)
+	{
+		for(var i = 0; i < form.elements.length; i++) 
+		{
+			var e = form.elements[i];
+			if(e.name == "pmitemid") 
+			{
+				e.checked = objtag.checked;
+			}
+		}
+		objtag.checked = !objtag.checked;
+	}
+</script>
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%if page_err==0%>
+				<%template _attachmentmenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+				  		<form id="pmform" name="pmform" method="post" action="">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<%loop (MyAttachmentInfo) myatinfo myattachmentlist%>
+						<tbody>
+							<tr class="messagetable" onmouseover="this.className='messagetableon'" onmouseout="this.className='messagetable'">
+							<td width="33%" style="text-align:left;"><a href="{myatinfo.filename}" title="{myatinfo.attachment}">{myatinfo.SimpleName}</a></td>
+							<td width="22%" style="text-align:left;">{myatinfo.Description}</td>
+							<td width="28%">{myatinfo.Postdatetime}</td>
+							<td width="17%">{myatinfo.Downloads}</td>
+							</tr>
+						</tbody>
+						<%/loop%>
+						</table>
+						</form>
+						</div>
+						<div class="pages_btns">
+							<div class="pages">
+								<em>{pageid}/{pagecount}页</em>{pagenumbers}
+								<kbd>跳转<input name="gopage" type="text" id="gopage" onKeyDown="if(event.keyCode==13) {
+							window.location='myattachment.aspx?page=' + this.value;}"  size="4" maxlength="9"  class="colorblue2"/>页</kbd>
+							</div>
+							
+						</div>
+						<%/if%>
+				<%else%>
+					<%template _usercperrmsgbox%>
+				<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主体-->
+</div>
+<%template _copyright%>
+<%template _footer%>

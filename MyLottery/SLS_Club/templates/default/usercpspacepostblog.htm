@@ -1,0 +1,105 @@
+﻿<%inherits "Discuz.Space.Pages.usercpspacepostblog"%>
+<%template _header%>
+<!--header end-->
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>  &raquo; <strong>发表日志</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+<!--主体-->
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%template _spacemenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if page_err==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+						<form id="postform" name="postpm" method="post" action="">
+							<label for="user" class="LabelShort">日志标题:</label>
+							<input name="title" type="text" id="title" size="40" maxlength="60"/><br />
+							<label for="email" class="LabelShort">日志类别:</label>
+							<%if categoryslist.Rows.Count!=0%>
+							<%loop rows categoryslist%>
+							<input type="checkbox" name="category" value="{rows[categoryid]}" >{rows[title]}&nbsp;
+							<%/loop%>
+							<a href="usercpspacecategoryadd.aspx">新建日志类别</a>
+							<%else%>
+							 暂无日志类别,
+							<a href="usercpspacecategoryadd.aspx">新建日志类别</a>
+							<%/if%>
+							<br />
+							<label for="comment" class="labelshort">内容:</label>
+							<textarea name="DataTextarea" id="DataTextarea" cols="80" rows="20"></textarea>
+                            <br />
+							<label for="savetosentbox"  class="labelshort">上传文件:</label>
+							<iframe width="80%" height="30px" id="checkveriframe" framespacing="0px" frameborder="0px" allowTransparency="true" style="border-width: 0px; margin: 0px;" noResize src="space/manage/uploadfile.aspx" scrolling="no"></iframe>
+							<div id="postattachfile" style="border:0px;display:block;"></div><br />
+							<%if {enabletag}%>
+							<script type="text/javascript" src="javascript/ajax.js"></script>
+							<script type="text/javascript" src="javascript/post_editor.js"></script>
+							<label for="tags" class="labelshort">标签(Tags):</label>
+							<input type="text" name="tags" id="tags" value="" class="colorblue" style="margin-bottom:-1px;" size="55" /><input type="button" class="lightbutton" onclick="relatekw($('title').value, dntEditor.GetText());" value="可用标签" />(用空格隔开多个标签，最多可填写 5 个)<br />
+							<%/if%>
+							<label for="user" class="labelshort">发布类型:</label>
+							<input type="radio" name="poststatus" value="1" class="radioinput" checked="checked" />直接发布
+							<input type="radio" name="poststatus" value="0" class="radioinput" />放入草稿箱
+							<input type="radio" name="poststatus" value="2" class="radioinput" />私有	<br />
+							<label for="user" class="labelshort">评论类型:</label>
+							<input type="radio" name="commentstatus" value="1"  class="radioinput" <%if {spaceconfig.commentpref}==1%>checked="checked"<%/if%> ID="Radio4"/>不允许评论
+							<input type="radio" name="commentstatus" value="0"  class="radioinput" <%if {spaceconfig.commentpref}==0%>checked="checked"<%/if%>ID="Radio5"/>允许匿名评论
+							<input name="commentstatus" type="radio" value="2"   class="radioinput" <%if {spaceconfig.commentpref}==2%>checked="checked"<%/if%>ID="Radio6"/>仅允许注册用户评论<br />
+							<input type="submit" name="Submit" value="确定" onclick="return checkBlog()" id="postsubmit"/>
+							[完成后可按Ctrl+Enter提交]
+						</form>
+                        <script type="text/javascript" src="javascript/dnteditor.js"></script>
+                        <script type="text/javascript" src="javascript/post.js"></script>
+                        <script type="text/javascript">
+                        var dntEditor;
+
+                        function CreateEditor()
+                        {
+	                        dntEditor = new DNTeditor('DataTextarea', '90%', '250', '');
+	                        dntEditor.Style = "{forumpath}templates/{templatepath}/editor.css";
+	                        dntEditor.BasePath = '{forumpath}';
+	                        dntEditor.ReplaceTextarea();
+                        }
+
+                        function PrepareSave()
+                        {
+	                        $('DataTextarea').value = dntEditor.GetHtml();
+                        }
+
+                        function validate(theform)
+                        {
+                           PrepareSave();
+                           return true;
+                        }
+
+                        CreateEditor();
+                        </script>
+                        <script type="text/javascript" src="javascript/template_spaceblog.js"></script>
+						<%/if%>
+						</div>
+					<%else%>
+					<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--编辑器结束-->	
+<!--主体--->
+</div>
+<%template _copyright%>
+<%template _footer%>

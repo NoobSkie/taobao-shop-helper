@@ -1,0 +1,24 @@
+﻿<div class="panneltabs">
+<%if {userid}>0%>
+	<a href="usercpcreditspay.aspx"
+	<%if pagename=="usercpcreditspay.aspx"%>
+		class="current"
+	<%/if%>>金币兑换</a>
+	<a href="usercpcreditstransfer.aspx"
+	<%if pagename=="usercpcreditstransfer.aspx"%>
+		class="current"
+	<%/if%>>金币转帐</a>
+	<a href="usercpcreditspayoutlog.aspx"
+	<%if pagename=="usercpcreditspayoutlog.aspx"%>
+		class="current"
+	<%/if%>>支出记录</a>
+	<a href="usercpcreditspayinlog.aspx"
+	<%if pagename=="usercpcreditspayinlog.aspx"%>
+		class="current"
+	<%/if%>>收入记录</a>
+	<a href="usercpcreaditstransferlog.aspx"
+	<%if pagename=="usercpcreaditstransferlog.aspx"%>
+		class="current"
+	<%/if%>>兑换与转帐记录</a>
+<%/if%>
+</div>	

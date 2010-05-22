@@ -1,0 +1,72 @@
+﻿<%inherits "Discuz.Space.Pages.usercpspacelinkadd"%>
+<%template _header%>
+<!--header end-->
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>  &raquo; <strong>增加友情链接</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+<!--主体-->
+<script type="text/javascript">
+	function validateSubmit()
+	{
+		$ = document.getElementById;
+		if($("linktitle").value == "")
+		{
+			alert("没有输入链接文字！");
+			$("linktitle").focus();
+			return false;
+		}
+		if($("linkurl").value == "")
+		{
+			alert("没有输入链接地址！");
+			$("linkurl").focus();
+			return false;
+		}
+		if($("linkdescription").value.length > 200)
+		{
+			alert('链接描述长度最大为200字'); 
+			return false;
+		}
+	}
+</script>
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%template _spacemenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if page_err==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+						<form id="postpm" name="postpm" method="post" action="">
+							<label for="user" class="labelshort">链接文字:</label>
+							<input name="linktitle" type="text" id="linktitle" value="" size="40" maxlength="50"/><br />
+							<label for="email" class="labelshort">链接地址:</label>
+							<input name="linkurl" type="text" id="linkurl" value="" size="40" maxlength="255"/><br />
+							<label for="comment" class="labelshort">描述:</label>
+							<textarea name="description" cols="50" rows="6" id="linkdescription" style="width:80%;"></textarea><br/>							
+							<input type="submit" name="Submit" value="确定" onclick="return validateSubmit();" ID="Submit1"/>
+						</form>
+						<%/if%>
+						</div>
+					<%else%>
+					<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主体-->
+</div>
+<%template _copyright%>
+<%template _footer%>

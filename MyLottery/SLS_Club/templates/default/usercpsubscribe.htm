@@ -1,0 +1,93 @@
+<%template _header%>
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>  &raquo; <strong>查看主题订阅</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+<!--body-->
+<script type="text/javascript">
+	function checkCheckBox(form,objtag)
+	{
+		for(var i = 0; i < form.elements.length; i++) 
+		{
+			var e = form.elements[i];
+			if(e.name == "titemid") 
+			{
+				e.checked = objtag.checked;
+			}
+		}
+		objtag.checked = !objtag.checked;
+	}
+</script>
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%template _subscribemenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if page_err==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+				  		<form id="favlist" name="favlist" method="post" action="">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<%loop favorites favoriteslist%>
+						<tbody>
+						  <tr class="messagetable" onmouseover="this.className='messagetableon'" onmouseout="this.className='messagetable'">
+                          <td width="4%"><input name="titemid" id="id{favorites[tid]}" type="checkbox"  id="Checkbox1"  value="{favorites[tid]}" style="margin-top:-1px;"/></td>
+                          <td width="55%" style="text-align:left;">
+						  <%if {typeid}==1%>
+							<a href="showalbum.aspx?albumid={favorites[tid]}">{favorites[title]}</a>
+						  <%else if {typeid}==2%>
+							<a href="space/viewspacepost.aspx?postid={favorites[tid]}">{favorites[title]}</a>
+						  <%else if {typeid}==3%>
+							<a href="showgoods.aspx?goodsid={favorites[goodsid]}">{favorites[title]}</a>
+						  <%else%>
+						    <%set {aspxrewriteurl} = this.ShowTopicAspxRewrite({favorites[tid]},0)%>
+							<a href="{aspxrewriteurl}">{favorites[title]}</a>
+						  <%/if%>
+						  </td>
+                          <td width="15%">
+                              			  <%set {aspxrewriteurl} = this.UserInfoAspxRewrite({favorites[posterid]})%>
+						  <a href="{aspxrewriteurl}">{favorites[poster]}</a></td>
+                          <td width="20%" class="fontfamily">{favorites[postdatetime]}</td>
+                          <td><a href="#" onclick="$('id{favorites[tid]}').checked=true;$('favlist').submit();">删除</a></td>
+                        </tr>
+						</tbody>
+						<%/loop%>
+						</table>
+						</form>
+						</div>
+						<div class="pannelmessage">
+							<div class="pannelleft" style="width: 160px;">
+								<a href="javascript:;"  onclick="checkCheckBox($('favlist'),this)" class="selectall">全选</a>&nbsp;&nbsp;&nbsp;
+								<a href="#" onclick="$('favlist').submit()" class="selectall">删除</a> 
+							</div>
+						</div>
+						<div class="pages_btns">
+							<div class="pages">
+								<em>{pageid}/{pagecount}页</em>{pagenumbers}
+								<kbd>跳转<input name="gopage" type="text" id="gopage" onKeyDown="if(event.keyCode==13) {
+							window.location='usercpsubscribe.aspx?typeid={typeid}&page=' + this.value;}"  size="4" maxlength="9"/>页</kbd>
+							</div>
+						</div>
+						<%/if%>
+					<%else%>
+					<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--body-->
+</div>
+<%template _copyright%>
+<%template _footer%>

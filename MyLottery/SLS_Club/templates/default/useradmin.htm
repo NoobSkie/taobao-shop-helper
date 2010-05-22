@@ -1,0 +1,79 @@
+﻿<%template _header%>
+<!--TheCurrent start-->
+<div id="foruminfo">
+	<div class="userinfo">
+		<h2><a href="{config.forumurl}">{config.forumtitle}</a><strong>{operationtitle}</strong></h2>
+	</div>
+</div>
+<!--TheCurrent end-->
+<%if {page_err}==0%>
+	<%if {ispost}%>
+		<%template _msgbox%>
+	<%else%>
+	<div class="mainbox formbox">
+		<form id="moderate" name="moderate" method="post">
+			<h3>{operationtitle}</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody>
+			<tr>
+				<th>被操作用户</th>
+				<td>
+				<%set {aspxrewriteurl} = this.UserInfoAspxRewrite({operateduid})%>
+				<a href="{aspxrewriteurl}" target="_blank">{operatedusername}</a></td>
+			</tr>
+			</tbody>
+			<%if {action}=="banuser"%>
+			<tbody>
+			<tr>
+				<th>禁止类型</th>
+				<td>
+					<input type="radio" value="0" name="bantype" <%if {bantype}==0%>checked="checked"<%/if%> />正常状态
+					<input type="radio" value="1" name="bantype" <%if {bantype}==1%>checked="checked"<%/if%> />禁止发言
+					<input type="radio" value="2" name="bantype" <%if {bantype}==2%>checked="checked"<%/if%> />禁止访问
+					<%if {bantype}==3%><input type="radio" value="3" name="bantype" checked="checked" />禁止IP<%/if%>
+				</td>
+			</tr>
+			</tbody>
+			<%/if%>
+			<tbody>
+			<tr>
+				<th>操作原因</th>
+				<td>
+					<select id="selectreason" name="selectreason" size="6" style="width: 8em; height:8em; " onchange="this.form.reason.value=this.value">
+					  <option value="">自定义</option>
+					  <option value="">--------</option>
+					  <option value="广告/SPAM">广告</option>
+					  <option value="恶意灌水">恶意灌水</option>
+					  <option value="违规内容">违规内容</option>
+					  <option value="文不对题">文不对题</option>
+					  <option value="重复发帖">重复发帖</option>
+					  <option value="发错版块">发错版块</option>
+					  <option value="屡教不改">屡教不改</option>
+					  <option value="已经过期">已经过期</option>
+					  <option value="">--------</option>
+					  <option value="我很赞同">我很赞同</option>
+					  <option value="精品文章">精品文章</option>
+					  <option value="原创内容">原创内容</option>
+					  <option value="鼓励分享">鼓励分享</option>
+					</select>
+					<textarea name="reason" style="height: 7.5em; width:20em;" onkeydown="if(this.value.length>200){ alert('操作原因不能多于200个字符');return false; }"></textarea>
+				</td>
+			</tr>
+			</tbody>
+			<tbody>	
+			<tr>
+				<th>&nbsp;</th>
+				<td>
+					<input type="submit" value="提  交" name="modsubmit" />
+				</td>
+			</tr>
+		</tbody>
+			</table>
+		</form>	
+	</div>
+	<%/if%>
+<%else%>
+	<%template _errmsgbox%>
+<%/if%>
+<%template _copyright%>
+<%template _footer%>

@@ -1,0 +1,1 @@
+<%@ page language="c#" autoeventwireup="True" enableviewstate="false" inherits="Discuz.Web.Archiver.showtopic, SLS.Club" %>

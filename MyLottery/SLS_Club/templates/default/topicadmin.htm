@@ -1,0 +1,666 @@
+﻿ <%template _header%>
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}">{config.forumtitle}</a>  &raquo;  {forumnav}  &raquo;  <strong>{operationtitle}</strong>
+	</div>
+</div>
+<%if {request[operation]}==""%>
+<%if page_err==0%>
+<div class="mainbox formbox">
+<form id="moderate" name="moderate" method="post" action="topicadmin.aspx?action=moderate&operation={operation}">
+		<input type="hidden" name="topicid" value="{topiclist}" />
+		<input type="hidden" name="forumid" value="{forumid}" />
+<%if {config.aspxrewrite}==1%>
+		<input type="hidden" id="referer" name="referer" value="showforum-{forumid}{config.extname}" />
+<%else %>	
+		<input type="hidden" id="referer" name="referer" value="showforum.aspx?forumid={forumid}">
+<%/if%>	
+<script type="text/javascript">
+	var re = getQueryString("referer");
+	if (re != "")
+	{
+		$("referer").value = unescape(re);
+	}
+</script>
+	<h3>{operationtitle}</h3>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<th>用户名</th>
+				<td>{username}&nbsp;<a href="logout.aspx?userkey={userkey}">退出登录</a></td>
+			</tr>
+		</tbody>
+			<%if {operation}=="highlight"%>
+		<tbody>
+			<tr>
+				<th>字体样式</th>
+				<td><input type="checkbox" name="highlight_style_b" value="B" /> <strong>粗体</strong> <input type="checkbox" name="highlight_style_i" value="I" /> <em>斜体</em><input type="checkbox" name="highlight_style_u" value="U" /> <u>下划线</u>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th>字体颜色:</th>
+				<td><!--colorpicker层显示开始-->						
+				<script type="text/javascript" src="javascript/template_colorpicker.js"></script>
+				<input type="text" value="" name="highlight_color" id="highlight_color"  size="7" class="colorblue" onfocus="this.className='colorfocus';" onblur="this.className='colorblue';" />
+				<select name="highlight_colorselect" id="highlight_colorselect" onChange="selectoptioncolor(this)" style="margin-bottom:2px;">
+					<option value="">默认</option>  
+					<option style="background:#FF0000" value="#FF0000"></option>  
+					<option style="background:#FFA500" value="#FFA500"></option> 
+					<option style="background:#FFFF00" value="#FFFF00"></option> 
+					<option style="background:#008000" value="#008000"></option> 
+					<option style="background:#00FFFF" value="#00FFFF"></option> 
+					<option style="background:#0000FF" value="#0000FF"></option> 
+					<option style="background:#800080" value="#800080"></option> 
+					<option style="background:#808080" value="#808080"></option>
+				</select>
+				<img class="img" title="选择颜色" src="templates/{templatepath}/images/colorpicker.gif" id=s_bgcolor onclick="IsShowColorPanel(this);" style="cursor:hand; border:0px;" />
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="displayorder"%>
+		<tbody>
+			<tr>
+				<th><label for="level">级别</label></th>
+				<td>
+				<%if {displayorder}>0%>
+				<input type="radio" value="0" name="level" />解除置顶
+				<%/if%>
+				<input name="level" type="radio" value="1"
+				<%if {displayorder}<=1%>
+				 checked="checked"
+				<%/if%>
+				 /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" /> <input type="radio" value="2" name="level"
+				<%if {displayorder}==2%>
+				 checked="checked"
+				<%/if%>
+				 /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" />
+				<input type="radio" value="3" name="level"
+				<%if {displayorder}==3%>
+				 checked="checked"
+				<%/if%>
+				 /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" />
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="digest"%>
+		<tbody>
+			<tr>
+				<th><label for="level">级别</label></th>
+				<td><%if {digest}>0%>
+				<input type="radio" value="0" name="level" />解除精华
+				<%/if%>
+				<input name="level" type="radio" value="1"
+				<%if {digest}<=1%>
+				 checked="checked"
+				<%/if%>
+				 /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" /> <input type="radio" value="2" name="level"
+				<%if {digest}==2%>
+				 checked="checked"
+				<%/if%>
+				 /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" />
+				<input type="radio" value="3" name="level"
+				<%if {digest}==3%>
+				 checked="checked"
+				<%/if%>
+				 /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" /><img src="templates/{templatepath}/images/star_level1.gif" width="16" height="16" />
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="move"%>
+		<tbody>
+			<tr>
+				<th><label for="moveto">目标版块</label></th>
+				<td>
+					<select name="moveto">
+						{forumlist}
+					</select>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th><label for="type">移动方式</label></th>
+				<td>
+					<input type="radio" checked="checked" value="normal" name="type" />
+				移动主题&nbsp;&nbsp;<input type="radio" value="redirect" name="type" /> 移动主题并在原来的论坛中保留转向
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="close"%>
+		<tbody>
+			<tr>
+				<th><label for="close">操作</label></th>
+				<td>
+					<input type="radio" checked="checked" value="0" name="close" />
+				打开主题&nbsp;&nbsp; <input type="radio" value="1" name="close" /> 关闭主题
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="banpost"%>
+		<tbody>
+			<tr>
+				<th><label for="bandpost">操作</label></th>
+				<td>
+					<input id="banpost1" name="banpost" type="radio" value="0" />取消屏蔽
+					<input id="banpost2" name="banpost" type="radio" value="-2" checked/>屏蔽帖子
+					<input type="hidden" name="postid" id="postid" value="{postidlist}" />
+				<script type="text/javascript">
+					var status = getQueryString("banstatus");
+					if (status == "0") {
+						$("banpost1").checked = true;
+						$("banpost2").checked = false;
+					}
+					else {
+						$("banpost2").checked = true;
+						$("banpost1").checked = false;
+					}
+				
+				</script>
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="bump"%>
+		<tbody>
+			<tr>
+				<th><label for="bumptype">操作</lable></th>
+				<td>
+					<input id="bumptype1" name="bumptype" type="radio" value="1"  checked/>主题提升
+					&nbsp;&nbsp; 
+					<input id="bumptype2" name="bumptype" type="radio" value="-1"/>主题下沉
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="copy"%>
+		<tbody>
+			<tr>
+				<th><label for="copyto">目标论坛/分类</label></div>
+				<td>
+					<select name="copyto">
+						{forumlist}
+					</select>
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="split"%>
+		<tbody>
+			<tr>
+				<th><label for="subject">新主题的标题</label></th>
+				<td>
+					<input type="text" id="" name="subject" size="45" value="" />
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="merge"%>
+		<tbody>
+			<tr>
+				<th><label for="othertid">主题tid</label></th>
+				<td>
+					<INPUT size="10" name="othertid" ID="othertid" />&nbsp;
+					<%if {config.aspxrewrite}==1%>
+					<SPAN class="smalltxt">即将与这个主题合并的主题id,如showtopic-22.aspx，tid 为 22</SPAN>
+					<%else%>
+					<SPAN class="smalltxt">即将与这个主题合并的主题id,如showtopic.aspx?topicid=22，tid 为 22</SPAN>
+					<%/if%>
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="type"%>
+		<tbody>
+			<tr>
+				<th><label for="typeid">目标分类</label></th>
+				<td>
+				<select name="typeid" ID="typeid">{topictypeselectoptions}</select>
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="rate"%>
+		<tbody>
+			<tr>
+				<th><label for="postid">作者</label></th>
+				<td>{poster}<INPUT type="hidden" size="10" name="postid" ID="postid" value="{postidlist}" /></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th>标题:</th>
+				<td>{title}</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th><label for="score">评分</label></th>
+				<td>
+					<%loop score scorelist%>
+					<div style="padding-left:3px;margin-top:3px;">
+					<select name="select" onchange="this.form.score{score[ScoreCode]}.value=this.value">
+					  <option value="0" selected="selected">{score[ScoreName]}</option>
+					  <option value="0">----</option>
+					  {score[options]}
+					</select>
+					<input size="3" value="0" name="score" id="score{score[ScoreCode]}" />
+					<input type="hidden" value="{score[ScoreCode]}" name="extcredits" /> (今日还能评分 {score[MaxInDay]} )
+					</div>
+					<%/loop%>
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="cancelrate"%>
+		<tbody>
+			<tr>
+				<th><label for="postid">作者</label></th>
+				<td>{poster}<input type="hidden" size="10" name="postid" value="{postidlist}" /></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th>标题:</th>
+				<td>{title}</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="identify"%>
+		{identifyjsarray}
+		<script type="text/javascript">
+			function changeindentify(imgid)
+			{
+				if (imgid != "0" && imgid != "-1")
+				{
+					$("identify_preview").src = "images/identify/" + topicidentify[imgid];
+					$("identify_preview").style.display = "";
+				}
+				else
+				{
+					$("identify_preview").style.display = "none";
+				}
+			}
+		</script>
+		<tbody>
+			<tr>
+				<th><label for="selectidentify">鉴定</label></th>
+				<td>
+					<select name="selectidentify" id="selectidentify" onchange="changeindentify(this.value)">
+						<option value="0" selected="selected">请选择</option>
+						<option value="-1">* 取消鉴定 *</option>
+					<%loop (TopicIdentify) identify identifylist%>						  
+						<option value="{identify.identifyid}">{identify.name}</option>						  
+					<%/loop%>
+					</select>		
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th>图例预览</th>
+				<td>
+					<img id="identify_preview" style="display: none;" />
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="delposts"%><input type="hidden" size="10" name="postid" ID="postid" value="{postidlist}" /><input type="hidden" size="10" name="opinion" ID="opinion" value="{opinion}" /><%/if%>
+		<%if {operation}!="identify" && {operation}!="bonus"%>
+		<tbody>
+			<tr>
+				<th><label for="selectreason">操作原因:</label></th>
+				<td>
+				<select id="selectreason" name="selectreason" size="6" style="width: 8em;height:8em; " onchange="this.form.reason.value=this.value">
+                  <option value="">自定义</option>
+                  <option value="">--------</option>
+                  <option value="广告/SPAM">广告</option>
+                  <option value="恶意灌水">恶意灌水</option>
+                  <option value="违规内容">违规内容</option>
+                  <option value="发错版块">发错版块</option>
+                  <option value="文不对题">文不对题</option>
+                  <option value="重复发帖">重复发帖</option>
+                  <option value="屡教不改">屡教不改</option>
+                  <option value="已经过期">已经过期</option>
+                  <option value="">--------</option>
+                  <option value="我很赞同">我很赞同</option>
+                  <option value="精品文章">精品文章</option>
+                  <option value="原创内容">原创内容</option>
+				  <option value="鼓励分享">鼓励分享</option>
+                </select>
+				<textarea name="reason" style="height: 8em; width:20em; margin-bottom:-2px;" class="colorblue" onkeydown="if(this.value.length>200){ alert('操作原因不能多于200个字符');return false; }"></textarea>
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="split"%>
+		<tbody>
+			<tr>
+				<th><label for="postid">选择内容</label></th>
+				<td>
+					<%loop post postlist%><input name="postid" type="checkbox" value="{post[pid]}" /><strong>{post[poster]}</strong><br />
+						{post[message]}<br />
+					<%/loop%>
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="bonus"%>		
+		<tbody>
+			<tr>
+				<th><label for="postbonus">给分情况</label></th>
+				<td>
+				<div style="position: relative;">
+					<script type="text/javascript">
+						var reg = /^\d+$/i;
+						$('moderate').onsubmit = function (){
+							if (getCostBonus() != {topicinfo.price})
+							{
+								alert('分数总和与悬赏总分不相符');
+								return false;
+							}
+							return true;
+						}
+						
+						function getCostBonus()
+						{
+							var bonusboxs = document.getElementsByName('postbonus');
+							var costbonus = 0;
+							for (var i = 0; i < bonusboxs.length ; i ++ )
+							{
+								var bonus = isNaN(parseInt(bonusboxs[i].value)) ? 0 : parseInt(bonusboxs[i].value);
+								costbonus += bonus;
+							}
+
+							return costbonus;
+						}
+						function checkInt(obj)
+						{				
+							if (!reg.test(obj.value))
+							{
+								obj.value = 0;
+							}
+						}
+						function bonushint(obj)
+						{							
+							var costbonus = getCostBonus();
+							var leftbonus = {topicinfo.price} - costbonus;
+							$('bonus_menu').innerHTML = '总悬赏分: ' + {topicinfo.price} + '<br />当前可用: ' + leftbonus;
+							$('bonus_menu').style.left = obj.offsetLeft + obj.offsetWidth/2 + 'px';
+							$('bonus_menu').style.top = obj.offsetTop + obj.offsetHeight + 'px';
+							$('bonus_menu').style.display = '';
+							obj.focus();
+						}
+
+						function closebonushint(obj)
+						{
+							$('bonus_menu').style.display = 'none';
+						}
+						var originalColor = '';
+						var valuableColor = '#cce2f8';
+						var bestColor = '#ff9d25';
+						function rgbToColor(forecolor) {
+							if(forecolor == null) {
+								forecolor = '';
+							}
+							if(!is_moz && !is_opera) {
+								if (forecolor.indexOf('#') == 0)
+								{
+									forecolor = forecolor.replace('#', '0x');	
+								}
+								return rgbhexToColor(((forecolor >> 16) & 0xFF).toString(16), ((forecolor >> 8) & 0xFF).toString(16), (forecolor & 0xFF).toString(16));
+							}
+							
+							if(forecolor.toLowerCase().indexOf('rgb') == 0) {
+								var matches = forecolor.match(/^rgb\s*\(([0-9]+),\s*([0-9]+),\s*([0-9]+)\)$/);
+								if(matches) {
+									return rgbhexToColor((matches[1] & 0xFF).toString(16), (matches[2] & 0xFF).toString(16), (matches[3] & 0xFF).toString(16));
+								} else {
+									return rgbToColor(null);
+								}
+							} else {
+								return forecolor;
+							}
+						}
+						function rgbhexToColor(r, g, b) {
+							var coloroptions = {'#000000' : 'Black', '#a0522d' : 'Sienna', '#556b2f' : 'DarkOliveGreen', '#006400' : 'DarkGreen', '#483d8b' : 'DarkSlateBlue', '#000080' : 'Navy', '#4b0082' : 'Indigo', '#2f4f4f' : 'DarkSlateGray', '#8b0000' : 'DarkRed', '#ff8c00' : 'DarkOrange', '#808000' : 'Olive', '#008000' : 'Green', '#008080' : 'Teal', '#0000ff' : 'Blue', '#708090' : 'SlateGray', '#696969' : 'DimGray', '#ff0000' : 'Red', '#f4a460' : 'SandyBrown', '#9acd32' : 'YellowGreen', '#2e8b57' : 'SeaGreen', '#48d1cc' : 'MediumTurquoise', '#4169e1' : 'RoyalBlue', '#800080' : 'Purple', '#808080' : 'Gray', '#ff00ff' : 'Magenta', '#ffa500' : 'Orange', '#ffff00' : 'Yellow', '#00ff00' : 'Lime', '#00ffff' : 'Cyan', '#00bfff' : 'DeepSkyBlue', '#9932cc' : 'DarkOrchid', '#c0c0c0' : 'Silver', '#ffc0cb' : 'Pink', '#f5deb3' : 'Wheat', '#fffacd' : 'LemonChiffon', '#98fb98' : 'PaleGreen', '#afeeee' : 'PaleTurquoise', '#add8e6' : 'LightBlue', '#dda0dd' : 'Plum', '#ffffff' : 'White'};
+							var color = '#' + (str_pad(r, 2, 0) + str_pad(g, 2, 0) + str_pad(b, 2, 0));
+							return coloroptions[color] ? coloroptions[color] : color;
+						}
+						function str_pad(text, length, padstring) {
+							text += '';
+							padstring += '';
+
+							if(text.length < length) {
+								padtext = padstring;
+
+								while(padtext.length < (length - text.length)) {
+									padtext += padstring;
+								}
+
+								text = padtext.substr(0, (length - text.length)) + text;
+							}
+
+							return text;
+						}
+						function setValuableOrBestAnswer(obj, pid)
+						{
+							switch (rgbToColor(obj.style.backgroundColor))
+							{
+								case valuableColor:				
+									var valuableAnswers = $('valuableAnswers').value.split(',');
+									$('valuableAnswers').value = '';
+									for (var i = 0; i < valuableAnswers.length ; i++)
+									{
+										if (valuableAnswers[i] != pid && valuableAnswers[i] != '')
+										{
+											$('valuableAnswers').value += ',' + valuableAnswers[i];
+										}
+									}
+									var options = document.getElementsByName('answeroption');
+									for (var i = 0; i < options.length ; i++ )
+									{
+										if (options[i].style.backgroundColor == bestColor)
+										{
+											options[i].style.backgroundColor = valuableColor;
+											$('valuableAnswers').value += ',' + $('bestAnswer').value;
+										}										
+									}
+									obj.style.backgroundColor = bestColor;
+									$('bestAnswer').value = pid;
+									break;
+								case bestColor:
+									obj.style.backgroundColor = originalColor;
+									$('bestAnswer').value= '';
+									break;
+								default:
+									obj.style.backgroundColor = valuableColor;
+									if (!in_array(pid, $('valuableAnswers').value.split(',')))
+									{
+										$('valuableAnswers').value += ',' + pid;
+									}
+									break;
+							}							
+						}
+					</script>
+					提示: 每次点击答案可以切换"最佳答案"与"有价值的答案"的颜色状态.&nbsp;&nbsp;&nbsp;&nbsp;颜色含义:<script type="text/javascript">document.write('<span style="padding: 3px; color: #fff;background-color: ' + bestColor + ';">最佳答案</span><span style="margin-left: 3px;padding: 3px; color: #fff;background-color: ' + valuableColor + ';">有价值的答案</span><br /><br />');</script>
+					<input type="hidden" id="bestAnswer" name="bestAnswer" value="" />
+					<input type="hidden" id="valuableAnswers" name="valuableAnswers" value="" />
+					<%loop post postlist%>
+					<div name="answeroption" <%if {strtoint({post[posterid]})}!={topicinfo.posterid}%>onclick="setValuableOrBestAnswer(this, {post[pid]});" style="cursor: pointer; width: 100%;"<%/if%>>
+					<strong>{post[poster]}</strong>&nbsp; <%if {strtoint({post[posterid]})}!={topicinfo.posterid}%>得分: <input name="postbonus" id="bonus_{post[pid]}" type="text" value="0" size="3" maxlength="9" onblur="checkInt(this);" onmouseover="bonushint(this);" onmouseout="closebonushint(this);" /><input name="addons" type="hidden" value="{post[posterid]}|{post[pid]}|{post[poster]}" /><%else%>不能给自己分<%/if%><br />
+						{post[message]}<br />
+					</div><br />
+					<%/loop%>
+					<div id="bonus_menu" style="position: absolute; z-index: 50; background: yellow;"></div>
+				</div>
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {operation}=="delete" || {operation}=="delposts"%>
+		<tbody>
+			<tr>
+				<th><label for="reserveattach">附件</label></th>
+				<td>
+				<input name="reserveattach" type="checkbox" value="1" />保留附件(附件可能正在被相册使用, 如果希望保留, 请选中此选项)				
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<%if {donext}==1%>
+		<tbody>
+			<tr>
+				<th><label for="next">后续</label></th>
+				<td>
+				<input name="next" type="radio" checked="checked" value="" />无
+				<%if {operation}!="highlight"%>
+				<input type="radio" value="highlight" name="next" />高亮显示
+				<%/if%>
+				<%if {operation}!="displayorder"%>
+				<input type="radio" value="displayorder" name="next" />置顶/解除置顶
+				<%/if%>
+				<%if {operation}!="digest"%>
+				<input type="radio" value="digest" name="next" />加入/解除精华
+				<%/if%>
+				<%if {operation}!="close"%>
+				<input type="radio" value="close" name="next" />打开/关闭主题
+				<%/if%>
+				</td>
+			</tr>
+		</tbody>
+		<%/if%>
+		<tbody>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+				<%if {issendmessage}%>
+				<input type="checkbox" disabled checked="checked"/>
+				<input name="sendmessage" type="hidden" id="sendmessage" value="1"/>
+				<%else%>
+				<input name="sendmessage" type="checkbox" id="sendmessage" value="1"/>
+				<%/if%>
+				发短消息通知作者
+				</td>
+			</tr>
+		</tbody>
+		<tbody>	
+			<tr>
+				<th>&nbsp;</th>
+				<td>
+					<input type="submit" value="提  交" name="modsubmit"/>
+				</td>
+			</tr>
+		</tbody>
+	<%if {operation}=="cancelrate"%> 
+		<%if {ratelogcount}>0%>
+		<tbody>
+			<tr>
+			<td colspan="6">
+				<table width="100%" cellpadding="0" cellspacing="0" border="0">
+				<thead>
+					<tr>
+						<td colspan="6" align="left">评分日志</td>
+					</tr>
+				</thead>
+				<tr>
+					<td><input name="chkall" type="checkbox"  onclick="checkall(this.form, 'ratelogid')" />删除</td>
+					<td>用户名</td>
+					<td>时间</td>
+					<td>评分单位</td>
+					<td>评分分值</td>
+					<td>理由</td>
+				</tr>
+				<%loop rateloginfo ratelog%>
+				<tr>
+					<td><input name="ratelogid" type="checkbox"  value="{rateloginfo[id]}" /></td>
+					<td>{rateloginfo[username]}</td>
+					<td>{rateloginfo[postdatetime]}</td>
+					<td>{rateloginfo[extcreditname]}</td>
+					<td>{rateloginfo[score]}</td>
+					<td>{rateloginfo[reason]}</td>
+				</tr>
+				<%/loop%>
+				</table>
+			</td>
+			</tr>
+			</tbody>
+		<%/if%> 
+	<%/if%>
+	</table>
+</div>
+</form>
+</div>
+	<%if {operation}=="highlight"%>
+		<div  id="ColorPicker" title="ColorPicker" style="display:none;cursor:crosshair;border: black 1px solid;position: absolute; z-index: 10;background-color: aliceblue; width:250px;background: #FFFFFF;padding: 4px; margin-left:150px;" onmouseover="ShowColorPanel();">
+						<table border="0" cellPadding="0" cellSpacing="10" onmouseover="ShowColorPanel();">
+						<tr>
+						<td>
+						<table border="0" cellPadding="0" cellSpacing="0" id="ColorTable" style="cursor:crosshair;"  onmouseover="ShowColorPanel();">
+						<script type="text/javascript">
+						function wc(r, g, b, n){
+							r = ((r * 16 + r) * 3 * (15 - n) + 0x80 * n) / 15;
+							g = ((g * 16 + g) * 3 * (15 - n) + 0x80 * n) / 15;
+							b = ((b * 16 + b) * 3 * (15 - n) + 0x80 * n) / 15;
+
+							document.write('<td BGCOLOR=#' + ToHex(r) + ToHex(g) + ToHex(b) + ' title="#' + ToHex(r) + ToHex(g) + ToHex(b) + '" height=8 width=8 onmouseover="ColorTableMouseOver(this)" onmousedown="ColorTableMouseDown(this)"  onmouseout="ColorTableMouseOut(this)" ></TD>');
+						}
+
+						var cnum = new Array(1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0);
+
+						for(i = 0; i < 16; i ++){
+							document.write('<TR>');
+							for(j = 0; j < 30; j ++){
+								n1 = j % 5;
+								n2 = Math.floor(j / 5) * 3;
+								n3 = n2 + 3;
+
+								wc((cnum[n3] * n1 + cnum[n2] * (5 - n1)),
+								(cnum[n3 + 1] * n1 + cnum[n2 + 1] * (5 - n1)),
+								(cnum[n3 + 2] * n1 + cnum[n2 + 2] * (5 - n1)), i);
+							}
+
+							document.writeln('</TR>');
+						}
+						</script>
+						</table></td>
+						<td>
+						<table border="0" cellPadding="0" cellSpacing="0" id="GrayTable" style="CURSOR: hand;cursor:crosshair;"  onmouseover="ShowColorPanel();">
+						<script type="text/javascript">
+						for(i = 255; i >= 0; i -= 8.5)
+						document.write('<tr BGCOLOR=#' + ToHex(i) + ToHex(i) + ToHex(i) + '><td TITLE=' + Math.floor(i * 16 / 17) + ' height=4 width=20 onmouseover="GrayTableMouseOver(this)" onmousedown="GrayTableMouseDown(this)"  onmouseout="GrayTableMouseOut(this)" ></td></tr>');
+						</script>
+						</table></td></tr></table>
+						<table border="0" cellPadding="0" cellSpacing="10" onmouseover="ShowColorPanel();">
+						<tr>
+						<td rowSpan="2">选中色彩
+						<table border="1" cellPadding="0" cellSpacing="0" height="30" id="ShowColor" width="40" bgcolor="">
+						<tr>
+						<td></td></tr></table></td>
+						<td rowSpan=2>基色: <span id="RGB"></span><br />亮度: <span id="GRAY">120</span><br />代码: <input id="SelColor" size="7" value="" border="0" name="SelColor" /></TD>
+						<td><input type="button" onclick="javascript:ColorPickerOK();" value="确定" ID="ok"/></td></tr>
+						<tr>
+						<td><input type="button" onclick="javascript:document.getElementById('highlight_color').value='';document.getElementById('s_bgcolor').style.background='#FFFFFF';HideColorPanel();" value="取消" ID="Button2" NAME="Button2"/></td></tr></table>
+</div>
+						<!--colorpicker层显示结束-->
+	<%/if%>
+
+<%else%>
+<%template _errmsgbox%>
+<%/if%>
+<%else%>
+	<%if page_err==0%>
+	<%template _msgbox%>
+	<%else%>
+	<%template _errmsgbox%>
+	<%/if%>
+<%/if%>
+</div>
+<%template _copyright%>
+<%template _footer%>

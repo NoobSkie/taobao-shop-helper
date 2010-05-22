@@ -1,0 +1,78 @@
+<%template _header%>
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if {page_err}==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+						<div class="photoimg">
+							<img src="{user.avatar}" <%if {user.avatarwidth}>0%>width="{user.avatarwidth}" height="{user.avatarheight}"<%/if%> />
+							<ul>
+								<li><span class="usermessagesname">{user.username}</span></li>
+								<li>金币: {user.credits}</li>
+									<%if {score[1]}!=""%>
+									<li>{score[1]}: {user.extcredits1}</li>
+									<%/if%>
+									<%if {score[2]}!=""%>
+									<li>{score[2]}: {user.extcredits2}</li>
+									<%/if%>
+									<%if {score[3]}!=""%>
+									<li>{score[3]}: {user.extcredits3}</li>
+									<%/if%>
+									<%if {score[4]}!=""%>
+									<li>{score[4]}: {user.extcredits4}</li>
+									<%/if%>
+									<%if {score[5]}!=""%>
+									<li>{score[5]}: {user.extcredits5}</li>
+									<%/if%>
+									<%if {score[6]}!=""%>
+									<li>{score[6]}: {user.extcredits6}</li>
+									<%/if%>
+									<%if {score[7]}!=""%>
+									<li>{score[7]}: {user.extcredits7}</li>
+									<%/if%>
+									<%if {score[8]}!=""%>
+									<li>{score[8]}: {user.extcredits8}</li>
+									<%/if%>
+									<li>用户组: {usergroupinfo.grouptitle}</li>
+							</ul>
+						</div>
+						<ul>
+							<li><strong>签名:</strong></li>
+							<li>
+								<%if {user.Signature}==""%>
+								暂无签名
+								<%else%>
+								{user.Sightml}
+								<%/if%>
+							</li>
+						</ul>
+						<%/if%>
+						</div>
+					<%else%>
+					<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<%template _copyright%>
+<%template _footer%>

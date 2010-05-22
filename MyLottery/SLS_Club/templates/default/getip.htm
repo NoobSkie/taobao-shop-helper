@@ -1,0 +1,45 @@
+<%template _header%>
+<div id="foruminfo">
+	<div id="nav">
+	<a href="{config.forumurl}">{config.forumtitle}</a> &raquo; {forumnav}
+		<%set {aspxrewriteurl} = this.ShowTopicAspxRewrite({topicid},0)%>
+	 &raquo; <a href="{aspxrewriteurl}">{pagetitle}</a> &raquo;<strong>查看IP</strong>
+	</div>
+</div>
+<%if page_err==0%>
+<%if {ispost}%>
+<%template _msgbox%>
+<%else%>
+<div class="mainbox">
+	<h3>查看 IP</h3>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<th>此用户的 IP 地址是:</th>
+				<td>{ip}</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th>所在地查询结果结果是:</th>
+				<td>{iplocation}</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th>&nbsp;</th>
+				<td>
+				<a href="###" onClick="if(confirm('你确实要禁止此IP吗?')){window.location.replace('getip.aspx?topicid={topicid}&pid={postid}&action=ipban&ip={ip}')}">禁止此 IP</a>
+				<a href="###" onclick="history.go(-1)">返回上一页</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<%/if%>
+<%else%>
+<%template _errmsgbox%>
+<%/if%>
+</div>
+<%template _copyright%>
+<%template _footer%>

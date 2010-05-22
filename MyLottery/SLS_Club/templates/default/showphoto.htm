@@ -1,0 +1,204 @@
+﻿<%inherits "Discuz.Album.Pages.showphoto"%>
+<%template _albumheader%>
+<%if page_err==0%>
+	<%if ispost%>
+		<%template _msgbox%>
+	<%else%>
+	<script type="text/javascript" src="javascript/ajax.js"></script>
+	<script type="text/javascript" src="javascript/post.js"></script>
+	<script type="text/javascript">
+		var templatepath = '{templatepath}';
+	</script>
+	<script type="text/javascript" src="javascript/template_showphoto.js"></script>
+	<%template _albumnavigation%>
+	<div id="foruminfo">
+		<div id="userinfo">
+			<a href="{config.albumurl}" id="NavHome" onmouseover="showMenu(this.id);" onmouseout="showMenu(this.id);">{config.albumname}首页</a>  &raquo;  <a href="showalbumlist.aspx?cate={albumcategory.albumcateid}">{albumcategory.title}</a>  &raquo;  <a href="showalbum.aspx?albumid={album.albumid}">{album.title}</a>
+		</div>
+	   <div id="headsearch">
+			<div id="search">
+				<%template _quicksearch%>
+			</div>
+		</div>
+	</div>
+	{navhomemenu}
+	<div id="ntforumbody" style="overflow:visible;">
+		<%if {!needpassword}%>
+			<div class="modulebox">
+					<div class="forumtitle">
+						<h2>{photo.title}</h2>
+						<em>
+						<%if {config.silverlight}==1%>
+						<a id="silverlightalbum" target="_blank" title="Silverlight相册展示" href="silverlight/album/index.html?albumid={album.albumid}">Silverlight酷炫体验</a>&nbsp;
+						<%/if%>
+						<a title="幻灯片播放" href="javascript:void(0);" onclick="pptPhoto();">幻灯展示</a>&nbsp;<a href="showalbum.aspx?albumid={album.albumid}">+ 更多</a></em>
+					</div>
+					<div class="scrollphoto">
+					<ul>
+					<li id="scrollleft" style='cursor: pointer;margin-top:8px;"' onclick="scrollHiddenDiv($('photonav'), -90);"><img src='templates/{templatepath}/images/album/scrollarrowleft.jpg' alt='向左移动' />
+					</li>
+					<li style='width: 810px;'><div style='position:relative;'><div class='photonavbar' id="photonav" style='overflow: hidden;width:810px;'>加载导航图，请稍候...</div></div>
+					</li>
+					<li id="scrollright" style='cursor: pointer;margin-top:8px;"' onclick="scrollHiddenDiv($('photonav'), 90);"><img src="templates/{templatepath}/images/album/scrollarrowright.jpg" alt="向右移动" />
+					</li>
+					</ul>
+					</div>
+					<script type="text/javascript">shownavbar({photo.albumid}, {photo.photoid});</script>
+					<div class="photoshowBox">
+					<div class="boxbody">
+						<div class="Photo" style="margin: 10px 20px;">
+							<strong>
+									<cite>
+										<%if {config.enablespace}==1%><a href="{spaceurl}space/?uid={photo.userid}" target="_blank">{photo.username}的空间</a><%/if%>
+									</cite>
+									<cite>
+										<a href="{albumurl}showalbumlist.aspx?uid={photo.userid}" target="_blank">{photo.username}的相册</a>
+									</cite>
+									<cite>大小:
+											<script type="text/javascript">
+												ShowFormatBytesStr({photo.filesize});
+											</script>
+									</cite>		
+									<cite>上传时间: {photo.postdate}</cite>
+									<cite>浏览量: {photo.views}</cite>
+									<cite>评论数: {comments.count}</cite>
+							</strong>
+							<div class="PhotoPIc" style="width: 685px"><a id="nextImgOnPhoto" href="{albumurl}showphoto.aspx?photoid={photo.photoid}&go=next" alt="点击图片查看下一张" title="点击图片查看下一张">
+							<img border="0" name="bannerPhotoADrotator" style="FILTER: revealTrans(duration=2,transition=20); max-height: 550px;max-width:685px;" onload="resizePhoto(this);" alt="{photo.title}" id="bannerPhotoADrotator" title="{photo.title}" src="{photo.filename}" />
+							</a></div>
+							<br/>
+							<div align="center" valign="top">
+							<p>
+							<div id="stopPhotobutton" style="display: none;">
+							<input type="button" name="stop" value="停止播放" onClick="stopPhoto();" />
+							</div>
+							</p>
+							</div>
+							<div class="PageBox">
+								<div class="PageBoxLeft"><a id="prevImg" href="{albumurl}showphoto.aspx?photoid={photo.photoid}&go=prev">上一张</a><cite>第 <span id="photoIndex"><em>1</em>/1</span> 张</cite> <a id="nextImg" href="showphoto.aspx?photoid={photo.photoid}&go=next">下一张</a></div>
+								<%if {userid}!=-1%>
+									<div class="Pageboxright">
+											<script type="text/javascript">
+												enableinfo = '<img src="templates/{templatepath}/images/album/buttonreport.gif" alt="举报此图片" />';
+												show_report_button("<img src=templates/{templatepath}/images/album/reportfinish.gif alt=已经举报此图片 />");
+												enableinfo = '<span class="commenreport">举报<span>';
+											</script>
+									
+									</div>
+								<%/if%>
+							</div>
+							<strong>{photo.description}</strong>
+							<%if {editable} || {comments.count}>0%>
+							<p class="commentstitle"><a name="comments"></a>
+								<%if {editable}%>
+									<form id="commentform" name="commentform" method="post" action=""><input name="delcommentid" type="hidden" /></form>
+									<script type="text/javascript">
+									function del_comment(cid)
+									{
+										if (confirm('确定要删除吗?'))
+										{
+											var form = $("commentform");
+											form.delcommentid.value = cid;
+											form.submit();
+										}
+										return false;
+									}
+									</script>
+								<%/if%>
+								<%if {photo.comments}>0%>
+								评论 ({photo.comments})
+								<%/if%>
+								</p>
+							<%/if%>
+						</div>
+						<%set (int) {rowindex}=1%>
+						<%loop (PhotoCommentInfo) comment comments%>
+							<div class="<%if {rowindex}%2==0%>reviewbox2<%else%>reviewbox<%/if%>">
+								<div class="reviewboxleft">{rowindex}.</div>
+								<p>{comment.content}</p>
+								<div class="reviewwriterbox">
+									<div class="ReviewManager"><%if {comment.userid}!=-1%>
+									<%set {aspxrewriteurl} = this.UserInfoAspxRewrite({comment.userid})%>
+									<a href="{forumurl}{aspxrewriteurl}">{comment.username}</a>
+									<%else%>{comment.username}<%/if%>      {comment.postdatetime}</div>
+									<em>
+										<%if {userid}!=-1%>
+											<script type="text/javascript">
+												show_report_button('<span class=reportfinish>已举报</span>');
+											</script>
+										<%/if%>
+									<%if {editable}%>
+										<a id="e{comment.commentid}" title="删除此评论" onclick="del_comment({comment.commentid});" href="###" class="commenddelete">删除</a></em>
+									<%/if%>
+									</em>
+								</div>
+							</div>
+							<%set {rowindex}={rowindex}+1%>
+						<%/loop%>
+						<%if {commentable}%>
+							<script type="text/javascript">
+							function validate(form)
+							{
+								if (form.message.value == "")
+								{
+									alert("请输入评论内容");
+									return false;
+								}
+								if(form.message.value.length > 2000) {
+									alert("评论最多2000字");
+									return false;
+								}
+							}
+							</script>							
+							<form method="post" id="postform" onsubmit="return validate(this);">
+								<h3><a name="reply"></a>发表评论</h3>
+								<p>
+									<textarea id="message" tabindex="1" name="message" style="width: 400px;" onKeyDown="ctlent(event,false);" rows="8" class="colorblue"></textarea><br />
+								</p>
+								<p>						
+									<input tabindex="2" id="postsubmit" name="post_comment" class="lightbutton" value="提交" type="submit">[完成后可按 Ctrl+Enter 发布]
+								</p>	
+							</form>
+						<%else%>
+						<div style="margin: 15px 0 15px 20px">
+						<p>
+						&nbsp;&nbsp;此图片禁止评论 或 登录用户才可评论
+						</p>
+						</div>
+						<%/if%>
+					</div>
+					<div class="boxright">
+						<h3>一周热图总排行</h3>
+						<ul>
+							<%loop (PhotoInfo) weekhotphoto weekhotphotolist%>
+							    <%if {weekhotphoto.title}!="" %>
+								<li><a href="{albumurl}showphoto.aspx?photoid={weekhotphoto.photoid}">{weekhotphoto.title}</a> (<a href="{albumurl}showalbumlist.aspx?uid={weekhotphoto.userid}">{weekhotphoto.username}</a>)</li>
+								<%/if%>
+							<%/loop%>
+						</ul>
+						<h3 style="background:transparent ; padding-left: 0;">标签</h3>
+						<ul id="tagcontainer">正在加载...</ul>
+						<script type="text/javascript">showTags({photoid});</script>
+					</div>
+			</div>
+		<%else%>
+			<div class="modulebox">
+				<div class="forumtitle">
+					<h2>此相册已被设置密码</h2>
+				</div>
+				<div class="forumpassword">
+					<form id="enteralbum" name="enteralbum" method="post" action="">
+							<label for="password">请输入密码:</label><input name="albumpassword" type="password" id="albumpassword" size="20" class="colorblue" onfocus="this.className='colorfocus';" onblur="this.className='colorblue';" />
+							<p><input type="submit"  value="确定" class="lightbutton"/></p>
+					</form>
+				</div>
+			</div>
+		<%/if%>
+	</div>
+	<%/if%>
+<%else%>
+	<%template _photoerrmsgbox%>
+<%/if%>
+</div>
+<%template _copyright%>
+<%template _footer%>

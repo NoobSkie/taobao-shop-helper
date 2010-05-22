@@ -1,0 +1,1 @@
+<%@ page language="c#" autoeventwireup="false" validaterequest="false" enableviewstate="false" inherits="Discuz.Web.editpost, SLS.Club" %>

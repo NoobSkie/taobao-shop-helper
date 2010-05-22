@@ -1,0 +1,80 @@
+<%inherits "Discuz.Album.Pages.showalbumlist"%>
+<%template _albumheader%>
+<%if {page_err}==0%>
+	<%template _albumnavigation%>
+	<div id="foruminfo">
+		<div id="userinfo">
+		<%if {currentcate}!=0%>
+			<a href="{config.albumurl}" id="NavHome" onmouseover="showMenu(this.id);" onmouseout="showMenu(this.id);">{config.albumname}首页</a>  &raquo;  {currentalbumcategory.title}
+		<%else if {albumsuserid}!=0%>
+			<a href="{config.albumurl}" id="NavHome" onmouseover="showMenu(this.id);" onmouseout="showMenu(this.id);">{config.albumname}首页</a>  &raquo;  {albumusername}
+		<%else if {currentcate}!=0 && {albumsuserid}!=0%>
+			<a href="{config.albumurl}" id="NavHome" onmouseover="showMenu(this.id);" onmouseout="showMenu(this.id);">{config.albumname}首页</a>  &raquo;  {albumusername}的{currentalbumcategory.title}
+		<%else%>
+			<a href="{config.albumurl}" id="NavHome" onmouseover="showMenu(this.id);" onmouseout="showMenu(this.id);">{config.albumname}首页</a>  &raquo;  全部{config.albumname}
+		<%/if%>
+		</div> 
+		<div id="headsearch">
+			<div id="search">
+				<%template _quicksearch%>
+			</div>
+	    </div>
+	</div>
+	{navhomemenu}
+	<div id="ntforumbody">
+		<div class="modulebox">
+			<div class="forumtitle">
+				<h2>{config.albumname}</h2>
+			</div>
+			<div class="inforsort">
+			<%loop (AlbumCategoryInfo) albumcategory albumcategorylist%>
+				<a href="{albumurl}showalbumlist.aspx?cate={albumcategory.albumcateid}">{albumcategory.title}</a>
+				<%if {albumcategory[_id]}!={albumcategorylist.Count}%>
+					|
+				<%/if%>
+			<%/loop%>
+			</div>
+			<%if {albumlist.Count}>0%>
+				<div class="ntforumpage">
+				{prevpage}
+				{pagenumbers}
+				{nextpage}
+				</div>
+				<div class="Photo">
+					<ul>							
+						<%loop (AlbumInfo) album albumlist%>
+						<li>								
+							<%if {album.logo}!=""%>
+							<div class="PhotoPicture">
+								<a href="{albumurl}showalbum.aspx?albumid={album.albumid}"><img src="{album.logo}" alt="{album.title}" style="max-height: 80px; max-width: 105px" /></a>
+							</div>
+							<%else%>
+							<div class="nopicture">
+								<a href="{albumurl}showalbum.aspx?albumid={album.albumid}"><img src="templates/{templatepath}/images/album/NoPhoto.jpg" alt="{album.albumid}" /></a>
+							</div>
+							<%/if%>								
+							<h3><a href="{albumurl}showalbumlist.aspx?uid={album.userid}">{album.username}</a>的相册</h3>
+							<p><a href="{albumurl}showalbum.aspx?albumid={album.albumid}">{album.title}</a> ({album.imgcount})</p>
+						</li>
+						<%/loop%>
+						
+					</ul>
+				</div>
+				<div class="ntforumpage">
+				{prevpage}
+				{pagenumbers}
+				{nextpage}
+				</div>
+			<%else%>
+				<%template _photomsgbox%>
+				<p style="text-align:center; line-height:35px;"><a href="usercpspacemanagealbum.aspx?albumid=-1" class="newbutton">创建新相册</a></p>
+			<%/if%>
+		</div>
+	</div>
+<%else%>
+	<%template _photoerrmsgbox%>
+<%/if%>
+<%template _copyright%>
+<%template _footer%>
+	
+	

@@ -1,0 +1,12 @@
+﻿<%template _pageheader%>
+<script type="text/javascript">
+	if (top.main){
+		top.main.location = "focuslist.aspx";
+	}
+</script>
+<div id="container">
+<frameset border="0" name="content" framespacing="0" frameborder="0" cols="210,*">
+	<frame id="leftmenu" name="leftmenu" marginwidth="0" marginheight="0" src="forumlist.aspx" noresize>
+	<frame id="main" name="main" src="focuslist.aspx">
+</frameset><noframes></noframes>
+</div>

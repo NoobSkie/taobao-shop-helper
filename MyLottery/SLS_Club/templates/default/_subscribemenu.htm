@@ -1,0 +1,26 @@
+﻿<div class="panneltabs">
+<%if {userid}>0%>
+	<a href="usercpsubscribe.aspx?typeid=0"
+	<%if {typeid}==0%>
+		class="current"
+	<%/if%>>收藏的主题</a>
+	<%if {config.enablealbum}==1 && {config.enablealbum}==1%>
+	<a href="usercpsubscribe.aspx?typeid=1"
+	<%if {typeid}==1%>
+		class="current"
+	<%/if%>>收藏的{config.albumname}</a>
+	<%/if%>
+	<%if {config.enablespace}==1 && {user.spaceid}>0%>
+	<a href="usercpsubscribe.aspx?typeid=2"
+	<%if {typeid}==2%>
+		class="current"
+	<%/if%>>收藏的日志</a>
+	<%/if%>
+	<%if {config.enablemall}==1 && {config.enablemall}>=1%>
+	<a href="usercpsubscribe.aspx?typeid=3"
+	<%if {typeid}==3%>
+		class="current"
+	<%/if%>>收藏的商品</a>
+	<%/if%>
+<%/if%>
+</div>	

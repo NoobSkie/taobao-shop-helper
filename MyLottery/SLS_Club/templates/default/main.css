@@ -1,0 +1,333 @@
+﻿@charset "utf-8";
+/*css document start*/
+body, td, input, textarea, select, button  { font: 12px/160% Helvetica, Arial, sans-serif; color:#666;}
+h1,h2,h3,h4,h5{ font-size:12px;}
+body, ul, dl, dt, dd, p, h1, h2, h3, h4, h5, h6, form, fieldset { margin: 0; padding: 0; }
+ul,li{ list-style:none;}
+em, cite, strong, th { font-style: normal; font-weight: normal;}
+table { empty-cells: show; border-collapse: separate; }
+a { color: #262626; text-decoration: none;}
+	a:hover { color: #DD0000; text-decoration: underline;}
+	a img{ border:0;}
+#container{ width:950px; margin: 0 auto; background:#FFF; }
+	/*\*/ * html #container{ height: 1%; } /**/ *>#container{ overflow: hidden;}		
+/*header*/
+#header { width: 100%; overflow: hidden; padding:6px 0; }
+	#header h2 { float: left; padding: 5px 0; }
+	#ad_headerbanner { float: right; margin-top: 4px; }
+/*header*/
+/*header*/
+/*window*/
+#NavHome{text-decoration:none;}
+	#NavHomeWindow{border:1px solid #B4C9E0; background:#F5FAFE; padding:10px; width: 330px!important;width:350px; text-align:left;}
+	/*\*/ * html #NavHomeWindow{ /**/height: 1%; }*>#NavHomeWindow{ overflow: hidden;}
+		#NavHomeWindow li { float:left; width:7em; overflow:hidden; line-height:20px; height:20px; margin:0em 1em;}
+/*window*/
+/*menu*/
+#menu { height: 31px; border: 1px solid #E8E8E8; background: #FFF url(images/menu_bg.gif) repeat-x; }
+	#menu ul { float: right; padding: 4px 10px 0; border-right: 1px solid #FFF; }
+		#menu li { float: left; }
+			#menu li a { float: left; text-decoration: none; color: #333; padding: 4px 8px 3px; background: url(images/menu_itemline.gif) no-repeat 0 6px; }
+				#menu li.hover { background-color: #FFF; border: 1px solid; border-color: #E8E8E8 #E8E8E8 #FFF; }
+					#menu li.hover a { padding: 3px 7px; background-image: none; }
+			#menu cite a { font-weight: bold; background-image: none; }
+			#menu a.notabs { background: none; }
+	.avataonline { float: left; height: 30px; line-height: 30px; padding-left: 28px; background: url(images/avataronline.gif) no-repeat 10px 40%; }
+
+.dropmenu { padding-right: 15px !important; background-image: url(images/arrow_down.gif) !important; background-position: 100% 50% !important; background-repeat: no-repeat !important; cursor: pointer; }
+.popupmenu_popup { text-align: left; line-height: 1.4em; padding: 10px; overflow: hidden; border: 1px solid #CAD9EA; background: #FFF url("images/portalbox_bg.gif"); background-repeat: repeat-x; background-position: 0 1px;  }
+.headermenu_popup { width: 170px; }
+	.headermenu_popup li { float: left; width: 7em; line-height: 24px; height: 24px; overflow: hidden; border-bottom: 1px solid #E8E8E8; }
+/*end menu*/
+#styleswitcher_menu { overflow: visible; }
+	#styleswitcher_menu, #styleswitcher_menu ul li, #styleswitcher_menu ul li.current a, #styleswitcher_menu ul li a { white-space: nowrap; }
+	#styleswitcher_menu ul li.current { font-weight: bold; }
+		#styleswitcher_menu ul li.current a { color: #666; }
+	#styleswitcher_menu li.current { font-weight: bold; }
+/*info*/
+#info { clear:both; line-height:36px; background: #FFF url(images/portalbox_bg.gif) repeat-x; padding-left:10px;  }
+/*end info*/
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Layout & Block Style~~~~ */
+#foruminfo { width: 100%; overflow: hidden; margin: 10px 0; color: #666; }
+	#userinfo, #foruminfo #nav { float: left; padding-left: 5px; }
+	#headsearch { float: right; text-align: right; }
+	#foruminfo p { margin: 0; }
+		#foruminfo a{ color: #069; }
+		#foruminfo em { color: #000; }
+		#foruminfo cite { font-weight: bold; }
+			#foruminfo strong a { font-weight: bold; color: #000; }
+	#nav { margin: 10px 5px; }
+		#foruminfo #nav { margin: 0; }
+		#userinfo #nav { float: none; padding: 0; }
+			#nav a { font-weight: bold; color: #069; }
+/*QuickSearch*/
+.ntforumsearch{ float:right;  text-align:right; line-height:180%; padding-top:2px;}
+	#searchbar { border: 1px solid #ccc; height: 26px; margin-right: 0px; line-height: 24px; width: 220px;  background:#FFF;}
+		#searchbar dt,#searchbar dd { float: left; }
+		#searchbar .s2{ background: #fff url(images/dot-down.gif)  no-repeat right center; width: 80px; color: #090; text-align: center; line-height: 26px; }
+		#searchbar .text{ width: 110px; text-indent: 2px; border: 0; padding: 0.2em 0; }
+			*html #searchbar .text { width: 108px; }
+			*+html #searchbar .text { width: 108px; }
+		#searchbar .textinput {border-right:1px solid #ccc;}
+		#searchbar .s3{ width: 28px; height: 26px; background: #fff url(images/button-search.gif)  no-repeat 100% 0; border: 0; }
+		.searchmenu { background-color: #F5FAFE; padding: 4px; width: 75px; text-align: center; border: 1px solid #ccc; border-top: 0;}
+/*QuickSearch*/
+
+#ntforumbody,.hotforum,.hotblog, .hotphoto,.sidebox{ clear:both; margin-bottom:8px; }
+/*\*/ * #ntforumbody{ /**/height: 1%; }  *>#ntforumbody{ overflow: hidden;}
+	#ntforumleft,#albumleft,#ntspaceleft{ float:left; width:600px;}
+		/*\*/ * html #ntforumleft{/**/height: 1%; }*>#ntforumleft{ overflow: hidden;}
+		/*\*/ * html #albumleft{ /**/height: 1%; }*>#albumleft{ overflow: hidden;}
+	#ntforumright,#albumright,#ntspaceright{ float:right; width:330px;}
+		/*\*/ * html #ntforumright{/**/height: 1%; }*>#ntforumright{ overflow: hidden;}
+		/*\*/ * html #albumright{ /**/ height: 1%; }*>#albumright{ overflow: hidden;}
+	#albumleft,#ntspaceleft{width:700px;}
+	#albumright,#ntspaceright {width:230px;}
+		
+	.modulebox,.albumbox{ clear:both; border:1px solid #C1C1C1; margin-top:8px; background:#FFF;}
+		/*\*/ * html .modulebox{ /**/ height: 1%; }*>.modulebox{ overflow: hidden;}
+		/*\*/ * html .albumbox{ /**/ height: 1%; }  *>.albumbox{ overflow: hidden;}
+
+	.forumtitle{clear:both; line-height:240%; height:31px; background:#C1C1C1 url(images/header_bg.gif) repeat-x 0 0;}
+		.forumtitle h2,.focustitle h2{ float:left; color:#DD0000; margin-left:10px; font-weight:bold;}
+		.forumtitle h2 a {font-weight:normal;}
+			a.copylink { background:url(images/page_link.gif) no-repeat left center; padding-left:20px; padding-top:3px; padding-bottom:3px;}
+		.forumtitle em,.focustitle em{float:right; text-align:right; margin-right: 4px;}
+			.spacetitle { height:38px; line-height:38px;}
+				.spacetitle img { margin-top:4px;}
+				*html .spacetitle img { margin-top:0;}
+				*+html .spacetitle img { margin-top:0;}
+					
+		.ntforumnews{ margin:1px; background:url(images/modulebg.jpg) repeat-x left top; line-height:160%;}
+			/*\*/ *html .ntforumnews{/**/ height: 1%; }  *>.ntforumnews{ overflow: hidden;}
+			.ntforumnews dl{ margin:16px 9px 2px 9px;}
+				*html .ntforumnews dl{ border:1px solid #fff;}
+				.ntforumnews dt{ font-size:14px;}
+				.ntforumnews dt strong{ float:left; background: url(images/forumlistdot.gif) no-repeat left center; width:70%; font-weight:bold; text-indent:2em;line-height:240%; word-break:keep-all; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; height:35px;}
+					.ntforumnews dt cite{ float:right; text-align:right; width:29%; font-size:12px; line-height:240%; height:35px; color:#3F4E5A;}
+				.ntforumnews dd{ color:#3F4E5A; border-bottom:1px dashed #b5c9e0; padding-bottom:13px; padding-top:4px; }
+				.ntforumnews dd a{ color:#0578BC;}
+
+		.nttable{ clear:both; color:#3F4E5A; padding:0 9px 13px 9px; margin:0 5px;}
+		/*\*/ *html .nttable{  /**/ height: 1%; }*>.nttable{overflow: hidden;}
+			.nttable table { table-layout:fixed; }
+			.topicname { width:25%; }
+			.topicname a{color:#666;}
+				.topicname h5{ width: 70%; overflow: hidden; text-overflow: ellipsis; cursor: pointer; white-space: nowrap; font-weight:normal; }
+				.topiccontent h4{ width: 98%; overflow: hidden; text-overflow: ellipsis; cursor: pointer; white-space: nowrap; font-weight:normal; }
+
+				.nttable cite{color:#090; padding-left:6px;}
+				.nttable em{color:#09C; padding:0 3px;}
+		
+		.hotforum{padding:0 9px 20px 9px; margin:0 5px;}
+			.hotforum li{ float:left; margin: 1px 3px;}
+			.hotforum a{ padding-right:10px; white-space:nowrap;}
+			
+		.hotblog{margin:4px 10px;}
+		/*\*/ * html .hotblog{ /**/ height: 1%; } *>.hotblog{overflow: hidden;}
+			.hotblog li{  float:left; width:48%; padding:4px 0;}
+				.hotblog img{ float:left; border:1px solid #CCC; padding:2px; margin:2px 4px;}
+				.blogintro h3 {padding-top:4px; line-height:260%;}
+				.blogintro h4 a{font-size:14px; color:#09C; line-height:260%; }
+				.blogintro p{ color:#666;  line-height:200%;}
+				.blogintro em{ color:#069; padding-right:8px;}
+					
+		.hotphoto ul{  margin-top:10px; margin-left:10px;}
+			.hotphoto li{  float:left; width:24%; height:160px; text-align:center;}
+				.hotphoto img{ border:1px solid #CCC; padding:21px 6px; }
+				.hotphoto em{ color:#0578BC;}
+				.hotphoto a{ color:#3F4E5A;}
+
+		.sidebox{ border:1px solid #CDCDCD; margin-top:11px; padding:8px 16px; background:#FFF;}
+			.sidebox h2,.modulebox h4,.sidebox h4{ clear:both; color:#FF6600; line-height:220%;}
+			.sidebox ul{margin:6px auto;}
+				.modulebox .nttable h4,.modulebox .ntblog h4{ background:none; }
+				.sidebox li em{font-weight:bold; color:#0578BC;}
+				.newslist li{word-break:keep-all; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:98%;}
+				
+		.rankbox { border:1px solid #FFA6A6; background:#FFF4F4; width:226px;}
+			.rankbox h2 {background:url(images/album/toppicbg.jpg) no-repeat left top; color:#C00; padding-left:53px; height:30px; line-height:30px;}	
+			.rankbox li{ float:none; margin-left:20px; line-height:180%;}
+				.rankbox li a {color:#930;}
+
+/*RotateImage*/
+		div.MzRotateImage_ControlBar{z-index:2; margin-top: 1px; text-align: right; position: relative;}
+			div.MzRotateImage_ControlBar input{width: 18px; height: 20px; color: #fff; cursor: pointer; text-align: center; background: #000; border: solid 1px #fff; border-right: solid 0px #ddd;}
+			div.MzRotateImage_ControlBar input.active{background-color: #cc0000;}
+			.MzRotateImage .active h3{line-height:220%; padding-left:4px;}
+/*RotateImage*/
+/*space*/
+		.spacearticle {clear:both;}
+			/*\*/ * html .spacearticle{/**/height: 1%; }*>.spacearticle{ overflow: hidden;}
+			.commentsarticle {float:left; width:49%;}
+			.browserarticle {float:right; width:49%;}
+			.sideboxbg {background:#FFF url(images/album/lastupdate.gif) repeat-x left top; border:1px  solid #9C6;}
+					/*\*/ * html .sideboxbg{/**/height: 1%; } *>.sideboxbg{overflow: hidden;}
+			.newstopicbg {background:#FFF url(images/forumcontentBg.jpg) repeat-x left top;}
+		#spacehottags li, #photohottags li {display: inline;float:left;padding-right:8px;white-space:nowrap;}
+/*space*/
+/*album*/	
+.Photo {clear:both; margin:0 6px; padding-top:8px; }
+	/*\*/ * html .Photo{ /**/ height: 1%; }  *>.Photo{ overflow: hidden;}
+	.Photo  li{ display:inline; float:left; width:24.5%; text-align:center;}
+	.Photo h3,.Photo p,.Photo h5{ line-height:200%; font-weight:normal; text-align:center; word-break:keep-all; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:98%;}
+	.arrangeboxbg { background: #FFFDF7 url(images/albumlistBg.gif) repeat-x left top; padding-left:20px;}
+	.photobg  li,.focusphotobg li{ overflow:hidden; height:155px; }
+		.albumimg {border:1px solid #CCC; min-height:112px; height:112px; line-height:112px; overflow:hidden; margin:0 7px;}
+			.albumimg img { vertical-align:middle; }
+	
+		.commendalbum,.commendphoto {clear:both; border:1px solid #FFCE6C; padding:1px; background:#fff;}
+	/*\*/ * html .commendalbum{/**/height: 1%; }*>.commendalbum{ overflow: hidden;}
+	/*\*/ * html .commendphoto{/**/height: 1%; }*>.commendphoto{ overflow: hidden;}
+	.commendphoto {border:1px solid #CCCC66; margin-top:12px;}		
+		.commendalbum .forumtitle { background:url(images/album/commandphoto.jpg) repeat-x left center;}
+		.commendalbum .focustitle,.commendphoto .focustitle{ background:none;}
+		.commendalbum h2,.commendphoto h2{ background:url(images/album/commmandphotodot.gif) no-repeat left center; padding-left:45px; font-weight:bold; font-size:14px; color:#DB5700;}
+		.commendalbum em a{ color:#DB5700;}
+		.commendphoto .forumtitle { background:url(images/album/commandAlbum.jpg) repeat-x left center;}
+		.commendphoto h2 { background:url(images/album/commmandphotodot2.gif) no-repeat left center; color:#845900;}
+		.commendphoto em a{ color:#845900;}
+				.albumline1 { clear:both; background:url(images/albumLine.gif) no-repeat left top; height:15px;}
+
+	.PhotoPicture,.nopicture { background:url(images/album/picturebg.gif) no-repeat center top; height:122px; position:relative; line-height:120px;}
+		.PhotoPicture img{ margin-top:18px; margin-left:10px; width: expression(MinPhotoSize(this.width, 105)); height: expression(MinPhotoSize(this.height, 80));}
+		.nopicture {background:none;}
+			.AlbumPic { background:url(images/albumbg.gif) no-repeat 50% top; text-align:left; height:110px; position:relative;}
+			.PersonalPhoto { clear:both; background:url(images/personlIntroBG.jpg) repeat-x left top; height:81px; padding-left:64px;}
+
+	.albumcategories,.updatespace{border:1px solid #9C6; background:url(images/album/lastupdate.gif) repeat-x 0 0; margin-top:14px; width:226px;padding-bottom:6px;}
+	/*\*/ * html .albumcategories{/**/ height: 1%; } *>.albumcategories{ overflow: hidden;}
+	.updatespace { border:1px solid #B3E3DE; background:#fff url(images/album/lastother.gif) repeat-x left top;}
+		.albumcategories h2,.updatespace h2{color:#789F00; padding-left:15px; line-height:240%;}
+			.updatespace h2 {color:#099;}	
+		.albumcategories ul,.updatespace ul{margin:4px auto;}
+			*html .albumcategories ul{margin-left:-20px;}
+		.albumcategories li,.updatespace li{ float:left; margin-left:20px; line-height:180%; white-space:nowrap;}
+			.updatespace li{  float:none;}
+	/*showalbum*/
+	.inforsort {clear:both; background:#fff url(images/Listbg.jpg) repeat-x left bottom; line-height:220%; text-align:left; height:auto;}
+		/*\*/ * html .inforsort{/**/height: 1%; }  *>.inforsort{ overflow: hidden;}
+			.inforsort a{ padding:0 6px; white-space:nowrap; font-size:13px; font-weight:bold;}
+	.Photo td{ text-align: center; width:24%; vertical-align:bottom; border-bottom:1px dashed #B5C9E0; line-height:180%;}
+		.Photo td div { overflow:hidden; padding-top:10px;}
+	.controlPhoto {margin: 5px 15px; background:url(images/album_info.gif) no-repeat left center; padding:0 15px; padding-left:80px;}
+	.controlPhoto p {padding: 6px 2px;}
+	.controlPhoto p img { margin:3px 3px -3px 3px; }
+		.controlPhoto a:link,.controlPhoto a:visited {color:#333; text-decoration:none;}
+		.controlPhoto a:hover,.controlPhoto a:active {color:#258DC9; text-decoration:none;}
+	.Photo p.commentstitle { text-align:left; font-weight:bold;}
+	.forumpassword {padding:10px;}
+	/*showalbum*/
+/*album*/
+/*photoshow*/
+		.ntforumpage{ clear:both; padding:20px; text-align:left; padding-left:40px;}
+			.ntforumpage a{ font-size:14px; padding:4px; color:#3F4E5A;}
+			.ntforumpage a:link,.ntforumpage a:visited {  text-decoration:none; }
+			.ntforumpage a:hover,.ntforumpage a:active {  text-decoration:underline; }
+			a.CurrentPage { color:#09C; font-weight:bold; }
+			
+		.scrollphoto { clear: both; background:url(images/album/scrollphoto.jpg) repeat-x left top; height:109px; margin-top:6px; position:relative;}
+			.scrollphoto ul {margin:0 10px;}
+			.scrollphoto li {float:left; text-align:left;padding:0 6px;}
+				.scrollphoto .ImgBox {border:2px solid #E2E2E2; padding:2px 12px;line-height:70px;}
+				.scrollphoto .ImgBox:hover {border:4px solid #68C4DD; padding:2px 12px;line-height:70px;}
+				
+		.photoshowBox,.arrangebox{clear:both;}
+			/*\*/ * html .photoshowBox{/**/ height: 1%; } *> .photoshowBox{ overflow: hidden;}
+			/*\*/ * html .arrangebox{/**/ height: 1%; } *>.arrangebox{ overflow: hidden;}
+			.boxbody {float:left; overflow:hidden; width:773px; border-right:1px solid #D8D8D8;}
+			.Photo span,.Photo Strong { clear:both; display:block; line-height:30px; color:#3F4E5A; font-size:14px;}
+				.Photo Strong{font-size:12px; color:#666;}
+				.Photo span em{ color:#0578BC;}
+				.PhotoPIc {overflow:visible;text-align:center;}
+				
+			.PageBox {clear:both; height:30px;line-height:30px; color:#3F4E5A; font-size:14px; text-align:left;margin-top:12px;}
+				.PageBoxLeft {width:55%;float:left; text-align:left;}
+					.PageBoxLeft span {display:inline;}
+					.PageBoxLeft a,.Photo cite {padding-right:15px;}
+				.Pageboxright {width:40%;float:right; text-align:right;}
+				
+			.reviewbox,.reviewbox2 {clear:both; padding:14px 19px; background:#F5F5F5; font-size:14px; color:#333; line-height:180%;}
+			/*\*/ * html .reviewbox{/**/height: 1%; }  *>.reviewbox{ overflow: hidden;}
+			/*\*/ * html .reviewbox2{/**/ height: 1%; } *>.reviewbox2{ overflow: hidden;}
+				.reviewbox2 {background:#fff; }
+				.reviewboxleft{ float:left;width:25px;}
+				.reviewbox p,.reviewbox .reviewwriterbox,.reviewbox2 p,.reviewbox2 .reviewwriterbox{margin-left:25px; background:url(images/Reviewdot.gif) no-repeat left 6px; padding-left:29px;}
+				.reviewbox .reviewwriterbox,.reviewbox2 .reviewwriterbox {background:none;font-weight:normal; text-align:left;}
+					.reviewbox .ReviewManager , .reviewbox2 .ReviewManager{float:left; width:60%; font-size:12px;}
+					.reviewbox em,.reviewbox2 em { float:right; text-align:right; width:30%;}
+					.reviewbox .commenreport,.reviewbox2 .commenreport,.reviewbox .reportfinish,.reviewbox2 .reportfinish { background:url(images/dotReport.gif) no-repeat left center; padding:5px;padding-left:25px;}
+					.reviewbox .reportfinish,.reviewbox2 .reportfinish { background:url(images/dotreportfinish.gif) no-repeat left center; }
+					.reviewbox em a,.reviewbox2 em a { text-align:right; font-weight:normal; font-size:12px; color:#CC6633;padding:5px;}
+					.reviewbox em a.commenddelete,.reviewbox2 em a.commenddelete { background:url(images/CommendDelate.gif) no-repeat left center; padding-left:25px; }
+					.boxbody form p,.boxbody form h3 {padding: 10px 20px; color: #0578BC;}
+			.boxright {float:right; width:165px;}	
+			.boxright h3{background:url(images/album/focusBg.gif) no-repeat left center; padding-left:45px; font-weight:bold; color:#CC0000; line-height:30px;margin-top:15px;}
+			.boxright .illuminate{margin: 5px 8px;}
+					.illuminate ul{margin: 4px 4px 4px 10px;}
+			.boxright ul{margin:5px 0;}
+			.boxright li{color:#3F4E5A; line-height:180%;word-break:keep-all; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:98%;}
+				.boxright li a{color:#3F4E5A;}
+				.activeimg {Border:4px solid #3EACCD;padding:2px;}
+/*photoshow*/
+/*Arrange*/
+.arrangeboxbg { padding:0; background:none;}
+.arrangebox,.arrangebox2 {background:#FFFDF7;  padding:20px 8px; border-bottom:1px dashed #FFCC68;}
+	.arrangebox2 {background:#FFF;}
+	/*\*/ * html .arrangebox {/**/height: 1%; }*>.arrangebox{ overflow: hidden; }
+	/*\*/ * html .arrangebox2 {/**/height: 1%; }*>.arrangebox2 { overflow: hidden; }
+	.arrangeboxLeft { float:left; background:url(images/album/ArrangeDot.gif) no-repeat 0 8px; height:40px; line-height:40px; color:#DB5700; font-weight:bold; font-size:30px; padding-left:50px;}
+	.arrangeboxright {float:right;position:relative; width:560px;}
+		.arrangeboxright dt{float:left; width:108px;}
+			.arrangeboxright dt #albumlist {padding:2px; min-height:96px; height:auto;}
+		.arrangeboxright dd{float:right; width:430px;}
+		.arrangeboxright h3,.arrangeboxright P{ font-size:12px;  text-align:left; }
+			.arrangeboxright h3 a{color:#3F4E5A; background:url(images/Reviewdot.gif) no-repeat left center; padding:5px; padding-left:20px;margin-left:15px; font-weight:normal;font-size:12px;}
+			.arrangeboxright h3 em a{background:none;color:#930; font-weight:bold; font-size:14px; padding:0px; margin-left: 0px;}
+		.arrangeboxright P {color:#666; line-height:160%;}
+			.arrangeboxright .One {top:65px;color:#999;}
+			.arrangeboxright .Two {top:85px;}
+	.arrangepicture { background:url(images/photopicturebg2.gif) no-repeat center top; height:134px; position:relative;}
+	.arrangepicture img{ margin-top:18px; margin-left:25px; width: expression(MinPhotoSize(this.width, 105)); height: expression(MinPhotoSize(this.height, 80));}
+/*Arrange*/
+/*Blog*/
+.ntblog { overflow:hidden; border-bottom:1px dashed #B5C9E0; margin:0 10px;}
+	.ntblog h3 { background:url(images/bloglist.gif) no-repeat left 4px;line-height:24px; margin-left:15px; padding-left:20px; margin-top:10px; padding-bottom:10px;}
+	.ntblog h4 { 28px;line-height:28px; padding-left:35px; font-weight:normal;}
+	.ntblog p { overflow:hidden;text-indent:2em; padding:3px 35px; line-height:160%; word-break:break-all; word-wrap:break-word;}
+/*Blog*/
+.colorblue,.colorfocus{font-family:Arial, Helvetica, sans-serif;border: 1px #B9CDE3 double;background-color: #fff;padding:0.2em 0;margin:2px;}
+.colorfocus {border: 1px #99CC00 double;}
+	.lightbutton {font-family:Arial, Helvetica, sans-serif;color: #036;background-color: #F5FAFE;border: 1px solid #95D2F0;height: 24px;padding:0 3px;margin-right: 5px;}
+	a.newbutton { padding:7px 22px; text-align:center; background:url(images/userbutton3.gif) no-repeat left center; text-decoration:none; }
+/*forum link*/
+.forumlink { clear: both; border: 1px solid #B4C9E0; margin-top: 11px; padding: 1px; background: #F5FAFE;}	
+	.forumlink h4{ height: 35px; padding-left: 18px; line-height: 35px; color:#0578BC; }
+	.topicicon{ width: 53px; text-align:center;}
+	#linklist{ clear: both; border-bottom: 3px solid #fff; text-align: left; }
+		.linktitle { text-align: left; padding-left: 6px; }
+		.linklogo { text-align: right; padding-right: 6px; vertical-align: middle; }
+			.linktitle p { color: #666; }
+		#linklist img { margin-top: 2px; vertical-align: middle; }
+		#linklist .list td{ border-bottom:1px solid #FFFFFF; border-top:1px solid #E0E0DC; }
+/*forum link*/
+/*Error*/
+.box { background: #FFF; border: 1px solid #DCE6F1; padding: 1px; margin-bottom: 10px; }
+.message { margin: 3em 10em 5em !important; }
+	.message h1 { line-height: 26px; border: 1px solid; background: #FFF url("images/portalbox_bg.gif"); background-repeat: repeat-x; background-position: 0 0; border-color: #FFF #FFF #CAD9EA #FFF; padding-left: 1em; margin-bottom: 1em; }
+	.message p { margin: 1.5em 1em; }
+	.message a { color: #069; }
+/*Error*/
+/*footer*/
+#ad_footerbanner { padding-bottom:10px; text-align:center;}
+#footer { border-top: 1px solid #9DB3C5; color: #666; padding: 12px 0; }
+	#footer .wrap { margin:0 auto; width: 98%;}
+	#footlinks { float: right; margin-top: -3px; text-align: right; }
+	#footer img { float: left; margin: 0 10px 0 0; }
+	#copyright, #debuginfo { font: 0.83em/1.5em Verdana, Arial, Helvetica, sans-serif; }
+		#copyright strong, #copyright em { font-weight: bold; }
+			#copyright strong a { color: #0954A6; }
+			#copyright em { color: #FF9D25; }
+			#debuginfo { color: #999; }
+	.scrolltop { cursor: pointer; }
+/*footer*/

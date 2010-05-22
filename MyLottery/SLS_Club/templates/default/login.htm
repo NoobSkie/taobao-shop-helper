@@ -1,0 +1,111 @@
+﻿<%template _header%>
+<div id="foruminfo">
+	<div id="nav"><a href="{config.forumurl}">{config.forumtitle}</a> &raquo; 用户登录</div>
+</div>
+<%if {ispost} && !{loginsubmit} %>
+<%if page_err==0%>
+<%template _msgbox%>
+<%else%>
+<%template _errmsgbox%>
+<%/if%>
+<%else%>
+<form id="form1" name="form1" method="post" <%if {loginauth}!=""%>action="login.aspx?loginauth={loginauth}&referer={referer}"<%else%>action=""<%/if%>>
+<div class="mainbox formbox">
+	<h1>用户登录</h1>
+	<table summary="会员登录" cellspacing="0" cellpadding="0">
+	<tbody>
+	<tr>
+		<th onclick="document.login.username.focus();">
+			<label>用户名</label>
+		</th>
+		<td>
+			<input name="username" type="text" id="username" size="20" value="{postusername}" tabindex="4" />  &nbsp; <a href="register.aspx" tabindex="-1" accesskey="r" title="立即注册 (ALT + R)">立即注册</a>
+		</td>
+	</tr>
+	</tbody>
+<%if {loginauth}==""%>
+	<tbody>
+	<tr>
+		<th><label for="password">密码</label></th>
+		<td> 
+		<input name="password" type="password" id="password" size="20" tabindex="5" /> &nbsp; <a href="getpassword.aspx" tabindex="-1" accesskey="g" title="忘记密码 (ALT + G)">忘记密码</a>
+		</td>
+	</tr>
+	</tbody>
+<%/if%>	
+	<%if {isseccode}%>
+	<tbody>
+	<tr>
+		<th><label for="formcode">验证码:</label></th>
+		<td>
+			<%template _vcode%>
+		</td>
+	</tr>
+	</tbody>
+	<%/if%>
+	<%if {config.secques}==1%>
+	<tbody>
+		<tr>
+			<th><label for="question">安全提问</label></th>
+			<td>
+				<select name="question" id="question" tabindex="6">
+				<option value="0" selected="selected">无</option>
+				<option value="1">母亲的名字</option>
+				<option value="2">爷爷的名字</option>
+				<option value="3">父亲出生的城市</option>
+				<option value="4">您其中一位老师的名字</option>
+				<option value="5">您个人计算机的型号</option>
+				<option value="6">您最喜欢的餐馆名称</option>
+				<option value="7">驾驶执照的最后四位数字</option>
+				</select>
+			</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th><label for="question">答案</label></th>
+			<td><input name="answer" type="text" id="answer" size="50" tabindex="7" /><br/>如果您设置了安全提问，请在此输入正确的问题和回答</td>
+		</tr>
+	</tbody>
+	<%/if%>
+	<tbody>
+		<tr>
+			<th><label for="expires">有效时间</label></th>
+			<td>
+				<input type="radio" name="expires" value="5256000" tabindex="8" />永久
+				<input name="expires" type="radio" value="43200" checked tabindex="9" />一个月  
+				<input type="radio" name="expires" value="1440" tabindex="10" />一天  
+				<input type="radio" name="expires" value="60" tabindex="11" />一小时 
+				<input type="radio" name="expires" value="0" tabindex="12" />浏览器进程
+			</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th><label for="templateid">界面风格</label></th>
+			<td class="formbody">
+				<select name="templateid" tabindex="13"><option value="0">- 使用默认 -</option>
+				{templatelistboxoptions}
+				</select>
+			</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+		<th><label for="templateid">&nbsp;</label></th>
+		<td>
+			<input name="login" type="submit" id="login" value="登录" onclick="javascript:window.location.replace('?agree=yes')"/>
+			<input name="cancel" type="button" id="cancel" value="取消" onclick="javascript:window.location.replace('./index.aspx')"/>
+		</td>
+		</tr>
+	</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+	document.getElementById("username").focus();
+</script>
+</div>
+</form>
+<%/if%>
+<%template _copyright%>
+<%template _footer%>

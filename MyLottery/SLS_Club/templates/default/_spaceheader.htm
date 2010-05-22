@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{meta}
+<title>{pagetitle} {config.seotitle} - {config.spacename} - Powered by Discuz!NT</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
+<!-- 调用样式表 -->
+<link rel="stylesheet" href="templates/{templatepath}/main.css" type="text/css" media="all"  />
+{link}
+<script type="text/javascript" src="javascript/template_report.js"></script>
+<script type="text/javascript" src="javascript/template_utils.js"></script>
+<script type="text/javascript" src="javascript/common.js"></script>
+<script type="text/javascript" src="javascript/menu.js"></script>
+<script type="text/javascript"> 
+	var aspxrewrite = {config.aspxrewrite};
+</script>
+{script}
+</head>
+
+<body>
+<div id="container">
+<!--header start-->
+<div id="header">
+	<h2><a href="{config.forumurl}" title="Discuz!NT|BBS|论坛 - Powered by Discuz!NT"><img src="templates/{templatepath}/images/logo.gif" alt="Discuz!NT|BBS|论坛"/></a>
+	</h2>
+	<%if {headerad}!=""%>
+		<div id="ad_headerbanner">{headerad}</div>
+	<%/if%>
+</div>
+
+<div id="menu">
+	<span class="avataonline">
+		<%if {userid}==-1%>
+		<form id="loginform" name="login" method="post" action="login.aspx?loginsubmit=true">
+			<input type="hidden" name="referer" value="website.aspx" />
+			<input onclick="if(this.value=='用户名')this.value = ''" value="用户名" tabindex="1" maxlength="40" size="15" name="postusername" id="username" type="text" />
+			<input type="password" size="10" name="password" id="password" tabindex="2" />
+			<button value="true" type="submit" name="userlogin"> 登录 </button>
+		</form>
+		<%else%>
+		   <%set {aspxrewriteurl} = this.UserInfoAspxRewrite({userid})%>
+		   <cite>欢迎:<a href="{aspxrewriteurl}">{username}</a></cite>
+		   <a href="{forumurl}logout.aspx?userkey={userkey}&reurl=website.aspx">退出</a>
+		<%/if%>
+	</span>
+	<ul>
+	<%if {userid}!=-1%>
+		<li><a href="{forumurl}usercpinbox.aspx" class="notabs">短消息</a></li>
+		<li id="my" class="dropmenu" onMouseOver="showMenu(this.id);"><a href="#">我的</a></li>
+		<%/if%>	
+		<li><a href="{forumurl}tags.aspx" <%if {userid}==-1%>class="notabs"<%/if%> >标签</a></li>
+		<li><a href="{forumurl}showuser.aspx">会员</a></li>
+	<%if {usergroupinfo.allowsearch}>0%>
+		<li><a href="{forumurl}search.aspx">搜索</a></li>
+	<%/if%>
+	<%if {config.enablespace}==1%>
+		<li><a href="{config.spaceurl}">{config.spacename}</a></li>
+	<%/if%>
+	<%if {config.enablealbum}==1%>
+		<li><a href="{config.albumurl}">{config.albumname}</a></li>
+	<%/if%>
+		<li><a href="{forumurl}help.aspx" target="_blank">帮助</a></li>
+	</ul>
+</div>

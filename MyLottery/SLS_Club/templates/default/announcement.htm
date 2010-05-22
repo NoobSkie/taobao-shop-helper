@@ -1,0 +1,27 @@
+﻿<%template _header%>
+<%if page_err==0%>
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}">{config.forumtitle}</a>
+	</div>
+</div>
+<%loop announcement announcementlist%>
+<a name="{announcement[id]}"></a>
+<div class="mainbox">
+	<h3>{announcement[title]}</h3>
+	<div class="postmessage">
+	    <%set {aspxrewriteurl} = this.UserInfoAspxRewrite({announcement[posterid]})%>
+		<a href="{aspxrewriteurl}">
+		{announcement[poster]}</a> &nbsp; 发表于: {announcement[starttime]} 
+		结束于: {announcement[endtime]}<br />
+		{announcement[message]}
+	</div>
+</div>
+<%/loop%>
+</div>
+<%template _copyright%>
+<%else%>
+<%template _errmsgbox%>
+</div>
+<%/if%>
+<%template _footer%>

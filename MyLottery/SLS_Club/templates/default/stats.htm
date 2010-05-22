@@ -1,0 +1,441 @@
+﻿<%template _header%>
+<!--header end-->
+	<div id="foruminfo">
+		<div id="nav">
+			<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="stats.aspx">统计</a>  &raquo; <strong>
+	<%if {type}==""%>
+		基本概况
+	<%else if {type}=="views"%>
+		流量统计
+	<%else if {type}=="client"%>
+		客户软件
+	<%else if {type}=="posts"%>
+		发帖量记录
+	<%else if {type}=="forumsrank"%>
+		版块排行
+	<%else if {type}=="topicsrank"%>
+		主题排行
+	<%else if {type}=="postsrank"%>
+		发帖排行
+	<%else if {type}=="creditsrank"%>
+		金币排行
+	<%else if {type}=="onlinetime"%>
+		在线时间
+	<%else if {type}=="trade"%>
+		交易排行
+	<%else if {type}=="team"%>
+		管理团队
+	<%else if {type}=="modworks"%>
+		管理统计
+	<%/if%>
+</strong>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function changeTab(obj)
+		{
+			if (obj.className == 'currenttab')
+			{
+				obj.className = '';
+			}
+			else
+			{
+				obj.className = 'currenttab';
+			}
+		}
+	</script>
+	<div class="statstab">
+		<a id="tab_main" class="currenttab" onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;" href="stats.aspx">基本状况</a>
+		<%if {statstatus}%>
+		<a id="tab_views"  onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;"  href="?type=views">流量统计</a>
+		<a id="tab_client"  onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;"  href="?type=client">客户软件</a>
+		<%/if%>
+		<a id="tab_posts"  onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;"  href="?type=posts">发帖量记录</a>
+		<a id="tab_forumsrank"   onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;"  href="?type=forumsrank">版块排行</a>
+		<a id="tab_topicsrank"   onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;"  href="?type=topicsrank">主题排行</a>
+		<a id="tab_postsrank"  onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;"  href="?type=postsrank">发帖排行</a>
+		<a id="tab_creditsrank"  onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;"  href="?type=creditsrank">金币排行</a>
+		<!--
+		<a id="tab_trade"  onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;"  href="?type=trade">交易排行</a>
+		-->
+		<%if {config.oltimespan}>0%>
+		<a id="tab_onlinetime"  onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;"  href="?type=onlinetime">在线时间</a>
+		<%/if%>
+		<!--
+		<a id="tab_team"  onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;"  href="?type=team">管理团队</a>
+		<a id="tab_modworks"  onmouseout="changeTab(this)" onmouseover="changeTab(this)" style="cursor: pointer;" href="?type=modworks">管理统计</a>
+		-->
+	</div>
+	<script type="text/javascript">
+	try{
+		$("tab_main").className = "";
+		$("tab_" + '{type}').className = "currenttab";
+	}catch(e){
+		$("tab_main").className = "currenttab";
+	}
+	</script>
+<%if {page_err}==0%>
+	<%if {type}==""%>
+		<div class="mainbox viewsstats">
+			<h3>基本状况</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td class="statsitem">注册会员</td>
+					<td>{members}</td>
+					<td class="statsitem">发帖会员</td>
+					<td>{mempost}</td>
+				</tr>
+				<tr>
+					<td class="statsitem">管理成员</td>
+					<td>{admins}</td>
+					<td class="statsitem">未发帖会员</td>
+					<td>{memnonpost}</td>
+				</tr>
+				<tr>
+					<td class="statsitem">新会员</td>
+					<td>{lastmember}</td>
+					<td class="statsitem">发帖会员占总数</td>
+					<td>{mempostpercent}%</td>
+				</tr>
+				<tr>
+					<td class="statsitem">今日论坛之星</td>
+					<td><%if {bestmem}!=""%><a href="userinfo.aspx?username={bestmem}">{bestmem}</a>({bestmemposts})<%/if%></td>
+					<td class="statsitem">平均每人发帖数</td>
+					<td>{mempostavg}</td>
+				</tr>
+			</table>
+		</div>	
+		<div class="mainbox viewsstats">
+			<h3>论坛统计</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td class="statsitem">版块数</td>
+					<td style="width:15%">{forums}</td>
+					<td class="statsitem">平均每日新增帖子数</td>
+					<td style="width:15%">{postsaddavg}</td>
+					<td class="statsitem">最热门版块</td>
+					<td><a href="{ShowForumAspxRewrite(hotforum.fid,0)}" target="_blank">{hotforum.name}</a></td>
+				</tr>
+				<tr>
+					<td class="statsitem">主题数</td>
+					<td>{topics}</td>
+					<td class="statsitem">平均每日注册会员数</td>
+					<td>{membersaddavg}</td>
+					<td class="statsitem">主题数</td>
+					<td>{hotforum.topics}</td>
+				</tr>
+				<tr>
+					<td class="statsitem">帖子数</td>
+					<td>{posts}</td>
+					<td class="statsitem">最近24小时新增帖子数</td>
+					<td>{postsaddtoday}</td>
+					<td class="statsitem">帖子数</td>
+					<td>{hotforum.posts}</td>
+				</tr>
+				<tr>
+					<td class="statsitem">平均每个主题被回复次数</td>
+					<td>{topicreplyavg}</td>
+					<td class="statsitem">今日新增会员数</td>
+					<td>{membersaddtoday}</td>
+					<td class="statsitem">论坛活跃指数</td>
+					<td>{activeindex}</td>
+				</tr>
+			</table>
+		</div>
+		<%if {statstatus}%>
+		<div class="mainbox viewsstats">
+			<h3>流量概况</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td class="statsitem">总页面流量</td>
+					<td>{totalstats[hits]}</td>
+					<td class="statsitem">访问量最多的月份</td>
+					<td>{yearofmaxmonth} 年 {monthofmaxmonth} 月</td>
+				</tr>
+				<tr>
+					<td class="statsitem">共计来访</td>
+					<td>{totalstats[visitors]} 人次</td>
+					<td class="statsitem">月份总页面流量</td>
+					<td>{maxmonth}</td>
+				</tr>
+				<tr>
+					<td class="statsitem">会员</td>
+					<td>{totalstats[members]}</td>
+					<td class="statsitem">时段</td>
+					<td>{maxhourfrom} - {maxhourto}</td>
+				</tr>
+				<tr>
+					<td class="statsitem">游客</td>
+					<td>{totalstats[guests]}</td>
+					<td class="statsitem">时段总页面流量</td>
+					<td>{maxhour}</td>
+				</tr>
+				<tr>
+					<td class="statsitem">平均每人浏览</td>
+					<td>{pageviewavg}</td>
+					<td class="statsitem">&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</div>
+		<%/if%>
+		<div class="mainbox viewsstats">
+			<h3>月份流量</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<%if {statstatus}%>
+					{monthofstatsbar}
+				<%else%>
+					<thead>
+						<td colspan="2">每月新增帖子记录</td>
+					</thead>
+					{monthpostsofstatsbar}
+					<thead>
+						<td colspan="2">每日新增帖子记录</td>
+					</thead>
+					{daypostsofstatsbar}
+				<%/if%>
+			</table>
+		</div>
+	<%/if%>
+
+	<%if {type}=="views"%>
+		<div class="mainbox viewsstats">
+			<h3>流量统计</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<thead>
+					<tr>
+						<td colspan="2">星期流量</td>
+					</tr>
+				</thead>
+				<tbody>
+				{weekofstatsbar}
+				</tbody>
+				<thead>
+					<tr>
+						<td colspan="2">时段流量</td>
+					</tr>
+				</thead>
+				<tbody>
+				{hourofstatsbar}
+				</tbody>
+			</table>
+		</div>
+
+	<%/if%>
+
+	<%if {type}=="client"%>
+		<div class="mainbox viewsstats">
+			<h3>客户软件</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<thead>
+					<tr>
+						<td colspan="2">操作系统</td>
+					</tr>
+				</thead>
+				<tbody>
+				{osofstatsbar}
+				</tbody>
+				<thead>
+					<tr>
+						<td colspan="2">浏览器</td>
+					</tr>
+				</thead>
+				<tbody>
+				{browserofstatsbar}
+				</tbody>
+			</table>
+		</div>
+
+	<%/if%>
+
+	<%if {type}=="posts"%>
+		<div class="mainbox viewsstats">
+			<h3>发帖量记录</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<thead>
+					<tr>
+						<td colspan="2">每月新增帖子记录</td>
+					</tr>
+				</thead>
+				<tbody>
+				{monthpostsofstatsbar}
+				</tbody>
+				<thead>
+					<tr>
+						<td colspan="2">每日新增帖子记录</td>
+					</tr>
+				</thead>
+				<tbody>
+				{daypostsofstatsbar}
+				</tbody>
+			</table>
+		</div>
+
+	<%/if%>
+
+	<%if {type}=="forumsrank"%>
+		<div class="mainbox topicstats">
+			<h3>版块排行</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<thead>
+					<tr>
+						<td width="25%">发帖 排行榜</td>
+						<td width="25%">回复 排行榜</td>
+						<td width="25%">最近 30 天发帖 排行榜</td>
+						<td width="25%">最近 24 小时发帖 排行榜</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><ul>{topicsforumsrank}</ul></td>
+						<td><ul>{postsforumsrank}</ul></td>
+						<td><ul>{thismonthforumsrank}</ul></td>
+						<td><ul>{todayforumsrank}</ul></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<%/if%>
+
+	<%if {type}=="topicsrank"%>
+		<div class="mainbox topicstats">
+			<h3>主题排行</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<thead>
+					<tr>
+						<td width="50%">被浏览最多的主题</td>
+						<td>被回复最多的主题</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><ul>{hottopics}</ul></td>
+						<td><ul>{hotreplytopics}</ul></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<%/if%>
+
+	<%if {type}=="postsrank"%>
+		<div class="mainbox topicstats">
+			<h3>发帖排行</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<thead>
+					<tr>
+						<td width="25%">发帖 排行榜</td>
+						<td width="25%">精华帖 排行榜</td>
+						<td width="25%">最近 30 天发帖 排行榜</td>
+						<td width="25%">最近 24 小时发帖 排行榜</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><ul>{postsrank}</ul></td>
+						<td><ul>{digestpostsrank}</ul></td>
+						<td><ul>{thismonthpostsrank}</ul></td>
+						<td><ul>{todaypostsrank}</ul></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<%/if%>
+
+	<%if {type}=="creditsrank"%>
+		<div class="mainbox topicstats">
+			<h3>金币排行</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<thead>
+					<tr>
+						<td>金币 排行榜</td>
+						<%if {score[1]}!=""%>
+							<td>{score[1]} 排行榜</td>
+						<%/if%>
+						<%if {score[2]}!=""%>
+							<td>{score[2]} 排行榜</td>
+						<%/if%>
+						<%if {score[3]}!=""%>
+							<td>{score[3]} 排行榜</td>
+						<%/if%>
+						<%if {score[4]}!=""%>
+							<td>{score[4]} 排行榜</td>
+						<%/if%>
+						<%if {score[5]}!=""%>
+							<td>{score[5]} 排行榜</td>
+						<%/if%>
+						<%if {score[6]}!=""%>
+							<td>{score[6]} 排行榜</td>
+						<%/if%>
+						<%if {score[7]}!=""%>
+							<td>{score[7]} 排行榜</td>
+						<%/if%>
+						<%if {score[8]}!=""%>
+							<td>{score[8]} 排行榜</td>
+						<%/if%>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><ul>{creditsrank}</ul></td>
+						<%if {score[1]}!=""%>
+							<td><ul>{extcreditsrank1}</ul></td>
+						<%/if%>
+						<%if {score[2]}!=""%>
+							<td><ul>{extcreditsrank2}</ul></td>
+						<%/if%>
+						<%if {score[3]}!=""%>
+							<td><ul>{extcreditsrank3}</ul></td>
+						<%/if%>
+						<%if {score[4]}!=""%>
+							<td><ul>{extcreditsrank4}</ul></td>
+						<%/if%>
+						<%if {score[5]}!=""%>
+							<td><ul>{extcreditsrank5}</ul></td>
+						<%/if%>
+						<%if {score[6]}!=""%>
+							<td><ul>{extcreditsrank6}</ul></td>
+						<%/if%>
+						<%if {score[7]}!=""%>
+							<td><ul>{extcreditsrank7}</ul></td>
+						<%/if%>
+						<%if {score[8]}!=""%>
+							<td><ul>{extcreditsrank8}</ul></td>
+						<%/if%>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<%/if%>
+	<%if {type}=="onlinetime"%>
+		<div class="mainbox topicstats">
+			<h3>主题排行</h3>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<thead>
+					<tr>
+						<td width="50%">总在线时间排行(小时)</td>
+						<td>本月在线时间排行(小时)</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><ul>{totalonlinerank}</ul></td>
+						<td><ul>{thismonthonlinerank}</ul></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<%/if%>
+
+	<%if {lastupdate}!="" && {nextupdate}!=""%>
+		<div class="hintinfo notice">统计数据已被缓存，上次于 {lastupdate} 被更新，下次将于 {nextupdate} 进行更新</div>
+	<%/if%>
+<%else%>
+	<%if {needlogin}%>
+	<%template _login%>
+	<%else%>
+	<%template _errmsgbox%>
+	<%/if%>
+<%/if%>
+	</div>
+	<%template _copyright%>
+	<%template _footer%>

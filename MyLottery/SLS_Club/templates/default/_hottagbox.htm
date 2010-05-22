@@ -1,0 +1,29 @@
+<%if {config.enabletag}==1%>
+<!--tag-->
+<table cellspacing="1" cellpadding="0" class="portalbox" summary="HeadBox">
+<tbody>
+	<tr>
+	<td>
+		<div id="hottags">
+			<h3><a target="_blank" href="tags.aspx">热门标签</a></h3>
+			<ul id="forumhottags">
+			<%loop (TagInfo) tag taglist%>
+					<li><a 
+				<%if {config.aspxrewrite}==1%>
+					href="topictag-{tag.tagid}.aspx" 
+				<%else%>
+					href="tags.aspx?t=topic&tagid={tag.tagid}" 
+				<%/if%>
+				<%if {tag.color}!=""%>	
+					style="color: #{tag.color};"
+				<%/if%>
+					title="{tag.fcount}">{tag.tagname}</a></li>
+			<%/loop%>
+			</ul>
+		</div>
+	</td>
+	</tr>
+</tbody> 
+</table>
+<!--tag end-->
+<%/if%>

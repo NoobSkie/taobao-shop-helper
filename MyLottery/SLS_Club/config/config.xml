@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  
+    <!--<Cps>
+        <ID>1</ID>
+        <QQ>821990796</QQ>
+        <SiteUrl>http://mhb.shovesoft.com</SiteUrl>
+        <ClubUrl>http://mhb.shovesoft.com/bbs</ClubUrl>
+        <TopLogo>images/logo.gif</TopLogo>
+        <BottomLogo>images/tz_logo_1.jpg</BottomLogo>
+        <GovName>晓风彩票软件-门户版社区</GovName>
+        <GovUrl>http://mhb.shovesoft.com</GovUrl>
+    </Cps>-->
+  
+    <Cps>
+      <ID>1</ID>
+      <QQ>821990796</QQ>
+      <SiteUrl>http://localhost:1934/sls.twzt</SiteUrl>
+      <ClubUrl>http://localhost:2275/sls.club</ClubUrl>
+      <TopLogo>images/logo.gif</TopLogo>
+      <BottomLogo>images/tz_logo_1.jpg</BottomLogo>
+      <GovName>晓风彩票软件-门户版社区</GovName>
+      <GovUrl>http://localhost:1934/sls.twzt</GovUrl>
+    </Cps>
+  
+</DocumentElement>

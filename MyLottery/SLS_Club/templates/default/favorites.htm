@@ -1,0 +1,21 @@
+<%template _header%>
+
+<%if page_err>0%>
+	<%template _errmsgbox%>
+<%else%>
+<div id="foruminfo">
+	<div id="nav">
+	<%if {topicid}!=-1%>
+		<a href="{config.forumurl}">{config.forumtitle}</a> &raquo; {forumnav} &raquo; <%set {aspxrewriteurl} = this.ShowForumAspxRewrite({forumid},0)%>
+		<a href="{aspxrewriteurl}">{topictitle}</a> &raquo; <strong>收藏主题</strong>
+	<%/if%>
+	<%if {config.enablealbum}==1 && {albumid}!=-1%>
+		<a href="{config.forumurl}">{config.forumtitle}</a><strong>收藏相册</strong>
+	<%/if%>
+	</div>
+</div>
+	<%template _msgbox%>
+<%/if%>
+</div>
+<%template _copyright%>
+<%template _footer%>

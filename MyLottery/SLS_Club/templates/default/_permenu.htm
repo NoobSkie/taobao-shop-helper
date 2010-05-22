@@ -1,0 +1,17 @@
+﻿				<div class="panneltabs">
+				<%if {userid}>0%>
+					<a href="usercpprofile.aspx"
+					<%if {pagename}=="usercpprofile.aspx"%>
+					 class="current"
+					 <%/if%>>编辑个人档案</a>
+					<a href="usercpnewpassword.aspx"
+					<%if {pagename}=="usercpnewpassword.aspx"%>
+					 class="current"
+					 <%/if%>>更改密码</a>
+					 
+					 <a href="usercppreference.aspx"
+					<%if {pagename}=="usercppreference.aspx"%>
+					 class="current"
+					 <%/if%>>个性设置</a>
+				<%/if%>
+				</div>	

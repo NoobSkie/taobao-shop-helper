@@ -1,0 +1,179 @@
+<%inherits "Discuz.Album.Pages.albumindex"%>
+<%template _albumheader%>
+<%if {page_err}==0%>
+<%template _albumnavigation%>
+<div id="foruminfo">
+<%if {announcementcount}>0%>	
+	<div id="userinfo">
+	<marquee width="70%" direction="left" scrollamount="2" scrolldelay="1" onmouseover="this.stop();" onmouseout="this.start();">
+	<%loop announcement announcementlist%>
+		<a href="{forumurl}announcement.aspx#{announcement[id]}">{announcement[title]}</a><cite><%datetostr({announcement[starttime]},"MM.dd")%></cite>
+	<%/loop%>
+	</marquee>
+	</div>		
+<%/if%>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div> 
+	</div>
+</div>
+<div id="ntforumbody">
+<div id="albumleft">
+	<div class="albumbox commendalbum" style="margin-top:0;">
+	<div class="forumtitle ">					
+		<h2>推荐图片</h2>
+		<em><a href="showalbumlist.aspx">更多...</a></em>
+	</div>
+	<div class="Photo">
+		<ul>
+			<%loop (PhotoInfo) photo recommendphotolist%>
+			<li>
+				<div Class="albumimg">
+					<a href="showphoto.aspx?photoid={photo.photoid}"><img src="{photo.filename}" onerror="this.onerror=null;this.src='templates/{templatepath}/images/album/errorphoto.gif';" alt="{photo.title}" title="{photo.title}" /></a>
+				</div>
+				<h3><a href="showphoto.aspx?photoid={photo.photoid}"><%if {photo.title}==""%>暂无标题<%else%>{photo.title}<%/if%></a>&nbsp;</h3>
+			</li>
+			<%/loop%>
+		</ul>
+	</div>
+	<div style="text-align:center;"><img src="templates/{templatepath}/images/album/albumLine.gif" /></div>
+	<div class="focustitle">					
+		<h2 style="background:url(templates/{templatepath}/images/album/focusbg.gif) no-repeat left center;">焦点</h2>
+	</div>
+	<div class="Photo">
+		<ul>
+			<%loop (PhotoInfo) focusphoto focusphotolist%>
+			<li>
+				<div Class="albumimg">
+					<a href="showphoto.aspx?photoid={focusphoto.photoid}"><img src="{focusphoto.filename}" alt="{focusphoto.title}" title="{focusphoto.title}" onerror="this.onerror=null;this.src='templates/{templatepath}/images/album/errorphoto.gif';" /></a>	
+				</div>
+				<h3><a href="showphoto.aspx?photoid={focusphoto.photoid}"><%if {focusphoto.title}==""%>暂无标题<%else%>{focusphoto.title}<%/if%></a></h3>
+			</li>
+			<%/loop%>
+		</ul>
+	</div>
+</div>
+<div class="commendphoto">
+	<div class="forumtitle ">					
+			<h2>推荐相册</h2>
+			<em><a href="showalbumlist.aspx">更多...</a></em>
+	</div>
+	<div class="Photo" style="background:#FCFCF8;">
+		<ul>
+			<%loop (AlbumInfo) album recommendalbumlist%>
+			<li>
+				<%if {album.logo}!=""%>
+				<div class="PhotoPicture">
+					<a href="showalbum.aspx?albumid={album.albumid}"><img src="{album.logo}" alt="{album.title}" style="max-height: 80px; max-width: 105px" /></a>
+				</div>
+				<%else%>
+				<div class="nopicture">
+					<a href="showalbum.aspx?albumid={album.albumid}"><img src="templates/{templatepath}/images/album/nophoto.jpg" alt="{album.title}" /></a>
+				</div>
+				<%/if%>
+				<h3><a href="showalbumlist.aspx?uid={album.userid}">{album.username}</a>的相册</h3>
+				<p><a href="showalbum.aspx?albumid={album.albumid}">{album.title}</a> ({album.imgcount})</p>
+			</li>	
+			<%/loop%>
+		</ul>
+	</div>
+	<div style="text-align:center;"><img src="templates/{templatepath}/images/album/albumLine2.gif" /></div>
+	<div class="focustitle">		
+			<h2  style="background:url(templates/{templatepath}/images/album/photobg.gif) no-repeat left center;">焦点</h2>
+			<em><a href="showalbumlist.aspx">更多...</a></em>
+	</div>
+	<div class="Photo">
+		<ul>
+			<%loop (AlbumInfo) focusalbum focusalbumlist%>
+			<li>
+				<%if {focusalbum.logo}!=""%>
+				<div class="PhotoPicture">
+					<a href="showalbum.aspx?albumid={focusalbum.albumid}"><img src="{focusalbum.logo}" alt="{focusalbum.title}" style="max-height: 80px; max-width: 105px"/></a>
+				</div>
+				<%else%>
+				<div class="nopicture">
+					<a href="showalbum.aspx?albumid={focusalbum.albumid}"><img src="templates/{templatepath}/images/album/nophoto.jpg" alt="{focusalbum.title}" /></a>
+				</div>
+				<%/if%>
+				<h3><a href="showalbumlist.aspx?uid={focusalbum.userid}">{focusalbum.username}</a>的相册</h3>
+				<p><a href="showalbum.aspx?albumid={focusalbum.albumid}">{focusalbum.title}</a> ({focusalbum.imgcount})</p>
+			</li>
+			<%/loop%>
+		</ul>
+	</div>
+</div>
+</div>
+
+<div id="albumright">
+	<div class="rankbox">
+		<h2>一周热图总排行</h2>
+		<ul>
+			<%loop (PhotoInfo) weekhotphoto weekhotphotolist%>
+				<li><a href="showphoto.aspx?photoid={weekhotphoto.photoid}">{weekhotphoto.title}</a> (<a href="showalbumlist.aspx?uid={weekhotphoto.userid}">{weekhotphoto.username}</a>)</li>
+			<%/loop%>
+		</ul>
+	</div>
+ <%if {rotatepicdata}!=null && {rotatepicdata}!=""%>	
+	<div class="modulebox sidebox" style="padding:1px;">
+		<script type='text/javascript'>
+		var imgwidth = 227;
+		var imgheight = 127;
+		</script>			
+		<!--图片轮换代码开始-->
+		<script type='text/javascript' src='javascript/template_rotatepic.js'></script>
+		<script type='text/javascript'>
+		var data = { };
+		{rotatepicdata}
+
+		var ri = new MzRotateImage();
+		ri.dataSource = data;
+		ri.width = 226;
+
+		ri.height = 127;
+		ri.interval = 3000;
+		ri.duration = 2000;
+		document.write(ri.render());
+
+		</script>
+		<!--图片轮换代码结束-->	   	
+	</div>
+<%/if%>
+	<div class="albumcategories">
+		<h2>
+            相册分类</h2>
+		<ul>
+			<%loop (AlbumCategoryInfo) ac albumcategorylist%>
+				<li><a href="showalbumlist.aspx?cate={ac.albumcateid}">{ac.title}</a></li>
+			<%/loop%>
+		</ul>
+	</div>
+	<%if {config.enabletag}==1%>
+		<script type="text/javascript" src="cache/tag/closedtags.txt"></script>
+		<script type="text/javascript" src="cache/tag/colorfultags.txt"></script>
+		<script type="text/javascript" src="javascript/ajax.js"></script>
+		<script type="text/javascript" src="javascript/template_tags.js"></script>
+		<div class="sidebox sideboxbg">
+		<h4>热门标签</h4>
+		<ul id="photohottags">
+			<script type="text/javascript" src="cache/hottags_photo_cache_jsonp.txt" onerror="this.onerror=null;getajaxphotohottags();"></script>
+		</ul>
+	</div>
+	<%/if%>
+	<%if {config.enablespace}==1%>
+	<div class="updatespace">
+		<h2>最近更新的空间</h2>
+		<ul>
+			<%loop spaceinfo recentupdatespaceList%> 						
+				<li><a href="{spaceurl}space/?uid={spaceinfo[userid]}">{spaceinfo[spacetitle]}</a></li>
+			<%/loop%>
+		</ul>
+	</div>
+	<%/if%>
+</div>
+</div>
+<%else%>
+	<%template _photoerrmsgbox%>
+<%/if%>
+<%template _copyright%>
+<%template _footer%>

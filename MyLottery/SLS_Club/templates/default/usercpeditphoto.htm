@@ -1,0 +1,86 @@
+<%inherits "Discuz.Album.Pages.usercpphotoedit"%>
+<%template _header%>
+<!--header end-->
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>  &raquo; <a href="usercpspacemanagealbum.aspx">管理相册</a>  &raquo; <strong>编辑图片</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%template _albummenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if page_err==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+						<form action="" method="post">
+						<div>
+						<h3>编辑 {photo.title}</h3>
+						</div>
+
+						<div class="photoediter">
+							<div class="photoshow"><img src="{photo.filename}" alt="形象图"/></div>
+							<div class="photomessage">
+								<label for="title">标题: </label>
+								<input name="title" id="title" type="text" value="{photo.title}" size="20" maxlength="20" /><br />
+								<label for="description">描述: </label><textarea name="description" rows="4" style="width:400px"  maxlength="200">{photo.description}</textarea>
+								<%if {config.enabletag}==1%>
+								<label for="phototag" style="text-align:left;">标签: </label>
+								<input name="phototag" type="text" id="phototag" style="width:400px" size="20" maxlength="55" value="{tags}" /><br />
+								<%/if%>
+								<p>
+								<a href="###" onclick="openadvance();">图片选项</a>
+								<div id="status" style="display: none;">
+									<label for="commentstatus">评论设置: </label>										
+										<input type="radio" name="commentstatus" value="0" <%if {commentstatus}==0%>checked="checked"<%/if%> />只有我可以评论	
+										<input type="radio" name="commentstatus" value="2" <%if {commentstatus}==2%>checked="checked"<%/if%> />注册用户可以评论
+								</div>
+								</p>
+								<br />
+								<label for="submit">&nbsp;</label>	
+								<input type="submit" name="Submit" value="提交"/>
+							</div>
+						</div>
+
+						</form>
+						
+						<%/if%>
+						</div>
+					<%else%>
+						<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+function openadvance()
+{
+	var div = $("status");
+	if (div.style.display != "none")
+	{
+		div.style.display = "none";
+	}
+	else
+	{
+		div.style.display = "";
+	}
+}
+
+</script>
+
+</div>
+<%template _copyright%>
+<%template _footer%>

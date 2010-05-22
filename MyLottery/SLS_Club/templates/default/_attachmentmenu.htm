@@ -1,0 +1,11 @@
+﻿				<div class="panneltabs">
+                                <a href="myattachment.aspx"  <%if {typeid}==0%>
+					 class="current"
+					 <%/if%>>全部</a>
+				<%loop (AttachmentType) list typelist%>
+					<a href="?typeid={list.TypeId}" 
+                                        <%if {typeid}=={list.TypeId}%>
+					 class="current"
+					 <%/if%>>{list.TypeName}</a>
+				<%/loop%>
+				</div>	

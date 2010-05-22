@@ -1,0 +1,26 @@
+﻿				<div class="panneltabs">
+				<%if {userid}>0%>
+					<a href="usercpinbox.aspx"
+					<%if pagename=="usercpinbox.aspx"%>
+					 class="current"
+					 <%/if%>>收件箱</a>
+					<a href="usercpsentbox.aspx"
+					<%if pagename=="usercpsentbox.aspx"%>
+					 class="current"
+					 <%/if%>>发件箱</a>
+					<a href="usercpdraftbox.aspx"
+					<%if pagename=="usercpdraftbox.aspx"%>
+					 class="current"
+					 <%/if%>>草稿箱</a>
+					 <a href="usercppmset.aspx"
+					 <%if pagename=="usercppmset.aspx"%>
+						class="current"
+					 <%/if%>>选项</a>
+					<a href="usercppostpm.aspx"
+					<%if pagename=="usercppostpm.aspx"%>
+					 class="current addbutton"
+					<%else%>
+					 class="addbutton"
+					 <%/if%>>写新消息</a>
+				<%/if%>
+				</div>	

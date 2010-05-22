@@ -1,0 +1,191 @@
+﻿<%template _header%>
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}">{config.forumtitle}</a> &raquo; {forumnav} <%set {aspxrewriteurl} = this.ShowTopicAspxRewrite({topicid},0)%>
+	     &raquo; <a href="{aspxrewriteurl}">{topictitle}</a> &raquo; <strong>交易信息</strong>
+	</div>
+</div>
+<%if page_err==0%>
+<!--1-->
+<%if {ispost}%>
+<!--2-->
+<%template _msgbox%>
+<%else%>
+<!--3-->
+<%if {buyit}==1%>
+<!--4-->
+	<div class="mainbox">
+		<h3>购买主题</h3>
+		<form id="form1" name="form1" method="post" action="">
+		<table cellpadding="0" cellspacing="0" border="0" summary="购买主题">
+		<tbody>
+		<tr>
+			<th>用户名:</th>
+			<td>{username} [<a href="logout.aspx?userkey={userkey}">退出登录</a>]</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>作者:</th>
+			<td><%set {aspxrewriteurl} = this.UserInfoAspxRewrite({posterid})%>
+			<a href="{aspxrewriteurl}">{poster}</a>
+			</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>标题:</th>
+			<td>
+			<%set {aspxrewriteurl} = this.ShowTopicAspxRewrite({topicid},0)%>
+			<a href="{aspxrewriteurl}">{topictitle}</a>
+			</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>售价({userextcreditsinfo.name}):</th>
+			<td>{topicprice}</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>作者所得({userextcreditsinfo.name}):</th>
+			<td>{netamount}</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>购买后余额({userextcreditsinfo.name}):</th>
+			<td>{userlastprice}</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>&nbsp;</th>
+			<td>
+			<input type="submit" name="paysubmit" value="提交">
+			</td>
+		</tr>
+		</tbody>
+		</table>
+		</form>
+	</div>
+<%else%>
+	<!--5-->
+	<%if {showpayments}==1%>
+	<!--6-->
+	<div class="mainbox">
+		<table cellpadding="0" cellspacing="0" border="0"  summary="购买主题">
+			<thead>
+			<tr>
+				<th>{userextcreditsinfo.name}</th>
+				<th>用户名</th>
+				<th>时间</th>
+			</tr>
+			</thead>
+			<%loop paymentlog paymentloglist%>
+			<tbody>
+			<tr>
+				<td><div class="ForumBuyTopicLeft">{paymentlog[amount]}</div></td>
+				<th><%set {aspxrewriteurl} = this.UserInfoAspxRewrite({paymentlog[uid]})%>
+                  <a href="{aspxrewriteurl}" target="_blank">{paymentlog[username]}</a></th>
+				<td>{paymentlog[buydate]}</td>
+				
+			</tr>
+			</tbody>
+			<%/loop%>
+		</table>
+</div>
+	<%/if%>
+	<%if {price}>0%>
+	<!--7-->
+	<div class="mainbox">
+		<h3>标题:{topictitle}</h3>
+		{postmessage}
+		<div class="navformcommend" style="border-bottom:none;"></div>
+		<table cellpadding="0" cellspacing="0" border="0">
+		<thead>
+		<tr>
+			<th>&nbsp</th>
+			<td>本主题需向作者支付相应金币才能浏览，您可根据作者信誉、出售价格及已购买用户的评价确定购买与否。</td>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<th >售价({userextcreditsinfo.name})</th>
+			<td>{topicprice}</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>金币交易税</th>
+			<td>{creditstax}%</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>作者所得({userextcreditsinfo.name})</th>
+			<td>{netamount}</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>已购买人数</th>
+			<td>{buyers}</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>作者最高收入({userextcreditsinfo.name})</th>
+			<td>{maxincpertopic}</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>强制免费期限(小时)</th>
+			<td>{maxchargespan}</td>
+		</tr>
+		</tbody>
+		<tbody>
+		<tr>
+			<th>&nbsp;</th>
+			<td>
+			<a href="buytopic.aspx?topicid={topicid}&showpayments=1">[查看付款记录]</a><a href="buytopic.aspx?topicid={topicid}&buyit=1">[购买主题]</a> <a href="#" onclick="history.go(-1)">[返回上一页]</a>
+			</td>
+		</tr>
+		</tbody>
+		</table>
+	</div>
+	<div class="mainbox">
+		<h3>最后5帖</h3>
+		<table cellpadding="0" cellspacing="0" border="0">
+		<%loop lastpost lastpostlist%>
+		<tbody>
+		<tr>
+			<th><%set {aspxrewriteurl} = this.UserInfoAspxRewrite({lastpost[posterid]})%>
+			<a href="{aspxrewriteurl}"><strong>{lastpost[poster]}</strong></a>&nbsp;&nbsp;{lastpost[postdatetime]}
+			</th>
+		</tr>
+		<tr>
+			<td>{lastpost[message]}</td>
+		</tr>
+		</tbody>
+		<%/loop%>
+		</table>
+	</div>
+	<%else%>
+		此主题无需购买
+	<%/if%>
+<%/if%>
+</div>
+<%/if%>
+<%else%>
+	<%if {needlogin}%>
+		<%template _login%>
+	<%else%>
+		<%template _errmsgbox%>
+	<%/if%>
+</div>
+<%/if%>
+<%template _copyright%>
+<%template _footer%>

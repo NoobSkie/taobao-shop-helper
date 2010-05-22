@@ -1,0 +1,50 @@
+.bodyMainDiv
+{   
+    margin:0 auto;
+    width: 1003px;
+    height: auto;
+}
+
+body {
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+body, th, td {
+	font-family:"宋体";
+	font-size:12px;
+}
+.sdw_left
+{ FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none }
+
+
+.sdw_1
+{ FONT-SIZE: 14px; COLOR: #000000; LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none }
+.sdw_2
+{ FONT-SIZE: 14px; COLOR: #ff0000; LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none }
+
+.sdw_edit
+{ FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none }
+.sdw_edit A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.sdw_edit A:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.sdw_edit A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.sdw_edit A:hover {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.sdw_point
+{ FONT-SIZE: 16px; COLOR: #ff6600; LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none }
+.in_p{
+	color:#787878;
+	height:18px;
+	color:#373737;
+	border: 1px solid #cccccc;
+	font-family: "Arial", "Helvetica", "sans-serif",;
+	border-color: #ffffff;
+}

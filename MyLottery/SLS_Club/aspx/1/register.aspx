@@ -1,0 +1,1 @@
+﻿<%@ page language="c#" autoeventwireup="false" enableviewstate="false" inherits="Discuz.Web.register, SLS.Club" %>

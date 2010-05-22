@@ -1,0 +1,101 @@
+﻿<%inherits "Discuz.Space.Pages.usercpspacemanageblog"%>
+<%template _header%>
+<!--header end-->
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>  &raquo; <strong>管理日志</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+<!--主体-->
+<script type="text/javascript">
+	function checkCheckBox(form,objtag)
+	{
+		for(var i = 0; i < form.elements.length; i++) 
+		{
+			var e = form.elements[i];
+			if(e.name == "postid") 
+			{
+				e.checked = objtag.checked;
+			}
+		}
+		objtag.checked = !objtag.checked;
+	}
+</script>
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%template _spacemenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if page_err==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+						<div class="pannelmessage">
+							<div class="pannelright" style="width: 70%; padding-top: 6px; padding-right: 5px;">
+								<a href="usercpspacepostblog.aspx" class="submitbutton"><strong>发表日志</strong></a>
+							</div>
+						</div>
+				  		<form id="bloglist" name="bloglist" method="post" action="">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  		<tr>
+							<th width="50%">日志标题</th>
+							<th width="20%">分类</th>
+							<th width="17%">发布日期</th>
+							<th width="8%">评论次数</th>
+							<th width="5%">&nbsp;</th>
+					  </tr>
+						<%loop currentblog bloglist%>
+						<tbody>
+						<tr class="messagetable" onmouseover="this.className='messagetableon'" onmouseout="this.className='messagetable'">
+					        <td width="50%" style="text-align:left;">
+								<input name="postid" type="checkbox" id="blog{currentblog[postid]}" value="{currentblog[postid]}" style="margin-top:8px;"/>
+								<a href="{spaceurl}space/viewspacepost.aspx?postid={currentblog[postid]}" title="{currentblog[title]}" target="_blank">{currentblog[shorttitle]}</a>
+								<a href="usercpspaceeditblog.aspx?postid={currentblog[postid]}">[编辑]</a>
+					        </td>
+							<td width="20%">{currentblog[category]}&nbsp;</td>
+							<td width="17%" class="fontfamily">{currentblog[postdatetime]}</td>
+							<td width="8%"  class="fontfamily">{currentblog[commentcount]}</td>
+							<td width="5%"><a href="###" onclick="$('blog{currentblog[postid]}').checked=true;$('bloglist').submit();">删除</a></td>
+							</tr>
+						</tbody>
+						<%/loop%>
+						</table>
+						</form>
+						</div>
+						<div class="pannelmessage">
+							<div class="pannelleft" style="width: 160px;">
+								<a href="javascript:;"  onclick="checkCheckBox($('bloglist'),this)" checked="true" class="selectall">全选</a>&nbsp;&nbsp;&nbsp;
+								<a href="###" onclick="$('bloglist').submit()" class="selectall">删除</a> 
+							</div>
+							<div class="pannelright" style="width: 70%; padding-top: 6px; padding-right: 5px;">
+								<a href="usercpspacepostblog.aspx" class="submitbutton"><strong>发表日志</strong></a>
+							</div>
+						</div>
+						<div class="pages_btns">
+							<div class="pages">
+								<em>{pageid}/{pagecount}页</em>{pagenumbers}
+								<kbd>跳转<input name="gopage" type="text" id="gopage" onKeyDown="if(event.keyCode==13) {
+							window.location='usercpspacemanageblog.aspx?page=' + this.value;}"  size="4" maxlength="9"/>页</kbd>
+							</div>
+						</div>
+						<%/if%>
+					<%else%>
+					<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主体-->
+</div>
+<%template _copyright%>
+<%template _footer%>

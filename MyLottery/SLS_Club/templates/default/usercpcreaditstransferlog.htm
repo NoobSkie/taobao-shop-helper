@@ -1,0 +1,77 @@
+﻿<%template _header%>
+<!--header end-->
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>  &raquo; <strong>转账与兑换记录</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+
+<!--主体-->
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%template _scoremenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if page_err==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+				  		<form id="form1" name="form1" method="post" action="">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  		<tr>
+							<th width="30%">来自/到</th>
+							<th width="20%">时间</th>
+							<th width="20%">支出</th>
+							<th width="20%">收入</th>
+							<th width="6%">操作</th>
+						</tr>
+						<%loop creditslog creditsloglist%>
+						<tbody>
+						<tr class="messagetable" onmouseover="this.className='messagetableon'" onmouseout="this.className='messagetable'">
+                          <td width="30%">
+							<%if {strtoint({creditslog[uid]})}=={userid}%>
+							    <%set {aspxrewriteurl} = this.UserInfoAspxRewrite({creditslog[fromto]})%>
+								<a href="{aspxrewriteurl}" target="_blank">{creditslog[touser]}</a>
+							<%else%>
+							<%set {aspxrewriteurl} = this.UserInfoAspxRewrite({creditslog[uid]})%>
+								<a href="{aspxrewriteurl}" target="_blank">{creditslog[fromuser]}</a>
+							<%/if%>
+						  </td>
+                          <td width="20%">{creditslog[paydate]}</td>
+                          <td width="20%">{creditslog[send]}</td>
+                          <td width="20%">{creditslog[receive]}</td>
+                          <td>{creditslog[operationinfo]}</td>
+						</tr>
+						</tbody>
+						<%/loop%>
+						</table>
+						</form>
+						</div>
+						<div class="pages_btns">
+							<div class="pages">
+								<em>{pageid}/{pagecount}页</em>{pagenumbers}
+								<kbd>跳转<input name="gopage" type="text" id="gopage" onKeyDown="if(event.keyCode==13) {
+							window.location='usercpcreaditstransferlog.aspx?page=' + this.value;}"  size="4" maxlength="9"/>页</kbd>
+							</div>
+						</div>
+						<%/if%>
+					<%else%>
+					<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主体-->
+</div>
+<%template _copyright%>
+<%template _footer%>

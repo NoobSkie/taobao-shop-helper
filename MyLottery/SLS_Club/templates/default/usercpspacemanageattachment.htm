@@ -1,0 +1,99 @@
+﻿<%inherits "Discuz.Space.Pages.usercpspacemanageattachment"%>
+<%template _header%>
+<!--header end-->
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>  &raquo; <strong>管理附件</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+<!--主体-->
+<script type="text/javascript">
+	function checkCheckBox(form,objtag)
+	{
+		for(var i = 0; i < form.elements.length; i++) 
+		{
+			var e = form.elements[i];
+			if(e.name == "aid") 
+			{
+				e.checked = objtag.checked;
+			}
+		}
+		objtag.checked = !objtag.checked;
+	}
+</script>
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%template _spacemenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if page_err==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+				  		<form id="attachlist" name="attachlist" method="post" action="">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  		<tr>
+				  			<th width="50%">附件名</th>
+							<th width="10%">大小(单位:KB)</th>
+							<th width="10%">下载次数</th>
+							<th width="20%">上传时间</th>
+							<th width="10%">&nbsp;</th>
+					  </tr>
+						<%loop currentattachment attachmentlist%>
+						<tbody>
+						<tr class="messagetable" onmouseover="this.className='messagetableon'" onmouseout="this.className='messagetable'">
+					        <td width="50%" style="text-align:left;">
+								<input name="aid" type="checkbox" id="aid{currentattachment[aid]}" value="{currentattachment[aid]}" style="margin-top:8px;" />
+								<span id="layer{currentattachment[aid]}" onmouseover="showMenu(this.id, 0, 0, 1, 0);"><a href="{currentattachment[filename]}">{currentattachment[attachment]}</a></span>
+								<%if {currentattachment[isimg]}=="True"%>
+								<div id="layer{currentattachment[aid]}_menu" style="position: absolute;display:none"><img src="{currentattachment[filename]}" onerror="this.onerror=null;this.src='';" width="100"/></div>
+								<%/if%>
+					        </td>
+					        <td width="10%">
+								<script language="javascript" type="text/javascript">
+									ShowFormatBytesStr({currentattachment[filesize]});
+								</script>
+							</td>
+							<td width="10%" class="fontfamily">{currentattachment[downloads]}</td>
+							<td width="20%" class="fontfamily">{currentattachment[postdatetime]}</td>
+							<td width="10%"><a href="###" onclick="$('aid{currentattachment[aid]}').checked=true;$('attachlist').submit();">删除</a></td>
+							</tr>
+						</tbody>
+						<%/loop%>
+						</table>
+						</form>
+						</div>
+						<div class="pannelmessage">
+							<div class="pannelleft" style="width: 160px;">
+								<a href="javascript:;"  onclick="checkCheckBox($('attachlist'),this)" class="selectall">全选</a>&nbsp;&nbsp;&nbsp;
+								<a href="###" onclick="$('attachlist').submit()" class="selectall">删除</a> 
+							</div>
+						</div>
+						<div class="pages_btns">
+							<div class="pages">
+								<em>{pageid}/{pagecount}页</em>{pagenumbers}
+								<kbd>跳转<input name="gopage" type="text" id="gopage" onKeyDown="if(event.keyCode==13) {
+								window.location='usercpspacemanageattachment.aspx?page=' + this.value;}"  size="4" maxlength="9"/>页</kbd>
+							</div>
+						</div>
+						<%/if%>
+					<%else%>
+					<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主体-->
+</div>
+<%template _copyright%>
+<%template _footer%>

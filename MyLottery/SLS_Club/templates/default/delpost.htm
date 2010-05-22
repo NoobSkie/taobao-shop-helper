@@ -1,0 +1,16 @@
+<%template _header%>
+<%if page_err==0%>
+<div id="foruminfo">
+	<div id="nav">
+	<a href="{config.forumurl}">{config.forumtitle}</a> &raquo; {forumnav}
+	<%set {aspxrewriteurl} = this.ShowTopicAspxRewrite({topicid},0)%>
+	 &raquo; <a href="{aspxrewriteurl}">{topictitle}</a> &raquo; <strong>删除</strong>
+	</div>
+</div>
+<%template _msgbox%>
+<%else%>
+<%template _errmsgbox%>
+<%/if%>
+</div>
+<%template _copyright%>
+<%template _footer%>

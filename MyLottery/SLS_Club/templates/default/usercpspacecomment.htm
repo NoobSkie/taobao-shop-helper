@@ -1,0 +1,88 @@
+﻿<%inherits "Discuz.Space.Pages.usercpspacecomment"%>
+<%template _header%>
+<!--header end-->
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>  &raquo; <strong>管理评论</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+
+<!--主体-->
+<script type="text/javascript">
+	function checkCheckBox(form,objtag)
+	{
+		for(var i = 0; i < form.elements.length; i++) 
+		{
+			var e = form.elements[i];
+			if(e.name == "commentid") 
+			{
+				e.checked = objtag.checked;
+			}
+		}
+		objtag.checked = !objtag.checked;
+	}
+</script>
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%template _spacemenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if page_err==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+				  		<form id="commentlist" name="commentlist" method="post" action="">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  		<%loop currentcomment commentlist%>
+						<tbody>						
+						<tr>
+							<td  style="text-align:left;">
+							<input type="checkbox" name="commentid" id="commentid{currentcomment[commentid]}" value="{currentcomment[commentid]}" />
+								{currentcomment[author]} 对 <a href="{spaceurl}space/viewspacepost.aspx?postid={currentcomment[postid]}" target="_blank">{currentcomment[posttitle]}</a> 发表评论 日期：<span class="fontfamily">{currentcomment[postdatetime]}</span>
+								</td>
+						</tr>
+						<tr>
+						<td  style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;{currentcomment[content]}</td>
+						</tr>
+						</tbody>
+						<%/loop%>
+						</table>
+						</form>
+						</div>
+						<div class="pannelmessage">
+							<div class="pannelleft" style="width: 160px;">
+								<a href="javascript:;"  onclick="checkCheckBox($('commentlist'),this)" checked="true" class="selectall">全选</a>&nbsp;&nbsp;&nbsp;
+								<a href="###" onclick="$('commentlist').submit()" class="selectall">删除</a> 
+							</div>
+							<div class="pannelright" style="width: 70%; padding-right: 5px; margin-top:6px;">
+								<a href="usercpspacepostblog.aspx" class="submitbutton"><strong>发表日志</strong></a>
+							</div>
+						</div>
+						<div class="pages_btns">
+							<div class="pages">
+								<em>{pageid}/{pagecount}页</em>{pagenumbers}
+								<kbd>跳转<input name="gopage" type="text" id="gopage" onKeyDown="if(event.keyCode==13) {
+							window.location='usercpspacecomment.aspx?page=' + this.value;}"  size="4" maxlength="9"/>页</kbd>
+							</div>
+						</div>
+						<%/if%>
+					<%else%>
+					<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主体-->
+</div>
+<%template _copyright%>
+<%template _footer%>

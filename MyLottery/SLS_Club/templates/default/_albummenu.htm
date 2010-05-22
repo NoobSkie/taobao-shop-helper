@@ -1,0 +1,10 @@
+﻿			<%if {config.enablealbum}==1%>
+				<div class="panneltabs">
+				<%if {userid}>0%>					 
+					 <a href="usercpspacemanagealbum.aspx"
+					 <%if pagename=="usercpspacemanagealbum.aspx"||pagename=="usercpspacemanagephoto.aspx"||pagename=="usercpspacephotoadd.aspx"%>
+					 class="current"
+					 <%/if%>>管理{config.albumname}</a>
+				<%/if%>
+				</div>	
+			<%/if%>

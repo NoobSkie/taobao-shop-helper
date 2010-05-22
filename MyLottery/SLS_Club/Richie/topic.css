@@ -1,0 +1,16 @@
+.topicref{border:1px solid #C1C1C1;margin:0px auto 8px;padding:1px;}
+	.topicref table{border:1px solid #fff;margin:0;width:99.98%;}
+	.topicref .tr td,.t .tr th{padding:2px}
+	.topicref ul li{float:left;}
+        .topicref li{display:block;width:100%;height:20px;list-style:none;}
+	.topicref .t2{border-top:#cccccc 1px solid;margin:0px auto 5px;}
+	.topicref .t3{margin:auto;background:red;}
+	.topicref .textstyle{color:#00ffff;text-align:center;font-weight: bold;background: #FFF url(images/menu_bg.gif) repeat-x;}
+	.topicref .topicbanner{background:#C1C1C1 url(images/header_bg.gif) repeat-x left top;}
+	.topicref .topicbanner td,.topicbanner th{border-bottom:1px solid #C1C1C1;padding:5px 8px}
+	.topicref .unittd{border-bottom:1px solid #C1C1C1;padding:5px 8px;vertical-align:top;}
+	.topicref .tr3 th{text-align:left;font-weight:normal;}
+	.topicref .tr3 td,.tr3 th{border-right:1px solid #C1C1C1;}
+	.topicref .y-style{text-align:center;}
+
+

@@ -1,0 +1,94 @@
+﻿<%inherits "Discuz.Space.Pages.usercpspacelinklist"%>
+<%template _header%>
+<!--header end-->
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>  &raquo; <strong>友情链接</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+<!--主体-->
+<script type="text/javascript">
+	function checkCheckBox(form,objtag)
+	{
+		for(var i = 0; i < form.elements.length; i++) 
+		{
+			var e = form.elements[i];
+			if(e.name == "linkid") 
+			{
+				e.checked = objtag.checked;
+			}
+		}
+		objtag.checked = !objtag.checked;
+	}
+</script>
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%template _spacemenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if page_err==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+				  		<form id="linklist" name="linklist" method="post" action="">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  		<tr>
+							<th width="30%">链接名称</th>
+							<th width="20%">URL</th>
+							<th width="40%">链接描述</th>
+							<th width="10%">&nbsp;</th>
+					  </tr>
+						<%loop currentlink linklist%>
+						<tbody>
+						<tr class="messagetable" onmouseover="this.className='messagetableon'" onmouseout="this.className='messagetable'">
+					        <td width="30%" style="text-align:left;">
+								<input name="linkid" type="checkbox" id="linkid{currentlink[linkid]}" value="{currentlink[linkid]}" style="margin-top:8px;"/>
+								<span title="{currentlink[linktitle]}">{currentlink[shortlinktitle]}</span> 
+								<a href="usercpspacelinkedit.aspx?linkid={currentlink[linkid]}">[编辑]</a>
+					        </td>
+							<td width="20%" style="text-align:left;"><a href="{currentlink[linkurl]}" target="_blank">{currentlink[shortlinkurl]}</a></td>
+							<td width="40%" style="text-align:left;">{currentlink[description]}&nbsp;</td>
+							<td width="10%"><a href="###" onclick="$('linkid{currentlink[linkid]}').checked=true;$('linklist').submit();">删除</a></td>
+							</tr>
+						</tbody>
+						<%/loop%>
+						</table>
+						</form>
+						</div>
+						<div class="pannelmessage">
+							<div class="pannelleft" style="width: 160px;">
+								<a href="javascript:;"  onclick="checkCheckBox($('linklist'),this)" checked="true"  class="selectall">全选</a>&nbsp;&nbsp;&nbsp;
+								<a href="###" onclick="$('linklist').submit()" class="selectall">删除</a> 
+							</div>
+							<div class="pannelright" style="width: 70%; padding-top: 6px; padding-right: 5px;">
+								<a href="usercpspacelinkadd.aspx" class="submitbutton"><strong>增加链接</strong></a>
+							</div>
+						</div>
+						<div class="pages_btns">
+							<div class="pages">
+								<em>{pageid}/{pagecount}页</em>{pagenumbers}
+								<kbd>跳转<input name="gopage" type="text" id="gopage" onKeyDown="if(event.keyCode==13) {
+							window.location='usercpspacelinklist.aspx?page=' + this.value;}"  size="4" maxlength="9"/>页</kbd>
+							</div>
+						</div>
+						<%/if%>
+					<%else%>
+					<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主体-->
+</div>
+<%template _copyright%>
+<%template _footer%>

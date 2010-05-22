@@ -1,0 +1,89 @@
+﻿<%template _header%>
+<!--header end-->
+<div id="foruminfo">
+	<div id="nav">
+		<a href="{config.forumurl}" class="home">{config.forumtitle}</a>  &raquo; <a href="usercp.aspx">用户中心</a>  &raquo; <strong>金币转帐</strong>
+	</div>
+	<div id="headsearch">
+		<div id="search">
+			<%template _quicksearch%>
+		</div>
+	</div>
+</div>
+
+<!--主体-->
+<div class="controlpannel">
+   <%template _menu%>
+	<div class="pannelcontent">
+		<div class="pcontent">
+			<div class="panneldetail">
+				<%template _scoremenu%>	
+				<div class="pannelbody">
+					<div class="pannellist">
+					<%if page_err==0%>
+						<%if ispost%>
+							<%template _msgbox%>
+						<%else%>
+						<form action="" method="post" ID="Form1">
+						<ul>
+							<li class="paychange"><strong>当前帐户</strong></li>
+							<li class="paychange">
+								<%if {score[1]}!=""%>
+								{score[1]}: <em>{user.extcredits1}</em>&nbsp;&nbsp;
+								<%/if%>
+								<%if {score[2]}!=""%>
+								{score[2]}: <em>{user.extcredits2}</em>&nbsp;&nbsp;
+								<%/if%>
+								<%if {score[3]}!=""%>
+								{score[3]}: <em>{user.extcredits3}</em>&nbsp;&nbsp;
+								<%/if%>
+								<%if {score[4]}!=""%>
+								{score[4]}: <em>{user.extcredits4}</em>&nbsp;&nbsp;
+								<%/if%>
+								<%if {score[5]}!=""%>
+								{score[5]}: <em>{user.extcredits5}</em>&nbsp;&nbsp;
+								<%/if%>
+								<%if {score[6]}!=""%>
+								{score[6]}: <em>{user.extcredits6}</em>&nbsp;&nbsp;
+								<%/if%>
+								<%if {score[7]}!=""%>
+								{score[7]}: <em>{user.extcredits7}</em>&nbsp;&nbsp;
+								<%/if%>
+								<%if {score[8]}!=""%>
+								{score[8]}: <em>{user.extcredits8}</em>&nbsp;&nbsp;
+								<%/if%>
+							</li>
+						</ul>
+						<label for="password">用户密码:</label>
+						<input name="password" type="password" id="password" size="20"/>
+						<br/>
+						<label for="paynum">将数量:</label>
+						<input name="paynum" type="text" id="paynum" value="100" size="10" />&nbsp;&nbsp;的&nbsp;&nbsp;
+						<select name="extcredits" id="extcredits" class="colorblue"  style="width:120px;">
+						<option value="">请选择</option>
+						<%loop extcredits extcreditspaylist%>
+						<option value="{extcredits[id]}">{extcredits[name]}</option>
+						<%/loop%>
+						</select>
+						<br />
+						<label for="fromto">转帐给用户:</label>
+						<input name="fromto" type="text" id="fromto" size="20" />
+						<div class="hintinfo">转帐时将根据论坛当前设置({creditstax})扣除交易税</div>
+						<input type="submit" name="Submit" value="确定" ID="Submit1"/>
+						&nbsp;&nbsp;
+						<input type="button" name="sbutton" value=" 计 算 " onclick="alert('接收者的所得为 '+this.form.extcredits.options[this.form.extcredits.selectedIndex].text + ':'+Math.round(this.form.paynum.value*(1-{creditstax})*100)/100)" ID="Button1" />
+						</form>
+						<%/if%>
+						</div>
+					<%else%>
+					<%template _usercperrmsgbox%>
+					<%/if%>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主体-->
+</div>
+<%template _copyright%>
+<%template _footer%>

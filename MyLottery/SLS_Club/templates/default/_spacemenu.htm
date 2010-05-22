@@ -1,0 +1,34 @@
+﻿			<%if {config.enablespace}==1%>
+				<div class="panneltabs">
+				<%if {userid}>0 && {user.spaceid}>0%>
+					<a href="usercpspacemanageblog.aspx"
+					<%if {pagename}=="usercpspacepostblog.aspx"||{pagename}=="usercpspacemanageblog.aspx"||{pagename}=="usercpspaceeditblog.aspx"%>
+					 class="current"
+					 <%/if%>>管理日志</a>
+					 
+					<a href="usercpspacelinklist.aspx"
+					 <%if {pagename}=="usercpspacelinklist.aspx"||{pagename}=="usercpspacelinkadd.aspx"||{pagename}=="usercpspacelinkedit.aspx"%>
+					 class="current"
+					 <%/if%>>友情链接</a>
+					 
+					 <a href="usercpspacecomment.aspx"
+					 <%if {pagename}=="usercpspacecomment.aspx"%>
+					 class="current"
+					 <%/if%>>管理评论</a>
+					 
+					 <a href="usercpspacemanagecategory.aspx"
+					 <%if {pagename}=="usercpspacemanagecategory.aspx"||{pagename}=="usercpspacecategoryadd.aspx"||{pagename}=="usercpspacecategoryedit.aspx"%>
+					 class="current"
+					 <%/if%>>管理分类</a>
+					 
+					 <a href="usercpspacemanageattachment.aspx"
+					 <%if {pagename}=="usercpspacemanageattachment.aspx"%>
+					 class="current"
+					 <%/if%>>管理附件</a>	
+					 <a href="usercpspaceset.aspx" 
+					 <%if {pagename}=="usercpspaceset.aspx"%>
+						class="current"
+					 <%/if%>>基本设置</a>
+				<%/if%>
+				</div>	
+			<%/if%>

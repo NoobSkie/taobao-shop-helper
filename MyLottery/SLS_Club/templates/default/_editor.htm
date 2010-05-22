@@ -1,0 +1,445 @@
+﻿<script type="text/javascript" src="javascript/common.js"></script>
+<script type="text/javascript" src="javascript/menu.js"></script>
+<script type="text/javascript" src="javascript/bbcode.js"></script>
+<script type="text/javascript" src="javascript/ajax.js"></script>
+<script type="text/javascript">
+var lang						= new Array();
+lang['post_discuzcode_code'] = '请输入要插入的代码';
+lang['post_discuzcode_quote'] = '请输入要插入的引用';
+lang['post_discuzcode_free'] = '请输入要插入的免费信息';
+lang['post_discuzcode_hide'] = '请输入要插入的隐藏内容';
+var editorcss = 'templates/{templatepath}/editor.css';
+</script>
+<script type="text/javascript">
+	var typerequired = parseInt('0');
+//		var bbinsert = parseInt('1');
+	var seccodecheck = parseInt('0');
+	var secqaacheck = parseInt('0');
+	var special = parseInt('0');
+	var isfirstpost = 1;
+	var allowposttrade = parseInt('1');
+	var allowpostreward = parseInt('1');
+	var allowpostactivity = parseInt('1');
+
+	lang['board_allowed'] = '系统限制';
+	lang['lento'] = '到';
+	lang['bytes'] = '字节';
+	lang['post_curlength'] = '当前长度';
+	lang['post_title_and_message_isnull'] = '请完成标题或内容栏。';
+	lang['post_title_toolong'] = '您的标题超过 60 个字符的限制。';
+	lang['post_message_length_invalid'] = '您的帖子长度不符合要求。';
+	lang['post_type_isnull'] = '请选择主题对应的分类。';
+	lang['post_reward_credits_null'] = '对不起，您输入悬赏金币。';
+	var bbinsert = parseInt('1');
+	var editorid = 'posteditor';
+	var allowhtml = parseInt('0');
+	var forumallowhtml = parseInt('0');
+	var allowsmilies = 1 - parseInt('{smileyoff}');
+	var allowbbcode = 1 - parseInt('{bbcodeoff}');
+	var allowimgcode = parseInt('{allowimg}');
+
+	var wysiwyg = (is_ie || is_moz || (is_opera && opera.version() >= 9)) && parseInt('{config.Defaulteditormode}') && allowbbcode == 1 ? 1 : 0;//bbinsert == 1 ? 1 : 0;
+	var allowswitcheditor = parseInt('{config.allowswitcheditor}') && allowbbcode == 1 ;
+
+	//var Editor				= new Array();
+	lang['enter_tag_option']		= "请输入 %1 标签的选项:";
+	//lang['enter_list_item']			= "输入一个列表项目.\r\n留空或者点击'取消'完成此列表.";
+	//lang['enter_link_url']			= "请输入链接的地址:";
+	//lang['enter_image_url']			= "请输入图片链接地址:";
+	//lang['enter_email_link']		= "请输入此链接的邮箱地址:";
+	lang['enter_table_rows']		= "请输入行数，最多 30 行:";
+	lang['enter_table_columns']		= "请输入列数，最多 30 列:";
+	//lang['fontname']			= "字体";
+	//lang['fontsize']			= "大小";
+	var custombbcodes = { {customeditbuttons} };
+
+	var smileyinsert = parseInt('1');
+	//var editor_id = 'posteditor';　//编辑器ID
+	var smiliesCount = 12;//显示表情总数
+	var colCount = 4; //每行显示表情个数
+	var title = "";				   //标题
+	var showsmiliestitle = 1;        //是否显示标题（0不显示 1显示）
+	var smiliesIsCreate = 0;		   //编辑器是否已被创建(0否，1是）
+	var smilies_HASH = {};//得到表情符号信息
+
+	var smiliePageSize = 16; //表情每页显示数量 (共4列)
+	//table变量
+	var msgheader = "margin:0 2em; font: 11px Arial, Tahoma; font-weight: bold; background: #F3F8D7; padding: 5px;";
+	var msgborder = "margin: 0 2em; padding: 10px; border: 1px solid #dbddd3; word-break: break-all; background-color: #fdfff2;";
+	var INNERBORDERCOLOR = "#D6E0EF";
+	var BORDERWIDTH = "1";
+	var BORDERCOLOR = "#7ac4ea";
+	var ALTBG2 = "#ffffff";
+	var FONTSIZE = "12px";
+	var FONT = "Tahoma, Verdana";
+
+	//var fontoptions = new Array("仿宋_GB2312", "黑体", "楷体_GB2312", "宋体", "新宋体", "Tahoma", "Arial", "Impact", "Verdana", "Times New Roman");
+	var altbg1 = '#f5fbff';
+	var altbg2 = 'background: #ffffff;font: 12px Tahoma, Verdana;';
+	var tableborder = 'background: #D6E0EF;border: 1px solid #7ac4ea;';
+
+
+	//var lang = new Array();
+	if(is_ie >= 5 || is_moz >= 2) {
+		window.onbeforeunload = function () {saveData(wysiwyg && bbinsert ? editdoc.body.innerHTML : textobj.value)};
+		lang['post_autosave_none'] = "没有可以恢复的数据";
+		lang['post_autosave_confirm'] = "本操作将覆盖当前帖子内容，确定要恢复数据吗？";
+	}
+	var maxpolloptions = parseInt('{config.maxpolloptions}');
+</script>
+<th valign="top">
+	<label for="posteditor_textarea">
+		内容
+	</label>
+	<div id="posteditor_left" >
+		<input type="checkbox" value="1" name="parseurloff" id="parseurloff" <%if {parseurloff}==1%>checked<%/if%>> 禁用 URL 识别<br />
+		<input type="checkbox" value="1" name="smileyoff" id="smileyoff" <%if {smileyoff}==1%>checked<%/if%><%if {forum.allowsmilies}!=1%>disabled<%/if%>> 禁用 表情<br />
+		<input type="checkbox" value="1" name="bbcodeoff" id="bbcodeoff"
+			<%if {bbcodeoff}==1%>
+				checked
+			<%/if%>
+			<%if {usergroupinfo.allowcusbbcode}!=1%>
+				disabled
+			<%else%>
+				<%if {forum.allowbbcode}!=1%>
+					disabled
+				<%/if%>
+			<%/if%>
+		> 禁用 Discuz!NT 代码<br />
+		<input type="checkbox" value="1" name="usesig" id="usesig" <%if {usesig}==1%>checked<%/if%>> 使用个人签名
+		<%if {pagename}=="postreply.aspx"%><br />
+			<input type="checkbox" name="emailnotify" id="emailnotify" /> 发送邮件通知楼主
+		<%/if%>
+<!--表情符号列表-->
+<%if {config.smileyinsert}==1%>
+	<%set (string){defaulttypname} = string.Empty%>
+		<div class="editorsmiles">
+			<div class="smiliepanel">
+				<div id="scrollbar" class="scrollbar">
+					<table cellspacing="0" cellpadding="0" border="0">
+						<tr>
+						<%loop stype smilietypes%>
+							<%if {stype[_id]}==1%>
+							<%set {defaulttypname} = {stype[code]}%>
+							<%/if%>
+							<td id="t_s_{stype[_id]}"><div id="s_{stype[_id]}" onclick="showsmiles({stype[_id]}, '{stype[code]}');" <%if {stype[_id]}!=1%>style="display:none;"<%else%>class="lian"<%/if%>>{stype[code]}</div></td>
+						<%/loop%>
+						</tr>
+					</table>
+				</div>
+				<div id="scrlcontrol">
+					<img src="editor/images/smilie_prev_default.gif" alt="向前" onmouseover="if($('scrollbar').scrollLeft>0)this.src=this.src.replace(/_default|_selected/, '_hover');" onmouseout="this.src=this.src.replace(/_hover|_selected/, '_default');" onmousedown="if($('scrollbar').scrollLeft>0){this.src=this.src.replace(/_hover|_default/, '_selected');this.boder=1;}" onmouseup="if($('scrollbar').scrollLeft>0)this.src=this.src.replace(/_selected/, '_hover');else{this.src=this.src.replace(/_selected|_hover/, '_default');}this.border=0;" onclick="scrollSmilieTypeBar($('scrollbar'), 1-$('t_s_1').clientWidth);"/>
+					<img src="editor/images/smilie_next_default.gif" alt="向后" onmouseover="if($('scrollbar').scrollLeft<scrMaxLeft)this.src=this.src.replace(/_default|_selected/, '_hover');" onmouseout="this.src=this.src.replace(/_hover|_selected/, '_default');" onmousedown="if($('scrollbar').scrollLeft<scrMaxLeft){this.src=this.src.replace(/_hover|_default/, '_selected');this.boder=1;}" onmouseup="if($('scrollbar').scrollLeft<scrMaxLeft)this.src=this.src.replace(/_selected/, '_hover');else{this.src=this.src.replace(/_selected|_hover/, '_default');}this.border=0;" onclick="scrollSmilieTypeBar($('scrollbar'), $('t_s_1').clientWidth);" />
+				</div>
+	 </div>
+	 <div id="showsmilie"><img src="images/loading_wide.gif" width="90%" style=" margin-top:20px;" alt="加载表情"/><p>正在加载表情...</p></div>
+	 <div id="showsmilie_pagenum">&nbsp;</div>
+    </div>
+		<script src="javascript/post.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			var scrMaxLeft; //表情滚动条宽度
+			var firstpagesmilies_json ={ {firstpagesmilies} };
+			showFirstPageSmilies(firstpagesmilies_json, '{defaulttypname}',  16);
+			function getSmilies(func){
+				var c="tools/ajax.aspx?t=smilies";
+				_sendRequest(c,function(d){var e={};try{e=eval("("+d+")")}catch(f){e={}}var h=e?e:null;func(h);e=null;func=null},false,true)
+			}
+			getSmilies(function(obj){ 
+				smilies_HASH = obj; 
+				showsmiles(1, '{defaulttypname}');
+			});
+
+			window.onload = function() {
+			
+			
+				$('scrollbar').scrollLeft = 10000;
+				scrMaxLeft = $('scrollbar').scrollLeft;
+				$('scrollbar').scrollLeft = 1;	
+				if ($('scrollbar').scrollLeft > 0)
+				{
+					$('scrlcontrol').style.display = '';
+					$('scrollbar').scrollLeft = 0;	
+				}
+			}
+		</script>
+<%/if%>
+<!-- / 表情符号列表-->
+	</div>
+</td>
+<td valign="top">
+<div id="posteditor" class="editor">
+	<div id="posteditor_controls">
+		<div class="editorrow">
+			<a id="posteditor_cmd_bold" title="粗体">B</a>
+			<a id="posteditor_cmd_italic" title="斜体">I</a>
+			<a id="posteditor_cmd_underline" title="下划线">U</a>
+			<em></em>
+			<a id="posteditor_popup_fontname" title="字体"><span style="width: 110px; display: block; white-space: nowrap;" id="posteditor_font_out">字体</span></a>
+			<a id="posteditor_popup_fontsize" title="大小"><span style="width: 30px; display: block;" id="posteditor_size_out">大小</span></a>
+			<a id="posteditor_popup_forecolor" title="颜色"><span style="width: 30px; display: block;"><img alt="color" src="editor/images/bb_color.gif"/><br/><img width="21" height="4" style="background-color: Black;" alt="" id="posteditor_color_bar" src="editor/images/bb_clear.gif"/></span></a>
+			<em></em>
+			<a id="posteditor_cmd_justifyleft" title="居左">Align Left</a>
+			<a id="posteditor_cmd_justifycenter" title="居中">Align Center</a>
+			<a id="posteditor_cmd_justifyright" title="居右">Align Right</a>
+			<em></em>
+			<a id="posteditor_cmd_createlink" title="插入链接">Url</a>
+			<a id="posteditor_cmd_email" title="插入邮箱链接">Email</a>
+			<a id="posteditor_cmd_insertimage" title="插入图片">Image</a>
+			<a id="posteditor_popup_media" title="插入在线视频">Media</a>
+			<em></em>
+			<a id="posteditor_cmd_quote" title="插入引用">Quote</a>
+			<a id="posteditor_cmd_code" title="插入代码">Code</a>
+			<a id="posteditor_buttonctrl" class="plugeditor editormode">简单功能</a>
+		</div>
+		<div class="editorrow" id="posteditor_morebuttons" >
+			<a id="posteditor_cmd_removeformat" title="清除文本格式">Remove Format</a>
+			<a id="posteditor_cmd_unlink" title="移除链接">Unlink</a>
+			<a id="posteditor_cmd_undo" title="撤销">Undo</a>
+			<a id="posteditor_cmd_redo" title="重做">Redo</a>
+			<em></em>
+			<a id="posteditor_cmd_insertorderedlist" title="排序的列表">Ordered List</a>
+			<a id="posteditor_cmd_insertunorderedlist" title="未排序列表">Unordered List</a>
+			<a id="posteditor_cmd_outdent" title="减少缩进">Outdent</a>
+			<a id="posteditor_cmd_indent" title="增加缩进">Indent</a>
+			<em></em>
+			<a id="posteditor_popup_table" title="插入表格">Table</a>
+			<a id="posteditor_cmd_free" href="###" title="插入免费信息">Free</a>
+			<%if {usergroupinfo.Allowhidecode}==1%>			
+			<a id="posteditor_cmd_hide" title="插入隐藏内容">Hide</a>
+			<%/if%>
+			<em></em>
+			<!--<a class="plugeditor" id="posteditor_cmd_custom1_qq"><img src="editor/images/bb_qq.gif" title="显示 QQ 在线状态，点这个图标可以和他（她）聊天" alt="qq" /></a>-->		
+			<script type="text/javascript">
+				//自定义按扭显示
+				if(typeof(custombbcodes) != 'undefined') {
+					//document.writeln('<td><img src="editor/images/separator.gif" width="6" height="23"></td>');
+					for (var id in custombbcodes){
+						if (custombbcodes[id][1] == '')
+						{
+							continue;
+						}
+						document.writeln('<a id="posteditor_cmd_custom' + custombbcodes[id][5] + '_' + custombbcodes[id][0] + '" style="background: transparent url(editor/images/' + custombbcodes[id][1] + ') no-repeat 0 0;"><img title="' + custombbcodes[id][2] + '" alt="' + custombbcodes[id][2] + '" src = "editor/images/' + custombbcodes[id][1] + '" width="21" height="20" /></a>');
+					}
+				}
+			</script>
+		</div>
+		<div id="posteditor_switcher" class="editor_switcher_bar">
+				<button type="button" id="bbcodemode">Discuz! 代码模式</button>
+				<button type="button" id="wysiwygmode">所见即所得模式</button>
+		</div>
+	</div>
+</div>
+<div class="editortoolbar">
+	<div class="popupmenu_popup fontname_menu" id="posteditor_popup_fontname_menu" style="display: none">
+		<ul unselectable="on">
+			<li onclick="discuzcode('fontname', '仿宋_GB2312');hideMenu()" style="font-family: 仿宋_GB2312" unselectable="on">仿宋_GB2312</li>
+			<li onclick="discuzcode('fontname', '黑体');hideMenu()" style="font-family: 黑体" unselectable="on">黑体</li>
+			<li onclick="discuzcode('fontname', '楷体_GB2312');hideMenu()" style="font-family: 楷体_GB2312" unselectable="on">楷体_GB2312</li>
+			<li onclick="discuzcode('fontname', '宋体');hideMenu()" style="font-family: 宋体" unselectable="on">宋体</li>
+
+			<li onclick="discuzcode('fontname', '新宋体');hideMenu()" style="font-family: 新宋体" unselectable="on">新宋体</li>
+			<li onclick="discuzcode('fontname', '微软雅黑');hideMenu()" style="font-family: 微软雅黑" unselectable="on">微软雅黑</li>
+			<li onclick="discuzcode('fontname', 'Trebuchet MS');hideMenu()" style="font-family: Trebuchet MS" unselectable="on">Trebuchet MS</li>
+			<li onclick="discuzcode('fontname', 'Tahoma');hideMenu()" style="font-family: Tahoma" unselectable="on">Tahoma</li>
+			<li onclick="discuzcode('fontname', 'Arial');hideMenu()" style="font-family: Arial" unselectable="on">Arial</li>
+			<li onclick="discuzcode('fontname', 'Impact');hideMenu()" style="font-family: Impact" unselectable="on">Impact</li>
+			<li onclick="discuzcode('fontname', 'Verdana');hideMenu()" style="font-family: Verdana" unselectable="on">Verdana</li>
+			<li onclick="discuzcode('fontname', 'Times New Roman');hideMenu()" style="font-family: Times New Roman" unselectable="on">Times New Roman</li>
+		</ul>
+	</div>
+	<div class="popupmenu_popup fontsize_menu" id="posteditor_popup_fontsize_menu" style="display: none">
+		<ul unselectable="on">
+		<li onclick="discuzcode('fontsize', 1);hideMenu()" unselectable="on"><font size="1" unselectable="on">1</font></li>
+			<li onclick="discuzcode('fontsize', 2);hideMenu()" unselectable="on"><font size="2" unselectable="on">2</font></li>
+			<li onclick="discuzcode('fontsize', 3);hideMenu()" unselectable="on"><font size="3" unselectable="on">3</font></li>
+			<li onclick="discuzcode('fontsize', 4);hideMenu()" unselectable="on"><font size="4" unselectable="on">4</font></li>
+			<li onclick="discuzcode('fontsize', 5);hideMenu()" unselectable="on"><font size="5" unselectable="on">5</font></li>
+			<li onclick="discuzcode('fontsize', 6);hideMenu()" unselectable="on"><font size="6" unselectable="on">6</font></li>
+			<li onclick="discuzcode('fontsize', 7);hideMenu()" unselectable="on"><font size="7" unselectable="on">7</font></li>
+		</ul>
+	</div>
+	<div class="popupmenu_popup colorbar" id="posteditor_popup_forecolor_menu" style="display: none">
+	<table cellpadding="0" cellspacing="0" border="0" unselectable="on" style="width: auto;">
+		<tr>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Black');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Black" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Sienna');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Sienna" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'DarkOliveGreen');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: DarkOliveGreen" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'DarkGreen');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: DarkGreen" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'DarkSlateBlue');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: DarkSlateBlue" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Navy');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Navy" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Indigo');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Indigo" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'DarkSlateGray');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: DarkSlateGray" unselectable="on"></div></td>
+		</tr>
+		<tr>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'DarkRed');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: DarkRed" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'DarkOrange');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: DarkOrange" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Olive');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Olive" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Green');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Green" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Teal');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Teal" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Blue');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Blue" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'SlateGray');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: SlateGray" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'DimGray');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: DimGray" unselectable="on"></div></td>
+		</tr>
+		<tr>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Red');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Red" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'SandyBrown');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: SandyBrown" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'YellowGreen');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: YellowGreen" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'SeaGreen');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: SeaGreen" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'MediumTurquoise');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: MediumTurquoise" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'RoyalBlue');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: RoyalBlue" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Purple');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Purple" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Gray');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Gray" unselectable="on"></div></td>
+		</tr>
+		<tr>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Magenta');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Magenta" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Orange');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Orange" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Yellow');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Yellow" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Lime');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Lime" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Cyan');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Cyan" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'DeepSkyBlue');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: DeepSkyBlue" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'DarkOrchid');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: DarkOrchid" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Silver');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Silver" unselectable="on"></div></td>
+		</tr>
+		<tr>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Pink');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Pink" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Wheat');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Wheat" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'LemonChiffon');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: LemonChiffon" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'PaleGreen');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: PaleGreen" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'PaleTurquoise');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: PaleTurquoise" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'LightBlue');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: LightBlue" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'Plum');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: Plum" unselectable="on"></div></td>
+			<td class="editor_colornormal" onclick="discuzcode('forecolor', 'White');hideMenu()" unselectable="on" onmouseover="colorContext(this, 'mouseover')" onmouseout="colorContext(this, 'mouseout')"><div style="background-color: White" unselectable="on"></div></td>
+		</tr>
+	</table>
+	</div>
+	<div class="popupmenu_popup" id="posteditor_popup_table_menu" style="display: none">
+		<table cellpadding="4" cellspacing="0" border="0" unselectable="on">
+		  <tr class="popupmenu_option">
+				<td nowrap>表格行数:</td>
+				<td nowrap><input type="text" id="posteditor_table_rows" size="3" value="2" /></td>
+				<td nowrap>表格列数:</td>
+				<td nowrap><input type="text" id="posteditor_table_columns" size="3" value="2" /></td>
+		  </tr>
+		  <tr class="popupmenu_option">
+				<td nowrap>表格宽度:</td>
+				<td nowrap><input type="text" id="posteditor_table_width" size="3" value="" /></td>
+				<td nowrap>背景颜色:</td>
+
+				<td nowrap><input type="text" id="posteditor_table_bgcolor" size="3" /></td>
+		  </tr>
+		  <tr class="popupmenu_option">
+				<td colspan="2" align="right"><input type="button" onclick="discuzcode('table')" value="提交" /></td>
+				<td colspan="2" align="left"><input type="button" onclick="hideMenu()" value="取消" /></td>
+		  </tr>
+		</table>
+	</div>
+	<div class="popupmenu_popup" id="posteditor_popup_media_menu" style="width: 240px;display: none">
+	<input type="hidden" id="posteditor_mediatype" value="ra">
+	<input type="hidden" id="posteditor_mediaautostart" value="0">
+	<table cellpadding="4" cellspacing="0" border="0" unselectable="on">
+	<tr class="popupmenu_option">
+		<td nowrap>
+			请输入在线视频的地址:<br />
+			<input id="posteditor_mediaurl" size="40" value="" onkeyup="setmediatype('posteditor')" />
+		</td>
+	</tr>
+	<tr class="popupmenu_option">
+		<td nowrap>
+			<label style="float: left; width: 32%"><input type="radio" name="posteditor_mediatyperadio" id="posteditor_mediatyperadio_ra" onclick="$('posteditor_mediatype').value = 'ra'" checked="checked">RA</label>
+			<label style="float: left; width: 32%"><input type="radio" name="posteditor_mediatyperadio" id="posteditor_mediatyperadio_wma" onclick="$('posteditor_mediatype').value = 'wma'">WMA</label>
+			<label style="float: left; width: 32%"><input type="radio" name="posteditor_mediatyperadio" id="posteditor_mediatyperadio_mp3" onclick="$('posteditor_mediatype').value = 'mp3'">MP3</label>
+			<label style="float: left; width: 32%"><input type="radio" name="posteditor_mediatyperadio" id="posteditor_mediatyperadio_rm" onclick="$('posteditor_mediatype').value = 'rm'">RM/RMVB</label>
+			<label style="float: left; width: 32%"><input type="radio" name="posteditor_mediatyperadio" id="posteditor_mediatyperadio_wmv" onclick="$('posteditor_mediatype').value = 'wmv'">WMV</label>
+			<label style="float: left; width: 32%"><input type="radio" name="posteditor_mediatyperadio" id="posteditor_mediatyperadio_mov" onclick="$('posteditor_mediatype').value = 'mov'">MOV</label>
+		</td>
+	</tr>
+	<tr class="popupmenu_option">
+		<td nowrap>
+			<label style="float: left; width: 32%">宽: <input id="posteditor_mediawidth" size="5" value="400" /></label>
+			<label style="float: left; width: 32%">高: <input id="posteditor_mediaheight" size="5" value="300"/></label>
+			<label style="float: left; width: 32%"><input type="checkbox" onclick="$('posteditor_mediaautostart').value =this.checked ? 1 : 0"> 自动播放</label>
+		</td>
+	</tr>
+	<tr class="popupmenu_option">
+		<td align="center" colspan="2"><input type="button" size="8" value="提交" onclick="setmediacode('posteditor')"> <input type="button" onclick="hideMenu()" value="取消" /></td>
+	</tr>
+	</table>
+	</div>
+</div>
+<table class="editor_text" summary="Message Textarea" cellpadding="0" cellspacing="0" style="table-layout: fixed;">
+<tr>
+	<td>
+		<textarea class="autosave" name="message" rows="10" cols="60" style="width:99%; height:250px" tabindex="100" id="posteditor_textarea"  onSelect="javascript: storeCaret(this);" onClick="javascript: storeCaret(this);" onKeyUp="javascript:storeCaret(this);" onKeyDown="ctlent(event);">{message}</textarea><input type="hidden" name="sposteditor_mode" id="posteditor_mode" value="{config.Defaulteditormode}" />
+	</td>
+</tr>
+</table>
+		<div id="posteditor_bottom" >
+		<table summary="Enitor Buttons" cellpadding="0" cellspacing="0" class="editor_button" style="border-top: none;">
+		<tr>
+			<td style="border-top: none;">
+				<div class="editor_textexpand">
+					<img src="editor/images/contract.gif" width="11" height="21" title="收缩编辑框" alt="收缩编辑框" id="posteditor_contract" /><img src="editor/images/expand.gif" width="12" height="21" title="扩展编辑框" alt="扩展编辑框" id="posteditor_expand" />
+				</div>
+				</td>
+			<td align="right" style="border-top: none;">
+				<button type="button" name="restoredata" id="restoredata">恢复数据</button>
+				<button type="button" id="checklength">字数检查</button>
+				<button type="button" name="previewbutton" id="previewbutton" tabindex="102">预览帖子</button>
+				<button type="button" tabindex="103" id="clearcontent">清空内容</button>
+			</td>
+		</tr>
+		</table>
+<%if {canpostattach}%>
+			<%template _postattachments%>
+<%/if%>
+		</div>
+	</td>
+	</tr>
+	<script type="text/javascript">
+		if(!(is_ie >= 5 || is_moz >= 2)) {
+			$('restoredata').style.display = 'none';
+		}
+		var editorid = 'posteditor';
+		var textobj = $(editorid + '_textarea');
+
+		var special = parseInt('0');
+		var charset = 'utf-8';
+	</script>
+
+	<script type="text/javascript">
+		var thumbwidth = parseInt(400);
+		var thumbheight = parseInt(300);
+		var extensions = '';
+		lang['post_attachment_ext_notallowed']	= '对不起，不支持上传此类扩展名的附件。';
+		lang['post_attachment_img_invalid']		= '无效的图片文件。';
+		lang['post_attachment_deletelink']		= '删除';
+		lang['post_attachment_insert']			= '点击这里将本附件插入帖子内容中当前光标的位置';
+		lang['post_attachment_insertlink']		= '插入';
+	</script>
+	<script src="javascript/post.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var fontoptions = new Array("仿宋_GB2312", "黑体", "楷体_GB2312", "宋体", "新宋体", "微软雅黑", "Trebuchet MS", "Tahoma", "Arial", "Impact", "Verdana", "Times New Roman");
+		lang['enter_list_item']			= "输入一个列表项目.\r\n留空或者点击取消完成此列表.";
+		lang['enter_link_url']			= "请输入链接的地址:";
+		lang['enter_image_url']			= "请输入图片链接地址:";
+		lang['enter_email_link']		= "请输入此链接的邮箱地址:";
+		lang['fontname']				= "字体";
+		lang['fontsize']				= "大小";
+		lang['post_advanceeditor']		= "全部功能";
+		lang['post_simpleeditor']		= "简单功能";
+		lang['submit']					= "提交";
+		lang['cancel']					= "取消";
+	</script>
+	<script type="text/javascript" src="javascript/editor.js"></script>
+	<script type="text/javascript" src="javascript/post_editor.js"></script>
+	<script type="text/javascript">
+		newEditor(wysiwyg);
+		$(editorid + '_contract').onclick = function() { resizeEditor(-100) };
+		$(editorid + '_expand').onclick = function() { resizeEditor(100) };
+		$('checklength').onclick = function() { checklength($('postform')) };
+		$('previewbutton').onclick = function() { previewpost() };
+		$('clearcontent').onclick = function() { clearcontent() };
+		$('restoredata').onclick = function() { loadData() };
+		$('postform').onsubmit = function() { return validate(this); };
+		try{ $('title').focus(); }catch(e){ }
+	</script>
