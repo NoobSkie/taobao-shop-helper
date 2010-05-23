@@ -30,26 +30,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SLS_TWZT", "SLS_TWZT\", "{1
 		VWDPort = "7575"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SLS_Club", "SLS_Club\", "{0C730D9A-D788-4512-91E9-F347BC3291F0}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFramework = "3.5"
-		Debug.AspNetCompiler.VirtualPath = "/SLS_Club"
-		Debug.AspNetCompiler.PhysicalPath = "SLS_Club\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SLS_Club\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/SLS_Club"
-		Release.AspNetCompiler.PhysicalPath = "SLS_Club\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SLS_Club\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "8041"
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLS.Site", "SLS.Site\SLS.Site.csproj", "{A3D9BF15-9B42-430E-ABF3-CF4F93848C1A}"
 EndProject
 Global
@@ -113,17 +93,6 @@ Global
 		{13E2AFB8-C761-4119-B841-290648E10AF5}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{13E2AFB8-C761-4119-B841-290648E10AF5}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{13E2AFB8-C761-4119-B841-290648E10AF5}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
-		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Debug|.NET.ActiveCfg = Debug|.NET
-		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Debug|.NET.Build.0 = Debug|.NET
-		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Release|.NET.ActiveCfg = Debug|Any CPU
-		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
 		{A3D9BF15-9B42-430E-ABF3-CF4F93848C1A}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{A3D9BF15-9B42-430E-ABF3-CF4F93848C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A3D9BF15-9B42-430E-ABF3-CF4F93848C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
