@@ -198,6 +198,26 @@
     <Content Include="Html\TrafficStatistics\2.htm" />
     <Content Include="Lottery\Buy.aspx" />
     <Content Include="Lottery\Buy_15X5.aspx" />
+    <Content Include="Lottery\Buy_22X5.aspx" />
+    <Content Include="Lottery\Buy_31X7.aspx" />
+    <Content Include="Lottery\Buy_3D.aspx" />
+    <Content Include="Lottery\Buy_CJDLT.aspx" />
+    <Content Include="Lottery\Buy_CQSSC.aspx" />
+    <Content Include="Lottery\Buy_DF6J1.aspx" />
+    <Content Include="Lottery\Buy_JQC.aspx" />
+    <Content Include="Lottery\Buy_JX11X5.aspx" />
+    <Content Include="Lottery\Buy_LCBQC.aspx" />
+    <Content Include="Lottery\Buy_PL3.aspx" />
+    <Content Include="Lottery\Buy_PL5.aspx" />
+    <Content Include="Lottery\Buy_QLC.aspx" />
+    <Content Include="Lottery\Buy_QXC.aspx" />
+    <Content Include="Lottery\Buy_SFC.aspx" />
+    <Content Include="Lottery\Buy_SFC_9_D.aspx" />
+    <Content Include="Lottery\Buy_SSC.aspx" />
+    <Content Include="Lottery\Buy_SSL.aspx" />
+    <Content Include="Lottery\Buy_SSQ.aspx" />
+    <Content Include="Lottery\Buy_SYYDJ.aspx" />
+    <Content Include="Lottery\Buy_ZJTC6J1.aspx" />
     <Content Include="SWF\caipiao.swf" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -233,6 +253,146 @@
     </Compile>
     <Compile Include="Lottery\Buy_15X5.aspx.designer.cs">
       <DependentUpon>Buy_15X5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_22X5.aspx.cs">
+      <DependentUpon>Buy_22X5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_22X5.aspx.designer.cs">
+      <DependentUpon>Buy_22X5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_31X7.aspx.cs">
+      <DependentUpon>Buy_31X7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_31X7.aspx.designer.cs">
+      <DependentUpon>Buy_31X7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_3D.aspx.cs">
+      <DependentUpon>Buy_3D.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_3D.aspx.designer.cs">
+      <DependentUpon>Buy_3D.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_CJDLT.aspx.cs">
+      <DependentUpon>Buy_CJDLT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_CJDLT.aspx.designer.cs">
+      <DependentUpon>Buy_CJDLT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_CQSSC.aspx.cs">
+      <DependentUpon>Buy_CQSSC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_CQSSC.aspx.designer.cs">
+      <DependentUpon>Buy_CQSSC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_DF6J1.aspx.cs">
+      <DependentUpon>Buy_DF6J1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_DF6J1.aspx.designer.cs">
+      <DependentUpon>Buy_DF6J1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_JQC.aspx.cs">
+      <DependentUpon>Buy_JQC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_JQC.aspx.designer.cs">
+      <DependentUpon>Buy_JQC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_JX11X5.aspx.cs">
+      <DependentUpon>Buy_JX11X5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_JX11X5.aspx.designer.cs">
+      <DependentUpon>Buy_JX11X5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_LCBQC.aspx.cs">
+      <DependentUpon>Buy_LCBQC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_LCBQC.aspx.designer.cs">
+      <DependentUpon>Buy_LCBQC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_PL3.aspx.cs">
+      <DependentUpon>Buy_PL3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_PL3.aspx.designer.cs">
+      <DependentUpon>Buy_PL3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_PL5.aspx.cs">
+      <DependentUpon>Buy_PL5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_PL5.aspx.designer.cs">
+      <DependentUpon>Buy_PL5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_QLC.aspx.cs">
+      <DependentUpon>Buy_QLC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_QLC.aspx.designer.cs">
+      <DependentUpon>Buy_QLC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_QXC.aspx.cs">
+      <DependentUpon>Buy_QXC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_QXC.aspx.designer.cs">
+      <DependentUpon>Buy_QXC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_SFC.aspx.cs">
+      <DependentUpon>Buy_SFC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_SFC.aspx.designer.cs">
+      <DependentUpon>Buy_SFC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_SFC_9_D.aspx.cs">
+      <DependentUpon>Buy_SFC_9_D.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_SFC_9_D.aspx.designer.cs">
+      <DependentUpon>Buy_SFC_9_D.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_SSC.aspx.cs">
+      <DependentUpon>Buy_SSC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_SSC.aspx.designer.cs">
+      <DependentUpon>Buy_SSC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_SSL.aspx.cs">
+      <DependentUpon>Buy_SSL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_SSL.aspx.designer.cs">
+      <DependentUpon>Buy_SSL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_SSQ.aspx.cs">
+      <DependentUpon>Buy_SSQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_SSQ.aspx.designer.cs">
+      <DependentUpon>Buy_SSQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_SYYDJ.aspx.cs">
+      <DependentUpon>Buy_SYYDJ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_SYYDJ.aspx.designer.cs">
+      <DependentUpon>Buy_SYYDJ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_ZJTC6J1.aspx.cs">
+      <DependentUpon>Buy_ZJTC6J1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_ZJTC6J1.aspx.designer.cs">
+      <DependentUpon>Buy_ZJTC6J1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -275,7 +435,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59857</DevelopmentServerPort>
+          <DevelopmentServerPort>59858</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
