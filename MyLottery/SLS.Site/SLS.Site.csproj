@@ -117,7 +117,6 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -220,8 +219,8 @@
     <Content Include="Lottery\Buy_ZJTC6J1.aspx" />
     <Content Include="SWF\caipiao.swf" />
     <Compile Include="Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -394,6 +393,20 @@
     <Compile Include="Lottery\Buy_ZJTC6J1.aspx.designer.cs">
       <DependentUpon>Buy_ZJTC6J1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Masters\FrontMainMasterPage.Master.cs">
+      <DependentUpon>FrontMainMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\FrontMainMasterPage.Master.designer.cs">
+      <DependentUpon>FrontMainMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\FrontSubMasterPage.Master.cs">
+      <DependentUpon>FrontSubMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\FrontSubMasterPage.Master.designer.cs">
+      <DependentUpon>FrontSubMasterPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -415,9 +428,189 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CSS\" />
-    <Folder Include="Images\" />
-    <Folder Include="JavaScript\" />
+    <Content Include="CSS\comm.css" />
+    <Content Include="CSS\style.css" />
+    <Content Include="JavaScript\AccountManage.js" />
+    <Content Include="JavaScript\cookies_oper.js" />
+    <Content Include="JavaScript\jquery-1.2.3.pack.js" />
+    <Content Include="JavaScript\org.js.jquery.plugins.bgiframe.js" />
+    <Content Include="JavaScript\org.js.jquery.plugins.hoverintent.js" />
+    <Content Include="JavaScript\site_nav.js" />
+    <Content Include="Masters\FrontMainMasterPage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Images\22_5.gif" />
+    <Content Include="Images\b.jpg" />
+    <Content Include="Images\b2.jpg" />
+    <Content Include="Images\b3.jpg" />
+    <Content Include="Images\b4.jpg" />
+    <Content Include="Images\big_banner_pic.jpg" />
+    <Content Include="Images\body_background.jpg" />
+    <Content Include="Images\bt_begin.jpg" />
+    <Content Include="Images\bt_pay.jpg" />
+    <Content Include="Images\bt_reg.jpg" />
+    <Content Include="Images\buy.gif" />
+    <Content Include="Images\buy_t.gif" />
+    <Content Include="Images\ck_s2.gif" />
+    <Content Include="Images\confirmreset.gif" />
+    <Content Include="Images\confirmsubmit.gif" />
+    <Content Include="Images\con_background.jpg" />
+    <Content Include="Images\con_right_bg.jpg" />
+    <Content Include="Images\con_right_foot.jpg" />
+    <Content Include="Images\con_right_title.jpg" />
+    <Content Include="Images\con_right_title2.jpg" />
+    <Content Include="Images\faq_search.gif" />
+    <Content Include="Images\faq_s_bg.gif" />
+    <Content Include="Images\faq_title.gif" />
+    <Content Include="Images\game.gif" />
+    <Content Include="Images\game_01.jpg" />
+    <Content Include="Images\game_02.jpg" />
+    <Content Include="Images\game_03.jpg" />
+    <Content Include="Images\game_04.jpg" />
+    <Content Include="Images\game_05.jpg" />
+    <Content Include="Images\game_06.jpg" />
+    <Content Include="Images\game_07.jpg" />
+    <Content Include="Images\game_08.jpg" />
+    <Content Include="Images\game_09.jpg" />
+    <Content Include="Images\game_10.jpg" />
+    <Content Include="Images\game_11.jpg" />
+    <Content Include="Images\game_12.jpg" />
+    <Content Include="Images\get_input_bg.gif" />
+    <Content Include="Images\get_input_bg.jpg" />
+    <Content Include="Images\hb1.jpg" />
+    <Content Include="Images\hb2.jpg" />
+    <Content Include="Images\hb3.jpg" />
+    <Content Include="Images\help_right_footer.gif" />
+    <Content Include="Images\help_right_title.gif" />
+    <Content Include="Images\hl1.jpg" />
+    <Content Include="Images\hl2.jpg" />
+    <Content Include="Images\icon.jpg" />
+    <Content Include="Images\im01.gif" />
+    <Content Include="Images\im02.gif" />
+    <Content Include="Images\im03.gif" />
+    <Content Include="Images\im04.gif" />
+    <Content Include="Images\im05.gif" />
+    <Content Include="Images\im06.gif" />
+    <Content Include="Images\im07.gif" />
+    <Content Include="Images\index_ico.gif" />
+    <Content Include="Images\input_background.gif" />
+    <Content Include="Images\jiqiao.jpg" />
+    <Content Include="Images\k1.gif" />
+    <Content Include="Images\k10.gif" />
+    <Content Include="Images\k11.gif" />
+    <Content Include="Images\k12.gif" />
+    <Content Include="Images\k2.gif" />
+    <Content Include="Images\k3.gif" />
+    <Content Include="Images\k4.gif" />
+    <Content Include="Images\k5.gif" />
+    <Content Include="Images\k6.gif" />
+    <Content Include="Images\k7.gif" />
+    <Content Include="Images\k8.gif" />
+    <Content Include="Images\k9.gif" />
+    <Content Include="Images\kch_bg.gif" />
+    <Content Include="Images\kc_left.gif" />
+    <Content Include="Images\kc_s1.gif" />
+    <Content Include="Images\kc_s2.gif" />
+    <Content Include="Images\kico.gif" />
+    <Content Include="Images\krbg.gif" />
+    <Content Include="Images\l.jpg" />
+    <Content Include="Images\l2.jpg" />
+    <Content Include="Images\left_b_bg.jpg" />
+    <Content Include="Images\link2_1.jpg" />
+    <Content Include="Images\link2_2.jpg" />
+    <Content Include="Images\link2_3.jpg" />
+    <Content Include="Images\link2_4.jpg" />
+    <Content Include="Images\link2_5.jpg" />
+    <Content Include="Images\link_alipay.jpg" />
+    <Content Include="Images\link_helper.jpg" />
+    <Content Include="Images\link_ipay.jpg" />
+    <Content Include="Images\login.jpg" />
+    <Content Include="Images\loginPAY.jpg" />
+    <Content Include="Images\loginQQ.jpg" />
+    <Content Include="Images\login_background.jpg" />
+    <Content Include="Images\logo2.jpg" />
+    <Content Include="Images\m.jpg" />
+    <Content Include="Images\m1.jpg" />
+    <Content Include="Images\m2.jpg" />
+    <Content Include="Images\m3.jpg" />
+    <Content Include="Images\m4.jpg" />
+    <Content Include="Images\menu01.gif" />
+    <Content Include="Images\menu02.gif" />
+    <Content Include="Images\menu03.gif" />
+    <Content Include="Images\menu04.gif" />
+    <Content Include="Images\menu05.gif" />
+    <Content Include="Images\menu06.gif" />
+    <Content Include="Images\menu07.gif" />
+    <Content Include="Images\menu08.gif" />
+    <Content Include="Images\menu_bg.gif" />
+    <Content Include="Images\more.gif" />
+    <Content Include="Images\myinfo.gif" />
+    <Content Include="Images\mylt.gif" />
+    <Content Include="Images\mymoney.gif" />
+    <Content Include="Images\now_bg.gif" />
+    <Content Include="Images\online.jpg" />
+    <Content Include="Images\page_acc.jpg" />
+    <Content Include="Images\page_adr.jpg" />
+    <Content Include="Images\page_banner_background.jpg" />
+    <Content Include="Images\page_banner_pic.jpg" />
+    <Content Include="Images\page_con_bg.jpg" />
+    <Content Include="Images\page_info.jpg" />
+    <Content Include="Images\page_line.jpg" />
+    <Content Include="Images\page_money.jpg" />
+    <Content Include="Images\page_pay.jpg" />
+    <Content Include="Images\p_l_f.jpg" />
+    <Content Include="Images\p_l_l_bg.jpg" />
+    <Content Include="Images\p_l_t.jpg" />
+    <Content Include="Images\p_r_f.jpg" />
+    <Content Include="Images\p_r_t.jpg" />
+    <Content Include="Images\qq.jpg" />
+    <Content Include="Images\reset.gif" />
+    <Content Include="Images\r_b_foot.jpg" />
+    <Content Include="Images\r_b_f_bg.jpg" />
+    <Content Include="Images\r_b_f_left.jpg" />
+    <Content Include="Images\r_b_f_right.jpg" />
+    <Content Include="Images\r_b_title.jpg" />
+    <Content Include="Images\safe.gif" />
+    <Content Include="Images\search.gif" />
+    <Content Include="Images\search.jpg" />
+    <Content Include="Images\ser1.gif" />
+    <Content Include="Images\ser2.gif" />
+    <Content Include="Images\ss_m_1.gif" />
+    <Content Include="Images\startgame.jpg" />
+    <Content Include="Images\style.css" />
+    <Content Include="Images\submit.gif" />
+    <Content Include="Images\swf.jpg" />
+    <Content Include="Images\t.gif" />
+    <Content Include="Images\t2.jpg" />
+    <Content Include="Images\tel.gif" />
+    <Content Include="Images\test.gif" />
+    <Content Include="Images\time_bg.gif" />
+    <Content Include="Images\top.jpg" />
+    <Content Include="Images\top_background.jpg" />
+    <Content Include="Images\top_left.jpg" />
+    <Content Include="Images\user_bg.jpg" />
+    <Content Include="Images\user_body_bg.gif" />
+    <Content Include="Images\user_footer.gif" />
+    <Content Include="Images\user_getpwd_footer.jpg" />
+    <Content Include="Images\user_getpwd_title.jpg" />
+    <Content Include="Images\user_login_title.gif" />
+    <Content Include="Images\user_reg_title.gif" />
+    <Content Include="Images\user_title.gif" />
+    <Content Include="Images\user_title_no.gif" />
+    <Content Include="Images\user_title_now.gif" />
+    <Content Include="Images\user_top_bg.gif" />
+    <Content Include="Images\user_top_left.gif" />
+    <Content Include="Images\user_top_right.gif" />
+    <Content Include="Images\yzm.gif" />
+    <Content Include="Images\yzmbg.gif" />
+    <Content Include="Images\zhoushi.jpg" />
+    <Content Include="Masters\FrontSubMasterPage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="UserControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
