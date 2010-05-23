@@ -1,0 +1,112 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS.Eucp.Gateway", "SMS.Eucp.Gateway\SMS.Eucp.Gateway.csproj", "{B2B8ECAB-1062-48D6-950E-20A084ADAC15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLS.Security", "SLS.Security\SLS.Security.csproj", "{5966A0BB-0858-40E2-AE87-FC5C59DAABD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLS.Lottery", "SLS.Lottery\SLS.Lottery.csproj", "{7DCE79A0-D139-472E-9A51-FED8B51C8334}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shove", "Shove\Shove.csproj", "{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SLS_TWZT", "SLS_TWZT\", "{13E2AFB8-C761-4119-B841-290648E10AF5}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		ProjectReferences = "{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}|Shove.dll;{7DCE79A0-D139-472E-9A51-FED8B51C8334}|SLS.Lottery.dll;{5966A0BB-0858-40E2-AE87-FC5C59DAABD9}|SLS.Security.dll;{B2B8ECAB-1062-48D6-950E-20A084ADAC15}|SMS.Eucp.Gateway.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/SLS_TWZT"
+		Debug.AspNetCompiler.PhysicalPath = "SLS_TWZT\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SLS_TWZT\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/SLS_TWZT"
+		Release.AspNetCompiler.PhysicalPath = "SLS_TWZT\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SLS_TWZT\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "7575"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SLS_Club", "SLS_Club\", "{0C730D9A-D788-4512-91E9-F347BC3291F0}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/SLS_Club"
+		Debug.AspNetCompiler.PhysicalPath = "SLS_Club\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SLS_Club\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/SLS_Club"
+		Release.AspNetCompiler.PhysicalPath = "SLS_Club\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SLS_Club\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "8041"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SLS_Site", "SLS_Site\", "{8702C2FF-287F-42BA-9D8F-18864CAF8C53}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/SLS_Site"
+		Debug.AspNetCompiler.PhysicalPath = "SLS_Site\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SLS_Site\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/SLS_Site"
+		Release.AspNetCompiler.PhysicalPath = "SLS_Site\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SLS_Site\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "48001"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2B8ECAB-1062-48D6-950E-20A084ADAC15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2B8ECAB-1062-48D6-950E-20A084ADAC15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2B8ECAB-1062-48D6-950E-20A084ADAC15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2B8ECAB-1062-48D6-950E-20A084ADAC15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5966A0BB-0858-40E2-AE87-FC5C59DAABD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5966A0BB-0858-40E2-AE87-FC5C59DAABD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5966A0BB-0858-40E2-AE87-FC5C59DAABD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5966A0BB-0858-40E2-AE87-FC5C59DAABD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DCE79A0-D139-472E-9A51-FED8B51C8334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DCE79A0-D139-472E-9A51-FED8B51C8334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DCE79A0-D139-472E-9A51-FED8B51C8334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DCE79A0-D139-472E-9A51-FED8B51C8334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E2AFB8-C761-4119-B841-290648E10AF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E2AFB8-C761-4119-B841-290648E10AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E2AFB8-C761-4119-B841-290648E10AF5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E2AFB8-C761-4119-B841-290648E10AF5}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C730D9A-D788-4512-91E9-F347BC3291F0}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8702C2FF-287F-42BA-9D8F-18864CAF8C53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8702C2FF-287F-42BA-9D8F-18864CAF8C53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8702C2FF-287F-42BA-9D8F-18864CAF8C53}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8702C2FF-287F-42BA-9D8F-18864CAF8C53}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
