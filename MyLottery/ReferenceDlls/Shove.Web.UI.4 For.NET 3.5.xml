@@ -1,0 +1,1613 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Shove.Web.UI.4 For.NET 3.5</name>
+    </assembly>
+    <members>
+        <member name="T:Shove.Web.UI.ShoveWebPartRestorePageLayout">
+            <summary>
+            页面布局备份、恢复
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartRestorePageLayout.ResetCheckBox(System.Web.UI.WebControls.TreeNodeCollection)">
+            <summary>
+            清空复选框 
+            </summary>
+            <param name="nodes"></param>
+        </member>
+        <member name="T:Shove.Web.UI.BuildImage">
+            <summary>
+            BuildImg 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.BuildImage.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要使用代码编辑器修改
+            此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_FontName">
+            <summary>
+            字体名称属性
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute">
+            <summary>
+            ShoveWebPart用户控件属性基类
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartAttribute.Name">
+            <summary>
+            属性名称
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartAttribute.Value">
+            <summary>
+            属性默认值
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartAttribute.Range">
+            <summary>
+            属性取值范围
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartAttribute.Type">
+            <summary>
+            属性类型
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartAttribute.Vote">
+            <summary>
+            属性说明
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute.#ctor">
+            <summary>
+            ShoveWebPart用户控件属性基类构造函数
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute_FontName.#ctor(System.String,System.Object,System.String)">
+            <summary>
+            创建字体名称属性
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="defaultValue">属性默认值</param>
+            <param name="vote">属性说明</param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_FontName.FontName">
+            <summary>
+            字体名称
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_BorderStyle">
+            <summary>
+            边框颜色属性
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute_BorderStyle.#ctor(System.String,System.Object,System.String)">
+            <summary>
+            创建边框颜色类型属性
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="defaultValue">属性默认值</param>
+            <param name="vote">属性说明</param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartCompareID">
+            <summary>
+            比较2个Part的ID
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.SiteLayoutManager">
+            <summary>
+            站点备份、恢复
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.SiteLayoutManager.ResetCheckBox(System.Web.UI.WebControls.TreeNodeCollection)">
+            <summary>
+            清空复选框 
+            </summary>
+            <param name="nodes"></param>
+        </member>
+        <member name="T:Shove.Web.UI.BuildDataImage">
+            <summary>
+            BuildDataImage 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.BuildDataImage.OnInit(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.BuildDataImage.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要使用代码编辑器修改
+            此方法的内容。
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.UpLoadStyle.btnUpload_Click(System.Object,System.EventArgs)">
+            <summary>
+            上传样式表
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_Boolean">
+            <summary>
+            是否显示类型属性
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute_Boolean.#ctor(System.String,System.Object,System.String)">
+            <summary>
+            创建是否类型属性实例
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="defaultValue">属性默认值</param>
+            <param name="vote">属性说明</param>
+        </member>
+        <member name="T:Shove.Web.UI.PageIndexChangeEvent">
+            <summary>
+            委托
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShovePager">
+            <summary>
+            分页组件，仅触发 OnPageIndexChange 回传事件，请在此事件中使用 BindData 等操作。
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartUserControl">
+            <summary>
+            ShoveWebPaet用户控件基类
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartUserControl.Name">
+            <summary>
+            控件名称
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartUserControl.ContentType">
+            <summary>
+            控件内容类型，根据控件的内容类别，决定在网站的后台，用那些表编译内容。主要是为了建立控件和后台编辑之间的对应关系。
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartUserControl.swpAttributes">
+            <summary>
+            属性控制类
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartUserControl.isDesigning">
+            <summary>
+            是否设计模式(浏览模式)
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartUserControl.swpas">
+            <summary>
+            用户控件属性集合
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartUserControl.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartUserControl.OnLoad(System.EventArgs)">
+            <summary>
+            重写父类OnLoad()方法
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPartUserControl.SiteID">
+            <summary>
+            运行时，页面上控件附带了 SiteID 属性，不需要从父页获取。否则在 OnLoad 方法中从父页获取。
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPartUserControl.ControlAttributes">
+            <summary>
+            页面上给本控件设置的属性值列表
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartFile">
+            <summary>
+            ShoveWebpartFile IO
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.#ctor(System.Int64,System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="siteID"></param>
+            <param name="pageName"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.GetUserControlTagName(System.String)">
+            <summary>
+            根据用户控件的文件名，获取一个 TagName
+            </summary>
+            <param name="AscxFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.BuildRegisterUserControlTagName(System.Data.DataRow[])">
+            <summary>
+            根据所有的控件，生成控件引用的 TagName 列表
+            </summary>
+            <param name="drs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.GetUserControlFileNameFromTagName(System.Data.DataTable,System.String)">
+            <summary>
+            从一个用户控件的 TagName, 得到它的实际文件名
+            </summary>
+            <param name="dtUserControlTagNames"></param>
+            <param name="TagName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.GetNewUserControlID(System.String,System.String)">
+            <summary>
+            获取一个新的用户控件的 ID
+            </summary>
+            <param name="Html"></param>
+            <param name="UserControlTagName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.Read(System.String,System.String,System.Int32@)">
+            <summary>
+            读取 Part 到 DataTable
+            </summary>
+            <param name="OtherFileName">不指定另外的文件名，则用本类的文件名 FileName</param>
+            <param name="ShoveWebPartID">如果指定了 PartID, 则将后面的 RowNo 参数赋值，标识这个 Part 的行号</param>
+            <param name="RowNo">指定的 Part 的行号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.Write(System.Data.DataTable,System.String)">
+            <summary>
+            根据 drParts 的 Part 写文件
+            </summary>
+            <param name="dtParts">Part 内容表格</param>
+            <param name="OtherFileName">如果指定了其他文件名，则写其他文件名，否则写入本类 FileName</param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.Delete(System.String)">
+            <summary>
+            删除一个 ShoveWebPart, 
+            </summary>
+            <param name="id">ShoveWebPart 的 ID</param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.SaveZIndex(System.String[])">
+            <summary>
+            保存修改多个 ShoveWebPart 的 zIndex 属性
+            </summary>
+            <param name="ZIndexList">各个需要修改 zIndex 属性的控件、zIndex 列表，格式： id1:值;id2:值;... </param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.SaveLock(System.String,System.Boolean)">
+            <summary>
+            保存修改某个 ShoveWebPart 的 LockState
+            </summary>
+            <param name="id"></param>
+            <param name="LockState"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.SaveApplyToAll(System.String,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            将内容属性都是 OldAttributes 的 ShoveWebPart 的所有属性应用到所有的其他页的相同内容的 ShoveWebPart 控件
+            </summary>
+            <param name="id"></param>
+            <param name="ApplyToAllPage"></param>
+            <param name="AddToNoExistPage">一个不存在这个内容的 ShoveWebPart 的页中，是否也要增加一个控件</param>
+            <param name="OldAttributes"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.ToBackground(System.String,System.Int32)">
+            <summary>
+            将控件置为底层
+            </summary>
+            <param name="id"></param>
+            <param name="zIndex"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.SaveForKeyMove(System.String[])">
+            <summary>
+            保存键盘移动后的位置
+            </summary>
+            <param name="Datas"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.DeleteForKeyMove(System.String[])">
+            <summary>
+            通过键盘删除Part后保存数据
+            </summary>
+            <param name="Datas"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.Paste(System.String[])">
+            <summary>
+            粘贴
+            </summary>
+            <param name="SourceParts"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.ZIndexSubtractOne">
+            <summary>
+            将所有的 Part 的 ZIndex 减去 1
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.GetNewPartID(System.Data.DataTable)">
+            <summary>
+            获取一个新的 ShoveWebPart ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.GetNewPartID">
+            <summary>
+            获取一个新的 ShoveWebPart ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.GetNewBackupFileName">
+            <summary>
+            获取时间串构成的备份文件名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.BackupSite">
+            <summary>
+            备份整个站点页面，备份在 Backup/Site/时间串/*.aspx.bak
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.RestoreSite(System.String)">
+            <summary>
+            恢复整个站点页面，先删除站点页面，再用 Backup/Site/时间串/*.aspx.bak 的文件还原
+            </summary>
+            <param name="BackupDirectoryName"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.DeleteSite">
+            <summary>
+            删除整个站点页面
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.DeleteSiteBackup(System.String)">
+            <summary>
+            删除站点某个备份
+            </summary>
+            <param name="BackupDirectoryName"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.BackupPage">
+            <summary>
+            备份页面，备份在 Backup/Pages/页名/时间串.aspx.bak
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.RestorePage(System.String)">
+            <summary>
+            恢复页面
+            </summary>
+            <param name="BackupFileName"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.DeletePage">
+            <summary>
+            删除页面
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.DeletePageBackup(System.String)">
+            <summary>
+            删除页面备份文件
+            </summary>
+            <param name="BackupFileName"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartFile.CopyPage(System.String)">
+            <summary>
+            从其他页面复制内容
+            </summary>
+            <param name="SourceFileName"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart_AscxAttribute.InitLayOut(System.String)">
+            <summary>
+            初始化布局
+            </summary>
+            <param name="controlAttribute"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart_AscxAttribute.InitAttribute(System.String,System.Int32)">
+            <summary>
+            画属性编辑框
+            </summary>
+            <param name="AttributeType"></param>
+            <param name="Key"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart_AscxAttribute.BindData(System.String,System.String)">
+            <summary>
+            初始化绑定数据
+            </summary>
+            <param name="Key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart_AscxAttribute.CreateAttributeRow(System.Web.UI.HtmlControls.HtmlTable,System.Int32)">
+            <summary>
+            创建属性行
+            </summary>
+            <param name="table"></param>
+            <param name="Key"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart_AscxAttribute.SaveData(System.Int32)">
+            <summary>
+            给属性重新赋值
+            </summary>
+            <param name="Key"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.FindUserElementDir(System.Web.UI.WebControls.TreeNode)">
+            <summary>
+            查找用户元素目录
+            </summary>
+            <param name="tn"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.AddElementTypes">
+            <summary>
+            添加用户元素类别
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.GetImages(System.String)">
+            <summary>
+            获取目录下所有图片元素
+            </summary>
+            <param name="ImgDir"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.GetCurrentPageImages(System.Int32)">
+            <summary>
+            获取当前页图片
+            </summary>
+            <param name="currPage"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.Page_Click(System.Object,System.Web.UI.WebControls.CommandEventArgs)">
+            <summary>
+            分页显示按钮事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.tvImgDir_SelectedNodeChanged(System.Object,System.EventArgs)">
+            <summary>
+            选择图片目录
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.imgSelectAll_Click(System.Object,System.Web.UI.ImageClickEventArgs)">
+            <summary>
+            全选功能
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.imgDelete_Click(System.Object,System.Web.UI.ImageClickEventArgs)">
+            <summary>
+            删除用户图片
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.ibUpLoad_Click(System.Object,System.Web.UI.ImageClickEventArgs)">
+            <summary>
+            上传图片
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.Submit_Click(System.Object,System.Web.UI.ImageClickEventArgs)">
+            <summary>
+            选择图片
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.pageSubmit_Click(System.Object,System.Web.UI.ImageClickEventArgs)">
+            <summary>
+            跳到某一页
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ImageLibrary.GetSearchImages(System.Int32)">
+            <summary>
+            获取搜索图片
+            </summary>
+            <param name="currPage"></param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartBasePageRun">
+            <summary>
+            ShoveWebPart基页
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePageRun.OnLoad(System.EventArgs)">
+            <summary>
+            重写页面加载事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveTabPage">
+            <summary>
+            TabPage class represents the individual tab page.   ToolboxItem(false), ParseChildren(false), 
+            </summary>  
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTabPage.Text">
+            <summary>
+            The text of tab page.
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.IniFile">
+            <summary>
+            IniFile 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttributes.AddUCDropDownList(System.String[],System.String)">
+            <summary>
+            查找指定目录下所有用户控件，填充下拉框
+            </summary>
+            <param name="AscxFiles"></param>
+            <param name="RootPath"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttributes.btnUploadImage_Click(System.Object,System.EventArgs)">
+            <summary>
+            上传站点图片
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttributes.AddDropList(System.Web.UI.WebControls.DropDownList,System.String[],System.String)">
+            <summary>
+            读取用户元素库图片，填充下拉框
+            </summary>
+            <param name="list"></param>
+            <param name="Dirs"></param>
+            <param name="RootPath"></param>
+        </member>
+        <member name="T:Shove.Web.UI.PublicFunction">
+            <summary>
+            公共类
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.GetSiteUrl">
+            <summary>
+            获取当前域名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.GetCurrentRelativePath">
+            <summary>
+            获取当前路径的相对于根的相对路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.DeleteDataRows(System.Data.DataTable,System.String)">
+            <summary>
+            从 DataTable 中根据条件删除数据
+            </summary>
+            <param name="dt"></param>
+            <param name="Condition"></param>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.FindRow(System.Data.DataTable,System.String,System.Object)">
+            <summary>
+            从 DataTable 中根据条件找到行
+            </summary>
+            <param name="dt"></param>
+            <param name="Columns"></param>
+            <param name="Value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.Select(System.Data.DataTable,System.String)">
+            <summary>
+            从 DataTable 中根据条件找到行集
+            </summary>
+            <param name="dt"></param>
+            <param name="Condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.IsExistColumn(System.Data.DataTable,System.String)">
+            <summary>
+            判断 DataTable 中是否存在列
+            </summary>
+            <param name="dt"></param>
+            <param name="ColumnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.GetPageFileName(System.Web.HttpContext)">
+            <summary>
+            获取当前页面的实际文件名
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.GetWebConfigAppSettingAsString(System.String)">
+            <summary>
+            获取 Web.config 中的 AppSetting 中的配置
+            </summary>
+            <param name="Key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.DisPage(System.Data.DataSet,System.Data.DataTable,System.Int32,System.Int32)">
+            <summary>
+            数据集分页查询。obj-结果集，table(先要添加列名)-返回的查询结果，currPage-当前页码，pageRows-每页显示行数。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.DisPage(System.Data.DataSet,System.Data.DataTable,System.Int32,System.Int32,System.Int32)">
+            <summary>
+             数据集分页查询。obj-结果集，table(先要添加列名)-返回的查询结果，currPage-当前页码，pageRows-每页显示行数。columns--显示每行显示的列数
+            </summary>
+            <param name="obj"></param>
+            <param name="table"></param>
+            <param name="currPage"></param>
+            <param name="pageRows"></param>
+            <param name="columns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.isDisplay(System.Web.UI.WebControls.LinkButton,System.Web.UI.WebControls.LinkButton,System.Web.UI.WebControls.LinkButton,System.Web.UI.WebControls.LinkButton,System.Int32,System.Int32)">
+            <summary>
+            控制分页按钮的可见性(frist---首页， prev---上一页 ，next---下一页，last---尾页，currPage---当前页，totalPage---总页数) 
+            </summary>
+            <param name="frist"></param>
+            <param name="prev"></param>
+            <param name="next"></param>
+            <param name="last"></param>
+            <param name="currPage"></param>
+            <param name="totalPage"></param>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.FilteSqlInfusion(System.String)">
+            <summary>
+            过滤Sql注入，html 编辑器的恶意代码注入
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.HorizontalAlignFromString(System.String)">
+            <summary>
+            从字符串转换到 HorizontalAlign
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.VerticalAlignFromString(System.String)">
+            <summary>
+            从字符串转换到 VerticalAlign
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.PublicFunction.BorderStyleFromString(System.String)">
+            <summary>
+            从字符串转换到 BorderStyle
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Shove.Web.UI.Encrypt">
+            <summary>
+            字符串加密、解密函数
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ControlExt">
+            <summary>
+            ControlExt 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ControlExt.SetDownListBoxText(System.Web.UI.WebControls.DropDownList,System.String)">
+            <summary>
+            设置下拉文本，return -1：下拉无项目。-2：下拉无此项目
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ControlExt.SetDownListBoxTextFromValue(System.Web.UI.WebControls.DropDownList,System.String)">
+            <summary>
+            根据Item的Value设置下拉文本，return -1：下拉无项目。-2：下拉无此项目
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.File">
+            <summary>
+            文件有关
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.File.GetFileList(System.String,System.String)">
+            <summary>
+            取服务器上 Path 目录下的文件列表
+            </summary>
+            <param name="Path">服务器上的绝对路径，调用前用 Server.MapPath 取到完整路径再传入</param>
+            <param name="ExtNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.File.GetFileListWithSubDir(System.String,System.String)">
+            <summary>
+            取服务器上 Path 目录下的文件列表(递归，含所有子目录)
+            </summary>
+            <param name="Path">服务器上的绝对路径，调用前用 Server.MapPath 取到完整路径再传入</param>
+            <param name="ExtNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.File.GetFile(System.String,System.String,System.Collections.ArrayList)">
+            <summary>
+            GetFileListWithSubDir 的辅助递归方法
+            </summary>
+            <param name="Dir"></param>
+            <param name="ExtNames"></param>
+            <param name="al"></param>
+        </member>
+        <member name="M:Shove.Web.UI.File.CompareExtName(System.String,System.String)">
+            <summary>
+            比较文件的扩展名是否在允许的范围之内
+            </summary>
+            <param name="FileName"></param>
+            <param name="ExtNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.File.UploadFile(System.Web.UI.Page,System.Web.UI.HtmlControls.HtmlInputFile,System.String,System.String@,System.Boolean,System.String)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="page">输入this.Page即可</param>
+            <param name="file">file 控件名称</param>
+            <param name="TargetDirectory">上传服务器上哪个目录(相对目录，如：../Images/)</param>
+            <param name="ShortFileName">返回一个只有纯文件名的字符串</param>
+            <param name="OverwriteExistFile">是否覆盖同名文件</param>
+            <param name="LimitFileTypeList">限制的文件类型列表，如：image, text</param>
+            <returns>返回：	-1 解析文件错误; -2 OverwriteExistFile = false, 不覆盖已有文件时，文件已经存在; -3 上传错误; 0 OK</returns>
+        </member>
+        <member name="M:Shove.Web.UI.File.ValidFileType(System.Web.UI.HtmlControls.HtmlInputFile,System.String)">
+            <summary>
+            校验上传的文件类型
+            </summary>
+            <param name="file"></param>
+            <param name="LimitFileTypeList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.File.ValidFileType(System.Web.UI.WebControls.FileUpload,System.String)">
+            <summary>
+            校验上传的文件类型
+            </summary>
+            <param name="file"></param>
+            <param name="LimitFileTypeList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.File.DownloadFile(System.Web.UI.Page,System.String)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="page"></param>
+            <param name="FileName">完整路径的文件名</param>
+        </member>
+        <member name="T:Shove.Web.UI.FlashUrlEditor">
+            <summary>
+            图片 Url 选择框
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.XmlUrlEditor">
+            <summary>
+            Xml 格式文件选择框
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.JavaScript">
+            <summary>
+            JavaScript 封装
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.SystemInformation">
+            <summary>
+            获取信息信息
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.SystemInformation.GetBIOSSerialNumber">
+            <summary>
+            获取主板序列号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.SystemInformation.GetCPUSerialNumber">
+            <summary>
+            获取CPU序列号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.SystemInformation.GetHardDiskSerialNumber">
+            <summary>
+            获取硬盘序列号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.SystemInformation.GetNetCardMACAddress">
+            <summary>
+            获取网卡地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_PageNavigate">
+            <summary>
+            页面导航类型属性
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute_PageNavigate.#ctor(System.String,System.Object,System.String)">
+            <summary>
+            创建页面导航类型属性
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="defaultValue">属性默认值</param>
+            <param name="vote">属性说明</param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveImageButton.Render(System.Web.UI.HtmlTextWriter)">
+            <summary> 
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="output"> 要写出到的 HTML 编写器 </param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveDateLable">
+            <summary>
+            ShoveDateLable 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveDateLable.Render(System.Web.UI.HtmlTextWriter)">
+            <summary> 
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="output"> 要写出到的 HTML 编写器 </param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartCompareTop">
+            <summary>
+            比较2个Part的Top
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartPageList">
+            <summary>
+            多站页面列表
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttributeCollections">
+            <summary>
+            ShoveWebPart 用户控件的属性集合
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_Int">
+            <summary>
+            数字类型属性
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute_Int.#ctor(System.String,System.String,System.Object,System.String)">
+            <summary>
+            创建数字类型属性实例
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="range">属性取值范围</param>
+            <param name="defaultValue">属性默认值</param>
+            <param name="vote">属性说明</param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveTreeView">
+            <summary>
+            ShoveTreeView
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveTreeView.DataBind">
+            <summary>
+            绑定数据
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveTreeView.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            呈现控件
+            </summary>
+            <param name="output"></param>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTreeView.DataTable">
+            <summary>
+            数据表
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTreeView.IDFieldName">
+            <summary>
+            IDFieldName
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTreeView.ParentIDFieldName">
+            <summary>
+            ParentIDFieldName
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTreeView.TextFieldName">
+            <summary>
+            TextFieldName
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTreeView.ValueFieldName">
+            <summary>
+            ValueFieldName
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTreeView.ImageUrlFieldName">
+            <summary>
+            ImageUrlFieldName
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTreeView.NavigateUrlFieldName">
+            <summary>
+            NavigateUrlFieldName
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTreeView.TargetFrameFieldName">
+            <summary>
+            TargetFrameFieldName
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTreeView.ShowChildNodesNumber">
+            <summary>
+            Node 文本后面显示子节点个数的显示方式
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveTreeView.ShowChildNodesNumberMode">
+            <summary>
+            ShowChildNodesNumberMode
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveTreeView.ShowChildNodesNumberMode.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveTreeView.ShowChildNodesNumberMode.Childrens">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_Text">
+            <summary>
+            文本标签类型属性
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute_Text.#ctor(System.String,System.String,System.Object,System.String)">
+            <summary>
+            创建文本标签实例
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="range">属性取值范围</param>
+            <param name="defaultValue">属性默认值</param>
+            <param name="vote">属性说明</param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_HAlign">
+            <summary>
+            水平位置属性
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute_HAlign.#ctor(System.String,System.Object,System.String)">
+            <summary>
+            创建水平位置类型属性
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="defaultValue">属性默认值</param>
+            <param name="vote">属性说明</param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartUserControlLibrary">
+            <summary>
+            控件库
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartUserControlLibrary.BindData">
+            <summary>
+            绑定数据
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartUserControlLibrary.ddlControlTypes_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            获取该类型下所有控件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartUserControlLibrary.gvShoveWebPartUserControls_PageIndexChanging(System.Object,System.Web.UI.WebControls.GridViewPageEventArgs)">
+            <summary>
+            分页显示
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartUserControlLibrary.tvUserControlsDir_SelectedNodeChanged(System.Object,System.EventArgs)">
+            <summary>
+            选择控件目录
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartUserControlLibrary.ibUserCotrol_Click(System.Object,System.Web.UI.ImageClickEventArgs)">
+            <summary>
+            控件选择
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveSetHomePage">
+            <summary>
+            ShoveSetHomePage 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveSetHomePage.Render(System.Web.UI.HtmlTextWriter)">
+            <summary> 
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="output"> 要写出到的 HTML 编写器 </param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveCounter">
+            <summary>
+            WebCustomControl1 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveCounter.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="output"> 要写出到的 HTML 编写器 </param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveConfirmButton">
+            <summary>
+            ShoveConfirmButton 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveConfirmButton.Render(System.Web.UI.HtmlTextWriter)">
+            <summary> 
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="output"> 要写出到的 HTML 编写器 </param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveCheckCode">
+            <summary>
+            ShoveCheckCode 的摘要说明。
+            </summary>
+            
+        </member>
+        <member name="M:Shove.Web.UI.ShoveCheckCode.Valid(System.String)">
+            <summary>
+            校验用户输入的验证码是否正确
+            </summary>
+            <param name="input">用户输入的验证码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveCheckCode.Valid(System.String,System.String)">
+            <summary>
+            校验用户输入的验证码是否正确
+            </summary>
+            <param name="input">用户输入的验证码</param>
+            <param name="Code">加密的验证码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveCheckCode.Render(System.Web.UI.HtmlTextWriter)">
+            <summary> 
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="output"> 要写出到的 HTML 编写器 </param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveAddFavorite">
+            <summary>
+            ShoveAddFavorite 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveAddFavorite.Render(System.Web.UI.HtmlTextWriter)">
+            <summary> 
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="output"> 要写出到的 HTML 编写器 </param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_Enum">
+            <summary>
+            下拉类型（枚举）属性
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute_Enum.#ctor(System.String,System.String,System.Object,System.String)">
+            <summary>
+            创建下拉类型(枚举)属性实例
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="range">属性取值范围</param>
+            <param name="defaultValue">属性默认值</param>
+            <param name="vote">属性说明</param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartBasePage">
+            <summary>
+            ShoveWebPart基页
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_bodyMain">
+            <summary>
+            shoveWebPart容器层
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_panel">
+            <summary>
+            编辑菜单 Panel
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnEdit">
+            <summary>
+            打开关闭 Panel 的按钮
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_ddlMode">
+            <summary>
+            设计、运行模式切换
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_labTitle">
+            <summary>
+            设计菜单标题
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_labSubTitle">
+            <summary>
+            设计菜单副标题
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnAddNewPage">
+            <summary>
+            添加新页按钮
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnAddShoveWebPart">
+            <summary>
+            添加ShoveWebPart按钮
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnBackupSiteLayout">
+            <summary>
+            备份本站布局按钮
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnRestoreSiteLayout">
+            <summary>
+            恢复本站布局按钮
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnClearSiteLayout">
+            <summary>
+            删除本站布局按钮
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnBackupPageLayout">
+            <summary>
+            备份本页布局按钮
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnRestorePageLayout">
+            <summary>
+            恢复本页布局按钮
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnClearPageLayout">
+            <summary>
+            删除本页布局按钮
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnUpLoadStyle">
+            <summary>
+            上传/下载样式表
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnPageList">
+            <summary>
+            查看网页列表
+            </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnCopyPage">
+            <summary>
+            复制页面
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.#ctor">
+            <summary>
+            ShoveWebPart基页构造函数
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.SetSiteID">
+            <summary>
+            设置站点ID的虚拟方法
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.SetUserID">
+            <summary>
+            设置用户的虚拟方法
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.SetAllowDesign">
+            <summary>
+            设置页面是否允许设计
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.OnLoad(System.EventArgs)">
+            <summary>
+            重写页面加载事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.SetButtonStyle(System.Web.UI.WebControls.Button,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            设置 button 的外观
+            </summary>
+            <param name="btn"></param>
+            <param name="id"></param>
+            <param name="text"></param>
+            <param name="top"></param>
+            <param name="backgroundimage"></param>
+            <param name="enabled"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_ddlMode_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            模式切换
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnAddShoveWebPart_Click(System.Object,System.EventArgs)">
+            <summary>
+            动态添加shoveWebPart
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.BackupSite(System.Int64)">
+            <summary>
+            备份站点布局
+            </summary>
+            <param name="siteid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnRestoreSiteLayout_Click(System.Object,System.EventArgs)">
+            <summary>
+            恢复本站布局
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnClearSiteLayout_Click(System.Object,System.EventArgs)">
+            <summary>
+            删除本站布局 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.BackupPage(System.Int64,System.String)">
+            <summary>
+            备份页面布局
+            </summary>
+            <param name="siteid"></param>
+            <param name="pagename"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnRestorePageLayout_Click(System.Object,System.EventArgs)">
+            <summary>
+            恢复本页布局
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnClearPageLayout_Click(System.Object,System.EventArgs)">
+            <summary>
+            删除本页布局 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnUpLoadStyle_Click(System.Object,System.EventArgs)">
+            <summary>
+            上传、下载样式表
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartBasePage.ShoveWebPart_btnCopyPage_Click(System.Object,System.EventArgs)">
+            <summary>
+            复制页面
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPartBasePage.SiteID">
+            <summary>
+            站点ID默认为-1
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPartBasePage.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPartBasePage.IsAllowDesign">
+            <summary>
+            是否允许设计，由继承页面根据用户是否登陆，是否有设计权限而复制
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPartBasePage.IsDesigning">
+            <summary>
+            是否是设计状态
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPartBasePage.PageName">
+            <summary>
+            页名
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPart">
+            <summary>
+            ShoveWebPart 网页部件技术组件
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.OnLoad(System.EventArgs)">
+            <summary>
+            Onload 方法
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.Save(System.String,System.Int64,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            鼠标拖动，改变大小后保存数据
+            </summary>
+            <param name="id"></param>
+            <param name="siteid"></param>
+            <param name="pagename"></param>
+            <param name="left"></param>
+            <param name="top"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="primitiveheight"></param>
+            <param name="parentleft"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.Edit(System.String,System.Int64,System.String,System.String[])">
+            <summary>
+            从编辑窗口编辑后保存数据
+            </summary>
+            <param name="id"></param>
+            <param name="siteid"></param>
+            <param name="pagename"></param>
+            <param name="AttributesList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.Close(System.String,System.Int64,System.String)">
+            <summary>
+            关闭Part保存数据
+            </summary>
+            <param name="id"></param>
+            <param name="siteid"></param>
+            <param name="pagename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.SaveZIndex(System.String,System.Int64,System.String,System.String)">
+            <summary>
+            改变了Part的前后顺序保存数据
+            </summary>
+            <param name="id"></param>
+            <param name="siteid"></param>
+            <param name="pagename"></param>
+            <param name="objOtherZIndexList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.SaveLock(System.String,System.Int64,System.String,System.Boolean)">
+            <summary>
+            锁定Part保存数据
+            </summary>
+            <param name="id"></param>
+            <param name="siteid"></param>
+            <param name="pagename"></param>
+            <param name="LockState"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.SaveApplyToAll(System.String,System.Int64,System.String,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            将 Part 应用到所有页保存数据
+            </summary>
+            <param name="id"></param>
+            <param name="siteid"></param>
+            <param name="pagename"></param>
+            <param name="applytoallpage"></param>
+            <param name="addtonoexistpage"></param>
+            <param name="oldattributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.ToBackground(System.String,System.Int64,System.String,System.Int32)">
+            <summary>
+            将Part置底后保存数据
+            </summary>
+            <param name="id"></param>
+            <param name="siteid"></param>
+            <param name="pagename"></param>
+            <param name="zIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.SaveForKeyMove(System.Int64,System.String,System.String[])">
+            <summary>
+            通过键盘移动Part后保存数据
+            </summary>
+            <param name="siteid"></param>
+            <param name="pagename"></param>
+            <param name="Datas"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.DeleteForKeyMove(System.Int64,System.String,System.String[])">
+            <summary>
+            通过键盘删除Part后保存数据
+            </summary>
+            <param name="siteid"></param>
+            <param name="pagename"></param>
+            <param name="Datas"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.Paste(System.Int64,System.String,System.String)">
+            <summary>
+            粘贴
+            </summary>
+            <param name="siteid"></param>
+            <param name="pagename"></param>
+            <param name="SourcePartList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.RaisePostBackEvent(System.String)">
+            <summary>
+            属性改变的会发事件
+            </summary>
+            <param name="eventArgument"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.CreateChildControls">
+            <summary>
+            装载用户控件
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPart.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            呈现控件
+            </summary>
+            <param name="output"></param>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPart.Mode">
+            <summary>
+            页面的运行模式 运行/设计
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPart.SiteID">
+            <summary>
+            站点ID
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPart.UserID">
+            <summary>
+            登陆的用户 ID
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPart.PageName">
+            <summary>
+            所在的页名
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPart.ZIndex">
+            <summary>
+            控件的前后顺序
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveWebPart.Lock">
+            <summary>
+            控件是否被锁定而不能设计
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPart.RunMode">
+            <summary>
+            Part 的运行模式
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_VAlign">
+            <summary>
+            垂直位置属性
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute_VAlign.#ctor(System.String,System.Object,System.String)">
+            <summary>
+            创建垂直位置类型属性
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="defaultValue">属性默认值</param>
+            <param name="vote">属性说明</param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartLicense">
+            <summary>
+            填写 ShoveWebPart 许可证
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartLicense.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            初始化
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartLicense.btnOK_Click(System.Object,System.EventArgs)">
+            <summary>
+            保存许可
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveDataList">
+            <summary>
+            ShoveDataList 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveTabView.CreateTabHeaders(System.Web.UI.WebControls.Table@)">
+            <summary>
+            Create Tab headers
+            </summary>
+            <param name="tbl">Parent table control whole alignmnet of control</param>
+            <returns></returns>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveTabView.CreateTabContents(System.Web.UI.WebControls.Table@)">
+            <summary>
+            create tab contents.
+            </summary>
+            <param name="tbl">parent table refrence.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTabView.Tabs">
+            <summary>
+            Collection of Tabs
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveTabView.AutoPostBack">
+            <summary>
+            Whether to auto post back the tab page or not.
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveLinkButton">
+            <summary>
+            ShoveLinkButton
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveLinkButton.Render(System.Web.UI.HtmlTextWriter)">
+            <summary> 
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="output"> 要写出到的 HTML 编写器 </param>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveLinkButton.AlertText">
+            <summary>
+            单击之后提示是否继续进行的提示文本
+            </summary>
+        </member>
+        <member name="P:Shove.Web.UI.ShoveLinkButton.OnClientClick">
+            <summary>
+            在客户端 OnClick 上执行的客户端脚本
+            </summary>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveDataImage">
+            <summary>
+            ShoveCheckCode 的摘要说明。
+            </summary>
+            
+        </member>
+        <member name="M:Shove.Web.UI.ShoveDataImage.Render(System.Web.UI.HtmlTextWriter)">
+            <summary> 
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="output"> 要写出到的 HTML 编写器 </param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_Image">
+            <summary>
+            图片类型属性
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute_Image.#ctor(System.String,System.String,System.Object,System.String)">
+            <summary>
+            创建图片类属性实例
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="range">属性取值范围</param>
+            <param name="defaultValue">属性默认值</param>
+            <param name="vote">属性说明</param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartAttribute_Color">
+            <summary>
+            颜色类型属性
+            </summary>
+        </member>
+        <member name="M:Shove.Web.UI.ShoveWebPartAttribute_Color.#ctor(System.String,System.Object,System.String)">
+            <summary>
+            创建颜色类型属性实例
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="defaultValue">属性默认值</param>
+            <param name="vote">属性说明</param>
+        </member>
+        <member name="T:Shove.Web.UI.ShoveWebPartUserControlContentType">
+             <summary>
+            用户控件根据内容划分的类别
+            根据控件的内容类别，决定在网站的后台，用那些表编译内容。主要是为了建立控件和后台编辑之间的对应关系。
+             </summary>
+        </member>
+        <member name="F:Shove.Web.UI.ShoveWebPartUserControlContentType.Unknow">
+            <summary>
+            未知内容
+            </summary>
+        </member>
+    </members>
+</doc>
