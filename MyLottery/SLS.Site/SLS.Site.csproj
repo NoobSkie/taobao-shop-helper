@@ -1,0 +1,288 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3D9BF15-9B42-430E-ABF3-CF4F93848C1A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SLS.Site</RootNamespace>
+    <AssemblyName>SLS.Site</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxPro.2, Version=7.7.31.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\AjaxPro.2.dll</HintPath>
+    </Reference>
+    <Reference Include="App_Licenses, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\App_Licenses.dll</HintPath>
+    </Reference>
+    <Reference Include="com.yeepay.bank, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\com.yeepay.bank.dll</HintPath>
+    </Reference>
+    <Reference Include="FredCK.FCKeditorV2, Version=2.5.2912.21007, Culture=neutral, PublicKeyToken=4f86767c9b519a06, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\FredCK.FCKeditorV2.dll</HintPath>
+    </Reference>
+    <Reference Include="FreeTextBox, Version=3.1.6.34851, Culture=neutral, PublicKeyToken=5962a4e684a48b87, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\FreeTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Utils.Zip, Version=1.3.0.0, Culture=neutral, PublicKeyToken=c551e179877da246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\Ionic.Utils.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Manyou.Toolkit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\Manyou.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.JScript, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\Microsoft.JScript.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\Microsoft.Vbe.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.2.2.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Quiry99BillOrder, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\Quiry99BillOrder.dll</HintPath>
+    </Reference>
+    <Reference Include="Shove.Web.UI.4 For.NET 3.5, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\Shove.Web.UI.4 For.NET 3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.65.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceDlls\System.Data.SQLite.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Code\Competences.cs" />
+    <Compile Include="App_Code\Cps.cs" />
+    <Compile Include="App_Code\DataCache.cs" />
+    <Compile Include="App_Code\FirstUrl.cs" />
+    <Compile Include="App_Code\HtmlManage.cs" />
+    <Compile Include="App_Code\OptionValue.cs" />
+    <Compile Include="App_Code\PF.cs" />
+    <Compile Include="App_Code\RoomPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Code\SendEmailTask.cs" />
+    <Compile Include="App_Code\SiteNotificationTemplates.cs" />
+    <Compile Include="App_Code\SiteOptions.cs" />
+    <Compile Include="App_Code\Sites.cs" />
+    <Compile Include="App_Code\SystemOptions.cs" />
+    <Compile Include="App_Code\UserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Code\Users.cs" />
+    <Compile Include="App_Code\DAL\Functions.cs" />
+    <Compile Include="App_Code\DAL\Procedures.cs" />
+    <Compile Include="App_Code\DAL\Tables.cs" />
+    <Compile Include="App_Code\DAL\Views.cs" />
+    <Content Include="favicon.ico" />
+    <Content Include="Home\Room\Style\Buy.css" />
+    <Content Include="Home\Room\Style\Buy_SSC.css" />
+    <Content Include="Home\Room\Style\Buy_SSL.css" />
+    <Content Include="Home\Room\Style\Buy_SYYDJ.css" />
+    <Content Include="Home\Room\Style\Buy_ZC.css" />
+    <Content Include="Home\Room\JavaScript\BonusNumber_11X5.js" />
+    <Content Include="Home\Room\JavaScript\BonusNumber_CQSSC.js" />
+    <Content Include="Home\Room\JavaScript\BonusNumber_JXSSC.js" />
+    <Content Include="Home\Room\JavaScript\BonusNumber_SYYDJ.js" />
+    <Content Include="Home\Room\JavaScript\buy.js" />
+    <Content Include="Home\Room\JavaScript\buy_15X5.js" />
+    <Content Include="Home\Room\JavaScript\buy_22X5.js" />
+    <Content Include="Home\Room\JavaScript\buy_31X7.js" />
+    <Content Include="Home\Room\JavaScript\buy_3D.js" />
+    <Content Include="Home\Room\JavaScript\buy_CJDLT.js" />
+    <Content Include="Home\Room\JavaScript\buy_CQSSC.js" />
+    <Content Include="Home\Room\JavaScript\buy_DF6J1.js" />
+    <Content Include="Home\Room\JavaScript\buy_JQC.js" />
+    <Content Include="Home\Room\JavaScript\buy_JX11X5.js" />
+    <Content Include="Home\Room\JavaScript\buy_JXSSC.js" />
+    <Content Include="Home\Room\JavaScript\buy_LCBQC.js" />
+    <Content Include="Home\Room\JavaScript\buy_PL3.js" />
+    <Content Include="Home\Room\JavaScript\buy_PL5.js" />
+    <Content Include="Home\Room\JavaScript\buy_QLC.js" />
+    <Content Include="Home\Room\JavaScript\buy_QXC.js" />
+    <Content Include="Home\Room\JavaScript\buy_SFC.js" />
+    <Content Include="Home\Room\JavaScript\Buy_SFC_9_D.js" />
+    <Content Include="Home\Room\JavaScript\buy_SSL.js" />
+    <Content Include="Home\Room\JavaScript\buy_SSQ.js" />
+    <Content Include="Home\Room\JavaScript\buy_SYYDJ.js" />
+    <Content Include="Home\Room\JavaScript\buy_ZC.js" />
+    <Content Include="Home\Room\JavaScript\buy_ZJTC6J1.js" />
+    <Content Include="Home\Room\JavaScript\eff.js" />
+    <Content Include="Home\Room\JavaScript\ExplorerCheck.js" />
+    <Content Include="Home\Room\JavaScript\floatAD.js" />
+    <Content Include="Home\Room\JavaScript\floatbig.js" />
+    <Content Include="Home\Room\JavaScript\funcs.js" />
+    <Content Include="Home\Room\JavaScript\JScript.js" />
+    <Content Include="Home\Room\JavaScript\Marquee.js" />
+    <Content Include="Home\Room\JavaScript\ptype.js" />
+    <Content Include="Home\Room\JavaScript\Public.js" />
+    <Content Include="Home\Room\Style\css.css" />
+    <Content Include="Home\Room\Style\cyb.css" />
+    <Content Include="Home\Room\Style\cyw.css" />
+    <Content Include="Home\Room\UserControls\Lotteries.ascx" />
+    <Content Include="Home\Room\UserControls\UserMyIcaile.ascx" />
+    <Content Include="Home\Style\css.css" />
+    <Content Include="Home\Style\LotteriesStyle.css" />
+    <Content Include="Home\Style\UserMyIcaileStyle.css" />
+    <Content Include="Html\TrafficStatistics\1.htm" />
+    <Content Include="Html\TrafficStatistics\2.htm" />
+    <Content Include="Lottery\Buy.aspx" />
+    <Content Include="Lottery\Buy_15X5.aspx" />
+    <Content Include="SWF\caipiao.swf" />
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Room\UserControls\Lotteries.ascx.cs">
+      <DependentUpon>Lotteries.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\Room\UserControls\Lotteries.ascx.designer.cs">
+      <DependentUpon>Lotteries.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Room\UserControls\UserMyIcaile.ascx.cs">
+      <DependentUpon>UserMyIcaile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\Room\UserControls\UserMyIcaile.ascx.designer.cs">
+      <DependentUpon>UserMyIcaile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy.aspx.cs">
+      <DependentUpon>Buy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy.aspx.designer.cs">
+      <DependentUpon>Buy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\Buy_15X5.aspx.cs">
+      <DependentUpon>Buy_15X5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\Buy_15X5.aspx.designer.cs">
+      <DependentUpon>Buy_15X5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shove\Shove.csproj">
+      <Project>{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}</Project>
+      <Name>Shove</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SLS.Lottery\SLS.Lottery.csproj">
+      <Project>{7DCE79A0-D139-472E-9A51-FED8B51C8334}</Project>
+      <Name>SLS.Lottery</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SLS.Security\SLS.Security.csproj">
+      <Project>{5966A0BB-0858-40E2-AE87-FC5C59DAABD9}</Project>
+      <Name>SLS.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMS.Eucp.Gateway\SMS.Eucp.Gateway.csproj">
+      <Project>{B2B8ECAB-1062-48D6-950E-20A084ADAC15}</Project>
+      <Name>SMS.Eucp.Gateway</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CSS\" />
+    <Folder Include="Images\" />
+    <Folder Include="JavaScript\" />
+    <Folder Include="UserControls\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59857</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

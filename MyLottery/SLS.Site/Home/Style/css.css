@@ -1,0 +1,586 @@
+﻿body
+{
+	margin: 0px;
+	background-color: #ffffff;
+}
+
+.black12
+{
+	font-size: 12px;
+	color: #000000;
+	font-family: "tahoma";
+	line-height: 18px;
+}
+.black12 A:link
+{
+	font-family: "tahoma";
+	color: #000000;
+	text-decoration: none;
+}
+.black12 A:active
+{
+	font-family: "tahoma";
+	color: #000000;
+	text-decoration: none;
+}
+.black12 A:visited
+{
+	font-family: "tahoma";
+	color: #000000;
+	text-decoration: none;
+}
+.black12 A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: none;
+}
+
+.black16
+{
+	font-size: 16px;
+	color: #000000;
+	font-family: "tahoma";
+	line-height: 20px;
+	font-weight: bold;
+}
+.qihao
+{
+	font-size: 16px;
+	color: #ff0000;
+	font-family: "tahoma";
+	line-height: 20px;
+	font-weight: 600;
+}
+.num_1
+{
+	font-size: 18px;
+	color: #ff0000;
+	font-family: Georgia, "Times New Roman" , Times, serif;
+	line-height: 20px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.time
+{
+	font-size: 16px;
+	color: #00ff00;
+	font-family: "tahoma";
+	line-height: 18px;
+	font-weight: 600;
+}
+
+.hui12
+{
+	font-size: 12px;
+	color: #666666;
+	font-family: "tahoma";
+	line-height: 18px;
+}
+.hui12 A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui12 A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui12 A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui12 A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: none;
+}
+
+.red_num
+{
+	font-size: 14px;
+	color: #DC1819;
+	font-family: "tahoma";
+	line-height: 18px;
+	font-weight: bold;
+}
+.red_num A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.red_num A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.red_num A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.red_num A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: none;
+}
+
+.red12
+{
+	font-size: 12px;
+	color: #ff0000;
+	font-family: "tahoma";
+	line-height: 18px;
+}
+.red12 A:link
+{
+	font-family: "tahoma";
+	color: #DC1819;
+	text-decoration: none;
+}
+.red12 A:active
+{
+	font-family: "tahoma";
+	color: #DC1819;
+	text-decoration: none;
+}
+.red12 A:visited
+{
+	font-family: "tahoma";
+	color: #DC1819;
+	text-decoration: none;
+}
+.red12 A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: none;
+}
+
+.blue12
+{
+	font-size: 12px;
+	color: #226699;
+	font-family: "tahoma";
+	line-height: 18px;
+}
+.blue12 A:link
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: none;
+}
+.blue12 A:active
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: none;
+}
+.blue12 A:visited
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: none;
+}
+.blue12 A:hover
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: underline;
+}
+
+.menu
+{
+	font-size: 12px;
+	color: #ffffff;
+	font-family: "tahoma";
+	line-height: 18px;
+	font-weight: bold;
+}
+.menu A:link
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.menu A:active
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.menu A:visited
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.menu A:hover
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+.ch
+{
+	font-size: 12px;
+	color: #FFE8B5;
+	font-family: "tahoma";
+	line-height: 18px;
+}
+.ch A:link
+{
+	font-family: "tahoma";
+	color: #FFE8B5;
+	text-decoration: none;
+}
+.ch A:active
+{
+	font-family: "tahoma";
+	color: #FFE8B5;
+	text-decoration: none;
+}
+.ch A:visited
+{
+	font-family: "tahoma";
+	color: #FFE8B5;
+	text-decoration: none;
+}
+.ch A:hover
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+.bai14
+{
+	font-size: 14px;
+	color: #ffffff;
+	font-family: "tahoma";
+	line-height: 18px;
+	font-weight: bold;
+}
+.bai14 A:link
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.bai14 A:active
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.bai14 A:visited
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.bai14 A:hover
+{
+	font-family: "tahoma";
+	color: #ffff00;
+	text-decoration: underline;
+}
+
+.bai
+{
+	font-size: 14px;
+	color: #ffffff;
+	font-family: "tahoma";
+	line-height: 18px;
+}
+
+.bai12
+{
+	font-size: 12px;
+	color: #ffffff;
+	font-family: "tahoma";
+	line-height: 18px;
+}
+.bai12 A:link
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.bai12 A:active
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.bai12 A:visited
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.bai12 A:hover
+{
+	font-family: "tahoma";
+	color: #ffff00;
+	text-decoration: underline;
+}
+
+.bai16
+{
+	font-size: 14px;
+	color: #ffffff;
+	font-family: "tahoma";
+	line-height: 24px;
+	padding-bottom: 6px;
+	padding-right: 2px;
+	font-weight: bold;
+}
+.bai16 A:link
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.bai16 A:active
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.bai16 A:visited
+{
+	font-family: "tahoma";
+	color: #ffffff;
+	text-decoration: none;
+}
+.bai16 A:hover
+{
+	font-family: "tahoma";
+	color: #ffff00;
+	text-decoration: underline;
+}
+
+.1
+{
+	font-size: 14px;
+	color: #ffffff;
+	font-family: "tahoma";
+	line-height: 18px;
+}
+
+.2
+{
+	font-size: 14px;
+	color: #ffffff;
+	font-family: "tahoma";
+	line-height: 18px;
+}
+
+
+
+.bottom
+{
+	font-size: 12px;
+	color: #666666;
+	font-family: "tahoma";
+	line-height: 18px;
+}
+.bottom A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.bottom A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.bottom A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.bottom A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: none;
+}
+
+.in_put
+{
+	border: solid 1px;
+	border-color: #ccc;
+	background: #ffffff;
+	color: #000000;
+	font-family: "tahoma";
+	font-size: 12px;
+	height: 15px;
+}
+
+.in_text_hui
+{
+	height: 18px;
+	border: 1px solid #cccccc;
+	background-color: #FFFFFF;
+	color: #666666;
+	font-size: 12px;
+	font-family: "tahoma";
+}
+
+.ball_r
+{
+	font-family: "tahoma";
+	height: 22px;
+	width: 23px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	color: #464646;
+	cursor: hand;
+	border: solid 1px;
+	border-color: #ccc;
+	background: #e9e9e9;
+}
+.ball_num
+{
+	font-family: "tahoma";
+	height: 22px;
+	width: 23px;
+	text-align: center;
+	font-size: 14px;
+	color: #464646;
+	cursor: hand;
+	border: solid 1px;
+	border-color: #fff;
+}
+
+.ball_b
+{
+	height: 22px;
+	width: 23px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	cursor: hand;
+	border: solid 1px;
+	border-color: #fff;
+	background: #FF9900;
+}
+
+.ball_red
+{
+	height: 22px;
+	width: 23px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	cursor: hand;
+	border: solid 1px;
+	border-color: #fff;
+	background: #FF0000;
+}
+
+.yl_1
+{
+	text-align: center;
+	font-weight: default;
+	color: #666666;
+	cursor: pointer;
+}
+.DivChange
+{
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bolder;
+	background-image: url(../Image/DivChange1.jpg);
+	cursor: hand;
+}
+
+.DivChangeOther
+{
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bolder;
+	background-image: url(../Image/DivChange2.jpg);
+	cursor: hand;
+}
+
+.DivWinNumberList
+{
+	font-size: 12px;
+	color: #000000;
+	font-family: "tahoma";
+	line-height: 18px;
+	background-image: url(../Image/Div_Td1.jpg);
+	cursor: hand;
+}
+
+.DivWinNumberOther
+{
+	font-size: 12px;
+	color: #000000;
+	font-family: "tahoma";
+	line-height: 18px;
+	cursor: hand;
+}
+
+.DivChase
+{
+	font-size: 12px;
+	color: #ffffff;
+	font-family: "tahoma";
+	line-height: 18px;
+	font-weight: bold;
+	background-image: url(../Image/Td_ChangBg1.jpg);
+	cursor: hand;
+}
+
+.DivChaseOther
+{
+	font-size: 12px;
+	color: #000000;
+	font-family: "tahoma";
+	line-height: 18px;
+	background-image: url(../Image/Td_ChangBg2.jpg);
+	cursor: hand;
+}
+
+.InvestChange
+{
+	font-size: 12px;
+	color: #ffffff;
+	font-family: "tahoma";
+	line-height: 18px;
+	font-weight: bold;
+	background-image: url(../Image/Td_Invest.jpg);
+	cursor: hand;
+}
+
+.InvestChangeOther
+{
+	font-size: 12px;
+	color: #000000;
+	font-family: "tahoma";
+	line-height: 18px;
+	background-image: url(../Image/Td_Reward.jpg);
+	cursor: hand;
+}

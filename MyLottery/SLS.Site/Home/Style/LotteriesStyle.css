@@ -1,0 +1,106 @@
+﻿.bai12
+{
+	font-size: 12px;
+	color: #FFFFFF;
+	font-family: tahoma;
+	line-height: 20px;
+	font-weight: normal;
+}
+.bai12 A:link
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.bai12 A:active
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.bai12 A:visited
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.bai12 A:hover
+{
+	font-family: tahoma;
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.blue12
+{
+	font-size: 12px;
+	color: #1F6598;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.blue12 A:link
+{
+	font-family: "tahoma";
+	color: #333333;
+	text-decoration: none;
+}
+.blue12 A:active
+{
+	font-family: "tahoma";
+	color: #333333;
+	text-decoration: none;
+}
+.blue12 A:visited
+{
+	font-family: "tahoma";
+	color: #333333;
+	text-decoration: none;
+}
+.blue12 A:hover
+{
+	font-family: "tahoma";
+	color: #1F6598;
+	text-decoration: none;
+}
+.hui12_3
+{
+	font-family: tahoma;
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+.hot_ZC
+{
+	position: absolute;
+	left: 50px;
+	top: -5px;
+}
+.hot_SYYDJ
+{
+	position: absolute;
+	left: 38px;
+	top: -5px;
+}
+.hot_SSC
+{
+	position: absolute;
+	left: 38px;
+	top: -5px;
+}
+.hot_SSQ
+{
+	position: absolute;
+	left: 37px;
+	top: -5px;
+}
+.hot_CJDLT
+{
+	position: absolute;
+	left: 60px;
+	top: -5px;
+}
+.new_CustomChase
+{
+	position: absolute;
+	left: 62px;
+	top: -5px;
+}

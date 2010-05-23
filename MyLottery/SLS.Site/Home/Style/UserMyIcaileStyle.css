@@ -1,0 +1,31 @@
+﻿.blue14
+{
+	font-size: 14px;
+	color: #0066BA;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.blue14 A:link
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue14 A:active
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue14 A:visited
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue14 A:hover
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}

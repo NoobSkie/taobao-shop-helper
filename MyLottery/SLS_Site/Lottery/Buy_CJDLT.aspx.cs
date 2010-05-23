@@ -22,7 +22,7 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
     public int LotteryID;
     public string LotteryName;
     public string script = "";
-    
+
     [AjaxMethod(HttpSessionStateRequirement.Read)]
     public string AnalyseScheme(string Content, string LotteryID, int PlayTypeID)
     {

@@ -16,13 +16,13 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml;
 
-public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
+public partial class Lottery_Buy_3D : RoomPageBase, IRequiresSessionState
 {
     public string DZ = "";
     public int LotteryID;
     public string LotteryName;
     public string script = "";
-    
+
     [AjaxMethod(HttpSessionStateRequirement.Read)]
     public string AnalyseScheme(string Content, string LotteryID, int PlayTypeID)
     {
@@ -157,6 +157,60 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
         }
     }
 
+    private string BindNewsForLottery(string TypeName)
+    {
+        string lotteryName = this.LotteryName;
+        if (lotteryName == "福彩3D")
+        {
+            lotteryName = "3D";
+        }
+        string key = "Home_Room_Buy_BindNewsForLottery" + this.LotteryID.ToString();
+        DataTable cacheAsDataTable = Shove._Web.Cache.GetCacheAsDataTable(key);
+        if (cacheAsDataTable == null)
+        {
+            cacheAsDataTable = new Views.V_News().Open("Title,Content,DateTime,TypeName", "IsShow=1 and TypeName like '" + lotteryName + "%'", "");
+            if ((cacheAsDataTable == null) || (cacheAsDataTable.Rows.Count == 0))
+            {
+                return "";
+            }
+            Shove._Web.Cache.SetCache(key, cacheAsDataTable, 0x1770);
+        }
+        DataRow[] rowArray = cacheAsDataTable.Select("TypeName='" + TypeName + "'", "DateTime desc");
+        StringBuilder builder = new StringBuilder();
+        builder.Append("<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">");
+        string input = "";
+        string str4 = "";
+        int num = 0;
+        foreach (DataRow row in rowArray)
+        {
+            num++;
+            if ((num % 6) == 0)
+            {
+                builder.Append("<tr><td colspan='2'><div id='hr' style=\"margin-top: 5px;margin-bottom: 5px;\" ></div> </td></tr>");
+            }
+            input = row["Title"].ToString().Trim();
+            if ((input.IndexOf("<font class=red12>") > -1) || (input.IndexOf("<font class=black12>") > -1))
+            {
+                if (input.Contains("<font class=red12>"))
+                {
+                    str4 = "red12";
+                }
+                if (input.Contains("<font class=black12>"))
+                {
+                    str4 = "black12";
+                }
+                input = input.Replace("<font class=red12>", "").Replace("<font class=black12>", "").Replace("</font>", "");
+                builder.Append("<tr>").Append("<td width=\"5%\" height=\"22\" align=\"center\" class=\"hui14\">").Append("<img src=\"../Home/Room/Images/jiantou_3.gif\" width=\"4\" height=\"8\" />").Append("</td>").Append("<td width=\"95%\" height=\"22\" class=\"hui12\">").Append("<a href='" + row["Content"].ToString() + "' target='_blank'>").Append("<font class = '" + str4 + "'>").Append(_String.Cut(input, 20)).Append("</font>").Append("</a></td></tr>");
+            }
+            else
+            {
+                builder.Append("<tr>").Append("<td width=\"5%\" height=\"22\" align=\"center\" class=\"hui14\">").Append("<img src=\"../Home/Room/Images/jiantou_3.gif\" width=\"4\" height=\"8\" />").Append("</td>").Append("<td width=\"95%\" height=\"22\" class=\"hui12\">").Append("<a href='" + row["Content"].ToString() + "' target='_blank'>").Append(_String.Cut(input, 20)).Append("</a></td></tr>");
+            }
+        }
+        builder.Append("</table>");
+        return builder.ToString();
+    }
+
     private string BindWinList(DataTable dt)
     {
         StringBuilder builder = new StringBuilder();
@@ -213,14 +267,6 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
         string str19 = Shove._Web.Utility.GetRequest("tb_SchemeBonusScale");
         string str20 = Shove._Web.Utility.GetRequest("tb_SchemeBonusScalec");
         int num = 2;
-        if ((s == "3903") || (s == "3904"))
-        {
-            num = 3;
-        }
-        else
-        {
-            num = 2;
-        }
         if (str17 == "")
         {
             str17 = "1";
@@ -484,33 +530,54 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
         }
     }
 
-    private string FormatLuckLotteryNumber(int LotteryID, string LotteryNumber)
+    private string FilterRepeated(string NumberPart)
+    {
+        string str = "";
+        for (int i = 0; i < NumberPart.Length; i++)
+        {
+            if ((str.IndexOf(NumberPart.Substring(i, 1)) == -1) && ("0123456789".IndexOf(NumberPart.Substring(i, 1)) >= 0))
+            {
+                str = str + NumberPart.Substring(i, 1);
+            }
+        }
+        return str;
+    }
+
+    private string FormatLuckLotteryNumber(string LotteryNumber)
     {
         if (string.IsNullOrEmpty(LotteryNumber))
         {
             return "";
         }
-        LotteryNumber = LotteryNumber.Replace(" + ", " ");
+        string str = null;
+        string str2 = null;
+        str = LotteryNumber.Split(new char[] { '+' })[0];
+        try
+        {
+            str2 = LotteryNumber.Split(new char[] { '+' })[1];
+        }
+        catch
+        {
+            str2 = "";
+        }
+        LotteryNumber = "";
+        for (int i = 0; i < str.Length; i++)
+        {
+            LotteryNumber = LotteryNumber + str.Substring(i, 1) + " ";
+        }
+        LotteryNumber = LotteryNumber + str2;
+        LotteryNumber = LotteryNumber.Trim();
         return LotteryNumber;
     }
 
     private string FormatWinNumber(string winNumber)
     {
         StringBuilder builder = new StringBuilder();
-        if (winNumber.IndexOf(" + ") > 0)
+        if (winNumber.Length > 0)
         {
-            winNumber = winNumber.Replace(" + ", " ");
-            string[] strArray = winNumber.Split(new char[] { ' ' });
-            for (int i = 0; i < strArray.Length; i++)
+            for (int i = 0; i < winNumber.Length; i++)
             {
-                if (i < (strArray.Length - 2))
-                {
-                    builder.Append("</td><td align='center' class='white14' style='width:25px;background-image: url(../Home/Room/Images/zfb_redball.gif)'>").Append(strArray[i]);
-                }
-                else
-                {
-                    builder.Append("</td><td align='center' class='white14' style='width: 25px;background-image: url(../Home/Room/Images/zfb_blueball.gif)'>").Append(strArray[i]);
-                }
+                builder.Append("</td><td align='center' class='white14' style='width:25px;background-image: url(../Home/Room/Images/zfb_redball.gif)'>").Append(winNumber.Substring(i, 1));
             }
         }
         return builder.ToString();
@@ -552,7 +619,7 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
         }
         else
         {
-            lotteryNumber = new Lottery()[LotteryID].BuildNumber(5, 2, 1);
+            lotteryNumber = new Lottery()[LotteryID].BuildNumber(1);
             Tables.T_LuckNumber number = new Tables.T_LuckNumber
             {
                 LotteryID = { Value = LotteryID },
@@ -564,7 +631,208 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
             number.Delete("datediff(d,DateTime,getdate())>0");
             Shove._Web.Cache.ClearCache(key);
         }
-        return (lotteryNumber + "|" + this.FormatLuckLotteryNumber(LotteryID, lotteryNumber));
+        return (lotteryNumber + "|" + this.FormatLuckLotteryNumber(lotteryNumber));
+    }
+
+    private void Get3DBaoDianMiss()
+    {
+        string key = "Home_Room_Buy_Get3DBaoDianMiss";
+        this.lbMiss.Text = Shove._Web.Cache.GetCacheAsString(key, "");
+        this.lbMiss.Text = "";
+        if (this.lbMiss.Text == "")
+        {
+            DataTable table = new Tables.T_Isuses().Open("EndTime,WinLotteryNumber", "LotteryID = 6 and GETDATE()>EndTime and ISNULL(WinLotteryNumber,'')<>'' and IsOpened=1", "EndTime asc");
+            if (table == null)
+            {
+                new Log("System").Write(base.GetType().FullName + "数据库繁忙，请重试(Get3DBaoDianMiss)");
+            }
+            else
+            {
+                int[] numArray = new int[0x1c];
+                int[] numArray2 = new int[] { 
+                    0x3e8, 0x14d, 0xa7, 100, 0x43, 0x30, 0x24, 0x1c, 0x16, 0x12, 0x10, 14, 14, 13, 13, 14, 
+                    14, 0x10, 0x12, 0x16, 0x1c, 0x24, 0x30, 0x43, 100, 0xa7, 0x14d, 0x3e8
+                 };
+                foreach (DataRow row in table.Rows)
+                {
+                    string str2 = row["WinLotteryNumber"].ToString();
+                    int num = 0;
+                    if (str2.Length == 3)
+                    {
+                        for (int k = 0; k < str2.Length; k++)
+                        {
+                            num += _Convert.StrToInt(str2.Substring(k, 1), 0);
+                        }
+                        for (int m = 0; m < numArray.Length; m++)
+                        {
+                            if (m == num)
+                            {
+                                numArray[m] = 0;
+                            }
+                            else
+                            {
+                                numArray[m]++;
+                            }
+                        }
+                    }
+                }
+                double num4 = 0.0;
+                double num5 = 0.0;
+                for (int i = 0; i < 0x1c; i++)
+                {
+                    num5 = _Convert.StrToDouble(numArray[i].ToString(), 0.0);
+                    if ((num5 / ((double)numArray2[i])) >= num4)
+                    {
+                        num4 = num5 / ((double)numArray2[i]);
+                    }
+                }
+                StringBuilder builder = new StringBuilder();
+                int num7 = numArray.Length / 14;
+                for (int j = 0; j < num7; j++)
+                {
+                    builder.Append(" <table border=\"0\" cellpadding=\"0\" cellspacing=\"4\">").Append("<tr>").Append("<td class='blue' width='80px' align='center'>").Append("本期遗漏").Append("</td>");
+                    for (int n = j * 14; n < ((j + 1) * 14); n++)
+                    {
+                        if ((_Convert.StrToDouble(numArray[n].ToString(), 0.0) / ((double)numArray2[n])) >= num4)
+                        {
+                            builder.Append("<td class='red12'>");
+                        }
+                        else
+                        {
+                            builder.Append("<td class='hui12'>");
+                        }
+                        builder.Append(numArray[n].ToString()).Append("</td>");
+                    }
+                    builder.Append("</tr>").Append("<tr>").Append("<td class='blue' width='80px' align='center'>").Append("理论遗漏").Append("</td>");
+                    for (int num10 = j * 14; num10 < ((j + 1) * 14); num10++)
+                    {
+                        if ((_Convert.StrToDouble(numArray[num10].ToString(), 0.0) / ((double)numArray2[num10])) >= num4)
+                        {
+                            builder.Append("<td class='red12'>");
+                        }
+                        else
+                        {
+                            builder.Append("<td class='hui12'>");
+                        }
+                        builder.Append(numArray2[num10].ToString()).Append("</td>");
+                    }
+                    builder.Append("</tr>").Append("</table>-");
+                }
+                this.lbMiss.Text = builder.ToString();
+                Shove._Web.Cache.SetCache(key, this.lbMiss.Text, 600);
+            }
+        }
+    }
+
+    private string Get3DMiss()
+    {
+        string key = "Home_Room_Buy_Get3DMiss";
+        DataTable cacheAsDataTable = Shove._Web.Cache.GetCacheAsDataTable(key);
+        string str2 = "";
+        if (cacheAsDataTable == null)
+        {
+            int returnValue = 0;
+            string returnDescptrion = "";
+            DataSet ds = new DataSet();
+            if (Procedures.P_Analysis_3D_Miss(ref ds, ref returnValue, ref returnDescptrion) < 0)
+            {
+                new Log("System").Write(base.GetType().FullName + "数据库繁忙，请重试(P_Analysis_3D_Miss)");
+                return "";
+            }
+            if (ds.Tables.Count < 1)
+            {
+                new Log("System").Write(base.GetType().FullName + "数据库繁忙，请重试(P_Analysis_3D_Miss)");
+                return "";
+            }
+            cacheAsDataTable = ds.Tables[0];
+            Shove._Web.Cache.SetCache(key, cacheAsDataTable, 60);
+        }
+        for (int i = 0; i < cacheAsDataTable.Rows.Count; i++)
+        {
+            string str4 = str2;
+            string str5 = str4 + cacheAsDataTable.Rows[i]["Number_0"].ToString() + "," + cacheAsDataTable.Rows[i]["Number_1"].ToString() + "," + cacheAsDataTable.Rows[i]["Number_2"].ToString() + "," + cacheAsDataTable.Rows[i]["Number_3"].ToString() + ",";
+            str2 = ((str5 + cacheAsDataTable.Rows[i]["Number_4"].ToString() + "," + cacheAsDataTable.Rows[i]["Number_5"].ToString() + "," + cacheAsDataTable.Rows[i]["Number_6"].ToString() + "," + cacheAsDataTable.Rows[i]["Number_7"].ToString() + ",") + cacheAsDataTable.Rows[i]["Number_8"].ToString() + "," + cacheAsDataTable.Rows[i]["Number_9"].ToString()) + ";";
+        }
+        if (str2.EndsWith(";"))
+        {
+            str2 = str2.Substring(0, str2.Length - 1);
+        }
+        return str2;
+    }
+
+    private string Get3DZu3MissCount()
+    {
+        string key = "Home_Room_Buy_Get3DZu3MissCount";
+        DataTable cacheAsDataTable = Shove._Web.Cache.GetCacheAsDataTable(key);
+        if (cacheAsDataTable == null)
+        {
+            cacheAsDataTable = new Tables.T_Isuses().Open("top 40 WinLotteryNumber", "LotteryID = 6 and WinLotteryNumber <> '' and IsOpened = 1", "EndTime desc");
+            if (cacheAsDataTable == null)
+            {
+                new Log("System").Write(base.GetType().FullName + "数据库繁忙，请重试(Get3DZu3MissCount)");
+                return "";
+            }
+            Shove._Web.Cache.SetCache(key, cacheAsDataTable, 60);
+        }
+        int num = 0;
+        for (int i = 0; i < cacheAsDataTable.Rows.Count; i++)
+        {
+            if (this.FilterRepeated(cacheAsDataTable.Rows[i]["WinLotteryNumber"].ToString()).Length == 2)
+            {
+                break;
+            }
+            num++;
+        }
+        return num.ToString();
+    }
+
+    [AjaxMethod(HttpSessionStateRequirement.None)]
+    public string GetFCExpertList(int lotteryID)
+    {
+        DataTable fCExpertListCache = this.GetFCExpertListCache(lotteryID);
+        StringBuilder builder = new StringBuilder();
+        if ((fCExpertListCache != null) && (fCExpertListCache.Rows.Count > 0))
+        {
+            int num = 1;
+            foreach (DataRow row in fCExpertListCache.Rows)
+            {
+                string str = row["UserName"].ToString();
+                str = (str.Length > 6) ? (str.Substring(0, 5) + "*") : str;
+                builder.AppendLine("<tr align=\"center\">").AppendLine("<td  height=\"22\"  bgcolor=\"#FFFFFF\" class=\"black12\" title='" + row["UserName"].ToString() + "'>").Append("<a href='../Home/Web/Score.aspx?id=").Append(row["UserID"].ToString()).Append("&LotteryID=").Append(lotteryID + "' target='_blank'>").AppendLine(str).Append("</a>").AppendLine("</td>").AppendLine("<td  align=\"center\" bgcolor=\"#FFFFFF\" class=\"black12\">").AppendLine(row["LotteryName"].ToString()).Append("</td>").Append("<td bgcolor=\"#FFFFFF\" class='red12_2'><a href='javascript:;' onclick=\"if(CreateLogin()){followScheme(" + this.LotteryID + ");$Id('iframeFollowScheme').src='").Append("../Home/Room/FollowFriendSchemeAdd.aspx?LotteryID=").Append(lotteryID).Append("&FollowUserID=").Append(row["UserID"]).Append("&FollowUserName=").Append(HttpUtility.UrlEncode(row["UserName"].ToString())).Append("'}\">定制</a></td></tr>");
+                if (((num % 10) == 0) && (num != fCExpertListCache.Rows.Count))
+                {
+                    builder.Append("|");
+                }
+                num++;
+            }
+        }
+        else
+        {
+            builder.AppendLine("<tr>").AppendLine("<td colspan=\"3\" height=\"22\" align=\"center\" bgcolor=\"#FFFFFF\" class=\"blue12\">").AppendLine("<span style=\"color:red;\">暂无数据</span>").AppendLine("</td>");
+        }
+        return builder.ToString();
+    }
+
+    public DataTable GetFCExpertListCache(int lID)
+    {
+        DataTable cacheAsDataTable = Shove._Web.Cache.GetCacheAsDataTable("FCExpert" + lID);
+        if ((cacheAsDataTable == null) || (cacheAsDataTable.Rows.Count == 0))
+        {
+            cacheAsDataTable = new Views.V_Experts().Open("UserName,UserID,LotteryName,LotteryID", "[ON]=1 and [isCommend]=1 and LotteryID =" + lID, "");
+            if (cacheAsDataTable == null)
+            {
+                return cacheAsDataTable;
+            }
+            cacheAsDataTable.Columns.Add("ID", typeof(int));
+            int num = 1;
+            foreach (DataRow row in cacheAsDataTable.Rows)
+            {
+                row["ID"] = num;
+                num++;
+            }
+            Shove._Web.Cache.SetCache("FCExpert" + lID, cacheAsDataTable, 60);
+        }
+        return cacheAsDataTable;
     }
 
     private string GetIsuseChase(int LotteryID)
@@ -604,7 +872,7 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
             DataTable isusesInfo = DataCache.GetIsusesInfo(LotteryID);
             string str = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             DataRow[] rowArray = isusesInfo.Select("'" + str + "' > StartTime and '" + str + "' < EndTime", "EndTime desc");
-            DataRow[] rowArray2 = isusesInfo.Select("EndTime < '" + str + "' and WinLotteryNumber<>''", "EndTime desc");
+            DataRow[] rowArray2 = isusesInfo.Select("EndTime < '" + str + "'  and WinLotteryNumber<>''", "EndTime desc");
             if ((rowArray.Length == 0) && (rowArray2.Length == 0))
             {
                 return "";
@@ -624,21 +892,21 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
             string str5 = rowArray2[0]["Name"].ToString();
             string winNumber = rowArray2[0]["WinLotteryNumber"].ToString().Trim();
             winNumber = this.FormatWinNumber(winNumber);
+            string str7 = "";
+            if (LotteryID == 6)
+            {
+                str7 = this.Get3DZu3MissCount();
+            }
             StringBuilder builder = new StringBuilder();
             builder.Append(num.ToString()).Append(",").Append(str3).Append(",").Append(str4).Append("|<table  cellspacing='5' cellpadding='0' style='text-align: center; font-weight: bold;'><tr><td align='left'  height='25' class='hui12'>").Append(str5).Append("&nbsp;期开奖:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;").Append(winNumber).Append("</td>");
-            string totalMoney = this.GetTotalMoney(num.ToString());
-            if (totalMoney != "")
+            builder.Append("<td>").Append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;温馨提示：组选三连续").Append("<span class='num_1'>" + str7 + "</span>").Append("期未开出").Append("</td></tr>");
+            string testNumber = this.GetTestNumber(num.ToString());
+            if (testNumber != "")
             {
-                double d = _Convert.StrToDouble(totalMoney, 0.0) / 5000000.0;
-                double num4 = Math.Floor(d);
-                builder.Append(string.Concat(new object[] { "<tr style='font-weight:normal;'><td colspan='", this.GetWinNumberCellNumber(rowArray2[0]["WinLotteryNumber"].ToString().Trim()), "' align='left'><span class=\"hui12\">奖池累积奖金已达</span><span class='red12' style='font-weight: bold;'>", totalMoney, "</span><span class=\"hui12\">元</span>" }));
-                if (num4 > 0.0)
-                {
-                    builder.Append("<span class=\"hui12\">，可开出</span><span class='red12' style='font-weight: bold;'>" + Math.Floor(d) + "</span><span class=\"hui12\">个足额500万</span>");
-                }
-                builder.Append("</td></tr>");
+                builder.Append(string.Concat(new object[] { "<tr><td colspan='", this.GetWinNumberCellNumber(6, rowArray2[0]["WinLotteryNumber"].ToString().Trim()), "' align='left'><span style='color: #ff0000;'>", testNumber, "</span></td></tr>" })).Append("");
             }
             builder.Append("</table>").Append("|").Append(this.GetIsuseChase(LotteryID));
+            builder.Append("|").Append(this.Get3DMiss());
             return builder.ToString();
         }
         catch (Exception exception)
@@ -646,12 +914,6 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
             new Log("TWZT").Write(base.GetType() + exception.Message);
             return "";
         }
-    }
-
-    [AjaxMethod(HttpSessionStateRequirement.None)]
-    public string GetNewsInfo(int LotteryID)
-    {
-        return DataCache.GetLotteryNews(LotteryID);
     }
 
     [AjaxMethod(HttpSessionStateRequirement.ReadWrite)]
@@ -673,24 +935,24 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
         return _Convert.StrToDateTime(new Views.V_GetDate().Open("", "", "").Rows[0]["Now"].ToString(), DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")).ToString("yyyy/MM/dd HH:mm:ss");
     }
 
-    private string GetTotalMoney(string IsuseID)
+    private string GetTestNumber(string IsuseID)
     {
         string str = "";
-        string key = "Home_Room_Buy_GetTotalMoneySSQ_" + IsuseID;
+        string key = "Home_Room_Buy_GetTestNumber_" + IsuseID;
         DataTable cacheAsDataTable = Shove._Web.Cache.GetCacheAsDataTable(key);
         if (cacheAsDataTable == null)
         {
-            cacheAsDataTable = new Tables.T_TotalMoney().Open("", "IsuseID=" + IsuseID, "");
+            cacheAsDataTable = new Tables.T_TestNumber().Open("", "IsuseID=" + IsuseID, "");
             if (cacheAsDataTable == null)
             {
-                new Log("System").Write(base.GetType().FullName + "数据库繁忙，请重试(GetTotalMoneySSQ)");
+                new Log("System").Write(base.GetType().FullName + "数据库繁忙，请重试(GetTestNumber)");
                 return "";
             }
             Shove._Web.Cache.SetCache(key, cacheAsDataTable, 120);
         }
         if (cacheAsDataTable.Rows.Count > 0)
         {
-            str = cacheAsDataTable.Rows[0]["TotalMoney"].ToString();
+            str = cacheAsDataTable.Rows[0]["TestNumber"].ToString();
         }
         return str;
     }
@@ -706,6 +968,7 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
             foreach (DataRow row in winNumber.Rows)
             {
                 builder.AppendLine("<tr>").AppendLine("<td  height=\"22\" align=\"center\" bgcolor=\"#FFFFFF\" class=\"blue12\">").AppendLine(row["Name"].ToString()).AppendLine("</td>");
+                builder.AppendLine("<td  align=\"center\" bgcolor=\"#FFFFFF\" class=\"hui12\">").AppendLine(_Convert.StrToDateTime(row["EndTime"].ToString(), DateTime.Now.ToString()).ToString("M-dd")).AppendLine("</td>");
                 builder.AppendLine("<td  align=\"center\" bgcolor=\"#FFFFFF\" class=\"red2\">").AppendLine(row["WinLotteryNumber"].ToString()).AppendLine("</td>").AppendLine("</tr>");
                 if (((num % 10) == 0) && (num != winNumber.Rows.Count))
                 {
@@ -717,13 +980,12 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
         return builder.ToString();
     }
 
-    private int GetWinNumberCellNumber(string winNumber)
+    private int GetWinNumberCellNumber(int LotteryID, string winNumber)
     {
         int length = 0;
-        if (winNumber.IndexOf(" + ") > 0)
+        if (LotteryID == 6)
         {
-            winNumber = winNumber.Replace(" + ", " ");
-            length = winNumber.Split(new char[] { ' ' }).Length;
+            length = winNumber.Length;
         }
         return (length + 1);
     }
@@ -732,14 +994,9 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
     {
         StringBuilder builder = new StringBuilder();
         builder.AppendLine("<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin-top: 10px;\">").AppendLine("<tr>").AppendLine("<td height=\"22\" align=\"center\">").AppendLine("&nbsp;</td>");
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
             builder.AppendLine("<td align=\"center\">").AppendLine("<table width=\"22\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" background=\"../Home/Room/Images/ssq_bg_td.jpg\">").AppendLine("<tr>").AppendLine("<td height=\"22\" align=\"center\" class=\"red12\" id='tdLuckNumber" + i.ToString() + "'>").AppendLine("-").AppendLine("</td></tr></table></td>");
-        }
-        for (int j = 0; j < 2; j++)
-        {
-            int num3 = 5 + j;
-            builder.AppendLine("<td align=\"center\">").AppendLine("<table width=\"22\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" background=\"../Home/Room/Images/ssq_bg_td.jpg\">").AppendLine("<tr>").AppendLine("<td height=\"22\" align=\"center\" class=\"blue12\" id='tdLuckNumber" + num3.ToString() + "'>").AppendLine("-").AppendLine("</td></tr></table></td>");
         }
         builder.AppendLine("<td>&nbsp;</td>").AppendLine("</tr>").AppendLine("</table>");
         return builder.ToString();
@@ -755,8 +1012,8 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        AjaxPro.Utility.RegisterTypeForAjax(typeof(Lottery_Buy_CJDLT), this.Page);
-        this.LotteryID = 0x27;
+        AjaxPro.Utility.RegisterTypeForAjax(typeof(Lottery_Buy_3D), this.Page);
+        this.LotteryID = 6;
         bool flag = false;
         string cacheAsString = Shove._Web.Cache.GetCacheAsString("Site_UseLotteryList" + base._Site.ID, "");
         string[] strArray = null;
@@ -791,8 +1048,12 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
                 this.BindDataForAliBuy(buyID);
             }
             this.tbWin1.InnerHtml = this.BindWinList(DataCache.GetWinInfo(this.LotteryID));
+            this.Get3DBaoDianMiss();
             this.DZ = Encrypt.UnEncryptString(PF.GetCallCert(), Shove._Web.Utility.GetRequest("DZ"));
             this.tdLuckNumber.InnerHtml = this.InitLuckLotteryNumber();
+            this.tdYC.InnerHtml = this.BindNewsForLottery("3D预测");
+            this.tdXB.InnerHtml = this.BindNewsForLottery("3D喜报");
+            this.tdJQ.InnerHtml = this.BindNewsForLottery("3D技巧");
         }
     }
 
@@ -824,17 +1085,6 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
         StringBuilder builder = new StringBuilder();
         int num = 0;
         int num2 = 2;
-        switch (s)
-        {
-            case "3903":
-            case "3904":
-                num2 = 3;
-                break;
-
-            default:
-                num2 = 2;
-                break;
-        }
         if (str18 == "")
         {
             str18 = "1";
@@ -930,6 +1180,5 @@ public partial class Lottery_Buy_CJDLT : RoomPageBase, IRequiresSessionState
         }
         return strArray;
     }
-
 }
 

@@ -1,0 +1,181 @@
+#box_cyb {	overflow:hidden; width:1002px; margin-right: auto;	margin-left: auto;	padding: 0px;}	
+#content_cyb {	width: 1002px;	padding: 0px;	overflow:hidden;}
+#about_left { float: left; width: 180px;padding: 0px; overflow:hidden; }
+#about_right { float: left; width: 698px;padding: 0px 0px 0px 10px; overflow:hidden; }
+
+
+#hr {border-top:1px dashed #cccccc;height: 1px;overflow:hidden;}
+
+body {
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	background-color:#FFF;
+}
+
+.a_bai14 { FONT-SIZE: 12px;COLOR: #FFFFFF; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.a_bai14 A:link { FONT-FAMILY: "tahoma"; COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.a_bai14 A:active { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.a_bai14 A:visited { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.a_bai14 A:hover { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+
+
+.blue12 A:link { FONT-FAMILY: "tahoma"; COLOR: #226699; TEXT-DECORATION: none;}
+.blue12 A:active { FONT-FAMILY: "tahoma";COLOR: #226699; TEXT-DECORATION: none;}
+.blue12 A:visited { FONT-FAMILY: "tahoma";COLOR: #226699; TEXT-DECORATION: none;}
+.blue12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: underline;}
+
+.blue14 { FONT-SIZE: 14px;COLOR: #226699; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.blue14 A:link { FONT-FAMILY: "tahoma"; COLOR: #226699; TEXT-DECORATION: none;}
+.blue14 A:active { FONT-FAMILY: "tahoma";COLOR: #226699; TEXT-DECORATION: none;}
+.blue14 A:visited { FONT-FAMILY: "tahoma";COLOR: #226699; TEXT-DECORATION: none;}
+.blue11 {
+	font-family: "宋体";
+	font-size: 14px;
+	font-weight: bold;
+	color: #226699;
+	line-height: 26px;
+}
+
+.blue14 A:hover {
+	FONT-FAMILY: "tahoma";
+	COLOR: #FF0065;
+	TEXT-DECORATION: underline;
+	
+}
+
+.hui12 {
+	FONT-SIZE: 12px;
+	COLOR: #666666;
+	FONT-FAMILY: tahoma;
+	LINE-HEIGHT: normal;
+}
+.hui12 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+
+.hui12_2 A:link { FONT-FAMILY: "tahoma"; COLOR: #333; TEXT-DECORATION: none;}
+.hui12_2 A:active { FONT-FAMILY: "tahoma";COLOR: #333; TEXT-DECORATION: none;}
+.hui12_2 A:visited { FONT-FAMILY: "tahoma";COLOR: #333; TEXT-DECORATION: none;}
+.hui12_2 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.hui12 {
+	FONT-SIZE: 12px;
+	COLOR: #666666;
+	FONT-FAMILY: tahoma;
+	LINE-HEIGHT: 22px;
+}
+.hui12_2 {
+	FONT-SIZE: 12px;
+	COLOR: #333;
+	FONT-FAMILY: "宋体";
+	LINE-HEIGHT: 28px;
+}
+
+.hui14_2 {
+	FONT-SIZE: 12px;
+	COLOR: #333;
+	FONT-FAMILY: "宋体";
+	LINE-HEIGHT: 24px;
+}
+.hui12 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.a_bai12 { FONT-SIZE: 12px;COLOR: #FFFFFF; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.a_bai12 A:link { FONT-FAMILY: "tahoma"; COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.a_bai12 A:active { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.a_bai12 A:visited { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.a_bai12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+
+.yellow18 { FONT-SIZE: 16px;COLOR: #FFFF00; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 24px; font-weight:bold; }
+.yellow18 A:link { FONT-FAMILY: "tahoma"; COLOR: #FFFF00; TEXT-DECORATION: none;}
+.yellow18 A:active { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+.yellow18 A:visited { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+.yellow18 A:hover { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+
+.red14 {
+	FONT-SIZE: 12px;
+	COLOR: #FF0065;
+	FONT-FAMILY: tahoma;
+	LINE-HEIGHT: 20px;
+	font-weight:bold;
+}
+.red14 A:link {
+	FONT-FAMILY: tahoma;
+	COLOR: #FF0065;
+	TEXT-DECORATION: none;
+	font-weight: bold;
+}
+.red14 A:active { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+.red14 A:visited { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+.red14 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.red12 {
+	FONT-SIZE: 12px;
+	COLOR: #FF0065;
+	FONT-FAMILY: tahoma;
+	LINE-HEIGHT: 20px;
+	font-weight:normal;
+}
+
+.cs { FONT-SIZE: 12px;COLOR: #FF6600; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.cs A:link { FONT-FAMILY: "tahoma"; COLOR: #FF6600; TEXT-DECORATION: none;}
+.cs A:active { FONT-FAMILY: "tahoma";COLOR: #FF6600; TEXT-DECORATION: none;}
+.cs A:visited { FONT-FAMILY: "tahoma";COLOR: #FF6600; TEXT-DECORATION: none;}
+.cs A:hover { FONT-FAMILY: "tahoma";COLOR: #FF6600; TEXT-DECORATION: none;}
+
+.red14_2 { FONT-SIZE: 12px;COLOR: #FF0065; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.red14_2 A:link { FONT-FAMILY: "tahoma"; COLOR: #FF0065; TEXT-DECORATION: none;}
+.red14_2 A:active { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+.red14_2 A:visited { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+.red14_2 A:hover {
+	FONT-FAMILY: tahoma;
+	COLOR: #FF0065;
+	TEXT-DECORATION: underline;
+}
+
+.img{
+	padding:2px;
+	border:1px solid #cccccc;
+	margin:2px;
+}
+
+
+.in_text{
+	height:19px;
+	border: 1px solid #cccccc;
+	background-color:#FFFFFF;
+	color:#666666;
+	font-size:14px;
+	vertical-align:middle;
+	padding-left:10px;
+	font-family: "tahoma";
+	background-image: url(../images/bg_text_30.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+	padding-top:3px;
+}
+
+.num_red {
+	FONT-SIZE: 18px;
+	COLOR: #ff0000;
+	FONT-FAMILY: Georgia, "Times New Roman", Times, serif;
+	LINE-HEIGHT: 20px;
+	font-style: italic;
+	font-weight: bold;
+}
+.z {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #666;
+	line-height: 18px;
+}
+
+.table {
+	border: 1px solid #CCC;
+}
