@@ -1,11 +1,11 @@
 using System.Configuration;
 using System.Collections.Generic;
-using LHBIS.Database.DBAccess;
+using J.SLS.Database.DBAccess;
 using System.Collections;
 using System.Data.SqlClient;
 using System;
 
-namespace LHBIS.Database.Configuration
+namespace J.SLS.Database.Configuration
 {
     /// <summary>
     /// MSSql数据库连接配置

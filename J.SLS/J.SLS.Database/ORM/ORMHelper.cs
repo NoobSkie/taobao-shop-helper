@@ -4,13 +4,13 @@ using System.Data.Common;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Collections;
-using LHBIS.Database.DBAccess;
-using LHBIS.Common;
+using J.SLS.Database.DBAccess;
+using J.SLS.Common;
 using System.Linq;
 using System.Text;
 
 
-namespace LHBIS.Database.ORM
+namespace J.SLS.Database.ORM
 {
     internal class ORMHelper
     {
@@ -33,12 +33,11 @@ namespace LHBIS.Database.ORM
         internal static void CheckEntityKey(object entity)
         {
             TypeSchema entityInfo = ORMSchemaCache.GetTypeSchema(entity.GetType());
-
             foreach (SchemaItem mfi in entityInfo.GetKeyFieldInfos())
             {
-                if (mfi.ProInfo.GetValue(entity, null) == null)//如果对象的属性为null，则把此参数设置为DBNull
+                if (mfi.ProInfo.GetValue(entity, null) == null)
                 {
-                    throw new RException(RErrorCode.ArgmentesError, ErrorMessages.PrimaryKeyIsNull);
+                    throw new ORMException(ErrorMessages.PrimaryKeyIsNull);
                 }
             }
         }
@@ -105,19 +104,8 @@ namespace LHBIS.Database.ORM
             return list;
         }
 
-        /// <summary>
-        /// 将数据库中的行数据转换成一个实体对象
-        /// </summary>
-        /// <typeparam name="T">指定类型</typeparam>
-        /// <param name="dataRow">数据库中的行数据</param>
-        /// <returns>指定类型的实体对象</returns>
-        /// <exception cref="RErrorCode.ArgmentesError - 0x00000014">
-        ///  参数错误，以下情况会出现该异常，并包含在innerException中
-        ///  传入的datarow为null或者为空字符串，出现空引用异常(RErrorCode.NullReference-0x00000001)
-        /// </exception>
         internal static T ConvertDataRowToEntity<T>(DataRow dataRow) where T : new()
         {
-            //断言传入的datarow不能为null
             PreconditionAssert.IsNotNull(dataRow, ErrorMessages.NullReferenceException);
 
             T tempT = new T();
@@ -144,6 +132,31 @@ namespace LHBIS.Database.ORM
                 }
             }
             return tempT;
+        }
+
+        internal static void EntityIsMappingDatabase(Type type, string message)
+        {
+            TypeSchema entityInfo = ORMSchemaCache.GetTypeSchema(type);
+
+            if (entityInfo.MappingTableAttribute == null)
+            {
+                throw new ORMException(message);
+            }
+
+            if (entityInfo.GetKeyFieldInfos() == null || entityInfo.GetKeyFieldInfos().Count == 0)
+            {
+                throw new ORMException(message);
+            }
+        }
+
+        internal static void CheckEntityIsNotReadOnly(Type type, string message)
+        {
+            object[] tableAttr = type.GetCustomAttributes(typeof(EntityMappingTableAttribute), true);
+            EntityMappingTableAttribute attr = tableAttr[0] as EntityMappingTableAttribute;
+            if (attr == null || attr.ReadOnly == true)
+            {
+                throw new ORMException(message);
+            }
         }
     }
 }

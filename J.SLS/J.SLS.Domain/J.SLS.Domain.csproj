@@ -49,6 +49,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserManager.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\J.SLS.Common\J.SLS.Common.csproj">
+      <Project>{30F7EBF8-D985-4D02-BDE6-89F392B6545D}</Project>
+      <Name>J.SLS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\J.SLS.Database\J.SLS.Database.csproj">
+      <Project>{D322F3DB-C7F4-4F11-A062-52B8CF0C82C8}</Project>
+      <Name>J.SLS.Database</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

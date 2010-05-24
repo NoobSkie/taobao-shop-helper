@@ -5,9 +5,9 @@ using System.Text;
 using System.Reflection;
 using System.Data;
 using System.Data.Common;
-using LHBIS.Database.DBAccess;
+using J.SLS.Database.DBAccess;
 
-namespace LHBIS.Database.ORM
+namespace J.SLS.Database.ORM
 {
     public abstract class ExpressionCollection : Expression
     {

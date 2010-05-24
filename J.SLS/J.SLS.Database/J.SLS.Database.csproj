@@ -36,7 +36,6 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -47,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Configuration\ConnectionConfiguration.cs" />
     <Compile Include="Configuration\SqlConnectionConfiguration.cs" />
-    <Compile Include="DBAccess\DBAccessHelper.cs" />
+    <Compile Include="DBAccess\SqlParameterNotMatchException.cs" />
+    <Compile Include="DBAccess\DbAccessException.cs" />
     <Compile Include="DBAccess\DbEngine.cs" />
     <Compile Include="DBAccess\IDBAccess.cs" />
     <Compile Include="DBAccess\LHDBAccess.cs" />
     <Compile Include="DBAccess\LHDBFactory.cs" />
     <Compile Include="DBAccess\LHDBMSSql.cs" />
-    <Compile Include="DBAccess\LHDBOracle.cs" />
     <Compile Include="DBAccess\LHDBTran.cs" />
+    <Compile Include="ErrorMessages.cs" />
     <Compile Include="ORM\DbCommandCreator\DbCommandCreator.cs" />
     <Compile Include="ORM\DbCommandCreator\DeleteCommandCreator.cs" />
     <Compile Include="ORM\DbCommandCreator\InsertCommandCreator.cs" />
@@ -73,7 +72,14 @@
     <Compile Include="ORM\ObjectPersistence.cs" />
     <Compile Include="ORM\ORMHelper.cs" />
     <Compile Include="ORM\ORMSchemaCache.cs" />
+    <Compile Include="ORM\ORMException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\J.SLS.Common\J.SLS.Common.csproj">
+      <Project>{30F7EBF8-D985-4D02-BDE6-89F392B6545D}</Project>
+      <Name>J.SLS.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

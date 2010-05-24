@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.Common;
-using LHBIS.Common;
+using J.SLS.Common;
 
-namespace LHBIS.Database.DBAccess
+namespace J.SLS.Database.DBAccess
 {
     [Serializable]
     internal class LHDBTran : ILHDBTran
@@ -50,11 +50,10 @@ namespace LHBIS.Database.DBAccess
             {
                 _Owner._engine.FinishTransaction(true);
             }
-            catch (Exception ex)
+            finally
             {
-                throw new RException(DatabaseErrorCode.CommitTransactionError, ErrorMessages.CommiteError,ex);
+                _commited = true;
             }
-            _commited = true;
         }
 
         /// <summary>
@@ -320,14 +319,14 @@ namespace LHBIS.Database.DBAccess
         public DataSet GetDataSetBySQL(string sqlstr, params object[] values)
         {
             CheckCommit();
-            return _Owner.GetDataSetBySQL(sqlstr,values);
+            return _Owner.GetDataSetBySQL(sqlstr, values);
         }
 
         private void CheckCommit()
         {
             if (_commited == true)
             {
-                throw new RException(DatabaseErrorCode.TransactionCommited,ErrorMessages.TransactionCommited);
+                throw new DbAccessException(ErrorMessages.TransactionCommited);
             }
         }
     }

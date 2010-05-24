@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 using System.Data.Common;
 
-namespace LHBIS.Database.DBAccess
+namespace J.SLS.Database.DBAccess
 {
     /// <summary>
     /// 数据库连接类型枚举

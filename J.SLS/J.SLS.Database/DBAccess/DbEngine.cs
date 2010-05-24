@@ -4,7 +4,7 @@ using System.Text;
 using System.Data;
 using System.Data.Common;
 
-namespace LHBIS.Database.DBAccess
+namespace J.SLS.Database.DBAccess
 {
     internal class DbEngine
     {
@@ -31,17 +31,10 @@ namespace LHBIS.Database.DBAccess
 
         private void OpenDB(DbConnection dbConn, string connString)
         {
-            try
+            dbConn.ConnectionString = connString;
+            if (dbConn.State == ConnectionState.Closed)
             {
-                dbConn.ConnectionString = connString;
-                if (dbConn.State == ConnectionState.Closed)
-                {
-                    dbConn.Open();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new RException(DatabaseErrorCode.ConnectDbServerError, "ConnectionString: " + dbConn.ConnectionString, ex);
+                dbConn.Open();
             }
         }
 

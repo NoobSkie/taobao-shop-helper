@@ -1,11 +1,11 @@
 using System.Configuration;
 using System.Collections.Generic;
-using LHBIS.Database.DBAccess;
+using J.SLS.Database.DBAccess;
 using System.Collections;
 using System.Data.SqlClient;
 using System;
 
-namespace LHBIS.Database.Configuration
+namespace J.SLS.Database.Configuration
 {
     /// <summary>
     /// 一个连接配置基类，包含最基本的连接配置属性

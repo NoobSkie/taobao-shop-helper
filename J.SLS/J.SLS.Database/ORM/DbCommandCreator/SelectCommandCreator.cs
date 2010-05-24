@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Data.Common;
 using System.Reflection;
-using LHBIS.Database.DBAccess;
-using LHBIS.Common;
+using J.SLS.Database.DBAccess;
+using J.SLS.Common;
 
 
-namespace LHBIS.Database.ORM
+namespace J.SLS.Database.ORM
 {
     /// <summary>
     /// 得到查找数据库对象的DbCommand
@@ -117,7 +117,7 @@ namespace LHBIS.Database.ORM
                     dbCommand = GetAllCountDbCommand(this.ObjectType);
                     break;
                 default:
-                    throw new RException(RErrorCode.ArgmentesError, "Don't supportted Type. - " + SelectType.ToString());
+                    throw new ArgumentOutOfRangeException("Don't supportted Type. - " + SelectType.ToString());
             }
             return dbCommand;
         }

@@ -4,11 +4,11 @@ using System.Data.Common;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Collections;
-using LHBIS.Database.DBAccess;
-using LHBIS.Common;
+using J.SLS.Database.DBAccess;
+using J.SLS.Common;
 using System.Linq;
 
-namespace LHBIS.Database.ORM
+namespace J.SLS.Database.ORM
 {
     /// <summary>
     /// 得到删除数据库对象的DbCommand

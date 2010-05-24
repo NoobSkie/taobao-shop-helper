@@ -1,6 +1,6 @@
 using System;
 
-namespace LHBIS.Database.ORM
+namespace J.SLS.Database.ORM
 {
     /// <summary>
     /// 实体类中需持久化字段的标注。

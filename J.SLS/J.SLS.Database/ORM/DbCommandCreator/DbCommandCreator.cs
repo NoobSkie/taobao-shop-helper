@@ -4,12 +4,12 @@ using System.Data.Common;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Collections;
-using LHBIS.Database.DBAccess;
-using LHBIS.Common;
+using J.SLS.Database.DBAccess;
+using J.SLS.Common;
 using System.Linq;
 using System.Text;
 
-namespace LHBIS.Database.ORM
+namespace J.SLS.Database.ORM
 {
     /// <summary>
     /// DbCommand生成器的抽象类，所有生成DbCommand的类。

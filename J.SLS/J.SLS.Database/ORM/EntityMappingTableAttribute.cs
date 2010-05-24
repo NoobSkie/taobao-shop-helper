@@ -1,6 +1,6 @@
 using System;
 
-namespace LHBIS.Database.ORM
+namespace J.SLS.Database.ORM
 {
     /// <summary>
     /// 实体类的类标注，用于标注实体类存储在数据库中的表名

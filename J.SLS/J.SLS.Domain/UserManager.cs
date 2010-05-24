@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using LHBIS.Database.DBAccess;
-using LHBIS.Database.ORM;
+using J.SLS.Database.DBAccess;
+using J.SLS.Database.ORM;
 
 namespace J.SLS.Domain
 {
