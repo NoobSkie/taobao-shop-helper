@@ -14,182 +14,182 @@ namespace SLS.Site.Lottery {
     public partial class Buy_15X5 {
         
         /// <summary>
-        /// Head1 控制項。
+        /// Head1 control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// form1 控制項。
+        /// form1 control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// HidIsuseEndTime 控制項。
+        /// HidIsuseEndTime control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HidIsuseEndTime;
         
         /// <summary>
-        /// HidIsuseID 控制項。
+        /// HidIsuseID control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HidIsuseID;
         
         /// <summary>
-        /// phHead 控制項。
+        /// phHead control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder phHead;
         
         /// <summary>
-        /// Lotteries1 控制項。
+        /// Lotteries1 control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::SLS.Site.Home.Room.UserControls.Lotteries Lotteries1;
         
         /// <summary>
-        /// UserMyIcaile1 控制項。
+        /// UserMyIcaile1 control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::SLS.Site.Home.Room.UserControls.UserMyIcaile UserMyIcaile1;
         
         /// <summary>
-        /// btn_OK 控制項。
+        /// btn_OK control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Shove.Web.UI.ShoveConfirmButton btn_OK;
         
         /// <summary>
-        /// chkAgrrement 控制項。
+        /// chkAgrrement control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkAgrrement;
         
         /// <summary>
-        /// hlAgreement 控制項。
+        /// hlAgreement control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlAgreement;
         
         /// <summary>
-        /// ddlXiZuo 控制項。
+        /// ddlXiZuo control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlXiZuo;
         
         /// <summary>
-        /// ddlSX 控制項。
+        /// ddlSX control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSX;
         
         /// <summary>
-        /// tbDate 控制項。
+        /// tbDate control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbDate;
         
         /// <summary>
-        /// tbName 控制項。
+        /// tbName control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbName;
         
         /// <summary>
-        /// tdLuckNumber 控制項。
+        /// tdLuckNumber control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdLuckNumber;
         
         /// <summary>
-        /// FC 控制項。
+        /// FC control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl FC;
         
         /// <summary>
-        /// tbWin1 控制項。
+        /// tbWin1 control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tbWin1;
         
         /// <summary>
-        /// phFoot 控制項。
+        /// phFoot control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder phFoot;
         
         /// <summary>
-        /// HidType 控制項。
+        /// HidType control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HidType;
         
         /// <summary>
-        /// HidLuckNumber 控制項。
+        /// HidLuckNumber control.
         /// </summary>
         /// <remarks>
-        /// 自動產生的欄位。
-        /// 將移動欄位宣告從設計檔案修改為程式碼後置檔案。
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HidLuckNumber;
     }

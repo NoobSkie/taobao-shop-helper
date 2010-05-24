@@ -1,12 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Buy_15X5.aspx.cs" Inherits="SLS.Site.Lottery.Buy_15X5" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Masters/FrontSubMasterPage.Master" AutoEventWireup="true"
+    CodeBehind="Buy_15X5.aspx.cs" Inherits="SLS.Site.Lottery.Buy_15X5" %>
 
 <%@ Register Assembly="Shove.Web.UI.4 For.NET 3.5" Namespace="Shove.Web.UI" TagPrefix="ShoveWebUI" %>
 <%@ Register Src="~/Home/Room/UserControls/Lotteries.ascx" TagName="Lotteries" TagPrefix="uc1" %>
 <%@ Register Src="~/Home/Room/UserControls/UserMyIcaile.ascx" TagName="UserMyIcaile"
     TagPrefix="uc2" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>15选5：2元最高可达￥500万-15选5选号投注、合买、玩法介绍－<%=_Site.Name %></title>
     <meta name="keywords" content="15选5选号投注、15选5合买、15选5玩法介绍" />
     <meta name="description" content="<%=_Site.Name %>提供15选5选号投注、合买、玩法介绍等服务。" />
@@ -19,11 +18,9 @@
 
     <link href="~/Home/Room/Style/css.css" rel="stylesheet" type="text/css" />
     <link href="~/Home/Room/Style/Buy.css" rel="stylesheet" type="text/css" />
- 
     <link rel="shortcut icon" href="~/favicon.ico" />
-</head>
-<body onload="showSameHeight();">
-    <form id="form1" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="server">
     <input id="tbPlayTypeID" name="tbPlayTypeID" type="hidden" />
     <asp:HiddenField ID="HidIsuseEndTime" runat="server" />
     <asp:HiddenField ID="HidIsuseID" runat="server" />
@@ -36,8 +33,7 @@
         <div id="menu_right">
             <div id="cz_center">
                 <div style="margin-bottom: 10px;">
-                    
-                        <img src="../Home/Room/Images/cz_banner_15x5.gif" border="0" alt="" /></div>
+                    <img src="../Home/Room/Images/cz_banner_15x5.gif" border="0" alt="" /></div>
                 <!-- 期信息开始 -->
                 <div style="border: #C0DBF9 1px solid; background-image: url(../Home/Room/Images/bg_hui.jpg);
                     background-repeat: repeat-x; background-position: top; background-color: #F9FDFF;
@@ -66,13 +62,12 @@
                         </div>
                         <div class="red12" style="width: 100%; height: 24px; line-height: 24px;">
                             <a href="<%= ResolveUrl("~/TrendCharts/HD15X5/C15X5_CGXMB.aspx") %>" target="_blank">
-                                15选5走势图</a>&nbsp;&nbsp; <a href="<%= ResolveUrl("~/WinQuery/59-0-0.aspx") %>"
-                                    target="_blank">15选5中奖查询</a>
+                                15选5走势图</a>&nbsp;&nbsp; <a href="<%= ResolveUrl("~/WinQuery/59-0-0.aspx") %>" target="_blank">
+                                    15选5中奖查询</a>
                         </div>
                     </div>
                 </div>
                 <!-- 期信息结束 -->
-            
                 <!-- 选项卡开始 -->
                 <div id="TabMenu" style="margin-top: 15px; border-bottom: #FF6600 2px solid; text-align: center;
                     padding-bottom: 0px; width: 100%;">
@@ -103,10 +98,17 @@
                     <table width="612" cellspacing="1" cellpadding="0" bgcolor="#C0DBF9" style="margin-top: 10px;
                         border-bottom: 2px solid #C0DBF9;">
                         <tbody>
-                            <tr><td width='70' height='28' align='center' bgcolor='#F7F7F7' class='black12'>选择玩法</td><td bgcolor='#FFFFFF' class='black12' style='padding-left: 5px;'>
-                            <input type='radio' name='playType' id='playType5901' value='5901' checked='checked' onclick='clickPlayType(this.value)' />单式
-                            <input type='radio' name='playType' id='playType5902' value='5902' onclick='clickPlayType(this.value)' />复式
-                            <input type='radio' name='playType' id='playType5903' value='5903' onclick='clickPlayType(this.value)' />胆拖</td></tr>
+                            <tr>
+                                <td width='70' height='28' align='center' bgcolor='#F7F7F7' class='black12'>
+                                    选择玩法
+                                </td>
+                                <td bgcolor='#FFFFFF' class='black12' style='padding-left: 5px;'>
+                                    <input type='radio' name='playType' id='playType5901' value='5901' checked='checked'
+                                        onclick='clickPlayType(this.value)' />单式
+                                    <input type='radio' name='playType' id='playType5902' value='5902' onclick='clickPlayType(this.value)' />复式
+                                    <input type='radio' name='playType' id='playType5903' value='5903' onclick='clickPlayType(this.value)' />胆拖
+                                </td>
+                            </tr>
                         </tbody>
                         <tr>
                             <td height="30" align="center" bgcolor="#F7FCFF" class="black12">
@@ -362,7 +364,6 @@
                                 <span>永久保密</span>
                             </td>
                         </tr>
-                      
                         <tr>
                             <td height="30" colspan="2" bgcolor="#F7F7F7" align="center" style="padding-bottom: 20px;
                                 padding-top: 20px">
@@ -537,7 +538,6 @@
                         <br />
                     </div>
                 </div>
-               
                 <!-- 开奖列表开始-->
                 <div style="width: 218px; background-image: url(../Home/Room/Images/title_bg_blue.jpg);
                     border: solid 1px #BCD2E9;">
@@ -563,7 +563,6 @@
                     <br />
                 </div>
                 <!-- 开奖列表结束-->
-              
                 <!-- 帮助 开始-->
                 <div style="width: 220px; background-color: #6699CC;">
                     <div style="width: 100%; line-height: 28px; margin-left: 15px;" class="white14"">
@@ -650,8 +649,7 @@
                 </div>
                 <!-- 帮助 结束-->
                 <div style="margin-top: 10px; margin-bottom: 10px;">
-                    
-                        <img src="../Home/Room/Images/ad_250_80.gif" width="220" height="80" border="0" alt="十一运夺金代购/合买"/>
+                    <img src="../Home/Room/Images/ad_250_80.gif" width="220" height="80" border="0" alt="十一运夺金代购/合买" />
                 </div>
                 <!-- 中奖排行榜 开始-->
                 <div style="width: 218px; background-color: #E7F1FA; border: solid 1px #BCD2E9; overflow: hidden;">
@@ -664,7 +662,6 @@
                     <table cellspacing="1" cellpadding="0" style="text-align: center; margin: 1%;" width="98%">
                         <tbody id="tbWin1" runat="server">
                         </tbody>
-                      
                     </table>
                 </div>
                 <!-- 中奖排行榜 结束-->
@@ -681,15 +678,10 @@
     <input id="HidLotteryID" name="HidLotteryID" type="hidden" value="<%=LotteryID %>" />
     <input id="HidPrice" name="HidPrice" type="hidden" value="2" />
     <input id="tb_hide_ChaseBuyedMoney" name="tb_hide_ChaseBuyedMoney" type="hidden" />
-   
     <asp:HiddenField ID="HidType" runat="server" Value="1" />
     <asp:HiddenField ID="HidLuckNumber" runat="server" />
     <input id="HidSelectedLotteryNumber" name="HidSelectedLotteryNumber" type="hidden" />
-   
-    </form>
-    <!--#includefile="../Html/TrafficStatistics/1.htm"-->
-</body>
-</html>
+</asp:Content>
 
 <script type="text/javascript">
     

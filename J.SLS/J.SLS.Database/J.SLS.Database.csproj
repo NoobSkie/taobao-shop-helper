@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D322F3DB-C7F4-4F11-A062-52B8CF0C82C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>J.SLS.Database</RootNamespace>
+    <AssemblyName>J.SLS.Database</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Configuration\ConnectionConfiguration.cs" />
+    <Compile Include="Configuration\SqlConnectionConfiguration.cs" />
+    <Compile Include="DBAccess\DBAccessHelper.cs" />
+    <Compile Include="DBAccess\DbEngine.cs" />
+    <Compile Include="DBAccess\IDBAccess.cs" />
+    <Compile Include="DBAccess\LHDBAccess.cs" />
+    <Compile Include="DBAccess\LHDBFactory.cs" />
+    <Compile Include="DBAccess\LHDBMSSql.cs" />
+    <Compile Include="DBAccess\LHDBOracle.cs" />
+    <Compile Include="DBAccess\LHDBTran.cs" />
+    <Compile Include="ORM\DbCommandCreator\DbCommandCreator.cs" />
+    <Compile Include="ORM\DbCommandCreator\DeleteCommandCreator.cs" />
+    <Compile Include="ORM\DbCommandCreator\InsertCommandCreator.cs" />
+    <Compile Include="ORM\DbCommandCreator\ModifyCommandCreator.cs" />
+    <Compile Include="ORM\DbCommandCreator\SelectCommandCreator.cs" />
+    <Compile Include="ORM\EntityMappingFieldAttribute.cs" />
+    <Compile Include="ORM\EntityMappingTableAttribute.cs" />
+    <Compile Include="ORM\Filter\Criteria.cs" />
+    <Compile Include="ORM\Filter\Expression.cs" />
+    <Compile Include="ORM\Filter\ExpressionCollection.cs" />
+    <Compile Include="ORM\Filter\LogicExpression.cs" />
+    <Compile Include="ORM\Filter\OperateExpression.cs" />
+    <Compile Include="ORM\ObjectPersistence.cs" />
+    <Compile Include="ORM\ORMHelper.cs" />
+    <Compile Include="ORM\ORMSchemaCache.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

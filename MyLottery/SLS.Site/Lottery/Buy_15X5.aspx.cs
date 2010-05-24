@@ -762,10 +762,10 @@ namespace SLS.Site.Lottery
                     break;
                 }
             }
-            if (!flag)
-            {
-                base.Response.Redirect("~/Default.aspx");
-            }
+            //if (!flag)
+            //{
+            //    base.Response.Redirect("~/Default.aspx");
+            //}
             this.hlAgreement.NavigateUrl = "~/Home/Room/BuyProtocol.aspx?LotteryID=" + this.LotteryID;
             this.LotteryName = DataCache.Lotteries[this.LotteryID];
             if (!base.IsPostBack)
@@ -776,7 +776,7 @@ namespace SLS.Site.Lottery
                     this.BindDataForAliBuy(buyID);
                 }
                 this.tbWin1.InnerHtml = this.BindWinList(DataCache.GetWinInfo(this.LotteryID));
-                this.DZ = Encrypt.UnEncryptString(PF.GetCallCert(), Shove._Web.Utility.GetRequest("DZ"));
+                //this.DZ = Encrypt.UnEncryptString(PF.GetCallCert(), Shove._Web.Utility.GetRequest("DZ"));
                 this.tdLuckNumber.InnerHtml = this.InitLuckLotteryNumber();
             }
         }
