@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A3D9BF15-9B42-430E-ABF3-CF4F93848C1A}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -238,6 +238,13 @@
     </Compile>
     <Compile Include="Home\Room\UserControls\UserMyIcaile.ascx.designer.cs">
       <DependentUpon>UserMyIcaile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery\aWebForm1.aspx.cs">
+      <DependentUpon>aWebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery\aWebForm1.aspx.designer.cs">
+      <DependentUpon>aWebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Lottery\Buy.aspx.cs">
       <DependentUpon>Buy.aspx</DependentUpon>
@@ -605,6 +612,7 @@
     <Content Include="Images\yzm.gif" />
     <Content Include="Images\yzmbg.gif" />
     <Content Include="Images\zhoushi.jpg" />
+    <Content Include="Lottery\aWebForm1.aspx" />
     <Content Include="Masters\FrontSubMasterPage.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -633,6 +641,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
