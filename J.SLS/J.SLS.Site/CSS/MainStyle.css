@@ -1,0 +1,99 @@
+﻿.container, .container *
+{
+    margin: 0;
+    padding: 0;
+}
+.container
+{
+    width: 393px;
+    height: 237px;
+    overflow: hidden;
+    position: relative;
+}
+.slider
+{
+    position: absolute;
+}
+.slider li
+{
+    list-style: none;
+    display: inline;
+}
+.slider img
+{
+    width: 393px;
+    height: 237px;
+    display: block;
+}
+.slider2
+{
+    width: 2000px;
+}
+.slider2 li
+{
+    float: left;
+}
+.num
+{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+.num li
+{
+    float: left;
+    color: #FF7300;
+    text-align: center;
+    line-height: 16px;
+    width: 16px;
+    height: 16px;
+    font-family: Arial;
+    font-size: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 3px 1px;
+    border: 1px solid #FF7300;
+    background-color: #fff;
+}
+.num li.on
+{
+    color: #fff;
+    line-height: 21px;
+    width: 21px;
+    height: 21px;
+    font-size: 16px;
+    margin: 0 1px;
+    border: 0;
+    background-color: #FF7300;
+    font-weight: bold;
+}
+div.Header
+{
+    height: 111px;
+    background-image: url(../images/top.jpg);
+    background-repeat: no-repeat;
+    border: 0px;
+}
+div.Header div.Logo
+{
+    width: 167px;
+    height: 64px;
+    margin: 46px 0 0 5px;
+    float: left;
+}
+div.Header div.Logo a
+{
+    background-image: url(../images/logo2.jpg);
+    background-repeat: no-repeat;
+}
+div.Header div.ToolBar
+{
+    margin: 88px 0 0 15px; 
+    float: left;
+}
+div.Header div.Online
+{
+    height: 50px; 
+    margin: 56px 0 0 310px; 
+    float: left;
+}
