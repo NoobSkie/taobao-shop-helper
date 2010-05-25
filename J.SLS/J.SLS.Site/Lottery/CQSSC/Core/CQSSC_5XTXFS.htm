@@ -1,0 +1,892 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../../Style/css.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        body
+        {
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif, Tahoma;
+            font-size: 12px;
+        }
+        form
+        {
+            display: inline;
+        }
+        img
+        {
+            vertical-align: middle;
+            border: 0px;
+        }
+        .red
+        {
+            font-size: 12px;
+            color: #cc0000;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .blue
+        {
+            font-size: 12px;
+            color: #3D5B96;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .blue A:link
+        {
+            font-family: "tahoma";
+            color: #3D5B96;
+            text-decoration: underline;
+        }
+        .black12
+        {
+            font-size: 12px;
+            color: #000000;
+            font-family: "tahoma";
+            line-height: 20px;
+        }
+        .ball_num
+        {
+            font-family: "tahoma";
+            height: 25px;
+            width: 25px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            color: #666666;
+            cursor: hand;
+            background-image: url( '../../images/zfb_huiball.gif' );
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .bai16
+        {
+            font-size: 14px;
+            color: #ffffff;
+            font-family: "tahoma";
+            line-height: 24px;
+            padding-bottom: 6px;
+            padding-right: 2px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script type="text/javascript" src="../../javascript/Public.js" language="javascript"
+        charset="gbk"></script>
+
+    <script type="text/javascript" language="javascript">
+        function SelectBall(sender) {
+            var Selected = GetBallState(sender);
+            if (Selected) {
+                SetBallState(sender, false);
+                CheckFull();
+                return;
+            }
+            SetBallState(sender, true);
+            CheckFull();
+        }
+
+
+        function QuickSelect(sender) {
+            var str = sender.id;
+            var row = parseInt(str.substring(5, 6));
+            var Type = str.substring(7, 8);
+
+            for (var i = 0; i < 10; i++) {
+                var obj = GetBallObject(row, i);
+                SetBallState(obj, false);
+            }
+            if (Type == "Q") {
+                for (var i = 0; i < 10; i++) {
+                    var obj = GetBallObject(row, i);
+                    SetBallState(obj, true);
+                }
+            }
+            if (Type == "D") {
+                for (var i = 5; i < 10; i++) {
+                    var obj = GetBallObject(row, i);
+                    SetBallState(obj, true);
+                }
+            }
+            if (Type == "X") {
+                for (var i = 0; i < 5; i++) {
+                    var obj = GetBallObject(row, i);
+                    SetBallState(obj, true);
+                }
+            }
+            if (Type == "J") {
+                for (var i = 1; i < 10; i += 2) {
+                    var obj = GetBallObject(row, i);
+                    SetBallState(obj, true);
+                }
+            }
+            if (Type == "O") {
+                for (var i = 0; i < 10; i += 2) {
+                    var obj = GetBallObject(row, i);
+                    SetBallState(obj, true);
+                }
+            }
+            CheckFull();
+        }
+
+        function GetBallRow(sender) {
+            var str = sender.id;
+            return parseInt(str.substring(5, 6));
+        }
+
+        function GetBallCol(sender) {
+            var str = sender.id;
+            return parseInt(str.substring(7, 8));
+        }
+
+        function GetBallObject(row, col) {
+            var obj = document.all["td_2_" + row + "_" + col];
+            return obj;
+        }
+
+        function GetBallSelectedNum(row) {
+            var Count = 0;
+            for (var i = 0; i < 10; i++) {
+                var obj = GetBallObject(row, i);
+                if (GetBallState(obj))
+                    Count++;
+            }
+            return Count;
+        }
+
+        function GetBallState(sender) {
+            return (sender.style.color != "#454545");
+        }
+
+        function SetBallState(sender, SelectState) {
+            if (!SelectState) {
+                sender.style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+                sender.style.color = "#454545";
+            }
+            else {
+                sender.style.backgroundImage = "url(../../Images/zfb_redball.gif)";
+                sender.style.color = "White";
+            }
+        }
+
+        function CheckFull() {
+            var Full = true;
+            for (var i = 0; i < 5; i++) {
+                if (GetBallSelectedNum(i) < 1) {
+                    Full = false;
+                    break;
+                }
+            }
+
+            document.all["lab_2_Selected"].innerText = GetLotteryInvestNum() + " 注，" + GetLotteryInvestNum() * 2 + " 元";
+            document.all["btn_2_Add"].disabled = (GetLotteryInvestNum() < 2);
+        }
+
+        function GetLotteryNumber() {
+            var LotteryNumber = "";
+            for (var i = 0; i < 5; i++) {
+                var temp = " ";
+                for (var j = 0; j < 10; j++) {
+                    var obj = GetBallObject(i, j);
+                    if (GetBallState(obj))
+                        temp += obj.innerText.trim();
+                }
+                temp = temp.trim();
+                if (temp.length != 1)
+                    temp = "(" + temp + ")";
+
+                LotteryNumber += temp;
+            }
+
+            return LotteryNumber.trim();
+        }
+
+        function GetLotteryInvestNum()	//取注数
+        {
+            var InvestNum = 1;
+            for (var i = 0; i < 5; i++)
+                InvestNum *= GetBallSelectedNum(i);
+            return InvestNum;
+        }
+
+        function ClearSelect() {
+            for (var i = 0; i < 5; i++)
+                for (var j = 0; j < 10; j++) {
+                var obj = GetBallObject(i, j);
+                SetBallState(obj, false);
+            }
+        }
+
+        function btn_2_AddClick() {
+            if (GetLotteryInvestNum() < 2) {
+                alert("您选择的不是一注复式票！");
+                return false;
+            }
+
+            var customOptions = parent.parent.document.createElement("OPTION");
+            customOptions.text = GetLotteryNumber();
+            customOptions.value = GetLotteryInvestNum();
+            parent.o_list_LotteryNumber.add(customOptions, parent.o_list_LotteryNumber.length);
+
+            parent.o_tb_LotteryNumber.value += GetLotteryNumber() + "\n";
+            parent.o_lab_Num.innerText = StrToInt(parent.o_lab_Num.innerText) + GetLotteryInvestNum();
+
+
+            document.all["lab_2_Selected"].innerText = "0 注，0.00 元";
+            document.all["btn_2_Add"].disabled = true;
+
+            parent.window.CalcResult();
+            parent.calculateAllMoney();
+            parent.ClearSMS();
+            ClearSelect();
+
+            return true;
+        }
+
+    </script>
+
+</head><link rel="shortcut icon" href="../favicon.ico"/>
+<body>
+    <table style="width: 100%; height: 95px ; " background="../../images/zfb_bg_red.jpg" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td valign="top" style="text-align: left; padding: 10px;" width="70%">
+                <table cellpadding="0" cellspacing="4">
+                    <tbody>
+                        <tr>
+                            <td width="40">
+                                万位
+                            </td>
+                            <td style="cursor: hand; height: 26px" id="td_2_0_0" onclick="SelectBall(this);"
+                                class="ball_num">
+                                0
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_1" onclick="SelectBall(this);" class="ball_num">
+                                1
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_2" onclick="SelectBall(this);" class="ball_num">
+                                2
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_3" onclick="SelectBall(this);" class="ball_num">
+                                3
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_4" onclick="SelectBall(this);" class="ball_num">
+                                4
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_5" onclick="SelectBall(this);" class="ball_num">
+                                5
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_6" onclick="SelectBall(this);" class="ball_num">
+                                6
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_7" onclick="SelectBall(this);" class="ball_num">
+                                7
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_8" onclick="SelectBall(this);" class="ball_num">
+                                8
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_9" onclick="SelectBall(this);" class="ball_num">
+                                9
+                            </td>
+                        </tr>
+                         <tr>
+                            <td class="blue12">
+                                遗漏
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_0">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_1">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_2">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_3">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_4">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_5">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_6">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_7">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_8">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_0_9">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                千位
+                            </td>
+                            <td style="cursor: hand; height: 26px" id="td_2_1_0" onclick="SelectBall(this);"
+                                class="ball_num">
+                                0
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_1" onclick="SelectBall(this);" class="ball_num">
+                                1
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_2" onclick="SelectBall(this);" class="ball_num">
+                                2
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_3" onclick="SelectBall(this);" class="ball_num">
+                                3
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_4" onclick="SelectBall(this);" class="ball_num">
+                                4
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_5" onclick="SelectBall(this);" class="ball_num">
+                                5
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_6" onclick="SelectBall(this);" class="ball_num">
+                                6
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_7" onclick="SelectBall(this);" class="ball_num">
+                                7
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_8" onclick="SelectBall(this);" class="ball_num">
+                                8
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_9" onclick="SelectBall(this);" class="ball_num">
+                                9
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="blue12">
+                                遗漏
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_0">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_1">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_2">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_3">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_4">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_5">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_6">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_7">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_8">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_1_9">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                百位
+                            </td>
+                            <td style="cursor: hand; height: 26px" id="td_2_2_0" onclick="SelectBall(this);"
+                                class="ball_num">
+                                0
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_1" onclick="SelectBall(this);" class="ball_num">
+                                1
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_2" onclick="SelectBall(this);" class="ball_num">
+                                2
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_3" onclick="SelectBall(this);" class="ball_num">
+                                3
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_4" onclick="SelectBall(this);" class="ball_num">
+                                4
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_5" onclick="SelectBall(this);" class="ball_num">
+                                5
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_6" onclick="SelectBall(this);" class="ball_num">
+                                6
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_7" onclick="SelectBall(this);" class="ball_num">
+                                7
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_8" onclick="SelectBall(this);" class="ball_num">
+                                8
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_9" onclick="SelectBall(this);" class="ball_num">
+                                9
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="blue12">
+                                遗漏
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_0">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_1">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_2">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_3">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_4">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_5">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_6">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_7">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_8">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_2_9">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                十位
+                            </td>
+                            <td style="cursor: hand; height: 26px" id="td_2_3_0" onclick="SelectBall(this);"
+                                class="ball_num">
+                                0
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_1" onclick="SelectBall(this);" class="ball_num">
+                                1
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_2" onclick="SelectBall(this);" class="ball_num">
+                                2
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_3" onclick="SelectBall(this);" class="ball_num">
+                                3
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_4" onclick="SelectBall(this);" class="ball_num">
+                                4
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_5" onclick="SelectBall(this);" class="ball_num">
+                                5
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_6" onclick="SelectBall(this);" class="ball_num">
+                                6
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_7" onclick="SelectBall(this);" class="ball_num">
+                                7
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_8" onclick="SelectBall(this);" class="ball_num">
+                                8
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_9" onclick="SelectBall(this);" class="ball_num">
+                                9
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="blue12">
+                                遗漏
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_3_0">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_3_1">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_3_2">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_3_3">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_3_4">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_3_5">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_3_6">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_3_7">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_3_8">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_3_9">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                个位
+                            </td>
+                            <td style="cursor: hand; height: 26px" id="td_2_4_0" onclick="SelectBall(this);"
+                                class="ball_num">
+                                0
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_1" onclick="SelectBall(this);" class="ball_num">
+                                1
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_2" onclick="SelectBall(this);" class="ball_num">
+                                2
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_3" onclick="SelectBall(this);" class="ball_num">
+                                3
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_4" onclick="SelectBall(this);" class="ball_num">
+                                4
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_5" onclick="SelectBall(this);" class="ball_num">
+                                5
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_6" onclick="SelectBall(this);" class="ball_num">
+                                6
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_7" onclick="SelectBall(this);" class="ball_num">
+                                7
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_8" onclick="SelectBall(this);" class="ball_num">
+                                8
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_9" onclick="SelectBall(this);" class="ball_num">
+                                9
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="blue12">
+                                遗漏
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_4_0">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_4_1">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_4_2">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_4_3">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_4_4">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_4_5">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_4_6">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_4_7">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_4_8">
+                                </div>
+                            </td>
+                            <td align="center" class="hui12">
+                                <div id="Miss_4_9">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td valign="top" align="center">
+                <table width="75%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tbody style="line-height: 55px;">
+                        <tr>
+                            <td style="cursor: hand" id="td_2_0_Q" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                全
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_D" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                大
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_X" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                小
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_J" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                奇
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_O" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                偶
+                            </td>
+                            <td style="cursor: hand" id="td_2_0_C" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                清
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="cursor: hand" id="td_2_1_Q" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                全
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_D" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                大
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_X" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                小
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_J" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                奇
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_O" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                偶
+                            </td>
+                            <td style="cursor: hand" id="td_2_1_C" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                清
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="cursor: hand" id="td_2_2_Q" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                全
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_D" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                大
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_X" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                小
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_J" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                奇
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_O" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                偶
+                            </td>
+                            <td style="cursor: hand" id="td_2_2_C" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                清
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="cursor: hand" id="td_2_3_Q" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                全
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_D" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                大
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_X" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                小
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_J" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                奇
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_O" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                偶
+                            </td>
+                            <td style="cursor: hand" id="td_2_3_C" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                清
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="cursor: hand" id="td_2_4_Q" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                全
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_D" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                大
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_X" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                小
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_J" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                奇
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_O" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                偶
+                            </td>
+                            <td style="cursor: hand" id="td_2_4_C" onclick="QuickSelect(this);" align="center"
+                                height="26">
+                                清
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table width="95%" border="0" cellpadding="0" cellspacing="1" bgcolor="#E2EAED" align="center">
+        <tr>
+            <td bgcolor="#F4F9FD" class="black12" style="padding: 5px 10px 5px 10px;">
+                &nbsp;&nbsp; 【注】您选择了
+                <div style="display: inline; height: 15px" class="red" id="lab_2_Selected">
+                    0 注，0.00 元</div>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    <div style="text-align: center; padding: 10px;">
+        <img alt="" src="../../images/zfb_bt_queren.jpg" id="btn_2_Add" name="btn_2_Add"
+            onclick="return btn_2_AddClick();" visible="false" style="cursor: pointer;" />
+    </div>
+    
+    <script type="text/javascript" language="javascript">
+        //遗漏信息
+        var o_tbAddone = parent.document.all["tbMiss"];
+        var Miss_s = o_tbAddone.value.split(';');
+        var wanMax = 0;
+        var qianMax = 0;
+        var baiMax = 0;
+        var shiMax = 0;
+        var geMax = 0;
+
+        for (var i = 0; i <= 9; i++) {
+            var temp = 'Miss_0_' + i;
+            document.getElementById(temp).innerHTML = Miss_s[i];
+            if (wanMax < Number(Miss_s[i])) {
+                wanMax = Number(Miss_s[i]);
+            }
+
+            temp = 'Miss_1_' + i;
+            document.getElementById(temp).innerHTML = Miss_s[10 + i];
+            if (qianMax < Number(Miss_s[10 + i])) {
+                qianMax = Number(Miss_s[10 + i]);
+            }
+
+            temp = 'Miss_2_' + i;
+            document.getElementById(temp).innerHTML = Miss_s[20 + i];
+            if (baiMax < Number(Miss_s[20 + i])) {
+                baiMax = Number(Miss_s[20 + i]);
+            }
+
+            temp = 'Miss_3_' + i;
+            document.getElementById(temp).innerHTML = Miss_s[30 + i];
+            if (shiMax < Number(Miss_s[30 + i])) {
+                shiMax = Number(Miss_s[30 + i]);
+            }
+
+            temp = 'Miss_4_' + i;
+            document.getElementById(temp).innerHTML = Miss_s[40 + i];
+            if (geMax < Number(Miss_s[40 + i])) {
+                geMax = Number(Miss_s[40 + i]);
+            }
+        }
+
+        for (var i = 0; i < 10; i++) {
+            var temp = 'Miss_0_' + i;
+            var number = document.getElementById(temp).innerHTML;
+            if (number == wanMax)
+                document.getElementById(temp).className = "red12";
+
+            temp = 'Miss_1_' + i;
+            number = document.getElementById(temp).innerHTML;
+            if (number == qianMax)
+                document.getElementById(temp).className = "red12";
+
+            temp = 'Miss_2_' + i;
+            number = document.getElementById(temp).innerHTML;
+            if (number == baiMax)
+                document.getElementById(temp).className = "red12";
+
+            temp = 'Miss_3_' + i;
+            number = document.getElementById(temp).innerHTML;
+            if (number == shiMax)
+                document.getElementById(temp).className = "red12";
+
+            emp = 'Miss_4_' + i;
+            number = document.getElementById(temp).innerHTML;
+            if (number == geMax)
+                document.getElementById(temp).className = "red12";
+        }
+    </script>
+</body>
+</html>
+
+<script language="javascript" type="text/javascript">
+    ClearSelect();
+</script>
+

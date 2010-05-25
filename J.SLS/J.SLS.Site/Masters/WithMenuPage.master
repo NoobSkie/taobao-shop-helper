@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Masters/MainMasterPage.master" AutoEventWireup="true"
+    CodeFile="WithMenuPage.master.cs" Inherits="Masters_WithMenuPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
+    <div class="center">
+        <div class="MenuStart">
+        </div>
+        <div class="MenuItemLeft">
+            <a href="Default.aspx">首页</a></div>
+        <div class="MenuItemRight">
+        </div>
+        <div class="MenuItemLeft">
+            <a href="PlayHall.aspx">游戏大厅</a></div>
+        <div class="MenuItemRight">
+        </div>
+        <div class="MenuItemLeft">
+            <a href="PlayInformation.aspx">游戏资料</a></div>
+        <div class="MenuItemRight">
+        </div>
+        <div class="MenuItemLeft">
+            <a href="DrawaLotteryInfo.aspx">彩票开奖</a></div>
+        <div class="MenuItemRight">
+        </div>
+        <div class="MenuItemLeft">
+            <a href="DataBehaviour.aspx">数据走势</a></div>
+        <div class="MenuItemRight">
+        </div>
+        <div class="MenuItemLeft">
+            <a href="HelpCenter.aspx">帮助中心</a></div>
+        <div class="MenuItemRight">
+        </div>
+        <div class="MenuItemLeft">
+            <a href="#">玩家社区</a></div>
+        <div class="MenuRet">
+        </div>
+        <div class="MenuEnd">
+        </div>
+    </div>
+    <asp:ContentPlaceHolder ID="cphContent" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

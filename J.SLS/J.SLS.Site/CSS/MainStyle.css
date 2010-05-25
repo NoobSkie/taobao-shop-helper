@@ -88,12 +88,60 @@ div.Header div.Logo a
 }
 div.Header div.ToolBar
 {
-    margin: 88px 0 0 15px; 
+    margin: 88px 0 0 15px;
     float: left;
 }
 div.Header div.Online
 {
-    height: 50px; 
-    margin: 56px 0 0 310px; 
+    height: 50px;
+    margin: 56px 0 0 310px;
+    float: left;
+}
+div.MenuStart
+{
+    background-image: url(../images/m1.jpg);
+    width: 22px;
+    height: 45px;
+    line-height: 45px;
+    float: left;
+}
+div.MenuItemLeft
+{
+    background-image: url(../images/m3.jpg);
+    width: 72px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    float: left;
+}
+div.MenuItemLeft a
+{
+    font-size: 14px;
+    font-weight: bold;
+    color: White;
+}
+div.MenuItemRight
+{
+    background-image: url(../images/m2.jpg);
+    width: 16px;
+    height: 45px;
+    line-height: 45px;
+    float: left;
+}
+div.MenuRet
+{
+    background-image: url(../images/m3.jpg);
+    width: 228px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    float: left;
+}
+div.MenuEnd
+{
+    background-image: url(../images/m4.jpg);
+    width: 22px;
+    height: 45px;
+    line-height: 45px;
     float: left;
 }

@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Masters/WithMenuPage.master" AutoEventWireup="true"
+    CodeFile="WithTopLotteryMenu.master.cs" Inherits="Masters_WithTopLotteryMenu" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
+    <div class="kc_top_list help_top_list center">
+        <ul class="kc">
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k1.gif" /><a href="UserLottery.aspx">重庆时时彩</a></li>
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k2.gif" /><a href="UserLottery.aspx">江西时时彩</a></li>
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k3.gif" /><a href="UserLottery.aspx">山东11选5</a></li>
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k4.gif" /><a href="UserLottery.aspx">江西11选5</a></li>
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k5.gif" /><a href="UserLottery.aspx">22选5</a></li>
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k6.gif" /><a href="UserLottery.aspx">时时乐</a></li>
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k7.gif" /><a href="UserLottery.aspx">福彩3D</a></li>
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k8.gif" /><a href="UserLottery.aspx">排列三</a></li>
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k9.gif" /><a href="UserLottery.aspx">双色球</a></li>
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k10.gif" /><a href="UserLottery.aspx">超级大乐透</a></li>
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k11.gif" /><a href="UserLottery.aspx">七星彩</a></li>
+            <li>
+                <asp:Image runat="server" ImageUrl="~/images/k12.gif" /><a href="UserLottery.aspx">七彩乐</a></li>
+        </ul>
+    </div>
+    <asp:ContentPlaceHolder ID="cphContent" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

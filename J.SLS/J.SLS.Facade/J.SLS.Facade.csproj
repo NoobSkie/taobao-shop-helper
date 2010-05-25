@@ -48,6 +48,12 @@
     <Compile Include="UserFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\J.SLS.Domain\J.SLS.Domain.csproj">
+      <Project>{59BDC95C-0B28-4234-B9BD-A2100AEBE648}</Project>
+      <Name>J.SLS.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
