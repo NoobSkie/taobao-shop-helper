@@ -7,5 +7,9 @@ namespace J.SLS.Facade
 {
     public class UserFacade
     {
+        public bool Login(string userId, string password)
+        {
+            return true;
+        }
     }
 }

@@ -17,12 +17,14 @@
             <div class="fl">
                 <div class="in">
                     <span>
-                        <input type="text" /></span></div>
+                        <asp:TextBox ID="txtUserId" runat="server"></asp:TextBox></span></div>
                 <div class="in">
                     <span>
-                        <input type="text" /></span></div>
+                        <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox></span></div>
                 <div class="sb">
-                    <input type="submit" class="submit" value="" /><input type="reset" value="" class="reset" /></div>
+                    <asp:Button ID="btnLogin" runat="server" CssClass="submit" 
+                        onclick="btnLogin_Click" /><input type="reset"
+                        value="" class="reset" /></div>
                 <div class="bt in">
                     <a href="FindPassword.aspx">找回密码</a><a href="HelpCenter.aspx">帮助中心</a></div>
             </div>

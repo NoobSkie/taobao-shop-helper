@@ -51,6 +51,7 @@
     <Compile Include="LotteryInfo.cs" />
     <Compile Include="UserFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\J.SLS.Database\J.SLS.Database.csproj">
