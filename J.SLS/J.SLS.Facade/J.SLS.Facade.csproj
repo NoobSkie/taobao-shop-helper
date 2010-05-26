@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -45,10 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseFacade.cs" />
+    <Compile Include="LotteryFacade.cs" />
+    <Compile Include="LotteryInfo.cs" />
     <Compile Include="UserFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\J.SLS.Database\J.SLS.Database.csproj">
+      <Project>{D322F3DB-C7F4-4F11-A062-52B8CF0C82C8}</Project>
+      <Name>J.SLS.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\J.SLS.Domain\J.SLS.Domain.csproj">
       <Project>{59BDC95C-0B28-4234-B9BD-A2100AEBE648}</Project>
       <Name>J.SLS.Domain</Name>

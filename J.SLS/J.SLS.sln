@@ -8,7 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "J.SLS.Site", "J.SLS.Site\", "{528346B6-D8D8-46C1-830B-821618802744}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
-		ProjectReferences = "{2867941F-A586-4C58-B563-F655AD027BE8}|J.SLS.Facade.dll;{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}|Shove.dll;"
+		ProjectReferences = "{2867941F-A586-4C58-B563-F655AD027BE8}|J.SLS.Facade.dll;{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}|Shove.dll;{59BDC95C-0B28-4234-B9BD-A2100AEBE648}|J.SLS.Domain.dll;{30F7EBF8-D985-4D02-BDE6-89F392B6545D}|J.SLS.Common.dll;{D322F3DB-C7F4-4F11-A062-52B8CF0C82C8}|J.SLS.Database.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/J.SLS.Site"
 		Debug.AspNetCompiler.PhysicalPath = "J.SLS.Site\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\J.SLS.Site\"

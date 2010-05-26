@@ -1,0 +1,1448 @@
+﻿body
+{
+	margin: 0px;
+	font-size: 12px;
+}
+
+img
+{
+	vertical-align: middle;
+	border: 0px;
+}
+
+.redball
+{
+	width: 25px;
+	background-image: url(../images/zfb_redball.gif);
+}
+
+#box
+{
+	padding: 0px;
+	overflow: hidden;
+	width: 970px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#content
+{
+	width: 1002px;
+	padding: 0px 0px 0px 0px;
+	overflow: hidden;
+	margin-right: auto;
+	margin-left: auto;
+}
+#content_l
+{
+	float: left;
+	width: 742px;
+	padding: 0px;
+	overflow: hidden;
+}
+#content_r
+{
+	float: left;
+	width: 250px;
+	padding: 0px 0px 0px 10px;
+	overflow: hidden;
+}
+
+#index
+{
+	width: 1002px;
+	padding: 0px;
+	overflow: hidden;
+}
+#index_left
+{
+	float: left;
+	width: 188px;
+	padding: 0px;
+	overflow: hidden;
+}
+#index_center
+{
+	float: left;
+	width: 558px;
+	padding: 0px 0px 0px 10px;
+	overflow: hidden;
+}
+#index_right
+{
+	float: left;
+	width: 236px;
+	padding: 0px 0px 0px 10px;
+	overflow: hidden;
+}
+#help_left { float: left; width: 188px;padding: 0px; overflow:hidden; word-wrap:break-word; }
+#help_right { float: left; width: 802px;padding: 0px 0px 0px 10px; overflow:hidden; }
+#user
+{
+	width: 1002px;
+	padding: 10px 0px 0px 0px;
+	overflow: hidden;
+	margin-right: auto;
+	margin-left: auto;
+}
+#user_l
+{
+	float: left;
+	width: 182px;
+	padding: 0px;
+	overflow: hidden;
+}
+#user_r
+{
+	float: left;
+	width: 808px;
+	padding: 0px 0px 0px 10px;
+	overflow: hidden;
+}
+#user_left
+{
+	float: left;
+	width: 300px;
+	padding: 0px;
+	overflow: hidden;
+}
+#user_center
+{
+	float: left;
+	width: 402px;
+	padding: 0px;
+	overflow: hidden;
+}
+#user_right
+{
+	float: left;
+	width: 300px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+#menu_left
+{
+	float: left;
+	width: 148px;
+	padding: 0px;
+	overflow: hidden;
+	word-wrap: break-word;
+}
+#menu_right
+{
+	float: left;
+	width: 842px;
+	padding: 0px 0px 0px 10px;
+	overflow: hidden;
+}
+
+#admin_center
+{
+	float: left;
+	width: 550px;
+	padding: 0px;
+	overflow: hidden;
+}
+#admin_right
+{
+	float: left;
+	width: 282px;
+	padding: 0px 0px 0px 10px;
+	overflow: hidden;
+}
+
+#cz_center
+{
+	float: left;
+	width: 612px;
+	padding: 0px;
+	overflow: hidden;
+}
+#cz_right
+{
+	float: left;
+	width: 220px;
+	padding: 0px 0px 0px 10px;
+	overflow: hidden;
+}
+
+#hr
+{
+	border-top: 1px dashed #cccccc;
+	height: 1px;
+	overflow: hidden;
+}
+
+.black12
+{
+	font-size: 12px;
+	color: #333333;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.black12 A:link
+{
+	font-family: "tahoma";
+	color: #333333;
+	text-decoration: none;
+}
+.black12 A:active
+{
+	font-family: "tahoma";
+	color: #333333;
+	text-decoration: none;
+}
+.black12 A:visited
+{
+	font-family: "tahoma";
+	color: #333333;
+	text-decoration: none;
+}
+.black12 A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: none;
+}
+
+.black12_2
+{
+	font-size: 12px;
+	color: #333333;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.black12_2 A:link
+{
+	font-family: "tahoma";
+	color: #333333;
+	text-decoration: underline;
+}
+.black12_2 A:active
+{
+	font-family: "tahoma";
+	color: #333333;
+	text-decoration: underline;
+}
+.black12_2 A:visited
+{
+	font-family: "tahoma";
+	color: #333333;
+	text-decoration: underline;
+}
+.black12_2 A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: underline;
+}
+
+.black14
+{
+	font-size: 14px;
+	color: #666666;
+	font-family: "tahoma";
+	line-height: 20px;
+	font-weight: bold;
+}
+.black14 A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.black14 A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.black14 A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.black14 A:hover
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+
+.hei14
+{
+	font-size: 12px;
+	color: #666666;
+	font-family: "tahoma";
+	line-height: 20px;
+	font-weight: bold;
+}
+.hei14 A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hei14 A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hei14 A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hei14 A:hover
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+
+.gray12
+{
+	font-size: 12px;
+	color: #666666;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.gray12 A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.gray12 A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.gray12 A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.gray12 A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: none;
+}
+
+.blue12
+{
+	font-size: 12px;
+	color: #226699;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.blue12 A:link
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: none;
+}
+.blue12 A:active
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: none;
+}
+.blue12 A:visited
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: none;
+}
+.blue12 A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: underline;
+}
+
+.blue12_1
+{
+	font-size: 14px;
+	color: #226699;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.blue12_1 A:link
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: none;
+}
+.blue12_1 A:active
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: none;
+}
+.blue12_1 A:visited
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: none;
+}
+.blue12_1 A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: underline;
+}
+
+.blue12_2
+{
+	font-size: 12px;
+	color: #0066BA;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.blue12_2 A:link
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: underline;
+}
+.blue12_2 A:active
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: underline;
+}
+.blue12_2 A:visited
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: underline;
+}
+.blue12_2 A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: none;
+}
+
+.blue12_3
+{
+	font-size: 12px;
+	color: #1F6598;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.blue12_3 A:link
+{
+	font-family: tahoma;
+	color: #1F6598;
+	text-decoration: underline;
+}
+.blue12_3 A:active
+{
+	font-family: tahoma;
+	color: #1F6598;
+	text-decoration: underline;
+}
+.blue12_3 A:visited
+{
+	font-family: tahoma;
+	color: #1F6598;
+	text-decoration: underline;
+}
+.blue12_3 A:hover
+{
+	font-family: tahoma;
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+.blue12_4 A:link
+{
+	font-family: "tahoma";
+	color: #1F6598;
+	text-decoration: none;
+}
+.blue12_4 A:active
+{
+	font-family: tahoma;
+	color: #1F6598;
+	text-decoration: underline;
+}
+.blue12_4 A:visited
+{
+	font-family: tahoma;
+	color: #1F6598;
+	text-decoration: none;
+}
+.blue12_4 A:hover
+{
+	font-family: tahoma;
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+.bai12
+{
+	font-size: 12px;
+	color: #DEE9F8;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.bai12 A:link
+{
+	font-family: "tahoma";
+	color: #DEE9F8;
+	text-decoration: none;
+}
+.bai12 A:active
+{
+	font-family: "tahoma";
+	color: #DEE9F8;
+	text-decoration: none;
+}
+.bai12 A:visited
+{
+	font-family: "tahoma";
+	color: #DEE9F8;
+	text-decoration: none;
+}
+.bai12 A:hover
+{
+	font-family: "tahoma";
+	color: #ffff00;
+	text-decoration: none;
+}
+
+.bai12_2
+{
+	font-size: 12px;
+	color: #FFFFFF;
+	font-family: "tahoma";
+	line-height: 20px;
+	font-weight: bold;
+}
+.bai12_2 A:link
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.bai12_2 A:active
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.bai12_2 A:visited
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.bai12_2 A:hover
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.blue14
+{
+	font-size: 14px;
+	color: #0066BA;
+	font-family: "tahoma";
+	line-height: 20px;
+	font-weight: bold;
+}
+.blue14 A:link
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue14 A:active
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue14 A:visited
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue14 A:hover
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+
+.blue142
+{
+	font-size: 14px;
+	color: #216699;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.blue142 A:link
+{
+	font-family: "tahoma";
+	color: #216699;
+	text-decoration: none;
+}
+.blue142 A:active
+{
+	font-family: "tahoma";
+	color: #216699;
+	text-decoration: none;
+}
+.blue142 A:visited
+{
+	font-family: "tahoma";
+	color: #216699;
+	text-decoration: none;
+}
+.blue142 A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+
+.blue14_2
+{
+	font-size: 14px;
+	color: #0066BA;
+	font-family: "tahoma";
+	line-height: 20px;
+	font-weight: bold;
+}
+.blue14_2 A:link
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue14_2 A:active
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue14_2 A:visited
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue14_2 A:hover
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: underline;
+}
+
+.blue20
+{
+	font-size: 18px;
+	color: #0066BA;
+	font-family: "tahoma";
+	line-height: 25px;
+	font-weight: bold;
+}
+.blue20 A:link
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue20 A:active
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue20 A:visited
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+.blue20 A:hover
+{
+	font-family: "tahoma";
+	color: #0066BA;
+	text-decoration: none;
+}
+
+.red20
+{
+	font-size: 18px;
+	color: #cc0000;
+	font-family: "tahoma";
+	line-height: 25px;
+	font-weight: bold;
+}
+.red20 A:link
+{
+	font-family: "tahoma";
+	color: #cc0000;
+	text-decoration: none;
+}
+.red20 A:active
+{
+	font-family: "tahoma";
+	color: #cc0000;
+	text-decoration: none;
+}
+.red20 A:visited
+{
+	font-family: "tahoma";
+	color: #cc0000;
+	text-decoration: none;
+}
+.red20 A:hover
+{
+	font-family: "tahoma";
+	color: #cc0000;
+	text-decoration: none;
+}
+
+.white14
+{
+	font-size: 14px;
+	color: #FFFFFF;
+	font-family: "tahoma";
+	line-height: 20px;
+	font-weight: bold;
+}
+.white14 A:link
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.white14 A:active
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.white14 A:visited
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.white14 A:hover
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.red99
+{
+	font-size: 14px;
+	font-weight: bold;
+	color: #CC0000;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.red99 A:link
+{
+	font-family: "tahoma";
+	color: #CC0000;
+	text-decoration: none;
+}
+.red99 A:active
+{
+	font-family: "tahoma";
+	color: #CC0000;
+	text-decoration: none;
+}
+.red99 A:visited
+{
+	font-family: "tahoma";
+	color: #CC0000;
+	text-decoration: none;
+}
+.red99 A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: none;
+}
+
+
+.red12
+{
+	font-size: 12px;
+	color: #FF0065;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.red12 A:link
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+.red12 A:active
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+.red12 A:visited
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+.red12 A:hover
+{
+	font-family: "tahoma";
+	color: #ff6600;
+	text-decoration: none;
+}
+
+.red12_2
+{
+	font-size: 12px;
+	color: #FF0065;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.red12_2 A:link
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: underline;
+}
+.red12_2 A:active
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: underline;
+}
+.red12_2 A:visited
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: underline;
+}
+.red12_2 A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+
+.red12_3
+{
+	font-size: 12px;
+	color: #cc0000;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.red12_3 A:link
+{
+	font-family: tahoma;
+	color: #cc0000;
+	text-decoration: underline;
+}
+.red12_3 A:active
+{
+	font-family: tahoma;
+	color: #cc0000;
+	text-decoration: underline;
+}
+.red12_3 A:visited
+{
+	font-family: tahoma;
+	color: #cc0000;
+	text-decoration: underline;
+}
+.red12_3 A:hover
+{
+	font-family: tahoma;
+	color: #CC0000;
+	text-decoration: none;
+}
+
+.red18
+{
+	font-size: 12px;
+	color: #cc0000;
+	font-family: "宋体";
+	line-height: 24px;
+}
+
+.red14
+{
+	font-size: 14px;
+	color: #FF0065;
+	font-family: "tahoma";
+	line-height: 20px;
+	font-weight: bold;
+}
+.red14 A:link
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+.red14 A:active
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+.red14 A:visited
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+.red14 A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+
+.red14_2
+{
+	font-size: 16px;
+	color: #cc0000;
+	font-family: tahoma;
+	line-height: 20px;
+	font-weight: bold;
+}
+
+.red16
+{
+	font-size: 16px;
+	color: #cc0000;
+	font-family: tahoma;
+	line-height: 20px;
+	font-weight: bold;
+}
+
+.in_text
+{
+	height: 19px;
+	border: 1px solid #cccccc;
+	background-color: #FFFFFF;
+	color: #666666;
+	font-size: 14px;
+	vertical-align: middle;
+	padding-left: 10px;
+	font-family: "tahoma";
+	background-image: url(../images/bg_text_30.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+	padding-top: 3px;
+}
+.bai14
+{
+	font-size: 14px;
+	color: #FFFFFF;
+	font-family: "tahoma";
+	line-height: 20px;
+	font-weight: bold;
+}
+.bai14 A:link
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.bai14 A:active
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.bai14 A:visited
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.bai14 A:hover
+{
+	font-family: "tahoma";
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+.blue18
+{
+	font-size: 18px;
+	color: #216699;
+	font-family: "tahoma";
+	line-height: 25px;
+	font-weight: bold;
+}
+
+.left_menu
+{
+	border: 1px #CCC;
+	width: 100%;
+}
+
+.cyw_menu
+{
+	font-size: 12px;
+	color: #FFFFFF;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.cyw_menu A:link
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.cyw_menu A:active
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.cyw_menu A:visited
+{
+	font-family: "tahoma";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.cyw_menu A:hover
+{
+	font-family: "tahoma";
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+.hui12
+{
+	font-size: 12px;
+	color: #666666;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.hui12 A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui12 A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui12 A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui12 A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: underline;
+}
+
+.yellow12
+{
+	font-size: 12px;
+	color: #FFFF00;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.yellow12 A:link
+{
+	font-family: "tahoma";
+	color: #FFFF00;
+	text-decoration: none;
+}
+.yellow12 A:active
+{
+	font-family: "tahoma";
+	color: #FFFF00;
+	text-decoration: none;
+}
+.yellow12 A:visited
+{
+	font-family: "tahoma";
+	color: #FFFF00;
+	text-decoration: none;
+}
+.yellow12 A:hover
+{
+	font-family: "tahoma";
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+.hui14
+{
+	font-size: 14px;
+	color: #666666;
+	font-family: "tahoma";
+	line-height: 20px;
+	font-weight: bold;
+}
+.hui14 A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui14 A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui14 A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui14 A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+
+.hui14_2
+{
+	font-size: 14px;
+	color: #666666;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.hui14_2 A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui14_2 A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui14_2 A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui14_2 A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+
+.hui122
+{
+	font-size: 12px;
+	color: #999999;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.hui122 A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui122 A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui122 A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui122 A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+
+.blue12_line
+{
+	font-size: 12px;
+	color: #226699;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.blue12_line A:link
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: underline;
+}
+.blue12_line A:active
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: underline;
+}
+.blue12_line A:visited
+{
+	font-family: "tahoma";
+	color: #226699;
+	text-decoration: underline;
+}
+.blue12_line A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: underline;
+}
+
+.hui12_line
+{
+	font-size: 12px;
+	color: #666666;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.hui12_line A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: underline;
+}
+.hui12_line A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: underline;
+}
+.hui12_line A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: underline;
+}
+.hui12_line A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: none;
+}
+
+.hui12_2
+{
+	font-size: 12px;
+	color: #666666;
+	font-family: "tahoma";
+	line-height: 20px;
+}
+.hui12_2 A:link
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui12_2 A:active
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui12_2 A:visited
+{
+	font-family: "tahoma";
+	color: #666666;
+	text-decoration: none;
+}
+.hui12_2 A:hover
+{
+	font-family: "tahoma";
+	color: #FF0065;
+	text-decoration: underline;
+}
+
+.img
+{
+	padding: 2px;
+	border: 1px solid #cccccc;
+	margin: 1px;
+}
+
+.num_red
+{
+	font-size: 18px;
+	color: #ff0000;
+	font-family: Georgia, "Times New Roman" , Times, serif;
+	line-height: 20px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.hm_text
+{
+	height: 18px;
+	border: 1px solid #cccccc;
+	background-color: #FFFFFF;
+	color: #666666;
+	font-size: 12px;
+	vertical-align: middle;
+	padding-left: 2px;
+	font-family: "tahoma";
+}
+
+.table
+{
+	border: 1px solid #BDD2E9;
+}
+
+.hei12
+{
+	font-size: 12px;
+	color: #000000;
+	font-family: tahoma;
+	line-height: 20px;
+	font-weight: normal;
+}
+.hei12 A:link
+{
+	font-family: tahoma;
+	color: #000000;
+	text-decoration: none;
+}
+.hei12 A:active
+{
+	font-family: "tahoma";
+	color: #000000;
+	text-decoration: none;
+}
+.hei12 A:visited
+{
+	font-family: tahoma;
+	color: #000000;
+	text-decoration: none;
+}
+.hei12 A:hover
+{
+	font-family: tahoma;
+	color: #000000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.table1
+{
+	border: 1px solid #dddddd;
+}
+
+.ball
+{
+	font-family: "tahoma";
+	height: 20px;
+	width: 30px;
+	text-align: center;
+	font-size: 12px;
+	color: #464646;
+	cursor: hand;
+	border: solid 1px;
+	border-color: #9FC8EA;
+	background: #fff;
+}
+.ball_r
+{
+	font-family: "tahoma";
+	height: 20px;
+	width: 30px;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	cursor: hand;
+	border: solid 1px;
+	border-color: #9FC8EA;
+	background: #0869AD;
+}
+.ball_c
+{
+	font-family: "tahoma";
+	height: 20px;
+	width: 30px;
+	text-align: center;
+	font-size: 12px;
+	color: #464646;
+	border: solid 1px;
+	border-color: #CCC;
+	background: #fff;
+}
+.ball_50
+{
+	font-family: "tahoma";
+	height: 20px;
+	width: 30px;
+	font-size: 12px;
+	color: #464646;
+	border: solid 1px;
+	border-color: #9BBFCA;
+	background: #fff;
+	padding-top: 5px;
+}
+
+.blue12_4_2 A:link
+{
+	font-family: tahoma;
+	color: #1F6598;
+	text-decoration: none;
+}
+.blue12_4_2 A:active
+{
+	font-family: tahoma;
+	color: #1F6598;
+	text-decoration: none;
+}
+.blue12_4_2 A:visited
+{
+	font-family: tahoma;
+	color: #1F6598;
+	text-decoration: none;
+}
+.blue12_4_2 A:hover
+{
+	font-family: tahoma;
+	color: #1F6598;
+	text-decoration: none;
+	font-weight: bold;
+}
+.wenben
+{
+	height: 14px;
+}
+
+.hui_3{font-family:Tahoma, Geneva, sans-serif; font-size:12px; color:#333;}

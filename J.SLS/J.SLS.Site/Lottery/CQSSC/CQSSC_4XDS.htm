@@ -92,7 +92,17 @@
             SetBallState(sender, true);
             CheckFull();
         }
-
+        
+        function GetBallSelectedNum(row) {
+            var Count = 0;
+            for (var i = 0; i < 10; i++) {
+                var obj = GetBallObject(row, i);
+                if (GetBallState(obj))
+                    Count++;
+            }
+            return Count;
+        }
+        
         function GetBallRow(sender) {
             var str = sender.id;
             return parseInt(str.substring(5, 6));
@@ -106,16 +116,6 @@
         function GetBallObject(row, col) {
             var obj = document.all["td_2_" + row + "_" + col];
             return obj;
-        }
-
-        function GetBallSelectedNum(row) {
-            var Count = 0;
-            for (var i = 0; i < 10; i++) {
-                var obj = GetBallObject(row, i);
-                if (GetBallState(obj))
-                    Count++;
-            }
-            return Count;
         }
 
         function GetBallState(sender) {
@@ -132,12 +132,12 @@
                 sender.style.color = "White";
             }
         }
-
+        
         var xing = 5;
 
         function CheckFull() {
             var Full = true;
-            for (var i = 0; i < xing; i++) {
+            for (var i = 1; i < xing; i++) {
                 if (GetBallSelectedNum(i) < 1) {
                     Full = false;
                     break;
@@ -150,7 +150,7 @@
 
         function GetLotteryNumber() {
             var LotteryNumber = "";
-            for (var i = 0; i < xing; i++) {
+            for (var i = 1; i < xing; i++) {
                 var temp = " ";
                 for (var j = 0; j < 10; j++) {
                     var obj = GetBallObject(i, j);
@@ -168,39 +168,35 @@
         function GetLotteryInvestNum()	//取注数
         {
             var InvestNum = 1;
-            for (var i = 0; i < xing; i++)
+            for (var i = 1; i < xing; i++)
                 InvestNum *= GetBallSelectedNum(i);
             return InvestNum;
         }
 
         function ClearSelect() {
-            for (var i = 0; i < xing; i++)
+            for (var i = 1; i < xing; i++)
                 for (var j = 0; j < 10; j++) {
                 var obj = GetBallObject(i, j);
                 SetBallState(obj, false);
-                document.all["lab_2_Selected"].innerText = "0 注，0.00 元";
-                //document.getElementById("rb" + String(i+1)).innerHTML = "-";
+
             }
         }
-
-
         function btn_2_AddClick(str) {
 
             if (str == undefined) {
                 str = GetLotteryNumber();
             }
-
             if (str.length < 3 || str.indexOf("()") > -1) {
                 return;
             }
 
             var customOptions = parent.document.createElement("OPTION");
 
-            customOptions.text = str;
+            customOptions.text = "-" + str;
             customOptions.value = 1;
             parent.o_list_LotteryNumber.add(customOptions, parent.o_list_LotteryNumber.length);
 
-            parent.o_tb_LotteryNumber.value += str + "\n";
+            parent.o_tb_LotteryNumber.value += "-"+str + "\n";
             parent.o_lab_Num.innerText = StrToInt(parent.o_lab_Num.innerText) + 1;
             document.all["btn_2_Add"].disabled = true;
             parent.window.CalcResult();
@@ -215,7 +211,7 @@
             ClearSelect();
             document.all["btn_2_Add"].disabled = true;
 
-            for (var i = 0; i < 5; i++) {
+            for (var i = 1; i < 5; i++) {
                 var col = GetRandNumber(10) - 1;
                 var obj = GetBallObject(i, col);
                 SetBallState(obj, true);
@@ -226,8 +222,6 @@
             ClearSelect();
             return true;
         }
-
-
         function btn_2_RandManyClick(n) {
             document.all["btn_2_Add"].disabled = true;
             parent.document.all["btn_2_Rand"].disabled = true;
@@ -238,7 +232,7 @@
 
             for (var j = 1; j <= n; j++) {
                 var str = "";
-                for (var i = 0; i < 5; i++) {
+                for (var i = 1; i < 5; i++) {
                     var col = GetRandNumber(10) - 1;
                     var obj = GetBallObject(i, col);
                     str += String(col);
@@ -261,52 +255,51 @@
             parent.document.all["btn_ClearSelect"].disabled = false;
             parent.document.all["btn_Clear"].disabled = false;
         }
-
     </script>
 
 </head><link rel="shortcut icon" href="../favicon.ico"/>
 <body>
-    <table style="width: 100%; height: 95px ; " background="../../images/zfb_bg_red.jpg" cellspacing="0" cellpadding="0" border="0">
+    <table style="width: 100%; height: 95px ;" background="../../images/zfb_bg_red.jpg" cellspacing="0" cellpadding="0" border="0">
         <tr>
             <td valign="top" style="text-align: left; padding: 10px;">
-                <table width="340" border="0" align="left" cellpadding="0" cellspacing="4">
+                <table border="0" cellpadding="0" cellspacing="4">
                     <tbody>
                         <tr>
-                            <td style="width: 40px; padding-top: 3px; font-weight: bold" class="blue">
-                                万位
+                            <td width="40">
+                                千位
                             </td>
-                            <td id="td_2_0_0" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_1_0" onclick="SelectBall(this);" class="ball_num">
                                 0
                             </td>
-                            <td id="td_2_0_1" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_1_1" onclick="SelectBall(this);" class="ball_num">
                                 1
                             </td>
-                            <td id="td_2_0_2" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_1_2" onclick="SelectBall(this);" class="ball_num">
                                 2
                             </td>
-                            <td id="td_2_0_3" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_1_3" onclick="SelectBall(this);" class="ball_num">
                                 3
                             </td>
-                            <td id="td_2_0_4" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_1_4" onclick="SelectBall(this);" class="ball_num">
                                 4
                             </td>
-                            <td id="td_2_0_5" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_1_5" onclick="SelectBall(this);" class="ball_num">
                                 5
                             </td>
-                            <td id="td_2_0_6" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_1_6" onclick="SelectBall(this);" class="ball_num">
                                 6
                             </td>
-                            <td id="td_2_0_7" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_1_7" onclick="SelectBall(this);" class="ball_num">
                                 7
                             </td>
-                            <td id="td_2_0_8" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_1_8" onclick="SelectBall(this);" class="ball_num">
                                 8
                             </td>
-                            <td id="td_2_0_9" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_1_9" onclick="SelectBall(this);" class="ball_num">
                                 9
                             </td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td class="blue12">
                                 遗漏
                             </td>
@@ -352,41 +345,41 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 40px; padding-top: 3px; font-weight: bold" class="blue">
-                                千位
+                            <td>
+                                百位
                             </td>
-                            <td id="td_2_1_0" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_2_0" onclick="SelectBall(this);" class="ball_num">
                                 0
                             </td>
-                            <td id="td_2_1_1" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_2_1" onclick="SelectBall(this);" class="ball_num">
                                 1
                             </td>
-                            <td id="td_2_1_2" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_2_2" onclick="SelectBall(this);" class="ball_num">
                                 2
                             </td>
-                            <td id="td_2_1_3" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_2_3" onclick="SelectBall(this);" class="ball_num">
                                 3
                             </td>
-                            <td id="td_2_1_4" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_2_4" onclick="SelectBall(this);" class="ball_num">
                                 4
                             </td>
-                            <td id="td_2_1_5" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_2_5" onclick="SelectBall(this);" class="ball_num">
                                 5
                             </td>
-                            <td id="td_2_1_6" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_2_6" onclick="SelectBall(this);" class="ball_num">
                                 6
                             </td>
-                            <td id="td_2_1_7" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_2_7" onclick="SelectBall(this);" class="ball_num">
                                 7
                             </td>
-                            <td id="td_2_1_8" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_2_8" onclick="SelectBall(this);" class="ball_num">
                                 8
                             </td>
-                            <td id="td_2_1_9" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_2_9" onclick="SelectBall(this);" class="ball_num">
                                 9
                             </td>
                         </tr>
-                        <tr>
+                         <tr>
                             <td class="blue12">
                                 遗漏
                             </td>
@@ -432,37 +425,37 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 40px; padding-top: 3px; font-weight: bold" class="blue">
-                                百位
+                            <td>
+                                十位
                             </td>
-                            <td id="td_2_2_0" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_3_0" onclick="SelectBall(this);" class="ball_num">
                                 0
                             </td>
-                            <td id="td_2_2_1" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_3_1" onclick="SelectBall(this);" class="ball_num">
                                 1
                             </td>
-                            <td id="td_2_2_2" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_3_2" onclick="SelectBall(this);" class="ball_num">
                                 2
                             </td>
-                            <td id="td_2_2_3" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_3_3" onclick="SelectBall(this);" class="ball_num">
                                 3
                             </td>
-                            <td id="td_2_2_4" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_3_4" onclick="SelectBall(this);" class="ball_num">
                                 4
                             </td>
-                            <td id="td_2_2_5" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_3_5" onclick="SelectBall(this);" class="ball_num">
                                 5
                             </td>
-                            <td id="td_2_2_6" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_3_6" onclick="SelectBall(this);" class="ball_num">
                                 6
                             </td>
-                            <td id="td_2_2_7" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_3_7" onclick="SelectBall(this);" class="ball_num">
                                 7
                             </td>
-                            <td id="td_2_2_8" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_3_8" onclick="SelectBall(this);" class="ball_num">
                                 8
                             </td>
-                            <td id="td_2_2_9" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_3_9" onclick="SelectBall(this);" class="ball_num">
                                 9
                             </td>
                         </tr>
@@ -512,37 +505,37 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 40px; padding-top: 3px; font-weight: bold" class="blue">
-                                十位
+                            <td>
+                                个位
                             </td>
-                            <td id="td_2_3_0" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_4_0" onclick="SelectBall(this);" class="ball_num">
                                 0
                             </td>
-                            <td id="td_2_3_1" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_4_1" onclick="SelectBall(this);" class="ball_num">
                                 1
                             </td>
-                            <td id="td_2_3_2" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_4_2" onclick="SelectBall(this);" class="ball_num">
                                 2
                             </td>
-                            <td id="td_2_3_3" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_4_3" onclick="SelectBall(this);" class="ball_num">
                                 3
                             </td>
-                            <td id="td_2_3_4" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_4_4" onclick="SelectBall(this);" class="ball_num">
                                 4
                             </td>
-                            <td id="td_2_3_5" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_4_5" onclick="SelectBall(this);" class="ball_num">
                                 5
                             </td>
-                            <td id="td_2_3_6" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_4_6" onclick="SelectBall(this);" class="ball_num">
                                 6
                             </td>
-                            <td id="td_2_3_7" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_4_7" onclick="SelectBall(this);" class="ball_num">
                                 7
                             </td>
-                            <td id="td_2_3_8" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_4_8" onclick="SelectBall(this);" class="ball_num">
                                 8
                             </td>
-                            <td id="td_2_3_9" onclick="SelectBall(this);" class="ball_num">
+                            <td id="td_2_4_9" onclick="SelectBall(this);" class="ball_num">
                                 9
                             </td>
                         </tr>
@@ -591,86 +584,6 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td style="width: 40px; padding-top: 3px; font-weight: bold" class="blue">
-                                个位
-                            </td>
-                            <td id="td_2_4_0" onclick="SelectBall(this);" class="ball_num">
-                                0
-                            </td>
-                            <td id="td_2_4_1" onclick="SelectBall(this);" class="ball_num">
-                                1
-                            </td>
-                            <td id="td_2_4_2" onclick="SelectBall(this);" class="ball_num">
-                                2
-                            </td>
-                            <td id="td_2_4_3" onclick="SelectBall(this);" class="ball_num">
-                                3
-                            </td>
-                            <td id="td_2_4_4" onclick="SelectBall(this);" class="ball_num">
-                                4
-                            </td>
-                            <td id="td_2_4_5" onclick="SelectBall(this);" class="ball_num">
-                                5
-                            </td>
-                            <td id="td_2_4_6" onclick="SelectBall(this);" class="ball_num">
-                                6
-                            </td>
-                            <td id="td_2_4_7" onclick="SelectBall(this);" class="ball_num">
-                                7
-                            </td>
-                            <td id="td_2_4_8" onclick="SelectBall(this);" class="ball_num">
-                                8
-                            </td>
-                            <td id="td_2_4_9" onclick="SelectBall(this);" class="ball_num">
-                                9
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="blue12">
-                                遗漏
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_4_0">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_4_1">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_4_2">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_4_3">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_4_4">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_4_5">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_4_6">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_4_7">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_4_8">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_4_9">
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </td>
@@ -690,12 +603,10 @@
         <img alt="" src="../../images/zfb_bt_queren.jpg" id="btn_2_Add" name="btn_2_Add"
             onclick="return btn_2_AddClick();" visible="false" style="cursor: pointer;" disabled />
     </div>
-    
     <script type="text/javascript" language="javascript">
         //遗漏信息
         var o_tbAddone = parent.document.all["tbMiss"];
         var Miss_s = o_tbAddone.value.split(';');
-        var wanMax = 0;
         var qianMax = 0;
         var baiMax = 0;
         var shiMax = 0;
@@ -704,57 +615,46 @@
         for (var i = 0; i <= 9; i++) {
             var temp = 'Miss_0_' + i;
             document.getElementById(temp).innerHTML = Miss_s[i];
-            if (wanMax < Number(Miss_s[i])) {
-                wanMax = Number(Miss_s[i]);
+            if (qianMax < Number(Miss_s[i])) {
+                qianMax = Number(Miss_s[i]);
             }
 
             temp = 'Miss_1_' + i;
             document.getElementById(temp).innerHTML = Miss_s[10 + i];
-            if (qianMax < Number(Miss_s[10 + i])) {
-                qianMax = Number(Miss_s[10 + i]);
+            if (baiMax < Number(Miss_s[10 + i])) {
+                baiMax = Number(Miss_s[10 + i]);
             }
 
             temp = 'Miss_2_' + i;
             document.getElementById(temp).innerHTML = Miss_s[20 + i];
-            if (baiMax < Number(Miss_s[20 + i])) {
-                baiMax = Number(Miss_s[20 + i]);
+            if (shiMax < Number(Miss_s[20 + i])) {
+                shiMax = Number(Miss_s[20 + i]);
             }
 
             temp = 'Miss_3_' + i;
             document.getElementById(temp).innerHTML = Miss_s[30 + i];
-            if (shiMax < Number(Miss_s[30 + i])) {
-                shiMax = Number(Miss_s[30 + i]);
-            }
-
-            temp = 'Miss_4_' + i;
-            document.getElementById(temp).innerHTML = Miss_s[40 + i];
-            if (geMax < Number(Miss_s[40 + i])) {
-                geMax = Number(Miss_s[40 + i]);
+            if (geMax < Number(Miss_s[30 + i])) {
+                geMax = Number(Miss_s[30 + i]);
             }
         }
 
         for (var i = 0; i < 10; i++) {
             var temp = 'Miss_0_' + i;
             var number = document.getElementById(temp).innerHTML;
-            if (number == wanMax)
+            if (number == qianMax)
                 document.getElementById(temp).className = "red12";
 
             temp = 'Miss_1_' + i;
             number = document.getElementById(temp).innerHTML;
-            if (number == qianMax)
+            if (number == baiMax)
                 document.getElementById(temp).className = "red12";
 
             temp = 'Miss_2_' + i;
             number = document.getElementById(temp).innerHTML;
-            if (number == baiMax)
-                document.getElementById(temp).className = "red12";
-
-            temp = 'Miss_3_' + i;
-            number = document.getElementById(temp).innerHTML;
             if (number == shiMax)
                 document.getElementById(temp).className = "red12";
 
-            emp = 'Miss_4_' + i;
+            temp = 'Miss_3_' + i;
             number = document.getElementById(temp).innerHTML;
             if (number == geMax)
                 document.getElementById(temp).className = "red12";

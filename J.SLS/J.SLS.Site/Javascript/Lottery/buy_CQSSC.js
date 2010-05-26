@@ -902,14 +902,15 @@ function newBuy(lotteryID) {
     }
 }
 
-function newCoBuy(lotteryID) {
+function newCoBuy(lotteryID, isuseId) {
     $Id("divNewBuy").style.display = "none";
     $Id("divCoBuy").style.display = "";
     $Id("divFollowScheme").style.display = "none";
     $Id("divSchemeAll").style.display = "none";
     $Id("divPlayTypeIntroduce").style.display = "none";
 
-    $Id("iframeCoBuy").src = "../Home/Room/CoBuy.aspx?Radom=" + Math.random() + "&LotteryID=" + lotteryID + "&IsuseID=" + $Id("HidIsuseID").value;
+    var coBuyUrl = "../CoBuy.aspx?Radom=" + Math.random() + "&LotteryID=" + lotteryID + "&IsuseID=" + isuseId;
+    $Id("iframeCoBuy").src = coBuyUrl;
 
     ChangeBackImage(3);
 }
@@ -922,13 +923,13 @@ function followScheme(lotteryID) {
     $Id("divPlayTypeIntroduce").style.display = "none";
 
     if ($Id("iframeFollowScheme").src == "") {
-        $Id("iframeFollowScheme").src = "../Home/Room/FollowScheme.aspx?LotteryID=" + lotteryID;
+        $Id("iframeFollowScheme").src = "../../Core/Follow/FollowScheme.aspx?LotteryID=" + lotteryID;
     }
 
     ChangeBackImage(5);
 }
 
-function schemeAll(lotteryID) {
+function schemeAll(lotteryID, isuseId) {
     $Id("divNewBuy").style.display = "none";
     $Id("divCoBuy").style.display = "none";
     $Id("divFollowScheme").style.display = "none";
@@ -938,12 +939,12 @@ function schemeAll(lotteryID) {
     $Id("divLoding").style.display = "";
     $Id("iframeSchemeAll").style.display = "none";
 
-    $Id("iframeSchemeAll").src = "../Home/Room/SchemeAll.aspx?Radom=" + Math.random() + "&LotteryID=" + lotteryID + "&IsuseID=" + $Id("HidIsuseID").value;
+    $Id("iframeSchemeAll").src = "../../Core/Scheme/SchemeAll.aspx?Radom=" + Math.random() + "&LotteryID=" + lotteryID + "&IsuseID=" + isuseId;
 
     ChangeBackImage(7);
 }
 
-function playTypeIntroduce(lotteryID) {
+function playTypeIntroduce(lotteryCode) {
     $Id("divNewBuy").style.display = "none";
     $Id("divCoBuy").style.display = "none";
     $Id("divFollowScheme").style.display = "none";
@@ -951,7 +952,7 @@ function playTypeIntroduce(lotteryID) {
     $Id("divPlayTypeIntroduce").style.display = "";
 
     if ($Id("iframePlayTypeIntroduce").src == "") {
-        $Id("iframePlayTypeIntroduce").src = "../Home/Room/Help/help_cqssc.htm";
+        $Id("iframePlayTypeIntroduce").src = "../../Help/Core/help_" + lotteryCode + ".htm";
     }
 
     ChangeBackImage(9);
@@ -992,7 +993,7 @@ function clickPlayType(t) {
             $Id("labShowWinMoney").innerHTML = '<br/><br/>&nbsp&nbsp一注号码，三个奖级通吃，五次中奖机会，大奖 <span style="color:red" id="spanPlayTypeMoney">20000</span>元。';
             iframe_playtypes.location.href = 'CQSSC_5XTXFS.htm';
             break;
-            
+
         case 'playType2806':
             playTypeName = '单式';
             $Id("labShowWinMoney").innerHTML = '<br/><br/>&nbsp&nbsp 投注号码百、十、个位与开奖号码全部相同且顺序一致，奖金 <span style="color:red" id="spanPlayTypeMoney">1000</span>元。  ';
@@ -1273,17 +1274,17 @@ function btn_Close() {
 }
 
 function showSameHeight() {
-    if (document.getElementById("menu_left").clientHeight < document.getElementById("menu_right").clientHeight) {
-        document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
-    }
-    else {
-        if (document.getElementById("menu_right").offsetHeight >= 860) {
-            document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
-        }
-        else {
-            document.getElementById("menu_left").style.height = "860px";
-        }
-    }
+//    if (document.getElementById("menu_left").clientHeight < document.getElementById("menu_right").clientHeight) {
+//        document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
+//    }
+//    else {
+//        if (document.getElementById("menu_right").offsetHeight >= 860) {
+//            document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
+//        }
+//        else {
+//            document.getElementById("menu_left").style.height = "860px";
+//        }
+//    }
 }
 
 

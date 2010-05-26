@@ -10,8 +10,39 @@
 
     <script src="../../JavaScript/Lottery/buy_CQSSC.js" type="text/javascript"></script>
 
+    <script type="text/javascript">
+
+        function GotoNewBuy() {
+            newBuy('<%= LotteryId %>');
+            showSameHeight();
+        }
+
+        function GotoCoBuy() {
+            newCoBuy('<%= LotteryId %>', '');
+            showSameHeight();
+        }
+
+        function GotoFollowScheme() {
+            followScheme('<%= LotteryId %>');
+            showSameHeight();
+        }
+
+        function GotoSchemeAll() {
+            schemeAll('<%= LotteryId %>', '');
+            showSameHeight();
+        }
+
+        function GotoPlayIntroduce() {
+            playTypeIntroduce('<%= LotteryCode %>');
+            showSameHeight();
+        }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
+    <input id="tbPlayTypeID" name="tbPlayTypeID" type="hidden" />
+    <asp:HiddenField ID="HidIsuseEndTime" runat="server" />
+    <asp:HiddenField ID="HidIsuseID" runat="server" />
     <div class="center">
         <div style="margin: 15px auto;">
             您好！&nbsp;faacai&nbsp;&nbsp;&nbsp;&nbsp;您的余额：<strong class="red">￥888.00</strong>
@@ -59,24 +90,24 @@
             padding-bottom: 0px; width: 100%;">
             <div style="float: left; width: 10px;">
             </div>
-            <div class="redMenu" onclick="newBuy(28);showSameHeight();">
+            <div class="redMenu" onclick="GotoNewBuy();">
                 选号投注
             </div>
             <div style="float: left; width: 2px;">
             </div>
-            <div class="whiteMenu" onclick="newCoBuy(28);showSameHeight();">
+            <div class="whiteMenu" onclick="GotoCoBuy();">
                 参与合买</div>
             <div style="float: left; width: 2px;">
             </div>
-            <div class="whiteMenu" onclick="followScheme(28);showSameHeight();">
+            <div class="whiteMenu" onclick="GotoFollowScheme();">
                 定制跟单</div>
             <div style="float: left; width: 2px;">
             </div>
-            <div class="whiteMenu" onclick="schemeAll(28);showSameHeight();">
+            <div class="whiteMenu" onclick="GotoSchemeAll();">
                 全部方案</div>
             <div style="float: left; width: 2px;">
             </div>
-            <div class="whiteMenu1" onclick="playTypeIntroduce(28);showSameHeight();">
+            <div class="whiteMenu1" onclick="GotoPlayIntroduce();">
                 <strong>玩法介绍</strong></div>
         </div>
         <!-- 选项卡结束 -->
@@ -97,7 +128,7 @@
                             <div style="border-bottom: #fe8625 1px solid; border-left: #fe8625 1px solid; border-top: #fe8625 1px solid;
                                 border-right: #fe8625 1px solid; height: 26px; line-height: 26px; text-align: center;
                                 margin-left: 15px; float: left; padding: 0 10px;">
-                                <a href="#">四星</a></div>
+                                <a href="javascript:void(0);" onclick='clickPlayClass(0,this);showSameHeight();SelectXing(0)'>四星</a></div>
                             <div style="border-bottom: #fe8625 1px solid; border-left: #fe8625 1px solid; border-top: #fe8625 1px solid;
                                 border-right: #fe8625 1px solid; height: 26px; line-height: 26px; text-align: center;
                                 margin-left: 15px; float: left; padding: 0 10px;">
@@ -421,7 +452,7 @@
                 <tr>
                     <td height="30" colspan="2" bgcolor="#F7F7F7" align="center" style="padding-bottom: 20px;
                         padding-top: 20px">
-                        <input type="image" src="../images/b4.jpg" />
+                        <asp:ImageButton runat="server" ImageUrl="~/Images/b4.jpg" />
                         <asp:CheckBox ID="chkAgrrement" runat="server" Checked="true" />
                         我已经阅读并同意 <span class="blue12">
                             <asp:HyperLink runat="server" ID="hlAgreement" NavigateUrl="../Home/Room/BuyProtocol.aspx?LotteryID=28"
@@ -467,12 +498,10 @@
     <input id="HidLotteryID" name="HidLotteryID" type="hidden" value="28" />
     <input id="tbMiss" runat="server" name="tbMiss" type="hidden" value="5" />
 
-<script type="text/javascript">
-    window.onload = showSameHeight;
-    Page_load();
-    PageEvent();
-    <%=DZ %>    
-</script>
+    <script type="text/javascript">
+        window.onload = showSameHeight;
+        Page_load();
+        PageEvent();
+    </script>
 
-<%=script %>
 </asp:Content>
