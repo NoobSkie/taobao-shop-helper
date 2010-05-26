@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Masters_WithTopLotteryMenu : System.Web.UI.MasterPage
+public partial class Masters_WithTopLotteryMenu : BaseMaster
 {
     protected void Page_Load(object sender, EventArgs e)
     {

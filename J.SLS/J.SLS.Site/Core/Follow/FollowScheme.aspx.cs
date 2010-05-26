@@ -35,16 +35,16 @@ public partial class Core_Follow_FollowScheme : System.Web.UI.Page
         {
             commandText = commandText + " and [Name] LIKE '%" + str3 + "%'";
         }
-        DataTable dt = MSSQL.Select(commandText, new MSSQL.Parameter[0]);
-        if (dt == null)
-        {
-            PageHelper.GoError(1, "数据库繁忙，请重试", base.GetType().BaseType.FullName);
-        }
-        else
-        {
-            PageHelper.DataGridBindData(this.g, dt, this.gPager);
-            this.gPager.Visible = true;
-        }
+        //DataTable dt = MSSQL.Select(commandText, new MSSQL.Parameter[0]);
+        //if (dt == null)
+        //{
+        //    PageHelper.GoError(1, "数据库繁忙，请重试", base.GetType().BaseType.FullName);
+        //}
+        //else
+        //{
+        //    PageHelper.DataGridBindData(this.g, dt, this.gPager);
+        //    this.gPager.Visible = true;
+        //}
     }
 
     protected void btnList_Click(object sender, EventArgs e)

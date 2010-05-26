@@ -46,7 +46,7 @@
                             onfocus="if(this.value=='输入用户名')this.value='';" onblur="if(this.value=='')this.value='输入用户名';"></asp:TextBox>
                     </td>
                     <td style="padding-left: 24px; width: 100px">
-                        <ShoveWebUI:ShoveConfirmButton ID="btnSearch" runat="server" BackgroupImage="images/button_sousuo.jpg"
+                        <ShoveWebUI:ShoveConfirmButton ID="btnSearch" runat="server" BackgroupImage="../../Images/Button/button_sousuo.jpg"
                             Style="cursor: hand;" BorderStyle="None" Height="23px" OnClick="btnSearch_Click"
                             Width="72px" />
                     </td>

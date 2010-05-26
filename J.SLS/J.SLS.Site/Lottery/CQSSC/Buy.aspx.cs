@@ -10,6 +10,7 @@ using AjaxPro;
 using Shove._Web;
 using Shove;
 using Shove._IO;
+using System.Data;
 
 public partial class Lottery_CQSSC_Buy : LotteryBasePage
 {
@@ -18,8 +19,26 @@ public partial class Lottery_CQSSC_Buy : LotteryBasePage
         get { return "CQSSC"; }
     }
 
-    protected override string LotteryId
+    protected void Page_Load(object sender, EventArgs e)
     {
-        get { return "28"; }
+        AjaxPro.Utility.RegisterTypeForAjax(this.GetType(), this.Page);
+    }
+
+    [AjaxMethod(HttpSessionStateRequirement.None)]
+    public string GetSysTime()
+    {
+        return DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+    }
+
+    protected void btn_OK_Click(object sender, EventArgs e)
+    {
+        //if (!PF.IsSystemRegister())
+        //{
+        //    PF.GoError(4, "请联系网站管理员输入软件序列号", base.GetType().BaseType.FullName);
+        //}
+        //else
+        //{
+        //    this.Buy(base._User);
+        //}
     }
 }

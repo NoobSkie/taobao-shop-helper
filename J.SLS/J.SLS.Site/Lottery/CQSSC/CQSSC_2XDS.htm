@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<link href="../../Style/css.css" rel="stylesheet" type="text/css" />
+    <link href="../../Style/css.css" rel="stylesheet" type="text/css" />
     <title></title>
     <style type="text/css">
         body
@@ -72,7 +72,7 @@
         }
     </style>
 
-    <script type="text/javascript" src="../../javascript/Public.js" language="javascript"
+    <script type="text/javascript" src="../../Javascript/Lottery/Public.js" language="javascript"
         charset="gbk"></script>
 
     <script type="text/javascript">
@@ -271,9 +271,11 @@
         }
     </script>
 
-</head><link rel="shortcut icon" href="../favicon.ico"/>
+</head>
+<link rel="shortcut icon" href="../../favicon.ico" />
 <body>
-    <table style="width: 100%; height: 80px ;" background="../../images/zfb_bg_red.jpg" cellspacing="0" cellpadding="0" border="0">
+    <table style="width: 100%; height: 80px;" background="../../images/zfb_bg_red.jpg"
+        cellspacing="0" cellpadding="0" border="0">
         <tr>
             <td valign="top" style="text-align: left; padding: 10px;">
                 <table border="0" cellpadding="0" cellspacing="4">
@@ -313,51 +315,6 @@
                                 9
                             </td>
                         </tr>
-                        <tr >
-                            <td class="blue12">
-                                遗漏
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_0">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_1">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_2">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_3">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_4">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_5">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_6">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_7">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_8">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_9">
-                                </div>
-                            </td>
-                        </tr>
                         <tr>
                             <td>
                                 个位
@@ -393,51 +350,6 @@
                                 9
                             </td>
                         </tr>
-                        <tr>
-                            <td class="blue12">
-                                遗漏
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_1_0">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_1_1">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_1_2">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_1_3">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_1_4">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_1_5">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_1_6">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_1_7">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_1_8">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_1_9">
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </td>
@@ -457,39 +369,6 @@
         <img alt="" src="../../images/zfb_bt_queren.jpg" id="btn_2_Add" name="btn_2_Add"
             onclick="return btn_2_AddClick();" visible="false" style="cursor: pointer;" disabled />
     </div>
-    <script type="text/javascript" language="javascript">
-        //遗漏信息
-        var o_tbAddone = parent.document.all["tbMiss"];
-        var Miss_s = o_tbAddone.value.split(';');
-        var shiMax = 0;
-        var geMax = 0;
-
-        for (var i = 0; i <= 9; i++) {
-            var temp = 'Miss_0_' + i;
-            document.getElementById(temp).innerHTML = Miss_s[i];
-            if (shiMax < Number(Miss_s[i])) {
-                shiMax = Number(Miss_s[i]);
-            }
-            
-            temp = 'Miss_1_' + i;
-            document.getElementById(temp).innerHTML = Miss_s[10 + i];
-            if (geMax < Number(Miss_s[10 + i])) {
-                geMax = Number(Miss_s[10 + i]);
-            }
-        }
-
-        for (var i = 0; i < 10; i++) {
-            var temp = 'Miss_0_' + i;
-            var number = document.getElementById(temp).innerHTML;
-            if (number == shiMax)
-                document.getElementById(temp).className = "red12";
-
-            temp = 'Miss_1_' + i;
-            number = document.getElementById(temp).innerHTML;
-            if (number == geMax)
-                document.getElementById(temp).className = "red12";
-        }
-    </script>
 </body>
 </html>
 

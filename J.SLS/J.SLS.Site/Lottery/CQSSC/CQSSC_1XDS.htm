@@ -72,7 +72,7 @@
         }
     </style>
 
-    <script type="text/javascript" src="../../javascript/Public.js" language="javascript"
+    <script type="text/javascript" src="../../Javascript/Lottery/Public.js" language="javascript"
         charset="gbk"></script>
 
     <script type="text/javascript">
@@ -300,51 +300,6 @@
                                 9
                             </td>
                         </tr>
-                        <tr>
-                            <td class="blue12">
-                                遗漏
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_0">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_1">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_2">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_3">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_4">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_5">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_6">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_7">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_8">
-                                </div>
-                            </td>
-                            <td align="center" class="hui12">
-                                <div id="Miss_0_9">
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </td>
@@ -364,30 +319,6 @@
         <img alt="" src="../../images/zfb_bt_queren.jpg" id="btn_2_Add" name="btn_2_Add"
             onclick="return btn_2_AddClick();" visible="false" style="cursor: pointer;" disabled />
     </div>
-    <script type="text/javascript" language="javascript">
-        //遗漏信息
-        var o_tbAddone = parent.document.all["tbMiss"];
-        var Miss_s = o_tbAddone.value.split(';');
-        var maxNum = 0;
-
-        for (var i = 0; i <= 9; i++) {
-            var temp = 'Miss_0_' + i;
-            document.getElementById(temp).innerHTML = Miss_s[i];
-            if (maxNum < Number(Miss_s[i])) {
-                maxNum = Number(Miss_s[i]);
-            }
-        }
-
-        //alert(maxNum);
-        
-        for(var i=0; i<=9; i++)
-        {
-            var temp = 'Miss_0_' + i;
-            var number = document.getElementById(temp).innerHTML;
-            if(number == maxNum)
-                document.getElementById(temp).className = "red12";
-        }
-    </script>   
 </body>
 </html>
 

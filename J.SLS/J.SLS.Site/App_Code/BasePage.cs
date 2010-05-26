@@ -27,7 +27,18 @@ public abstract class BasePage : System.Web.UI.Page
                 //安装在虚拟子目录下
                 return UrlAuthority + Request.ApplicationPath;
             }
+        }
+    }
 
+    public string UserId
+    {
+        get
+        {
+            return Session["CurrentLoginUserId"] as string;
+        }
+        set
+        {
+            Session["CurrentLoginUserId"] = value;
         }
     }
 }

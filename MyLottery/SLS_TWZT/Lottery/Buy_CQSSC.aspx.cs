@@ -786,30 +786,30 @@ public partial class Lottery_Buy_CQSSC : RoomPageBase, IRequiresSessionState
     {
         AjaxPro.Utility.RegisterTypeForAjax(typeof(Lottery_Buy_CQSSC), this.Page);
         this.LotteryID = 0x1c;
-        bool flag = false;
-        string cacheAsString = Shove._Web.Cache.GetCacheAsString("Site_UseLotteryList" + base._Site.ID, "");
-        string[] strArray = null;
-        if (cacheAsString == "")
-        {
-            cacheAsString = Functions.F_GetUsedLotteryList(base._Site.ID);
-            if (cacheAsString != "")
-            {
-                Shove._Web.Cache.SetCache("Site_UseLotteryList" + base._Site.ID, cacheAsString);
-            }
-        }
-        strArray = cacheAsString.Split(new char[] { ',' });
-        for (int i = 0; i < strArray.Length; i++)
-        {
-            if (this.LotteryID.ToString().Equals(strArray[i]))
-            {
-                flag = true;
-                break;
-            }
-        }
-        if (!flag)
-        {
-            base.Response.Redirect("../Default.aspx");
-        }
+        //bool flag = false;
+        //string cacheAsString = Shove._Web.Cache.GetCacheAsString("Site_UseLotteryList" + base._Site.ID, "");
+        //string[] strArray = null;
+        //if (cacheAsString == "")
+        //{
+        //    cacheAsString = Functions.F_GetUsedLotteryList(base._Site.ID);
+        //    if (cacheAsString != "")
+        //    {
+        //        Shove._Web.Cache.SetCache("Site_UseLotteryList" + base._Site.ID, cacheAsString);
+        //    }
+        //}
+        //strArray = cacheAsString.Split(new char[] { ',' });
+        //for (int i = 0; i < strArray.Length; i++)
+        //{
+        //    if (this.LotteryID.ToString().Equals(strArray[i]))
+        //    {
+        //        flag = true;
+        //        break;
+        //    }
+        //}
+        //if (!flag)
+        //{
+        //    base.Response.Redirect("../Default.aspx");
+        //}
         this.LotteryName = "重庆时时彩";
         if (!base.IsPostBack)
         {
@@ -818,6 +818,7 @@ public partial class Lottery_Buy_CQSSC : RoomPageBase, IRequiresSessionState
             {
                 this.BindDataForAliBuy(buyID);
             }
+            // 中奖排行榜
             this.tbWin1.InnerHtml = this.BindWinList(DataCache.GetWinInfo(this.LotteryID));
             this.DZ = Encrypt.UnEncryptString(PF.GetCallCert(), Shove._Web.Utility.GetRequest("DZ"));
         }

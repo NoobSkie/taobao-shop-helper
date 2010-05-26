@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/WithTopLotteryMenu.master"
     AutoEventWireup="true" CodeFile="Buy.aspx.cs" Inherits="Lottery_CQSSC_Buy" %>
 
+<%@ Register Assembly="Shove.Web.UI.4 For.NET 3.5" Namespace="Shove.Web.UI" TagPrefix="ShoveWebUI" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../CSS/BuyLottery.css" rel="stylesheet" type="text/css" />
 
@@ -124,31 +125,28 @@
                             <div style="border-bottom: #fe8625 1px solid; border-left: #fe8625 1px solid; border-top: #fe8625 1px solid;
                                 border-right: #fe8625 1px solid; height: 26px; line-height: 26px; text-align: center;
                                 margin-left: 15px; float: left; padding: 0 10px; background-image: url(images/b.jpg);">
-                                <a href="#">五星</a></div>
+                                <a href="javascript:void(0);" onclick='clickPlayClass(0,this);showSameHeight();SelectXing(0)'>
+                                    五星</a></div>
                             <div style="border-bottom: #fe8625 1px solid; border-left: #fe8625 1px solid; border-top: #fe8625 1px solid;
                                 border-right: #fe8625 1px solid; height: 26px; line-height: 26px; text-align: center;
                                 margin-left: 15px; float: left; padding: 0 10px;">
-                                <a href="javascript:void(0);" onclick='clickPlayClass(0,this);showSameHeight();SelectXing(0)'>四星</a></div>
+                                <a href="javascript:void(0);" onclick='clickPlayClass(1,this);showSameHeight();SelectXing(1)'>
+                                    三星</a></div>
                             <div style="border-bottom: #fe8625 1px solid; border-left: #fe8625 1px solid; border-top: #fe8625 1px solid;
                                 border-right: #fe8625 1px solid; height: 26px; line-height: 26px; text-align: center;
                                 margin-left: 15px; float: left; padding: 0 10px;">
-                                <a href="#">三星</a></div>
+                                <a href="javascript:void(0);" onclick='clickPlayClass(2,this);showSameHeight();SelectXing(2)'>
+                                    二星</a></div>
                             <div style="border-bottom: #fe8625 1px solid; border-left: #fe8625 1px solid; border-top: #fe8625 1px solid;
                                 border-right: #fe8625 1px solid; height: 26px; line-height: 26px; text-align: center;
                                 margin-left: 15px; float: left; padding: 0 10px;">
-                                <a href="#">二星</a></div>
+                                <a href="javascript:void(0);" onclick='clickPlayClass(3,this);showSameHeight();SelectXing(3)'>
+                                    一星</a></div>
                             <div style="border-bottom: #fe8625 1px solid; border-left: #fe8625 1px solid; border-top: #fe8625 1px solid;
                                 border-right: #fe8625 1px solid; height: 26px; line-height: 26px; text-align: center;
                                 margin-left: 15px; float: left; padding: 0 10px;">
-                                <a href="#">一星</a></div>
-                            <div style="border-bottom: #fe8625 1px solid; border-left: #fe8625 1px solid; border-top: #fe8625 1px solid;
-                                border-right: #fe8625 1px solid; height: 26px; line-height: 26px; text-align: center;
-                                margin-left: 15px; float: left; padding: 0 10px;">
-                                <a href="#">大小单双</a></div>
-                            <div style="border-bottom: #fe8625 1px solid; border-left: #fe8625 1px solid; border-top: #fe8625 1px solid;
-                                border-right: #fe8625 1px solid; height: 26px; line-height: 26px; text-align: center;
-                                margin-left: 15px; float: left; padding: 0 10px;">
-                                <a href="#">任选</a></div>
+                                <a href="javascript:void(0);" onclick='clickPlayClass(4,this);showSameHeight();SelectXing(4)'>
+                                    大小单双</a></div>
                         </td>
                     </tr>
                     <tr id='playTypes'>
@@ -159,36 +157,36 @@
                         <td style="border-bottom: #fe8625 1px solid;" onload="showSameHeight()">
                             <span id='playTypes0'>
                                 <input type='radio' name='playType' id='playType2801' value='2801' checked='checked'
-                                    onclick='clickPlayType(this.id)' />单式
-                                <input type='radio' name='playType' id='playType2802' value='2802' onclick='clickPlayType(this.id)' />复选
-                                <input type='radio' name='playType' id='playType2803' value='2803' onclick='clickPlayType(this.id)' />组合
+                                    onclick='clickPlayType(this.id)' /><label for="playType2801">单式</label>
+                                <input type='radio' name='playType' id='playType2802' value='2802' onclick='clickPlayType(this.id)' /><label for="playType2802">复选</label>
+                                <input type='radio' name='playType' id='playType2803' value='2803' onclick='clickPlayType(this.id)' /><label for="playType2803">组合</label>
                                 &nbsp;&nbsp;&nbsp; <font style="font-weight: bolder">通选:</font>
-                                <input type='radio' name='playType' id='playType2804' value='2805' onclick='clickPlayType(this.id)' />单式
-                                <input type='radio' name='playType' id='playType2805' value='2806' onclick='clickPlayType(this.id)' />复式
+                                <input type='radio' name='playType' id='playType2804' value='2805' onclick='clickPlayType(this.id)' /><label for="playType2804">单式</label>
+                                <input type='radio' name='playType' id='playType2805' value='2806' onclick='clickPlayType(this.id)' /><label for="playType2805">复式</label>
                             </span><span id='playTypes1' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2806' value='2801' onclick='clickPlayType(this.id)' />单式
-                                <input type='radio' name='playType' id='playType2807' value='2802' onclick='clickPlayType(this.id)' />复选
-                                <input type='radio' name='playType' id='playType2808' value='2803' onclick='clickPlayType(this.id)' />组合
+                                <input type='radio' name='playType' id='playType2806' value='2801' onclick='clickPlayType(this.id)' /><label for="playType2806">单式</label>
+                                <input type='radio' name='playType' id='playType2807' value='2802' onclick='clickPlayType(this.id)' /><label for="playType2807">复选</label>
+                                <input type='radio' name='playType' id='playType2808' value='2803' onclick='clickPlayType(this.id)' /><label for="playType2808">组合</label>
                                 &nbsp;&nbsp;&nbsp; <font style="font-weight: bolder">组三:</font>
-                                <input id="playType2809" name="playType" type="radio" value="2813" onclick="clickPlayType(this.id)" />单式
-                                <input id="playType2810" name="playType" type="radio" value="2814" onclick="clickPlayType(this.id)" />复式
+                                <input id="playType2809" name="playType" type="radio" value="2813" onclick="clickPlayType(this.id)" /><label for="playType2809">单式</label>
+                                <input id="playType2810" name="playType" type="radio" value="2814" onclick="clickPlayType(this.id)" /><label for="playType2810">复式</label>
                                 &nbsp;&nbsp;&nbsp; <font style="font-weight: bolder">组六:</font>
-                                <input id="playType2811" name="playType" type="radio" value="2815" onclick="clickPlayType(this.id)" />单式
-                                <input id="playType2812" name="playType" type="radio" value="2816" onclick="clickPlayType(this.id)" />复式
+                                <input id="playType2811" name="playType" type="radio" value="2815" onclick="clickPlayType(this.id)" /><label for="playType2811">单式</label>
+                                <input id="playType2812" name="playType" type="radio" value="2816" onclick="clickPlayType(this.id)" /><label for="playType2812">复式</label>
                             </span><span id='playTypes2' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2813' value='2801' onclick='clickPlayType(this.id)' />单式
-                                <input type='radio' name='playType' id='playType2814' value='2802' onclick='clickPlayType(this.id)' />复选
-                                <input type='radio' name='playType' id='playType2815' value='2803' onclick='clickPlayType(this.id)' />组合
-                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <font style="font-weight: bolder">组选:</font>
-                                <input type='radio' name='playType' id='playType2816' value='2807' onclick='clickPlayType(this.id)' />单式
-                                <input type='radio' name='playType' id='playType2817' value='2808' onclick='clickPlayType(this.id)' />复式
-                                <input type='radio' name='playType' id='playType2818' value='2810' onclick='clickPlayType(this.id)' />包点
-                                <input type='radio' name='playType' id='playType2819' value='2811' onclick='clickPlayType(this.id)' />包胆
+                                <input type='radio' name='playType' id='playType2813' value='2801' onclick='clickPlayType(this.id)' /><label for="playType2813">单式</label>
+                                <input type='radio' name='playType' id='playType2814' value='2802' onclick='clickPlayType(this.id)' /><label for="playType2814">复选</label>
+                                <input type='radio' name='playType' id='playType2815' value='2803' onclick='clickPlayType(this.id)' /><label for="playType2815">组合</label>
+                                &nbsp;&nbsp;&nbsp; <font style="font-weight: bolder">组选:</font>
+                                <input type='radio' name='playType' id='playType2816' value='2807' onclick='clickPlayType(this.id)' /><label for="playType2816">单式</label>
+                                <input type='radio' name='playType' id='playType2817' value='2808' onclick='clickPlayType(this.id)' /><label for="playType2817">复式</label>
+                                <input type='radio' name='playType' id='playType2818' value='2810' onclick='clickPlayType(this.id)' /><label for="playType2818">包点</label>
+                                <input type='radio' name='playType' id='playType2819' value='2811' onclick='clickPlayType(this.id)' /><label for="playType2819">包胆</label>
                             </span><span id='playTypes3' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2820' value='2801' onclick='clickPlayType(this.id)' />单式
-                                <input type='radio' name='playType' id='playType2821' value='2803' onclick='clickPlayType(this.id)' />组合
+                                <input type='radio' name='playType' id='playType2820' value='2801' onclick='clickPlayType(this.id)' /><label for="playType2820">单式</label>
+                                <input type='radio' name='playType' id='playType2821' value='2803' onclick='clickPlayType(this.id)' /><label for="playType2821">组合</label>
                             </span><span id='playTypes4' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2822' value='2804' onclick='clickPlayType(this.id)' />复式
+                                <input type='radio' name='playType' id='playType2822' value='2804' onclick='clickPlayType(this.id)' /><label for="playType2822">复式</label>
                             </span>
                             <label id="labShowWinMoney">
                             </label>
@@ -273,23 +271,27 @@
                 </tr>
                 <tr>
                     <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;" height="45"
-                        align="center" bgcolor="#fef4d1">
+                        align="center" bgcolor="#f7b809">
                         合买代购
                     </td>
-                    <td style="border-bottom: #fe8625 1px solid; color: Red;">
-                        <input id="CoBuy" name="CoBuy" type="checkbox" onclick="oncbInitiateTypeClick(this);"
-                            value="2" /><label for="CoBuy">我要发起合买方案</label>
-                        <input id="Chase" name="Chase" type="checkbox" onclick="oncbInitiateTypeClick(this);"
-                            value="1" /><label for="Chase">我要追号</label>
+                    <td style="border-bottom: #fe8625 1px solid; color: Red;" bgcolor="#fef4d1">
+                        <div id="DivBuy" style="float: left;">
+                            <input id="CoBuy" name="CoBuy" type="checkbox" onclick="oncbInitiateTypeClick(this);"
+                                value="2" /><label for="CoBuy">我要发起合买方案</label>
+                        </div>
+                        <div id="DivChase" style="float: left;">
+                            <input id="Chase" name="Chase" type="checkbox" onclick="oncbInitiateTypeClick(this);"
+                                value="1" /><label for="Chase">我要追号</label>
+                        </div>
                     </td>
                 </tr>
-                <tbody id="trShowJion" style="display: none; line-height: 2; height: 36px; background-color: #FFEEEE;
+                <tbody id="trShowJion" style="display: none; line-height: 2; height: 36px; background-color: #fef4d1;
                     text-align: center; padding-left: 10px; padding-right: 10px;">
                     <tr>
                         <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                             佣金比率
                         </td>
-                        <td align="left">
+                        <td align="left" style="border-bottom: #fe8625 1px solid;">
                             <input type="text" onkeypress="return InputMask_Number();" id="tb_SchemeBonusScale"
                                 name="tb_SchemeBonusScale" onblur="return SchemeBonusScale();" style="width: 56px;"
                                 maxlength="10" />% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;佣金比例只能为0~10。
@@ -299,7 +301,7 @@
                         <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                             我要分成
                         </td>
-                        <td align="left">
+                        <td align="left" style="border-bottom: #fe8625 1px solid;">
                             <input type="text" onkeypress="return InputMask_Number();" id="tb_Share" name="tb_Share"
                                 onblur="return CheckShare();" style="width: 56px;" maxlength="10" value="1" />份，每份
                             <span id="lab_ShareMoney" style="color: Red">0.00</span>&nbsp;元。&nbsp;&nbsp; <font
@@ -307,30 +309,30 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                             我要认购
                         </td>
-                        <td align="left">
+                        <td align="left" style="border-bottom: #fe8625 1px solid;">
                             <input type="text" onkeypress="return InputMask_Number();" id="tb_BuyShare" name="tb_BuyShare"
                                 onblur="return CheckBuyShare();" style="width: 56px;" value="1" />份，金额 <span id="lab_BuyMoney"
                                     style="color: Red">0.00</span>&nbsp;元。
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                             我要保底
                         </td>
-                        <td align="left">
+                        <td align="left" style="border-bottom: #fe8625 1px solid;">
                             <input type="text" onkeypress="return InputMask_Number();" id="tb_AssureShare" name="tb_AssureShare"
                                 onblur="return CheckAssureShare();" style="width: 56px;" value="0">份，保底 <span id="lab_AssureMoney"
                                     style="color: Red">0.00</span>&nbsp;元。&nbsp; <font color="#ff0000">【注】</font>保底资金将被暂时冻结,在当期截止销售时、或根据此方案的销售、撤单情况,冻结资金将返还到您的电话投注卡账户中。
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                             招股对象
                         </td>
-                        <td align="left">
+                        <td align="left" style="border-bottom: #fe8625 1px solid;">
                             <input type="text" id="tb_OpenUserList" name="tb_OpenUserList" style="width: 99%;"
                                 maxlength="4000" /><br />
                             <font color="#ff0000">【注】</font>您可以选择一些用户作为招股对象，用户名之间用 , 隔开。<br />
@@ -338,30 +340,30 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                             方案标题
                         </td>
-                        <td align="left">
+                        <td align="left" style="border-bottom: #fe8625 1px solid;">
                             <input type="text" id="tb_Title" name="tb_Title" style="width: 99%;" maxlength="50" /><font
                                 color="#ff0000">【注】</font>标题不能为空,长度不能超过 <font color="#ff0000">50</font> 个字符。
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                             方案描述
                         </td>
-                        <td align="left" style="padding: 10px;">
+                        <td align="left" style="padding: 10px; border-bottom: #fe8625 1px solid;">
                             <textarea id="tb_Description" name="tb_Description" style="width: 99%; height: 100px;"></textarea>
                         </td>
                     </tr>
                 </tbody>
-                <tbody id="trGoon" style="display: none; line-height: 2; height: 36px; background-color: #FFF3F3;
+                <tbody id="trGoon" style="display: none; line-height: 2; height: 36px; background-color: #fef4d1;
                     text-align: center; padding-left: 10px; padding-right: 10px;">
                     <tr>
-                        <td>
+                        <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                             追号期间
                         </td>
-                        <td align="left" style="padding: 10px;">
+                        <td align="left" style="padding: 10px; border-bottom: #fe8625 1px solid;">
                             <div>
                                 <table cellpadding="0" cellspacing="1" style="width: 100%; text-align: center; background-color: #E2EAED;">
                                     <tbody style="background-color: White;">
@@ -401,10 +403,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                             追号金额
                         </td>
-                        <td align="left">
+                        <td align="left" style="border-bottom: #fe8625 1px solid;">
                             共追号<span id="spanChaseIsuseCount" style="color: red;">0</span>期，任务总金额<span id="LbSumMoney"
                                 style="color: red;">0.00</span>&nbsp;元，认购和保底金额<span id="LbChaseMoney" style="color: red;">0.00</span>元；<br />
                             如最后一期中出，奖金总额<span id="spanWinMoney" style="color: Red">0.00</span>元，方案盈利<span id="spanSchemeProfit"
@@ -412,20 +414,20 @@
                         </td>
                     </tr>
                     <tr style="display: none">
-                        <td>
+                        <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                             佣金比率
                         </td>
-                        <td align="left" style="display: none">
+                        <td align="left" style="display: none; border-bottom: #fe8625 1px solid;">
                             <input type="text" onkeypress="return InputMask_Number();" id="tb_SchemeBonusScalec"
                                 name="tb_SchemeBonusScalec" onblur="return SchemeBonusScalec();" style="width: 56px;"
                                 maxlength="10" value="0" />% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;佣金比例只能为0~10。
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                             自动停止
                         </td>
-                        <td align="left">
+                        <td align="left" style="border-bottom: #fe8625 1px solid;">
                             当追号任务某期中奖金额达到
                             <input type="text" id="tbAutoStopAtWinMoney" name="tbAutoStopAtWinMoney" maxlength="4"
                                 onkeypress="return InputMask_Number();" value="1" style="width: 60px;" />
@@ -435,24 +437,30 @@
                 </tbody>
                 <tr>
                     <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;" height="45"
-                        align="center" bgcolor="#fef4d1">
+                        align="center" bgcolor="#ffdf6e">
                         方案保密
                     </td>
                     <td style="border-bottom: #fe8625 1px solid;">
                         <input type="radio" name="SecrecyLevel" id="SecrecyLevel0" value="0" checked="checked" />
-                        <span>不保密</span>
+                        <label for="SecrecyLevel0">
+                            不保密</label>
                         <input type="radio" name="SecrecyLevel" id="SecrecyLevel1" value="1" />
-                        <span>保密到截止</span>
+                        <label for="SecrecyLevel1">
+                            保密到截止</label>
                         <input type="radio" name="SecrecyLevel" id="SecrecyLevel2" value="2" />
-                        <span>保密到开奖</span>
+                        <label for="SecrecyLevel2">
+                            保密到开奖</label>
                         <input type="radio" name="SecrecyLevel" id="SecrecyLevel3" value="3" />
-                        <span>永久保密</span>
+                        <label for="SecrecyLevel3">
+                            永久保密</label>
                     </td>
                 </tr>
                 <tr>
                     <td height="30" colspan="2" bgcolor="#F7F7F7" align="center" style="padding-bottom: 20px;
                         padding-top: 20px">
-                        <asp:ImageButton runat="server" ImageUrl="~/Images/b4.jpg" />
+                        <ShoveWebUI:ShoveConfirmButton ID="btn_OK" Style="cursor: pointer;" runat="server"
+                            Width="170px" Height="32px" CausesValidation="False" BackgroupImage="../../Images/b4.jpg"
+                            BorderStyle="None" OnClientClick="return CreateLogin('btn_OKClick();');" OnClick="btn_OK_Click" />
                         <asp:CheckBox ID="chkAgrrement" runat="server" Checked="true" />
                         我已经阅读并同意 <span class="blue12">
                             <asp:HyperLink runat="server" ID="hlAgreement" NavigateUrl="../Home/Room/BuyProtocol.aspx?LotteryID=28"
@@ -496,12 +504,15 @@
     <input id="tb_hide_SumNum" name="tb_hide_SumNum" type="hidden" />
     <input id="HidMaxTimes" name="HidMaxTimes" type="hidden" value="1000" />
     <input id="HidLotteryID" name="HidLotteryID" type="hidden" value="28" />
-    <input id="tbMiss" runat="server" name="tbMiss" type="hidden" value="5" />
 
     <script type="text/javascript">
         window.onload = showSameHeight;
         Page_load();
         PageEvent();
+
+        function GetBtnOKId() {
+            return "<%= btn_OK.ClientID %>";
+        }
     </script>
 
 </asp:Content>

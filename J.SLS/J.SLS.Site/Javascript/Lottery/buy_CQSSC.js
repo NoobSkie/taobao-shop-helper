@@ -86,46 +86,46 @@ var isGetSchemeBonusScalec = false;
 var time_GetSchemeBonusScalec = null;
 function GetSchemeBonusScalec() {
 
-    if (!isGetSchemeBonusScalec) {
-        try {
+//    if (!isGetSchemeBonusScalec) {
+//        try {
 
-            Lottery_Buy_CQSSC.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);
+//            Lottery_CQSSC_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);
 
-            isGetSchemeBonusScalec = true;
-        }
-        catch (e) {
-            time_GetSchemeBonusScalec = setTimeout("Lottery_Buy_CQSSC.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
-        }
-    }
+//            isGetSchemeBonusScalec = true;
+//        }
+//        catch (e) {
+//            time_GetSchemeBonusScalec = setTimeout("Lottery_CQSSC_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
+//        }
+//    }
 }
 
 function GetSchemeBonusScalec_callback(response) {
 
-    if (response == null || response.value == null) {
+//    if (response == null || response.value == null) {
 
-        time_GetSchemeBonusScalec = setTimeout("Lottery_Buy_CQSSC.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
+//        time_GetSchemeBonusScalec = setTimeout("Lottery_CQSSC_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
 
-        return;
-    }
+//        return;
+//    }
 
 
-    //将time_GetSchemeBonusScalec移除
-    if (time_GetSchemeBonusScalec != null) {
-        clearTimeout(time_GetSchemeBonusScalec);
-    }
+//    //将time_GetSchemeBonusScalec移除
+//    if (time_GetSchemeBonusScalec != null) {
+//        clearTimeout(time_GetSchemeBonusScalec);
+//    }
 
-    var v = response.value.split('|');
+//    var v = response.value.split('|');
 
-    o_tb_SchemeBonusScale.value = v[0];
-    o_tb_SchemeBonusScalec.value = v[0];
+//    o_tb_SchemeBonusScale.value = v[0];
+//    o_tb_SchemeBonusScalec.value = v[0];
 
-    Opt_InitiateSchemeLimitLowerScaleMoney = v[1];
-    Opt_InitiateSchemeLimitLowerScale = v[2];
-    Opt_InitiateSchemeLimitUpperScaleMoney = v[3];
-    Opt_InitiateSchemeLimitUpperScale = v[4];
+//    Opt_InitiateSchemeLimitLowerScaleMoney = v[1];
+//    Opt_InitiateSchemeLimitLowerScale = v[2];
+//    Opt_InitiateSchemeLimitUpperScaleMoney = v[3];
+//    Opt_InitiateSchemeLimitUpperScale = v[4];
 
-    LotteryName = v[5];
-    isGetSchemeBonusScalec = true;
+//    LotteryName = v[5];
+//    isGetSchemeBonusScalec = true;
 }
 
 //定时读取最近的开奖信息的定时器
@@ -138,7 +138,7 @@ function GetServerTime(lotteryID) {
 
     try {
 
-        Lottery_Buy_CQSSC.GetSysTime(GetServerTime_callback);
+        Lottery_CQSSC_Buy.GetSysTime(GetServerTime_callback);
 
     }
     catch (e) {
@@ -240,15 +240,15 @@ function GetIsuseInfo(lotteryID) {
 
     currentLotteryID = lotteryID;
 
-    try {
+//    try {
 
-        Lottery_Buy_CQSSC.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
+//        Lottery_CQSSC_Buy.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
 
-    }
-    catch (e) {
+//    }
+//    catch (e) {
 
-        time_GetIsuseInfo = setTimeout("GetIsuseInfo(" + lotteryID + ");", 2000);
-    }
+//        time_GetIsuseInfo = setTimeout("GetIsuseInfo(" + lotteryID + ");", 2000);
+//    }
 }
 
 function GetIsuseInfo_callback(response) {
@@ -307,15 +307,15 @@ function GetNewsInfo(lotteryID) {
 
     currentLotteryID = lotteryID;
 
-    try {
+//    try {
 
-        Lottery_Buy_CQSSC.GetNewsInfo(lotteryID, GetNewsInfo_callback);
+//        Lottery_CQSSC_Buy.GetNewsInfo(lotteryID, GetNewsInfo_callback);
 
-    }
-    catch (e) {
+//    }
+//    catch (e) {
 
-        time_GetNewsInfo = setTimeout("GetNewsInfo(" + lotteryID + ");", 2000);
-    }
+//        time_GetNewsInfo = setTimeout("GetNewsInfo(" + lotteryID + ");", 2000);
+//    }
 }
 
 function GetNewsInfo_callback(response) {
@@ -667,16 +667,13 @@ function oncbInitiateTypeClick(sender) {
         $Id("tb_OpenUserList").value = "";
         $Id("tb_Title").value = "";
         $Id("tb_Description").value = "";
-
     }
     else {
         $Id("CoBuy").checked = false;
-
     }
 
     if ($Id("CoBuy").checked) {
         $Id("DivChase").style.display = "none";
-
     }
     else {
         $Id("DivChase").style.display = "";
@@ -706,7 +703,8 @@ function oncbInitiateTypeClick(sender) {
 }
 
 function calculateAllMoney() {
-    $Id("btn_OK").disabled = "";
+    var btnId = GetBtnOKId();
+    $Id(btnId).disabled = "";
     try { accountAllMoney(); } catch (e) { }
     return true;
 }
@@ -1126,11 +1124,7 @@ function mOver(obj, type) {
 
 function clickPlayClass(i, obj) {
     $Id("labShowWinMoney").style.display = 'none';
-    var tds = obj.offsetParent.rows[0].cells;
-    for (var a = 0; a < tds.length - 1; a++) {
-        if (a % 2 == 1) {
-            tds[a].className = 'nsplay';
-        }
+    for (var a = 0; a < 5; a++) {
         if ($Id('playTypes' + String(a)) != null) {
             $Id('playTypes' + String(a)).style.display = 'none'
         }
@@ -1173,10 +1167,10 @@ function clickPlayClass(i, obj) {
 }
 
 function SelectXing(r) {
-    if (r <= 5) {
-        var tempR = 5 - r;
-        document.getElementById("tbMiss").value = Lottery_Buy_CQSSC.BindHotAndCoolAndMiss(tempR).value;
-    }
+//    if (r <= 5) {
+//        var tempR = 5 - r;
+//        document.getElementById("tbMiss").value = Lottery_CQSSC_Buy.BindHotAndCoolAndMiss(tempR).value;
+//    }
 }
 
 function ReloadSchedule() {
@@ -1292,7 +1286,7 @@ function btn_OK() {
     document.getElementById("list_LotteryNumber").style.display = "";
 
     try {
-        var LotteryNumber = Lottery_Buy_CQSSC.AnalyseScheme(document.getElementById("tbLotteryNumbers").value, document.getElementById('HidLotteryID').value, document.getElementById('tbPlayTypeID').value);
+        var LotteryNumber = Lottery_CQSSC_Buy.AnalyseScheme(document.getElementById("tbLotteryNumbers").value, document.getElementById('HidLotteryID').value, document.getElementById('tbPlayTypeID').value);
 
         if (LotteryNumber == null || LotteryNumber.value == null) {
             document.body.removeChild(bgDiv2);

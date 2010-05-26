@@ -1,0 +1,67 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title></title>
+    <base target="_self" />
+</head>
+<body>
+    <form id="form1" runat="server" action="ShoveWebPartAttributes.aspx" method="post">
+        <input type="hidden" id="SiteID" name="SiteID" />
+        <input type="hidden" id="UserID" name="UserID" />
+        <input type="hidden" id="ImageUploadDir" name="ImageUploadDir" />
+        <input type="hidden" id="AscxControlFileName" name="AscxControlFileName" />
+        <input type="hidden" id="HorizontalAlign" name="HorizontalAlign" />
+        <input type="hidden" id="VerticalAlign" name="VerticalAlign" />
+        <input type="hidden" id="Border" name="Border" />
+        <input type="hidden" id="BackColor" name="BackColor" />
+        <input type="hidden" id="TitleImageUrl" name="TitleImageUrl" />
+        <input type="hidden" id="BackImage" name="BackImage" />
+        <input type="hidden" id="BottomImage" name="BottomImage" />
+        <input type="hidden" id="AutoHeight" name="AutoHeight" />
+        <input type="hidden" id="Left" name="Left" />
+        <input type="hidden" id="Top" name="Top" />
+        <input type="hidden" id="Width" name="Width" />
+        <input type="hidden" id="Height" name="Height" />
+        <input type="hidden" id="CssClass" name="CssClass" />
+        <input type="hidden" id="TopUpLimit" name="TopUpLimit" />
+        <input type="hidden" id="TitleImageUrlLink" name="TitleImageUrlLink" />
+        <input type="hidden" id="BottomImageUrlLink" name="BottomImageUrlLink" />
+        <input type="hidden" id="TitleImageUrlLinkTarget" name="TitleImageUrlLinkTarget" />
+        <input type="hidden" id="BottomImageUrlLinkTarget" name="BottomImageUrlLinkTarget" />
+        <input type="hidden" id="ControlAttributes" name="ControlAttributes" />
+    </form>
+
+    <script type="text/javascript">
+		 
+		 var Params = window.dialogArguments;
+		 
+		 form1.SiteID.value = Params.SiteID;
+		 form1.UserID.value = Params.UserID;
+		 form1.ImageUploadDir.value = Params.ImageUploadDir;
+		 form1.AscxControlFileName.value = Params.AscxControlFileName;
+		 form1.HorizontalAlign.value = Params.HorizontalAlign;
+		 form1.VerticalAlign.value = Params.VerticalAlign;
+		 form1.Border.value = Params.Border;
+		 form1.BackColor.value = Params.BackColor;
+		 form1.TitleImageUrl.value = Params.TitleImageUrl;
+		 form1.BackImage.value = Params.BackImage;
+		 form1.BottomImage.value = Params.BottomImage;
+		 form1.AutoHeight.value = Params.AutoHeight;
+		 form1.Left.value = Params.Left;
+		 form1.Top.value = Params.Top;
+		 form1.Width.value = Params.Width;
+		 form1.Height.value = Params.Height;
+		 form1.CssClass.value = Params.CssClass;
+		 form1.TopUpLimit.value = Params.TopUpLimit;
+		 form1.TitleImageUrlLink.value = Params.TitleImageUrlLink;
+		 form1.BottomImageUrlLink.value = Params.BottomImageUrlLink;
+		 form1.TitleImageUrlLinkTarget.value = Params.TitleImageUrlLinkTarget;
+		 form1.BottomImageUrlLinkTarget.value = Params.BottomImageUrlLinkTarget;
+		 form1.ControlAttributes.value = Params.ControlAttributes;
+		 
+		 form1.submit();
+		 
+    </script>
+
+</body>
+</html>

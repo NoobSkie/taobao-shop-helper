@@ -114,7 +114,8 @@
     </div>
     <div id="divLoding" runat="server" style="line-height: 35px; height: 100%; overflow: hidden;"
         visible="true">
-        <img src='../Images/londing.gif' style="position: relative; top: 10%; left: 40%;" alt="" />
+        <img src='../Images/londing.gif' style="position: relative; top: 10%; left: 40%;"
+            alt="" />
     </div>
     </form>
 </body>

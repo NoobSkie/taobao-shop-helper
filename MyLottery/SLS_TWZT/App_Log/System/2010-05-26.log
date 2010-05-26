@@ -1,60 +1,242 @@
-2010-05-26 13:54:24:590		Error, PageName: http://localhost:7575/SLS_TWZT/images/zjphb.jpg。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
-   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
-   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
-   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+2010-05-26 00:00:23:873		Error, PageName: http://localhost:7575/SLS_TWZT/images/zjphb.jpg。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
 
-2010-05-26 13:54:24:689		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_t.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
-   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
-   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
-   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+2010-05-26 00:00:24:88		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
 
-2010-05-26 13:54:24:733		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_b.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
-   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
-   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
-   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+2010-05-26 00:00:24:104		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
 
-2010-05-26 13:54:29:494		时时彩无开奖信息,20100526
+2010-05-26 00:00:59:260		时时彩无开奖信息,20100526
 
-2010-05-26 13:54:29:542		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
-   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
-   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
-   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+2010-05-26 00:00:59:286		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
 
-2010-05-26 13:54:29:551		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
-   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
-   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
-   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+2010-05-26 00:00:59:321		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
 
-2010-05-26 13:54:33:128		时时彩无开奖信息,20100526
+2010-05-26 00:01:40:990		Error, PageName: http://localhost:7575/SLS_TWZT/LotteryWebUI/FrontWebPage/images/t2.jpg。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
 
-2010-05-26 13:54:33:278		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
-   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
-   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
-   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+2010-05-26 00:01:41:38		Error, PageName: http://localhost:7575/SLS_TWZT/LotteryWebUI/FrontWebPage/images/b2.jpg。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
 
-2010-05-26 13:54:33:287		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
-   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
-   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
-   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+2010-05-26 00:02:53:215		Error, PageName: http://localhost:7575/SLS_TWZT/Home/Room/CoBuy.aspx?Radom=0.09171895998310825&LotteryID=61&IsuseID=。 ErrorMsg: 指定的参数已超出有效值的范围。
+参数名: value Source:System.Web StackTrace:   在 System.Web.UI.WebControls.DataGrid.set_CurrentPageIndex(Int32 value)
+   在 Shove.Web.UI.ShoveGridPager.8Sd43JkgX(Object , EventArgs )
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.BaseDataList.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.BaseDataList.DataBind()
+   在 Shove.Web.UI.ShoveGridPager.set_PageIndex(Int32 value)
+   在 Shove.Web.UI.ShoveGridPager.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)。
 
-2010-05-26 15:25:39:636		时时彩无开奖信息,20100526
+2010-05-26 00:25:44:882		Error, PageName: http://localhost:7575/SLS_TWZT/LotteryWebUI/FrontWebPage/images/t2.jpg。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
 
-2010-05-26 15:25:39:727		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
-   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
-   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
-   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+2010-05-26 00:25:44:951		Error, PageName: http://localhost:7575/SLS_TWZT/LotteryWebUI/FrontWebPage/images/b2.jpg。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
 
-2010-05-26 15:25:39:776		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: File does not exist. Source:System.Web StackTrace:   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
-   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
-   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
-   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+2010-05-26 00:25:44:971		Error, PageName: http://localhost:7575/SLS_TWZT/LotteryWebUI/FrontWebPage/images/b.jpg。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:50:15:23		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:50:15:434		Error, PageName: http://localhost:7575/SLS_TWZT/images/zjphb.jpg。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:50:15:479		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:27:289		时时彩无开奖信息,20100526
+
+2010-05-26 00:58:27:492		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:27:502		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:36:711		Error, PageName: http://localhost:7575/SLS_TWZT/images/zjphb.jpg。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:36:734		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:36:744		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:45:225		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:45:241		时时彩无开奖信息,20100526
+
+2010-05-26 00:58:45:258		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:56:577		Error, PageName: http://localhost:7575/SLS_TWZT/images/zjphb.jpg。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:56:584		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:56:602		Error, PageName: http://localhost:7575/SLS_TWZT/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:59:455		时时彩无开奖信息,20100526
+
+2010-05-26 00:58:59:509		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 00:58:59:538		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 01:34:06:231		时时彩无开奖信息,20100526
+
+2010-05-26 01:34:06:423		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 01:34:06:445		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 21:34:48:323		时时彩无开奖信息,20100526
+
+2010-05-26 21:34:48:635		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 21:34:49:171		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 21:36:57:844		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 21:36:58:128		时时彩无开奖信息,20100526
+
+2010-05-26 21:36:58:520		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 21:42:35:874		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 21:42:36:945		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 21:42:37:463		时时彩无开奖信息,20100526
+
+2010-05-26 22:10:21:396		时时彩无开奖信息,20100526
+
+2010-05-26 22:10:38:554		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_t.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 22:10:38:658		Error, PageName: http://localhost:7575/SLS_TWZT/Lottery/images/qq_b.png。 ErrorMsg: 文件不存在。 Source:System.Web StackTrace:   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)。
+
+2010-05-26 22:10:39:42		时时彩无开奖信息,20100526
 

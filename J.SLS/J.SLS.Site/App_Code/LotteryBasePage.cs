@@ -8,18 +8,43 @@ public abstract class LotteryBasePage : BasePage
 {
     protected LotteryFacade lotteryFacade = new LotteryFacade();
 
+    private LotterySimpleInfo lotteryInfo = null;
+    protected LotteryInfoBase CurrentLottery
+    {
+        get
+        {
+            return lotteryInfo;
+        }
+    }
+
+    protected int LotteryId
+    {
+        get
+        {
+            return 28;
+            // return CurrentLottery.Id;
+        }
+    }
+
     protected abstract string LotteryCode { get; }
 
-    protected abstract string LotteryId { get; }
-
-    protected override void OnLoad(EventArgs e)
+    protected string LotteryName
     {
-        LotterySimpleInfo lotteryInfo = lotteryFacade.GetLotteryInfoByCode<LotterySimpleInfo>(LotteryCode);
-        if (!lotteryInfo.IsUsed)
+        get
         {
-            Response.Redirect("~/Default.aspx");
+            return "重庆时时彩";
+            // return CurrentLottery.Name;
         }
+    }
 
-        base.OnLoad(e);
+    protected override void OnInit(EventArgs e)
+    {
+        //lotteryInfo = lotteryFacade.GetLotteryInfoByCode<LotterySimpleInfo>(LotteryCode);
+        //if (lotteryInfo == null || !lotteryInfo.IsUsed)
+        //{
+        //    Response.Redirect("~/Default.aspx");
+        //}
+
+        base.OnInit(e);
     }
 }
