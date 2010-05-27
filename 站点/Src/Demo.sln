@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Demo", "D:\TOP\taobao-shop-helper\站点\Src\Demo\", "{F14C55BB-A418-4BEA-8317-F0F9EB671752}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Demo", "Demo\", "{F14C55BB-A418-4BEA-8317-F0F9EB671752}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
 		Debug.AspNetCompiler.VirtualPath = "/Demo"
@@ -18,8 +18,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Demo", "D:\TOP\taobao-shop-
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "50990"
-		DefaultWebSiteLanguage = "Visual C#"
+		VWDPort = "14831"
 	EndProjectSection
 EndProject
 Global

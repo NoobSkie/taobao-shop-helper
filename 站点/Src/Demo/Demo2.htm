@@ -2,17 +2,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <link href="Demo1Css.css" rel="stylesheet" type="text/css" />
+    <link href="Demo2Css.css" rel="stylesheet" type="text/css" />
+    <link href="01.Main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <center>
+        <div class="header">
+            <h1 style="margin: 15px;">
+                标题</h1>
+        </div>
+        <div class="MenuDiv">
+            <div class="MenuDivLevelOne">
+                <ul class="MenuItemList">
+                    <li class='UnSelected'><a id="ctl00_ctl00_rptMenus_ctl00_hlnkMenu" href="../"><span>
+                        首页</span></a></li>
+                    <li class='Selected'><a id="ctl00_ctl00_rptMenus_ctl01_hlnkMenu" href="../ShopHelper">
+                        <span>课程设置</span></a></li>
+                    <li class='UnSelected'><a id="ctl00_ctl00_rptMenus_ctl02_hlnkMenu" href="../Templates">
+                        <span>乐器租售</span></a></li>
+                    <li class='UnSelected'><a id="ctl00_ctl00_rptMenus_ctl03_hlnkMenu" href="../Templates"><span>成果展示</span></a></li>
+                    <li class='UnSelected'><a id="ctl00_ctl00_rptMenus_ctl04_hlnkMenu" href="../Templates"><span>关于我们</span></a></li>
+                </ul>
+            </div>
+            <div class="MenuDivLevelTwo">
+                <ul class="MenuItemList">
+                    <li class='Selected'><a id="ctl00_ctl00_MenuContent_rptMenus_ctl00_hlnkMenu" href="Default.aspx">
+                        <span>成人音乐教育</span></a></li>
+                    <li class='UnSelected'><a id="ctl00_ctl00_MenuContent_rptMenus_ctl01_hlnkMenu" href="ImportShop1.aspx">
+                        <span>中小学生音乐教育</span></a></li>
+                    <li class='UnSelected'><a id="ctl00_ctl00_MenuContent_rptMenus_ctl02_hlnkMenu" href="ImportItem1.aspx">
+                        <span>幼儿及家长音乐教育</span></a></li>
+                </ul>
+            </div>
+        </div>
         <table class="layout" cellpadding="0" cellspacing="0">
-            <tr class="header">
-                <td colspan="3">
-                    <h1>
-                        标题</h1>
-                </td>
-            </tr>
             <tr class="content">
                 <td class="leftMenu">
                     <div class="MainBlock">
@@ -286,7 +309,7 @@
                         <table cellpadding="0" cellspacing="0">
                             <tr>
                                 <td>
-                                    <img alt="图片新闻" src="picNews.png" />
+                                    <img alt="图片新闻" style="max-width: 250px;" src="picNews.png" />
                                 </td>
                             </tr>
                         </table>
@@ -329,13 +352,11 @@
                     </div>
                 </td>
             </tr>
-            <tr class="footer">
-                <td colspan="3">
-                    <p>
-                        脚注</p>
-                </td>
-            </tr>
         </table>
+        <div class="footer">
+            <h1 style="margin: 15px;">
+                脚注</h1>
+        </div>
     </center>
 </body>
 </html>

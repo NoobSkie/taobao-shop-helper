@@ -1,0 +1,263 @@
+﻿body
+{
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    font-family: 宋体;
+    min-width: 1000;
+}
+
+.HeaderDiv
+{
+    height: 24px;
+}
+
+.HeaderDiv .UserInfoDiv
+{
+    float: left;
+    line-height: 24px;
+    margin-left: 10px;
+}
+
+.HeaderDiv .UserInfoDiv .Name
+{
+}
+
+.HeaderDiv .UserOperatorDiv
+{
+    float: right;
+    line-height: 24px;
+    margin-right: 10px;
+}
+
+.HeaderDiv .SplitLine
+{
+    color: Gray;
+}
+
+.UserOperatorDiv a
+{
+    color: Black;
+    text-decoration: none;
+}
+
+.HeaderDiv .LogoDiv
+{
+}
+
+/*******************************************************************************************/
+/* Start * 主菜单 MenuDiv *****************************************************************/
+
+.MenuDiv
+{
+    width: 1000px;
+}
+
+/* End * 主菜单 MenuDiv ******************************************************************/
+/*******************************************************************************************/
+
+/*******************************************************************************************/
+/* Start * 一级菜单 MenuDivLevelOne ********************************************************/
+
+.MenuDiv .MenuDivLevelOne
+{
+    height: 36px;
+    width: 100%;
+    background: url(Images/page_menu_one_bg.gif) repeat-x 0px -36px;
+    clear: both;
+}
+
+.MenuDivLevelOne ul.MenuItemList
+{
+    list-style-type: none;
+    margin: 0px;
+    margin-left: 25px;
+    padding: 0px;
+    height: 36px;
+    overflow: hidden;
+}
+
+.MenuDivLevelOne ul.MenuItemList li
+{
+    padding-top: 0px;
+    padding-left: 5px;
+    padding-right: 7px;
+    padding-bottom: 0px;
+    list-style-type: none;
+    position: relative;
+    margin: 0px;
+    background: url(Images/page_vertical.png) no-repeat right -50px;
+    float: left;
+}
+
+.MenuDivLevelOne ul.MenuItemList li:first-child
+{
+    margin-left: 0px;
+}
+
+.MenuDivLevelOne ul.MenuItemList li a
+{
+    text-align: center;
+    line-height: 27px;
+    margin-top: 5px;
+    display: block;
+    height: 27px;
+    color: #fff;
+    font-size: 1.19em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.MenuDivLevelOne ul.MenuItemList li a span
+{
+    padding-left: 25px;
+    padding-right: 25px;
+    display: block;
+    height: 30px;
+}
+
+.MenuDivLevelOne ul.MenuItemList li a:hover
+{
+    background: url(Images/page_menu_state.png) no-repeat -0px -0px;
+}
+
+.MenuDivLevelOne ul.MenuItemList li a:hover span
+{
+    background: url(Images/page_menu_state.png) no-repeat right -27px;
+}
+
+.MenuDivLevelOne ul.MenuItemList li.Selected
+{
+}
+
+.MenuDivLevelOne ul.MenuItemList li.Selected a
+{
+    line-height: 30px;
+    margin-top: 6px;
+    height: 30px;
+    background: url(Images/page_menu_state.png) no-repeat -10px -60px;
+    color: #000;
+}
+
+.MenuDivLevelOne ul.MenuItemList li.Selected a span
+{
+    background: url(Images/page_menu_state.png) no-repeat right -90px;
+}
+
+.MenuDivLevelOne ul.MenuItemList li.Selected a:hover
+{
+}
+
+.MenuDivLevelOne ul.MenuItemList li.Selected a:hover span
+{
+}
+
+/* End * 一级菜单 MenuDivLevelOne **********************************************************/
+/*******************************************************************************************/
+
+/*******************************************************************************************/
+/* Start * 二级菜单 MenuDivLevelOne ********************************************************/
+
+.MenuDiv .MenuDivLevelTwo
+{
+    height: 37px;
+    width: 100%;
+    background: url(Images/page_menu_two_bg.png) repeat-x 0px -37px;
+    clear: both;
+}
+
+.MenuDivLevelTwo ul.MenuItemList
+{
+    list-style-type: none;
+    margin: 0px;
+    margin-left: 7px;
+    padding: 0px;
+    height: 37px;
+    overflow: hidden;
+}
+
+.MenuDivLevelTwo ul.MenuItemList li
+{
+    padding-top: 8px;
+    padding-bottom: 0px;
+    padding-left: 7px;
+    padding-right: 7px;
+    float: left;
+    margin: 0px;
+    list-style-type: none;
+    position: relative;
+    background: url(Images/page_vertical.png) no-repeat left 13px;
+}
+
+.MenuDivLevelTwo ul.MenuItemList li:first-child
+{
+    background: none;
+}
+
+.MenuDivLevelTwo ul.MenuItemList li a
+{
+    text-align: center;
+    line-height: 22px;
+    display: block;
+    height: 22px;
+    color: #666;
+    text-decoration: none;
+}
+
+.MenuDivLevelTwo ul.MenuItemList li a span
+{
+    padding-top: 1px;
+    padding-bottom: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: block;
+    font-size: 12px;
+}
+
+.MenuDivLevelTwo ul.MenuItemList li a:hover
+{
+    color: #ff7300;
+    background: url(Images/page_menu_state.png) no-repeat -10px -130px;
+}
+
+.MenuDivLevelTwo ul.MenuItemList li a:hover span
+{
+    background: url(Images/page_menu_state.png) no-repeat right -152px;
+}
+
+.MenuDivLevelTwo ul.MenuItemList li.Selected
+{
+}
+
+.MenuDivLevelTwo ul.MenuItemList li.Selected a
+{
+    color: #fff;
+    background: url(Images/page_menu_state.png) no-repeat -10px -175px;
+}
+
+.MenuDivLevelTwo ul.MenuItemList li.Selected a span
+{
+    background: url(Images/page_menu_state.png) no-repeat right -197px;
+}
+
+.MenuDivLevelTwo ul.MenuItemList li.Selected a:hover
+{
+    color: #ffff00;
+}
+
+.MenuDivLevelTwo ul.MenuItemList li.Selected a:hover span
+{
+}
+
+/* End * 二级菜单 MenuDivLevelOne **********************************************************/
+/*******************************************************************************************/
+
+.PageDiv
+{
+}
+
+.FooterDiv
+{
+}

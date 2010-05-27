@@ -14,9 +14,9 @@ li
 }
 .header
 {
+    width: 1000px;
     text-align: left;
     background: #DDDDDD;
-    padding: 15px 10px 0 15px;
 }
 .content
 {
@@ -24,23 +24,23 @@ li
 }
 .footer
 {
+    width: 1000px;
     text-align: left;
-    padding: 0 10px 0 20px;
     background: #DDDDDD;
 }
 .content .leftMenu
 {
-    width: 180px;
+    width: 250px;
     vertical-align: top;
 }
 .content .mainArea
 {
-    width: 440px;
+    width: 500px;
     vertical-align: top;
 }
 .content .rightArea
 {
-    width: 380px;
+    width: 250px;
     vertical-align: top;
 }
 .MainBlock
