@@ -1,0 +1,121 @@
+﻿body
+{
+    margin: 0px;
+    font-size: 12px;
+}
+.layout
+{
+    width: 1000px;
+}
+.header
+{
+    text-align: left;
+    background: #DDDDDD;
+    padding: 15px 10px 0 15px;
+}
+.content
+{
+    text-align: left;
+}
+.footer
+{
+    text-align: left;
+    padding: 0 10px 0 20px;
+    background: #DDDDDD;
+}
+.content .leftMenu
+{
+    width: 180px;
+    vertical-align: top;
+}
+.content .mainArea
+{
+    width: 440px;
+    vertical-align: top;
+}
+.content .rightArea
+{
+    width: 380px;
+    vertical-align: top;
+}
+.MainBlock
+{
+    border: solid 1px gray;
+    padding: 5px;
+    margin-bottom: 8px;
+}
+.menuTree
+{
+}
+.menuTree .menuItem
+{
+}
+.menuTree .menuItem .menu1
+{
+    margin: 0px;
+}
+.menuTree .menuItem .menu2
+{
+}
+.leftMenu .MainBlock
+{
+}
+.mainArea .MainBlock
+{
+}
+.mainArea .MainBlock table
+{
+    width: 100%;
+}
+.mainArea .MainBlock .blockHeader
+{
+}
+.mainArea .MainBlock .blockHeader th
+{
+    padding: 3px 0px 10px 8px;
+}
+.rightArea .MainBlock
+{
+}
+.rightArea .PicNews
+{
+    padding: 0px;
+}
+.rightArea .MainBlock .blockHeader
+{
+}
+.rightArea .MainBlock .blockHeader th
+{
+    padding: 3px 0px 10px 8px;
+}
+.footer p
+{
+    margin: 0;
+    padding: 10px 0;
+}
+.classSchema
+{
+    border-bottom: solid 1px #800080;
+    border-right: solid 1px #800080;
+}
+.classSchema tr
+{
+    border-top: solid 1px #800080;
+}
+.classSchema tr:first-child
+{
+    border-top: solid 0px #800080;
+}
+.classSchema tr td
+{
+    border-top: solid 1px #800080;
+    border-left: solid 1px #800080;
+    padding: 2px 0px 2px 4px;
+}
+.classSchema tr th
+{
+    border-top: solid 1px #800080;
+    border-left: solid 1px #800080;
+    text-align: center;
+    padding: 3px 0px 3px 0px;
+}

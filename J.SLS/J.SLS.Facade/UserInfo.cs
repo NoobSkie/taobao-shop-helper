@@ -6,13 +6,16 @@ using J.SLS.Database.ORM;
 
 namespace J.SLS.Facade
 {
-    [EntityMappingTable("T_User_List", ReadOnly = true)]
+    [EntityMappingTable("T_User_Login", ReadOnly = true)]
     public class LoginInfo
     {
         [EntityMappingField("UserId", IsKey = true)]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
-        [EntityMappingField("Name")]
-        public string Name { get; set; }
+        [EntityMappingField("UserName")]
+        public string UserName { get; set; }
+
+        [EntityMappingField("RegisterTime")]
+        public DateTime RegisterTime { get; set; }
     }
 }

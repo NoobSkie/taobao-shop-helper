@@ -54,6 +54,10 @@
     <Compile Include="UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\J.SLS.Common\J.SLS.Common.csproj">
+      <Project>{30F7EBF8-D985-4D02-BDE6-89F392B6545D}</Project>
+      <Name>J.SLS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\J.SLS.Database\J.SLS.Database.csproj">
       <Project>{D322F3DB-C7F4-4F11-A062-52B8CF0C82C8}</Project>
       <Name>J.SLS.Database</Name>

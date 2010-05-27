@@ -34,11 +34,33 @@ public abstract class BasePage : System.Web.UI.Page
     {
         get
         {
-            return Session["CurrentLoginUserId"] as string;
+            if (CurrentUser == null)
+            {
+                return null;
+            }
+            return CurrentUser.UserId;
         }
         set
         {
-            Session["CurrentLoginUserId"] = value;
+            UserFacade facade = new UserFacade();
+            CurrentUser = facade.GetUserInfo<LoginInfo>(value);
         }
+    }
+
+    public LoginInfo CurrentUser
+    {
+        get
+        {
+            return Session["CurrentLoginUser"] as LoginInfo;
+        }
+        set
+        {
+            Session["CurrentLoginUser"] = value;
+        }
+    }
+
+    public void RedirectToDefault()
+    {
+        Response.Redirect("~/Default.aspx");
     }
 }

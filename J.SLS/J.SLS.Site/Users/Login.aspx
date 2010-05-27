@@ -20,7 +20,7 @@
                         <asp:TextBox ID="txtUserId" runat="server"></asp:TextBox></span></div>
                 <div class="in">
                     <span>
-                        <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox></span></div>
+                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox></span></div>
                 <div class="sb">
                     <asp:Button ID="btnLogin" runat="server" CssClass="submit" 
                         onclick="btnLogin_Click" /><input type="reset"

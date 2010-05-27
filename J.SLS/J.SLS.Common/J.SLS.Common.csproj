@@ -45,6 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EncryptTool.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Exceptions\FacadeException.cs" />
+    <Compile Include="Exceptions\LoginException.cs" />
     <Compile Include="PreconditionAssert.cs" />
     <Compile Include="PreconditionException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
