@@ -4,23 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using J.SLS.Facade;
 using Shove._Web;
 using J.SLS.Common.Exceptions;
-using System.Web.Security;
+using J.SLS.Facade;
 
-public partial class Users_Login : BasePage
+public partial class Components_WebControls_UserLoginCtrl : BaseControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!string.IsNullOrEmpty(Request["Message"]))
-        {
-            lblMessage.Text = Request["Message"];
-        }
-        else
-        {
-            lblMessage.Visible = false;
-        }
+
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -36,12 +28,11 @@ public partial class Users_Login : BasePage
                 throw new LoginException("登录失败 - 未知原因");
             }
             CurrentUser = user;
-            RedirectToDefault();
         }
         catch (Exception ex)
         {
             CurrentUser = null;
-            lblMessage.Text = ex.Message;
+            RedirectToLogin(Page, ex.Message);
         }
     }
 }

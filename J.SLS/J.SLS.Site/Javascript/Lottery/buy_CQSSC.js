@@ -1138,12 +1138,10 @@ function clickPlayClass(i, obj) {
             $Id("labShowWinMoney").innerText = '\n\n 投注号码万、千、百、十、个位与开奖号码全部相同且顺序一致，奖金100000元。';
             break;
         case 1:
-
             $Id("labShowWinMoney").style.display = '';
             $Id("labShowWinMoney").innerText = '\n\n 投注号码百、十、个位与开奖号码全部相同且顺序一致，奖金1000元。';
             break;
         case 2:
-
             $Id("labShowWinMoney").style.display = '';
             $Id("labShowWinMoney").innerText = '\n\n 投注号码十、个位与开奖号码全部相同且顺序一致，奖金100元。';
             break;

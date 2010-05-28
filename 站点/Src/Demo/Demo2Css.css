@@ -65,6 +65,13 @@ li
 .leftMenu .MainBlock
 {
 }
+.leftMenu .MainBlock .blockHeader
+{
+}
+.leftMenu .MainBlock .blockHeader th
+{
+    padding: 3px 0px 10px 8px;
+}
 .mainArea .MainBlock
 {
 }

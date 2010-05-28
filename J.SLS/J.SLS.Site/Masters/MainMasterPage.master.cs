@@ -24,6 +24,6 @@ public partial class Masters_MainMasterPage : BaseMaster
     [AjaxMethod(HttpSessionStateRequirement.ReadWrite)]
     public void SetLoginedUserId(string userId)
     {
-        UserId = userId;
+        SetCurrentUser(userId);
     }
 }

@@ -34,11 +34,34 @@ public abstract class BaseMaster : System.Web.UI.MasterPage
     {
         get
         {
-            return Session["CurrentLoginUserId"] as string;
+            if (CurrentUser == null)
+            {
+                return null;
+            }
+            return CurrentUser.UserId;
+        }
+    }
+
+    public void SetCurrentUser(string userId)
+    {
+        UserFacade facade = new UserFacade();
+        CurrentUser = facade.GetUserInfo<LoginInfo>(userId);
+    }
+
+    public LoginInfo CurrentUser
+    {
+        get
+        {
+            return Session["CurrentLoginUser"] as LoginInfo;
         }
         set
         {
-            Session["CurrentLoginUserId"] = value;
+            Session["CurrentLoginUser"] = value;
         }
+    }
+
+    public void RedirectToDefault()
+    {
+        Response.Redirect("~/Default.aspx");
     }
 }

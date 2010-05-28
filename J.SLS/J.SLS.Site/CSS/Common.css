@@ -142,7 +142,7 @@ img {
 	border:#000000 1px solid;
 	margin-top:6px;
 }
-.main_box .con_box .center .login .submit {
+.main_box .con_box .center .login .input .submit {
 	border:0px;
 	height:24px;
 	width:68px;
@@ -656,6 +656,17 @@ img {
 	background:url(../Images/user_login_title.gif) no-repeat;
 	width:631px;
 	height:57px;
+}
+.user_box .con_box .login_message 
+{
+    margin-left: 135px;
+}
+.user_box .con_box .login_message span 
+{
+    line-height:56px;
+    color: Red;
+    font-size: 16px;
+    font-family: 幼圆;
 }
 
 .user_box .con_box .get_list .ll {

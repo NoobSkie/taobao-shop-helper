@@ -40,11 +40,12 @@ public abstract class BasePage : System.Web.UI.Page
             }
             return CurrentUser.UserId;
         }
-        set
-        {
-            UserFacade facade = new UserFacade();
-            CurrentUser = facade.GetUserInfo<LoginInfo>(value);
-        }
+    }
+
+    public void SetCurrentUser(string userId)
+    {
+        UserFacade facade = new UserFacade();
+        CurrentUser = facade.GetUserInfo<LoginInfo>(userId);
     }
 
     public LoginInfo CurrentUser
@@ -61,6 +62,6 @@ public abstract class BasePage : System.Web.UI.Page
 
     public void RedirectToDefault()
     {
-        Response.Redirect("~/Default.aspx");
+        Response.Redirect("~/Default.aspx", true);
     }
 }

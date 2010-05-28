@@ -3,6 +3,8 @@
 
 <%@ Register Src="Components/WebControls/LotteryImageItem.ascx" TagName="LotteryImageItem"
     TagPrefix="uc1" %>
+<%@ Register Src="Components/WebControls/UserDisplayArea.ascx" TagName="UserDisplayArea"
+    TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
@@ -25,20 +27,7 @@
         <!--Flash¹ã¸æ-->
     </div>
     <div class="center" style="clear: left;">
-        <div class="login fl" style="margin-top: 15px;">
-            <div class="input mt">
-                <span class="cl">ÕË ºÅ£º</span><span class="text"><input type="text" /></span></div>
-            <div class="input">
-                <span class="cl">ÃÜ Âë£º</span><span class="text"><input type="text" /></span></div>
-            <div class="input" style="font-size: 14px; color: Red;">
-                <a href="Register.aspx" style="font-size: 14px; color: Red;">Ãâ·Ñ×¢²á</a> | <a href="FindPassword.aspx"
-                    style="font-size: 14px; color: Red;">Íü¼ÇÃÜÂë</a>
-                <input type="submit" value="" class="submit" /></div>
-            <div class="input">
-                <a href="UserCenter.aspx">
-                    <img src="Images/loginPAY.jpg" /></a> <a href="UserCenter.aspx">
-                        <img src="Images/loginQQ.jpg" /></a></div>
-        </div>
+        <uc2:UserDisplayArea ID="UserDisplayArea1" runat="server" />
         <!--µÇÂ¼-->
         <div class="left_bottom fl cl">
             <a href="Register.aspx">
