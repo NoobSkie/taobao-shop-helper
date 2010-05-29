@@ -51,23 +51,15 @@ namespace J.SLS.Database.Configuration
             }
         }
 
-        [ThreadStatic]
-        private static ILHDBTran _dbTran;
         /// <summary>
-        /// 获取数据库事务访问对象，线程单例
+        /// 获取数据库事务访问对象
         /// </summary>
-        public ILHDBTran DbTran
+        public ILHDBTran BeginTran()
         {
-            get
-            {
-                if (_dbTran == null)
-                {
-                    _dbTran = LHDBFactory.BeginTransaction(DatabaseType, ConnectionString);
-                    _dbTran.ConnectionTimeout = this.ConnectionTimeout;
-                    _dbTran.CommandTimeout = this.CommandTimeout;
-                }
-                return _dbTran;
-            }
+            ILHDBTran _dbTran = LHDBFactory.BeginTransaction(DatabaseType, ConnectionString);
+            _dbTran.ConnectionTimeout = this.ConnectionTimeout;
+            _dbTran.CommandTimeout = this.CommandTimeout;
+            return _dbTran;
         }
 
         /// <summary>

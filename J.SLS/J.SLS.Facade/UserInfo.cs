@@ -18,4 +18,14 @@ namespace J.SLS.Facade
         [EntityMappingField("RegisterTime")]
         public DateTime RegisterTime { get; set; }
     }
+
+    [EntityMappingTable("T_User_BaseInfo", ReadOnly = true)]
+    public class UserInfo : LoginInfo
+    {
+        [EntityMappingField("Email", IsKey = true)]
+        public string Email { get; set; }
+
+        [EntityMappingField("RealName")]
+        public string RealName { get; set; }
+    }
 }

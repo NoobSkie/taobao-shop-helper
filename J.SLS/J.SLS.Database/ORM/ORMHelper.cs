@@ -12,7 +12,7 @@ using System.Text;
 
 namespace J.SLS.Database.ORM
 {
-    internal class ORMHelper
+    public class ORMHelper
     {
         internal static DbType GetDbTypeByName(string typeName)
         {
@@ -47,7 +47,7 @@ namespace J.SLS.Database.ORM
             TypeSchema entityInfo = ORMSchemaCache.GetTypeSchema(entity.GetType());
             StringBuilder infoBuilder = new StringBuilder();
             infoBuilder.AppendLine("Entity Type: " + entity.GetType().FullName);
-            foreach (SchemaItem mfi in entityInfo.GetKeyFieldInfos())
+            foreach (SchemaItem mfi in entityInfo.GetAllFieldInfos())
             {
                 PropertyInfo property = mfi.ProInfo;
                 infoBuilder.AppendLine("[" + property.Name + "]: " + property.GetValue(entity, null));
@@ -93,7 +93,7 @@ namespace J.SLS.Database.ORM
             return infoBuilder.ToString();
         }
 
-        internal static IList<T> DataTableToList<T>(DataTable dataTable) where T : new()
+        public static IList<T> DataTableToList<T>(DataTable dataTable) where T : new()
         {
             List<T> list = new List<T>();
             for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -104,7 +104,7 @@ namespace J.SLS.Database.ORM
             return list;
         }
 
-        internal static T ConvertDataRowToEntity<T>(DataRow dataRow) where T : new()
+        public static T ConvertDataRowToEntity<T>(DataRow dataRow) where T : new()
         {
             PreconditionAssert.IsNotNull(dataRow, ErrorMessages.NullReferenceException);
 

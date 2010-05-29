@@ -17,7 +17,7 @@ namespace J.SLS.Domain
             persistence = new ObjectPersistence(dbAccess);
         }
 
-        public UserEntity Authenticate(string userId, string password)
+        public LoginEntity Authenticate(string userId, string password)
         {
             password = EncryptTool.MD5(password);
             Criteria cri = new Criteria();
@@ -38,32 +38,28 @@ namespace J.SLS.Domain
             throw new LoginException(LoginErrorType.UserIdOrPasswordError);
         }
 
-        //public void Add(UserEntity entity)
-        //{
-        //    entity.Password = entity.Password;
-        //    persistence.Add(entity);
-        //}
-
-        public void Delete(string userId)
+        public void AddLogin(LoginEntity loginEntity, string password)
         {
-            persistence.Delete(new UserEntity { UserId = userId });
+            UserPassowrdEntity pwdEntity = new UserPassowrdEntity();
+            pwdEntity.UserId = loginEntity.UserId;
+            pwdEntity.UserName = loginEntity.UserName;
+            pwdEntity.IsCanLogin = loginEntity.IsCanLogin;
+            pwdEntity.RegisterTime = DateTime.Now;
+            pwdEntity.Password = EncryptTool.MD5(password);
+
+            persistence.Add(pwdEntity);
         }
 
-        public void Modify(string userId, string oldPassword, string newPassword)
+        public void AddUserBase(UserBaseEntity userEntity)
         {
-            //UserEntity user = persistence.GetByKey<UserEntity>(userId);
-            //if (user == null)
-            //{
-            //}
-            //if (user.Password != oldPassword)
-            //{
-            //}
-            //user.Password = newPassword;
-            //persistence.Modify(user);
+            persistence.Add(userEntity);
         }
 
-        private class UserPassowrdEntity : UserEntity
+        private class UserPassowrdEntity : LoginEntity
         {
+            [EntityMappingField("RegisterTime")]
+            public DateTime RegisterTime { get; set; }
+
             [EntityMappingField("Password")]
             public string Password { get; set; }
         }

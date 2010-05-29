@@ -33,6 +33,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J.SLS.Common", "J.SLS.Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shove", "..\MyLottery\Shove\Shove.csproj", "{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TestSite", "TestSite\", "{E600CF65-9642-4A6F-AF86-28CDB4A2F485}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/TestSite"
+		Debug.AspNetCompiler.PhysicalPath = "TestSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\TestSite\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/TestSite"
+		Release.AspNetCompiler.PhysicalPath = "TestSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\TestSite\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "46850"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +84,10 @@ Global
 		{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E600CF65-9642-4A6F-AF86-28CDB4A2F485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E600CF65-9642-4A6F-AF86-28CDB4A2F485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E600CF65-9642-4A6F-AF86-28CDB4A2F485}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E600CF65-9642-4A6F-AF86-28CDB4A2F485}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

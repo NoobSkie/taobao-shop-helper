@@ -6,6 +6,8 @@ using J.SLS.Database.ORM;
 using J.SLS.Domain;
 using J.SLS.Common;
 using J.SLS.Common.Exceptions;
+using J.SLS.Common.Logs;
+using J.SLS.Database.DBAccess;
 
 namespace J.SLS.Facade
 {
@@ -17,7 +19,7 @@ namespace J.SLS.Facade
             {
                 UserManager manager = new UserManager(DbAccess);
                 password = EncryptTool.MD5(password);
-                UserEntity entity = manager.Authenticate(userId, password);
+                LoginEntity entity = manager.Authenticate(userId, password);
                 return ConvertFromEntity(entity);
             }
             catch (LoginException ex)
@@ -32,12 +34,57 @@ namespace J.SLS.Facade
                         errMsg += " - 用户被限制登录，请联系系统管理员！";
                         break;
                 }
-                throw new FacadeException(errMsg, ex);
+                throw HandleException(LogCategory.Login, errMsg, ex);
             }
             catch (Exception ex)
             {
                 string errMsg = "登录失败 - 系统异常，请联系系统管理员！";
-                throw new FacadeException(errMsg, ex);
+                throw HandleException(LogCategory.Login, errMsg, ex);
+            }
+        }
+
+        public bool CheckUserIdCanRegister(string userId)
+        {
+            try
+            {
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                LoginEntity user = persistence.GetByKey<LoginEntity>(userId);
+                return (user == null);
+            }
+            catch (Exception ex)
+            {
+                string errMsg = "检查用户ID失败！";
+                throw HandleException(LogCategory.SearchUser, errMsg, ex);
+            }
+        }
+
+        public void Register(UserInfo user, string password)
+        {
+            LoginEntity loginEntity = new LoginEntity();
+            loginEntity.UserId = user.UserId;
+            loginEntity.UserName = user.UserName;
+            loginEntity.IsCanLogin = true;
+
+            UserBaseEntity userBaseEntity = new UserBaseEntity();
+            userBaseEntity.UserId = user.UserId;
+            userBaseEntity.RealName = user.RealName;
+            userBaseEntity.Email = user.Email;
+
+            try
+            {
+                using (ILHDBTran tran = BeginTran())
+                {
+                    UserManager manager = new UserManager(tran);
+                    password = EncryptTool.MD5(password);
+                    manager.AddLogin(loginEntity, password);
+                    manager.AddUserBase(userBaseEntity);
+                    tran.Commit();
+                }
+            }
+            catch (Exception ex)
+            {
+                string errMsg = "注册新用户失败 - 系统异常，请联系系统管理员！";
+                throw HandleException(LogCategory.Register, errMsg, ex);
             }
         }
 
@@ -52,18 +99,17 @@ namespace J.SLS.Facade
             catch (Exception ex)
             {
                 string errMsg = "获取用户信息失败！";
-                throw new FacadeException(errMsg, ex);
+                throw HandleException(LogCategory.SearchUser, errMsg, ex);
             }
         }
 
-        private LoginInfo ConvertFromEntity(UserEntity entity)
+        private LoginInfo ConvertFromEntity(LoginEntity entity)
         {
             if (entity == null) return null;
 
             LoginInfo info = new LoginInfo();
             info.UserId = entity.UserId;
             info.UserName = entity.UserName;
-            info.RegisterTime = entity.RegisterTime;
             return info;
         }
     }

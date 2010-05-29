@@ -48,7 +48,8 @@
         <div style="margin: 15px auto;">
             您好！&nbsp;faacai&nbsp;&nbsp;&nbsp;&nbsp;您的余额：<strong class="red">￥888.00</strong>
             元&nbsp;&nbsp;&nbsp;&nbsp;积分：<strong class="red">888</strong><a href="#">中奖查询</a><a
-                href="#" class="red">充值</a><a href="#">提现</a><a href="#">我的658</a><a href="#">安全退出</a></div>
+                href="#" class="red">充值</a><a href="#">提现</a><a href="#">我的658</a><asp:HyperLink
+                    ID="hlnkLogout" NavigateUrl="~/Users/Logout.aspx" runat="server">安全退出</asp:HyperLink></div>
         <!-- 期信息开始 -->
         <div style="border: #C0DBF9 1px solid; background-image: url(../images/l.jpg); background-repeat: repeat-x;
             background-position: top; margin-bottom: 5px; height: 100%; overflow: hidden;">
@@ -78,7 +79,9 @@
                         每周一、三、六开奖</div>
                     <div>
                         当期第<span style="font-weight: bold; color: #fe8625;">20100024</span>期&nbsp;&nbsp;投注截止时间：2010-03-08
-                        19：27：00&nbsp;&nbsp;离投注截止还有：<span style="background-color: Red; color: White; font-weight: bold;">01时48分21秒</span></div>
+                        19：27：00&nbsp;&nbsp;离投注截止还有：<span id="toCurrIsuseEndTime" style="background-color: Red;
+                            color: White; font-weight: bold;">01时48分21秒</span></div>
+                    <span id="currIsuseEndTime" class="black12" style="display: none;"></span>
                     <div style="height: 24px; line-height: 24px;">
                         <a href="DataBehaviour.aspx" class="red">时时彩走势图</a> <a href="DrawaLotteryInfo.aspx"
                             class="red">时时彩中奖查询</a></div>
@@ -158,35 +161,56 @@
                             <span id='playTypes0'>
                                 <input type='radio' name='playType' id='playType2801' value='2801' checked='checked'
                                     onclick='clickPlayType(this.id)' /><label for="playType2801">单式</label>
-                                <input type='radio' name='playType' id='playType2802' value='2802' onclick='clickPlayType(this.id)' /><label for="playType2802">复选</label>
-                                <input type='radio' name='playType' id='playType2803' value='2803' onclick='clickPlayType(this.id)' /><label for="playType2803">组合</label>
+                                <input type='radio' name='playType' id='playType2802' value='2802' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2802">复选</label>
+                                <input type='radio' name='playType' id='playType2803' value='2803' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2803">组合</label>
                                 &nbsp;&nbsp;&nbsp; <font style="font-weight: bolder">通选:</font>
-                                <input type='radio' name='playType' id='playType2804' value='2805' onclick='clickPlayType(this.id)' /><label for="playType2804">单式</label>
-                                <input type='radio' name='playType' id='playType2805' value='2806' onclick='clickPlayType(this.id)' /><label for="playType2805">复式</label>
+                                <input type='radio' name='playType' id='playType2804' value='2805' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2804">单式</label>
+                                <input type='radio' name='playType' id='playType2805' value='2806' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2805">复式</label>
                             </span><span id='playTypes1' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2806' value='2801' onclick='clickPlayType(this.id)' /><label for="playType2806">单式</label>
-                                <input type='radio' name='playType' id='playType2807' value='2802' onclick='clickPlayType(this.id)' /><label for="playType2807">复选</label>
-                                <input type='radio' name='playType' id='playType2808' value='2803' onclick='clickPlayType(this.id)' /><label for="playType2808">组合</label>
+                                <input type='radio' name='playType' id='playType2806' value='2801' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2806">单式</label>
+                                <input type='radio' name='playType' id='playType2807' value='2802' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2807">复选</label>
+                                <input type='radio' name='playType' id='playType2808' value='2803' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2808">组合</label>
                                 &nbsp;&nbsp;&nbsp; <font style="font-weight: bolder">组三:</font>
-                                <input id="playType2809" name="playType" type="radio" value="2813" onclick="clickPlayType(this.id)" /><label for="playType2809">单式</label>
-                                <input id="playType2810" name="playType" type="radio" value="2814" onclick="clickPlayType(this.id)" /><label for="playType2810">复式</label>
+                                <input id="playType2809" name="playType" type="radio" value="2813" onclick="clickPlayType(this.id)" /><label
+                                    for="playType2809">单式</label>
+                                <input id="playType2810" name="playType" type="radio" value="2814" onclick="clickPlayType(this.id)" /><label
+                                    for="playType2810">复式</label>
                                 &nbsp;&nbsp;&nbsp; <font style="font-weight: bolder">组六:</font>
-                                <input id="playType2811" name="playType" type="radio" value="2815" onclick="clickPlayType(this.id)" /><label for="playType2811">单式</label>
-                                <input id="playType2812" name="playType" type="radio" value="2816" onclick="clickPlayType(this.id)" /><label for="playType2812">复式</label>
+                                <input id="playType2811" name="playType" type="radio" value="2815" onclick="clickPlayType(this.id)" /><label
+                                    for="playType2811">单式</label>
+                                <input id="playType2812" name="playType" type="radio" value="2816" onclick="clickPlayType(this.id)" /><label
+                                    for="playType2812">复式</label>
                             </span><span id='playTypes2' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2813' value='2801' onclick='clickPlayType(this.id)' /><label for="playType2813">单式</label>
-                                <input type='radio' name='playType' id='playType2814' value='2802' onclick='clickPlayType(this.id)' /><label for="playType2814">复选</label>
-                                <input type='radio' name='playType' id='playType2815' value='2803' onclick='clickPlayType(this.id)' /><label for="playType2815">组合</label>
+                                <input type='radio' name='playType' id='playType2813' value='2801' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2813">单式</label>
+                                <input type='radio' name='playType' id='playType2814' value='2802' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2814">复选</label>
+                                <input type='radio' name='playType' id='playType2815' value='2803' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2815">组合</label>
                                 &nbsp;&nbsp;&nbsp; <font style="font-weight: bolder">组选:</font>
-                                <input type='radio' name='playType' id='playType2816' value='2807' onclick='clickPlayType(this.id)' /><label for="playType2816">单式</label>
-                                <input type='radio' name='playType' id='playType2817' value='2808' onclick='clickPlayType(this.id)' /><label for="playType2817">复式</label>
-                                <input type='radio' name='playType' id='playType2818' value='2810' onclick='clickPlayType(this.id)' /><label for="playType2818">包点</label>
-                                <input type='radio' name='playType' id='playType2819' value='2811' onclick='clickPlayType(this.id)' /><label for="playType2819">包胆</label>
+                                <input type='radio' name='playType' id='playType2816' value='2807' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2816">单式</label>
+                                <input type='radio' name='playType' id='playType2817' value='2808' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2817">复式</label>
+                                <input type='radio' name='playType' id='playType2818' value='2810' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2818">包点</label>
+                                <input type='radio' name='playType' id='playType2819' value='2811' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2819">包胆</label>
                             </span><span id='playTypes3' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2820' value='2801' onclick='clickPlayType(this.id)' /><label for="playType2820">单式</label>
-                                <input type='radio' name='playType' id='playType2821' value='2803' onclick='clickPlayType(this.id)' /><label for="playType2821">组合</label>
+                                <input type='radio' name='playType' id='playType2820' value='2801' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2820">单式</label>
+                                <input type='radio' name='playType' id='playType2821' value='2803' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2821">组合</label>
                             </span><span id='playTypes4' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2822' value='2804' onclick='clickPlayType(this.id)' /><label for="playType2822">复式</label>
+                                <input type='radio' name='playType' id='playType2822' value='2804' onclick='clickPlayType(this.id)' /><label
+                                    for="playType2822">复式</label>
                             </span>
                             <label id="labShowWinMoney">
                             </label>
@@ -504,14 +528,21 @@
     <input id="tb_hide_SumNum" name="tb_hide_SumNum" type="hidden" />
     <input id="HidMaxTimes" name="HidMaxTimes" type="hidden" value="1000" />
     <input id="HidLotteryID" name="HidLotteryID" type="hidden" value="28" />
+    <button title="Test" onclick="alert('1');Page_load();alert('2');">Test
+    </button>
 
     <script type="text/javascript">
+
         window.onload = showSameHeight;
         Page_load();
         PageEvent();
 
         function GetBtnOKId() {
             return "<%= btn_OK.ClientID %>";
+        }
+
+        function GetCheckAgreementId() {
+            return "<%= chkAgrrement.ClientID %>";
         }
     </script>
 

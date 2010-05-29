@@ -37,14 +37,8 @@ public abstract class LotteryBasePage : BasePage
         }
     }
 
-    protected override void OnInit(EventArgs e)
+    protected override void OnLoad(EventArgs e)
     {
-        //lotteryInfo = lotteryFacade.GetLotteryInfoByCode<LotterySimpleInfo>(LotteryCode);
-        //if (lotteryInfo == null || !lotteryInfo.IsUsed)
-        //{
-        //    Response.Redirect("~/Default.aspx");
-        //}
-
-        base.OnInit(e);
+        base.OnLoad(e);
     }
 }

@@ -151,7 +151,7 @@
 
 
         function CreateLogin(script) {
-            if (Number("<%= UserId %>") > 0) {
+            if ("<%= UserId %>" != "") {
                 eval(script);
                 return true;
             }
@@ -439,81 +439,6 @@
             版权所有：宁波发彩网络科技有限公司
             <br />
             增值电信业务经营许可证：88888888888 浙B2-888885</div>
-    </div>
-    <div class="sub-floor-menus" id="sub_floor_menus">
-        <div class="menu" id="sub_floor_1" style="display: none; left: 0px">
-            <div class="dht">
-                <dl>
-                    <dd class="dhj">
-                        <ul>
-                            <li>
-                                <p>
-                                    <span><strong style="color: #fe8625; font-weight: bold;">彩票游戏</strong></span></p>
-                                <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">重庆时时彩</SPAN></a>
-                                    <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">江西时时彩</SPAN></a>
-                                        <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">山东11选5</SPAN></a>
-                                            <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">江西11选5</SPAN></a>
-                                                <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">22选5</SPAN></a>
-                                                    <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">时时乐</SPAN></a>
-                                                        <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">福彩3D</SPAN></a>
-                                                            <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">排列三</SPAN></a>
-                                                                <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">双色球</SPAN></a>
-                                                                    <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">超级大乐透</SPAN></a>
-                                                                        <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">七星彩</SPAN></a>
-                                                                            <li class="hj"><a href="UserLottery.aspx" class="track" name="t-l-m-t">七彩乐</SPAN></a></li></ul>
-                </dl>
-            </div>
-        </div>
-    </div>
-    <div class="sub-floor-menus2" id="sub_floor_menus">
-        <div class="menu" id="sub_floor_2" style="display: none; left: 0px">
-            <div class="dht">
-                <dl>
-                    <dd class="dhj">
-                        <ul>
-                            <li>
-                                <p>
-                                    <span><strong style="color: #fe8625; font-weight: bold;">中奖查询</strong></span></p>
-                                <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">重庆时时彩</SPAN></a>
-                                    <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">江西时时彩</SPAN></a>
-                                        <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">山东11选5</SPAN></a>
-                                            <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">江西11选5</SPAN></a>
-                                                <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">22选5</SPAN></a>
-                                                    <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">时时乐</SPAN></a>
-                                                        <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">福彩3D</SPAN></a>
-                                                            <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">排列三</SPAN></a>
-                                                                <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">双色球</SPAN></a>
-                                                                    <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">超级大乐透</SPAN></a>
-                                                                        <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">七星彩</SPAN></a>
-                                                                            <li class="hj"><a href="DrawaLotteryInfo.aspx" class="track" name="t-l-m-t">七彩乐</SPAN></a></li></ul>
-                </dl>
-            </div>
-        </div>
-    </div>
-    <div class="sub-floor-menus3" id="sub_floor_menus">
-        <div class="menu" id="sub_floor_3" style="display: none; left: 0px">
-            <div class="dht">
-                <dl>
-                    <dd class="dhj">
-                        <ul>
-                            <li>
-                                <p>
-                                    <span><strong style="color: #fe8625; font-weight: bold;">数据查询</strong></span></p>
-                                <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">重庆时时彩</SPAN></a>
-                                    <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">江西时时彩</SPAN></a>
-                                        <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">山东11选5</SPAN></a>
-                                            <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">江西11选5</SPAN></a>
-                                                <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">22选5</SPAN></a>
-                                                    <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">时时乐</SPAN></a>
-                                                        <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">福彩3D</SPAN></a>
-                                                            <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">排列三</SPAN></a>
-                                                                <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">双色球</SPAN></a>
-                                                                    <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">超级大乐透</SPAN></a>
-                                                                        <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">七星彩</SPAN></a>
-                                                                            <li class="hj"><a href="DataBehavior.aspx" class="track" name="t-l-m-t">七彩乐</SPAN></a></li></ul>
-                </dl>
-            </div>
-        </div>
     </div>
     </form>
 </body>

@@ -7,7 +7,7 @@ using J.SLS.Database.ORM;
 namespace J.SLS.Domain
 {
     [EntityMappingTable("T_User_Login")]
-    public class UserEntity
+    public class LoginEntity
     {
         [EntityMappingField("UserId", IsKey = true)]
         public string UserId { get; set; }
@@ -17,8 +17,18 @@ namespace J.SLS.Domain
 
         [EntityMappingField("IsCanLogin")]
         public bool IsCanLogin { get; set; }
+    }
 
-        [EntityMappingField("RegisterTime")]
-        public DateTime RegisterTime { get; set; }
+    [EntityMappingTable("T_User_BaseInfo")]
+    public class UserBaseEntity
+    {
+        [EntityMappingField("UserId", IsKey = true)]
+        public string UserId { get; set; }
+
+        [EntityMappingField("RealName")]
+        public string RealName { get; set; }
+
+        [EntityMappingField("Email")]
+        public string Email { get; set; }
     }
 }

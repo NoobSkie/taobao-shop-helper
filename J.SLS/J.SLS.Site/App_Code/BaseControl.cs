@@ -63,9 +63,14 @@ public abstract class BaseControl : System.Web.UI.UserControl
         }
     }
 
+    public void RedirectToUrl(string url)
+    {
+        Response.Redirect(url, false);
+    }
+
     public void RedirectToDefault()
     {
-        Response.Redirect("~/Default.aspx");
+        Response.Redirect("~/Default.aspx", false);
     }
 
     public void RedirectToLogin(Page basePage, string message)

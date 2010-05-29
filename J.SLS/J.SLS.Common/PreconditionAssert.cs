@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
+using J.SLS.Common.Exceptions;
 
 namespace J.SLS.Common
 {

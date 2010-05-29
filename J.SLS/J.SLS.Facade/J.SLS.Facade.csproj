@@ -52,6 +52,8 @@
     <Compile Include="UserFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInfo.cs" />
+    <Compile Include="LogFacade.cs" />
+    <Compile Include="CommonFacade.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\J.SLS.Common\J.SLS.Common.csproj">

@@ -62,6 +62,6 @@ public abstract class BaseMaster : System.Web.UI.MasterPage
 
     public void RedirectToDefault()
     {
-        Response.Redirect("~/Default.aspx");
+        Response.Redirect("~/Default.aspx", false);
     }
 }

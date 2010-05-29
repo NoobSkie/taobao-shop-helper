@@ -10,7 +10,8 @@
         <div class="MenuStart">
         </div>
         <div class="MenuItemLeft">
-            <a href="Default.aspx">首页</a></div>
+            <asp:HyperLink ID="hlnkDefault" NavigateUrl="~/Default.aspx" runat="server">首页</asp:HyperLink>
+        </div>
         <div class="MenuItemRight">
         </div>
         <div class="MenuItemLeft">

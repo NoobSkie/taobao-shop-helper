@@ -36,12 +36,14 @@ public partial class Users_Login : BasePage
                 throw new LoginException("登录失败 - 未知原因");
             }
             CurrentUser = user;
+            lblMessage.Visible = false;
             RedirectToDefault();
         }
         catch (Exception ex)
         {
             CurrentUser = null;
             lblMessage.Text = ex.Message;
+            lblMessage.Visible = true;
         }
     }
 }

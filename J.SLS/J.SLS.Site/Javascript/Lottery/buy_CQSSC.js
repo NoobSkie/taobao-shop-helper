@@ -86,82 +86,56 @@ var isGetSchemeBonusScalec = false;
 var time_GetSchemeBonusScalec = null;
 function GetSchemeBonusScalec() {
 
-//    if (!isGetSchemeBonusScalec) {
-//        try {
+    //    if (!isGetSchemeBonusScalec) {
+    //        try {
 
-//            Lottery_CQSSC_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);
+    //            Lottery_CQSSC_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);
 
-//            isGetSchemeBonusScalec = true;
-//        }
-//        catch (e) {
-//            time_GetSchemeBonusScalec = setTimeout("Lottery_CQSSC_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
-//        }
-//    }
+    //            isGetSchemeBonusScalec = true;
+    //        }
+    //        catch (e) {
+    //            time_GetSchemeBonusScalec = setTimeout("Lottery_CQSSC_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
+    //        }
+    //    }
 }
 
 function GetSchemeBonusScalec_callback(response) {
 
-//    if (response == null || response.value == null) {
+    //    if (response == null || response.value == null) {
 
-//        time_GetSchemeBonusScalec = setTimeout("Lottery_CQSSC_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
+    //        time_GetSchemeBonusScalec = setTimeout("Lottery_CQSSC_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
 
-//        return;
-//    }
+    //        return;
+    //    }
 
 
-//    //将time_GetSchemeBonusScalec移除
-//    if (time_GetSchemeBonusScalec != null) {
-//        clearTimeout(time_GetSchemeBonusScalec);
-//    }
+    //    //将time_GetSchemeBonusScalec移除
+    //    if (time_GetSchemeBonusScalec != null) {
+    //        clearTimeout(time_GetSchemeBonusScalec);
+    //    }
 
-//    var v = response.value.split('|');
+    //    var v = response.value.split('|');
 
-//    o_tb_SchemeBonusScale.value = v[0];
-//    o_tb_SchemeBonusScalec.value = v[0];
+    //    o_tb_SchemeBonusScale.value = v[0];
+    //    o_tb_SchemeBonusScalec.value = v[0];
 
-//    Opt_InitiateSchemeLimitLowerScaleMoney = v[1];
-//    Opt_InitiateSchemeLimitLowerScale = v[2];
-//    Opt_InitiateSchemeLimitUpperScaleMoney = v[3];
-//    Opt_InitiateSchemeLimitUpperScale = v[4];
+    //    Opt_InitiateSchemeLimitLowerScaleMoney = v[1];
+    //    Opt_InitiateSchemeLimitLowerScale = v[2];
+    //    Opt_InitiateSchemeLimitUpperScaleMoney = v[3];
+    //    Opt_InitiateSchemeLimitUpperScale = v[4];
 
-//    LotteryName = v[5];
-//    isGetSchemeBonusScalec = true;
+    //    LotteryName = v[5];
+    //    isGetSchemeBonusScalec = true;
 }
-
-//定时读取最近的开奖信息的定时器
-var time_GetServerTime = null;
 
 //获取服务器时间
 function GetServerTime(lotteryID) {
-
+    alert("GetServerTime");
     currentLotteryID = lotteryID;
-
-    try {
-
-        Lottery_CQSSC_Buy.GetSysTime(GetServerTime_callback);
-
-    }
-    catch (e) {
-        //如果失败了，就继续读取
-        time_GetServerTime = setTimeout("GetServerTime(" + lotteryID + ");", 2000);
-    }
+    Lottery_CQSSC_Buy.GetSysTime(GetServerTime_callback);
 }
 
 function GetServerTime_callback(response) {
-
-
-    if (response == null || response.value == null) {
-
-        time_GetServerTime = setTimeout("GetServerTime(" + currentLotteryID + ");", 2000);
-
-        return;
-    }
-
-    //将time_GetServerTime移除
-    if (time_GetServerTime != null) {
-        clearTimeout(time_GetServerTime);
-    }
-
     var serverTime = response.value;
 
     var IsuseEndTime = new Date($Id("HidIsuseEndTime").value.replace(new RegExp("-", "g"), "/"));
@@ -173,14 +147,10 @@ function GetServerTime_callback(response) {
     var m = Math.floor(to / (1000 * 60)) % 60;
     var s = Math.floor(to / 1000) % 60;
 
-
-
     if (!isNaN(d)) {
         if (d < 0) {
             $Id("toCurrIsuseEndTime").innerHTML = "本期已截止投注";
-
             var lottery = setTimeout("loadLottery(" + currentLotteryID + ");", 20000);
-
             return;
         }
         else {
@@ -196,11 +166,10 @@ function GetServerTime_callback(response) {
 //显示当前期的投注时间
 var lockIsuseTime = null;
 function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
-
+    alert("showIsuseTime");
     if (goTime >= 300000)//8分钟
     {
         GetServerTime(lotteryID);
-
         return;
     }
 
@@ -235,38 +204,15 @@ function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
 }
 
 //获取当前投注奖期信息，及追号奖期
-var time_GetIsuseInfo = null;
 function GetIsuseInfo(lotteryID) {
-
     currentLotteryID = lotteryID;
-
-//    try {
-
-//        Lottery_CQSSC_Buy.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
-
-//    }
-//    catch (e) {
-
-//        time_GetIsuseInfo = setTimeout("GetIsuseInfo(" + lotteryID + ");", 2000);
-//    }
+    alert(Lottery_CQSSC_Buy);
+    Lottery_CQSSC_Buy.GetIsuseInfo(lotteryID, GetIsuseInfo_callback)
 }
 
 function GetIsuseInfo_callback(response) {
-
-    if (response == null || response.value == null) {
-
-        time_GetIsuseInfo = setTimeout("GetIsuseInfo(" + currentLotteryID + ");", 2000);
-
-        return;
-    }
-
-    //将time_GetIsuseInfo移除
-    if (time_GetIsuseInfo != null) {
-        clearTimeout(time_GetIsuseInfo);
-    }
-
+    alert(response);
     var v = response.value;
-
     if (v.indexOf('|') == -1) {
         return;
     }
@@ -307,15 +253,15 @@ function GetNewsInfo(lotteryID) {
 
     currentLotteryID = lotteryID;
 
-//    try {
+    //    try {
 
-//        Lottery_CQSSC_Buy.GetNewsInfo(lotteryID, GetNewsInfo_callback);
+    //        Lottery_CQSSC_Buy.GetNewsInfo(lotteryID, GetNewsInfo_callback);
 
-//    }
-//    catch (e) {
+    //    }
+    //    catch (e) {
 
-//        time_GetNewsInfo = setTimeout("GetNewsInfo(" + lotteryID + ");", 2000);
-//    }
+    //        time_GetNewsInfo = setTimeout("GetNewsInfo(" + lotteryID + ");", 2000);
+    //    }
 }
 
 function GetNewsInfo_callback(response) {
@@ -339,28 +285,21 @@ function GetNewsInfo_callback(response) {
     }
 
     $Id("tbNews").innerHTML = "<table width=\"98%\" border=\"0\" style=\"margin:8px;\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">" + v + "</table>";
-
 }
-
 
 //加载彩票信息
 var lockInit = null;
 function loadLottery(lotteryID) {
-
     if (lockInit == null) {
         init();
         lockInit = 1;
     }
-
     //获取当前投注奖期信息
     GetIsuseInfo(lotteryID);
-
     //获取上期开奖号码(Jscript.js文件中)
     loadPage(lotteryID);
-
     //加载资讯信息
     GetNewsInfo(lotteryID);
-
 }
 
 //---------------------------------------投注功能区代码-------------------------------------------------
@@ -1165,10 +1104,10 @@ function clickPlayClass(i, obj) {
 }
 
 function SelectXing(r) {
-//    if (r <= 5) {
-//        var tempR = 5 - r;
-//        document.getElementById("tbMiss").value = Lottery_CQSSC_Buy.BindHotAndCoolAndMiss(tempR).value;
-//    }
+    //    if (r <= 5) {
+    //        var tempR = 5 - r;
+    //        document.getElementById("tbMiss").value = Lottery_CQSSC_Buy.BindHotAndCoolAndMiss(tempR).value;
+    //    }
 }
 
 function ReloadSchedule() {
@@ -1266,17 +1205,17 @@ function btn_Close() {
 }
 
 function showSameHeight() {
-//    if (document.getElementById("menu_left").clientHeight < document.getElementById("menu_right").clientHeight) {
-//        document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
-//    }
-//    else {
-//        if (document.getElementById("menu_right").offsetHeight >= 860) {
-//            document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
-//        }
-//        else {
-//            document.getElementById("menu_left").style.height = "860px";
-//        }
-//    }
+    //    if (document.getElementById("menu_left").clientHeight < document.getElementById("menu_right").clientHeight) {
+    //        document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
+    //    }
+    //    else {
+    //        if (document.getElementById("menu_right").offsetHeight >= 860) {
+    //            document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
+    //        }
+    //        else {
+    //            document.getElementById("menu_left").style.height = "860px";
+    //        }
+    //    }
 }
 
 
@@ -1358,10 +1297,11 @@ function btn_OK() {
 
 function btn_OKClick() {
 
-    if (!$Id("chkAgrrement").checked) {
+    if (!$Id(GetCheckAgreementId()).checked) {
         alert("请先阅读用户电话短信投注协议，谢谢！");
         return false;
     }
+    alert($Id("currIsuseEndTime"));
     if ($Id("currIsuseEndTime").innerHTML == "本期已截止投注" < 0) {
         alert("本期投注已截止，谢谢。");
 
@@ -1656,7 +1596,6 @@ function CheckShare2(type, obj) {
 
 //当页面加载完后，要执行的系列事件
 function PageEvent() {
-
     //第二步（根据url参数显示相应的内容）
     var fromUrlParam = location.search;
     if (fromUrlParam.indexOf("CoBuy") != -1) {
@@ -1673,8 +1612,6 @@ function PageEvent() {
 
 //页面加载的时候，加载相应的数据
 function Page_load() {
-
     //第一步（加载彩种）
     loadLottery(28);
-
 }

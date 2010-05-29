@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -49,8 +50,13 @@
     <Compile Include="Enums.cs" />
     <Compile Include="Exceptions\FacadeException.cs" />
     <Compile Include="Exceptions\LoginException.cs" />
+    <Compile Include="Exceptions\LogException.cs" />
+    <Compile Include="Logs\LogWriterGetter.cs" />
+    <Compile Include="Logs\FileLogWriter.cs" />
+    <Compile Include="Logs\ILogWriter.cs" />
+    <Compile Include="Logs\LogHelper.cs" />
     <Compile Include="PreconditionAssert.cs" />
-    <Compile Include="PreconditionException.cs" />
+    <Compile Include="Exceptions\PreconditionException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

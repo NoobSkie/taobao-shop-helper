@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using J.SLS.Facade;
 using System.Configuration;
+using J.SLS.Common.Logs;
 
 public abstract class BasePage : System.Web.UI.Page
 {
@@ -60,8 +61,21 @@ public abstract class BasePage : System.Web.UI.Page
         }
     }
 
+    public void RedirectToUrl(string url)
+    {
+        Response.Redirect(url, false);
+    }
+
     public void RedirectToDefault()
     {
-        Response.Redirect("~/Default.aspx", true);
+        Response.Redirect("~/Default.aspx", false);
+    }
+
+    public ILogWriter LogWriter
+    {
+        get
+        {
+            return LogWriterGetter.GetLogWriter();
+        }
     }
 }
