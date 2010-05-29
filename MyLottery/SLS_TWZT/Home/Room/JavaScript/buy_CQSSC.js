@@ -241,7 +241,7 @@ function GetIsuseInfo(lotteryID) {
     currentLotteryID = lotteryID;
 
     try {
-
+        alert(Lottery_Buy_CQSSC);
         Lottery_Buy_CQSSC.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
 
     }

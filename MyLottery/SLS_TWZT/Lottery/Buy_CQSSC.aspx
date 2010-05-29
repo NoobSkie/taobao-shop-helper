@@ -614,9 +614,10 @@
 </html>
 
 <script type="text/javascript">
+
     Page_load();
     PageEvent();
-    <%=DZ %>    
+    <%=DZ %>
 </script>
 
 <%=script %>

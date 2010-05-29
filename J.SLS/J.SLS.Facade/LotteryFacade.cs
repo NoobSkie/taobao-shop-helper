@@ -50,7 +50,7 @@ namespace J.SLS.Facade
 
         public IList<EndAheadMinuteInfo> GetEndAheadMinuteList()
         {
-            string sql = "SELECT DISTINCT [LotteryID],[SystemEndAheadMinute] FROM [T_PlayTypes]";
+            string sql = "SELECT DISTINCT [LotteryID],[SystemEndAheadMinute] FROM [T_Lottery_PlayTypes]";
             DataTable table = DbAccess.GetDataTableBySQL(sql);
             return ORMHelper.DataTableToList<EndAheadMinuteInfo>(table);
         }

@@ -78,10 +78,11 @@
                         <span style="font-size: 18px; font-weight: bold; color: Blue;">重庆时时彩：2元赢取10万元</span>
                         每周一、三、六开奖</div>
                     <div>
-                        当期第<span style="font-weight: bold; color: #fe8625;">20100024</span>期&nbsp;&nbsp;投注截止时间：2010-03-08
-                        19：27：00&nbsp;&nbsp;离投注截止还有：<span id="toCurrIsuseEndTime" style="background-color: Red;
+                        当期第<span id="currIsuseName" style="font-weight: bold; color: #fe8625;"></span>期&nbsp;&nbsp;投注截止时间：<span
+                            id="currIsuseEndTime" style="background-color: Red; color: White; font-weight: bold;">2010-03-08
+                        19：27：00</span>&nbsp;&nbsp;离投注截止还有：<span id="toCurrIsuseEndTime" style="background-color: Red;
                             color: White; font-weight: bold;">01时48分21秒</span></div>
-                    <span id="currIsuseEndTime" class="black12" style="display: none;"></span>
+                    <span id="currIsuseEndTime11" class="black12" style="display: none;"></span>
                     <div style="height: 24px; line-height: 24px;">
                         <a href="DataBehaviour.aspx" class="red">时时彩走势图</a> <a href="DrawaLotteryInfo.aspx"
                             class="red">时时彩中奖查询</a></div>
@@ -528,8 +529,6 @@
     <input id="tb_hide_SumNum" name="tb_hide_SumNum" type="hidden" />
     <input id="HidMaxTimes" name="HidMaxTimes" type="hidden" value="1000" />
     <input id="HidLotteryID" name="HidLotteryID" type="hidden" value="28" />
-    <button title="Test" onclick="alert('1');Page_load();alert('2');">Test
-    </button>
 
     <script type="text/javascript">
 
@@ -544,6 +543,15 @@
         function GetCheckAgreementId() {
             return "<%= chkAgrrement.ClientID %>";
         }
+
+        function GetHidIsuseID() {
+            return "<%= HidIsuseID.ClientID %>";
+        }
+
+        function GetHidIsuseEndTime() {
+            return "<%= HidIsuseEndTime.ClientID %>";
+        }
+        
     </script>
 
 </asp:Content>

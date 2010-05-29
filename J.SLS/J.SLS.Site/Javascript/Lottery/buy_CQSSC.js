@@ -130,7 +130,6 @@ function GetSchemeBonusScalec_callback(response) {
 
 //获取服务器时间
 function GetServerTime(lotteryID) {
-    alert("GetServerTime");
     currentLotteryID = lotteryID;
     Lottery_CQSSC_Buy.GetSysTime(GetServerTime_callback);
 }
@@ -138,7 +137,7 @@ function GetServerTime(lotteryID) {
 function GetServerTime_callback(response) {
     var serverTime = response.value;
 
-    var IsuseEndTime = new Date($Id("HidIsuseEndTime").value.replace(new RegExp("-", "g"), "/"));
+    var IsuseEndTime = new Date($Id(GetHidIsuseEndTime()).value.replace(new RegExp("-", "g"), "/"));
     var TimePoor = new Date(serverTime.replace(new RegExp("-", "g"), "/")).getTime() - new Date().getTime();
     var to = IsuseEndTime.getTime() - new Date(serverTime.replace(new RegExp("-", "g"), "/")).getTime();
 
@@ -166,7 +165,6 @@ function GetServerTime_callback(response) {
 //显示当前期的投注时间
 var lockIsuseTime = null;
 function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
-    alert("showIsuseTime");
     if (goTime >= 300000)//8分钟
     {
         GetServerTime(lotteryID);
@@ -174,7 +172,7 @@ function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
     }
 
     var serverTime = new Date().getTime() + tPoor;
-    var IsuseEndTime = new Date($Id("HidIsuseEndTime").value.replace(new RegExp("-", "g"), "/"));
+    var IsuseEndTime = new Date($Id(GetHidIsuseEndTime()).value.replace(new RegExp("-", "g"), "/"));
     var to = IsuseEndTime.getTime() - serverTime;
 
     var d = Math.floor(to / (1000 * 60 * 60 * 24));
@@ -206,12 +204,10 @@ function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
 //获取当前投注奖期信息，及追号奖期
 function GetIsuseInfo(lotteryID) {
     currentLotteryID = lotteryID;
-    alert(Lottery_CQSSC_Buy);
-    Lottery_CQSSC_Buy.GetIsuseInfo(lotteryID, GetIsuseInfo_callback)
+    Lottery_CQSSC_Buy.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
 }
 
 function GetIsuseInfo_callback(response) {
-    alert(response);
     var v = response.value;
     if (v.indexOf('|') == -1) {
         return;
@@ -226,7 +222,6 @@ function GetIsuseInfo_callback(response) {
     var currIsuse = arrInfo[0];
     var chaseIsuse = arrInfo[1];
 
-
     $Id("div_QH_Today").innerHTML = chaseIsuse;
 
     try {
@@ -238,10 +233,10 @@ function GetIsuseInfo_callback(response) {
     } catch (e) { }
 
     var arrcurrIsuse = currIsuse.split(',');
-    $Id("HidIsuseID").value = arrcurrIsuse[0];
+    $Id(GetHidIsuseID()).value = arrcurrIsuse[0];
     $Id("currIsuseName").innerText = arrcurrIsuse[1];
     $Id("currIsuseEndTime").innerText = arrcurrIsuse[2].replace("/", "-").replace("/", "-");
-    $Id("HidIsuseEndTime").value = arrcurrIsuse[2];
+    $Id(GetHidIsuseEndTime()).value = arrcurrIsuse[2];
 
     //获取投注时间信息
     GetServerTime(currentLotteryID);

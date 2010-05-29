@@ -87,13 +87,13 @@ namespace J.SLS.Facade
         /// <summary>
         /// 开奖操作员ID
         /// </summary>
-        [EntityMappingField("WinLotteryNumber")]
+        [EntityMappingField("OpenOperatorID")]
         public string OpenOperatorID { get; set; }
 
         /// <summary>
         /// 奖期状态：0 未开启 1 开始 2 暂停 3 截止 4 期结 5 返奖 6 返奖结束
         /// </summary>
-        [EntityMappingField("WinLotteryNumber")]
+        [EntityMappingField("State")]
         public short State { get; set; }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace J.SLS.Facade
     /// <summary>
     /// 用戶截至投注、撤單時間提前分鐘數
     /// </summary>
-    [EntityMappingTable("T_PlayTypes", ReadOnly = true)]
+    [EntityMappingTable("T_Lottery_PlayTypes", ReadOnly = true)]
     public class EndAheadMinuteInfo
     {
         /// <summary>
@@ -125,7 +125,7 @@ namespace J.SLS.Facade
     /// <summary>
     /// 玩法类型。单式，复式
     /// </summary>
-    [EntityMappingTable("T_PlayTypes", ReadOnly = true)]
+    [EntityMappingTable("T_Lottery_PlayTypes", ReadOnly = true)]
     public class PlayType
     {
         /// <summary>

@@ -4,6 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+
+    <script type="text/javascript">
+
+        function Test() {
+            var a = document.getElementById("a").value;
+            var b = document.getElementById("b").value;
+            alert(_Default);
+            var c = _Default.TestMethod(a, b);
+            alert(c);
+        }
+    
+    </script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -14,17 +27,5 @@
         </button>
     </div>
     </form>
-
-    <script type="text/javascript">
-
-        function Test() {
-            var a = document.getElementById("a").value;
-            var b = document.getElementById("b").value;
-            var c = _Default.TestMethod(a, b);
-            alert(c);
-        }
-    
-    </script>
-
 </body>
 </html>

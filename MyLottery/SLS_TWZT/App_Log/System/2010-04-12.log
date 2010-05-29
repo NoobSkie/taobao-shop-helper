@@ -1,3 +1,0 @@
-2010-04-12 16:21:51:843		Error, PageName: http://localhost:30227/SLS_MHB/UserLogin.aspx。 ErrorMsg: T_Options 表读取发生错误，请检查数据连接或者数据库是否完整 Source:SLS.TWZT StackTrace:   在 SystemOptions.get_Item(String Key)
-   在 Global.Application_Start(Object sender, EventArgs e)。
-

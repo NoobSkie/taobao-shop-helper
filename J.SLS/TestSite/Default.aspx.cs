@@ -10,10 +10,10 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        AjaxPro.Utility.RegisterTypeForAjax(this.GetType(), this);
+        AjaxPro.Utility.RegisterTypeForAjax(typeof(_Default));
     }
 
-    [AjaxMethod(HttpSessionStateRequirement.None)]
+    [AjaxMethod]
     public string TestMethod(string a, string b)
     {
         return a + " and " + b;
