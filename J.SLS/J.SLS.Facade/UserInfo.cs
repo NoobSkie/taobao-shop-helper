@@ -6,8 +6,8 @@ using J.SLS.Database.ORM;
 
 namespace J.SLS.Facade
 {
-    [EntityMappingTable("T_User_Login", ReadOnly = true)]
-    public class LoginInfo
+    [EntityMappingTable("V_User_Detail", ReadOnly = true)]
+    public class UserInfo
     {
         [EntityMappingField("UserId", IsKey = true)]
         public string UserId { get; set; }
@@ -15,17 +15,22 @@ namespace J.SLS.Facade
         [EntityMappingField("UserName")]
         public string UserName { get; set; }
 
+        [EntityMappingField("IsCanLogin")]
+        public bool IsCanLogin { get; set; }
+
         [EntityMappingField("RegisterTime")]
         public DateTime RegisterTime { get; set; }
-    }
 
-    [EntityMappingTable("T_User_BaseInfo", ReadOnly = true)]
-    public class UserInfo : LoginInfo
-    {
-        [EntityMappingField("Email", IsKey = true)]
+        [EntityMappingField("Email")]
         public string Email { get; set; }
 
         [EntityMappingField("RealName")]
         public string RealName { get; set; }
+
+        [EntityMappingField("Balance")]
+        public double Balance { get; set; }
+
+        [EntityMappingField("Freeze")]
+        public double Freeze { get; set; }
     }
 }

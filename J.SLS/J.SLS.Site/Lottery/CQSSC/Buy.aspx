@@ -79,9 +79,8 @@
                         每周一、三、六开奖</div>
                     <div>
                         当期第<span id="currIsuseName" style="font-weight: bold; color: #fe8625;"></span>期&nbsp;&nbsp;投注截止时间：<span
-                            id="currIsuseEndTime" style="background-color: Red; color: White; font-weight: bold;">2010-03-08
-                        19：27：00</span>&nbsp;&nbsp;离投注截止还有：<span id="toCurrIsuseEndTime" style="background-color: Red;
-                            color: White; font-weight: bold;">01时48分21秒</span></div>
+                            id="currIsuseEndTime" style="background-color: Red; color: White; font-weight: bold;"></span>&nbsp;&nbsp;离投注截止还有：<span id="toCurrIsuseEndTime" style="background-color: Red;
+                            color: White; font-weight: bold;"></span></div>
                     <span id="currIsuseEndTime11" class="black12" style="display: none;"></span>
                     <div style="height: 24px; line-height: 24px;">
                         <a href="DataBehaviour.aspx" class="red">时时彩走势图</a> <a href="DrawaLotteryInfo.aspx"

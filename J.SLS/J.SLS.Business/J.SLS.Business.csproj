@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{28754D7B-A7A1-421E-8D67-747D08E9ED9A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>J.SLS.Business</RootNamespace>
+    <AssemblyName>J.SLS.Business</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Lotteries\LJFC22X5.cs" />
+    <Compile Include="Lotteries\LJP62.cs" />
+    <Compile Include="Lotteries\LJTC6J1.cs" />
+    <Compile Include="Lotteries\LLKLPK.cs" />
+    <Compile Include="Lotteries\LNFC25X4.cs" />
+    <Compile Include="Lotteries\LNFC35X7.cs" />
+    <Compile Include="Lotteries\BJKL8.cs" />
+    <Compile Include="Lotteries\CQSSC.cs" />
+    <Compile Include="Lotteries\CTFC22X5.cs" />
+    <Compile Include="Lotteries\CTFC32X7.cs" />
+    <Compile Include="Lotteries\DF6J1.cs" />
+    <Compile Include="Lotteries\DFDLT.cs" />
+    <Compile Include="Lotteries\FC3D.cs" />
+    <Compile Include="Lotteries\FJFC20X5.cs" />
+    <Compile Include="Lotteries\FJTC22X5.cs" />
+    <Compile Include="Lotteries\FJTC31X7.cs" />
+    <Compile Include="Lotteries\FJTC36X7.cs" />
+    <Compile Include="Lotteries\FZ36X7.cs" />
+    <Compile Include="Lotteries\HBKLPK.cs" />
+    <Compile Include="Lotteries\HD15X5.cs" />
+    <Compile Include="Lotteries\HeBKLPK.cs" />
+    <Compile Include="Lotteries\HLJKLPK.cs" />
+    <Compile Include="Lotteries\HNFC22X5.cs" />
+    <Compile Include="Lotteries\HNKY481.cs" />
+    <Compile Include="Lotteries\JQC.cs" />
+    <Compile Include="Lotteries\JX11X5.cs" />
+    <Compile Include="Lotteries\JXFC3D.cs" />
+    <Compile Include="Lotteries\JXSSC.cs" />
+    <Compile Include="Lotteries\LCBQC.cs" />
+    <Compile Include="Lotteries\LCDC.cs" />
+    <Compile Include="Lotteries\LJ36X7.cs" />
+    <Compile Include="Lotteries\AHKLPK.cs" />
+    <Compile Include="Lotteries\AHFC5WS.cs" />
+    <Compile Include="Lotteries\AHFC25X5.cs" />
+    <Compile Include="Lotteries\AHFC15X5.cs" />
+    <Compile Include="LotteryBase.cs" />
+    <Compile Include="LotteryTool.cs" />
+    <Compile Include="Lotteries\NYFC26X5.cs" />
+    <Compile Include="Lotteries\NYFC36X7.cs" />
+    <Compile Include="PlayType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Lotteries\QLC.cs" />
+    <Compile Include="Lotteries\QLFC23X5.cs" />
+    <Compile Include="Lotteries\QXC.cs" />
+    <Compile Include="Lotteries\SCKLPK.cs" />
+    <Compile Include="Lotteries\SDKLPK.cs" />
+    <Compile Include="Lotteries\SFC.cs" />
+    <Compile Include="Lotteries\SHKENO.cs" />
+    <Compile Include="Lotteries\SHSSL.cs" />
+    <Compile Include="Lotteries\ShXKLPK.cs" />
+    <Compile Include="Lotteries\SJFC21X5.cs" />
+    <Compile Include="Lotteries\SSQ.cs" />
+    <Compile Include="Lotteries\SXKLPK.cs" />
+    <Compile Include="Lotteries\SYYDJ.cs" />
+    <Compile Include="Lotteries\SZFC35X7.cs" />
+    <Compile Include="Lotteries\SZKL8.cs" />
+    <Compile Include="Lotteries\SZPL.cs" />
+    <Compile Include="Lotteries\SZPL3.cs" />
+    <Compile Include="Lotteries\SZPL5.cs" />
+    <Compile Include="Lotteries\TC22X5.cs" />
+    <Compile Include="Lotteries\TC29X7.cs" />
+    <Compile Include="Lotteries\TC31X7.cs" />
+    <Compile Include="Lotteries\TCCJDLT.cs" />
+    <Compile Include="Ticket.cs" />
+    <Compile Include="Lotteries\TJFC15X5.cs" />
+    <Compile Include="Lotteries\TTCX4.cs" />
+    <Compile Include="Lotteries\TTL22X5.cs" />
+    <Compile Include="Lotteries\XJSSC.cs" />
+    <Compile Include="Lotteries\ZCDC.cs" />
+    <Compile Include="Lotteries\ZJ15X5.cs" />
+    <Compile Include="Lotteries\ZJFC4J1.cs" />
+    <Compile Include="Lotteries\ZJKLPK.cs" />
+    <Compile Include="Lotteries\ZJTC20X5.cs" />
+    <Compile Include="Lotteries\ZJTC6J1.cs" />
+    <Compile Include="Lotteries\ZYFC22X5.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MyLottery\Shove\Shove.csproj">
+      <Project>{016FD8D7-6C01-4569-8FB1-5EF1390E40EF}</Project>
+      <Name>Shove</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

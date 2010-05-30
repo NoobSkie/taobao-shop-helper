@@ -13,6 +13,7 @@ using Shove._IO;
 using System.Data;
 using J.SLS.Facade;
 using Shove._Security;
+using J.SLS.Business;
 
 public partial class Lottery_CQSSC_Buy : LotteryBasePage
 {
@@ -60,76 +61,85 @@ public partial class Lottery_CQSSC_Buy : LotteryBasePage
         }
     }
 
+    // 追号信息，生成追号表格
     private string GetIsuseChase(int lotteryId)
     {
         try
         {
-            int num = DataCache.LotteryEndAheadMinute[lotteryId];
-            IList<IsuseInfo> isuseList = lotteryFacade.GetChaseIsuseList(lotteryId, num);
+            IList<IsuseInfo> isuseList = lotteryFacade.GetCommonIsuseList(lotteryId);
             if (isuseList.Count == 0)
             {
                 return "";
             }
+            int num = DataCache.LotteryEndAheadMinute[lotteryId];
             StringBuilder builder = new StringBuilder();
             int num2 = 0;
             builder.Append("<table cellpadding='0' cellspacing='1' style='width: 100%; text-align: center; background-color: #E2EAED;'><tbody style='background-color: White;'>");
             foreach (IsuseInfo isuseInfo in isuseList)
             {
-                num2++;
-                builder.Append("<tr>")
-                    .Append("<td style='width: 10%;'>")
-                    .Append("<input id='check")
-                    .Append(isuseInfo.Id)
-                    .Append("' type='checkbox' name='check")
-                    .Append(isuseInfo.Id)
-                    .Append("' onclick='check(this);' value='")
-                    .Append(isuseInfo.Id)
-                    .Append("'/>")
-                    .Append("</td>")
-                    .Append("<td style='width: 20%;'>")
-                    .Append("<span>")
-                    .Append(isuseInfo.Name)
-                    .Append("</span>")
-                    .Append("<span>")
-                    .Append((num2 == 1) ? "<font color='red'>[本期]</font>" : ((num2 == 2) ? "<font color='red'>[下期]</font>" : ""))
-                    .Append("</span>")
-                    .Append("</td>")
-                    .Append("<td style='width: 13%;'>")
-                    .Append("<input name='times")
-                    .Append(isuseInfo.Id)
-                    .Append("' type='text' value='1' id='times")
-                    .Append(isuseInfo.Id)
-                    .Append("' class='TextBox' onchange='onTextChange(this);' onkeypress='return InputMask_Number();' disabled='disabled' onblur='CheckMultiple2(this);' style='width: 30px;' />倍")
-                    .Append("</td>")
-                    .Append("<td style='width: 14%;'>")
-                    .Append("<input name='money")
-                    .Append(isuseInfo.Id)
-                    .Append("' type='text' value='0' id='money")
-                    .Append(isuseInfo.Id)
-                    .Append("' class='TextBox' disabled='disabled' style='width: 35px;' />元")
-                    .Append("</td>")
-                    .Append("<td style='width: 12%;'>")
-                    .Append("<input name='share")
-                    .Append(isuseInfo.Id)
-                    .Append("' type='text' value='1' id='share")
-                    .Append(isuseInfo.Id)
-                    .Append("' class='TextBox'  onkeypress='return InputMask_Number();' disabled='disabled'  style='width: 30px;' onblur='CheckShare2(1,this);'/>份")
-                    .Append("</td>")
-                    .Append("<td style='width: 13%;'>")
-                    .Append("<input name='buyedShare")
-                    .Append(isuseInfo.Id)
-                    .Append("' type='text' value='1' id='buyedShare")
-                    .Append(isuseInfo.Id)
-                    .Append("' class='TextBox'  onkeypress='return InputMask_Number();' disabled='disabled' onblur='CheckShare2(2,this);'  style='width: 35px;' />份")
-                    .Append("</td>")
-                    .Append("<td style='width: 15%;'>")
-                    .Append("<input name='assureShare")
-                    .Append(isuseInfo.Id)
-                    .Append("' type='text' value='0' id='assureShare")
-                    .Append(isuseInfo.Id)
-                    .Append("' class='TextBox'  onkeypress='return InputMask_Number();' onblur='CheckShare2(3,this);' disabled='disabled'  style='width: 35px;' />份")
-                    .Append("</td>")
-                    .Append("</tr>");
+                if (isuseInfo.StartTime > DateTime.Now
+                    || (isuseInfo.StartTime < DateTime.Now && isuseInfo.EndTime > DateTime.Now.AddMinutes(num)))
+                {
+                    num2++;
+                    #region 添加一行追号的数据
+
+                    builder.Append("<tr>")
+                        .Append("<td style='width: 10%;'>")
+                        .Append("<input id='check")
+                        .Append(isuseInfo.Id)
+                        .Append("' type='checkbox' name='check")
+                        .Append(isuseInfo.Id)
+                        .Append("' onclick='check(this);' value='")
+                        .Append(isuseInfo.Id)
+                        .Append("'/>")
+                        .Append("</td>")
+                        .Append("<td style='width: 20%;'>")
+                        .Append("<span>")
+                        .Append(isuseInfo.Name)
+                        .Append("</span>")
+                        .Append("<span>")
+                        .Append((num2 == 1) ? "<font color='red'>[本期]</font>" : ((num2 == 2) ? "<font color='red'>[下期]</font>" : ""))
+                        .Append("</span>")
+                        .Append("</td>")
+                        .Append("<td style='width: 13%;'>")
+                        .Append("<input name='times")
+                        .Append(isuseInfo.Id)
+                        .Append("' type='text' value='1' id='times")
+                        .Append(isuseInfo.Id)
+                        .Append("' class='TextBox' onchange='onTextChange(this);' onkeypress='return InputMask_Number();' disabled='disabled' onblur='CheckMultiple2(this);' style='width: 30px;' />倍")
+                        .Append("</td>")
+                        .Append("<td style='width: 14%;'>")
+                        .Append("<input name='money")
+                        .Append(isuseInfo.Id)
+                        .Append("' type='text' value='0' id='money")
+                        .Append(isuseInfo.Id)
+                        .Append("' class='TextBox' disabled='disabled' style='width: 35px;' />元")
+                        .Append("</td>")
+                        .Append("<td style='width: 12%;'>")
+                        .Append("<input name='share")
+                        .Append(isuseInfo.Id)
+                        .Append("' type='text' value='1' id='share")
+                        .Append(isuseInfo.Id)
+                        .Append("' class='TextBox'  onkeypress='return InputMask_Number();' disabled='disabled'  style='width: 30px;' onblur='CheckShare2(1,this);'/>份")
+                        .Append("</td>")
+                        .Append("<td style='width: 13%;'>")
+                        .Append("<input name='buyedShare")
+                        .Append(isuseInfo.Id)
+                        .Append("' type='text' value='1' id='buyedShare")
+                        .Append(isuseInfo.Id)
+                        .Append("' class='TextBox'  onkeypress='return InputMask_Number();' disabled='disabled' onblur='CheckShare2(2,this);'  style='width: 35px;' />份")
+                        .Append("</td>")
+                        .Append("<td style='width: 15%;'>")
+                        .Append("<input name='assureShare")
+                        .Append(isuseInfo.Id)
+                        .Append("' type='text' value='0' id='assureShare")
+                        .Append(isuseInfo.Id)
+                        .Append("' class='TextBox'  onkeypress='return InputMask_Number();' onblur='CheckShare2(3,this);' disabled='disabled'  style='width: 35px;' />份")
+                        .Append("</td>")
+                        .Append("</tr>");
+
+                    #endregion
+                }
             }
             builder.Append("</tbody></table>");
             return builder.ToString();
@@ -145,10 +155,10 @@ public partial class Lottery_CQSSC_Buy : LotteryBasePage
 
     protected void btn_OK_Click(object sender, EventArgs e)
     {
-        this.Buy(base.CurrentUser);
+        //this.Buy(base.CurrentUser);
     }
 
-    private void Buy(LoginInfo _User)
+    private void Buy(UserInfo _User)
     {
         string request = Shove._Web.Utility.GetRequest("HidIsuseID");
         string str2 = Shove._Web.Utility.GetRequest("HidIsuseEndTime");
@@ -280,7 +290,7 @@ public partial class Lottery_CQSSC_Buy : LotteryBasePage
                         {
                             number = number.Substring(0, number.Length - 1);
                         }
-                        Lottery lottery = new Lottery();
+                        LotteryTool lottery = new LotteryTool();
                         string[] strArray = this.SplitLotteryNumber(number);
                         if ((strArray == null) || (strArray.Length < 1))
                         {
@@ -352,7 +362,8 @@ public partial class Lottery_CQSSC_Buy : LotteryBasePage
                                         string[] strArray5 = builder.ToString().Split(new char[] { ';' });
                                         int length = strArray5.Length;
                                         string[] str = new string[length * 9];
-                                        DateTime time2 = DateTime.Parse(Functions.F_GetIsuseSystemEndTime(long.Parse(strArray5[0].Split(new char[] { ',' })[0]), playType).ToString());
+                                        long isuseId = long.Parse(strArray5[0].Split(',')[0]);
+                                        DateTime time2 = lotteryFacade.GetIsuseSystemEndTime(isuseId, playType);
                                         if (DateTime.Now >= time2)
                                         {
                                             JavaScript.Alert(this.Page, "您选择的追号期号中包含已截止的期，请重新选择。");
@@ -386,14 +397,14 @@ public partial class Lottery_CQSSC_Buy : LotteryBasePage
                                                     return;
                                                 }
                                             }
-                                            detailXML = PF.BuildIsuseAdditionasXmlForBJKL8(str);
+                                            detailXML = BuildIsuseAdditionasXmlForBJKL8(str);
                                             if (detailXML == "")
                                             {
                                                 JavaScript.Alert(this.Page, "追号发生错误。");
                                             }
                                             else if (_User.InitiateChaseTask(str8.Trim(), str9.Trim(), lotteryID, stopWhenWinMoney, detailXML, number, schemeBonusScalec, ref returnDescription) < 0)
                                             {
-                                                PF.GoError(1, returnDescription, base.GetType().FullName + "(-754)");
+                                                RedirectToError(1, returnDescription, base.GetType().FullName + "(-754)");
                                             }
                                             else
                                             {
@@ -550,5 +561,19 @@ public partial class Lottery_CQSSC_Buy : LotteryBasePage
             new Log("System").Write("T_AlipayBuyTemp 数据库读写错误。");
         }
         JavaScript.Alert(this.Page, "您的账户余额不足，请先充值，谢谢。", "../Home/Room/OnlinePay/Default.aspx?BuyID=" + num8.ToString());
+    }
+
+    private string[] SplitLotteryNumber(string Number)
+    {
+        string[] strArray = Number.Split(new char[] { '\n' });
+        if (strArray.Length == 0)
+        {
+            return null;
+        }
+        for (int i = 0; i < strArray.Length; i++)
+        {
+            strArray[i] = strArray[i].Trim();
+        }
+        return strArray;
     }
 }

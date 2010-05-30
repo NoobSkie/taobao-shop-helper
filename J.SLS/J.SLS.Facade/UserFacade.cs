@@ -13,14 +13,16 @@ namespace J.SLS.Facade
 {
     public class UserFacade : BaseFacade
     {
-        public LoginInfo Login(string userId, string password)
+        public UserInfo Login(string userId, string password)
         {
             try
             {
                 UserManager manager = new UserManager(DbAccess);
                 password = EncryptTool.MD5(password);
                 LoginEntity entity = manager.Authenticate(userId, password);
-                return ConvertFromEntity(entity);
+
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                return persistence.GetByKey<UserInfo>(userId);
             }
             catch (LoginException ex)
             {
@@ -88,29 +90,18 @@ namespace J.SLS.Facade
             }
         }
 
-        public T GetUserInfo<T>(string userId)
-            where T : LoginInfo, new()
+        public UserInfo GetUserInfo(string userId)
         {
             try
             {
                 ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-                return persistence.GetByKey<T>(userId);
+                return persistence.GetByKey<UserInfo>(userId);
             }
             catch (Exception ex)
             {
                 string errMsg = "获取用户信息失败！";
                 throw HandleException(LogCategory.SearchUser, errMsg, ex);
             }
-        }
-
-        private LoginInfo ConvertFromEntity(LoginEntity entity)
-        {
-            if (entity == null) return null;
-
-            LoginInfo info = new LoginInfo();
-            info.UserId = entity.UserId;
-            info.UserName = entity.UserName;
-            return info;
         }
     }
 }
