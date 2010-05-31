@@ -1,0 +1,149 @@
+﻿body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: 宋体, Tahoma, Arial;
+}
+li
+{
+    margin-bottom: 6px;
+}
+.layout
+{
+    width: 920px;
+}
+.header
+{
+    width: 920px;
+    text-align: left;
+    background: #6A93D4;
+}
+.content
+{
+    min-height: 200px;
+    text-align: left;
+}
+.footer
+{
+    width: 9200px;
+    text-align: left;
+    background: #DDDDDD;
+}
+.content .leftMenu
+{
+    width: 220px;
+    vertical-align: top;
+}
+.content .mainArea
+{
+    width: 500px;
+    vertical-align: top;
+}
+.content .rightArea
+{
+    width: 200px;
+    vertical-align: top;
+}
+.MainBlock
+{
+    border: solid 1px gray;
+    padding: 5px;
+    margin-bottom: 8px;
+}
+.menuTree
+{
+}
+.menuTree .menuItem
+{
+}
+.menuTree .menuItem .menu1
+{
+    margin: 0px;
+}
+.menuTree .menuItem .menu2
+{
+}
+.leftMenu .MainBlock
+{
+}
+.leftMenu .MainBlock .blockHeader
+{
+}
+.leftMenu .MainBlock .blockHeader th
+{
+    padding: 3px 0px 10px 8px;
+}
+.mainArea .MainBlock
+{
+}
+.mainArea .MainBlock table
+{
+    width: 100%;
+}
+.mainArea .MainBlock .blockHeader
+{
+}
+.mainArea .MainBlock .blockHeader th
+{
+    padding: 3px 0px 10px 8px;
+}
+.rightArea .MainBlock
+{
+}
+.rightArea .PicNews
+{
+    padding: 0px;
+}
+.rightArea .MainBlock .blockHeader
+{
+}
+.rightArea .MainBlock .blockHeader th
+{
+    padding: 3px 0px 10px 8px;
+}
+.footer p
+{
+    margin: 0;
+    padding: 10px 0;
+}
+.classSchema
+{
+    border-bottom: solid 1px #800080;
+    border-right: solid 1px #800080;
+}
+.classSchema tr
+{
+    border-top: solid 1px #800080;
+}
+.classSchema tr:first-child
+{
+    border-top: solid 0px #800080;
+}
+.classSchema tr td
+{
+    border-top: solid 1px #800080;
+    border-left: solid 1px #800080;
+    padding: 2px 0px 2px 4px;
+}
+.classSchema tr th
+{
+    border-top: solid 1px #800080;
+    border-left: solid 1px #800080;
+    text-align: center;
+    padding: 3px 0px 3px 0px;
+}
+.InstrumentShow
+{
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: solid 1px #800080;
+}
+.InstrumentShow img
+{
+    margin-left: 10px;
+    width: 90px;
+}
+.InstrumentShow img:first-child
+{
+    margin-left: 0px;
+}
