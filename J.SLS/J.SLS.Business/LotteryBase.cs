@@ -182,37 +182,37 @@ namespace J.SLS.Business
             return "";
         }
 
-        public virtual Ticket[] ToElectronicTicket_DYJ(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        public virtual JTicket[] ToElectronicTicket_DYJ(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             return null;
         }
 
-        public virtual Ticket[] ToElectronicTicket_HPCQ(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        public virtual JTicket[] ToElectronicTicket_HPCQ(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             return null;
         }
 
-        public virtual Ticket[] ToElectronicTicket_HPJX(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        public virtual JTicket[] ToElectronicTicket_HPJX(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             return null;
         }
 
-        public virtual Ticket[] ToElectronicTicket_HPSD(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        public virtual JTicket[] ToElectronicTicket_HPSD(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             return null;
         }
 
-        public virtual Ticket[] ToElectronicTicket_HPSH(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        public virtual JTicket[] ToElectronicTicket_HPSH(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             return null;
         }
 
-        public virtual Ticket[] ToElectronicTicket_XGCQ(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        public virtual JTicket[] ToElectronicTicket_XGCQ(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             return null;
         }
 
-        public virtual Ticket[] ToElectronicTicket_XGSH(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        public virtual JTicket[] ToElectronicTicket_XGSH(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             return null;
         }

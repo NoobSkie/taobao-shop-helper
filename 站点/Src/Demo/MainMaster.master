@@ -1,22 +1,9 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMaster.master.cs"
-    Inherits="Admin_AdminMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainMaster.master.cs" Inherits="MainMaster" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>
-        <%= SiteName %>
-        - 后台管理</title>
-
-    <script type="text/javascript">
-
-        function AlertAndRedirect(msg, url) {
-            alert(msg);
-            location.href = url;
-        }
-    
-    </script>
-
+    <title></title>
     <asp:ContentPlaceHolder ID="ph_head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

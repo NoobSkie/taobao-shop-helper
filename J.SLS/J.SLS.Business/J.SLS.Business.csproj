@@ -108,7 +108,7 @@
     <Compile Include="Lotteries\TC29X7.cs" />
     <Compile Include="Lotteries\TC31X7.cs" />
     <Compile Include="Lotteries\TCCJDLT.cs" />
-    <Compile Include="Ticket.cs" />
+    <Compile Include="JTicket.cs" />
     <Compile Include="Lotteries\TJFC15X5.cs" />
     <Compile Include="Lotteries\TTCX4.cs" />
     <Compile Include="Lotteries\TTL22X5.cs" />

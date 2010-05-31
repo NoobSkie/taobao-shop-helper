@@ -18,11 +18,14 @@ namespace J.SkyMusic.Facade
 
         public void SaveParam(ParamInfo param)
         {
+            ParamEntity entity = new ParamEntity();
+            entity.Key = param.Key;
+            entity.Value = param.Value;
             using (ILHDBTran tran = BeginTran())
             {
                 ParamManager manager = new ParamManager(tran);
-                manager.DeleteParam(param);
-                manager.AddParam(param);
+                manager.DeleteParam(entity);
+                manager.AddParam(entity);
                 tran.Commit();
             }
         }

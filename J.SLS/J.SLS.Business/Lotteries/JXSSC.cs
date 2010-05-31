@@ -2507,7 +2507,7 @@ namespace J.SLS.Business
             return base.ShowNumber(Number, " ");
         }
 
-        public override Ticket[] ToElectronicTicket_HPJX(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        public override JTicket[] ToElectronicTicket_HPJX(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             if (PlayTypeID == 0x17d5)
             {
@@ -2584,7 +2584,7 @@ namespace J.SLS.Business
             return null;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_2X_ZhiB(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_2X_ZhiB(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_2X_ZhiB(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -2627,19 +2627,19 @@ namespace J.SLS.Business
                         number = strArray[k].ToString().Split(new char[] { '|' })[0];
                         num3 += 2.0 * double.Parse(strArray[k].ToString().Split(new char[] { '|' })[1]);
                         Money += num3 * multiple;
-                        list.Add(new Ticket(0x131, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                        list.Add(new JTicket(0x131, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                     }
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_2X_ZuB(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_2X_ZuB(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_2X_ZuB(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -2682,19 +2682,19 @@ namespace J.SLS.Business
                         number = strArray[k].ToString().Split(new char[] { '|' })[0];
                         num3 += 2.0 * double.Parse(strArray[k].ToString().Split(new char[] { '|' })[1]);
                         Money += num3 * multiple;
-                        list.Add(new Ticket(310, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                        list.Add(new JTicket(310, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                     }
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_2X_ZuBD(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_2X_ZuBD(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_2X_ZuBD(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -2737,19 +2737,19 @@ namespace J.SLS.Business
                         number = strArray[k].ToString().Split(new char[] { '|' })[0];
                         num3 += 2.0 * double.Parse(strArray[k].ToString().Split(new char[] { '|' })[1]);
                         Money += num3 * multiple;
-                        list.Add(new Ticket(0x137, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                        list.Add(new JTicket(0x137, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                     }
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_2X_ZuD(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_2X_ZuD(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_2X_ZuD(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -2796,18 +2796,18 @@ namespace J.SLS.Business
                         }
                     }
                     Money += num3 * multiple;
-                    list.Add(new Ticket(0x133, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                    list.Add(new JTicket(0x133, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_2X_ZuF(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_2X_ZuF(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_2X_ZuF(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -2850,19 +2850,19 @@ namespace J.SLS.Business
                         number = strArray[k].ToString().Split(new char[] { '|' })[0];
                         num3 += 2.0 * double.Parse(strArray[k].ToString().Split(new char[] { '|' })[1]);
                         Money += num3 * multiple;
-                        list.Add(new Ticket(0x134, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                        list.Add(new JTicket(0x134, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                     }
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_2X_ZuFW(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_2X_ZuFW(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_2X_ZuFW(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -2905,19 +2905,19 @@ namespace J.SLS.Business
                         number = strArray[k].ToString().Split(new char[] { '|' })[0];
                         num3 += 2.0 * double.Parse(strArray[k].ToString().Split(new char[] { '|' })[1]);
                         Money += num3 * multiple;
-                        list.Add(new Ticket(0x135, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                        list.Add(new JTicket(0x135, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                     }
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_3X_Zu3D(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_3X_Zu3D(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_3X_Zu3D(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -2964,18 +2964,18 @@ namespace J.SLS.Business
                         }
                     }
                     Money += num3 * multiple;
-                    list.Add(new Ticket(0x139, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                    list.Add(new JTicket(0x139, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_3X_Zu3F(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_3X_Zu3F(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_3X_Zu3F(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -3018,19 +3018,19 @@ namespace J.SLS.Business
                         number = strArray[k].ToString().Split(new char[] { '|' })[0];
                         num3 += 2.0 * double.Parse(strArray[k].ToString().Split(new char[] { '|' })[1]);
                         Money += num3 * multiple;
-                        list.Add(new Ticket(320, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                        list.Add(new JTicket(320, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                     }
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_3X_Zu6D(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_3X_Zu6D(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_3X_Zu6D(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -3077,18 +3077,18 @@ namespace J.SLS.Business
                         }
                     }
                     Money += num3 * multiple;
-                    list.Add(new Ticket(0x13a, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                    list.Add(new JTicket(0x13a, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_3X_Zu6F(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_3X_Zu6F(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_3X_Zu6F(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -3131,19 +3131,19 @@ namespace J.SLS.Business
                         number = strArray[k].ToString().Split(new char[] { '|' })[0];
                         num3 += 2.0 * double.Parse(strArray[k].ToString().Split(new char[] { '|' })[1]);
                         Money += num3 * multiple;
-                        list.Add(new Ticket(0x141, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                        list.Add(new JTicket(0x141, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                     }
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_5X_TXD(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_5X_TXD(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_5X_TX(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -3190,18 +3190,18 @@ namespace J.SLS.Business
                         }
                     }
                     Money += num3 * multiple;
-                    list.Add(new Ticket(0x138, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                    list.Add(new JTicket(0x138, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_5X_TXF(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_5X_TXF(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             ArrayList list = new ArrayList();
             string[] strArray = this.AnalyseSchemeToElectronicTicket_F(Number, PlayTypeID).Split(new char[] { '\n' });
@@ -3248,18 +3248,18 @@ namespace J.SLS.Business
                         }
                     }
                     Money += num3 * multiple;
-                    list.Add(new Ticket(0x138, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                    list.Add(new JTicket(0x138, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_D(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_D(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_D(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -3306,18 +3306,18 @@ namespace J.SLS.Business
                         }
                     }
                     Money += num3 * multiple;
-                    list.Add(new Ticket(0x12d, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                    list.Add(new JTicket(0x12d, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_DX(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_DX(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_DX(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -3364,18 +3364,18 @@ namespace J.SLS.Business
                         }
                     }
                     Money += num3 * multiple;
-                    list.Add(new Ticket(0x132, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                    list.Add(new JTicket(0x132, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_F(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_F(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_F(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -3418,19 +3418,19 @@ namespace J.SLS.Business
                         number = strArray[k].ToString().Split(new char[] { '|' })[0];
                         num3 += 2.0 * double.Parse(strArray[k].ToString().Split(new char[] { '|' })[1]);
                         Money += num3 * multiple;
-                        list.Add(new Ticket(0x12e, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                        list.Add(new JTicket(0x12e, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                     }
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_RX1(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_RX1(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_RX1(Number, PlayTypeID).Split(new char[] { '\n' });
             ArrayList list = new ArrayList();
@@ -3481,19 +3481,19 @@ namespace J.SLS.Business
                             }
                         }
                         Money += num4 * multiple;
-                        list.Add(new Ticket(0x13b, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num4 * multiple));
+                        list.Add(new JTicket(0x13b, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num4 * multiple));
                     }
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_RX2(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_RX2(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_RX1(Number, PlayTypeID).Split(new char[] { '\n' });
             ArrayList list = new ArrayList();
@@ -3544,19 +3544,19 @@ namespace J.SLS.Business
                             }
                         }
                         Money += num4 * multiple;
-                        list.Add(new Ticket(0x13c, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num4 * multiple));
+                        list.Add(new JTicket(0x13c, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num4 * multiple));
                     }
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }
 
-        private Ticket[] ToElectronicTicket_HPJX_ZH(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
+        private JTicket[] ToElectronicTicket_HPJX_ZH(int PlayTypeID, string Number, int Multiple, int MaxMultiple, ref double Money)
         {
             string[] strArray = this.AnalyseScheme_ZH(Number, PlayTypeID).Split(new char[] { '\n' });
             if (strArray == null)
@@ -3599,14 +3599,14 @@ namespace J.SLS.Business
                         number = strArray[k].ToString().Split(new char[] { '|' })[0];
                         num3 += 2.0 * double.Parse(strArray[k].ToString().Split(new char[] { '|' })[1]);
                         Money += num3 * multiple;
-                        list.Add(new Ticket(0x13f, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
+                        list.Add(new JTicket(0x13f, this.ConvertFormatToElectronTicket_HPJX(PlayTypeID, number), multiple, num3 * multiple));
                     }
                 }
             }
-            Ticket[] ticketArray = new Ticket[list.Count];
+            JTicket[] ticketArray = new JTicket[list.Count];
             for (int j = 0; j < ticketArray.Length; j++)
             {
-                ticketArray[j] = (Ticket)list[j];
+                ticketArray[j] = (JTicket)list[j];
             }
             return ticketArray;
         }

@@ -6,37 +6,6 @@ using J.SLS.Facade;
 
 public static class LotteryHelper
 {
-    protected LotteryFacade lotteryFacade = new LotteryFacade();
-
-    private LotterySimpleInfo lotteryInfo = null;
-    protected LotteryInfoBase CurrentLottery
-    {
-        get
-        {
-            return lotteryInfo;
-        }
-    }
-
-    protected int LotteryId
-    {
-        get
-        {
-            return 28;
-            // return CurrentLottery.Id;
-        }
-    }
-
-    protected abstract string LotteryCode { get; }
-
-    protected string LotteryName
-    {
-        get
-        {
-            return "重庆时时彩";
-            // return CurrentLottery.Name;
-        }
-    }
-
     public static string BuildIsuseAdditionasXmlFor1Team(int Count, params string[] str)
     {
         string str2 = "<Teams>";

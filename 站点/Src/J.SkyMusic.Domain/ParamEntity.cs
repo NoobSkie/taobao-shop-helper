@@ -6,7 +6,7 @@ using J.SLS.Database.ORM;
 
 namespace J.SkyMusic.Domain
 {
-    [EntityMappingTable("T_System_Param")]
+    [EntityMappingTable("T_System_Params")]
     public class ParamEntity
     {
         [EntityMappingField("ParamKey", IsKey = true)]

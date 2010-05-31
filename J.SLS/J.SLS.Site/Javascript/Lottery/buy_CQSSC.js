@@ -231,7 +231,7 @@ function GetIsuseInfo_callback(response) {
             check(firstChase);
         }
     } catch (e) { }
-
+    
     var arrcurrIsuse = currIsuse.split(',');
     $Id(GetHidIsuseID()).value = arrcurrIsuse[0];
     $Id("currIsuseName").innerText = arrcurrIsuse[1];
@@ -1291,12 +1291,10 @@ function btn_OK() {
 }
 
 function btn_OKClick() {
-
     if (!$Id(GetCheckAgreementId()).checked) {
         alert("请先阅读用户电话短信投注协议，谢谢！");
         return false;
     }
-    alert($Id("currIsuseEndTime"));
     if ($Id("currIsuseEndTime").innerHTML == "本期已截止投注" < 0) {
         alert("本期投注已截止，谢谢。");
 

@@ -30,7 +30,7 @@ public partial class Users_Login : BasePage
         try
         {
             UserFacade facade = new UserFacade();
-            LoginInfo user = facade.Login(userId, password);
+            UserInfo user = facade.Login(userId, password);
             if (user == null)
             {
                 throw new LoginException("登录失败 - 未知原因");

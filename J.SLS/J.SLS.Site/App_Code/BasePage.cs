@@ -10,8 +10,10 @@ using System.Web.UI;
 public abstract class BasePage : System.Web.UI.Page
 {
     private BaseHelper helper = null;
-    public BasePage()
+    protected override void OnInit(EventArgs e)
     {
+        base.OnInit(e);
+
         helper = new BaseHelper(this.Page);
     }
 

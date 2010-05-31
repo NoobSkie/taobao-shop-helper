@@ -50,6 +50,10 @@ public class BaseHelper
     {
         get
         {
+            if (_page.Session["AdminLogined"] == null)
+            {
+                return false;
+            }
             return (bool)_page.Session["AdminLogined"];
         }
         set
@@ -71,11 +75,6 @@ public class BaseHelper
         _page.Response.Redirect(url, false);
     }
 
-    public void RedirectToDefault()
-    {
-        _page.Response.Redirect("~/Default.aspx", false);
-    }
-
     public void RedirectToLogin(Page basePage, string message)
     {
         Dictionary<string, string> parameters = new Dictionary<string, string>();
@@ -87,7 +86,7 @@ public class BaseHelper
         {
             parameters.Add("Message", message);
         }
-        string url = GetParamsUrl("~/Users/Login.aspx", parameters);
+        string url = GetParamsUrl("~/Admin/AdminLogin.aspx", parameters);
         _page.Response.Redirect(url);
     }
 

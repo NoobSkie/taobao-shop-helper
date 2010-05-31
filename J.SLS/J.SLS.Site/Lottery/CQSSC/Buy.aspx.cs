@@ -14,6 +14,9 @@ using System.Data;
 using J.SLS.Facade;
 using Shove._Security;
 using J.SLS.Business;
+using HPGatewayModels;
+using IHPGateway;
+using HPGatewayFactory;
 
 public partial class Lottery_CQSSC_Buy : LotteryBasePage
 {
@@ -155,13 +158,13 @@ public partial class Lottery_CQSSC_Buy : LotteryBasePage
 
     protected void btn_OK_Click(object sender, EventArgs e)
     {
-        //this.Buy(base.CurrentUser);
+        DoBuy();
     }
 
-    private void Buy(UserInfo _User)
+    private void DoBuy()
     {
-        string request = Shove._Web.Utility.GetRequest("HidIsuseID");
-        string str2 = Shove._Web.Utility.GetRequest("HidIsuseEndTime");
+        string request = HidIsuseID.Value;
+        string str2 = HidIsuseEndTime.Value;
         string s = Shove._Web.Utility.GetRequest("playType");
         string str4 = Shove._Web.Utility.GetRequest("Chase");
         Shove._Web.Utility.GetRequest("CoBuy");
@@ -202,8 +205,7 @@ public partial class Lottery_CQSSC_Buy : LotteryBasePage
         int lotteryID = 0;
         long isuseID = 0L;
         double stopWhenWinMoney = 0.0;
-        double schemeBonusScale = 0.0;
-        double schemeBonusScalec = 0.0;
+        StringBuilder sb = new StringBuilder();
         try
         {
             money = double.Parse(str13);
@@ -217,351 +219,471 @@ public partial class Lottery_CQSSC_Buy : LotteryBasePage
             lotteryID = int.Parse(str16);
             isuseID = long.Parse(request);
             stopWhenWinMoney = double.Parse(str10);
-            schemeBonusScale = double.Parse(str19);
-            schemeBonusScalec = double.Parse(str20);
+
+            AccountNumber accountN = GetAccountNumber();
+            IIssueQueryGateway gateway = GatewayFactroy.CreateIssueQueryGatewayFactory(LotteryType.ChongQingWelfareLottery);
+            TransactionTypeManager transTypeM = new TransactionTypeManager(LotteryType.ChongQingWelfareLottery);
+            TransactionType transType = transTypeM.GetTransactionTypeByTypeCode(LotteryType.ChongQingWelfareLottery, "102");
+            PlayMethodManager pleyMethodM = new PlayMethodManager(LotteryType.ChongQingWelfareLottery);
+            transType = transTypeM.GetTransactionTypeByTypeCode(LotteryType.ChongQingWelfareLottery, "103");
+
+            List<Ticket> tickets = new List<Ticket>();
+            Ticket ticketOne = new Ticket();
+            ticketOne.TicketId = accountN.UserName + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
+            string gameName = "重庆时时彩";
+            ticketOne.PlayTypeInfo = pleyMethodM.GetMethodType(LotteryType.ChongQingWelfareLottery, gameName).PlayTypes[0];
+            ticketOne.IssueInfo = new Issue();
+            ticketOne.IssueInfo.PlayMethodInfo = pleyMethodM.GetMethodType(LotteryType.ChongQingWelfareLottery, gameName);
+            // 期号
+            ticketOne.IssueInfo.Number = Console.ReadLine();
+            // 倍投数
+            ticketOne.Amount = Console.ReadLine();
+            // 购买金额
+            ticketOne.Money = Console.ReadLine();
+            // 要投注的彩票号码(测试时，每张彩票一注)
+            ticketOne.AnteCodes = Console.ReadLine();
+
+            UserProfile user = new UserProfile();
+            // 彩票用户名
+            user.UserName = Console.ReadLine();
+            // 用户证件类型(1、身份证；2、军官证；3、护照)
+            user.CardTypeInfo = CardType.IdCard;
+            // 证件号码
+            user.CardNumber = Console.ReadLine();
+            // 用户邮箱地址
+            user.Mail = Console.ReadLine();
+            // 用户手机号(无纸化彩票中大奖的凭证之一)
+            user.Mobile = Console.ReadLine();
+            // 用户真实姓名
+            user.RealName = Console.ReadLine();
+
+            ticketOne.UserProfile = user;
+            tickets.Add(ticketOne);
+            ticketOne.TicketId = accountN.UserName + DateTime.Now.ToString("yyyyMMdd") + PostManager.TenSerialNumber;
+            tickets.Add(ticketOne);
+
+            try
+            {
+                string result = gateway.LotteryRequest(accountN, transType, tickets);
+                Console.WriteLine("投注结果：");
+                Console.WriteLine(result);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("投注结果：\n    错误：" + ex.Message);
+            }
         }
         catch
         {
             JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
             return;
         }
-        if ((money > 0.0) && (num7 >= 1))
-        {
-            if (assureMoney < 0.0)
-            {
-                JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
-            }
-            else if (share < 1)
-            {
-                JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
-            }
-            else
-            {
-                if ((buyShare == share) && (assureMoney == 0.0))
-                {
-                    share = 1;
-                    buyShare = 1;
-                }
-                if ((money / ((double)share)) < 1.0)
-                {
-                    JavaScript.Alert(this.Page, "每份金额最低不能少于 1 元。");
-                }
-                else
-                {
-                    double num15 = (buyShare * (money / ((double)share))) + assureMoney;
-                    if (str4 != "")
-                    {
-                        num15 = double.Parse(str18);
-                    }
-                    if (num15 > _User.Balance)
-                    {
-                        this.SaveDataForAliBuy();
-                    }
-                    else if (num15 > 10000000.0)
-                    {
-                        JavaScript.Alert(this.Page, "投注金额不能大于" + 0x989680.ToString() + "，谢谢。");
-                    }
-                    else if (multiple > 0x3e7)
-                    {
-                        JavaScript.Alert(this.Page, "投注倍数不能大于 999 倍，谢谢。");
-                    }
-                    else if ((schemeBonusScale < 0.0) && (schemeBonusScale > 10.0))
-                    {
-                        JavaScript.Alert(this.Page, "佣金比例只能在0~10之间");
-                    }
-                    else if ((schemeBonusScale.ToString().IndexOf("-") > -1) || (schemeBonusScale.ToString().IndexOf(".") > -1))
-                    {
-                        JavaScript.Alert(this.Page, "佣金比例输入有误");
-                    }
-                    else if ((schemeBonusScalec < 0.0) && (schemeBonusScalec > 10.0))
-                    {
-                        JavaScript.Alert(this.Page, "佣金比例只能在0~10之间");
-                    }
-                    else if ((schemeBonusScalec.ToString().IndexOf("-") > -1) || (schemeBonusScalec.ToString().IndexOf(".") > -1))
-                    {
-                        JavaScript.Alert(this.Page, "佣金比例输入有误");
-                    }
-                    else
-                    {
-                        schemeBonusScale /= 100.0;
-                        schemeBonusScalec /= 100.0;
-                        string number = str12;
-                        if (number[number.Length - 1] == '\n')
-                        {
-                            number = number.Substring(0, number.Length - 1);
-                        }
-                        LotteryTool lottery = new LotteryTool();
-                        string[] strArray = this.SplitLotteryNumber(number);
-                        if ((strArray == null) || (strArray.Length < 1))
-                        {
-                            JavaScript.Alert(this.Page, "选号发生异常，请重新选择号码投注，谢谢。(-694)");
-                        }
-                        else
-                        {
-                            int num17 = 0;
-                            foreach (string str22 in strArray)
-                            {
-                                string str23 = lottery[lotteryID].AnalyseScheme(str22, playType);
-                                if (!string.IsNullOrEmpty(str23))
-                                {
-                                    string[] strArray3 = str23.Split(new char[] { '|' });
-                                    if ((strArray3 != null) && (strArray3.Length >= 1))
-                                    {
-                                        num17 += _Convert.StrToInt(strArray3[strArray3.Length - 1], 0);
-                                    }
-                                }
-                            }
-                            if (num17 != num7)
-                            {
-                                JavaScript.Alert(this.Page, "选号发生异常，请重新选择号码投注，谢谢。");
-                            }
-                            else
-                            {
-                                StringBuilder builder = new StringBuilder();
-                                int num19 = 0;
-                                string detailXML = "";
-                                string returnDescription = "";
-                                if (str4 == "1")
-                                {
-                                    foreach (string str26 in base.Request.Form.AllKeys)
-                                    {
-                                        if (str26.IndexOf("check") > -1)
-                                        {
-                                            int num20 = _Convert.StrToInt(str26.Replace("check", ""), -1);
-                                            if (num20 > 0)
-                                            {
-                                                num19++;
-                                                int num21 = (_Convert.StrToInt(base.Request.Form["tb_hide_SumNum"], -1) * num) * _Convert.StrToInt(base.Request.Form["times" + num20.ToString()], -1);
-                                                builder.Append(base.Request.Form[str26]).Append(",").Append(base.Request.Form["times" + num20.ToString()]).Append(",").Append(num21.ToString()).Append(",").Append(base.Request.Form["share" + num20.ToString()]).Append(",").Append(base.Request.Form["buyedShare" + num20.ToString()]).Append(",").Append(base.Request.Form["assureShare" + num20.ToString()]).Append(";");
-                                            }
-                                        }
-                                    }
-                                    if (builder.Length > 0)
-                                    {
-                                        builder.Remove(builder.Length - 1, 1);
-                                    }
-                                    if (number[number.Length - 1] == '\n')
-                                    {
-                                        number = number.Substring(0, number.Length - 1);
-                                    }
-                                    try
-                                    {
-                                        money = double.Parse(str13);
-                                    }
-                                    catch
-                                    {
-                                        JavaScript.Alert(this.Page, "输入有错误，请仔细检查。(-1325)");
-                                        return;
-                                    }
-                                    if (money < 2.0)
-                                    {
-                                        JavaScript.Alert(this.Page, "输入有错误，请仔细检查。(-1332)");
-                                    }
-                                    else
-                                    {
-                                        string[] strArray5 = builder.ToString().Split(new char[] { ';' });
-                                        int length = strArray5.Length;
-                                        string[] str = new string[length * 9];
-                                        long isuseId = long.Parse(strArray5[0].Split(',')[0]);
-                                        DateTime time2 = lotteryFacade.GetIsuseSystemEndTime(isuseId, playType);
-                                        if (DateTime.Now >= time2)
-                                        {
-                                            JavaScript.Alert(this.Page, "您选择的追号期号中包含已截止的期，请重新选择。");
-                                        }
-                                        else
-                                        {
-                                            for (int i = 0; i < length; i++)
-                                            {
-                                                str[i * 9] = strArray5[i].Split(new char[] { ',' })[0];
-                                                str[(i * 9) + 1] = playType.ToString();
-                                                str[(i * 9) + 2] = number;
-                                                str[(i * 9) + 3] = strArray5[i].Split(new char[] { ',' })[1];
-                                                str[(i * 9) + 4] = strArray5[i].Split(new char[] { ',' })[2];
-                                                str[(i * 9) + 5] = num8.ToString();
-                                                str[(i * 9) + 6] = strArray5[i].Split(new char[] { ',' })[3];
-                                                str[(i * 9) + 7] = strArray5[i].Split(new char[] { ',' })[4];
-                                                str[(i * 9) + 8] = strArray5[i].Split(new char[] { ',' })[5];
-                                                if ((_Convert.StrToDouble(str[(i * 9) + 3], 0.0) * money) != _Convert.StrToDouble(str[(i * 9) + 4], 1.0))
-                                                {
-                                                    JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
-                                                    return;
-                                                }
-                                                if (_Convert.StrToDouble(str[(i * 9) + 3], 0.0) < multiple)
-                                                {
-                                                    JavaScript.Alert(this.Page, "追号倍数有错误，请仔细检查！");
-                                                    return;
-                                                }
-                                                if (((double.Parse(str[(i * 9) + 3]) * num7) * num) != double.Parse(str[(i * 9) + 4]))
-                                                {
-                                                    JavaScript.Alert(this.Page, "追号金额有错误，请仔细检查！可能原因：浏览器不兼容，建议使用IE 7.0");
-                                                    return;
-                                                }
-                                            }
-                                            detailXML = BuildIsuseAdditionasXmlForBJKL8(str);
-                                            if (detailXML == "")
-                                            {
-                                                JavaScript.Alert(this.Page, "追号发生错误。");
-                                            }
-                                            else if (_User.InitiateChaseTask(str8.Trim(), str9.Trim(), lotteryID, stopWhenWinMoney, detailXML, number, schemeBonusScalec, ref returnDescription) < 0)
-                                            {
-                                                RedirectToError(1, returnDescription, base.GetType().FullName + "(-754)");
-                                            }
-                                            else
-                                            {
-                                                Shove._Web.Cache.ClearCache("Home_Room_CoBuy_BindDataForType" + isuseID.ToString());
-                                                Shove._Web.Cache.ClearCache("Home_Room_SchemeAll_BindData" + isuseID.ToString());
-                                                Shove._Web.Cache.ClearCache(base._Site.ID.ToString() + "AccountFreezeDetail_" + _User.ID.ToString());
-                                                base.Response.Redirect("../Home/Room/UserBuySuccess.aspx?LotteryID=" + lotteryID.ToString() + "&Type=2&Money=" + num15.ToString());
-                                            }
-                                        }
-                                    }
-                                }
-                                else if (DateTime.Now >= _Convert.StrToDateTime(str2.Replace("/", "-"), DateTime.Now.AddDays(-1.0).ToString()))
-                                {
-                                    JavaScript.Alert(this.Page, "本期投注已截止，谢谢。");
-                                }
-                                else if (((num * num7) * multiple) != money)
-                                {
-                                    JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
-                                }
-                                else
-                                {
-                                    long num25 = _User.InitiateScheme(isuseID, playType, (str8.Trim() == "") ? "(无标题)" : str8.Trim(), str9.Trim(), number, "", multiple, money, assureMoney, share, buyShare, str7.Trim(), short.Parse(num8.ToString()), schemeBonusScale, ref returnDescription);
-                                    if (num25 < 0L)
-                                    {
-                                        PF.GoError(1, returnDescription, base.GetType().FullName + "(-755)");
-                                    }
-                                    else
-                                    {
-                                        Shove._Web.Cache.ClearCache("Home_Room_CoBuy_BindDataForType" + isuseID.ToString());
-                                        Shove._Web.Cache.ClearCache("Home_Room_SchemeAll_BindData" + isuseID.ToString());
-                                        base.Response.Redirect("../Home/Room/UserBuySuccess.aspx?LotteryID=" + lotteryID.ToString() + "&Money=" + num15.ToString() + "&SchemeID=" + num25.ToString());
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        else
-        {
-            JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
-        }
     }
 
-    private void SaveDataForAliBuy()
-    {
-        string request = Shove._Web.Utility.GetRequest("HidIsuseID");
-        Shove._Web.Utility.GetRequest("HidIsuseEndTime");
-        string s = Shove._Web.Utility.GetRequest("playType");
-        string str3 = Shove._Web.Utility.GetRequest("Chase");
-        string str4 = Shove._Web.Utility.GetRequest("Cobuy");
-        string str5 = Shove._Web.Utility.GetRequest("tb_Share");
-        string str6 = Shove._Web.Utility.GetRequest("tb_BuyShare");
-        string str7 = Shove._Web.Utility.GetRequest("tb_AssureShare");
-        string str8 = Shove._Web.Utility.GetRequest("tb_OpenUserList");
-        string str9 = Shove._Web.Utility.GetRequest("tb_Title");
-        string str10 = Shove._Web.Utility.GetRequest("tb_Description");
-        string str11 = Shove._Web.Utility.GetRequest("tbAutoStopAtWinMoney");
-        string str12 = Shove._Web.Utility.GetRequest("SecrecyLevel");
-        Shove._Web.Utility.GetRequest("tbPlayTypeName");
-        string str13 = Shove._Web.Utility.FilteSqlInfusion(base.Request["tb_LotteryNumber"]);
-        string str14 = Shove._Web.Utility.GetRequest("tb_hide_SumMoney");
-        string str15 = Shove._Web.Utility.GetRequest("tb_hide_AssureMoney");
-        string str = Shove._Web.Utility.GetRequest("tb_hide_SumNum");
-        Shove._Web.Utility.GetRequest("HidIsuseCount");
-        string str17 = Shove._Web.Utility.GetRequest("HidLotteryID");
-        Shove._Web.Utility.GetRequest("HidIsAlipay");
-        string str18 = Shove._Web.Utility.GetRequest("tb_Multiple");
-        string str19 = "";
-        StringBuilder builder = new StringBuilder();
-        int num = 0;
-        int num2 = 2;
-        if (str18 == "")
-        {
-            str18 = "1";
-        }
-        if (str3 == "1")
-        {
-            foreach (string str20 in base.Request.Form.AllKeys)
-            {
-                if (str20.IndexOf("check") > -1)
-                {
-                    int num4 = _Convert.StrToInt(str20.Replace("check", ""), -1);
-                    if (num4 > 0)
-                    {
-                        num++;
-                        int num5 = (_Convert.StrToInt(str, -1) * num2) * _Convert.StrToInt(base.Request.Form["times" + num4.ToString()], -1);
-                        builder.Append(base.Request.Form[str20]).Append(",").Append(base.Request.Form["times" + num4.ToString()]).Append(",").Append(num5.ToString()).Append(",").Append(base.Request.Form["share" + num4.ToString()]).Append(",").Append(base.Request.Form["buyedShare" + num4.ToString()]).Append(",").Append(base.Request.Form["assureShare" + num4.ToString()]).Append(";");
-                    }
-                }
-            }
-            string str21 = str13;
-            if (builder.Length > 0)
-            {
-                builder.Remove(builder.Length - 1, 1);
-            }
-            if (str21[str21.Length - 1] == '\n')
-            {
-                str21 = str21.Substring(0, str21.Length - 1);
-            }
-            string[] strArray2 = builder.ToString().Split(new char[] { ';' });
-            int length = strArray2.Length;
-            string[] strArray3 = new string[length * 9];
-            DateTime time2 = DateTime.Parse(Functions.F_GetIsuseSystemEndTime(long.Parse(strArray2[0].Split(new char[] { ',' })[0]), int.Parse(s)).ToString());
-            if (DateTime.Now >= time2)
-            {
-                JavaScript.Alert(this.Page, "您选择的追号期号中包含已截止的期，请重新选择。");
-                return;
-            }
-            for (int i = 0; i < length; i++)
-            {
-                strArray3[i * 9] = strArray2[i].Split(new char[] { ',' })[0];
-                strArray3[(i * 9) + 1] = s;
-                strArray3[(i * 9) + 2] = str21;
-                strArray3[(i * 9) + 3] = strArray2[i].Split(new char[] { ',' })[1];
-                strArray3[(i * 9) + 4] = strArray2[i].Split(new char[] { ',' })[2];
-                strArray3[(i * 9) + 5] = str12;
-                strArray3[(i * 9) + 6] = strArray2[i].Split(new char[] { ',' })[3];
-                strArray3[(i * 9) + 7] = strArray2[i].Split(new char[] { ',' })[4];
-                strArray3[(i * 9) + 8] = strArray2[i].Split(new char[] { ',' })[5];
-            }
-            str19 = PF.BuildIsuseAdditionasXmlForBJKL8(strArray3);
-        }
-        long num8 = new Tables.T_AlipayBuyTemp
-        {
-            SiteID = { Value = 1 },
-            UserID = { Value = -1 },
-            Money = { Value = str14 },
-            HandleResult = { Value = 0 },
-            IsChase = { Value = str3 == "1" },
-            IsCoBuy = { Value = str4 == "2" },
-            LotteryID = { Value = str17 },
-            IsuseID = { Value = request },
-            PlayTypeID = { Value = s },
-            StopwhenwinMoney = { Value = str11 },
-            AdditionasXml = { Value = str19 },
-            Title = { Value = str9 },
-            Description = { Value = str10 },
-            LotteryNumber = { Value = str13 },
-            UpdateloadFileContent = { Value = "" },
-            Multiple = { Value = str18 },
-            BuyMoney = { Value = str6 },
-            SumMoney = { Value = str14 },
-            AssureMoney = { Value = str15 },
-            Share = { Value = str5 },
-            BuyShare = { Value = str6 },
-            AssureShare = { Value = str7 },
-            OpenUsers = { Value = str8 },
-            SecrecyLevel = { Value = str12 }
-        }.Insert();
-        if (num8 < 0L)
-        {
-            new Log("System").Write("T_AlipayBuyTemp 数据库读写错误。");
-        }
-        JavaScript.Alert(this.Page, "您的账户余额不足，请先充值，谢谢。", "../Home/Room/OnlinePay/Default.aspx?BuyID=" + num8.ToString());
-    }
+    //private void Buy(UserInfo _User)
+    //{
+    //    string request = Shove._Web.Utility.GetRequest("HidIsuseID");
+    //    string str2 = Shove._Web.Utility.GetRequest("HidIsuseEndTime");
+    //    string s = Shove._Web.Utility.GetRequest("playType");
+    //    string str4 = Shove._Web.Utility.GetRequest("Chase");
+    //    Shove._Web.Utility.GetRequest("CoBuy");
+    //    string str5 = Shove._Web.Utility.GetRequest("tb_Share");
+    //    string str6 = Shove._Web.Utility.GetRequest("tb_BuyShare");
+    //    Shove._Web.Utility.GetRequest("tb_AssureShare");
+    //    string str7 = Shove._Web.Utility.GetRequest("tb_OpenUserList");
+    //    string str8 = Shove._Web.Utility.GetRequest("tb_Title");
+    //    string str9 = Shove._Web.Utility.GetRequest("tb_Description");
+    //    string str10 = Shove._Web.Utility.GetRequest("tbAutoStopAtWinMoney");
+    //    string str11 = Shove._Web.Utility.GetRequest("SecrecyLevel");
+    //    string str12 = Shove._Web.Utility.FilteSqlInfusion(base.Request["tb_LotteryNumber"]);
+    //    string str13 = Shove._Web.Utility.GetRequest("tb_hide_SumMoney");
+    //    string str14 = Shove._Web.Utility.GetRequest("tb_hide_AssureMoney");
+    //    string str15 = Shove._Web.Utility.GetRequest("tb_hide_SumNum");
+    //    Shove._Web.Utility.GetRequest("HidIsuseCount");
+    //    string str16 = Shove._Web.Utility.GetRequest("HidLotteryID");
+    //    Shove._Web.Utility.GetRequest("HidIsAlipay");
+    //    string str17 = Shove._Web.Utility.GetRequest("tb_Multiple");
+    //    Shove._Web.Utility.GetRequest("HidIsuseName");
+    //    Shove._Web.Utility.GetRequest("tbPlayTypeName");
+    //    string str18 = Shove._Web.Utility.GetRequest("tb_hide_ChaseBuyedMoney");
+    //    string str19 = Shove._Web.Utility.GetRequest("tb_SchemeBonusScale");
+    //    string str20 = Shove._Web.Utility.GetRequest("tb_SchemeBonusScalec");
+    //    int num = 2;
+    //    if (str17 == "")
+    //    {
+    //        str17 = "1";
+    //    }
+    //    double money = 0.0;
+    //    int share = 0;
+    //    int buyShare = 0;
+    //    double assureMoney = 0.0;
+    //    int multiple = 0;
+    //    int num7 = 0;
+    //    short num8 = 0;
+    //    int playType = 0;
+    //    int lotteryID = 0;
+    //    long isuseID = 0L;
+    //    double stopWhenWinMoney = 0.0;
+    //    double schemeBonusScale = 0.0;
+    //    double schemeBonusScalec = 0.0;
+    //    try
+    //    {
+    //        money = double.Parse(str13);
+    //        share = int.Parse(str5);
+    //        buyShare = int.Parse(str6);
+    //        assureMoney = double.Parse(str14);
+    //        multiple = int.Parse(str17);
+    //        num7 = int.Parse(str15);
+    //        num8 = short.Parse(str11);
+    //        playType = int.Parse(s);
+    //        lotteryID = int.Parse(str16);
+    //        isuseID = long.Parse(request);
+    //        stopWhenWinMoney = double.Parse(str10);
+    //        schemeBonusScale = double.Parse(str19);
+    //        schemeBonusScalec = double.Parse(str20);
+    //    }
+    //    catch
+    //    {
+    //        JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
+    //        return;
+    //    }
+    //    if ((money > 0.0) && (num7 >= 1))
+    //    {
+    //        if (assureMoney < 0.0)
+    //        {
+    //            JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
+    //        }
+    //        else if (share < 1)
+    //        {
+    //            JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
+    //        }
+    //        else
+    //        {
+    //            if ((buyShare == share) && (assureMoney == 0.0))
+    //            {
+    //                share = 1;
+    //                buyShare = 1;
+    //            }
+    //            if ((money / ((double)share)) < 1.0)
+    //            {
+    //                JavaScript.Alert(this.Page, "每份金额最低不能少于 1 元。");
+    //            }
+    //            else
+    //            {
+    //                double num15 = (buyShare * (money / ((double)share))) + assureMoney;
+    //                if (str4 != "")
+    //                {
+    //                    num15 = double.Parse(str18);
+    //                }
+    //                if (num15 > _User.Balance)
+    //                {
+    //                    this.SaveDataForAliBuy();
+    //                }
+    //                else if (num15 > 10000000.0)
+    //                {
+    //                    JavaScript.Alert(this.Page, "投注金额不能大于" + 0x989680.ToString() + "，谢谢。");
+    //                }
+    //                else if (multiple > 0x3e7)
+    //                {
+    //                    JavaScript.Alert(this.Page, "投注倍数不能大于 999 倍，谢谢。");
+    //                }
+    //                else if ((schemeBonusScale < 0.0) && (schemeBonusScale > 10.0))
+    //                {
+    //                    JavaScript.Alert(this.Page, "佣金比例只能在0~10之间");
+    //                }
+    //                else if ((schemeBonusScale.ToString().IndexOf("-") > -1) || (schemeBonusScale.ToString().IndexOf(".") > -1))
+    //                {
+    //                    JavaScript.Alert(this.Page, "佣金比例输入有误");
+    //                }
+    //                else if ((schemeBonusScalec < 0.0) && (schemeBonusScalec > 10.0))
+    //                {
+    //                    JavaScript.Alert(this.Page, "佣金比例只能在0~10之间");
+    //                }
+    //                else if ((schemeBonusScalec.ToString().IndexOf("-") > -1) || (schemeBonusScalec.ToString().IndexOf(".") > -1))
+    //                {
+    //                    JavaScript.Alert(this.Page, "佣金比例输入有误");
+    //                }
+    //                else
+    //                {
+    //                    schemeBonusScale /= 100.0;
+    //                    schemeBonusScalec /= 100.0;
+    //                    string number = str12;
+    //                    if (number[number.Length - 1] == '\n')
+    //                    {
+    //                        number = number.Substring(0, number.Length - 1);
+    //                    }
+    //                    LotteryTool lottery = new LotteryTool();
+    //                    string[] strArray = this.SplitLotteryNumber(number);
+    //                    if ((strArray == null) || (strArray.Length < 1))
+    //                    {
+    //                        JavaScript.Alert(this.Page, "选号发生异常，请重新选择号码投注，谢谢。(-694)");
+    //                    }
+    //                    else
+    //                    {
+    //                        int num17 = 0;
+    //                        foreach (string str22 in strArray)
+    //                        {
+    //                            string str23 = lottery[lotteryID].AnalyseScheme(str22, playType);
+    //                            if (!string.IsNullOrEmpty(str23))
+    //                            {
+    //                                string[] strArray3 = str23.Split(new char[] { '|' });
+    //                                if ((strArray3 != null) && (strArray3.Length >= 1))
+    //                                {
+    //                                    num17 += _Convert.StrToInt(strArray3[strArray3.Length - 1], 0);
+    //                                }
+    //                            }
+    //                        }
+    //                        if (num17 != num7)
+    //                        {
+    //                            JavaScript.Alert(this.Page, "选号发生异常，请重新选择号码投注，谢谢。");
+    //                        }
+    //                        else
+    //                        {
+    //                            StringBuilder builder = new StringBuilder();
+    //                            int num19 = 0;
+    //                            string detailXML = "";
+    //                            string returnDescription = "";
+    //                            if (str4 == "1")
+    //                            {
+    //                                foreach (string str26 in base.Request.Form.AllKeys)
+    //                                {
+    //                                    if (str26.IndexOf("check") > -1)
+    //                                    {
+    //                                        int num20 = _Convert.StrToInt(str26.Replace("check", ""), -1);
+    //                                        if (num20 > 0)
+    //                                        {
+    //                                            num19++;
+    //                                            int num21 = (_Convert.StrToInt(base.Request.Form["tb_hide_SumNum"], -1) * num) * _Convert.StrToInt(base.Request.Form["times" + num20.ToString()], -1);
+    //                                            builder.Append(base.Request.Form[str26]).Append(",").Append(base.Request.Form["times" + num20.ToString()]).Append(",").Append(num21.ToString()).Append(",").Append(base.Request.Form["share" + num20.ToString()]).Append(",").Append(base.Request.Form["buyedShare" + num20.ToString()]).Append(",").Append(base.Request.Form["assureShare" + num20.ToString()]).Append(";");
+    //                                        }
+    //                                    }
+    //                                }
+    //                                if (builder.Length > 0)
+    //                                {
+    //                                    builder.Remove(builder.Length - 1, 1);
+    //                                }
+    //                                if (number[number.Length - 1] == '\n')
+    //                                {
+    //                                    number = number.Substring(0, number.Length - 1);
+    //                                }
+    //                                try
+    //                                {
+    //                                    money = double.Parse(str13);
+    //                                }
+    //                                catch
+    //                                {
+    //                                    JavaScript.Alert(this.Page, "输入有错误，请仔细检查。(-1325)");
+    //                                    return;
+    //                                }
+    //                                if (money < 2.0)
+    //                                {
+    //                                    JavaScript.Alert(this.Page, "输入有错误，请仔细检查。(-1332)");
+    //                                }
+    //                                else
+    //                                {
+    //                                    string[] strArray5 = builder.ToString().Split(new char[] { ';' });
+    //                                    int length = strArray5.Length;
+    //                                    string[] str = new string[length * 9];
+    //                                    long isuseId = long.Parse(strArray5[0].Split(',')[0]);
+    //                                    DateTime time2 = lotteryFacade.GetIsuseSystemEndTime(isuseId, playType);
+    //                                    if (DateTime.Now >= time2)
+    //                                    {
+    //                                        JavaScript.Alert(this.Page, "您选择的追号期号中包含已截止的期，请重新选择。");
+    //                                    }
+    //                                    else
+    //                                    {
+    //                                        for (int i = 0; i < length; i++)
+    //                                        {
+    //                                            str[i * 9] = strArray5[i].Split(new char[] { ',' })[0];
+    //                                            str[(i * 9) + 1] = playType.ToString();
+    //                                            str[(i * 9) + 2] = number;
+    //                                            str[(i * 9) + 3] = strArray5[i].Split(new char[] { ',' })[1];
+    //                                            str[(i * 9) + 4] = strArray5[i].Split(new char[] { ',' })[2];
+    //                                            str[(i * 9) + 5] = num8.ToString();
+    //                                            str[(i * 9) + 6] = strArray5[i].Split(new char[] { ',' })[3];
+    //                                            str[(i * 9) + 7] = strArray5[i].Split(new char[] { ',' })[4];
+    //                                            str[(i * 9) + 8] = strArray5[i].Split(new char[] { ',' })[5];
+    //                                            if ((_Convert.StrToDouble(str[(i * 9) + 3], 0.0) * money) != _Convert.StrToDouble(str[(i * 9) + 4], 1.0))
+    //                                            {
+    //                                                JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
+    //                                                return;
+    //                                            }
+    //                                            if (_Convert.StrToDouble(str[(i * 9) + 3], 0.0) < multiple)
+    //                                            {
+    //                                                JavaScript.Alert(this.Page, "追号倍数有错误，请仔细检查！");
+    //                                                return;
+    //                                            }
+    //                                            if (((double.Parse(str[(i * 9) + 3]) * num7) * num) != double.Parse(str[(i * 9) + 4]))
+    //                                            {
+    //                                                JavaScript.Alert(this.Page, "追号金额有错误，请仔细检查！可能原因：浏览器不兼容，建议使用IE 7.0");
+    //                                                return;
+    //                                            }
+    //                                        }
+    //                                        detailXML = BuildIsuseAdditionasXmlForBJKL8(str);
+    //                                        if (detailXML == "")
+    //                                        {
+    //                                            JavaScript.Alert(this.Page, "追号发生错误。");
+    //                                        }
+    //                                        else if (_User.InitiateChaseTask(str8.Trim(), str9.Trim(), lotteryID, stopWhenWinMoney, detailXML, number, schemeBonusScalec, ref returnDescription) < 0)
+    //                                        {
+    //                                            RedirectToError(1, returnDescription, base.GetType().FullName + "(-754)");
+    //                                        }
+    //                                        else
+    //                                        {
+    //                                            Shove._Web.Cache.ClearCache("Home_Room_CoBuy_BindDataForType" + isuseID.ToString());
+    //                                            Shove._Web.Cache.ClearCache("Home_Room_SchemeAll_BindData" + isuseID.ToString());
+    //                                            Shove._Web.Cache.ClearCache(base._Site.ID.ToString() + "AccountFreezeDetail_" + _User.ID.ToString());
+    //                                            base.Response.Redirect("../Home/Room/UserBuySuccess.aspx?LotteryID=" + lotteryID.ToString() + "&Type=2&Money=" + num15.ToString());
+    //                                        }
+    //                                    }
+    //                                }
+    //                            }
+    //                            else if (DateTime.Now >= _Convert.StrToDateTime(str2.Replace("/", "-"), DateTime.Now.AddDays(-1.0).ToString()))
+    //                            {
+    //                                JavaScript.Alert(this.Page, "本期投注已截止，谢谢。");
+    //                            }
+    //                            else if (((num * num7) * multiple) != money)
+    //                            {
+    //                                JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
+    //                            }
+    //                            else
+    //                            {
+    //                                long num25 = _User.InitiateScheme(isuseID, playType, (str8.Trim() == "") ? "(无标题)" : str8.Trim(), str9.Trim(), number, "", multiple, money, assureMoney, share, buyShare, str7.Trim(), short.Parse(num8.ToString()), schemeBonusScale, ref returnDescription);
+    //                                if (num25 < 0L)
+    //                                {
+    //                                    PF.GoError(1, returnDescription, base.GetType().FullName + "(-755)");
+    //                                }
+    //                                else
+    //                                {
+    //                                    Shove._Web.Cache.ClearCache("Home_Room_CoBuy_BindDataForType" + isuseID.ToString());
+    //                                    Shove._Web.Cache.ClearCache("Home_Room_SchemeAll_BindData" + isuseID.ToString());
+    //                                    base.Response.Redirect("../Home/Room/UserBuySuccess.aspx?LotteryID=" + lotteryID.ToString() + "&Money=" + num15.ToString() + "&SchemeID=" + num25.ToString());
+    //                                }
+    //                            }
+    //                        }
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+    //    else
+    //    {
+    //        JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
+    //    }
+    //}
+
+    //private void SaveDataForAliBuy()
+    //{
+    //    string request = Shove._Web.Utility.GetRequest("HidIsuseID");
+    //    Shove._Web.Utility.GetRequest("HidIsuseEndTime");
+    //    string s = Shove._Web.Utility.GetRequest("playType");
+    //    string str3 = Shove._Web.Utility.GetRequest("Chase");
+    //    string str4 = Shove._Web.Utility.GetRequest("Cobuy");
+    //    string str5 = Shove._Web.Utility.GetRequest("tb_Share");
+    //    string str6 = Shove._Web.Utility.GetRequest("tb_BuyShare");
+    //    string str7 = Shove._Web.Utility.GetRequest("tb_AssureShare");
+    //    string str8 = Shove._Web.Utility.GetRequest("tb_OpenUserList");
+    //    string str9 = Shove._Web.Utility.GetRequest("tb_Title");
+    //    string str10 = Shove._Web.Utility.GetRequest("tb_Description");
+    //    string str11 = Shove._Web.Utility.GetRequest("tbAutoStopAtWinMoney");
+    //    string str12 = Shove._Web.Utility.GetRequest("SecrecyLevel");
+    //    Shove._Web.Utility.GetRequest("tbPlayTypeName");
+    //    string str13 = Shove._Web.Utility.FilteSqlInfusion(base.Request["tb_LotteryNumber"]);
+    //    string str14 = Shove._Web.Utility.GetRequest("tb_hide_SumMoney");
+    //    string str15 = Shove._Web.Utility.GetRequest("tb_hide_AssureMoney");
+    //    string str = Shove._Web.Utility.GetRequest("tb_hide_SumNum");
+    //    Shove._Web.Utility.GetRequest("HidIsuseCount");
+    //    string str17 = Shove._Web.Utility.GetRequest("HidLotteryID");
+    //    Shove._Web.Utility.GetRequest("HidIsAlipay");
+    //    string str18 = Shove._Web.Utility.GetRequest("tb_Multiple");
+    //    string str19 = "";
+    //    StringBuilder builder = new StringBuilder();
+    //    int num = 0;
+    //    int num2 = 2;
+    //    if (str18 == "")
+    //    {
+    //        str18 = "1";
+    //    }
+    //    if (str3 == "1")
+    //    {
+    //        foreach (string str20 in base.Request.Form.AllKeys)
+    //        {
+    //            if (str20.IndexOf("check") > -1)
+    //            {
+    //                int num4 = _Convert.StrToInt(str20.Replace("check", ""), -1);
+    //                if (num4 > 0)
+    //                {
+    //                    num++;
+    //                    int num5 = (_Convert.StrToInt(str, -1) * num2) * _Convert.StrToInt(base.Request.Form["times" + num4.ToString()], -1);
+    //                    builder.Append(base.Request.Form[str20]).Append(",").Append(base.Request.Form["times" + num4.ToString()]).Append(",").Append(num5.ToString()).Append(",").Append(base.Request.Form["share" + num4.ToString()]).Append(",").Append(base.Request.Form["buyedShare" + num4.ToString()]).Append(",").Append(base.Request.Form["assureShare" + num4.ToString()]).Append(";");
+    //                }
+    //            }
+    //        }
+    //        string str21 = str13;
+    //        if (builder.Length > 0)
+    //        {
+    //            builder.Remove(builder.Length - 1, 1);
+    //        }
+    //        if (str21[str21.Length - 1] == '\n')
+    //        {
+    //            str21 = str21.Substring(0, str21.Length - 1);
+    //        }
+    //        string[] strArray2 = builder.ToString().Split(new char[] { ';' });
+    //        int length = strArray2.Length;
+    //        string[] strArray3 = new string[length * 9];
+    //        DateTime time2 = DateTime.Parse(Functions.F_GetIsuseSystemEndTime(long.Parse(strArray2[0].Split(new char[] { ',' })[0]), int.Parse(s)).ToString());
+    //        if (DateTime.Now >= time2)
+    //        {
+    //            JavaScript.Alert(this.Page, "您选择的追号期号中包含已截止的期，请重新选择。");
+    //            return;
+    //        }
+    //        for (int i = 0; i < length; i++)
+    //        {
+    //            strArray3[i * 9] = strArray2[i].Split(new char[] { ',' })[0];
+    //            strArray3[(i * 9) + 1] = s;
+    //            strArray3[(i * 9) + 2] = str21;
+    //            strArray3[(i * 9) + 3] = strArray2[i].Split(new char[] { ',' })[1];
+    //            strArray3[(i * 9) + 4] = strArray2[i].Split(new char[] { ',' })[2];
+    //            strArray3[(i * 9) + 5] = str12;
+    //            strArray3[(i * 9) + 6] = strArray2[i].Split(new char[] { ',' })[3];
+    //            strArray3[(i * 9) + 7] = strArray2[i].Split(new char[] { ',' })[4];
+    //            strArray3[(i * 9) + 8] = strArray2[i].Split(new char[] { ',' })[5];
+    //        }
+    //        str19 = PF.BuildIsuseAdditionasXmlForBJKL8(strArray3);
+    //    }
+    //    long num8 = new Tables.T_AlipayBuyTemp
+    //    {
+    //        SiteID = { Value = 1 },
+    //        UserID = { Value = -1 },
+    //        Money = { Value = str14 },
+    //        HandleResult = { Value = 0 },
+    //        IsChase = { Value = str3 == "1" },
+    //        IsCoBuy = { Value = str4 == "2" },
+    //        LotteryID = { Value = str17 },
+    //        IsuseID = { Value = request },
+    //        PlayTypeID = { Value = s },
+    //        StopwhenwinMoney = { Value = str11 },
+    //        AdditionasXml = { Value = str19 },
+    //        Title = { Value = str9 },
+    //        Description = { Value = str10 },
+    //        LotteryNumber = { Value = str13 },
+    //        UpdateloadFileContent = { Value = "" },
+    //        Multiple = { Value = str18 },
+    //        BuyMoney = { Value = str6 },
+    //        SumMoney = { Value = str14 },
+    //        AssureMoney = { Value = str15 },
+    //        Share = { Value = str5 },
+    //        BuyShare = { Value = str6 },
+    //        AssureShare = { Value = str7 },
+    //        OpenUsers = { Value = str8 },
+    //        SecrecyLevel = { Value = str12 }
+    //    }.Insert();
+    //    if (num8 < 0L)
+    //    {
+    //        new Log("System").Write("T_AlipayBuyTemp 数据库读写错误。");
+    //    }
+    //    JavaScript.Alert(this.Page, "您的账户余额不足，请先充值，谢谢。", "../Home/Room/OnlinePay/Default.aspx?BuyID=" + num8.ToString());
+    //}
 
     private string[] SplitLotteryNumber(string Number)
     {

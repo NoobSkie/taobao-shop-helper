@@ -12,8 +12,11 @@ using J.SLS.Common.Logs;
 public abstract class BaseControl : System.Web.UI.UserControl
 {
     private BaseHelper helper = null;
-    public BaseControl()
+
+    protected override void OnInit(EventArgs e)
     {
+        base.OnInit(e);
+
         helper = new BaseHelper(this.Page);
     }
 

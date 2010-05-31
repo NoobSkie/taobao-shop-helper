@@ -83,11 +83,5 @@ namespace J.SLS.Facade
             object obj = DbAccess.GetRC1BySQL(sql, isuseID, playTypeID);
             return (DateTime)obj;
         }
-
-        public int InitiateScheme(long UserID, long IsuseID, int PlayTypeID, string Title, string Description, string LotteryNumber, string UploadFileContent, int Multiple, double Money, double AssureMoney, int Share, int BuyShare, string OpenUsers, short SecrecyLevel, double SchemeBonusScale, ref long SchemeID, ref string ReturnDescription)
-        {
-            string sql = "EXEC [P_InitiateScheme] ";
-            
-        }
     }
 }

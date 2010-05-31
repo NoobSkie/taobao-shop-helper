@@ -5,14 +5,14 @@ using System.Text;
 
 namespace J.SLS.Business
 {
-    public class Ticket
+    public class JTicket
     {
         public double Money;
         public int Multiple;
         public string Number;
         public int PlayTypeID;
 
-        public Ticket(int playtype_id, string number, int multiple, double money)
+        public JTicket(int playtype_id, string number, int multiple, double money)
         {
             this.PlayTypeID = playtype_id;
             this.Multiple = multiple;

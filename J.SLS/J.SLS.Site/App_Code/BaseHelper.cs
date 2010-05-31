@@ -62,7 +62,7 @@ public class BaseHelper
     {
         get
         {
-            return _page.Session["CurrentLoginUser"] as UserInfo;
+            return (UserInfo)_page.Session["CurrentLoginUser"];
         }
         set
         {

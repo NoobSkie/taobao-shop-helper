@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Configuration;
 using J.SLS.Common.Logs;
+using System.Web.UI;
 
 public class BasePage : System.Web.UI.Page
 {
@@ -23,7 +24,7 @@ public class BasePage : System.Web.UI.Page
         get { return helper.SiteRoot; }
     }
 
-    public bool AdminLogined
+    public bool IsAdminLogined
     {
         get { return helper.AdminLogined; }
         set { helper.AdminLogined = value; }
@@ -37,11 +38,6 @@ public class BasePage : System.Web.UI.Page
     public void RedirectToUrl(string url)
     {
         helper.RedirectToUrl(url);
-    }
-
-    public void RedirectToDefault()
-    {
-        helper.RedirectToUrl("~/Default.aspx");
     }
 
     public void RedirectToLogin(Page basePage, string message)

@@ -5,13 +5,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ph_content" runat="Server">
     <div>
-        <asp:Label ID="lblMessage" runat="server"></asp:Label>
-    </div>
+        <span>登陆管理员身份</span></div>
     <div>
         <span>请输入管理员密码：</span><asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox>
     </div>
     <div>
-        <asp:Button ID="btnLogin" runat="server" Text="进入后台管理" 
-            onclick="btnLogin_Click" />
+        <asp:Label ID="lblMessage" runat="server"></asp:Label>
+    </div>
+    <div>
+        <asp:Button ID="btnLogin" runat="server" Text="进入后台管理" OnClick="btnLogin_Click" />
     </div>
 </asp:Content>
