@@ -6,7 +6,7 @@ using J.SLS.Database.ORM;
 
 namespace J.SkyMusic.Facade
 {
-    [EntityMappingTable("T_Page_Blocks")]
+    [EntityMappingTable("T_Block_List")]
     public class PageBlockInfo
     {
         [EntityMappingField("Id", IsKey = true)]
@@ -18,10 +18,21 @@ namespace J.SkyMusic.Facade
         [EntityMappingField("YIndex")]
         public int YIndex { get; set; }
 
-        [EntityMappingField("Name")]
-        public string Name { get; set; }
-
-        [EntityMappingField("ContentId")]
+        [EntityMappingField("ToItemId")]
         public Guid ContentId { get; set; }
+
+        public ItemBase ContentItem { get; set; }
+
+        [EntityMappingField("StyleId")]
+        public Guid StyleId { get; set; }
+
+        [EntityMappingField("DisplayCount")]
+        public int DisplayCount { get; set; }
+
+        [EntityMappingField("OrderBy")]
+        public string OrderBy { get; set; }
+
+        [EntityMappingField("Direction")]
+        public int Direction { get; set; }
     }
 }

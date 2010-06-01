@@ -39,6 +39,12 @@ namespace J.SLS.Database.ORM
 
         public Criteria Cri { get; set; }
 
+        public bool NeedPaged { get; set; }
+
+        public int PageIndex { get; set; }
+
+        public int PageSize { get; set; }
+
         /// <summary>
         /// 对象主键的值
         /// </summary>
@@ -105,9 +111,6 @@ namespace J.SLS.Database.ORM
                     dbCommand = GetDbCommand(this.ObjectType, this.OrderBy);
                     break;
                 case SelectType.GetList:
-                    dbCommand = GetDbCommand(this.Entity, this.FilterProterties, this.OrderBy);
-                    break;
-                case SelectType.GetListByExpression:
                     dbCommand = GetDbCommand(this.Cri, this.OrderBy);
                     break;
                 case SelectType.GetCount:
@@ -187,12 +190,35 @@ namespace J.SLS.Database.ORM
         {
             TypeSchema entityInfo = ORMSchemaCache.GetTypeSchema(entityType);
             List<PropertyInfo> fieldPropertyList = new List<PropertyInfo>();
-            string tableName = entityInfo.MappingTableAttribute.TableName;
-            string sqlSelect = string.Format("SELECT {0}", GetSelectStatement(entityInfo));
-
+            string sqlFields = GetSelectStatement(entityInfo);
+            string sqlOrder = ToOrderByClause(this.ObjectType, orderBy);
+            StringBuilder sqlBuilder = new StringBuilder();
+            if (NeedPaged)
+            {
+                if (sqlOrder == "")
+                {
+                    foreach (SchemaItem mfi in entityInfo.GetKeyFieldInfos())
+                    {
+                        if (sqlOrder != "") sqlOrder += ",";
+                        sqlOrder += GetQuotedName(mfi.MappingFieldAttribute.FieldName) + " ASC";
+                    }
+                }
+                sqlBuilder.AppendLine("WITH [TMP] AS(");
+                sqlBuilder.AppendLine("SELECT *, ROW_NUMBER() OVER (ORDER BY " + sqlOrder + ") AS [ROW]");
+                sqlBuilder.AppendLine("FROM(");
+                sqlBuilder.AppendLine(string.Format("SELECT {0}", sqlFields));
+                sqlBuilder.AppendLine(") AS [A] )");
+                sqlBuilder.AppendLine("SELECT * FROM [TMP]");
+                sqlBuilder.AppendLine("INNER JOIN (SELECT COUNT([ROW]) AS [TotalCount] FROM [TMP]) AS [B] ON 1 = 1");
+                sqlBuilder.AppendLine(string.Format(" AND ROW > {0} AND ROW <= {1}", PageSize * (PageIndex - 1), PageSize * PageIndex));
+            }
+            else
+            {
+                sqlBuilder.AppendLine(string.Format("SELECT {0}", sqlFields));
+                sqlBuilder.AppendLine(sqlOrder);
+            }
             DbCommand dbCommand = GetDbCommandByEntity(fieldPropertyList, null);
-            sqlSelect = sqlSelect + this.ToOrderByClause(entityType, orderBy);
-            dbCommand.CommandText = sqlSelect;
+            dbCommand.CommandText = sqlBuilder.ToString();
             return dbCommand;
         }
 
@@ -200,29 +226,40 @@ namespace J.SLS.Database.ORM
         {
             TypeSchema entityInfo = ORMSchemaCache.GetTypeSchema(this.ObjectType);
             List<PropertyInfo> fieldPropertyList = new List<PropertyInfo>();
-            string sqlSelect = string.Format("SELECT {0}", GetSelectStatement(entityInfo));
-
-            DbCommand dbCommand = GetDbCommandByEntity(fieldPropertyList, null);
+            string sqlFields = GetSelectStatement(entityInfo);
             List<DbParameter> parameters;
-            sqlSelect = sqlSelect + " WHERE 1=1 " + criteria.GenerateExpression(this.ObjectType, out parameters, DbAccess);
-            sqlSelect = sqlSelect + this.ToOrderByClause(this.ObjectType, orderBy);
-
+            string sqlWhere = criteria.GenerateExpression(this.ObjectType, out parameters, DbAccess);
+            string sqlOrder = ToOrderByClause(this.ObjectType, orderBy);
+            StringBuilder sqlBuilder = new StringBuilder();
+            if (NeedPaged)
+            {
+                if (sqlOrder == "")
+                {
+                    foreach (SchemaItem mfi in entityInfo.GetKeyFieldInfos())
+                    {
+                        if (sqlOrder != "") sqlOrder += ",";
+                        sqlOrder += GetQuotedName(mfi.MappingFieldAttribute.FieldName) + " ASC";
+                    }
+                }
+                sqlBuilder.AppendLine("WITH [TMP] AS(");
+                sqlBuilder.AppendLine("SELECT *, ROW_NUMBER() OVER (ORDER BY " + sqlOrder + ") AS [ROW]");
+                sqlBuilder.AppendLine("FROM(");
+                sqlBuilder.AppendLine(string.Format("SELECT {0}", sqlFields));
+                sqlBuilder.AppendLine(string.Format("WHERE 1=1 {0}", sqlWhere));
+                sqlBuilder.AppendLine(") AS [A] )");
+                sqlBuilder.AppendLine("SELECT * FROM [TMP]");
+                sqlBuilder.AppendLine("INNER JOIN (SELECT COUNT([ROW]) AS [TotalCount] FROM [TMP]) AS [B] ON 1 = 1");
+                sqlBuilder.AppendLine(string.Format(" AND ROW > {0} AND ROW <= {1}", PageSize * (PageIndex - 1), PageSize * PageIndex));
+            }
+            else
+            {
+                sqlBuilder.AppendLine(string.Format("SELECT {0}", sqlFields));
+                sqlBuilder.AppendLine(string.Format("WHERE 1=1 {0}", sqlWhere));
+                sqlBuilder.AppendLine(sqlOrder);
+            }
+            DbCommand dbCommand = GetDbCommandByEntity(fieldPropertyList, null);
             dbCommand.Parameters.AddRange(parameters.ToArray());
-            dbCommand.CommandText = sqlSelect;
-            return dbCommand;
-        }
-
-        private DbCommand GetDbCommand(object entity, string[] filedProterties, params SortInfo[] orderBy)
-        {
-            TypeSchema entityInfo = ORMSchemaCache.GetTypeSchema(entity.GetType());
-            List<PropertyInfo> fieldPropertyList = null;
-            string tableName = entityInfo.MappingTableAttribute.TableName;
-            string sqlSelect = string.Format("SELECT {0}",
-                                            GetSelectStatement(entityInfo, out fieldPropertyList, filedProterties));
-
-            DbCommand dbCommand = GetDbCommandByEntity(fieldPropertyList, entity);
-            sqlSelect = sqlSelect + this.ToOrderByClause(entity.GetType(), orderBy);
-            dbCommand.CommandText = sqlSelect;
+            dbCommand.CommandText = sqlBuilder.ToString();
             return dbCommand;
         }
 
@@ -340,9 +377,8 @@ namespace J.SLS.Database.ORM
         GetOneByKeyValue,
         GetOneByEntityKey,
         GetAll,
-        GetList,
         GetCount,
         GetAllCount,
-        GetListByExpression
+        GetList
     }
 }

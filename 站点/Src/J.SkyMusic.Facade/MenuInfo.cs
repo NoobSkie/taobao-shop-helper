@@ -10,7 +10,7 @@ namespace J.SkyMusic.Facade
     public class MenuInfo
     {
         [EntityMappingField("Id", IsKey = true)]
-        public Guid? Id { get; set; }
+        public Guid Id { get; set; }
 
         [EntityMappingField("Name")]
         public string Name { get; set; }

@@ -1,0 +1,15 @@
+.LeftArea
+{
+    width: 220px;
+    float: left;
+}
+.MiddleArea
+{
+    width: 500px;
+    float: left;
+}
+.RightArea
+{
+    width: 200px;
+    float: left;
+}

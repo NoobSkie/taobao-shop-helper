@@ -168,35 +168,34 @@ namespace J.SLS.Database.ORM
             }
         }
 
-        public IList<T> GetList<T>(T entity, string[] filterProterties, params SortInfo[] orderBy)
-            where T : new()
+        public IList<T> GetAll<T>(int pageIndex, int pageSize, out int totalCount, params SortInfo[] orderBy) where T : new()
         {
-            PreconditionAssert.IsNotNull(entity, ErrorMessages.NullReferenceException);
-            PreconditionAssert.IsNotNull(filterProterties, ErrorMessages.NullReferenceException);
-            PreconditionAssert.IsTrue(filterProterties.Length > 0, ErrorMessages.NullReferenceException);
-            ORMHelper.EntityIsMappingDatabase(entity.GetType(), ErrorMessages.EntityMappingError);
+            PreconditionAssert.IsNotNull(orderBy, ErrorMessages.NullReferenceException);
+            ORMHelper.EntityIsMappingDatabase(typeof(T), ErrorMessages.EntityMappingError);
             try
             {
                 SelectCommandCreator dbCommandCreator = new SelectCommandCreator(dbAccess);
-                dbCommandCreator.Entity = entity;
-                dbCommandCreator.FilterProterties = filterProterties;
+                dbCommandCreator.ObjectType = typeof(T);
                 dbCommandCreator.OrderBy = orderBy;
-                dbCommandCreator.SelectType = SelectType.GetList;
+                dbCommandCreator.SelectType = SelectType.GetAll;
+                dbCommandCreator.NeedPaged = true;
+                dbCommandCreator.PageIndex = pageIndex + 1;
+                dbCommandCreator.PageSize = pageSize;
                 DbCommand dbCommand = dbCommandCreator.GetDbCommand();
                 DataTable dt = dbAccess.GetDataTableByCommand(dbCommand);
+                if (dt.Rows.Count > 0)
+                {
+                    totalCount = (int)dt.Rows[0]["TotalCount"];
+                }
+                else
+                {
+                    totalCount = 0;
+                }
                 return ORMHelper.DataTableToList<T>(dt);
             }
             catch (Exception ex)
             {
-                StringBuilder errMsgBuilder = new StringBuilder();
-                errMsgBuilder.AppendLine("Select object list by entity error, detail:");
-                errMsgBuilder.AppendLine("Entity Info:");
-                errMsgBuilder.AppendLine(ORMHelper.GetEntityInfoMessage(entity));
-                errMsgBuilder.AppendLine("Filter Proterties:");
-                errMsgBuilder.AppendLine(string.Join(",", filterProterties));
-                errMsgBuilder.AppendLine("Sort Info:");
-                errMsgBuilder.AppendLine(ORMHelper.GetOrderInfoMessage(orderBy));
-                throw new ORMException(errMsgBuilder.ToString(), ex);
+                throw new ORMException("Get all object list error, detail:\n\t" + ORMHelper.GetOrderInfoMessage(orderBy), ex);
             }
         }
 
@@ -210,7 +209,7 @@ namespace J.SLS.Database.ORM
                 dbCommandCreator.OrderBy = orderBy;
                 dbCommandCreator.ObjectType = typeof(T);
                 dbCommandCreator.Cri = criteria;
-                dbCommandCreator.SelectType = SelectType.GetListByExpression;
+                dbCommandCreator.SelectType = SelectType.GetList;
                 DbCommand dbCommand = dbCommandCreator.GetDbCommand();
                 DataTable dt = dbAccess.GetDataTableByCommand(dbCommand);
                 return ORMHelper.DataTableToList<T>(dt);
@@ -221,6 +220,46 @@ namespace J.SLS.Database.ORM
                 errMsgBuilder.AppendLine("Select object list by criteria error, detail:");
                 errMsgBuilder.AppendLine("Criteria Info:");
                 errMsgBuilder.AppendLine(ORMHelper.GetCriteriaMessage(criteria));
+                errMsgBuilder.AppendLine("Sort Info:");
+                errMsgBuilder.AppendLine(ORMHelper.GetOrderInfoMessage(orderBy));
+                throw new ORMException(errMsgBuilder.ToString(), ex);
+            }
+        }
+
+        public IList<T> GetList<T>(Criteria criteria, int pageIndex, int pageSize, out int totalCount, params SortInfo[] orderBy)
+            where T : new()
+        {
+            PreconditionAssert.IsNotNull(criteria, ErrorMessages.NullReferenceException);
+            try
+            {
+                SelectCommandCreator dbCommandCreator = new SelectCommandCreator(dbAccess);
+                dbCommandCreator.OrderBy = orderBy;
+                dbCommandCreator.ObjectType = typeof(T);
+                dbCommandCreator.Cri = criteria;
+                dbCommandCreator.SelectType = SelectType.GetList;
+                dbCommandCreator.NeedPaged = true;
+                dbCommandCreator.PageIndex = pageIndex + 1;
+                dbCommandCreator.PageSize = pageSize;
+                DbCommand dbCommand = dbCommandCreator.GetDbCommand();
+                DataTable dt = dbAccess.GetDataTableByCommand(dbCommand);
+                if (dt.Rows.Count > 0)
+                {
+                    totalCount = (int)dt.Rows[0]["TotalCount"];
+                }
+                else
+                {
+                    totalCount = 0;
+                }
+                return ORMHelper.DataTableToList<T>(dt);
+            }
+            catch (Exception ex)
+            {
+                StringBuilder errMsgBuilder = new StringBuilder();
+                errMsgBuilder.AppendLine("Select object list by criteria error with page, detail:");
+                errMsgBuilder.AppendLine("Criteria Info:");
+                errMsgBuilder.AppendLine(ORMHelper.GetCriteriaMessage(criteria));
+                errMsgBuilder.AppendLine("Page Info:");
+                errMsgBuilder.AppendLine("PageIndex:" + pageIndex + "; PageSize:" + pageSize);
                 errMsgBuilder.AppendLine("Sort Info:");
                 errMsgBuilder.AppendLine(ORMHelper.GetOrderInfoMessage(orderBy));
                 throw new ORMException(errMsgBuilder.ToString(), ex);
