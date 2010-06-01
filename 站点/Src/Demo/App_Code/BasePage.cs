@@ -35,6 +35,16 @@ public class BasePage : System.Web.UI.Page
         get { return helper.LogWriter; }
     }
 
+    public void JavascriptAlert(string msg)
+    {
+        helper.JavascriptAlert(msg);
+    }
+
+    public void JavascriptAlertAndRedirect(string msg, string url)
+    {
+        helper.JavascriptAlertAndRedirect(msg, url);
+    }
+
     public void RedirectToUrl(string url)
     {
         helper.RedirectToUrl(url);

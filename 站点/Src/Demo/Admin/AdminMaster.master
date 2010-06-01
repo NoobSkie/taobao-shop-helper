@@ -23,6 +23,10 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <div>
+            <span>
+                <asp:HyperLink ID="lnk" NavigateUrl="~/Admin/CollectionManagement.aspx?cid=E30F58E7-D877-45E1-AF06-F0D328CBA5E2" runat="server">管理新闻</asp:HyperLink></span>
+        </div>
         <asp:ContentPlaceHolder ID="ph_content" runat="server">
         </asp:ContentPlaceHolder>
     </div>

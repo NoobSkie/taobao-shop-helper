@@ -199,12 +199,19 @@ namespace J.SLS.Database.ORM
                 {
                     foreach (SchemaItem mfi in entityInfo.GetKeyFieldInfos())
                     {
-                        if (sqlOrder != "") sqlOrder += ",";
+                        if (sqlOrder != "")
+                        {
+                            sqlOrder += ",";
+                        }
+                        else
+                        {
+                            sqlOrder += "ORDER BY ";
+                        }
                         sqlOrder += GetQuotedName(mfi.MappingFieldAttribute.FieldName) + " ASC";
                     }
                 }
                 sqlBuilder.AppendLine("WITH [TMP] AS(");
-                sqlBuilder.AppendLine("SELECT *, ROW_NUMBER() OVER (ORDER BY " + sqlOrder + ") AS [ROW]");
+                sqlBuilder.AppendLine("SELECT *, ROW_NUMBER() OVER (" + sqlOrder + ") AS [ROW]");
                 sqlBuilder.AppendLine("FROM(");
                 sqlBuilder.AppendLine(string.Format("SELECT {0}", sqlFields));
                 sqlBuilder.AppendLine(") AS [A] )");
@@ -237,12 +244,19 @@ namespace J.SLS.Database.ORM
                 {
                     foreach (SchemaItem mfi in entityInfo.GetKeyFieldInfos())
                     {
-                        if (sqlOrder != "") sqlOrder += ",";
+                        if (sqlOrder != "")
+                        {
+                            sqlOrder += ",";
+                        }
+                        else
+                        {
+                            sqlOrder += "ORDER BY ";
+                        }
                         sqlOrder += GetQuotedName(mfi.MappingFieldAttribute.FieldName) + " ASC";
                     }
                 }
                 sqlBuilder.AppendLine("WITH [TMP] AS(");
-                sqlBuilder.AppendLine("SELECT *, ROW_NUMBER() OVER (ORDER BY " + sqlOrder + ") AS [ROW]");
+                sqlBuilder.AppendLine("SELECT *, ROW_NUMBER() OVER (" + sqlOrder + ") AS [ROW]");
                 sqlBuilder.AppendLine("FROM(");
                 sqlBuilder.AppendLine(string.Format("SELECT {0}", sqlFields));
                 sqlBuilder.AppendLine(string.Format("WHERE 1=1 {0}", sqlWhere));

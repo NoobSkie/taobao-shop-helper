@@ -41,7 +41,10 @@ legend
 }
 body
 {
-    font: 13px/1.231 arial,helvetica,clean,sans-serif; *font-size:small;*font:x-small}
+    font: 13px/1.231 arial,helvetica,clean,sans-serif;
+    font-size: small;
+    font: x-small;
+}
 table
 {
     font-size: inherit;
@@ -81,7 +84,7 @@ table
 {
     width: 920px;
     margin: 0 15px;
-    background: #1e4262 url(Images/header-background.png) bottom left no-repeat;
+    background: #1e4262 url('../Images/header-background.png') no-repeat left bottom;
     height: 56px;
     font-family: verdana;
 }
@@ -117,7 +120,7 @@ table
 }
 #nav-main ul
 {
-    background: transparent url(Images/header-nav-divider.png) top left no-repeat;
+    background: url('../Images/header-nav-divider.png') no-repeat left top;
     padding-left: 2px;
 }
 #nav-main ul li a, #nav-main ul li span
@@ -129,7 +132,7 @@ table
     font-weight: bold;
     font-size: 95%;
     color: #fff;
-    background: transparent url(Images/header-nav-divider.png) top right no-repeat;
+    background: url('../Images/header-nav-divider.png') no-repeat right top;
 }
 #nav-main ul li a:link, #nav-main ul li a:visited
 {
@@ -139,7 +142,7 @@ table
 #nav-main ul li span, #nav-main ul li a:hover, #nav-main ul li a:active, #nav-main ul li a.yuimenubaritemlabel-selected
 {
     color: #fff;
-    background: #31526f url(Images/header-nav-menu-backgrounds.png) top right no-repeat;
+    background: #31526f url('../Images/header-nav-menu-backgrounds.png') no-repeat right top;
 }
 #nav-main ul ul, #nav-main ul ul li
 {
@@ -149,7 +152,7 @@ table
 #nav-main ul ul
 {
     border-top: 0;
-    background: url(Images/header-nav-menu-backgrounds.png) bottom left no-repeat;
+    background: url('../Images/header-nav-menu-backgrounds.png') no-repeat left bottom;
     padding: 8px 0;
     width: 190px;
 }
@@ -160,7 +163,7 @@ table
     height: auto;
     float: none;
     display: block;
-    font-size: 85%;
+    font-size: 95%;
     font-weight: normal;
     border: 0;
     background-image: none;
@@ -169,6 +172,21 @@ table
 #nav-main ul li ul li a:hover, #nav-main ul li ul li a:active
 {
     background: #3d5b74;
-}r{font-family:verdana,sans-serif;font-size:70%;color:#ccc;margin-left:5px;position:relative;left:5px}#sidebar .download-other
-a{margin-right:4px}.home-download
-abbr{border-bottom:0}
+}
+r
+{
+    font-family: verdana,sans-serif;
+    font-size: 70%;
+    color: #ccc;
+    margin-left: 5px;
+    position: relative;
+    left: 5px;
+}
+#sidebar .download-other a
+{
+    margin-right: 4px;
+}
+.home-download abbr
+{
+    border-bottom: 0;
+}

@@ -71,6 +71,9 @@ namespace J.SLS.Facade
             userBaseEntity.UserId = user.UserId;
             userBaseEntity.RealName = user.RealName;
             userBaseEntity.Email = user.Email;
+            userBaseEntity.CardType = user.CardType;
+            userBaseEntity.CardNumber = user.CardNumber;
+            userBaseEntity.Mobile = user.Mobile;
 
             try
             {

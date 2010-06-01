@@ -539,6 +539,10 @@
             return "<%= btn_OK.ClientID %>";
         }
 
+        function GetBtnOKName() {
+            return "<%= btn_OK.UniqueID %>";
+        }
+
         function GetCheckAgreementId() {
             return "<%= chkAgrrement.ClientID %>";
         }

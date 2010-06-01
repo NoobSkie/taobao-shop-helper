@@ -24,6 +24,18 @@ namespace J.SkyMusic.Facade
             return persistence.GetByKey<ItemCollectionInfo>(id);
         }
 
+        public void AddItem(ItemBase item)
+        {
+            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+            persistence.Add(item);
+        }
+
+        public void UpdateItem(ItemBase item)
+        {
+            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+            persistence.Modify(item);
+        }
+
         public IList<ItemDetailInfo> GetChildrenItemList(Guid collectionId, int pageIndex, int pageSize, out int totalCount, string orderBy, SortDirection direction)
         {
             ObjectPersistence persistence = new ObjectPersistence(DbAccess);
@@ -40,6 +52,23 @@ namespace J.SkyMusic.Facade
             ObjectPersistence persistence = new ObjectPersistence(DbAccess);
             return persistence.GetByKey<ItemDetailInfo>(id);
         }
+
+        public void AddItem(ItemDetailInfo item)
+        {
+            item.PublishDate = DateTime.Now;
+            item.LastUpdateDate = DateTime.Now;
+
+            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+            persistence.Add(item);
+        }
+
+        public void UpdateItem(ItemDetailInfo item)
+        {
+            item.LastUpdateDate = DateTime.Now;
+
+            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+            persistence.Modify(item);
+        }
     }
 
     public class ItemHtmlFacade : ItemBaseFacade
@@ -48,6 +77,18 @@ namespace J.SkyMusic.Facade
         {
             ObjectPersistence persistence = new ObjectPersistence(DbAccess);
             return persistence.GetByKey<ItemHtmlInfo>(id);
+        }
+
+        public void AddItem(ItemBase item)
+        {
+            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+            persistence.Add(item);
+        }
+
+        public void UpdateItem(ItemBase item)
+        {
+            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+            persistence.Modify(item);
         }
     }
 }

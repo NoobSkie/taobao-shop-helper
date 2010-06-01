@@ -30,5 +30,14 @@ namespace J.SLS.Domain
 
         [EntityMappingField("Email")]
         public string Email { get; set; }
+
+        [EntityMappingField("CardType")]
+        public int CardType { get; set; }
+
+        [EntityMappingField("CardNumber")]
+        public string CardNumber { get; set; }
+
+        [EntityMappingField("Mobile")]
+        public string Mobile { get; set; }
     }
 }

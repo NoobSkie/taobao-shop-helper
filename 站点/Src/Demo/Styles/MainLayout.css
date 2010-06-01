@@ -1,15 +1,26 @@
-.LeftArea
+body
 {
-    width: 220px;
-    float: left;
+    margin: 0px;
+    font-size: 12px;
+    font-family: ËÎÌו, Tahoma, Arial;
 }
-.MiddleArea
+li
 {
-    width: 500px;
-    float: left;
+    margin-bottom: 6px;
 }
-.RightArea
+.layout
 {
-    width: 200px;
-    float: left;
+    width: 920px;
+}
+.header
+{
+    width: 920px;
+    text-align: left;
+    background: #6A93D4;
+}
+.footer
+{
+    width: 920px;
+    text-align: left;
+    background: #DDDDDD;
 }

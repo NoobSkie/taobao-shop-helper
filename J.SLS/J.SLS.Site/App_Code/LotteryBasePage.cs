@@ -31,7 +31,7 @@ public abstract class LotteryBasePage : BasePage
     protected AccountNumber GetAccountNumber()
     {
         if (ConfigurationManager.AppSettings["AgenceAccount"] == null
-            || ConfigurationManager.AppSettings["AgenceAccount"] == null)
+            || ConfigurationManager.AppSettings["AgencePassword"] == null)
         {
             throw new ArgumentNullException("未配置代理商账号！");
         }

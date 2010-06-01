@@ -27,6 +27,15 @@ namespace J.SLS.Facade
         [EntityMappingField("RealName")]
         public string RealName { get; set; }
 
+        [EntityMappingField("CardType")]
+        public int CardType { get; set; }
+
+        [EntityMappingField("CardNumber")]
+        public string CardNumber { get; set; }
+
+        [EntityMappingField("Mobile")]
+        public string Mobile { get; set; }
+
         [EntityMappingField("Balance")]
         public double Balance { get; set; }
 

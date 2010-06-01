@@ -37,13 +37,13 @@ namespace J.SkyMusic.Facade
         public string Name { get; set; }
     }
 
-    [EntityMappingTable("T_Item_Collection", ReadOnly = true)]
+    [EntityMappingTable("T_Item_Collection")]
     public class ItemCollectionInfo : ItemBase
     {
         public Guid? ParentId { get; set; }
     }
 
-    [EntityMappingTable("T_Item_Html", ReadOnly = true)]
+    [EntityMappingTable("T_Item_Html")]
     public class ItemHtmlInfo : ItemBase
     {
         [EntityMappingField("TitleHtml")]
@@ -62,7 +62,7 @@ namespace J.SkyMusic.Facade
         public DateTime LastUpdateDate { get; set; }
     }
 
-    [EntityMappingTable("T_Item_Detail", ReadOnly = true)]
+    [EntityMappingTable("T_Item_Detail")]
     public class ItemDetailInfo : ItemHtmlInfo
     {
         [EntityMappingField("ParentId")]

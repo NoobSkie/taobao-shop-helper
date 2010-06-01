@@ -70,6 +70,16 @@ public class BaseHelper
         }
     }
 
+    public void JavascriptAlert(string msg)
+    {
+        ScriptManager.RegisterStartupScript(_page, _page.GetType(), "AlertMsg", "alert('" + msg.Replace("'", "''") + "');", true);
+    }
+
+    public void JavascriptAlertAndRedirect(string msg, string url)
+    {
+        ScriptManager.RegisterStartupScript(_page, _page.GetType(), "AlertChangePassword", "AlertAndRedirect('" + msg + "', '" + url + "');", true);
+    }
+
     public void RedirectToUrl(string url)
     {
         _page.Response.Redirect(url, false);
@@ -80,13 +90,14 @@ public class BaseHelper
         Dictionary<string, string> parameters = new Dictionary<string, string>();
         if (basePage != null)
         {
-            parameters.Add("ReturnUrl", basePage.Request.Url.AbsolutePath);
+            parameters.Add("ReturnUrl", basePage.Request.Url.AbsoluteUri);
         }
         if (!string.IsNullOrEmpty(message))
         {
             parameters.Add("Message", message);
         }
         string url = GetParamsUrl("~/Admin/AdminLogin.aspx", parameters);
+        url = _page.ResolveClientUrl(url);
         _page.Response.Redirect(url);
     }
 
@@ -120,7 +131,7 @@ public class BaseHelper
             StringBuilder queryBuilder = new StringBuilder();
             foreach (KeyValuePair<string, string> item in parameters)
             {
-                queryBuilder.AppendFormat("&{0}={1}", item.Key, item.Value);
+                queryBuilder.AppendFormat("&{0}={1}", item.Key, _page.Server.UrlEncode(item.Value));
             }
             mainUrl += "?" + queryBuilder.ToString().TrimStart('&');
         }

@@ -19,7 +19,7 @@ public partial class Admin_AdminLogin : BasePage
             {
                 string msg = "管理员密码尚未设置，请先设置管理员密码。";
                 string url = this.ResolveUrl("AdminChangePassword.aspx?ReturnUrl=AdminLogin.aspx");
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "AlertChangePassword", "AlertAndRedirect('" + msg + "', '" + url + "');", true);
+                JavascriptAlertAndRedirect(msg, url);
             }
         }
     }

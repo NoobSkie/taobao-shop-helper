@@ -1422,7 +1422,8 @@ function btn_OKClick() {
     $Id("tb_hide_AssureMoney").value = o_lab_AssureMoney.innerText;
     $Id("tb_hide_SumNum").value = o_lab_Num.innerText;
 
-    __doPostBack('btn_OK', '');
+    var btnOkName = GetBtnOKName();
+    __doPostBack(btnOkName, '');
 }
 
 function Cancel() {

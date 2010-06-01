@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/WithMenuPage.master"
-    AutoEventWireup="true" CodeFile="Register.aspx.cs" Inherits="Users_Register" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/WithMenuPage.master" AutoEventWireup="true"
+    CodeFile="Register.aspx.cs" Inherits="Users_Register" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -21,6 +21,12 @@
                     电子邮箱:</div>
                 <div>
                     真实姓名:</div>
+                <div>
+                    证件类型:</div>
+                <div>
+                    证件号码:</div>
+                <div>
+                    手机号码:</div>
             </div>
             <div class="fl">
                 <div class="in">
@@ -37,7 +43,19 @@
                         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox></span><font>*&nbsp;&nbsp;重要！用于找回密码。</font></div>
                 <div class="in">
                     <span>
-                        <asp:TextBox ID="txtRealName" runat="server"></asp:TextBox></span><font>*&nbsp;&nbsp;重要！用于领取奖金。</font></div>
+                        <asp:TextBox ID="txtRealName" runat="server"></asp:TextBox></span><font>*&nbsp;&nbsp;重要！用于投注和领取奖金。</font></div>
+                <div>
+                    <span>
+                        <asp:RadioButton ID="rbtn1" runat="server" GroupName="CardType" Checked="true" Text="身份证" />
+                        <asp:RadioButton ID="rbtn2" runat="server" GroupName="CardType" Text="军官证" />
+                        <asp:RadioButton ID="rbtn3" runat="server" GroupName="CardType" Text="护照" />
+                    </span></div>
+                <div class="in">
+                    <span>
+                        <asp:TextBox ID="txtCardNum" runat="server"></asp:TextBox></span><font>*&nbsp;&nbsp;重要！用于投注和领取奖金。</font></div>
+                <div class="in">
+                    <span>
+                        <asp:TextBox ID="txtMobile" runat="server"></asp:TextBox></span><font>*&nbsp;&nbsp;重要！无纸化彩票中大奖的凭证之一。</font></div>
                 <div>
                     <input type="checkbox" checked="checked" />我已经同意<a href="#"> 《服务协议》</a> 和 <a href="#">
                         《电话投注服务协议》</a>

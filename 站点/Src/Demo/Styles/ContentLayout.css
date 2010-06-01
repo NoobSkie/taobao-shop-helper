@@ -1,0 +1,43 @@
+.content
+{
+    display: block;
+    width: 920px;
+    text-align: left;
+}
+.LeftArea
+{
+    width: 220px;
+    float: left;
+    border: solid 1px gray;
+}
+.MiddleArea
+{
+    width: 490px;
+    float: left;
+    border: solid 1px gray;
+}
+.RightArea
+{
+    width: 200px;
+    float: left;
+    border: solid 1px gray;
+}
+.PageBlock
+{
+    border: solid 1px red;
+    margin-bottom: 6px;
+}
+.PageBlock .BlockTitle
+{
+    height: 30px;
+    background-color: lightgray;
+}
+.PageBlock .BlockTitle span
+{
+    line-height: 30px;
+    font-weight: bold;
+}
+.PageBlock .BlockContent
+{
+    padding: 8px;
+}
