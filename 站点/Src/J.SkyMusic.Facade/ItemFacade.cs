@@ -11,19 +11,18 @@ using J.SkyMusic.Domain;
 
 namespace J.SkyMusic.Facade
 {
-    public abstract class ItemBaseFacade : BaseFacade
+    public abstract class ItemBaseFacade<T> : BaseFacade
+        where T : ItemBase, new()
     {
-        public abstract ItemBase GetItemById(Guid id);
-    }
-
-    public class ItemCollectionFacade : ItemBaseFacade
-    {
-        public override ItemBase GetItemById(Guid id)
+        public T GetItemById(Guid id)
         {
             ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-            return persistence.GetByKey<ItemCollectionInfo>(id);
+            return persistence.GetByKey<T>(id);
         }
+    }
 
+    public class ItemCollectionFacade : ItemBaseFacade<ItemCollectionInfo>
+    {
         public void AddItem(ItemBase item)
         {
             ObjectPersistence persistence = new ObjectPersistence(DbAccess);
@@ -45,14 +44,8 @@ namespace J.SkyMusic.Facade
         }
     }
 
-    public class ItemDetailFacade : ItemBaseFacade
+    public class ItemDetailFacade : ItemBaseFacade<ItemDetailInfo>
     {
-        public override ItemBase GetItemById(Guid id)
-        {
-            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-            return persistence.GetByKey<ItemDetailInfo>(id);
-        }
-
         public void AddItem(ItemDetailInfo item)
         {
             item.PublishDate = DateTime.Now;
@@ -71,14 +64,8 @@ namespace J.SkyMusic.Facade
         }
     }
 
-    public class ItemHtmlFacade : ItemBaseFacade
+    public class ItemHtmlFacade : ItemBaseFacade<ItemHtmlInfo>
     {
-        public override ItemBase GetItemById(Guid id)
-        {
-            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-            return persistence.GetByKey<ItemHtmlInfo>(id);
-        }
-
         public void AddItem(ItemBase item)
         {
             ObjectPersistence persistence = new ObjectPersistence(DbAccess);

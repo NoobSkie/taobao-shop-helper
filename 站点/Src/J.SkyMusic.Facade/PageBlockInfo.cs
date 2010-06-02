@@ -6,7 +6,7 @@ using J.SLS.Database.ORM;
 
 namespace J.SkyMusic.Facade
 {
-    [EntityMappingTable("T_Block_List")]
+    [EntityMappingTable("V_Block_List", ReadOnly = true)]
     public class PageBlockInfo
     {
         [EntityMappingField("Id", IsKey = true)]
@@ -21,8 +21,6 @@ namespace J.SkyMusic.Facade
         [EntityMappingField("ToItemId")]
         public Guid ContentId { get; set; }
 
-        public ItemBase ContentItem { get; set; }
-
         [EntityMappingField("StyleId")]
         public Guid StyleId { get; set; }
 
@@ -34,5 +32,35 @@ namespace J.SkyMusic.Facade
 
         [EntityMappingField("Direction")]
         public int Direction { get; set; }
+
+        [EntityMappingField("BlockName")]
+        public string BlockName { get; set; }
+
+        [EntityMappingField("TypeId")]
+        public Guid TypeId { get; set; }
+
+        [EntityMappingField("TypeName")]
+        public string TypeName { get; set; }
+
+        [EntityMappingField("TypeHasSub")]
+        public bool TypeHasSub { get; set; }
+
+        [EntityMappingField("TypeCode")]
+        public short TypeCode { get; set; }
+
+        [EntityMappingField("ToItemName")]
+        public string ToItemName { get; set; }
+
+        [EntityMappingField("ToItemTypeId")]
+        public Guid ToItemTypeId { get; set; }
+
+        [EntityMappingField("ToItemTypeName")]
+        public string ToItemTypeName { get; set; }
+
+        [EntityMappingField("ToItemTypeHasSub")]
+        public bool ToItemTypeHasSub { get; set; }
+
+        [EntityMappingField("ToItemTypeCode")]
+        public short ToItemTypeCode { get; set; }
     }
 }

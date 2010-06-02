@@ -1,0 +1,51 @@
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: ËÎÌו, Tahoma, Arial;
+}
+.MainForm
+{
+    width: 1000px;
+    text-align: left;
+}
+.Header
+{
+    min-height: 80px;
+    border: solid 1px red;
+}
+.Menu1
+{
+    line-height: 30px;
+    height: 30px;
+    border: solid 1px red;
+}
+.Menu1 ul
+{
+}
+.Menu1 ul li
+{
+    list-style-type: none;
+    float: left;
+    margin-right: 12px;
+}
+.Menu2
+{
+    width: 220px;
+    float: left;
+    border: solid 1px red;
+}
+.Menu2 ul
+{
+}
+.Menu2 ul li
+{
+    list-style-type: none;
+    line-height: 22px;
+}
+.Content
+{
+}
+.Footer
+{
+}

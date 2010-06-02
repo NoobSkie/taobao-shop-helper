@@ -46,17 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseFacade.cs" />
-    <Compile Include="ItemFacade.cs" />
-    <Compile Include="ItemInfo.cs" />
-    <Compile Include="PageBlockInfo.cs" />
-    <Compile Include="PageBlockFacade.cs" />
-    <Compile Include="ParamFacade.cs" />
-    <Compile Include="ParamInfo.cs" />
-    <Compile Include="LogFacade.cs" />
-    <Compile Include="MenuInfo.cs" />
-    <Compile Include="MenuFacade.cs" />
+    <Compile Include="PageFacade.cs" />
+    <Compile Include="PageItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlAnalyzer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\J.SLS\J.SLS.Common\J.SLS.Common.csproj">

@@ -19,9 +19,9 @@
 <body>
     <form id="form1" runat="server">
     <center>
-        <uc1:CtrlHeader ID="CtrlHeader1" runat="server" />
+        <%--<uc1:CtrlHeader ID="CtrlHeader1" runat="server" />
         <uc3:CtrlNotice ID="CtrlNotice1" runat="server" />
-        <uc2:CtrlMenu ID="CtrlMenu1" runat="server" />
+        <uc2:CtrlMenu ID="CtrlMenu1" runat="server" />--%>
         <div class="content">
             <asp:ContentPlaceHolder ID="ph_content" runat="server">
             </asp:ContentPlaceHolder>

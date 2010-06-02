@@ -30,6 +30,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J.SkyMusic.Facade", "J.SkyM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J.SkyMusic.Domain", "J.SkyMusic.Domain\J.SkyMusic.Domain.csproj", "{B981D79D-0FCC-49B1-89FF-042ACE758AEF}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "J.SkyMusic.Site", "..\..\J.SLS\J.SkyMusic.Site\", "{67A25B66-FAB8-40C3-8DCF-815F253E01C7}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		ProjectReferences = "{04C28C5B-3E43-4DEE-8D62-DCC7B1662658}|J.SkyMusic.Facade.dll;{B981D79D-0FCC-49B1-89FF-042ACE758AEF}|J.SkyMusic.Domain.dll;{30F7EBF8-D985-4D02-BDE6-89F392B6545D}|J.SLS.Common.dll;{D322F3DB-C7F4-4F11-A062-52B8CF0C82C8}|J.SLS.Database.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/J.SkyMusic.Site"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\J.SLS\J.SkyMusic.Site\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\J.SkyMusic.Site\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/J.SkyMusic.Site"
+		Release.AspNetCompiler.PhysicalPath = "..\..\J.SLS\J.SkyMusic.Site\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\J.SkyMusic.Site\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "3466"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +78,10 @@ Global
 		{B981D79D-0FCC-49B1-89FF-042ACE758AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B981D79D-0FCC-49B1-89FF-042ACE758AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B981D79D-0FCC-49B1-89FF-042ACE758AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67A25B66-FAB8-40C3-8DCF-815F253E01C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A25B66-FAB8-40C3-8DCF-815F253E01C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67A25B66-FAB8-40C3-8DCF-815F253E01C7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A25B66-FAB8-40C3-8DCF-815F253E01C7}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
