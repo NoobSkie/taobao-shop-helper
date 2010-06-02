@@ -1,0 +1,649 @@
+﻿<style type="text/css">
+    body
+    {
+        margin: 0px;
+        font-family: Arial, Helvetica, sans-serif, Tahoma;
+        font-size: 12px;
+    }
+    form
+    {
+        display: inline;
+    }
+    img
+    {
+        vertical-align: middle;
+        border: 0px;
+    }
+    .red
+    {
+        font-size: 12px;
+        color: #cc0000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    
+    .blue
+    {
+        font-size: 12px;
+        color: #3D5B96;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .blue A:link
+    {
+        font-family: "tahoma";
+        color: #3D5B96;
+        text-decoration: underline;
+    }
+    .black12
+    {
+        font-size: 12px;
+        color: #000000;
+        font-family: "tahoma";
+        line-height: 20px;
+    }
+    .ball_num
+    {
+        font-family: "tahoma";
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+        color: #666666;
+        cursor: hand;
+        background-image: url( '../../images/zfb_huiball.gif' );
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .bai16
+    {
+        font-size: 14px;
+        color: #ffffff;
+        font-family: "tahoma";
+        line-height: 24px;
+        padding-bottom: 6px;
+        padding-right: 2px;
+        font-weight: bold;
+    }
+</style>
+<script type="text/javascript" src="../../javascript/Public.js" language="javascript"
+        charset="gbk"></script>
+<table style="width: 100%; height: 95px" cellspacing="1" cellpadding="0" width="526">
+    <tr>
+        <td width="50%" height="30" align="center" bgcolor="#FEDEDE" class="red">
+            红球胆码
+        </td>
+        <td align="center" bgcolor="#FEDEDE" class="blue">
+            红球拖码
+        </td>
+    </tr>
+    <tbody style="background-image: url('../../images/zfb_bg_red.jpg'); padding-top: 10px; padding-bottom: 10px;">
+        <tr>
+            <td valign="top" align="center">
+                <table cellspacing="5" cellpadding="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="ball_num" id="td_r1_01" onclick="SelectBall('r1','01');">
+                                01
+                            </td>
+                            <td class="ball_num" id="td_r1_02" onclick="SelectBall('r1','02');">
+                                02
+                            </td>
+                            <td class="ball_num" id="td_r1_03" onclick="SelectBall('r1','03');">
+                                03
+                            </td>
+                            <td class="ball_num" id="td_r1_04" onclick="SelectBall('r1','04');">
+                                04
+                            </td>
+                            <td class="ball_num" id="td_r1_05" onclick="SelectBall('r1','05');">
+                                05
+                            </td>
+                            <td class="ball_num" id="td_r1_06" onclick="SelectBall('r1','06');">
+                                06
+                            </td>
+                            <td class="ball_num" id="td_r1_07" onclick="SelectBall('r1','07');">
+                                07
+                            </td>
+                          
+                        </tr>
+                        <tr>
+                          <td class="ball_num" id="td_r1_08" onclick="SelectBall('r1','08');">
+                                08
+                            </td>
+                            <td class="ball_num" id="td_r1_09" onclick="SelectBall('r1','09');">
+                                09
+                            </td>
+                            <td class="ball_num" id="td_r1_10" onclick="SelectBall('r1','10');">
+                                10
+                            </td>
+                            <td class="ball_num" id="td_r1_11" onclick="SelectBall('r1','11');">
+                                11
+                            </td>
+                            <td class="ball_num" id="td_r1_12" onclick="SelectBall('r1','12');">
+                                12
+                            </td>
+                            <td class="ball_num" id="td_r1_13" onclick="SelectBall('r1','13');">
+                                13
+                            </td>
+                            <td class="ball_num" id="td_r1_14" onclick="SelectBall('r1','14');">
+                                14
+                            </td>
+                         
+                        </tr>
+                        <tr>
+                           <td class="ball_num" id="td_r1_15" onclick="SelectBall('r1','15');">
+                                15
+                            </td>
+                            <td class="ball_num" id="td_r1_16" onclick="SelectBall('r1','16');">
+                                16
+                            </td>
+                            <td class="ball_num" id="td_r1_17" onclick="SelectBall('r1','17');">
+                                17
+                            </td>
+                            <td class="ball_num" id="td_r1_18" onclick="SelectBall('r1','18');">
+                                18
+                            </td>
+                            <td class="ball_num" id="td_r1_19" onclick="SelectBall('r1','19');">
+                                19
+                            </td>
+                            <td class="ball_num" id="td_r1_20" onclick="SelectBall('r1','20');">
+                                20
+                            </td>
+                            <td class="ball_num" id="td_r1_21" onclick="SelectBall('r1','21');">
+                                21
+                            </td>
+                          
+                        </tr>
+                        <tr>
+                          <td class="ball_num" id="td_r1_22" onclick="SelectBall('r1','22');">
+                                22
+                            </td>
+                            <td class="ball_num" id="td_r1_23" onclick="SelectBall('r1','23');">
+                                23
+                            </td>
+                            <td class="ball_num" id="td_r1_24" onclick="SelectBall('r1','24');">
+                                24
+                            </td>
+                            <td class="ball_num" id="td_r1_25" onclick="SelectBall('r1','25');">
+                                25
+                            </td>
+                            <td class="ball_num" id="td_r1_26" onclick="SelectBall('r1','26');">
+                                26
+                            </td>
+                            <td class="ball_num" id="td_r1_27" onclick="SelectBall('r1','27');">
+                                27
+                            </td>
+                            <td class="ball_num" id="td_r1_28" onclick="SelectBall('r1','28');">
+                                28
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                         <td class="ball_num" id="td_r1_29" onclick="SelectBall('r1','29');">
+                                29
+                            </td>
+                            <td class="ball_num" id="td_r1_30" onclick="SelectBall('r1','30');">
+                                30
+                            </td>
+                            <td class="ball_num" id="td_r1_31" onclick="SelectBall('r1','31');">
+                                31
+                            </td>
+                            <td class="ball_num" id="td_r1_32" onclick="SelectBall('r1','32');">
+                                32
+                            </td>
+                            <td class="ball_num" id="td_r1_33" onclick="SelectBall('r1','33');">
+                                33
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td valign="top" align="center">
+                <table cellspacing="5" cellpadding="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="ball_num" id="td_r2_01" onclick="SelectBall('r2','01');">
+                                01
+                            </td>
+                            <td class="ball_num" id="td_r2_02" onclick="SelectBall('r2','02');">
+                                02
+                            </td>
+                            <td class="ball_num" id="td_r2_03" onclick="SelectBall('r2','03');">
+                                03
+                            </td>
+                            <td class="ball_num" id="td_r2_04" onclick="SelectBall('r2','04');">
+                                04
+                            </td>
+                            <td class="ball_num" id="td_r2_05" onclick="SelectBall('r2','05');">
+                                05
+                            </td>
+                            <td class="ball_num" id="td_r2_06" onclick="SelectBall('r2','06');">
+                                06
+                            </td>
+                            <td class="ball_num" id="td_r2_07" onclick="SelectBall('r2','07');">
+                                07
+                            </td>
+                      
+                        </tr>
+                        <tr>
+                              <td class="ball_num" id="td_r2_08" onclick="SelectBall('r2','08');">
+                                08
+                            </td>
+                            <td class="ball_num" id="td_r2_09" onclick="SelectBall('r2','09');">
+                                09
+                            </td>
+                            <td class="ball_num" id="td_r2_10" onclick="SelectBall('r2','10');">
+                                10
+                            </td>
+                            <td class="ball_num" id="td_r2_11" onclick="SelectBall('r2','11');">
+                                11
+                            </td>
+                            <td class="ball_num" id="td_r2_12" onclick="SelectBall('r2','12');">
+                                12
+                            </td>
+                            <td class="ball_num" id="td_r2_13" onclick="SelectBall('r2','13');">
+                                13
+                            </td>
+                            <td class="ball_num" id="td_r2_14" onclick="SelectBall('r2','14');">
+                                14
+                            </td>
+                      
+                        </tr>
+                        <tr>
+                              <td class="ball_num" id="td_r2_15" onclick="SelectBall('r2','15');">
+                                15
+                            </td>
+                            <td class="ball_num" id="td_r2_16" onclick="SelectBall('r2','16');">
+                                16
+                            </td>
+                            <td class="ball_num" id="td_r2_17" onclick="SelectBall('r2','17');">
+                                17
+                            </td>
+                            <td class="ball_num" id="td_r2_18" onclick="SelectBall('r2','18');">
+                                18
+                            </td>
+                            <td class="ball_num" id="td_r2_19" onclick="SelectBall('r2','19');">
+                                19
+                            </td>
+                            <td class="ball_num" id="td_r2_20" onclick="SelectBall('r2','20');">
+                                20
+                            </td>
+                            <td class="ball_num" id="td_r2_21" onclick="SelectBall('r2','21');">
+                                21
+                            </td>
+                        
+                        </tr>
+                        <tr>
+                            <td class="ball_num" id="td_r2_22" onclick="SelectBall('r2','22');">
+                                22
+                            </td>
+                            <td class="ball_num" id="td_r2_23" onclick="SelectBall('r2','23');">
+                                23
+                            </td>
+                            <td class="ball_num" id="td_r2_24" onclick="SelectBall('r2','24');">
+                                24
+                            </td>
+                            <td class="ball_num" id="td_r2_25" onclick="SelectBall('r2','25');">
+                                25
+                            </td>
+                            <td class="ball_num" id="td_r2_26" onclick="SelectBall('r2','26');">
+                                26
+                            </td>
+                            <td class="ball_num" id="td_r2_27" onclick="SelectBall('r2','27');">
+                                27
+                            </td>
+                            <td class="ball_num" id="td_r2_28" onclick="SelectBall('r2','28');">
+                                28
+                            </td>
+                        
+                        </tr>
+                        <tr>
+                            <td class="ball_num" id="td_r2_29" onclick="SelectBall('r2','29');">
+                                29
+                            </td>
+                            <td class="ball_num" id="td_r2_30" onclick="SelectBall('r2','30');">
+                                30
+                            </td>
+                            <td class="ball_num" id="td_r2_31" onclick="SelectBall('r2','31');">
+                                31
+                            </td>
+                            <td class="ball_num" id="td_r2_32" onclick="SelectBall('r2','32');">
+                                32
+                            </td>
+                            <td class="ball_num" id="td_r2_33" onclick="SelectBall('r2','33');">
+                                33
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+    <tr style="background-image: url('../../images/zfb_bg_blue.jpg'); padding-top: 10px; padding-bottom: 10px;">
+        <td colspan="2" valign="top" align="center">
+            <table cellspacing="4" cellpadding="0" width="240" border="0">
+                <tbody>
+                    <tr>
+                        <td class="ball_num" id="td_b_01" onclick="SelectBall('b','01');">
+                            01
+                        </td>
+                        <td class="ball_num" id="td_b_02" onclick="SelectBall('b','02');">
+                            02
+                        </td>
+                        <td class="ball_num" id="td_b_03" onclick="SelectBall('b','03');">
+                            03
+                        </td>
+                        <td class="ball_num" id="td_b_04" onclick="SelectBall('b','04');">
+                            04
+                        </td>
+                        <td class="ball_num" id="td_b_05" onclick="SelectBall('b','05');">
+                            05
+                        </td>
+                        <td class="ball_num" id="td_b_06" onclick="SelectBall('b','06');">
+                            06
+                        </td>
+                        <td class="ball_num" id="td_b_07" onclick="SelectBall('b','07');">
+                            07
+                        </td>
+                        <td class="ball_num" id="td_b_08" onclick="SelectBall('b','08');">
+                            08
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ball_num" id="td_b_09" onclick="SelectBall('b','09');">
+                            09
+                        </td>
+                        <td class="ball_num" id="td_b_10" onclick="SelectBall('b','10');">
+                            10
+                        </td>
+                        <td class="ball_num" id="td_b_11" onclick="SelectBall('b','11');">
+                            11
+                        </td>
+                        <td class="ball_num" id="td_b_12" onclick="SelectBall('b','12');">
+                            12
+                        </td>
+                        <td class="ball_num" id="td_b_13" onclick="SelectBall('b','13');">
+                            13
+                        </td>
+                        <td class="ball_num" id="td_b_14" onclick="SelectBall('b','14');">
+                            14
+                        </td>
+                        <td class="ball_num" id="td_b_15" onclick="SelectBall('b','15');">
+                            15
+                        </td>
+                        <td class="ball_num" id="td_b_16" onclick="SelectBall('b','16');">
+                            16
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+</table>
+<table align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td bgcolor="#F4F9FD" class="black12" style="padding: 5px 10px 5px 10px;">
+            【注】胆码只能选择<font class="red"> 1~5 </font>个，拖码<span class="style1"> 2</span> 个以上。胆拖共<span
+                class="style1"> 7</span> 个或以上。您选择了
+            <div style="display: inline; height: 15px" class="red" id="lab_2_Selected">
+                胆码：0 拖码：0 蓝球：0，0 注，0.00 元</div>
+            &nbsp;
+        </td>
+    </tr>
+</table>
+<div style="text-align:center; padding:10px;">
+    <img alt="" src="../../images/zfb_bt_queren.jpg" id="btn_2_Add" name="btn_2_Add" onclick="return btn_2_AddClick();"
+        style="cursor: hand;" visible="false" disabled />
+</div>
+
+    
+<script type="text/javascript" language="javascript">
+<!--
+    function SelectBall(BallColor, BallNum) {
+        var Selected = GetBallState(BallColor, BallNum);
+        if (Selected) {
+            SetBallState(BallColor, BallNum, false);
+            CheckFull();
+            return;
+        }
+
+        if ((BallColor == "r1") || (BallColor == "r2")) {
+            if ((GetRedDanBallSeleectedNum() >= 5) && (BallColor == "r1")) {
+                alert("胆码最多只能选择 5 个。");
+                return;
+            }
+
+//            if (GetRedBallSelectedNum() >= 20) {
+//                alert("红球最多只能选择 20 个。");
+//                return;
+//            }
+//            else {
+                SetBallState(BallColor, BallNum, true);
+                CheckFull();
+                return;
+//            }
+        }
+        else {
+            //if (GetBlueBallSelectedNum() >= 10)
+            //{
+            //	alert("蓝球最多只能选择 10 个。");
+            //	return;
+            //}
+            //else
+            //{
+            SetBallState(BallColor, BallNum, true);
+            CheckFull();
+            return;
+            //}
+        }
+    }
+
+    function GetRedBallSelectedNum() {
+        var Count = 0;
+        for (var i = 1; i <= 33; i++) {
+            if (GetBallState("r1", GetBallNum(i)) || GetBallState("r2", GetBallNum(i)))
+                Count++;
+        }
+        return Count;
+    }
+
+    function GetRedDanBallSeleectedNum() {
+        var Count = 0;
+        for (var i = 1; i <= 33; i++) {
+            if (GetBallState("r1", GetBallNum(i)))
+                Count++;
+        }
+        return Count;
+    }
+
+    function GetRedTuoBallSeleectedNum() {
+        var Count = 0;
+        for (var i = 1; i <= 33; i++) {
+            if (GetBallState("r2", GetBallNum(i)))
+                Count++;
+        }
+        return Count;
+    }
+
+    function GetBlueBallSelectedNum() {
+        var Count = 0;
+        for (var i = 1; i <= 16; i++) {
+            if (GetBallState("b", GetBallNum(i)))
+                Count++;
+        }
+        return Count;
+    }
+
+    function GetBallNum(i) {
+        var BallNum = "" + i;
+        if (BallNum.length == 1)
+            BallNum = "0" + BallNum;
+
+        return BallNum;
+    }
+
+    function GetBallState(BallColor, BallNum) {
+        return (document.all["td_" + BallColor + "_" + BallNum].style.color != "#454545");
+    }
+
+    function SetBallState(BallColor, BallNum, SelectState) {
+        if (SelectState) {
+            //选中
+            document.all["td_" + BallColor + "_" + BallNum].style.backgroundImage = "url(../../Images/zfb_"+(BallColor == "r1" || BallColor == "r2" ? "red" : "blue")+"ball.gif)";
+            document.all["td_" + BallColor + "_" + BallNum].style.color = "White";
+            
+            if (BallColor == "r1")
+            {
+                document.all["td_r2_" + BallNum].style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+                document.all["td_r2_" + BallNum].style.color = "#454545";
+            }
+
+            if (BallColor == "r2")
+            {
+                document.all["td_r1_" + BallNum].style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+                document.all["td_r1_" + BallNum].style.color = "#454545";
+            }
+        }
+        else {
+            //未选中
+            document.all["td_" + BallColor + "_" + BallNum].style.color = "#454545";
+            document.all["td_" + BallColor + "_" + BallNum].style.backgroundImage = "url(../../Images/zfb_huiball.gif)";
+        }
+    }
+    
+    function CheckFull() {
+        var RedDan = GetRedDanBallSeleectedNum();
+        var RedTuo = GetRedTuoBallSeleectedNum();
+        var BlueNum = GetBlueBallSelectedNum();
+
+        document.all["btn_2_Add"].disabled = ((GetLotteryInvestNum() < 2) || (GetRedBallSelectedNum() < 7));
+        document.all["lab_2_Selected"].innerText = "胆码：" + RedDan + " 拖码：" + RedTuo + " 蓝球： " + BlueNum + "，" + GetLotteryInvestNum() + " 注，" + GetLotteryInvestNum() * 2 + " 元";
+    }
+
+    function GetLotteryNumber() {
+        var LotteryNumber = "";
+        var BallNum;
+        var tempDan = "";
+        var tempTuo = "";
+
+        for (var i = 1; i <= 33; i++) {
+            BallNum = GetBallNum(i);
+            if (GetBallState("r1", BallNum))
+                tempDan += (BallNum + " ");
+
+            if (GetBallState("r2", BallNum))
+                tempTuo += (BallNum + " ");
+        }
+
+        LotteryNumber = tempDan + ", " + tempTuo + "+ ";
+
+        for (var i = 1; i <= 16; i++) {
+            BallNum = GetBallNum(i);
+            if (GetBallState("b", BallNum))
+                LotteryNumber += (BallNum + " ");
+        }
+
+        return LotteryNumber.trim();
+    }
+
+    function GetLotteryInvestNum()	//取注数
+    {
+        var BallNum;
+        var tempDan = 0;
+        var tempTuo = 0;
+        var tempLan = 0;
+        var tempNum = 1;
+        var InvestNum = 1;
+
+        for (var i = 1; i <= 33; i++) {
+            BallNum = GetBallNum(i);
+            if (GetBallState("r1", BallNum))
+                tempDan++;
+
+            if (GetBallState("r2", BallNum))
+                tempTuo++;
+        }
+
+        for (var i = 1; i <= 16; i++) {
+            BallNum = GetBallNum(i);
+            if (GetBallState("b", BallNum))
+                tempLan++;
+        }
+
+        if (((tempDan + tempTuo) < 6) || tempDan < 1) {
+            return 0;
+        }
+
+        if (tempLan < 1) {
+            return 0;
+        }
+
+        for (var i = 0; i < (6 - tempDan); i++) {
+            InvestNum *= (tempTuo - i);
+        }
+
+        for (var i = 1; i < (7 - tempDan); i++) {
+            tempNum *= i;
+        }
+
+        InvestNum = (InvestNum / tempNum);
+        return InvestNum * tempLan;
+    }
+
+    function ClearSelect() {
+        for (var i = 1; i <= 33; i++) {
+            SetBallState("r1", GetBallNum(i), false);
+            SetBallState("r2", GetBallNum(i), false);
+        }
+
+        for (var i = 1; i <= 16; i++)
+            SetBallState("b", GetBallNum(i), false);
+    }
+
+    function btn_2_AddClick() {
+
+        var customOptions = document.createElement("OPTION");
+        customOptions.text = GetLotteryNumber();
+        customOptions.value = GetLotteryInvestNum();
+        parent.o_list_LotteryNumber.add(customOptions, parent.o_list_LotteryNumber.length);
+        parent.o_tb_LotteryNumber.value += GetLotteryNumber() + "\n";
+        parent.o_lab_Num.innerText = StrToInt(parent.o_lab_Num.innerText) + GetLotteryInvestNum();
+        ClearSelect();
+        document.all["lab_2_Selected"].innerText = "0 + 0，0 注，0.00 元";
+        document.all["btn_2_Add"].disabled = true;
+        parent.CalcResult();
+
+        parent.calculateAllMoney();
+        parent.ClearSMS();
+
+        return true;
+    }
+
+    function SelectLotteryNumber() {
+        ClearSelect();
+        var lotteryNumber = parent.document.getElementById("HidSelectedLotteryNumber").value.split("+");
+        var red = lotteryNumber[0].trim().split(",");
+        var red1 = red[0].trim().split(" ");
+        var red2 = red[1].trim().split(" ");
+        var blue = lotteryNumber[1].trim().split(" ");
+        for (var i = 0; i < red1.length; i++) {
+
+            SetBallState("r1", red1[i], true);
+        }
+        for (var i = 0; i < red2.length; i++) {
+
+            SetBallState("r2", red2[i], true);
+        }
+        for (var i = 0; i < blue.length; i++) {
+
+            SetBallState("b", blue[i], true);
+        }
+
+        CheckFull();
+    }
+    
+    ClearSelect();
+-->
+</script>
+

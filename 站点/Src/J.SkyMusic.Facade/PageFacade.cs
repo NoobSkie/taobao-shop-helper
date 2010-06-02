@@ -7,59 +7,9 @@ using System.Xml;
 
 namespace J.SkyMusic.Facade
 {
-    public class PageFacade
+    public class PageFacade : BaseFacade
     {
-        private readonly string _DbDirectory;
-        private object lockObject = new object();
-        public PageFacade(string baseXmlDir)
-        {
-            _DbDirectory = baseXmlDir;
-        }
-
-        private string DbListItemFile
-        {
-            get
-            {
-                return GetXmlFileName("DB_ListItem.xml");
-            }
-        }
-
-        private string DbMenuItemFile
-        {
-            get
-            {
-                return GetXmlFileName("DB_MenuItem.xml");
-            }
-        }
-
-        private string GetXmlFileName(string fileName)
-        {
-            return Path.Combine(_DbDirectory, fileName);
-        }
-
-        private XmlDocument GetXmlDocumentByFileName(string fileName)
-        {
-            XmlDocument doc = new XmlDocument();
-            lock (lockObject)
-            {
-                using (StreamReader reader = new StreamReader(fileName))
-                {
-                    doc.LoadXml(reader.ReadToEnd());
-                }
-            }
-            return doc;
-        }
-
-        private string GetFileContent(string fileName)
-        {
-            lock (lockObject)
-            {
-                using (StreamReader reader = new StreamReader(fileName))
-                {
-                    return reader.ReadToEnd();
-                }
-            }
-        }
+        public PageFacade(string baseXmlDir) : base(baseXmlDir) { }
 
         public IList<ListItem> GetListItems()
         {

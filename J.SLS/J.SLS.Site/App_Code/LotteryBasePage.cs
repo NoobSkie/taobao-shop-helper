@@ -19,12 +19,11 @@ public abstract class LotteryBasePage : BasePage
         }
     }
 
-    protected int LotteryId
+    protected virtual int LotteryId
     {
         get
         {
-            return 28;
-            // return CurrentLottery.Id;
+            return CurrentLottery.Id;
         }
     }
 
@@ -43,12 +42,11 @@ public abstract class LotteryBasePage : BasePage
 
     protected abstract string LotteryCode { get; }
 
-    protected string LotteryName
+    protected virtual string LotteryName
     {
         get
         {
-            return "重庆时时彩";
-            // return CurrentLottery.Name;
+            return CurrentLottery.Name;
         }
     }
 

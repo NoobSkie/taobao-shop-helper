@@ -96,11 +96,8 @@
                         <a href="UserLottery.aspx">
                             <img src="Images/startgame.jpg" /></a> </li>
                     <li>
-                        <img src="Images/game_09.jpg" />
-                        <span class="cb"><a href="DrawaLotteryInfo.aspx" class="fl">
-                            <img src="Images/jiqiao.jpg" /></a><a href="DataBehavior.aspx" class="fr"><img src="Images/zhoushi.jpg" /></a></span>
-                        <a href="UserLottery.aspx">
-                            <img src="Images/startgame.jpg" /></a> </li>
+                        <uc1:LotteryImageItem ID="lottery_SSQ" LotteryCode="SSQ" ImageIndex="09" runat="server" />
+                    </li>
                     <li>
                         <img src="Images/game_10.jpg" />
                         <span class="cb"><a href="DrawaLotteryInfo.aspx" class="fl">

@@ -13,4 +13,11 @@ public static class PageHelper
         string dirPath = _page.Server.MapPath(dbUrl);
         return new PageFacade(dirPath);
     }
+
+    public static ParamFacade GetParamFacade(Page _page)
+    {
+        string dbUrl = "~/App_Data";
+        string dirPath = _page.Server.MapPath(dbUrl);
+        return new ParamFacade(dirPath);
+    }
 }

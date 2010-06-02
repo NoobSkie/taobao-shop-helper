@@ -61,18 +61,18 @@ function init() {
 
     o_tb_LotteryNumber.value = "";
     o_tb_Multiple.value = "1";
-    o_tb_Share.value = "1";
+    // o_tb_Share.value = "1";
 
     GetSchemeBonusScalec();
 
-    o_tb_AssureShare.value = "0";
-    o_tb_BuyShare.value = "1";
-    o_tb_Title.value = "";
+//    o_tb_AssureShare.value = "0";
+//    o_tb_BuyShare.value = "1";
+//    o_tb_Title.value = "";
     o_lab_Num.innerText = "0";
     o_lab_SumMoney.innerText = "0.00";
-    o_lab_ShareMoney.innerText = "0.00";
-    o_lab_AssureMoney.innerText = "0.00";
-    o_lab_BuyMoney.innerText = "0.00";
+//    o_lab_ShareMoney.innerText = "0.00";
+//    o_lab_AssureMoney.innerText = "0.00";
+//    o_lab_BuyMoney.innerText = "0.00";
 
     o_lb_LbSumMoney = $Id("LbSumMoney");
 
@@ -95,51 +95,51 @@ var isGetSchemeBonusScalec = false;
 var time_GetSchemeBonusScalec = null;
 function GetSchemeBonusScalec() {
 
-    if (!isGetSchemeBonusScalec) {
-        try {
+//    if (!isGetSchemeBonusScalec) {
+//        try {
 
-            Lottery_Buy_SSQ.GetSchemeBonusScalec(currentLotteryID, GetSchemeBonusScalec_callback);
+//            Lottery_SSQ_Buy.GetSchemeBonusScalec(currentLotteryID, GetSchemeBonusScalec_callback);
 
-        }
-        catch (e) {
-            time_GetSchemeBonusScalec = setTimeout("Lottery_Buy_SSQ.GetSchemeBonusScalec(" + currentLotteryID + ",GetSchemeBonusScalec_callback);", 2000);
-        }
-    }
+//        }
+//        catch (e) {
+//            time_GetSchemeBonusScalec = setTimeout("Lottery_SSQ_Buy.GetSchemeBonusScalec(" + currentLotteryID + ",GetSchemeBonusScalec_callback);", 2000);
+//        }
+//    }
 }
 
 function GetSchemeBonusScalec_callback(response) {
 
-    if (response == null || response.value == null) {
+//    if (response == null || response.value == null) {
 
-        time_GetSchemeBonusScalec = setTimeout("Lottery_Buy_SSQ.GetSchemeBonusScalec(" + currentLotteryID + ",GetSchemeBonusScalec_callback);", 2000);
+//        time_GetSchemeBonusScalec = setTimeout("Lottery_SSQ_Buy.GetSchemeBonusScalec(" + currentLotteryID + ",GetSchemeBonusScalec_callback);", 2000);
 
-        return;
-    }
+//        return;
+//    }
 
-    //将time_GetSchemeBonusScalec移除
-    if (time_GetSchemeBonusScalec != null) {
-        clearTimeout(time_GetSchemeBonusScalec);
-    }
+//    //将time_GetSchemeBonusScalec移除
+//    if (time_GetSchemeBonusScalec != null) {
+//        clearTimeout(time_GetSchemeBonusScalec);
+//    }
 
-    var v = response.value.split('|');
+//    var v = response.value.split('|');
 
-    if (v.length != 7) {
+//    if (v.length != 7) {
 
-        return;
-    }
+//        return;
+//    }
 
-    o_tb_SchemeBonusScale.value = v[0];
-    o_tb_SchemeBonusScalec.value = v[0];
+//    o_tb_SchemeBonusScale.value = v[0];
+//    o_tb_SchemeBonusScalec.value = v[0];
 
-    Opt_InitiateSchemeLimitLowerScaleMoney = v[1];
-    Opt_InitiateSchemeLimitLowerScale = v[2];
-    Opt_InitiateSchemeLimitUpperScaleMoney = v[3];
-    Opt_InitiateSchemeLimitUpperScale = v[4];
+//    Opt_InitiateSchemeLimitLowerScaleMoney = v[1];
+//    Opt_InitiateSchemeLimitLowerScale = v[2];
+//    Opt_InitiateSchemeLimitUpperScaleMoney = v[3];
+//    Opt_InitiateSchemeLimitUpperScale = v[4];
 
-    currentLotteryID = v[5];
-    LotteryName = v[6];
+//    currentLotteryID = v[5];
+//    LotteryName = v[6];
 
-    isGetSchemeBonusScalec = true;
+//    isGetSchemeBonusScalec = true;
 }
 
 //定时读取最近的开奖信息的定时器
@@ -152,7 +152,7 @@ function GetServerTime(lotteryID) {
 
     try {
 
-        Lottery_Buy_SSQ.GetSysTime(GetServerTime_callback);
+        Lottery_SSQ_Buy.GetSysTime(GetServerTime_callback);
 
     }
     catch (e) {
@@ -178,7 +178,7 @@ function GetServerTime_callback(response) {
 
     var serverTime = response.value;
 
-    var IsuseEndTime = new Date($Id("HidIsuseEndTime").value.replace(new RegExp("-", "g"), "/"));
+    var IsuseEndTime = new Date($Id(GetHidIsuseEndTime()).value.replace(new RegExp("-", "g"), "/"));
     var TimePoor = new Date(serverTime.replace(new RegExp("-", "g"), "/")).getTime() - new Date().getTime();
     var to = IsuseEndTime.getTime() - new Date(serverTime.replace(new RegExp("-", "g"), "/")).getTime();
 
@@ -217,7 +217,7 @@ function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
     }
 
     var serverTime = new Date().getTime() + tPoor;
-    var IsuseEndTime = new Date($Id("HidIsuseEndTime").value.replace(new RegExp("-", "g"), "/"));
+    var IsuseEndTime = new Date($Id(GetHidIsuseEndTime()).value.replace(new RegExp("-", "g"), "/"));
     var to = IsuseEndTime.getTime() - serverTime;
 
     var d = Math.floor(to / (1000 * 60 * 60 * 24));
@@ -255,7 +255,7 @@ function GetIsuseInfo(lotteryID) {
 
     try {
 
-        Lottery_Buy_SSQ.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
+        Lottery_SSQ_Buy.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
 
     }
     catch (e) {
@@ -293,7 +293,7 @@ function GetIsuseInfo_callback(response) {
     var lastIsuse = arrInfo[1];
     var currIsuse = arrInfo[0];
     var chaseIsuse = arrInfo[2];
-   
+
     lastIsuseInfo.innerHTML = lastIsuse;
 
     $Id("div_QH_Today").innerHTML = chaseIsuse;
@@ -310,7 +310,7 @@ function GetIsuseInfo_callback(response) {
     $Id("HidIsuseID").value = arrcurrIsuse[0];
     currIsuseName.innerText = arrcurrIsuse[1];
     currIsuseEndTime.innerText = arrcurrIsuse[2].replace("/", "-").replace("/", "-");
-    $Id("HidIsuseEndTime").value = arrcurrIsuse[2];
+    $Id(GetHidIsuseEndTime()).value = arrcurrIsuse[2];
 }
 
 //获取专家信息(当彩种为福彩时)
@@ -321,7 +321,7 @@ function GetBindFCExpertList(lotteryID) {
 
     try {
 
-        Lottery_Buy_SSQ.GetFCExpertList(lotteryID, GetBindFCExpertList_callback);
+        Lottery_SSQ_Buy.GetFCExpertList(lotteryID, GetBindFCExpertList_callback);
 
     }
     catch (e) {
@@ -401,7 +401,7 @@ function GetBindWinNumber(lotteryID) {
 
     try {
 
-        Lottery_Buy_SSQ.GetWinNumber(lotteryID, GetBindWinNumber_callback);
+        Lottery_SSQ_Buy.GetWinNumber(lotteryID, GetBindWinNumber_callback);
 
     }
     catch (e) {
@@ -800,23 +800,23 @@ function CalcResult() {
     var multiple = StrToInt(o_tb_Multiple.value);
     multiple = multiple == 0 ? 1 : multiple;
     var SumNum = StrToInt(o_lab_Num.innerText);
-    var Share = StrToInt(o_tb_Share.value);
-    var BuyShare = StrToInt(o_tb_BuyShare.value);
-    var AssureShare = StrToInt(o_tb_AssureShare.value);
+//    var Share = StrToInt(o_tb_Share.value);
+//    var BuyShare = StrToInt(o_tb_BuyShare.value);
+//    var AssureShare = StrToInt(o_tb_AssureShare.value);
 
     var SumMoney = Round(multiple * o_tb_Price * SumNum, 2);
-    var ShareMoney = Round(SumMoney / Share, 2);
+//    var ShareMoney = Round(SumMoney / Share, 2);
 
-    var AssureMoney = Round(AssureShare * ShareMoney, 2);
-    var BuyMoney = Round(BuyShare * ShareMoney, 2);
+//    var AssureMoney = Round(AssureShare * ShareMoney, 2);
+//    var BuyMoney = Round(BuyShare * ShareMoney, 2);
 
     o_lab_SumMoney.innerText = SumMoney;
-    o_lab_ShareMoney.innerText = ShareMoney;
-    o_lab_AssureMoney.innerText = AssureMoney;
-    o_lab_BuyMoney.innerText = BuyMoney;
+//    o_lab_ShareMoney.innerText = ShareMoney;
+//    o_lab_AssureMoney.innerText = AssureMoney;
+//    o_lab_BuyMoney.innerText = BuyMoney;
 
-    if ($Id("Chase").checked)
-        accountAllMoney();
+//    if ($Id("Chase").checked)
+//        accountAllMoney();
 }
 
 function oncbInitiateTypeClick(sender) {
@@ -868,7 +868,8 @@ function oncbInitiateTypeClick(sender) {
 }
 
 function calculateAllMoney() {
-    $Id("btn_OK").disabled = "";
+    var btnId = GetBtnOKId();
+    $Id(btnId).disabled = "";
     try { accountAllMoney(); } catch (e) { }
     return true;
 }
@@ -955,10 +956,10 @@ function onTextChange(obj) {
 
 //重置页面
 function resetPage() {
-    $Id("Chase").checked = false;
-    $Id("CoBuy").checked = false;
-    $Id("trShowJion").style.display = "none";
-    $Id("trGoon").style.display = "none";
+//    $Id("Chase").checked = false;
+//    $Id("CoBuy").checked = false;
+//    $Id("trShowJion").style.display = "none";
+//    $Id("trGoon").style.display = "none";
 
     btn_ClearClick();
     init();
@@ -1015,9 +1016,9 @@ function ChangeBackImage(index, lotteryID) {
 function newBuy(lotteryID) {
 
     $Id("divNewBuy").style.display = "";
-    $Id("divCoBuy").style.display = "none";
-    $Id("divFollowScheme").style.display = "none";
-    $Id("divSchemeAll").style.display = "none";
+//    $Id("divCoBuy").style.display = "none";
+//    $Id("divFollowScheme").style.display = "none";
+//    $Id("divSchemeAll").style.display = "none";
     $Id("divPlayTypeIntroduce").style.display = "none";
     ChangeBackImage(1, lotteryID);
 
@@ -1066,7 +1067,7 @@ function schemeAll(lotteryID) {
 
     $Id("divLoding").style.display = "";
     $Id("iframeSchemeAll").style.display = "none";
-    
+
     $Id("iframeSchemeAll").src = "../Home/Room/SchemeAll.aspx?Radom=" + Math.random() + "&LotteryID=" + lotteryID + "&IsuseID=" + $Id("HidIsuseID").value;
 
     ChangeBackImage(7, lotteryID);
@@ -1100,7 +1101,7 @@ function ClickXYJX(obj, type) {
     if (obj.id == "hrefCSRQ") {
         obj.parentNode.background = "../Home/Room/images/ssq_qh_2.jpg";
     } else {
-    obj.parentNode.background = "../Home/Room/images/ssq_qh_1.jpg";
+        obj.parentNode.background = "../Home/Room/images/ssq_qh_1.jpg";
     }
 
     document.getElementById(obj.id.replace("href", "span")).style.display = "";
@@ -1152,7 +1153,7 @@ function GetLuckNumber(lotteryID) {
             } break;
     }
 
-    var v = Lottery_Buy_SSQ.GenerateLuckLotteryNumber(lotteryID, type, name).value;
+    var v = Lottery_SSQ_Buy.GenerateLuckLotteryNumber(lotteryID, type, name).value;
     if (v.split("|").length < 2) {
         alert(v);
         document.getElementById("tbDate").value = "";
@@ -1298,17 +1299,17 @@ function btn_Close() {
 
 
 function showSameHeight() {
-    if (document.getElementById("menu_left").clientHeight < document.getElementById("menu_right").clientHeight) {
-        document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
-    }
-    else {
-        if (document.getElementById("menu_right").offsetHeight >= 860) {
-            document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
-        }
-        else {
-            document.getElementById("menu_left").style.height = "860px";
-        }
-    }
+//    if (document.getElementById("menu_left").clientHeight < document.getElementById("menu_right").clientHeight) {
+//        document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
+//    }
+//    else {
+//        if (document.getElementById("menu_right").offsetHeight >= 860) {
+//            document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
+//        }
+//        else {
+//            document.getElementById("menu_left").style.height = "860px";
+//        }
+//    }
 }
 
 function showZXHeight() {
@@ -1327,7 +1328,7 @@ function btn_OK() {
     document.getElementById("list_LotteryNumber").style.display = "";
 
     try {
-        var LotteryNumber = Lottery_Buy_SSQ.AnalyseScheme(document.getElementById("tbLotteryNumbers").value, document.getElementById('HidLotteryID').value, document.getElementById('tbPlayTypeID').value);
+        var LotteryNumber = Lottery_SSQ_Buy.AnalyseScheme(document.getElementById("tbLotteryNumbers").value, document.getElementById('HidLotteryID').value, document.getElementById('tbPlayTypeID').value);
 
         if (LotteryNumber == null || LotteryNumber.value == null) {
             document.body.removeChild(bgDiv2);
@@ -1400,7 +1401,7 @@ function btn_OK() {
 }
 
 function btn_OKClick() {
-    if (!$Id("chkAgrrement").checked) {
+    if (!$Id(GetCheckAgreementId()).checked) {
         alert("请先阅读用户电话短信投注协议，谢谢！");
         return false;
     }
@@ -1438,7 +1439,7 @@ function btn_OKClick() {
         o_tb_Share.focus();
         return false;
     }
-    
+
     //追号
     if ($Id("Chase").checked) {
         if (StrToInt($Id("LbSumMoney").innerText) > 0) {
@@ -1580,8 +1581,8 @@ function ReloadSchedule() {
 //当页面加载完后，要执行的系列事件
 function PageEvent(lotteryID) {
 
-    $Id("td2").className = "whiteMenu1";
-    $Id("td2").innerHTML = "<strong>参与合买</strong><img id='imgCYHM' style='position:absolute'/>";
+//    $Id("td2").className = "whiteMenu1";
+//    $Id("td2").innerHTML = "<strong>参与合买</strong><img id='imgCYHM' style='position:absolute'/>";
 
     //第二步（根据url参数显示相应的内容）
     var fromUrlParam = location.search;
@@ -1592,50 +1593,43 @@ function PageEvent(lotteryID) {
         newBuy(lotteryID);
     }
 
-    ClickXYJX(document.getElementById("hrefXZ"), 1);
+//    ClickXYJX(document.getElementById("hrefXZ"), 1);
 
 }
 
-function clickPlayType(t) {document.getElementById('tbPlayTypeID').value = t;
-        var playTypeName = '';
-        switch (t) {
+function clickPlayType(t) {
+    document.getElementById('tbPlayTypeID').value = t;
+    var playTypeName = '';
+    switch (t) {
         case '502':
-            document.getElementById('spanJX').style.display = 'none';
-            document.getElementById('btnPaste').style.display = '';
             playTypeName = '复式';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/ssq/SSQ_F.htm';
+            iframe_playtypes.location.href = 'SSQ_F.htm';
             break;
 
         case '503':
-            document.getElementById('spanJX').style.display = 'none';
-            document.getElementById('btnPaste').style.display = '';
             playTypeName = '胆拖';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/ssq/SSQ_DanT.htm';
+            iframe_playtypes.location.href = 'SSQ_DanT.htm';
             break;
 
         case '504':
-            document.getElementById('spanJX').style.display = '';
-            document.getElementById('btnPaste').style.display = 'none';
             document.getElementById('tbPlayTypeID').value = '501';
             playTypeName = '单式';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/ssq/SSQ_ZNJX.htm';
+            iframe_playtypes.location.href = 'SSQ_ZNJX.htm';
             break;
 
         default:
-            document.getElementById('spanJX').style.display = 'none';
-            document.getElementById('btnPaste').style.display = '';
             t = '501';
             playTypeName = '单式';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/ssq/SSQ_D.htm';
+            iframe_playtypes.location.href = 'SSQ_D.htm';
             break;
-        }
+    }
 
-            $Id('tbPlayTypeName').value = playTypeName;
-         
-            HidBtnRand(playTypeName);
+    $Id('tbPlayTypeName').value = playTypeName;
 
-            resetPage();
-        }
+    HidBtnRand(playTypeName);
+
+    resetPage();
+}
 //************************************************************事件执行区***************************************
 
 //页面加载的时候，加载相应的数据

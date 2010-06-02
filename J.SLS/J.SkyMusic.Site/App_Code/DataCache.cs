@@ -33,4 +33,10 @@ public static class DataCache
         IList<MenuItem> list = facade.GetChildrenMenuList(parentId);
         return list;
     }
+
+    public static ParamInfo GetParam(Page _page, string key)
+    {
+        ParamFacade facade = PageHelper.GetParamFacade(_page);
+        return facade.GetParam(key);
+    }
 }

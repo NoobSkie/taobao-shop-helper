@@ -109,31 +109,31 @@
         };
 
         window.onload = function() {
-            function Each(list, fun) {
-                for (var i = 0, len = list.length; i < len; i++) { fun(list[i], i); }
-            };
+//            function Each(list, fun) {
+//                for (var i = 0, len = list.length; i < len; i++) { fun(list[i], i); }
+//            };
 
-            var objs = $1("idNum").getElementsByTagName("li");
+//            var objs = $1("idNum").getElementsByTagName("li");
 
-            var tv = new TransformView("idTransformView", "idSlider", 237, 3, {
-                onStart: function() { Each(objs, function(o, i) { o.className = tv.Index == i ? "on" : ""; }) } //按钮样式
-            });
+//            var tv = new TransformView("idTransformView", "idSlider", 237, 3, {
+//                onStart: function() { Each(objs, function(o, i) { o.className = tv.Index == i ? "on" : ""; }) } //按钮样式
+//            });
 
-            tv.Start();
+//            tv.Start();
 
-            Each(objs, function(o, i) {
-                o.onmouseover = function() {
-                    o.className = "on";
-                    tv.Auto = false;
-                    tv.Index = i;
-                    tv.Start();
-                }
-                o.onmouseout = function() {
-                    o.className = "";
-                    tv.Auto = true;
-                    tv.Start();
-                }
-            })
+//            Each(objs, function(o, i) {
+//                o.onmouseover = function() {
+//                    o.className = "on";
+//                    tv.Auto = false;
+//                    tv.Index = i;
+//                    tv.Start();
+//                }
+//                o.onmouseout = function() {
+//                    o.className = "";
+//                    tv.Auto = true;
+//                    tv.Start();
+//                }
+//            })
         }
     </script>
 
