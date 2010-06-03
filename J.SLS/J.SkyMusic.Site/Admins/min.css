@@ -1,0 +1,192 @@
+html
+{
+    color: #000;
+    background: #FFF;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td
+{
+    margin: 0;
+    padding: 0;
+}
+table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset, img
+{
+    border: 0;
+}
+address, caption, cite, code, dfn, em, strong, th, var
+{
+    font-style: normal;
+    font-weight: normal;
+}
+li
+{
+    list-style: none;
+}
+caption, th
+{
+    text-align: left;
+}
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 100%;
+    font-weight: normal;
+}
+legend
+{
+    color: #000;
+}
+body
+{
+    font: 13px/1.231 arial,helvetica,clean,sans-serif;
+    font-size: small;
+    font: x-small;
+}
+table
+{
+    font-size: inherit;
+    font: 100%;
+}
+.yuimenubar
+{
+    visibility: visible;
+    position: static;
+}
+.yuimenu .yuimenu, .yuimenubar .yuimenu
+{
+    visibility: hidden;
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
+}
+.yuimenubar li, .yuimenu li
+{
+    list-style-type: none;
+}
+.yuimenubar ul, .yuimenu ul, .yuimenubar li, .yuimenu li, .yuimenu h6, .yuimenubar h6
+{
+    margin: 0;
+    padding: 0;
+}
+.yuimenuitemlabel, .yuimenubaritemlabel
+{
+    text-align: left;
+    white-space: nowrap;
+}
+.yuimenubaritem
+{
+    float: left;
+}
+#header
+{
+    width: 920px;
+    margin: 0 15px;
+    background: #1e4262 url('../Images/header-background.png') no-repeat left bottom;
+    height: 56px;
+    font-family: verdana;
+}
+#header h1
+{
+    margin: 0;
+    float: left;
+}
+#header h1 img
+{
+    display: block;
+}
+#header h1 a:link, #header h1 a:visited
+{
+    color: #fff;
+}
+#nav-main
+{
+    float: left;
+    padding-left: 20px;
+}
+#nav-main ul
+{
+    float: left;
+    z-index: 99;
+    left: auto;
+}
+#nav-main ul, #nav-main ul li
+{
+    height: 56px;
+    background: none;
+    position: relative;
+}
+#nav-main ul
+{
+    background: url('../Images/header-nav-divider.png') no-repeat left top;
+    padding-left: 2px;
+}
+#nav-main ul li a, #nav-main ul li span
+{
+    padding: 20px 20px 0 20px;
+    height: 35px;
+    display: block;
+    float: left;
+    font-weight: bold;
+    font-size: 95%;
+    color: #fff;
+    background: url('../Images/header-nav-divider.png') no-repeat right top;
+}
+#nav-main ul li a:link, #nav-main ul li a:visited
+{
+    color: #fff;
+    text-decoration: none;
+}
+#nav-main ul li span, #nav-main ul li a:hover, #nav-main ul li a:active, #nav-main ul li a.yuimenubaritemlabel-selected
+{
+    color: #fff;
+    background: #31526f url('../Images/header-nav-menu-backgrounds.png') no-repeat right top;
+}
+#nav-main ul ul, #nav-main ul ul li
+{
+    height: auto;
+    border: 0;
+}
+#nav-main ul ul
+{
+    border-top: 0;
+    background: url('../Images/header-nav-menu-backgrounds.png') no-repeat left bottom;
+    padding: 8px 0;
+    width: 190px;
+}
+#nav-main ul li ul li a, #nav-main ul li ul li a:link, #nav-main ul li ul li a:visited, #nav-main ul li ul li span
+{
+    padding: 4px 20px;
+    margin: 0 1px 1px 1px;
+    height: auto;
+    float: none;
+    display: block;
+    font-size: 95%;
+    font-weight: normal;
+    border: 0;
+    background-image: none;
+    position: relative;
+}
+#nav-main ul li ul li a:hover, #nav-main ul li ul li a:active
+{
+    background: #3d5b74;
+}
+r
+{
+    font-family: verdana,sans-serif;
+    font-size: 70%;
+    color: #ccc;
+    margin-left: 5px;
+    position: relative;
+    left: 5px;
+}
+#sidebar .download-other a
+{
+    margin-right: 4px;
+}
+.home-download abbr
+{
+    border-bottom: 0;
+}

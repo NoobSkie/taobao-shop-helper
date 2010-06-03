@@ -31,6 +31,26 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "J.SkyMusic.Site", "..\..\J.
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Demo", "Demo\", "{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/Demo"
+		Debug.AspNetCompiler.PhysicalPath = "Demo\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Demo\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Demo"
+		Release.AspNetCompiler.PhysicalPath = "Demo\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Demo\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "14831"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +77,10 @@ Global
 		{67A25B66-FAB8-40C3-8DCF-815F253E01C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67A25B66-FAB8-40C3-8DCF-815F253E01C7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{67A25B66-FAB8-40C3-8DCF-815F253E01C7}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

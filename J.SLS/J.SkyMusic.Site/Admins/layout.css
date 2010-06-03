@@ -1,0 +1,34 @@
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: ËÎÌו, Tahoma, Arial;
+}
+.LogoDiv
+{
+    width: 920px;
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+    background-color: lightgray;
+}
+.LogoDiv span
+{
+    margin: 10px;
+}
+.Content
+{
+    width: 920px;
+}
+.Footer
+{
+    width: 920px;
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+    background-color: lightgray;
+}
+.Footer span
+{
+    margin: 10px;
+}

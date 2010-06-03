@@ -1,7 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Params>
   <Param>
     <Key>SiteName</Key>
     <Value>东方之珠</Value>
+  </Param>
+  <Param>
+    <Key>AdministratorPassword</Key>
+    <Value>d61c5a96bbefd18dec50581ae4117707</Value>
   </Param>
 </Params>

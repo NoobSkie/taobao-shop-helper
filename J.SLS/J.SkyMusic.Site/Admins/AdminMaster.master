@@ -1,20 +1,49 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMaster.master.cs" Inherits="Admins_AdminMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMaster.master.cs"
+    Inherits="Admins_AdminMaster" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <title>
+        <%= SiteName %>
+        - 后台管理</title>
+
+    <script type="text/javascript">
+
+        function AlertAndRedirect(msg, url) {
+            alert(msg);
+            location.href = url;
+        }
+
+        function CheckOpener() {
+            var parent = window.parent;
+            if (parent != window) {
+                if (parent.location.protocal == window.location.protocal && parent.location.host == window.location.host) {
+                    return true;
+                }
+            }
+            var url = window.location.pathname + window.location.search;
+            window.location = "AdminMain.aspx#" + url;
+        }
+    
+    </script>
+
+    <asp:ContentPlaceHolder ID="ph_head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
+        <asp:ContentPlaceHolder ID="ph_content" runat="server">
         </asp:ContentPlaceHolder>
     </div>
+
+    <script type="text/javascript">
+
+        <%= CheckOpenerScript %>
+    
+    </script>
+
     </form>
 </body>
 </html>

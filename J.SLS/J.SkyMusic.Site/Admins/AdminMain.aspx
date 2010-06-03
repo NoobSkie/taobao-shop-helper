@@ -1,16 +1,111 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AdminMain.aspx.cs" Inherits="Admins_AdminMain" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="layout.css" rel="stylesheet" type="text/css" />
+    <link href="min.css" rel="stylesheet" type="text/css" />
+
+    <script src="min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function ShowSubPage(url) {
+            iframe_sub.location.href = url;
+            window.location.hash = "#" + url;
+        }
+
+        function AutoLoad() {
+            var innerUrl = window.location.hash;
+            if (innerUrl) {
+                innerUrl = innerUrl.substr(1);
+            }
+            else {
+                innerUrl = "Default.aspx";
+            }
+            ShowSubPage(innerUrl);
+        }
+
+        function SetIframeHeight() {
+            // var a = iframe_sub.document.body.scrollHeight;
+            var c = iframe_sub.document.documentElement.scrollHeight;
+            document.getElementById('iframe_sub').style.height = c;
+        }
+
+    </script>
+
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-    </div>
+    <center>
+        <div class="LogoDiv">
+            <span>logo</span>
+        </div>
+        <div id="header" class="MenuDiv">
+            <div id="nav-main" class="yuimenubar">
+                <div class="bd">
+                    <ul>
+                        <li id="menu_products"><a href="javascript:void(0);">关于我们</a>
+                            <div class="yuimenu">
+                                <div class="bd">
+                                    <ul>
+                                        <li id="submenu_firefox" class="yuimenuitem"><a href="javascript:void(0);">企业简介</a></li><li
+                                            id="submenu_mobile" class="yuimenuitem"><a href="javascript:void(0);">师资情况</a></li><li
+                                                id="submenu_thunderbird" class="yuimenuitem"><a href="javascript:void(0);">基地分布</a></li></ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="menu_addons" class="yuimenubaritem"><a href="javascript:void(0);">课程设置</a>
+                            <div class="yuimenu">
+                                <div class="bd">
+                                    <ul>
+                                        <li id="submenu_addons_all" class="yuimenuitem"><a href="javascript:void(0);">成人音乐教育</a></li><li
+                                            id="submenu_addons_mobile" class="yuimenuitem"><a href="javascript:void(0);">中小学生音乐教育</a></li><li
+                                                id="submenu_addons_recommended" class="yuimenuitem"><a href="javascript:void(0);">幼儿及家长音乐教育</a></li></ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="menu_support" class="yuimenubaritem"><a href="javascript:void(0);">乐器租售</a>
+                            <div class="yuimenu">
+                                <div class="bd">
+                                    <ul>
+                                        <li id="submenu_support_kb" class="yuimenuitem"><a href="javascript:void(0);">钢琴</a></li><li
+                                            id="submenu_support_mobile" class="yuimenuitem"><a href="javascript:void(0);">民族乐器</a></li><li
+                                                id="submenu_support_thunderbird" class="yuimenuitem"><a href="javascript:void(0);">西洋乐器</a></li></ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="menu_community" class="yuimenubaritem"><a href="javascript:void(0);">成果展示</a>
+                            <div class="yuimenu">
+                                <div class="bd">
+                                    <ul>
+                                        <li id="submenu_community_addons" class="yuimenuitem"><a href="javascript:void(0);">
+                                            公司资讯</a></li><li id="submenu_community_bugzilla" class="yuimenuitem"><a href="javascript:void(0);">
+                                                学员动态</a></li><li id="submenu_community_devmo" class="yuimenuitem"><a href="javascript:void(0);">
+                                                    社会公益</a></li></ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="Content">
+            <iframe id="iframe_sub" name="iframe_sub" width="100%" frameborder="0" scrolling="no"
+                onload="SetIframeHeight();"></iframe>
+        </div>
+        <div class="Footer">
+            <span>footer</span>
+        </div>
+    </center>
+
+    <script type="text/javascript">
+
+        AutoLoad();
+        
+    </script>
+
     </form>
 </body>
 </html>

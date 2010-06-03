@@ -52,6 +52,8 @@
     <Compile Include="ParamFacade.cs" />
     <Compile Include="ParamInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResFileFacade.cs" />
+    <Compile Include="ResFileInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\J.SLS\J.SLS.Common\J.SLS.Common.csproj">

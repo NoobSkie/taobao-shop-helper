@@ -1,0 +1,45 @@
+body
+{
+    width: 920px;
+    margin: 0px;
+    font-size: 12px;
+    font-family: ËÎÌו, Tahoma, Arial;
+}
+.Summary
+{
+    text-align: left;
+    background-color: lightgray;
+}
+.Summary span
+{
+    line-height: 40px;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 120%;
+}
+.Summary span.Description
+{
+    color: #3366FF;
+    margin-left: 20px;
+    font-size: 100%;
+    font-weight: normal;
+}
+.Content
+{
+}
+.Content .Operator
+{
+}
+.Content .Operator a
+{
+    float: left;
+    margin-right:20px;
+    height:28px;
+    line-height: 28px;
+    border: 1px solid #99CCFF;
+}
+.Content .Operator a span
+{
+    margin-left:20px;
+    margin-right:20px;
+}

@@ -96,7 +96,7 @@ public class BaseHelper
         {
             parameters.Add("Message", message);
         }
-        string url = GetParamsUrl("~/Admin/AdminLogin.aspx", parameters);
+        string url = GetParamsUrl("~/Admins/AdminLogin.aspx", parameters);
         url = _page.ResolveClientUrl(url);
         _page.Response.Redirect(url);
     }

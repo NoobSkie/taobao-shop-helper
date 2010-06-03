@@ -20,4 +20,11 @@ public static class PageHelper
         string dirPath = _page.Server.MapPath(dbUrl);
         return new ParamFacade(dirPath);
     }
+
+    public static ResFileFacade GetResFileFacade(Page _page)
+    {
+        string dbUrl = "~/UploadFiles/Inner";
+        string dirPath = _page.Server.MapPath(dbUrl);
+        return new ResFileFacade(dirPath);
+    }
 }

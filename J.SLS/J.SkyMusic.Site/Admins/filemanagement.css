@@ -1,0 +1,71 @@
+.Content .Operator .Description
+{
+    color: Red;
+    line-height: 28px;
+    font-size: 100%;
+    font-weight: normal;
+}
+.FileUpdateControl
+{
+    display: none;
+}
+.FileList
+{
+    clear: both;
+}
+.FileList div
+{
+    clear:both;
+    height: 30px;
+    line-height: 30px;
+}
+.FileList div span
+{
+    float: left;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.FileList div.THeader
+{
+    border-bottom: solid 2px red;
+}
+.FileList div.THeader span
+{
+}
+.FileList div.TRow
+{
+}
+.FileList div.TRow:hover
+{
+    background-color: #EEEEEE;
+}
+.FileList div.Alternating
+{
+}
+.FileList div.TRow span
+{
+}
+.FileList div .Name
+{
+    width: 450px;
+}
+.FileList div .Type
+{
+    width: 90px;
+}
+.FileList div .Size
+{
+    width: 90px;
+    text-align:right;
+}
+.FileList div .Date
+{
+    width: 130px;
+    text-align:right;
+}
+.FileList div .Link
+{
+    width: 160px;
+}
