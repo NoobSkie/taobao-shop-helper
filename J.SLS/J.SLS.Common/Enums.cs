@@ -21,7 +21,7 @@ namespace J.SLS.Common
     /// <summary>
     /// 奖期状态
     /// </summary>
-    public enum IsuseState
+    public enum IssueStatus
     {
         /// <summary>
         /// 未开启
@@ -51,5 +51,33 @@ namespace J.SLS.Common
         /// 返奖结束
         /// </summary>
         Awarded = 6,
+    }
+
+    public enum MappingType
+    {
+        Element = 0,
+        Attribute = 1,
+    }
+
+    public enum XmlObjectType
+    {
+        Item = 0,
+        List = 1,
+    }
+
+    public enum TranType
+    {
+        /// <summary>
+        /// 未知
+        /// </summary>
+        Unkown = 0,
+        /// <summary>
+        /// 奖期通知请求
+        /// </summary>
+        IssueNotifyRequest = 101,
+        /// <summary>
+        /// 奖期通知响应
+        /// </summary>
+        IssueNotifyResponse = 501,
     }
 }

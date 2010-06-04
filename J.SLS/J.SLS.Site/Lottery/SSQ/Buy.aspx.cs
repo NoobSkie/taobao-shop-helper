@@ -10,6 +10,7 @@ using AjaxPro;
 using HPGatewayModels;
 using HPGatewayFactory;
 using IHPGateway;
+using Shove._Web;
 
 public partial class Lottery_SSQ_Buy : LotteryBasePage
 {

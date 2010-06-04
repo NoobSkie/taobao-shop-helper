@@ -83,5 +83,6 @@ namespace J.SLS.Common.Logs
         public const string LogWrite = "Write log";
         public const string Application = "Application error";
         public const string Lottery = "Lottery";
+        public const string Notice = "Notice";
     }
 }

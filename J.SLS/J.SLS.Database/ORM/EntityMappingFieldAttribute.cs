@@ -19,6 +19,10 @@ namespace J.SLS.Database.ORM
         /// </summary>
         public bool NeedUpdate { get; set; }
         /// <summary>
+        /// 是否为自动生成的字段，如果为true，新增时忽略此字段。默认为false
+        /// </summary>
+        public bool IsAutoField { get; set; }
+        /// <summary>
         /// 是否为数据库中的主键，默认为false
         /// </summary>
         public bool IsKey { get; set; }

@@ -82,7 +82,9 @@ namespace J.SLS.Database.ORM
             if (this._needUpdateFieldInfos == null)
             {
                 this._needUpdateFieldInfos = this.GetAllFieldInfos()
-                    .Where((x) => x.MappingFieldAttribute.IsKey == false && x.MappingFieldAttribute.NeedUpdate == true).ToList();
+                    .Where((x) => x.MappingFieldAttribute.IsKey == false
+                        && x.MappingFieldAttribute.NeedUpdate == true
+                        && x.MappingFieldAttribute.IsAutoField == false).ToList();
             }
             return _needUpdateFieldInfos;
         }

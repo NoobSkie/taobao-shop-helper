@@ -58,6 +58,10 @@
     <Compile Include="PreconditionAssert.cs" />
     <Compile Include="Exceptions\PreconditionException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xml\CommunicationObject.cs" />
+    <Compile Include="Xml\XmlAnalyzer.cs" />
+    <Compile Include="Xml\XmlMappingAttribute.cs" />
+    <Compile Include="Xml\XmlMappingObject.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

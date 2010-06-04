@@ -14,12 +14,10 @@ namespace J.SLS.Database.ORM
     /// </summary>
     internal class InsertCommandCreator : DbCommandCreator
     {
-
         /// <summary>
         /// 需要修改的实体对象，不能为空
         /// </summary>
         public object Entity { get; set; }
-
 
         /// <summary>
         /// 初始化ModifyCommandCreator，dbAccess不能为空
@@ -32,7 +30,6 @@ namespace J.SLS.Database.ORM
         {
             DbAccess = dbAccess;
         }
-
 
         /// <summary>
         /// 得到新增数据库中某一对象的DbCommand，modifyCommandCreator的属性Entity不能为空
@@ -47,19 +44,21 @@ namespace J.SLS.Database.ORM
             List<PropertyInfo> fieldPropertyList = null;
             string sqlInsert = string.Format("INSERT INTO {0} {1}"
                 , GetQuotedName(entityInfo.MappingTableAttribute.TableName)
-                , GetInsertStatement(entityInfo,out fieldPropertyList));
+                , GetInsertStatement(entityInfo, out fieldPropertyList));
 
             DbCommand dbCommand = GetDbCommandByEntity(fieldPropertyList, this.Entity);
             dbCommand.CommandText = sqlInsert;
             return dbCommand;
         }
 
-        private string GetInsertStatement(TypeSchema entityInfo,out List<PropertyInfo> fieldPropertyList)
+        private string GetInsertStatement(TypeSchema entityInfo, out List<PropertyInfo> fieldPropertyList)
         {
             string fields = "", values = "";
             fieldPropertyList = new List<PropertyInfo>();
             foreach (SchemaItem mfi in entityInfo.GetAllFieldInfos())
-            {                
+            {
+                if (mfi.MappingFieldAttribute.IsAutoField) continue;
+
                 if (fields != "") fields += ",";
                 if (values != "") values += ",";
                 fields += GetQuotedName(mfi.MappingFieldAttribute.FieldName);
