@@ -12,6 +12,30 @@ namespace J.SLS.Facade
 {
     public class IssueNoticeFacade : BaseFacade
     {
+        public DateTime GetCurrentUpdateTime()
+        {
+            string sql = "SELECT * FROM [T_Temp_UpdateTime]";
+            return (DateTime)DbAccess.GetRC1BySQL(sql);
+        }
+
+        public void ModifyCurrentUpdateTime()
+        {
+            string sql = "UPDATE [T_Temp_UpdateTime] SET [CurrentUpdateTime] = GETDATE()";
+            DbAccess.ExecSQL(sql);
+        }
+
+        public IList<string> GetRequestTextList(DateTime fromTime)
+        {
+            NoticeManager noticeManager = new NoticeManager(DbAccess);
+            IList<NoticeEntity> list = noticeManager.GetNoticeListFrom(fromTime);
+            IList<string> rtn = new List<string>();
+            foreach (NoticeEntity entity in list)
+            {
+                rtn.Add("transType=" + entity.TranType + "&transMessage=" + entity.ResponseText);
+            }
+            return rtn;
+        }
+
         public void HandleNotice(string response)
         {
             try
@@ -34,7 +58,7 @@ namespace J.SLS.Facade
             }
         }
 
-        public void AddIssuseNotify(string xml)
+        public IssueNoticeInfo AddIssuseNotify(string xml)
         {
             IssueNoticeInfo info = XmlAnalyzer.AnalyseXml<IssueNoticeInfo>(xml);
 
@@ -47,6 +71,7 @@ namespace J.SLS.Facade
             noticeEntity.Digest = info.Digest;
             noticeEntity.ResponseText = xml;
             noticeEntity.NotifyTime = DateTime.Now;
+            noticeEntity.XmlHeader = info.XmlHeader;
 
             IssueEntity issueEntity = new IssueEntity();
             issueEntity.GameName = info.GameName;
@@ -69,6 +94,7 @@ namespace J.SLS.Facade
 
                 tran.Commit();
             }
+            return info;
         }
     }
 }

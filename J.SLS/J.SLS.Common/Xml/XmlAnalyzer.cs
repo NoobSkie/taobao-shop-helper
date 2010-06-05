@@ -34,10 +34,11 @@ namespace J.SLS.Common.Xml
             {
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(xml);
+                T t = new T();
+                t.XmlHeader = doc.FirstChild.OuterXml;
                 XmlNodeList nodeList = doc.GetElementsByTagName("message");
                 if (nodeList.Count > 0)
                 {
-                    T t = new T();
                     t.AnalyzeXmlNode(nodeList[0]);
                     return t;
                 }

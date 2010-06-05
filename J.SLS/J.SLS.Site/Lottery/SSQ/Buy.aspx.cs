@@ -11,6 +11,7 @@ using HPGatewayModels;
 using HPGatewayFactory;
 using IHPGateway;
 using Shove._Web;
+using J.SLS.Common.Logs;
 
 public partial class Lottery_SSQ_Buy : LotteryBasePage
 {
@@ -50,116 +51,25 @@ public partial class Lottery_SSQ_Buy : LotteryBasePage
     }
 
     [AjaxMethod(HttpSessionStateRequirement.None)]
-    public string GetIsuseInfo(int lotteryId)
+    public string GetIsuseInfo(string gameName)
     {
         try
         {
-            IsuseInfo isuseInfo = lotteryFacade.GetCurrentIsuse(lotteryId);
+            IssuseInfo isuseInfo = lotteryFacade.GetCurrentIsuse(gameName);
             if (isuseInfo == null)
             {
                 return "";
             }
-            int num = isuseInfo.Id;
-            string str3 = isuseInfo.Name;
-            int num2 = DataCache.LotteryEndAheadMinute[lotteryId];
-            string str4 = isuseInfo.EndTime.AddMinutes((double)(num2 * -1)).ToString("yyyy/MM/dd HH:mm:ss");
-            StringBuilder builder = new StringBuilder();
-            builder.Append(num.ToString()).Append(",").Append(str3).Append(",").Append(str4).Append("|").Append(this.GetIsuseChase(lotteryId));
-            return builder.ToString();
+            long issueId = isuseInfo.Id;
+            string number = isuseInfo.IssuseNumber;
+            int aheadMinute = DataCache.LotteryEndAheadMinute[gameName];
+            string stopTime = isuseInfo.StopTime.AddMinutes((double)(aheadMinute * -1)).ToString("yyyy/MM/dd HH:mm:ss");
+
+            return string.Format("{0},{1},{2}", issueId, number, stopTime);
         }
         catch (Exception ex)
         {
-            LogWriter.Write(GetType().FullName, "Get Isuse Info", ex);
-            return "";
-        }
-    }
-
-    // 追号信息，生成追号表格
-    private string GetIsuseChase(int lotteryId)
-    {
-        try
-        {
-            IList<IsuseInfo> isuseList = lotteryFacade.GetCommonIsuseList(lotteryId);
-            if (isuseList.Count == 0)
-            {
-                return "";
-            }
-            int num = DataCache.LotteryEndAheadMinute[lotteryId];
-            StringBuilder builder = new StringBuilder();
-            int num2 = 0;
-            builder.Append("<table cellpadding='0' cellspacing='1' style='width: 100%; text-align: center; background-color: #E2EAED;'><tbody style='background-color: White;'>");
-            foreach (IsuseInfo isuseInfo in isuseList)
-            {
-                if (isuseInfo.StartTime > DateTime.Now
-                    || (isuseInfo.StartTime < DateTime.Now && isuseInfo.EndTime > DateTime.Now.AddMinutes(num)))
-                {
-                    num2++;
-                    #region 添加一行追号的数据
-
-                    builder.Append("<tr>")
-                        .Append("<td style='width: 10%;'>")
-                        .Append("<input id='check")
-                        .Append(isuseInfo.Id)
-                        .Append("' type='checkbox' name='check")
-                        .Append(isuseInfo.Id)
-                        .Append("' onclick='check(this);' value='")
-                        .Append(isuseInfo.Id)
-                        .Append("'/>")
-                        .Append("</td>")
-                        .Append("<td style='width: 20%;'>")
-                        .Append("<span>")
-                        .Append(isuseInfo.Name)
-                        .Append("</span>")
-                        .Append("<span>")
-                        .Append((num2 == 1) ? "<font color='red'>[本期]</font>" : ((num2 == 2) ? "<font color='red'>[下期]</font>" : ""))
-                        .Append("</span>")
-                        .Append("</td>")
-                        .Append("<td style='width: 13%;'>")
-                        .Append("<input name='times")
-                        .Append(isuseInfo.Id)
-                        .Append("' type='text' value='1' id='times")
-                        .Append(isuseInfo.Id)
-                        .Append("' class='TextBox' onchange='onTextChange(this);' onkeypress='return InputMask_Number();' disabled='disabled' onblur='CheckMultiple2(this);' style='width: 30px;' />倍")
-                        .Append("</td>")
-                        .Append("<td style='width: 14%;'>")
-                        .Append("<input name='money")
-                        .Append(isuseInfo.Id)
-                        .Append("' type='text' value='0' id='money")
-                        .Append(isuseInfo.Id)
-                        .Append("' class='TextBox' disabled='disabled' style='width: 35px;' />元")
-                        .Append("</td>")
-                        .Append("<td style='width: 12%;'>")
-                        .Append("<input name='share")
-                        .Append(isuseInfo.Id)
-                        .Append("' type='text' value='1' id='share")
-                        .Append(isuseInfo.Id)
-                        .Append("' class='TextBox'  onkeypress='return InputMask_Number();' disabled='disabled'  style='width: 30px;' onblur='CheckShare2(1,this);'/>份")
-                        .Append("</td>")
-                        .Append("<td style='width: 13%;'>")
-                        .Append("<input name='buyedShare")
-                        .Append(isuseInfo.Id)
-                        .Append("' type='text' value='1' id='buyedShare")
-                        .Append(isuseInfo.Id)
-                        .Append("' class='TextBox'  onkeypress='return InputMask_Number();' disabled='disabled' onblur='CheckShare2(2,this);'  style='width: 35px;' />份")
-                        .Append("</td>")
-                        .Append("<td style='width: 15%;'>")
-                        .Append("<input name='assureShare")
-                        .Append(isuseInfo.Id)
-                        .Append("' type='text' value='0' id='assureShare")
-                        .Append(isuseInfo.Id)
-                        .Append("' class='TextBox'  onkeypress='return InputMask_Number();' onblur='CheckShare2(3,this);' disabled='disabled'  style='width: 35px;' />份")
-                        .Append("</td>")
-                        .Append("</tr>");
-
-                    #endregion
-                }
-            }
-            builder.Append("</tbody></table>");
-            return builder.ToString();
-        }
-        catch (Exception ex)
-        {
-            LogWriter.Write(GetType().FullName, "AlipayTask Running Error", ex);
+            LogWriter.Write(LogCategory.Issue, "Get Isuse Info", ex);
             return "";
         }
     }
@@ -296,4 +206,63 @@ public partial class Lottery_SSQ_Buy : LotteryBasePage
             return;
         }
     }
+
+    //private void RequestGateway(LotteryType lotteryType, string gameName, string issueNumber)
+    //{
+    //    AccountNumber accountN = GetAccountNumber();
+    //    IIssueQueryGateway gateway = GatewayFactroy.CreateIssueQueryGatewayFactory(lotteryType);
+    //    TransactionTypeManager transTypeM = new TransactionTypeManager(lotteryType);
+    //    TransactionType transType = transTypeM.GetTransactionTypeByTypeCode(lotteryType, "102");
+    //    PlayMethodManager pleyMethodM = new PlayMethodManager(lotteryType);
+    //    transType = transTypeM.GetTransactionTypeByTypeCode(lotteryType, "103");
+
+    //    List<Ticket> tickets = new List<Ticket>();
+    //    Ticket ticketOne = new Ticket();
+    //    ticketOne.TicketId = accountN.UserName + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
+    //    string gameName = "双色球";
+    //    ticketOne.PlayTypeInfo = pleyMethodM.GetMethodType(lotteryType, gameName).PlayTypes[0];
+    //    ticketOne.IssueInfo = new Issue();
+    //    ticketOne.IssueInfo.PlayMethodInfo = pleyMethodM.GetMethodType(lotteryType, gameName);
+    //    // 期号
+    //    ticketOne.IssueInfo.Number = issueNumber;
+    //    // 倍投数
+    //    ticketOne.Amount = multiple.ToString();
+    //    // 购买金额
+    //    ticketOne.Money = assureMoney.ToString();
+    //    // 要投注的彩票号码(测试时，每张彩票一注)
+    //    ticketOne.AnteCodes = str12.Trim();
+
+    //    UserProfile user = new UserProfile();
+    //    // 彩票用户名
+    //    user.UserName = CurrentUser.UserId;
+    //    // 用户证件类型(1、身份证；2、军官证；3、护照)
+    //    user.CardTypeInfo = (CardType)CurrentUser.CardType;
+    //    // 证件号码
+    //    user.CardNumber = CurrentUser.CardNumber;
+    //    // 用户邮箱地址
+    //    user.Mail = CurrentUser.Email;
+    //    // 用户手机号(无纸化彩票中大奖的凭证之一)
+    //    user.Mobile = CurrentUser.Mobile;
+    //    // 用户真实姓名
+    //    user.RealName = CurrentUser.RealName;
+
+    //    ticketOne.UserProfile = user;
+    //    tickets.Add(ticketOne);
+    //    ticketOne.TicketId = accountN.UserName + DateTime.Now.ToString("yyyyMMdd") + PostManager.TenSerialNumber;
+    //    tickets.Add(ticketOne);
+
+    //    StringBuilder sbResult = new StringBuilder();
+    //    sbResult.AppendLine("投注结果");
+    //    sbResult.AppendLine();
+    //    try
+    //    {
+    //        string result = gateway.LotteryRequest(accountN, transType, tickets);
+    //        sbResult.AppendLine(result);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        sbResult.AppendLine("错误");
+    //        // sbResult.AppendLine(ex.Message);
+    //    }
+    //}
 }

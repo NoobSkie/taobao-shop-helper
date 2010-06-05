@@ -9,6 +9,8 @@ namespace J.SLS.Common.Xml
 {
     public abstract class XmlMappingObject
     {
+        public string XmlHeader { get; set; }
+
         public void AnalyzeXmlNode(XmlNode xmlNode)
         {
             if (xmlNode == null) return;

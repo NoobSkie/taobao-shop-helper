@@ -35,5 +35,8 @@ namespace J.SLS.Domain
 
         [EntityMappingField("ResponseText")]
         public string ResponseText { get; set; }
+
+        [EntityMappingField("XmlHeader")]
+        public string XmlHeader { get; set; }
     }
 }

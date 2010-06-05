@@ -32,6 +32,24 @@ public abstract class BasePage : System.Web.UI.Page
         get { return helper.UserId; }
     }
 
+    public string GetAgenceAccountUserName()
+    {
+        if (ConfigurationManager.AppSettings["AgenceAccount"] == null)
+        {
+            throw new ArgumentNullException("未配置代理商账号！");
+        }
+        return ConfigurationManager.AppSettings["AgenceAccount"];
+    }
+
+    public string GetAgenceAccountPassword()
+    {
+        if (ConfigurationManager.AppSettings["AgencePassword"] == null)
+        {
+            throw new ArgumentNullException("未配置代理商账号！");
+        }
+        return ConfigurationManager.AppSettings["AgencePassword"];
+    }
+
     public void SetCurrentUser(string userId)
     {
         helper.SetCurrentUser(userId);

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using J.SLS.Database.ORM;
 using System.Data;
+using J.SLS.Common;
 
 namespace J.SLS.Facade
 {
@@ -30,7 +31,7 @@ namespace J.SLS.Facade
             return null;
         }
 
-        public IList<IsuseInfo> GetCommonIsuseList(int lotteryId)
+        public IList<IssuseInfo> GetCommonIsuseList(int lotteryId)
         {
             StringBuilder sqlBuilder = new StringBuilder();
             sqlBuilder.AppendLine("SELECT * FROM (");
@@ -56,23 +57,28 @@ namespace J.SLS.Facade
             sqlBuilder.AppendLine("	ORDER BY StartTime");
             sqlBuilder.AppendLine(")a)b ORDER BY EndTime");
             DataTable table = DbAccess.GetDataTableBySQL(sqlBuilder.ToString(), lotteryId);
-            return ORMHelper.DataTableToList<IsuseInfo>(table);
+            return ORMHelper.DataTableToList<IssuseInfo>(table);
         }
 
-        public IsuseInfo GetCurrentIsuse(int lotteryId)
+        public IssuseInfo GetCurrentIsuse(string gameName)
         {
-            string sql = "SELECT * FROM [T_Lottery_Isuses] WHERE [LotteryId] = {0} AND [StartTime] < GETDATE() AND [EndTime] > GETDATE() ORDER BY [EndTime] DESC";
-            DataTable table = DbAccess.GetDataTableBySQL(sql, lotteryId);
-            if (table.Rows.Count == 0)
+            Criteria cri = new Criteria();
+            cri.Add(Expression.Equal("GameName", gameName));
+            cri.Add(Expression.Equal("Status", IssueStatus.Started));
+            cri.Add(Expression.GreaterThan("StopTime", DateTime.Now));
+
+            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+            IList<IssuseInfo> list = persistence.GetList<IssuseInfo>(cri, new SortInfo("StopTime", SortDirection.Desc));
+            if (list.Count > 0)
             {
-                return null;
+                return list[0];
             }
-            return ORMHelper.ConvertDataRowToEntity<IsuseInfo>(table.Rows[0]);
+            return null;
         }
 
         public IList<EndAheadMinuteInfo> GetEndAheadMinuteList()
         {
-            string sql = "SELECT DISTINCT [LotteryID],[SystemEndAheadMinute] FROM [T_Lottery_PlayTypes]";
+            string sql = "SELECT DISTINCT [GameName],[SystemEndAheadMinute] FROM [T_Lottery_PlayTypes]";
             DataTable table = DbAccess.GetDataTableBySQL(sql);
             return ORMHelper.DataTableToList<EndAheadMinuteInfo>(table);
         }

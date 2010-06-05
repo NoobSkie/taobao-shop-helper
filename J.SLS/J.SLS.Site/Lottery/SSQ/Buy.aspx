@@ -73,18 +73,6 @@
             <div class="redMenu" onclick="GotoNewBuy();">
                 选号投注
             </div>
-            <div style="float: left; width: 2px; display: none;">
-            </div>
-            <div class="whiteMenu" onclick="GotoCoBuy();" style="display: none;">
-                参与合买</div>
-            <div style="float: left; width: 2px; display: none;">
-            </div>
-            <div class="whiteMenu" onclick="GotoFollowScheme();" style="display: none;">
-                定制跟单</div>
-            <div style="float: left; width: 2px; display: none;">
-            </div>
-            <div class="whiteMenu" onclick="GotoSchemeAll();" style="display: none;">
-                全部方案</div>
             <div style="float: left; width: 2px;">
             </div>
             <div class="whiteMenu1" onclick="GotoPlayIntroduce();">
@@ -158,12 +146,6 @@
                                         </tr>
                                         <tr>
                                             <td height="30">
-                                                <input id="btnPaste" name="btnPaste" type="button" value="粘贴上传" onclick="CreateUplaodDialog();"
-                                                    style="cursor: pointer; width: 80px;" />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td height="30">
                                                 <input type="button" name="btn_ClearSelect" id="btn_ClearSelect" value="删除选择" style="cursor: pointer;
                                                     width: 80px;" onclick="return btn_ClearSelectClick();" />
                                             </td>
@@ -227,7 +209,7 @@
 
     checkExplorerAndTip();
    
-    setTimeout("Page_load(<%= LotteryId %>);",500);
+    setTimeout("Page_load(<%= LotteryId %>, '<%= LotteryCode %>');",500);
     PageEvent(<%= LotteryId %>);
 
         function GetBtnOKId() {

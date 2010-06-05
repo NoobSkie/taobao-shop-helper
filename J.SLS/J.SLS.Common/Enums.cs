@@ -28,7 +28,7 @@ namespace J.SLS.Common
         /// </summary>
         Waitting = 0,
         /// <summary>
-        /// 开始 
+        /// 开始
         /// </summary>
         Started = 1,
         /// <summary>
@@ -48,9 +48,13 @@ namespace J.SLS.Common
         /// </summary>
         Awarding = 5,
         /// <summary>
-        /// 返奖结束
+        /// 摇出开奖号码
         /// </summary>
         Awarded = 6,
+        /// <summary>
+        /// 完成期结和返奖,可执行返奖，销量查询
+        /// </summary>
+        Complete = 7,
     }
 
     public enum MappingType

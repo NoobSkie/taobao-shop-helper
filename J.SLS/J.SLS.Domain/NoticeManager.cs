@@ -20,5 +20,12 @@ namespace J.SLS.Domain
             entity.NotifyTime = DateTime.Now;
             persistence.Add(entity);
         }
+
+        public IList<NoticeEntity> GetNoticeListFrom(DateTime fromTime)
+        {
+            Criteria cri = new Criteria();
+            cri.Add(Expression.GreaterThanEqual("NotifyTime", fromTime));
+            return persistence.GetList<NoticeEntity>(cri, new SortInfo("NotifyTime"));
+        }
     }
 }

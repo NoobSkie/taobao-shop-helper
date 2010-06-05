@@ -30,7 +30,7 @@ namespace J.SLS.Database.ORM
             {
                 Type type = mfi.ProInfo.PropertyType;
                 type = Nullable.GetUnderlyingType(type) ?? type;
-                DbType dbType = ORMHelper.GetDbTypeByName(type.Name);
+                DbType dbType = ORMHelper.GetDbTypeByName(type);
                 DbParameter parameter = DbAccess.CreateDbParameter();
                 parameter.ParameterName = "@" + mfi.ProInfo.Name;
                 parameter.DbType = dbType;
@@ -65,17 +65,9 @@ namespace J.SLS.Database.ORM
             }
 
             parameter.ParameterName = "@" + fieldProperty.Name;
-            parameter.DbType = ORMHelper.GetDbTypeByName(tempType.Name);
-
-            if (fieldProperty.GetValue(entity, null) == null)//如果对象的属性为null，则把此参数设置为DBNull
-            {
-                parameter.Value = DBNull.Value;
-            }
-            else
-            {
-                parameter.Value = fieldProperty.GetValue(entity, null);
-            }
-
+            parameter.DbType = ORMHelper.GetDbTypeByName(tempType);
+            object value = fieldProperty.GetValue(entity, null);
+            parameter.Value = value ?? DBNull.Value;    //如果对象的属性为null，则把此参数设置为DBNull
             return parameter;
         }
 

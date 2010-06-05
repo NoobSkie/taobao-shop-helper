@@ -28,7 +28,7 @@ namespace J.SLS.Database.ORM
             }
             Type type = fieldInfo.ProInfo.PropertyType;
             type = Nullable.GetUnderlyingType(type) ?? type;
-            this._dbType = ORMHelper.GetDbTypeByName(type.Name);
+            this._dbType = ORMHelper.GetDbTypeByName(type);
             this._fieldName = fieldInfo.MappingFieldAttribute.FieldName;
             this._dbAccess = dbAccess;
         }

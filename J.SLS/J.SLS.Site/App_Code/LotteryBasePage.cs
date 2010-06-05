@@ -29,14 +29,9 @@ public abstract class LotteryBasePage : BasePage
 
     protected AccountNumber GetAccountNumber()
     {
-        if (ConfigurationManager.AppSettings["AgenceAccount"] == null
-            || ConfigurationManager.AppSettings["AgencePassword"] == null)
-        {
-            throw new ArgumentNullException("未配置代理商账号！");
-        }
         AccountNumber accountN = new AccountNumber();
-        accountN.UserName = ConfigurationManager.AppSettings["AgenceAccount"];
-        accountN.UserPassword = ConfigurationManager.AppSettings["AgencePassword"];
+        accountN.UserName = GetAgenceAccountUserName();
+        accountN.UserPassword = GetAgenceAccountPassword();
         return accountN;
     }
 

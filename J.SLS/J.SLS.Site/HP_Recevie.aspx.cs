@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using J.SLS.Common;
 using J.SLS.Common.Xml;
 using J.SLS.Common.Logs;
+using HPGatewayModels;
 
 public partial class HP_Recevie : BasePage
 {
@@ -14,22 +15,42 @@ public partial class HP_Recevie : BasePage
         string r;
         try
         {
-            string body = GetRequestMessage();
-            Dictionary<string, string> parameters = XmlAnalyzer.GetParameters(body);
+            string requestString = GetRequestMessage();
+            Dictionary<string, string> parameters = XmlAnalyzer.GetParameters(requestString);
             TranType type = (TranType)Enum.Parse(typeof(TranType), parameters["transType"]);
             IssueNoticeFacade facade = new IssueNoticeFacade();
-            TranType returnType = TranType.Unkown;
+            IssueNoticeInfo noticeInfo;
             switch (type)
             {
                 case TranType.IssueNotifyRequest:  // 奖期通知请求
-                    facade.AddIssuseNotify(parameters["transMessage"]);
-                    returnType = TranType.IssueNotifyResponse;
+                    noticeInfo = facade.AddIssuseNotify(parameters["transMessage"]);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("不支持的通知类型 - " + type);
             }
-            r = "<header><messengerID>600001</messengerID><timestamp>20071113092456</timestamp><transactionType>501</transactionType><digest>8123f913e123e123990028d9c72e0dfgds</digest></header>";
-            r = "<body><response code=\"0000\" message=\"成功,系统处理正常\"/></body>";
+            string accountUserName = GetAgenceAccountUserName();
+            string accountPassword = GetAgenceAccountPassword();
+            // 响应的交易类型，如请求奖期通知101，则响应为501.
+            TranType returnType = (TranType)((int)type + 400);
+            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+            string body = "<body><response code=\"0000\" /></body>";
+            string digest = PostManager.MD5(noticeInfo.Id + timestamp + accountPassword + body, "gb2312");
+
+            StringBuilder sb = new StringBuilder();
+            // <?xml version=\"1.0\" encoding=\"GBK\"?>
+            sb.Append(noticeInfo.XmlHeader);
+            // <message version=\"1.0\" id=\"6000012007111300000231\">
+            sb.AppendFormat("<message version=\"{0}\" id=\"{1}\">", noticeInfo.Version, noticeInfo.Id);
+            // <header><messengerID>{0}</messengerID><timestamp>20071113092456</timestamp><transactionType>501</transactionType><digest>8123f913e123e123990028d9c72e0dfgds</digest></header>
+            sb.AppendFormat("<header><messengerID>{0}</messengerID><timestamp>{1}</timestamp><transactionType>{2}</transactionType><digest>{3}</digest></header>"
+                , accountUserName
+                , timestamp
+                , (int)returnType
+                , digest);
+            sb.Append(body);
+            sb.Append("</message>");
+
+            r = sb.ToString();
         }
         catch (Exception ex)
         {
@@ -39,61 +60,14 @@ public partial class HP_Recevie : BasePage
 
         byte[] bytes = Encoding.GetEncoding("gb2312").GetBytes(Server.UrlEncode(r));
         Response.OutputStream.Write(bytes, 0, bytes.Length);
-        //string response;
-        //try
-        //{
-        //    string body = GetRequestMessage();
-        //    body = Server.UrlDecode(body);
-        //    XmlNoticeFacade facade = new XmlNoticeFacade();
-        //    XmlNoticeInfo notice = new XmlNoticeInfo();
-        //    notice.RecevieTime = DateTime.Now;
-        //    notice.XmlBody = body;
-        //    facade.AddNotice(notice);
-
-        //    response = "<body><response code=\"0000\" message=\"成功,系统处理正常\"/></body>";
-        //}
-        //catch (Exception ex)
-        //{
-        //    LogWriter.Write("Page", "HP_Recevie", J.SLS.Common.LogType.Warning, "接收通知失败", ex.ToString());
-        //    response = "<body><response code=\"9999\" message=\"失败," + ex.Message + "\"/></body>";
-        //}
-        //byte[] bytes = Encoding.GetEncoding("gb2312").GetBytes(Server.UrlEncode(response));
-        //Response.OutputStream.Write(bytes, 0, bytes.Length);
     }
-
-    //private void HandleNotice(string response)
-    //{
-    //    string r;
-    //    try
-    //    {
-    //        IssueNoticeFacade facade = new IssueNoticeFacade();
-    //        Dictionary<string, string> parameters = XmlAnalyzer.GetParameters(response);
-    //        TranType type = (TranType)Enum.Parse(typeof(TranType), parameters["transType"]);
-    //        switch (type)
-    //        {
-    //            case TranType.IssueNotify:  // 奖期通知请求
-    //                facade.AddIssuseNotify(parameters["transMessage"]);
-    //                break;
-    //            default:
-    //                throw new ArgumentOutOfRangeException("不支持的通知类型 - " + type);
-    //        }
-    //        r = "<body><response code=\"0000\" message=\"成功,系统处理正常\"/></body>";
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        LogWriter.Write(LogCategory.Notice, "处理通知失败", ex);
-    //        r = "<body><response code=\"9999\" message=\"失败," + ex.Message + "\"/></body>";
-    //    }
-
-    //    byte[] bytes = Encoding.GetEncoding("gb2312").GetBytes(Server.UrlEncode(r));
-    //    Response.OutputStream.Write(bytes, 0, bytes.Length);
-    //}
 
     private string GetRequestMessage()
     {
         using (StreamReader reader = new StreamReader(Request.InputStream))
         {
-            return reader.ReadToEnd();
+            string request = reader.ReadToEnd();
+            return Server.UrlDecode(request);
         }
     }
 }

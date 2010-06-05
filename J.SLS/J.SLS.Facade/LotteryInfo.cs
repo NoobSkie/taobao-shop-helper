@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using J.SLS.Database.ORM;
+using J.SLS.Common;
 
 namespace J.SLS.Facade
 {
@@ -30,77 +31,38 @@ namespace J.SLS.Facade
     {
     }
 
-    /// <summary>
-    /// 奖期信息
-    /// </summary>
-    [EntityMappingTable("T_Lottery_Isuses", ReadOnly = true)]
-    public class IsuseInfo
+    [EntityMappingTable("T_Issuses", ReadOnly = true)]
+    public class IssuseInfo
     {
-        /// <summary>
-        /// 期号ID
-        /// </summary>
-        [EntityMappingField("Id", IsKey = true)]
-        public int Id { get; set; }
+        [EntityMappingField("Id", IsKey = true, IsAutoField = true)]
+        public long Id { get; set; }
 
-        /// <summary>
-        /// 彩票ID
-        /// </summary>
-        [EntityMappingField("LotteryId")]
-        public int LotteryId { get; set; }
+        [EntityMappingField("GameName")]
+        public string GameName { get; set; }
 
-        /// <summary>
-        /// 期号名称
-        /// </summary>
-        [EntityMappingField("Name")]
-        public string Name { get; set; }
+        [EntityMappingField("IssuseNumber")]
+        public string IssuseNumber { get; set; }
 
-        /// <summary>
-        /// 开始投注时间
-        /// </summary>
         [EntityMappingField("StartTime")]
         public DateTime StartTime { get; set; }
 
-        /// <summary>
-        /// 截止时间
-        /// </summary>
-        [EntityMappingField("EndTime")]
-        public DateTime EndTime { get; set; }
+        [EntityMappingField("StopTime")]
+        public DateTime StopTime { get; set; }
 
-        /// <summary>
-        /// 追号任务是否执行了
-        /// </summary>
-        [EntityMappingField("ChaseExecuted")]
-        public bool ChaseExecuted { get; set; }
+        [EntityMappingField("Status")]
+        public IssueStatus Status { get; set; }
 
-        /// <summary>
-        /// 是否开奖了
-        /// </summary>
-        [EntityMappingField("IsOpened")]
-        public bool IsOpened { get; set; }
+        [EntityMappingField("BonusCode")]
+        public string BonusCode { get; set; }
 
-        /// <summary>
-        /// 开奖号码
-        /// </summary>
-        [EntityMappingField("WinLotteryNumber")]
-        public string WinLotteryNumber { get; set; }
+        [EntityMappingField("SalesMoney")]
+        public decimal SalesMoney { get; set; }
 
-        /// <summary>
-        /// 开奖操作员ID
-        /// </summary>
-        [EntityMappingField("OpenOperatorID")]
-        public string OpenOperatorID { get; set; }
+        [EntityMappingField("BonusMoney")]
+        public decimal BonusMoney { get; set; }
 
-        /// <summary>
-        /// 奖期状态：0 未开启 1 开始 2 暂停 3 截止 4 期结 5 返奖 6 返奖结束
-        /// </summary>
-        [EntityMappingField("State")]
-        public short State { get; set; }
-
-        /// <summary>
-        /// 奖期状态的更新时间
-        /// </summary>
-        [EntityMappingField("StateUpdateTime")]
-        public DateTime StateUpdateTime { get; set; }
+        [EntityMappingField("NoticeId")]
+        public string NoticeId { get; set; }
     }
 
     /// <summary>
@@ -110,10 +72,10 @@ namespace J.SLS.Facade
     public class EndAheadMinuteInfo
     {
         /// <summary>
-        /// 彩票ID
+        /// 游戏名称
         /// </summary>
-        [EntityMappingField("LotteryId")]
-        public int LotteryId { get; set; }
+        [EntityMappingField("GameName")]
+        public string GameName { get; set; }
 
         /// <summary>
         /// 用戶截至投注、撤單時間提前分鐘數。超過這個時間，進行系統處理：保底滿員，未滿撤單。

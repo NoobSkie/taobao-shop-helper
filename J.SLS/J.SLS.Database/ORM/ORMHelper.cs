@@ -14,18 +14,26 @@ namespace J.SLS.Database.ORM
 {
     public class ORMHelper
     {
-        internal static DbType GetDbTypeByName(string typeName)
+        internal static DbType GetDbTypeByName(Type type)
         {
             DbType dbType;
-            // 根据数据的数据类型，获取对应数据库字段类型
-            switch (typeName)
+            if (type.IsEnum)
             {
-                case "Byte[]":
-                    dbType = DbType.Binary;
-                    break;
-                default:
-                    dbType = (DbType)Enum.Parse(typeof(DbType), typeName, true);
-                    break;
+                dbType = DbType.Int32;
+            }
+            else
+            {
+                string typeName = type.Name;
+                // 根据数据的数据类型，获取对应数据库字段类型
+                switch (typeName)
+                {
+                    case "Byte[]":
+                        dbType = DbType.Binary;
+                        break;
+                    default:
+                        dbType = (DbType)Enum.Parse(typeof(DbType), typeName, true);
+                        break;
+                }
             }
             return dbType;
         }
@@ -120,15 +128,20 @@ namespace J.SLS.Database.ORM
 
                 if (dataRow.Table.Columns.Contains(fieldName))
                 {
-                    if (dataRow[fieldName].Equals(DBNull.Value))
-                    {
-                        mfi.ProInfo.SetValue(tempT, null, null);
-                    }
-                    else
+                    object value = null;
+                    if (!dataRow[fieldName].Equals(DBNull.Value))
                     {
                         Type type = Nullable.GetUnderlyingType(mfi.ProInfo.PropertyType) ?? mfi.ProInfo.PropertyType;
-                        mfi.ProInfo.SetValue(tempT, Convert.ChangeType(dataRow[fieldName], type), null);
+                        if (type.IsEnum)
+                        {
+                            value = Enum.Parse(type, dataRow[fieldName].ToString());
+                        }
+                        else
+                        {
+                            value = Convert.ChangeType(dataRow[fieldName], type);
+                        }
                     }
+                    mfi.ProInfo.SetValue(tempT, value, null);
                 }
             }
             return tempT;

@@ -41,7 +41,12 @@ namespace J.SLS.Domain
         {
             if (IsIssueExists(entity.GameName, entity.IssuseNumber))
             {
-                UpdateIssueStatus(entity);
+                IssueEntity tmpEntity = GetIssue(entity.GameName, entity.IssuseNumber);
+                tmpEntity.BonusCode = entity.BonusCode;
+                tmpEntity.BonusMoney = entity.BonusMoney;
+                tmpEntity.SalesMoney = entity.SalesMoney;
+                tmpEntity.Status = entity.Status;
+                UpdateIssueStatus(tmpEntity);
             }
             else
             {
