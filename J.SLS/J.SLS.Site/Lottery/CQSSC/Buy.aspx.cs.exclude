@@ -44,7 +44,7 @@ public partial class Lottery_CQSSC_Buy : LotteryBasePage
     {
         try
         {
-            IsuseInfo isuseInfo = lotteryFacade.GetCurrentIsuse(lotteryId);
+            IssuseInfo isuseInfo = lotteryFacade.GetCurrentIsuse(lotteryId);
             if (isuseInfo == null)
             {
                 return "";
