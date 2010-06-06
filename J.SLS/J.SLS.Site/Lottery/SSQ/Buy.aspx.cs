@@ -12,6 +12,8 @@ using HPGatewayFactory;
 using IHPGateway;
 using Shove._Web;
 using J.SLS.Common.Logs;
+using J.SLS.Common.Xml;
+using J.SLS.Common;
 
 public partial class Lottery_SSQ_Buy : LotteryBasePage
 {
@@ -83,121 +85,140 @@ public partial class Lottery_SSQ_Buy : LotteryBasePage
 
     private void DoBuy()
     {
-        string request = HidIsuseID.Value;
-        string isuseName = Shove._Web.Utility.GetRequest("currIsuseName");
-        string str2 = HidIsuseEndTime.Value;
-        string s = Shove._Web.Utility.GetRequest("playType");
-        string str4 = Shove._Web.Utility.GetRequest("Chase");
-        Shove._Web.Utility.GetRequest("CoBuy");
-        string str5 = Shove._Web.Utility.GetRequest("tb_Share");
-        string str6 = Shove._Web.Utility.GetRequest("tb_BuyShare");
-        Shove._Web.Utility.GetRequest("tb_AssureShare");
-        string str7 = Shove._Web.Utility.GetRequest("tb_OpenUserList");
-        string str8 = Shove._Web.Utility.GetRequest("tb_Title");
-        string str9 = Shove._Web.Utility.GetRequest("tb_Description");
-        string str10 = Shove._Web.Utility.GetRequest("tbAutoStopAtWinMoney");
-        string str11 = Shove._Web.Utility.GetRequest("SecrecyLevel");
-        string str12 = Shove._Web.Utility.FilteSqlInfusion(base.Request["tb_LotteryNumber"]);
-        string str13 = Shove._Web.Utility.GetRequest("tb_hide_SumMoney");
-        string str14 = Shove._Web.Utility.GetRequest("tb_hide_AssureMoney");
-        string str15 = Shove._Web.Utility.GetRequest("tb_hide_SumNum");
-        Shove._Web.Utility.GetRequest("HidIsuseCount");
-        string str16 = Shove._Web.Utility.GetRequest("HidLotteryID");
-        Shove._Web.Utility.GetRequest("HidIsAlipay");
-        string str17 = Shove._Web.Utility.GetRequest("tb_Multiple");
-        Shove._Web.Utility.GetRequest("HidIsuseName");
-        Shove._Web.Utility.GetRequest("tbPlayTypeName");
-        string str18 = Shove._Web.Utility.GetRequest("tb_hide_ChaseBuyedMoney");
-        string str19 = Shove._Web.Utility.GetRequest("tb_SchemeBonusScale");
-        string str20 = Shove._Web.Utility.GetRequest("tb_SchemeBonusScalec");
-        int num = 2;
-        if (str17 == "")
+        string issueIdString = HidIsuseID.Value;
+        string isuseNumber = Shove._Web.Utility.GetRequest("currIsuseName");
+        string endTime = HidIsuseEndTime.Value;
+        string playTypeString = Shove._Web.Utility.GetRequest("playType");
+        string lotteryNumber = Shove._Web.Utility.FilteSqlInfusion(base.Request["tb_LotteryNumber"]);
+        string sumMoneyString = Shove._Web.Utility.GetRequest("tb_hide_SumMoney");
+        string sumNumberString = Shove._Web.Utility.GetRequest("tb_hide_SumNum");
+        string lotteryIdString = Shove._Web.Utility.GetRequest("HidLotteryID");
+        string multipleString = Shove._Web.Utility.GetRequest("tb_Multiple");
+        if (multipleString == "")
         {
-            str17 = "1";
+            multipleString = "1";
         }
-        double money = 0.0;
-        int share = 0;
-        int buyShare = 0;
-        double assureMoney = 0.0;
-        int multiple = 0;
-        int num7 = 0;
-        short num8 = 0;
-        int playType = 0;
-        int lotteryID = 0;
-        long isuseID = 0L;
-        double stopWhenWinMoney = 0.0;
         StringBuilder sb = new StringBuilder();
         try
         {
-            money = double.Parse(str13);
-            share = int.Parse(str5);
-            buyShare = int.Parse(str6);
-            assureMoney = double.Parse(str14);
-            multiple = int.Parse(str17);
-            num7 = int.Parse(str15);
-            num8 = short.Parse(str11);
-            playType = int.Parse(s);
-            lotteryID = int.Parse(str16);
-            isuseID = long.Parse(request);
-            stopWhenWinMoney = double.Parse(str10);
+            HPBuyRequestInfo requestInfo = new HPBuyRequestInfo();
 
-            AccountNumber accountN = GetAccountNumber();
-            LotteryType lotteryType = LotteryType.ShangHaiWelfareLottery;
-            IIssueQueryGateway gateway = GatewayFactroy.CreateIssueQueryGatewayFactory(lotteryType);
-            TransactionTypeManager transTypeM = new TransactionTypeManager(lotteryType);
-            TransactionType transType = transTypeM.GetTransactionTypeByTypeCode(lotteryType, "102");
-            PlayMethodManager pleyMethodM = new PlayMethodManager(lotteryType);
-            transType = transTypeM.GetTransactionTypeByTypeCode(lotteryType, "103");
+            double money = double.Parse(sumMoneyString);
+            int multiple = int.Parse(multipleString);
+            int sumNumber = int.Parse(sumNumberString);
+            int playType = int.Parse(playTypeString);
+            int lotteryId = int.Parse(lotteryIdString);
+            long isuseId = long.Parse(issueIdString);
 
-            List<Ticket> tickets = new List<Ticket>();
-            Ticket ticketOne = new Ticket();
-            ticketOne.TicketId = accountN.UserName + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
-            string gameName = "双色球";
-            ticketOne.PlayTypeInfo = pleyMethodM.GetMethodType(lotteryType, gameName).PlayTypes[0];
-            ticketOne.IssueInfo = new Issue();
-            ticketOne.IssueInfo.PlayMethodInfo = pleyMethodM.GetMethodType(lotteryType, gameName);
-            // 期号
-            ticketOne.IssueInfo.Number = isuseName;
-            // 倍投数
-            ticketOne.Amount = multiple.ToString();
-            // 购买金额
-            ticketOne.Money = assureMoney.ToString();
-            // 要投注的彩票号码(测试时，每张彩票一注)
-            ticketOne.AnteCodes = str12.Trim();
+            string messengerId = GetAgenceAccountUserName();
+            string userPassword = GetAgenceAccountPassword();
+            string messageId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
+            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
 
-            UserProfile user = new UserProfile();
-            // 彩票用户名
-            user.UserName = CurrentUser.UserId;
-            // 用户证件类型(1、身份证；2、军官证；3、护照)
-            user.CardTypeInfo = (CardType)CurrentUser.CardType;
-            // 证件号码
-            user.CardNumber = CurrentUser.CardNumber;
-            // 用户邮箱地址
-            user.Mail = CurrentUser.Email;
-            // 用户手机号(无纸化彩票中大奖的凭证之一)
-            user.Mobile = CurrentUser.Mobile;
-            // 用户真实姓名
-            user.RealName = CurrentUser.RealName;
+            IssueInfo issueInfo = new IssueInfo();
+            issueInfo.GameName = LotteryCode;
+            issueInfo.Number = isuseNumber;
 
-            ticketOne.UserProfile = user;
-            tickets.Add(ticketOne);
-            ticketOne.TicketId = accountN.UserName + DateTime.Now.ToString("yyyyMMdd") + PostManager.TenSerialNumber;
-            tickets.Add(ticketOne);
+            UserProfileInfo userProfile = new UserProfileInfo();
+            userProfile.UserName = CurrentUser.UserId;
+            userProfile.CardType = (J.SLS.Common.CardType)CurrentUser.CardType;
+            userProfile.CardNumber = CurrentUser.CardNumber;
+            userProfile.Mail = CurrentUser.Email;
+            userProfile.Mobile = CurrentUser.Mobile;
+            userProfile.RealName = CurrentUser.RealName;
+            userProfile.BonusPhone = CurrentUser.Mobile;
 
-            StringBuilder sbResult = new StringBuilder();
-            sbResult.AppendLine("投注结果");
-            sbResult.AppendLine();
+            List<string> anteCodes = new List<string>();
+            lotteryNumber = lotteryNumber.Replace(" + ", "#").Replace(' ', ',');
+            anteCodes.AddRange(lotteryNumber.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
+
+            TicketInfo ticket = new TicketInfo();
+            ticket.TicketId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
+            ticket.BuyType = BuyType.A101;   // TODO
+            ticket.Money = money.ToString("0.00");
+            ticket.Amount = multiple.ToString();
+            ticket.AnteCodes = anteCodes;
+            ticket.IssueInfo = issueInfo;
+            ticket.UserProfile = userProfile;
+
+            HPBuyRequestInfo.Body requestBody = new HPBuyRequestInfo.Body();
+            requestBody._Request = new HPBuyRequestInfo.Body.Request();
+            requestBody._Request.TicketList = new XmlMappingList<TicketInfo>();
+            requestBody._Request.TicketList.Add(ticket);
+
+            CommunicationObject.RequestHeaderObject requestHeader = new CommunicationObject.RequestHeaderObject();
+            requestHeader.MessengerId = GetAgenceAccountUserName();
+            requestHeader.Timestamp = timestamp;
+            requestHeader.TransactionType = TranType.Request103;
+            requestHeader.Digest = PostManager.MD5(messageId + timestamp + userPassword + requestBody.ToXmlString(), "gb2312");
+
+            requestInfo.XmlHeader = "<?xml version=\"1.0\" encoding=\"gb2312\"?>";
+            requestInfo.Id = messageId;
+            requestInfo.Version = "1.0";
+            requestInfo._Header = requestHeader;
+            requestInfo._Body = requestBody;
+
+            //AccountNumber accountN = GetAccountNumber();
+            //LotteryType lotteryType = LotteryType.ShangHaiWelfareLottery;
+            //IIssueQueryGateway gateway = GatewayFactroy.CreateIssueQueryGatewayFactory(lotteryType);
+            //TransactionTypeManager transTypeM = new TransactionTypeManager(lotteryType);
+            //TransactionType transType = transTypeM.GetTransactionTypeByTypeCode(lotteryType, "102");
+            //PlayMethodManager pleyMethodM = new PlayMethodManager(lotteryType);
+            //transType = transTypeM.GetTransactionTypeByTypeCode(lotteryType, "103");
+
+
+
+            //List<Ticket> tickets = new List<Ticket>();
+            //Ticket ticketOne = new Ticket();
+            //ticketOne.TicketId = accountN.UserName + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
+            //string gameName = "双色球";
+            //ticketOne.PlayTypeInfo = pleyMethodM.GetMethodType(lotteryType, gameName).PlayTypes[0];
+            //ticketOne.IssueInfo = new Issue();
+            //ticketOne.IssueInfo.PlayMethodInfo = pleyMethodM.GetMethodType(lotteryType, gameName);
+            //// 期号
+            //ticketOne.IssueInfo.Number = isuseNumber;
+            //// 倍投数
+            //ticketOne.Amount = multiple.ToString();
+            //// 购买金额
+            //ticketOne.Money = money.ToString();
+            //// 要投注的彩票号码(测试时，每张彩票一注)
+            //ticketOne.AnteCodes = lotteryNumber.Trim();
+
+            //UserProfile user = new UserProfile();
+            //// 彩票用户名
+            //user.UserName = CurrentUser.UserId;
+            //// 用户证件类型(1、身份证；2、军官证；3、护照)
+            //user.CardTypeInfo = (CardType)CurrentUser.CardType;
+            //// 证件号码
+            //user.CardNumber = CurrentUser.CardNumber;
+            //// 用户邮箱地址
+            //user.Mail = CurrentUser.Email;
+            //// 用户手机号(无纸化彩票中大奖的凭证之一)
+            //user.Mobile = CurrentUser.Mobile;
+            //// 用户真实姓名
+            //user.RealName = CurrentUser.RealName;
+
+            //ticketOne.UserProfile = user;
+            //tickets.Add(ticketOne);
+            //ticketOne.TicketId = accountN.UserName + DateTime.Now.ToString("yyyyMMdd") + PostManager.TenSerialNumber;
+            //tickets.Add(ticketOne);
+
+            string result = @"投注结果\n\n";
             try
             {
-                string result = gateway.LotteryRequest(accountN, transType, tickets);
-                sbResult.AppendLine(result);
+                string requestText = "transType=" + (int)TranType.Request103 + "&transMessage=" + requestInfo.ToXmlString();
+                string xml = PostManager.Post(GateWayManager.HPIssueQuery_GateWay, requestText, 1200);
+                //string xml = gateway.LotteryRequest(accountN, transType, tickets);
+                HPResponseInfo info = XmlAnalyzer.AnalyseResponse<HPResponseInfo>(xml);
+                result += info.Code + " - " + info.Message;
             }
             catch (Exception ex)
             {
-                sbResult.AppendLine("错误");
+                result += "错误 - " + ex.Message;
+                LogWriter.Write(LogCategory.Lottery, "投注错误", ex);
                 // sbResult.AppendLine(ex.Message);
             }
-            JavaScript.Alert(this.Page, sbResult.ToString());
+            JavaScript.Alert(this.Page, result);
             return;
         }
         catch

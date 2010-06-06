@@ -9,7 +9,7 @@ namespace J.SLS.Common.Xml
     public class XmlAnalyzer
     {
         public static T AnalyseResponse<T>(string body)
-            where T : XmlMappingObject, new()
+            where T : CommunicationObject, new()
         {
             try
             {
@@ -17,7 +17,7 @@ namespace J.SLS.Common.Xml
                 string xml = parameters["transMessage"];
                 if (!string.IsNullOrEmpty(xml))
                 {
-                    return AnalyseXml<T>(xml);
+                    return AnalyseXmlToCommunicationObject<T>(xml);
                 }
                 return null;
             }
@@ -27,8 +27,8 @@ namespace J.SLS.Common.Xml
             }
         }
 
-        public static T AnalyseXml<T>(string xml)
-            where T : XmlMappingObject, new()
+        public static T AnalyseXmlToCommunicationObject<T>(string xml)
+            where T : CommunicationObject, new()
         {
             try
             {
@@ -36,6 +36,28 @@ namespace J.SLS.Common.Xml
                 doc.LoadXml(xml);
                 T t = new T();
                 t.XmlHeader = doc.FirstChild.OuterXml;
+                XmlNodeList nodeList = doc.GetElementsByTagName("message");
+                if (nodeList.Count > 0)
+                {
+                    t.AnalyzeXmlNode(nodeList[0]);
+                    return t;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new XmlException("解析XML错误。" + xml, ex);
+            }
+        }
+
+        public static T AnalyseXmlToMappingObject<T>(string xml)
+            where T : XmlMappingObject, new()
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(xml);
+                T t = new T();
                 XmlNodeList nodeList = doc.GetElementsByTagName("message");
                 if (nodeList.Count > 0)
                 {

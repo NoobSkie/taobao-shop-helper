@@ -13,16 +13,17 @@ public partial class HP_Recevie : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         string r;
+        string srcStr = GetRequestMessage();
         try
         {
-            string requestString = GetRequestMessage();
+            string requestString = Server.UrlDecode(srcStr);
             Dictionary<string, string> parameters = XmlAnalyzer.GetParameters(requestString);
             TranType type = (TranType)Enum.Parse(typeof(TranType), parameters["transType"]);
             IssueNoticeFacade facade = new IssueNoticeFacade();
             IssueNoticeInfo noticeInfo;
             switch (type)
             {
-                case TranType.IssueNotifyRequest:  // 奖期通知请求
+                case TranType.Request101:  // 奖期通知请求
                     noticeInfo = facade.AddIssuseNotify(parameters["transMessage"]);
                     break;
                 default:
@@ -54,7 +55,8 @@ public partial class HP_Recevie : BasePage
         }
         catch (Exception ex)
         {
-            LogWriter.Write(LogCategory.Notice, "处理通知失败", ex);
+            Exception ext = new Exception("处理通知发生未知异常 - " + srcStr, ex);
+            LogWriter.Write(LogCategory.Notice, "处理通知失败", ext);
             r = "<body><response code=\"9999\" message=\"失败," + ex.Message + "\"/></body>";
         }
 
@@ -66,8 +68,7 @@ public partial class HP_Recevie : BasePage
     {
         using (StreamReader reader = new StreamReader(Request.InputStream))
         {
-            string request = reader.ReadToEnd();
-            return Server.UrlDecode(request);
+            return reader.ReadToEnd();
         }
     }
 }

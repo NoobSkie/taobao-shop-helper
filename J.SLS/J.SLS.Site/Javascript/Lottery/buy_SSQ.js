@@ -2,6 +2,8 @@
 //************************************************************全局变量定义区*******************************************
 
 //当前彩种编号
+var currentLotteryID = null;
+//当前游戏编码 ssq
 var currentGameName = null;
 //彩种名称
 var lotteryName = null;
@@ -13,10 +15,6 @@ var o_tb_Share;
 var o_tb_AssureShare;
 var o_tb_BuyShare;
 var o_tb_Title;
-//合买佣金比率
-var o_tb_SchemeBonusScale;
-//追号佣金比例
-var o_tb_SchemeBonusScalec;
 var o_lab_Num;
 var o_lab_SumMoney;
 var o_lab_ShareMoney;
@@ -24,16 +22,6 @@ var o_lab_AssureMoney;
 var o_lab_BuyMoney;
 var o_lb_LbSumMoney;
 var o_tb_Price;
-
-var FCExperts_lcal = null;               //本地福彩专家列表值
-var bonusNumbers_lcal = null;            //本地中奖列表值
-
-//发起方案条件
-var Opt_InitiateSchemeLimitLowerScaleMoney = 100;
-var Opt_InitiateSchemeLimitLowerScale = 0.2;
-var Opt_InitiateSchemeLimitUpperScaleMoney = 10000;
-var Opt_InitiateSchemeLimitUpperScale = 0.05;
-
 
 
 //************************************************************方法函数定义区***************************************
@@ -49,17 +37,12 @@ function init() {
     o_tb_Title = $Id("tb_Title");
     o_lab_Num = $Id("lab_Num");
     o_lab_SumMoney = $Id("lab_SumMoney");
-    o_lab_BuyMoney = $Id("lab_BuyMoney");
 
     o_tb_LotteryNumber.value = "";
     o_tb_Multiple.value = "1";
 
-    GetSchemeBonusScalec();
-
     o_lab_Num.innerText = "0";
     o_lab_SumMoney.innerText = "0.00";
-
-    o_lb_LbSumMoney = $Id("LbSumMoney");
 
     try {
         o_tb_Price = $Id("HidPrice").value;
@@ -167,19 +150,18 @@ function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
 
 //获取当前投注奖期信息
 var time_GetIsuseInfo = null;
-function GetIsuseInfo(lotteryID) {
-    currentLotteryID = lotteryID;
+function GetIsuseInfo() {
     try {
-        Lottery_SSQ_Buy.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
+        Lottery_SSQ_Buy.GetIsuseInfo(currentGameName, GetIsuseInfo_callback);
     }
     catch (e) {
-        time_GetIsuseInfo = setTimeout("GetIsuseInfo(" + lotteryID + ");", 2000);
+        time_GetIsuseInfo = setTimeout("GetIsuseInfo();", 2000);
     }
 }
 
 function GetIsuseInfo_callback(response) {
     if (response == null || response.value == null) {
-        time_GetIsuseInfo = setTimeout("GetIsuseInfo(" + currentLotteryID + ");", 2000);
+        time_GetIsuseInfo = setTimeout("GetIsuseInfo();", 2000);
         return;
     }
 
@@ -188,32 +170,10 @@ function GetIsuseInfo_callback(response) {
         clearTimeout(time_GetIsuseInfo);
     }
 
-    var v = response.value;
-    if (v.indexOf("|") == -1) {
-        return;
-    }
-
-    var arrInfo = v.split('|');
-    if (arrInfo.length != 3) {
-        return;
-    }
-
-    var lastIsuse = arrInfo[1];
-    var currIsuse = arrInfo[0];
-    var chaseIsuse = arrInfo[2];
-
-    lastIsuseInfo.innerHTML = lastIsuse;
-    $Id("div_QH_Today").innerHTML = chaseIsuse;
-    try {
-        var firstChase = $Id("div_QH_Today").childNodes[0].rows[0].cells[0].childNodes[0];
-        if (firstChase != undefined) {
-            firstChase.checked = true;
-            check(firstChase);
-        }
-    } catch (e) { }
+    var currIsuse = response.value;
 
     var arrcurrIsuse = currIsuse.split(',');
-    $Id("HidIsuseID").value = arrcurrIsuse[0];
+    $Id(GetHidIsuseID()).value = arrcurrIsuse[0];
     currIsuseName.innerText = arrcurrIsuse[1];
     currIsuseEndTime.innerText = arrcurrIsuse[2].replace("/", "-").replace("/", "-");
     $Id(GetHidIsuseEndTime()).value = arrcurrIsuse[2];
@@ -535,12 +495,9 @@ function Cb_CheckAll() {
     }
 }
 
-
 function newBuy(lotteryID) {
-
     $Id("divNewBuy").style.display = "";
     $Id("divPlayTypeIntroduce").style.display = "none";
-    ChangeBackImage(1, lotteryID);
 
     var menu = document.getElementById("tbPlayTypeMenu" + String(lotteryID));
 
@@ -552,7 +509,6 @@ function newBuy(lotteryID) {
     }
 }
 
-
 function PlayTypeIntroduce(lotteryID) {
     $Id("divNewBuy").style.display = "none";
     $Id("divCoBuy").style.display = "none";
@@ -560,7 +516,6 @@ function PlayTypeIntroduce(lotteryID) {
     $Id("divPlayTypeIntroduce").style.display = "";
     $Id("divSchemeAll").style.display = "none";
     $Id("iframePlayTypeIntroduce").src = "../Home/Room/Help/help_" + lotteryID + ".htm";
-    ChangeBackImage(9, lotteryID);
 }
 
 function UpdateLotteryNumber() {
@@ -601,12 +556,7 @@ function btn_OKClick() {
 
     var multiple = StrToInt(o_tb_Multiple.value);
     var SumNum = StrToInt(o_lab_Num.innerText);
-    var Share = StrToInt(o_tb_Share.value);
-    var BuyShare = StrToInt(o_tb_BuyShare.value);
-    var AssureShare = StrToInt(o_tb_AssureShare.value);
     var SumMoney = StrToInt(o_lab_SumMoney.innerText);
-    var AssureMoney = StrToFloat(o_lab_AssureMoney.innerText);
-    var BuyMoney = StrToFloat(o_lab_BuyMoney.innerText);
 
     if (SumNum < 1) {
         alert("请输入投注内容。");
@@ -617,34 +567,24 @@ function btn_OKClick() {
         o_tb_Multiple.focus();
         return false;
     }
-    if (Share < 1) {
-        alert("请输入正确的份数。");
-        o_tb_Share.focus();
-        return false;
-    }
-    if (StrToFloat(o_lab_ShareMoney.innerText) < 1) {
-        alert("每份金额不能小于 1 元。");
-        o_tb_Share.focus();
-        return false;
-    }
 
-    var TipStr = '您要发起' + LotteryName + $Id("tbPlayTypeName").value + '方案，详细内容：\n\n';
-    TipStr += "　　注　数：　" + SumNum + "\n";
-    TipStr += "　　倍　数：　" + multiple + "\n";
-    TipStr += "　　总金额：　" + o_lab_SumMoney.innerText + " 元\n\n";
-    TipStr += "　　总份数：　" + Share + " 份\n";
-    TipStr += "　　每　份：　" + o_lab_ShareMoney.innerText + " 元\n\n";
-    TipStr += "　　保　底：　" + AssureShare + " 份，" + o_lab_AssureMoney.innerText + " 元\n";
-    TipStr += "　　购　买：　" + BuyShare + " 份，" + o_lab_BuyMoney.innerText + " 元\n\n";
+//    var TipStr = '您要发起' + LotteryName + $Id("tbPlayTypeName").value + '方案，详细内容：\n\n';
+//    TipStr += "　　注　数：　" + SumNum + "\n";
+//    TipStr += "　　倍　数：　" + multiple + "\n";
+//    TipStr += "　　总金额：　" + o_lab_SumMoney.innerText + " 元\n\n";
+//    TipStr += "　　总份数：　" + Share + " 份\n";
+//    TipStr += "　　每　份：　" + o_lab_ShareMoney.innerText + " 元\n\n";
+//    TipStr += "　　保　底：　" + AssureShare + " 份，" + o_lab_AssureMoney.innerText + " 元\n";
+//    TipStr += "　　购　买：　" + BuyShare + " 份，" + o_lab_BuyMoney.innerText + " 元\n\n";
 
-    if (!confirm(TipStr + "按“确定”即表示您已阅读《" + LotteryName + "投注协议》并立即提交方案，确定要提交方案吗？"))
+    var TipStr = '您要投注方案，详细内容：\n\n';
+    if (!confirm(TipStr + "按“确定”即表示您已阅读《投注协议》并立即提交方案，确定要提交吗？"))
         return false;
 
     $Id("tb_hide_SumMoney").value = o_lab_SumMoney.innerText;
-    $Id("tb_hide_AssureMoney").value = o_lab_AssureMoney.innerText;
     $Id("tb_hide_SumNum").value = o_lab_Num.innerText;
 
-    __doPostBack('btn_OK', '');
+    __doPostBack(GetBtnOKName(), '');
 }
 
 function Cancel() {

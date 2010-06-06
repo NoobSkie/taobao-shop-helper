@@ -18,7 +18,7 @@ public static class DataCache
                 LotteryFacade facade = new LotteryFacade();
                 foreach (EndAheadMinuteInfo info in facade.GetEndAheadMinuteList())
                 {
-                    list[info.GameName] = info.SystemEndAheadMinute;
+                    list[info.GameName.ToUpper()] = info.SystemEndAheadMinute;
                 }
                 Cache.SetCache("DateCache_LotteryEndAheadMinute", list);
             }

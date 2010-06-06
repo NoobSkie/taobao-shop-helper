@@ -460,14 +460,9 @@
 
     }
 
-    //机选 n 注 
+    //机选 n 注
     function btn_2_RandManyClick(n) {
-        document.all["btn_2_Add"].disabled = true;
-        parent.document.all["btn_2_Rand"].disabled = true;
-        parent.document.all["btn_2_Rand5"].disabled = true;
-        parent.document.all["btn_ClearSelect"].disabled = true;
-        parent.document.all["btn_Clear"].disabled = true;
-        parent.document.all["btn_OK"].disabled = true;
+        enableBtn(false);
 
         for (var i = 1; i <= n; i++) {
             var Q = new Array();
@@ -498,18 +493,19 @@
             ClearSelect();
         }
 
-        enableBtn();
+        enableBtn(true);
 
         return true;
     }
 
-    function enableBtn() {
-        document.all["btn_2_Add"].disabled = false;
-        parent.document.all["btn_2_Rand"].disabled = false;
-        parent.document.all["btn_2_Rand5"].disabled = false;
-        parent.document.all["btn_OK"].disabled = false;
-        parent.document.all["btn_ClearSelect"].disabled = false;
-        parent.document.all["btn_Clear"].disabled = false;
+    function enableBtn(enabled) {
+        document.all["btn_2_Add"].disabled = !enabled;
+        parent.document.all["btn_2_Rand"].disabled = !enabled;
+        parent.document.all["btn_2_Rand5"].disabled = !enabled;
+        var btnOkId = parent.GetBtnOKId();
+        parent.document.all[btnOkId].disabled = !enabled;
+        parent.document.all["btn_ClearSelect"].disabled = !enabled;
+        parent.document.all["btn_Clear"].disabled = !enabled;
     }
 
     function SelectLotteryNumber() {

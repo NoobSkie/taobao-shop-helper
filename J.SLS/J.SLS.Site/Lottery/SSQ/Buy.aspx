@@ -111,7 +111,7 @@
                     </td>
                     <td valign="top" style="border-bottom: #fe8625 1px solid;" align="center">
                         <iframe id="iframe_playtypes" name="iframe_playtypes" width="100%" frameborder="0"
-                            scrolling="no" onload="document.getElementById('iframe_playtypes').style.height=iframe_playtypes.document.body.scrollHeight;showSameHeight();">
+                            scrolling="no" onload="document.getElementById('iframe_playtypes').style.height=iframe_playtypes.document.body.scrollHeight;">
                         </iframe>
                     </td>
                 </tr>
@@ -190,7 +190,7 @@
         </div>
         <div id="divPlayTypeIntroduce" style="display: none;">
             <iframe id="iframePlayTypeIntroduce" name="iframePlayTypeIntroduce" width="100%"
-                frameborder="0" scrolling="no" onload="document.getElementById('iframePlayTypeIntroduce').style.height=iframePlayTypeIntroduce.document.body.scrollHeight;showSameHeight();">
+                frameborder="0" scrolling="no" onload="document.getElementById('iframePlayTypeIntroduce').style.height=iframePlayTypeIntroduce.document.body.scrollHeight;">
             </iframe>
         </div>
     </div>
