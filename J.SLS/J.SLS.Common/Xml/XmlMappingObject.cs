@@ -13,8 +13,7 @@ namespace J.SLS.Common.Xml
         public virtual void AnalyzeXmlNode(XmlNode xmlNode)
         {
             if (xmlNode == null) return;
-            PropertyInfo[] properties = this.GetType().GetProperties(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            foreach (PropertyInfo property in properties)
+            foreach (PropertyInfo property in GetPropertyInfoList())
             {
                 object[] attrs = property.GetCustomAttributes(typeof(XmlMappingAttribute), true);
                 if (attrs.Length > 0)
@@ -64,18 +63,17 @@ namespace J.SLS.Common.Xml
             }
         }
 
-        public virtual string ToXmlString()
+        public virtual string ToXmlString(string tagName)
         {
             XmlDocument doc = new XmlDocument();
-            XmlNode root = doc.CreateElement("message");
+            XmlNode root = doc.CreateElement(tagName);
             BuildXmlNode(doc, ref root, root.Name);
             return root.OuterXml;
         }
 
         public virtual void BuildXmlNode(XmlDocument doc, ref XmlNode refNode, string subName)
         {
-            PropertyInfo[] properties = this.GetType().GetProperties(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            foreach (PropertyInfo property in properties)
+            foreach (PropertyInfo property in GetPropertyInfoList())
             {
                 object[] attrs = property.GetCustomAttributes(typeof(XmlMappingAttribute), true);
                 if (attrs.Length > 0)
@@ -213,6 +211,31 @@ namespace J.SLS.Common.Xml
                 }
             }
             return node;
+        }
+
+        private IList<PropertyInfo> GetPropertyInfoList()
+        {
+            PropertyInfo[] properties = this.GetType().GetProperties(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            List<PropertyInfo> list = new List<PropertyInfo>();
+            foreach (PropertyInfo p in properties)
+            {
+                if (p.IsDefined(typeof(XmlMappingAttribute), true))
+                {
+                    list.Add(p);
+                }
+            }
+            list.Sort(new XmlMappingComparer());
+            return list;
+        }
+
+        private class XmlMappingComparer : IComparer<PropertyInfo>
+        {
+            public int Compare(PropertyInfo x, PropertyInfo y)
+            {
+                XmlMappingAttribute attrX = x.GetCustomAttributes(typeof(XmlMappingAttribute), true)[0] as XmlMappingAttribute;
+                XmlMappingAttribute attrY = y.GetCustomAttributes(typeof(XmlMappingAttribute), true)[0] as XmlMappingAttribute;
+                return attrX.Index.CompareTo(attrY.Index);
+            }
         }
     }
 

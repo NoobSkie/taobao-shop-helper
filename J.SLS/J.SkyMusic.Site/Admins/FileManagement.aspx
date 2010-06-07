@@ -2,13 +2,13 @@
     CodeFile="FileManagement.aspx.cs" Inherits="Admins_FileManagement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ph_head" runat="Server">
-    <link href="content.css" rel="stylesheet" type="text/css" />
     <link href="filemanagement.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript">
 
         function DoUploadFile() {
             document.getElementById("<%= fuFile.ClientID %>").click();
+            __doPostBack('<%= lbtnUpload.UniqueID %>', '');
         }
     
     </script>
@@ -23,13 +23,17 @@
             <asp:HyperLink ID="hlnkUpload" NavigateUrl="javascript:DoUploadFile();" runat="server"><span>上传文件</span></asp:HyperLink><span
                 class="Description">* 只能上传图片文件，样式表文件及JS脚本文件。</span><asp:FileUpload ID="fuFile" CssClass="FileUpdateControl"
                     runat="server" />
+            <asp:LinkButton ID="lbtnUpload" runat="server"></asp:LinkButton>
+        </div>
+        <div class="TipDiv">
+            <span id="lblJsErrorMsg">提示：文件大小已超过 1M</span>
         </div>
         <div class="FileList">
             <asp:Repeater ID="rptFileList" runat="server">
                 <HeaderTemplate>
                     <div class="THeader">
-                        <span class="Name">文件名</span><span class="Type">文件类型</span><span class="Size">大小
-                        </span><span class="Date">上传时间</span><span class="Link"></span>
+                        <span class="Name">文件名</span><span class="Type">文件类型</span><span class="Size">大小</span><span
+                            class="Date">上传时间</span><span class="Link"></span>
                     </div>
                 </HeaderTemplate>
                 <ItemTemplate>
@@ -56,8 +60,32 @@
 
     <script type="text/javascript">
 
+        var allowTypes = '<%= AllowFileExtensions %>';
+
         document.getElementById("<%= fuFile.ClientID %>").onchange = function() {
-            alert(this.id);
+            var allowTypeList = allowTypes.split(",");
+            if (!CheckFileType(allowTypeList, this.value)) {
+                ShowMessage("此文件类型不允许上传 - \"" + this.value + "\"！", "");
+                return false;
+            }
+            return true;
+        }
+
+        function CheckFileType(allowList, fileName) {
+            var seat = fileName.lastIndexOf(".");
+            //返回位于String对象中指定位置的子字符串并转换为小写.
+            var extension = fileName.substring(seat).toLowerCase();
+            for (var i = 0; i < allowList.length; i++) {
+                if (allowList[i] == extension) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function ShowMessage(msg, type) {
+            document.getElementById("lblJsErrorMsg").innerText = msg;
+            document.getElementById("lblJsErrorMsg").className = type;
         }
     
     </script>

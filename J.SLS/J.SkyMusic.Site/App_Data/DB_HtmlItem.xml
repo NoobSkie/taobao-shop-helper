@@ -1,17 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Htmls>
+  <Item>
+    <Id>3151A1D6928048419A1BE0CAEE5164ED</Id>
+    <Name>阿斯顿发生大法</Name>
+    <CreateTime>2010-06-07 18:57:31</CreateTime>
+    <LastUpdateTime>2010-06-07 18:57:31</LastUpdateTime>
+  </Item>
   <Item>
     <Id>BDF60EB6-EB2E-4540-A4AD-B9890AAE21A9</Id>
     <Name>热烈祝贺我校XX同学被XXX艺术学院录取！</Name>
     <CreateTime>2010-5-26 9:19:45</CreateTime>
     <LastUpdateTime>2010-5-26 9:19:45</LastUpdateTime>
     <Scripts>
-      <FileName></FileName>
-      <FileName></FileName>
+      <FileName>
+      </FileName>
+      <FileName>
+      </FileName>
     </Scripts>
     <Styles>
-      <FileName></FileName>
-      <FileName></FileName>
+      <FileName>
+      </FileName>
+      <FileName>
+      </FileName>
     </Styles>
   </Item>
   <Item>

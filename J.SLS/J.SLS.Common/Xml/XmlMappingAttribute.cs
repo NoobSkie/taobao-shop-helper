@@ -7,22 +7,24 @@ namespace J.SLS.Common.Xml
 {
     public class XmlMappingAttribute : Attribute
     {
-        public XmlMappingAttribute(string mappingName)
-            : this(mappingName, MappingType.Element, XmlObjectType.Item)
+        public XmlMappingAttribute(string mappingName, int index)
+            : this(mappingName, index, MappingType.Element, XmlObjectType.Item)
         {
         }
-        public XmlMappingAttribute(string mappingName, MappingType mappingType)
-            : this(mappingName, mappingType, XmlObjectType.Item)
+        public XmlMappingAttribute(string mappingName, int index, MappingType mappingType)
+            : this(mappingName, index, mappingType, XmlObjectType.Item)
         {
         }
-        public XmlMappingAttribute(string mappingName, MappingType mappingType, XmlObjectType objectType)
+        public XmlMappingAttribute(string mappingName, int index, MappingType mappingType, XmlObjectType objectType)
         {
             MappingType = mappingType;
-            MappingName = mappingName;
+            Index = index;
             ObjectType = objectType;
         }
 
         public string MappingName { get; set; }
+
+        public int Index { get; set; }
 
         public MappingType MappingType { get; set; }
 

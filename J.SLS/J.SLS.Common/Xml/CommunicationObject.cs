@@ -11,31 +11,31 @@ namespace J.SLS.Common.Xml
 
         public class RequestHeaderObject : XmlMappingObject
         {
-            [XmlMapping("messengerID")]
+            [XmlMapping("messengerID", 1)]
             public string MessengerId { get; set; }
-            [XmlMapping("timestamp")]
+            [XmlMapping("timestamp", 2)]
             public string Timestamp { get; set; }
-            [XmlMapping("transactionType")]
+            [XmlMapping("transactionType", 3)]
             public TranType TransactionType { get; set; }
-            [XmlMapping("digest")]
+            [XmlMapping("digest", 4)]
             public string Digest { get; set; }
         }
 
-        [XmlMapping("id", MappingType.Attribute)]
+        [XmlMapping("id", 1, MappingType.Attribute)]
         public string Id { get; set; }
-        [XmlMapping("version", MappingType.Attribute)]
+        [XmlMapping("version", 2, MappingType.Attribute)]
         public string Version { get; set; }
 
-        [XmlMapping("header")]
+        [XmlMapping("header", 3)]
         public RequestHeaderObject _Header { get; set; }
         public string MessengerId { get { return _Header.MessengerId; } }
         public string Timestamp { get { return _Header.Timestamp; } }
         public TranType TransactionType { get { return _Header.TransactionType; } }
         public string Digest { get { return _Header.Digest; } }
 
-        public override string ToXmlString()
+        public virtual string ToXmlString()
         {
-            return XmlHeader + base.ToXmlString();
+            return XmlHeader + base.ToXmlString("message");
         }
     }
 }

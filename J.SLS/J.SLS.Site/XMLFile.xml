@@ -33,24 +33,25 @@
   </body>
 </message>
 
-<message id="" version="">
+<message version="1.0" id="2000212010060701509575">
+  <header>
+    <messengerID>200021</messengerID>
+    <timestamp>20100607191256</timestamp>
+    <transactionType>103</transactionType>
+    <digest>61d1355a21dbc49f6442f439f89d90c3</digest>
+  </header>
   <body>
     <lotteryRequest>
-      <ticket id="2000212010060701515034" playType="101" amount="1" money="4.00">
-        <issue gameName="SSQ" number=""></issue>
-        <userProfile userName="zjy" cardType="1" cardNumber="510212198105057410" mobile="15902307117" mail="zhongjy_001@163.com" realName="ÖÓ¼ÒÓî" bonusPhone="15902307117"></userProfile>
-        <anteCode>
-          03 08 12 24 26 29 + 06
-          05 06 08 09 20 22 + 06
-        </anteCode>
+      <ticket id="200021201006070000000001" playType="201" money="2" amount="1">
+        <issue gameName="ssl" number="2010060719"/>
+        <userProfile userName="zhongjy" cardType="1" mail="zhongjy_001@163.com" cardNumber="510212198105057410" mobile="15902307117" realName="ÖÓ¼ÒÓî"/>
+        <anteCode>3,2,7</anteCode>
+      </ticket>
+      <ticket id="200021201006070000000001" playType="201" money="2" amount="1">
+        <issue gameName="ssl" number="2010060719"/>
+        <userProfile userName="zhongjy" cardType="1" mail="zhongjy_001@163.com" cardNumber="510212198105057410" mobile="15902307117" realName="ÖÓ¼ÒÓî"/>
+        <anteCode>3,2,7</anteCode>
       </ticket>
     </lotteryRequest>
   </body>
-  <header>
-    <messengerID>200021</messengerID>
-    <timestamp>20100607021906</timestamp>
-    <transactionType>103</transactionType>
-    <digest>27147454a70f28c2f86488cfffa11a82</digest>
-  </header>
 </message>
-

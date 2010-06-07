@@ -20,6 +20,7 @@
     <input id="tbPlayTypeID" name="tbPlayTypeID" type="hidden" />
     <asp:HiddenField ID="HidIsuseEndTime" runat="server" />
     <asp:HiddenField ID="HidIsuseID" runat="server" />
+    <asp:HiddenField ID="HidIsuseNumber" runat="server" />
     <div class="center">
         <div style="margin: 15px auto;">
             您好！&nbsp;faacai&nbsp;&nbsp;&nbsp;&nbsp;您的余额：<strong class="red">￥888.00</strong>
@@ -230,6 +231,10 @@
 
         function GetHidIsuseEndTime() {
             return "<%= HidIsuseEndTime.ClientID %>";
+        }
+
+        function GetHidIsuseNumber() {
+            return "<%= HidIsuseNumber.ClientID %>";
         }
         
     </script>

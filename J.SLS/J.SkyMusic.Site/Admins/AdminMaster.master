@@ -7,6 +7,7 @@
     <title>
         <%= SiteName %>
         - 后台管理</title>
+    <link href="content.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript">
 

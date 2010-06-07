@@ -43,3 +43,34 @@ body
     margin-left:20px;
     margin-right:20px;
 }
+.Content .Operator .Description
+{
+    color: Green;
+    line-height: 28px;
+    font-size: 100%;
+    font-weight: normal;
+}
+.Content .TipDiv
+{
+    clear:both;
+    display: block;
+    height: 40px;
+    border: 1px solid red;
+}
+.Content .TipDiv span
+{
+    line-height: 40px;
+    color: Red;
+    font-weight:bold;
+    font-size: 120%;
+    padding-left: 20px;
+}
+.Content .TipDiv span.Error
+{
+}
+.Content .TipDiv span.Warning
+{
+}
+.Content .TipDiv span.Information
+{
+}

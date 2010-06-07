@@ -51,6 +51,8 @@ namespace J.SkyMusic.Facade
 
     public class HtmlItem : PageItem
     {
+        public string ListName { get; set; }
+
         public string Title { get; set; }
 
         public string Content { get; set; }
