@@ -80,6 +80,12 @@ namespace J.SkyMusic.Facade
                     case "NAME":
                         item.Name = child.InnerText;
                         break;
+                    case "CREATETIME":
+                        item.CreateTime = DateTime.Parse(child.InnerText);
+                        break;
+                    case "LASTUPDATETIME":
+                        item.LastUpdateTime = DateTime.Parse(child.InnerText);
+                        break;
                 }
             }
             return item;
@@ -149,8 +155,9 @@ namespace J.SkyMusic.Facade
 
     public enum MenuType
     {
-        HtmlPage = 0,
-        ListPage = 1,
-        OutUrl = 2,
+        Auto = 0,
+        HtmlPage = 1,
+        ListPage = 2,
+        OutUrl = 3,
     }
 }

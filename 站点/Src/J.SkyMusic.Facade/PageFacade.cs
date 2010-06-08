@@ -123,6 +123,138 @@ namespace J.SkyMusic.Facade
             return list;
         }
 
+        public void AddList(ListItem list)
+        {
+            XmlDocument doc = GetXmlDocumentByFileName(DbListItemFile);
+            XmlNodeList nodeList = doc.GetElementsByTagName("Lists");
+            if (nodeList.Count > 0)
+            {
+                XmlNode root = nodeList[0];
+
+                XmlElement listNode = doc.CreateElement("List");
+                XmlElement nodeId = doc.CreateElement("Id");
+                nodeId.InnerText = list.Id;
+                listNode.AppendChild(nodeId);
+                XmlElement nodeName = doc.CreateElement("Name");
+                nodeName.InnerText = list.Name;
+                listNode.AppendChild(nodeName);
+                XmlElement nodeCode = doc.CreateElement("Code");
+                nodeCode.InnerText = list.Code;
+                listNode.AppendChild(nodeCode);
+                XmlElement nodeFile = doc.CreateElement("SubFile");
+                nodeFile.InnerText = list.SubDbFileName;
+                listNode.AppendChild(nodeFile);
+                XmlElement nodeCount = doc.CreateElement("ChildrenCount");
+                nodeCount.InnerText = "0";
+                listNode.AppendChild(nodeCount);
+
+                root.AppendChild(listNode);
+                SaveXmlDocument(doc, DbListItemFile);
+
+                string dirPath = GetXmlFileName(string.Format(@"Contents\{0}", list.SubDbFileName));
+                if (!Directory.Exists(dirPath))
+                {
+                    Directory.CreateDirectory(dirPath);
+                }
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("数据库结构错误 - 列表");
+            }
+        }
+
+        public void ModifyListName(string listId, string newName)
+        {
+            if (string.IsNullOrEmpty(listId))
+            {
+                return;
+            }
+            XmlDocument doc = GetXmlDocumentByFileName(DbListItemFile);
+            XmlNodeList nodeList = doc.GetElementsByTagName("Lists");
+            if (nodeList.Count > 0)
+            {
+                XmlNode root = nodeList[0];
+                foreach (XmlNode listNode in root.ChildNodes)
+                {
+                    bool isTarget = false;
+                    foreach (XmlNode sub in listNode.ChildNodes)
+                    {
+                        if (sub.Name.Equals("Id", StringComparison.OrdinalIgnoreCase))
+                        {
+                            if (sub.InnerText.Equals(listId, StringComparison.OrdinalIgnoreCase))
+                            {
+                                isTarget = true;
+                            }
+                            break;
+                        }
+                    }
+                    if (isTarget)
+                    {
+                        foreach (XmlNode sub in listNode.ChildNodes)
+                        {
+                            if (sub.Name.Equals("Name", StringComparison.OrdinalIgnoreCase))
+                            {
+                                int currentCount = int.Parse(sub.InnerText);
+                                sub.InnerText = newName;
+                                break;
+                            }
+                        }
+                    }
+                }
+                SaveXmlDocument(doc, DbListItemFile);
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("数据库结构错误 - 列表");
+            }
+        }
+
+        public void IncreaseListCount(string listId, int increaseNumber)
+        {
+            if (string.IsNullOrEmpty(listId))
+            {
+                return;
+            }
+            XmlDocument doc = GetXmlDocumentByFileName(DbListItemFile);
+            XmlNodeList nodeList = doc.GetElementsByTagName("Lists");
+            if (nodeList.Count > 0)
+            {
+                XmlNode root = nodeList[0];
+                foreach (XmlNode listNode in root.ChildNodes)
+                {
+                    bool isTarget = false;
+                    foreach (XmlNode sub in listNode.ChildNodes)
+                    {
+                        if (sub.Name.Equals("Id", StringComparison.OrdinalIgnoreCase))
+                        {
+                            if (sub.InnerText.Equals(listId, StringComparison.OrdinalIgnoreCase))
+                            {
+                                isTarget = true;
+                            }
+                            break;
+                        }
+                    }
+                    if (isTarget)
+                    {
+                        foreach (XmlNode sub in listNode.ChildNodes)
+                        {
+                            if (sub.Name.Equals("ChildrenCount", StringComparison.OrdinalIgnoreCase))
+                            {
+                                int currentCount = int.Parse(sub.InnerText);
+                                sub.InnerText = (currentCount + increaseNumber).ToString();
+                                break;
+                            }
+                        }
+                    }
+                }
+                SaveXmlDocument(doc, DbListItemFile);
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("数据库结构错误 - 列表");
+            }
+        }
+
         public void AddContent(HtmlItem item)
         {
             string fileName = "DB_HtmlItem.xml";
@@ -192,10 +324,103 @@ namespace J.SkyMusic.Facade
                 File.WriteAllText(nameFileName, item.ListName);
                 File.WriteAllText(titleFileName, item.Title);
                 File.WriteAllText(contentFileName, item.Content);
+
+                IncreaseListCount(item.ItsListId, 1);
             }
             else
             {
                 throw new ArgumentOutOfRangeException("数据库结构错误 - " + fileName);
+            }
+        }
+
+        public void AddMenu(MenuItem menu)
+        {
+            XmlDocument doc = GetXmlDocumentByFileName(DbMenuItemFile);
+            XmlNodeList nodeList = doc.GetElementsByTagName("Menus");
+            if (nodeList.Count > 0)
+            {
+                XmlNode root = nodeList[0];
+                if (!string.IsNullOrEmpty(menu.ParentId))
+                {
+                    foreach (XmlNode menuItem in root.ChildNodes)
+                    {
+                        bool isTarget = false;
+                        foreach (XmlNode item in menuItem.ChildNodes)
+                        {
+                            if (item.Name.Equals("Id", StringComparison.OrdinalIgnoreCase))
+                            {
+                                if (item.InnerText.Equals(menu.ParentId, StringComparison.OrdinalIgnoreCase))
+                                {
+                                    isTarget = true;
+                                }
+                                break;
+                            }
+                        }
+                        if (isTarget)
+                        {
+                            bool hasChildrenNode = false;
+                            foreach (XmlNode item in menuItem.ChildNodes)
+                            {
+                                if (item.Name.Equals("Children", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    root = item;
+                                    hasChildrenNode = true;
+                                    break;
+                                }
+                            }
+                            if (!hasChildrenNode)
+                            {
+                                XmlElement chilrenNode = doc.CreateElement("Children");
+                                menuItem.AppendChild(chilrenNode);
+                                root = chilrenNode;
+                            }
+                        }
+                    }
+                }
+
+                XmlElement listNode = doc.CreateElement("Menu");
+                XmlElement nodeId = doc.CreateElement("Id");
+                nodeId.InnerText = menu.Id;
+                listNode.AppendChild(nodeId);
+
+                XmlElement nodeName = doc.CreateElement("Name");
+                nodeName.InnerText = menu.Name;
+                listNode.AppendChild(nodeName);
+
+                XmlElement nodeIndex = doc.CreateElement("Index");
+                nodeIndex.InnerText = menu.Index.ToString();
+                listNode.AppendChild(nodeIndex);
+
+                XmlElement nodeType = doc.CreateElement("Type");
+                nodeType.InnerText = ((int)menu.Type).ToString();
+                listNode.AppendChild(nodeType);
+
+                XmlElement nodeOpenNew = doc.CreateElement("IsOpenNewWindow");
+                nodeOpenNew.InnerText = menu.IsOpenNewWindow.ToString();
+                listNode.AppendChild(nodeOpenNew);
+
+                XmlElement nodeInnerCode = doc.CreateElement("InnerCode");
+                nodeInnerCode.InnerText = menu.InnerCode;
+                listNode.AppendChild(nodeInnerCode);
+
+                XmlElement nodeInnerId = doc.CreateElement("InnerId");
+                nodeInnerId.InnerText = menu.InnerId;
+                listNode.AppendChild(nodeInnerId);
+
+                XmlElement nodeOutUrl = doc.CreateElement("OutUrl");
+                nodeOutUrl.InnerText = menu.OutUrl;
+                listNode.AppendChild(nodeOutUrl);
+
+                XmlElement nodeLevel = doc.CreateElement("Level");
+                nodeLevel.InnerText = menu.Level.ToString();
+                listNode.AppendChild(nodeLevel);
+
+                root.AppendChild(listNode);
+                SaveXmlDocument(doc, DbListItemFile);
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("数据库结构错误 - 列表");
             }
         }
 

@@ -3,6 +3,10 @@
 
 //当前彩种编号
 var currentLotteryID = null;
+//当前游戏编码 ssq
+var currentGameName = null;
+//彩种名称
+var lotteryName = null;
 
 var o_tb_LotteryNumber;
 var o_list_LotteryNumber;
@@ -11,10 +15,6 @@ var o_tb_Share;
 var o_tb_AssureShare;
 var o_tb_BuyShare;
 var o_tb_Title;
-//合买佣金比率
-var o_tb_SchemeBonusScale;
-//追号佣金比例
-var o_tb_SchemeBonusScalec;
 var o_lab_Num;
 var o_lab_SumMoney;
 var o_lab_ShareMoney;
@@ -22,18 +22,6 @@ var o_lab_AssureMoney;
 var o_lab_BuyMoney;
 var o_lb_LbSumMoney;
 var o_tb_Price;
-
-var bonusNumbers_lcal = null;               //本地中奖列表值
-
-
-//发起方案条件
-var Opt_InitiateSchemeLimitLowerScaleMoney = 100;         
-var Opt_InitiateSchemeLimitLowerScale = 0.2; 
-var Opt_InitiateSchemeLimitUpperScaleMoney = 10000; 
-var Opt_InitiateSchemeLimitUpperScale = 0.05; 
-
-//彩种名称
-var LotteryName;
 
 
 //************************************************************方法函数定义区***************************************
@@ -43,37 +31,22 @@ var LotteryName;
 
 //初始化全局变量数据
 function init() {
-    
     o_tb_LotteryNumber = $Id("tb_LotteryNumber");
     o_list_LotteryNumber = $Id("list_LotteryNumber");
     o_tb_Multiple = $Id("tb_Multiple");
-    o_tb_Share = $Id("tb_Share");
-    o_tb_AssureShare = $Id("tb_AssureShare");
-    o_tb_BuyShare = $Id("tb_BuyShare");
     o_tb_Title = $Id("tb_Title");
-    o_tb_SchemeBonusScale = $Id("tb_SchemeBonusScale");
-    o_tb_SchemeBonusScalec = $Id("tb_SchemeBonusScalec");
     o_lab_Num = $Id("lab_Num");
     o_lab_SumMoney = $Id("lab_SumMoney");
-    o_lab_ShareMoney = $Id("lab_ShareMoney");
-    o_lab_AssureMoney = $Id("lab_AssureMoney");
     o_lab_BuyMoney = $Id("lab_BuyMoney");
 
     o_tb_LotteryNumber.value = "";
     o_tb_Multiple.value = "1";
-    o_tb_Share.value = "1";
 
 
     GetSchemeBonusScalec();
 
-    o_tb_AssureShare.value = "0";
-    o_tb_BuyShare.value = "1";
-    o_tb_Title.value = "";
     o_lab_Num.innerText = "0";
     o_lab_SumMoney.innerText = "0.00";
-    o_lab_ShareMoney.innerText = "0.00";
-    o_lab_AssureMoney.innerText = "0.00";
-    o_lab_BuyMoney.innerText = "0.00";
     o_tb_Price = 2;
     o_lb_LbSumMoney = $Id("LbSumMoney");
 
@@ -94,11 +67,11 @@ function GetSchemeBonusScalec() {
     if (!isGetSchemeBonusScalec) {
         try {
 
-            Lottery_Buy_SSL.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);
+            Lottery_SHSSL_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);
 
         }
         catch (e) {
-            time_GetSchemeBonusScalec = setTimeout("Lottery_Buy_SSL.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
+            time_GetSchemeBonusScalec = setTimeout("Lottery_SHSSL_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
         }
     }
 }
@@ -107,7 +80,7 @@ function GetSchemeBonusScalec_callback(response) {
 
     if (response == null || response.value == null) {
 
-        time_GetSchemeBonusScalec = setTimeout("Lottery_Buy_SSL.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
+        time_GetSchemeBonusScalec = setTimeout("Lottery_SHSSL_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
 
         return;
     }
@@ -143,7 +116,7 @@ function GetServerTime(lotteryID) {
 
     try {
 
-        Lottery_Buy_SSL.GetSysTime(GetServerTime_callback);
+        Lottery_SHSSL_Buy.GetSysTime(GetServerTime_callback);
 
     }
     catch (e) {
@@ -247,7 +220,7 @@ function GetLastIsuseInfo(lotteryID) {
     currentLotteryID = lotteryID;
     try {
 
-        Lottery_Buy_SSL.GetLastIsuseInfo(lotteryID, GetLastIsuseInfo_callback);
+        Lottery_SHSSL_Buy.GetLastIsuseInfo(lotteryID, GetLastIsuseInfo_callback);
 
     }
     catch (e) {
@@ -295,7 +268,7 @@ function GetIsuseInfo(lotteryID) {
 
     try {
 
-        Lottery_Buy_SSL.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
+        Lottery_SHSSL_Buy.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
 
     }
     catch (e) {
@@ -385,7 +358,7 @@ function GetNewsInfo(lotteryID) {
 
     try {
 
-        Lottery_Buy_SSL.GetNewsInfo(lotteryID, GetNewsInfo_callback);
+        Lottery_SHSSL_Buy.GetNewsInfo(lotteryID, GetNewsInfo_callback);
 
     }
     catch (e) {
@@ -426,7 +399,7 @@ function DataBindIsuseCount(lotteryID) {
 
     try {
 
-        Lottery_Buy_SSL.DataBindIsuseCount(lotteryID, DataBindIsuseCount_callback);
+        Lottery_SHSSL_Buy.DataBindIsuseCount(lotteryID, DataBindIsuseCount_callback);
 
     }
     catch (e) {
@@ -468,7 +441,7 @@ function GetBindWinNumber(lotteryID) {
 
     try {
 
-        Lottery_Buy_SSL.GetWinNumber(lotteryID, GetBindWinNumber_callback);
+        Lottery_SHSSL_Buy.GetWinNumber(lotteryID, GetBindWinNumber_callback);
 
     }
     catch (e) {
@@ -1044,11 +1017,6 @@ function onTextChange(obj) {
 
 //重置页面
 function resetPage() {
-    $Id("Chase").checked = false;
-    $Id("CoBuy").checked = false;
-    $Id("trShowJion").style.display = "none";
-    $Id("trGoon").style.display = "none";
-
     btn_ClearClick();
     init();
 }
@@ -1067,37 +1035,9 @@ function Cb_CheckAll() {
     }
 }
 
-//刘志方修改
-function ChangeBackImage(index) {
-    var table = document.getElementById("TabMenu");
-    var arr = new Array(1, 3, 5, 7, 9);
-
-    for (var i = 0; i < arr.length; i++) {
-        if (index == arr[i]) {
-
-            table.childNodes[arr[i]].className = "redMenu";
-
-
-        }
-        else {
-            if (arr[i] == 9) {
-                table.childNodes[arr[i]].className = "whiteMenu1";
-            }
-            else {
-                table.childNodes[arr[i]].className = "whiteMenu";
-            }
-
-        }
-    }
-}
-
 function newBuy(lotteryID) {
     $Id("divNewBuy").style.display = "";
-    $Id("divCoBuy").style.display = "none";
-    $Id("divFollowScheme").style.display = "none";
-    $Id("divSchemeAll").style.display = "none";
     $Id("divPlayTypeIntroduce").style.display = "none";
-    ChangeBackImage(1);
 
     var menu = document.getElementById("tbPlayTypeMenu" + String(lotteryID));
 
@@ -1107,47 +1047,6 @@ function newBuy(lotteryID) {
     } else {
         menu.rows[0].cells[1].click();
     }
-}
-
-function newCoBuy(lotteryID) {
-    $Id("divNewBuy").style.display = "none";
-    $Id("divCoBuy").style.display = "";
-    $Id("divFollowScheme").style.display = "none";
-    $Id("divSchemeAll").style.display = "none";
-    $Id("divPlayTypeIntroduce").style.display = "none";
-
-    $Id("iframeCoBuy").src = "../Home/Room/CoBuy.aspx?Radom=" + Math.random() + "&LotteryID=" + lotteryID + "&IsuseID=" + $Id("HidIsuseID").value;
-
-    ChangeBackImage(3);
-}
-
-function followScheme(lotteryID) {
-    $Id("divNewBuy").style.display = "none";
-    $Id("divCoBuy").style.display = "none";
-    $Id("divFollowScheme").style.display = "";
-    $Id("divSchemeAll").style.display = "none";
-    $Id("divPlayTypeIntroduce").style.display = "none";
-
-    if ($Id("iframeFollowScheme").src == "") {
-        $Id("iframeFollowScheme").src = "../Home/Room/FollowScheme.aspx?LotteryID=" + lotteryID;
-    }
-
-    ChangeBackImage(5);
-}
-
-function schemeAll(lotteryID) {
-    $Id("divNewBuy").style.display = "none";
-    $Id("divCoBuy").style.display = "none";
-    $Id("divFollowScheme").style.display = "none";
-    $Id("divPlayTypeIntroduce").style.display = "none";
-    $Id("divSchemeAll").style.display = "";
-
-    $Id("divLoding").style.display = "";
-    $Id("iframeSchemeAll").style.display = "none";
-
-    $Id("iframeSchemeAll").src = "../Home/Room/SchemeAll.aspx?Radom=" + Math.random() + "&LotteryID=" + lotteryID + "&IsuseID=" + $Id("HidIsuseID").value;
-
-    ChangeBackImage(7);
 }
 
 function playTypeIntroduce(lotteryID) {
@@ -1160,8 +1059,6 @@ function playTypeIntroduce(lotteryID) {
     if ($Id("iframePlayTypeIntroduce").src == "") {
         $Id("iframePlayTypeIntroduce").src = "../Home/Room/Help/help_" + lotteryID.toString() + ".htm";
     }
-
-    ChangeBackImage(9);
 }
 
 function clickPlayType(t) {
@@ -1172,92 +1069,78 @@ function clickPlayType(t) {
         case '2902':
             playTypeName = '直选复式';
             $Id("labShowWinMoney").innerHTML = '(所选号码与开奖号码数字及顺序一致 即为中奖，奖金<span id="spanPlayTypeMoney">980</span>元)';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_ZhiF.htm';
+            iframe_playtypes.location.href = 'SHSSL_ZhiF.htm';
             break;
-
         case '2903':
             playTypeName = '组选单式';
             $Id("labShowWinMoney").innerHTML = '组选单式：分为组三单式和组六单式，单注奖金分别为320和<span id="spanPlayTypeMoney">160</span>元';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_ZuD.htm';
+            iframe_playtypes.location.href = 'SHSSL_ZuD.htm';
             break;
-
         case '2904':
             playTypeName = '组选6复式';
             $Id("labShowWinMoney").innerHTML = '组选6：所选号码与开奖号码数字一致 即为中奖，单注奖金<span id="spanPlayTypeMoney">160</span>元';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_Zu6F.htm';
+            iframe_playtypes.location.href = 'SHSSL_Zu6F.htm';
             break;
-
         case '2905':
             playTypeName = '组选3复式';
             $Id("labShowWinMoney").innerHTML = '组选3：所选号码与开奖号码数字一致 即为中奖，单注奖金<span id="spanPlayTypeMoney">320</span>元';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_Zu3F.htm';
+            iframe_playtypes.location.href = 'SHSSL_Zu3F.htm';
             break;
-
         case '2906':
             playTypeName = '直选和值';
             $Id("labShowWinMoney").innerHTML = '      (和值直选：百、十、个位三个号码之和，单注奖金<span id="spanPlayTypeMoney">980</span>)';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_ZhiH.htm';
+            iframe_playtypes.location.href = 'SHSSL_ZhiH.htm';
             break;
-
         case '2907':
             playTypeName = '组选和值';
             $Id("labShowWinMoney").innerHTML = '      (和值组选：百、十、个位三个号码之和，组六和值<span id="spanPlayTypeMoney">160</span>，组三和值320)';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_ZuH.htm';
+            iframe_playtypes.location.href = 'SHSSL_ZuH.htm';
             break;
-
         case '2908':
             playTypeName = '前2单式';
             $Id("labShowWinMoney").innerHTML = '\n\n 前二单式：所选号码与开奖号码前两位相同即中奖，单注奖金<span id="spanPlayTypeMoney">98</span>元';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_Q2D.htm';
+            iframe_playtypes.location.href = 'SHSSL_Q2D.htm';
             break;
-
         case '2909':
             playTypeName = '前2复式';
             $Id("labShowWinMoney").innerHTML = '\n\n 前二复式：所选号码组合中包括开奖号码前两位即中奖，单注奖金<span id="spanPlayTypeMoney">98</span>元'
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_Q2F.htm';
+            iframe_playtypes.location.href = 'SHSSL_Q2F.htm';
             break;
-
         case '2910':
             playTypeName = '后2单式';
             $Id("labShowWinMoney").innerHTML = '\n\n 后二单式：所选号码与开奖号码前两位相同即中奖，单注奖金<span id="spanPlayTypeMoney">98</span>元'
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_H2D.htm';
+            iframe_playtypes.location.href = 'SHSSL_H2D.htm';
             break;
-
         case '2911':
             playTypeName = '后2复式';
             $Id("labShowWinMoney").innerHTML = '\n \n 后二复式：所选号码组合中包括开奖号码后两位即中奖，单注奖金<span id="spanPlayTypeMoney">98</span>元'
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_H2F.htm';
+            iframe_playtypes.location.href = 'SHSSL_H2F.htm';
             break;
-
         case '2912':
             playTypeName = '前1单式';
             $Id("labShowWinMoney").innerHTML = '\n\n 前一单式：所选号码与开奖号码百位相同即中奖，单注奖金<span id="spanPlayTypeMoney">10</span>元'
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_Q1D.htm';
+            iframe_playtypes.location.href = 'SHSSL_Q1D.htm';
             break;
-
         case '2913':
             playTypeName = '前1复式';
             $Id("labShowWinMoney").innerHTML = '\n\n 前一复式：所选号码中包括开奖号码百位数即中奖，单注奖金<span id="spanPlayTypeMoney">10</span>元'
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_Q1F.htm';
+            iframe_playtypes.location.href = 'SHSSL_Q1F.htm';
             break;
-
         case '2914':
             playTypeName = '后1单式';
             $Id("labShowWinMoney").innerHTML = '\n\n 后一单式：所选号码与开奖号码个位相同即中奖，单注奖金<span id="spanPlayTypeMoney">10</span>元'
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_H1D.htm';
+            iframe_playtypes.location.href = 'SHSSL_H1D.htm';
             break;
-
         case '2915':
             playTypeName = '后1复式';
             $Id("labShowWinMoney").innerHTML = '\n\n 后一复式：所选号码中包括开奖号码个位数即中奖，单注奖金<span id="spanPlayTypeMoney">10</span>元'
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_H1F.htm';
+            iframe_playtypes.location.href = 'SHSSL_H1F.htm';
             break;
-
         default:
             t = '2901';
             playTypeName = '直选单式';
             $Id("labShowWinMoney").innerHTML = '(所选号码与开奖号码数字及顺序一致 即为中奖，奖金<span id="spanPlayTypeMoney">980</span>元)';
-            iframe_playtypes.location.href = '../Home/Room/playtypes/shssl/SHSSL_ZhiD.htm';
+            iframe_playtypes.location.href = 'SHSSL_ZhiD.htm';
             break;
     }
     document.getElementById('tbPlayTypeID').value = t;
@@ -1443,26 +1326,11 @@ function btn_Close() {
     document.getElementById("list_LotteryNumber").style.display = "";
 }
 
-function showSameHeight() {
-    if (document.getElementById("menu_left").clientHeight < document.getElementById("menu_right").clientHeight) {
-        document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
-    }
-    else {
-        if (document.getElementById("menu_right").offsetHeight >= 860) {
-            document.getElementById("menu_left").style.height = document.getElementById("menu_right").offsetHeight + "px";
-        }
-        else {
-            document.getElementById("menu_left").style.height = "860px";
-        }
-    }
-}
-
-
 function btn_OK() {
     document.getElementById("list_LotteryNumber").style.display = "";
 
     try {
-        var LotteryNumber = Lottery_Buy_SSL.AnalyseScheme(document.getElementById("tbLotteryNumbers").value, document.getElementById('HidLotteryID').value, document.getElementById('tbPlayTypeID').value);
+        var LotteryNumber = Lottery_SHSSL_Buy.AnalyseScheme(document.getElementById("tbLotteryNumbers").value, document.getElementById('HidLotteryID').value, document.getElementById('tbPlayTypeID').value);
 
         if (LotteryNumber == null || LotteryNumber.value == null) {
             document.body.removeChild(bgDiv2);
@@ -1683,12 +1551,10 @@ function Cancel() {
 function showAgreement(t) {
     if (t.checked) {
         document.getElementById('btnOK').disabled = "";
-
     }
     else {
         document.getElementById('btnOK').disabled = "disabled";
     }
-
 }
 
 function mOver(obj, type) {
@@ -1699,136 +1565,7 @@ function mOver(obj, type) {
     else {
         obj.style.textDecoration = "none";
         obj.style.color = "#226699";
-
-
     }
-}
-function CheckShare2(type, obj) {
-    if (obj == undefined) {
-        return;
-    }
-
-    var v;
-    switch (type) {
-        case 1:
-            v = "share";
-            break;
-        case 2:
-            v = "buyedShare";
-            break;
-        case 3:
-            v = "assureShare";
-            break;
-    }
-
-    var obj_TxtMoney = $Id(obj.id.replace(v, "money"));
-    var obj_TxtShare = $Id(obj.id.replace(v, "share"));
-    var obj_TxtBuyedShare = $Id(obj.id.replace(v, "buyedShare"));
-    var obj_TxtAssureShare = $Id(obj.id.replace(v, "assureShare"));
-
-    var money = StrToInt(obj_TxtMoney.value);
-    var share = StrToInt(obj_TxtShare.value);
-    var buyedShare = StrToInt(obj_TxtBuyedShare.value);
-    var assureShare = StrToInt(obj_TxtAssureShare.value);
-
-    var OK = false;
-
-    if (share < 1 || buyedShare < 1 || assureShare < 0) {
-        alert("输入的份数非法。");
-        obj_TxtShare.value = "1";
-        obj_TxtBuyedShare.value = "1";
-        obj_TxtAssureShare.value = "0";
-        OK = false;
-        return;
-    }
-    else if (share == 1) {
-        OK = true;
-    }
-    else {
-        if (share > 1) {
-
-            var ShareMoney = money / share;
-            var ShareMoney2 = Math.round(ShareMoney * 100) / 100;
-
-            if (ShareMoney == ShareMoney2)
-                OK = true;
-
-            if (ShareMoney < 1) {
-                OK = false;
-            }
-        }
-    }
-
-    if (!OK) {
-        if (confirm("份数为 0 或者不能除尽，将产生误差，并且金额不能小于 1 元。按“确定”重新输入，按“取消”自动更正为 1 份，请选择。")) {
-            obj_TxtShare.focus();
-            return;
-        }
-        else {
-            obj_TxtShare.value = "1";
-            obj_TxtBuyedShare.value = "1";
-            obj_TxtAssureShare.value = "0";
-        }
-    } else {
-        if (share < buyedShare) {
-            alert("认购份数不能大于总份数！");
-            obj_TxtBuyedShare.value = share;
-            obj_TxtAssureShare.value = "0";
-            return;
-        }
-
-        if (share < assureShare) {
-            alert("保底份数不能大于总份数！");
-            obj_TxtAssureShare.value = share - buyedShare;
-            return;
-        }
-
-        if (share < buyedShare + assureShare) {
-            alert("认购份数和保底份数的和不能大于总份数！");
-            obj_TxtAssureShare.value = share - buyedShare;
-            return;
-        }
-
-        var Opt_InitiateSchemeLimitScale = 0;
-
-        if ((Opt_InitiateSchemeLimitLowerScaleMoney > 0) && (Opt_InitiateSchemeLimitUpperScaleMoney > Opt_InitiateSchemeLimitLowerScaleMoney) && (Opt_InitiateSchemeLimitUpperScale > 0) && (Opt_InitiateSchemeLimitLowerScale > Opt_InitiateSchemeLimitUpperScale)) {
-            if (money <= Opt_InitiateSchemeLimitLowerScaleMoney) {
-                Opt_InitiateSchemeLimitScale = Opt_InitiateSchemeLimitLowerScale;
-            }
-            else if (money >= Opt_InitiateSchemeLimitUpperScaleMoney) {
-                Opt_InitiateSchemeLimitScale = Opt_InitiateSchemeLimitUpperScale;
-            }
-            else {
-                Opt_InitiateSchemeLimitScale = Opt_InitiateSchemeLimitLowerScale - ((money - Opt_InitiateSchemeLimitLowerScaleMoney) * ((Opt_InitiateSchemeLimitLowerScale - Opt_InitiateSchemeLimitUpperScale) / (Opt_InitiateSchemeLimitUpperScaleMoney - Opt_InitiateSchemeLimitLowerScaleMoney)));
-            }
-        }
-        else if (Opt_InitiateSchemeLimitLowerScale == Opt_InitiateSchemeLimitUpperScale) {
-            Opt_InitiateSchemeLimitScale = Opt_InitiateSchemeLimitLowerScale;
-        }
-
-        if (Opt_InitiateSchemeLimitScale <= 0) {
-            Opt_InitiateSchemeLimitScale = 0.1;
-        }
-
-        if ((buyedShare) < Math.round(share * Opt_InitiateSchemeLimitScale)) {
-            if (Opt_InitiateSchemeLimitLowerScale == Opt_InitiateSchemeLimitUpperScale) {
-                alert("发起人最少必须认购 " + (Opt_InitiateSchemeLimitLowerScale * 100) + "%。(" + Math.round(share * Opt_InitiateSchemeLimitLowerScale) + ' 份， ' + (Math.round(share * Opt_InitiateSchemeLimitLowerScale) * money / share) + ' 元)');
-            }
-            else {
-                alert("此方案发起人认购(不含保底)最少必须达到 " + Math.round(share * Opt_InitiateSchemeLimitScale) + " 份。\r\n\r\n" +
-                    "发起方案最少认购比例说明：\r\n" +
-                    "方案金额小于或等于 " + Opt_InitiateSchemeLimitLowerScaleMoney + " 元，最少认购 " + Opt_InitiateSchemeLimitLowerScale * 100 + "%，\r\n" +
-                    "方案金额大于或等于 " + Opt_InitiateSchemeLimitUpperScaleMoney + " 元，最少认购 " + Opt_InitiateSchemeLimitUpperScale * 100 + "%，\r\n" +
-                    "方案金额在 " + Opt_InitiateSchemeLimitLowerScaleMoney + " 元至 " + Opt_InitiateSchemeLimitUpperScaleMoney + " 元之间的最少认购比例平滑递减。\r\n\r\n" +
-                    "此方案金额的最少认购比例是 " + Round(Opt_InitiateSchemeLimitScale, 2) * 100 + "% 。");
-            }
-
-            obj_TxtBuyedShare.focus();
-            obj_TxtBuyedShare.value = share;
-            obj_TxtAssureShare.value = "0";
-        }
-    }
-    accountAllMoney();
 }
 
 //当页面加载完后，要执行的系列事件
@@ -1851,9 +1588,10 @@ function PageEvent() {
 //************************************************************事件执行区***************************************
 
 //页面加载的时候，加载相应的数据
-function Page_load() {
-
+function Page_load(lotteryId, gameName) {
+    //初始化彩种信息
+    currentLotteryID = lotteryId;
+    currentGameName = gameName;
     //第一步（加载彩种）
-    loadLottery(29);
-
+    loadLottery(currentLotteryID);
 }

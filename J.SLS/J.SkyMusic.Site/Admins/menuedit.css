@@ -1,0 +1,35 @@
+﻿.ContentLayout
+{
+}
+.ContentLayout .LayoutRow
+{
+    height: 40px;
+    line-height: 38px;
+    clear: both;
+}
+.ContentLayout .LayoutRow input,select
+{
+    margin-top: 6px;
+}
+.ContentLayout .LayoutRow:hover
+{
+    background-color: lightgray;
+}
+.ContentLayout .LayoutRow span.Title
+{
+    width: 110px;
+    display: inline-block;
+    float: left;
+}
+.ContentLayout .LayoutContainer
+{
+    line-height: 38px;
+}
+.ContentLayout .LayoutContainer:hover
+{
+    background-color: lightgray;
+}
+.ContentLayout .LayoutContainer div
+{
+    margin-left: 110px;
+}

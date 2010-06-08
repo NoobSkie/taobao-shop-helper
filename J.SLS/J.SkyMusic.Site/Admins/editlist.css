@@ -1,0 +1,62 @@
+﻿.ListDiv
+{
+    clear: both;
+}
+.ListDiv div
+{
+    clear:both;
+    height: 30px;
+    line-height: 30px;
+}
+.ListDiv div span
+{
+    float: left;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ListDiv div.THeader
+{
+    border-bottom: solid 2px #3366FF;
+}
+.ListDiv div.THeader span
+{
+    text-align: center;
+    font-weight: bold;
+}
+.ListDiv div.TRow
+{
+}
+.ListDiv div.TRow:hover
+{
+    background-color: #EEEEEE;
+}
+.ListDiv div.Alternating
+{
+}
+.ListDiv div.TRow span
+{
+}
+.ListDiv div .Name
+{
+    width: 450px;
+}
+.ListDiv div .CreateTime
+{
+    width: 140px;
+    text-align:right;
+}
+.ListDiv div .LastUpdateTime
+{
+    width: 140px;
+    text-align:right;
+}
+.ListDiv div .Link
+{
+    width: 160px;
+    text-align:center;
+}
+.ListDiv div .Link a
+{
+}

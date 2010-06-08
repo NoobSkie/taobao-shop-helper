@@ -16,7 +16,7 @@ public partial class Admins_EditContent : System.Web.UI.Page
     protected void lbtnSave_Click(object sender, EventArgs e)
     {
         string name1 = txtName.Text.Trim();
-        string name2 = txtListName.Text.Trim();
+        string name2 = ftxtListName.Text.Trim();
         if (string.IsNullOrEmpty(name2))
         {
             name2 = name1;

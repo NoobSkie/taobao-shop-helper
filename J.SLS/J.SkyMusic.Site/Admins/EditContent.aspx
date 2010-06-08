@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admins/AdminMaster.master" AutoEventWireup="true"
     CodeFile="EditContent.aspx.cs" Inherits="Admins_EditContent" %>
 
+<%@ Register Assembly="FreeTextBox" Namespace="FreeTextBoxControls" TagPrefix="FTB" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ph_head" runat="Server">
     <link href="editcontent.css" rel="stylesheet" type="text/css" />
 </asp:Content>
@@ -22,7 +23,9 @@
                 <span>* 必填！如果此文章被添加到菜单中，菜单的名称将显示此名称。</span>
             </div>
             <div>
-                <span>列表名称（HTML）</span><asp:TextBox ID="txtListName" runat="server"></asp:TextBox>
+                <span>列表名称（HTML）</span>
+                <FTB:FreeTextBox ID="ftxtListName" runat="server">
+                </FTB:FreeTextBox>
                 <span>在列表中显示的文章标题，会显示此名称。如不填写此项，则会用名称代替。</span>
             </div>
             <div>
