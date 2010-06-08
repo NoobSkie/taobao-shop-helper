@@ -13,6 +13,7 @@ public partial class Admins_MenuEdit : BaseAdminPage
         if (!IsPostBack)
         {
             BindParentMenuList();
+            BindInnerLinkList();
         }
     }
 
@@ -29,5 +30,18 @@ public partial class Admins_MenuEdit : BaseAdminPage
         ddlTopMenu.DataBind();
 
         ddlTopMenu.Items.Insert(0, new System.Web.UI.WebControls.ListItem("< 无 >", ""));
+    }
+
+    private void BindInnerLinkList()
+    {
+        PageFacade facade = PageHelper.GetPageFacade(this.Page);
+        IList<J.SkyMusic.Facade.ListItem> lists = facade.GetListItems();
+        foreach (J.SkyMusic.Facade.ListItem list in lists)
+        {
+            System.Web.UI.WebControls.ListItem item = new System.Web.UI.WebControls.ListItem();
+            item.Text = list.Name;
+            item.Value = "0#" + list.Id;
+            facade.GetHtmlItemsByParent(list.SubDbFileName, 0, 10);
+        }
     }
 }
