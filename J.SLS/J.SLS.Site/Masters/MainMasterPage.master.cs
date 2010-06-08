@@ -5,12 +5,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AjaxPro;
+using Shove.Web.UI;
+using System.Threading;
+using J.SLS.Facade;
 
 public partial class Masters_MainMasterPage : BaseMaster
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        AjaxPro.Utility.RegisterTypeForAjax(typeof(Masters_MainMasterPage));
     }
 
     public string AlipayLoginSrcUrl { get { return base.ResolveUrl("~/Images/zfb_button2.jpg"); } }
@@ -25,5 +28,34 @@ public partial class Masters_MainMasterPage : BaseMaster
     public void SetLoginedUserId(string userId)
     {
         SetCurrentUser(userId);
+    }
+
+    [AjaxMethod(HttpSessionStateRequirement.ReadWrite)]
+    public string Login(string UserName, string Password, string InputCheckCode, string CheckCode)
+    {
+        if ((UserName == "") || (Password == ""))
+        {
+            return "用户名和密码都不能为空";
+        }
+        ShoveCheckCode code = new ShoveCheckCode();
+        if (!code.Valid(InputCheckCode, CheckCode))
+        {
+            return "验证码输入错误";
+        }
+        Thread.Sleep(500);
+        try
+        {
+            UserFacade facade = new UserFacade();
+            UserInfo user = facade.Login(UserName, Password);
+            if (user == null)
+            {
+                return "登录失败 - 未知原因";
+            }
+            return "";
+        }
+        catch (Exception ex)
+        {
+            return ex.Message;
+        }
     }
 }

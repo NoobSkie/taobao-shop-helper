@@ -6,16 +6,26 @@ using J.SLS.Facade;
 using System.Configuration;
 using J.SLS.Common.Logs;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 public abstract class BaseMaster : System.Web.UI.MasterPage
 {
-    private BaseHelper helper = null;
+    private BaseHelper _h = null;
+    private BaseHelper helper
+    {
+        get
+        {
+            if (_h == null)
+            {
+                _h = new BaseHelper(this.Page);
+            }
+            return _h;
+        }
+    }
 
     protected override void OnInit(EventArgs e)
     {
         base.OnInit(e);
-
-        helper = new BaseHelper(this.Page);
     }
 
     public string SiteName
@@ -30,7 +40,14 @@ public abstract class BaseMaster : System.Web.UI.MasterPage
 
     public string UserId
     {
-        get { return helper.UserId; }
+        get
+        {
+            if (CurrentUser == null)
+            {
+                return "";
+            }
+            return CurrentUser.UserId;
+        }
     }
 
     public void SetCurrentUser(string userId)
@@ -40,7 +57,20 @@ public abstract class BaseMaster : System.Web.UI.MasterPage
 
     public UserInfo CurrentUser
     {
-        get { return helper.CurrentUser; }
+        get
+        {
+            UserInfo user = helper.CurrentUser;
+            if (user == null)
+            {
+                HiddenField hidd = this.FindControl("HidUserID") as HiddenField;
+                if (hidd.Value != "")
+                {
+                    UserFacade facade = new UserFacade();
+                    user = facade.GetUserInfo(hidd.Value);
+                }
+            }
+            return user;
+        }
         set { helper.CurrentUser = value; }
     }
 

@@ -78,11 +78,9 @@
                         <a href="UserLottery.aspx">
                             <img src="Images/startgame.jpg" /></a> </li>
                     <li>
-                        <img src="Images/game_06.jpg" />
-                        <span class="cb"><a href="DrawaLotteryInfo.aspx" class="fl">
-                            <img src="Images/jiqiao.jpg" /></a><a href="DataBehavior.aspx" class="fr"><img src="Images/zhoushi.jpg" /></a></span>
-                        <a href="UserLottery.aspx">
-                            <img src="Images/startgame.jpg" /></a> </li>
+                        <uc1:LotteryImageItem ID="LotteryImageItem1" LotteryCode="SHSSL" ImageIndex="06"
+                            runat="server" />
+                    </li>
                     <li>
                         <img src="Images/game_07.jpg" />
                         <span class="cb"><a href="DrawaLotteryInfo.aspx" class="fl">

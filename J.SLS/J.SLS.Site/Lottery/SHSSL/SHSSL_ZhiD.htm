@@ -85,7 +85,7 @@
         }
     </style>
 
-    <script type="text/javascript" src="../../javascript/Public.js" language="javascript"
+    <script type="text/javascript" src="../../Javascript/Lottery/Public.js" language="javascript"
         charset="gbk"></script>
 
     <script type="text/javascript" language="javascript">
@@ -242,7 +242,7 @@
             parent.document.all["btn_2_Rand5"].disabled = true;
             parent.document.all["btn_ClearSelect"].disabled = true;
             parent.document.all["btn_Clear"].disabled = true;
-            parent.document.all["btn_OK"].disabled = true;
+            // parent.document.all["btn_OK"].disabled = true;
 
             for (var j = 1; j <= n; j++) {
                 var str = "";
@@ -265,7 +265,7 @@
             document.all["btn_2_Add"].disabled = false;
             parent.document.all["btn_2_Rand"].disabled = false;
             parent.document.all["btn_2_Rand5"].disabled = false;
-            parent.document.all["btn_OK"].disabled = false;
+            // parent.document.all["btn_OK"].disabled = false;
             parent.document.all["btn_ClearSelect"].disabled = false;
             parent.document.all["btn_Clear"].disabled = false;
         }
@@ -275,7 +275,7 @@
         missTheard = setInterval("if(lockMiss==null){try{parent.window.BindMiss();lockMiss=1}catch(e){}}else{clearInterval(missTheard);}", 1000);
     </script>
 
-</head><link rel="shortcut icon" href="../favicon.ico"/>
+</head><link rel="shortcut icon" href="../../favicon.ico"/>
 <body style="text-align: left;">
     <table style="width: 100%; height: 95px;" cellspacing="0" cellpadding="0" border="0">
         <tbody>
@@ -320,51 +320,6 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="blue">
-                                    遗漏
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_0_0">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_0_1">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_0_2">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_0_3">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_0_4">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_0_5">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_0_6">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_0_7">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_0_8">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_0_9">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td style="width: 30px; padding-top: 3px; font-weight: bold" class="blue">
                                     十位
                                 </td>
@@ -400,51 +355,6 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="blue">
-                                    遗漏
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_1_0">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_1_1">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_1_2">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_1_3">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_1_4">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_1_5">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_1_6">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_1_7">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_1_8">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_1_9">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td style="width: 30px; padding-top: 3px; font-weight: bold" class="blue">
                                     个位
                                 </td>
@@ -477,51 +387,6 @@
                                 </td>
                                 <td id="td_2_2_9" onclick="SelectBall(this);" class="ball_num">
                                     9
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="blue">
-                                    遗漏
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_2_0">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_2_1">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_2_2">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_2_3">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_2_4">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_2_5">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_2_6">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_2_7">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_2_8">
-                                    </div>
-                                </td>
-                                <td class="hui12" align="center">
-                                    <div id="Miss_2_9">
-                                    </div>
                                 </td>
                             </tr>
                         </tbody>

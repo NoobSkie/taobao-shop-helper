@@ -11,14 +11,10 @@ var lotteryName = null;
 var o_tb_LotteryNumber;
 var o_list_LotteryNumber;
 var o_tb_Multiple;
-var o_tb_Share;
-var o_tb_AssureShare;
 var o_tb_BuyShare;
 var o_tb_Title;
 var o_lab_Num;
 var o_lab_SumMoney;
-var o_lab_ShareMoney;
-var o_lab_AssureMoney;
 var o_lab_BuyMoney;
 var o_lb_LbSumMoney;
 var o_tb_Price;
@@ -42,9 +38,6 @@ function init() {
     o_tb_LotteryNumber.value = "";
     o_tb_Multiple.value = "1";
 
-
-    GetSchemeBonusScalec();
-
     o_lab_Num.innerText = "0";
     o_lab_SumMoney.innerText = "0.00";
     o_tb_Price = 2;
@@ -59,65 +52,15 @@ function init() {
     catch (e) { }
 }
 
-//获得佣金比例、获得发方案的限制条件、彩种名称
-var isGetSchemeBonusScalec = false;
-var time_GetSchemeBonusScalec = null;
-function GetSchemeBonusScalec() {
-
-    if (!isGetSchemeBonusScalec) {
-        try {
-
-            Lottery_SHSSL_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);
-
-        }
-        catch (e) {
-            time_GetSchemeBonusScalec = setTimeout("Lottery_SHSSL_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
-        }
-    }
-}
-
-function GetSchemeBonusScalec_callback(response) {
-
-    if (response == null || response.value == null) {
-
-        time_GetSchemeBonusScalec = setTimeout("Lottery_SHSSL_Buy.GetSchemeBonusScalec(GetSchemeBonusScalec_callback);", 2000);
-
-        return;
-    }
-
-    //将time_GetSchemeBonusScalec移除
-    if (time_GetSchemeBonusScalec != null) {
-        clearTimeout(time_GetSchemeBonusScalec);
-    }
-
-    var v = response.value.split('|');
-
-    o_tb_SchemeBonusScale.value = v[0];
-    o_tb_SchemeBonusScalec.value = v[0];
-
-    Opt_InitiateSchemeLimitLowerScaleMoney = v[1];
-    Opt_InitiateSchemeLimitLowerScale = v[2];
-    Opt_InitiateSchemeLimitUpperScaleMoney = v[3];
-    Opt_InitiateSchemeLimitUpperScale = v[4];
-
-    LotteryName = v[5];
-    isGetSchemeBonusScalec = true;
-
-}
-
 
 //定时读取最近的开奖信息的定时器
 var time_GetServerTime = null;
 
 //获取服务器时间
 function GetServerTime(lotteryID) {
-
     currentLotteryID = lotteryID;
-
     try {
-
         Lottery_SHSSL_Buy.GetSysTime(GetServerTime_callback);
-
     }
     catch (e) {
         //如果失败了，就继续读取
@@ -126,11 +69,8 @@ function GetServerTime(lotteryID) {
 }
 
 function GetServerTime_callback(response) {
-
     if (response == null || response.value == null) {
-
         time_GetServerTime = setTimeout("GetServerTime(" + currentLotteryID + ");", 2000);
-
         return;
     }
 
@@ -140,7 +80,6 @@ function GetServerTime_callback(response) {
     }
 
     var serverTime = response.value;
-
     var IsuseEndTime = new Date($Id("HidIsuseEndTime").value.replace(new RegExp("-", "g"), "/"));
     var TimePoor = new Date(serverTime.replace(new RegExp("-", "g"), "/")).getTime() - new Date().getTime();
     var to = IsuseEndTime.getTime() - new Date(serverTime.replace(new RegExp("-", "g"), "/")).getTime();
@@ -172,11 +111,9 @@ function GetServerTime_callback(response) {
 //显示当前期的投注时间
 var lockIsuseTime = null;
 function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
-
     if (goTime >= 300000)//5分钟
     {
         GetServerTime(lotteryID);
-
         return;
     }
 
@@ -211,65 +148,12 @@ function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
     lockIsuseTime = setTimeout("showIsuseTime(" + eTime + "," + tPoor + "," + (goTime + 1000) + "," + lotteryID + ")", 1000);
 }
 
-//定时读取上期信息的定时器
-var time_GetLastIsuseInfo = null;
-
-//获取上期的开奖信息
-function GetLastIsuseInfo(lotteryID) {
-
-    currentLotteryID = lotteryID;
-    try {
-
-        Lottery_SHSSL_Buy.GetLastIsuseInfo(lotteryID, GetLastIsuseInfo_callback);
-
-    }
-    catch (e) {
-        //如果失败了，就继续读取
-        time_GetLastIsuseInfo = setTimeout("GetLastIsuseInfo(" + lotteryID + ");", 2000);
-    }
-}
-
-function GetLastIsuseInfo_callback(response) {
-
-    if (response == null || response.value == null|| response.value.split('|').length != 2) {
-
-        time_GetLastIsuseInfo = setTimeout("GetLastIsuseInfo(" + currentLotteryID + ");", 2000);
-
-        return;
-    }
-
-    var v = response.value;
-    var arrInfo = v.split('|');
-
-    if (arrInfo[1] == "1") {
-        time_GetLastIsuseInfo = setTimeout("GetLastIsuseInfo(" + currentLotteryID + ");", 5000);
-
-    } else {
-
-        clearTimeout(time_GetLastIsuseInfo);
-    }
-
-    lastIsuseInfo.innerHTML = arrInfo[0];
-
-    //显示中奖列表
-    GetBindWinNumber(29);
-
-    //绑定已开了未开期数
-    DataBindIsuseCount(29);
-
-}
-
-
 //获取当前投注奖期信息，及追号奖期，及时服务器时间
 var time_GetIsuseInfo = null;
 function GetIsuseInfo(lotteryID) {
-
     currentLotteryID = lotteryID;
-
     try {
-
         Lottery_SHSSL_Buy.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
-
     }
     catch (e) {
 
@@ -278,11 +162,8 @@ function GetIsuseInfo(lotteryID) {
 }
 
 function GetIsuseInfo_callback(response) {
-
     if (response == null || response.value == null||response.value.split('|').length != 3) {
-
         time_GetIsuseInfo = setTimeout("GetIsuseInfo(" + currentLotteryID + ");", 2000);
-
         return;
     }
 
@@ -291,60 +172,67 @@ function GetIsuseInfo_callback(response) {
         clearTimeout(time_GetIsuseInfo);
     }
 
+//    var v = response.value;
+//    var arrInfo = v.split('|');
 
-    var v = response.value;
-    var arrInfo = v.split('|');
+//    var currIsuse = arrInfo[0];
+//    var chaseIsuse = arrInfo[1];
+//    var miss = arrInfo[2];
 
-    var currIsuse = arrInfo[0];
-    var chaseIsuse = arrInfo[1];
-    var miss = arrInfo[2];
+//    if ($Id("tbPlayTypeName").value == "直选单式" || $Id("tbPlayTypeName").value == "直选复式") {
+//        window.BindMiss = function() {
+//            var Miss_s = miss.split(';');
 
-    if ($Id("tbPlayTypeName").value == "直选单式" || $Id("tbPlayTypeName").value == "直选复式") {
-        window.BindMiss = function() {
-            var Miss_s = miss.split(';');
+//            if (Miss_s.length == 3) {
+//                for (var i = 0; i < 3; i++) {
+//                    var Miss = Miss_s[i].split(',');
 
-            if (Miss_s.length == 3) {
-                for (var i = 0; i < 3; i++) {
-                    var Miss = Miss_s[i].split(',');
+//                    if (Miss.length != 10)
+//                        continue;
 
-                    if (Miss.length != 10)
-                        continue;
+//                    for (var j = 0; j < 10; j++) {
+//                        var o_Miss = document.iframe_playtypes.document.all["Miss_" + (i.toString()) + "_" + j.toString()];
+//                        o_Miss.innerHTML = Miss[j];
+//                    }
 
-                    for (var j = 0; j < 10; j++) {
-                        var o_Miss = document.iframe_playtypes.document.all["Miss_" + (i.toString()) + "_" + j.toString()];
-                        o_Miss.innerHTML = Miss[j];
-                    }
+//                    var T_Miss = Miss;
+//                    T_Miss.sort(function(a, b) { return a - b });
+//                    var MaxNumber = T_Miss[T_Miss.length - 1];
 
-                    var T_Miss = Miss;
-                    T_Miss.sort(function(a, b) { return a - b });
-                    var MaxNumber = T_Miss[T_Miss.length - 1];
+//                    for (var j = 0; j < 10; j++) {
+//                        var o_Miss = document.iframe_playtypes.document.all["Miss_" + (i.toString()) + "_" + j.toString()];
+//                        if (o_Miss.innerHTML == MaxNumber) {
+//                            o_Miss.className = "red12";
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
 
-                    for (var j = 0; j < 10; j++) {
-                        var o_Miss = document.iframe_playtypes.document.all["Miss_" + (i.toString()) + "_" + j.toString()];
-                        if (o_Miss.innerHTML == MaxNumber) {
-                            o_Miss.className = "red12";
-                        }
-                    }
-                }
-            }
-        }
-    }
+//    $Id("div_QH_Today").innerHTML = chaseIsuse;
 
-    $Id("div_QH_Today").innerHTML = chaseIsuse;
+//    try {
+//        var firstChase = $Id("div_QH_Today").childNodes[0].rows[0].cells[0].childNodes[0];
+//        if (firstChase != undefined) {
+//            firstChase.checked = true;
+//            check(firstChase);
+//        }
+//    } catch (e) { }
 
-    try {
-        var firstChase = $Id("div_QH_Today").childNodes[0].rows[0].cells[0].childNodes[0];
-        if (firstChase != undefined) {
-            firstChase.checked = true;
-            check(firstChase);
-        }
-    } catch (e) { }
-
+//    var arrcurrIsuse = currIsuse.split(',');
+//    $Id("HidIsuseID").value = arrcurrIsuse[0];
+//    currIsuseName.innerText = arrcurrIsuse[1];
+//    currIsuseEndTime.innerText = arrcurrIsuse[2].replace("/", "-").replace("/", "-");
+//    $Id("HidIsuseEndTime").value = arrcurrIsuse[2];
+    
+    var currIsuse = response.value;
     var arrcurrIsuse = currIsuse.split(',');
-    $Id("HidIsuseID").value = arrcurrIsuse[0];
+    $Id(GetHidIsuseID()).value = arrcurrIsuse[0];
     currIsuseName.innerText = arrcurrIsuse[1];
+    $Id(GetHidIsuseNumber()).value = arrcurrIsuse[1];
     currIsuseEndTime.innerText = arrcurrIsuse[2].replace("/", "-").replace("/", "-");
-    $Id("HidIsuseEndTime").value = arrcurrIsuse[2];
+    $Id(GetHidIsuseEndTime()).value = arrcurrIsuse[2];
 
     //获取服务器时间，以便准确计时（为了让期号和计时统一，只有成功获取了期号，计时的时间才能更新）
     GetServerTime(currentLotteryID);
@@ -518,7 +406,6 @@ function BindWinNumber(type) {
 //加载彩票信息
 var lockInit = null;
 function loadLottery(lotteryID) {
-
     if (lockInit == null) {
         init();
         lockInit = 1;
@@ -526,13 +413,6 @@ function loadLottery(lotteryID) {
 
     //获取当前投注奖期信息(获取当前期号信息及服务器的时间)
     GetIsuseInfo(lotteryID);
-
-    //获取上期的期信息
-    GetLastIsuseInfo(lotteryID);
-
-    //加载资讯信息
-    GetNewsInfo(lotteryID);
-
 }
 
 //---------------------------------------投注功能区代码-------------------------------------------------
@@ -650,200 +530,14 @@ function CheckMultiple2(sender) {
     accountAllMoney();
 }
 
-//判断合买佣金比率
-function SchemeBonusScale() {
-    if (isNaN(o_tb_SchemeBonusScale.value)) {
-        alert('请输入数字');
-        o_tb_SchemeBonusScale.focus();
-
-        return;
-    }
-    var SchemeBonusScale = StrToInt(o_tb_SchemeBonusScale.value);
-    o_tb_SchemeBonusScale.value = SchemeBonusScale;
-    if (SchemeBonusScale < 0) {
-        alert("输入的佣金比率非法。");
-        o_tb_SchemeBonusScale.focus();
-
-        return false;
-    }
-    if (SchemeBonusScale > 10) {
-        alert("输入的佣金比率不能大于10%")
-        o_tb_SchemeBonusScale.focus();
-
-        return false;
-    }
-
-    return true;
-}
-//判断追号佣金比例
-function SchemeBonusScalec() {
-    if (isNaN(o_tb_SchemeBonusScalec.value)) {
-        alert('请输入数字');
-        o_tb_SchemeBonusScalec.focus();
-
-        return;
-    }
-    var SchemeBonusScalec = StrToInt(o_tb_SchemeBonusScalec.value);
-    o_tb_SchemeBonusScalec.value = SchemeBonusScalec;
-    if (SchemeBonusScalec < 0) {
-        alert("输入的佣金比率非法。");
-        o_tb_SchemeBonusScalec.focus();
-
-        return false;
-    }
-    if (SchemeBonusScalec > 10) {
-        alert("输入的佣金比率不能大于10%")
-        o_tb_SchemeBonusScalec.focus();
-
-        return false;
-    }
-
-    return true;
-}
-
-function CheckShare() {
-    var Share = StrToInt(o_tb_Share.value);
-    var OK = false;
-
-    o_tb_Share.value = Share;
-
-    if (Share < 0) {
-        alert("输入的份数非法。");
-
-        OK = false;
-    }
-    else if (Share == 1) {
-        OK = true;
-    }
-    else {
-        if (Share > 1) {
-            var multiple = StrToInt(o_tb_Multiple.value);
-            var SumNum = StrToInt(o_lab_Num.innerText);
-            var SumMoney = multiple * o_tb_Price * SumNum;
-            var ShareMoney = SumMoney / Share;
-            var ShareMoney2 = Math.round(ShareMoney * 100) / 100;
-
-            if (ShareMoney == ShareMoney2)
-                OK = true;
-
-            if (ShareMoney < 1) {
-                OK = false;
-            }
-        }
-    }
-
-    if (!OK) {
-        if (confirm("份数为 0 或者不能除尽，将产生误差，并且金额不能小于 1 元。按“确定”重新输入，按“取消”自动更正为 1 份，请选择。")) {
-            o_tb_Share.focus();
-            return;
-        }
-        else {
-            Share = 1;
-            o_tb_Share.value = 1;
-        }
-    }
-
-    o_tb_AssureShare.value = "0";
-    o_tb_BuyShare.value = Share;
-    CalcResult();
-}
-
-function CheckAssureShare() {
-    var Share = StrToInt(o_tb_Share.value);
-    var AssureShare = StrToInt(o_tb_AssureShare.value);
-    var BuyShare = StrToInt(o_tb_BuyShare.value);
-
-    o_tb_Share.value = Share;
-    o_tb_AssureShare.value = AssureShare;
-    o_tb_BuyShare.value = BuyShare;
-
-    if (AssureShare < 0) {
-        alert("输入的保底份数非法。");
-        o_tb_AssureShare.value = "0";
-        CalcResult();
-        return;
-    }
-
-    if ((Share == 1) && (AssureShare > 0)) {
-        alert("此方案只分为 1 份，不能保底。");
-        o_tb_AssureShare.value = "0";
-        CalcResult();
-        return;
-    }
-    if (AssureShare > (Share - 1)) {
-        var AutoAssureShare = Math.round(Share / 2);
-        if ((AutoAssureShare + BuyShare) > Share)
-            AutoAssureShare = Share - BuyShare;
-        if (confirm("保底份数不能大于和等于总份数。按“确定”重新输入，按“取消”自动更正为 " + AutoAssureShare + " 份，请选择。")) {
-            o_tb_AssureShare.focus();
-            return;
-        }
-        else {
-            o_tb_AssureShare.value = AutoAssureShare;
-            AssureShare = AutoAssureShare;
-        }
-    }
-    if ((BuyShare + AssureShare) > Share) {
-        BuyShare = Share - AssureShare;
-        alert("购买份数与保底份数和大于总份数，购买份数自动调整为 " + BuyShare + " 份。");
-        o_tb_BuyShare.value = BuyShare;
-    }
-
-    CalcResult();
-    return;
-}
-
-function CheckBuyShare() {
-    var BuyShare = StrToInt(o_tb_BuyShare.value);
-    var Share = StrToInt(o_tb_Share.value);
-    var AssureShare = StrToInt(o_tb_AssureShare.value);
-
-    o_tb_BuyShare.value = BuyShare;
-    o_tb_Share.value = Share;
-    o_tb_AssureShare.value = AssureShare;
-
-    if ((BuyShare < 1) || (BuyShare > Share)) {
-        if (confirm("购买份数不能为 0 以及大于总份数同时份数必须为整数。按“确定”重新输入，按“取消”自动更正为 " + Share + " 份，请选择。")) {
-            o_tb_BuyShare.focus();
-            return;
-        }
-        else {
-            o_tb_BuyShare.value = Share;
-            BuyShare = Share;
-        }
-    }
-
-    if ((BuyShare + AssureShare) > Share) {
-        AssureShare = Share - BuyShare;
-        alert("购买和保底份数大于总份数，保底份数自动调整为 " + AssureShare + "。");
-        o_tb_AssureShare.value = AssureShare;
-    }
-
-    CalcResult();
-    return;
-}
-
 function CalcResult() {
     var multiple = StrToInt(o_tb_Multiple.value);
     multiple = multiple == 0 ? 1 : multiple;
     var SumNum = StrToInt(o_lab_Num.innerText);
-    var Share = StrToInt(o_tb_Share.value);
-    var BuyShare = StrToInt(o_tb_BuyShare.value);
-    var AssureShare = StrToInt(o_tb_AssureShare.value);
 
     var SumMoney = Round(multiple * o_tb_Price * SumNum, 2);
-    var ShareMoney = Round(SumMoney / Share, 2);
-
-    var AssureMoney = Round(AssureShare * ShareMoney, 2);
-    var BuyMoney = Round(BuyShare * ShareMoney, 2);
 
     o_lab_SumMoney.innerText = SumMoney;
-    o_lab_ShareMoney.innerText = ShareMoney;
-    o_lab_AssureMoney.innerText = AssureMoney;
-    o_lab_BuyMoney.innerText = BuyMoney;
-
-    if ($Id("Chase").checked)
-        accountAllMoney();
 }
 
 function oncbInitiateTypeClick(sender) {
@@ -895,7 +589,8 @@ function oncbInitiateTypeClick(sender) {
 }
 
 function calculateAllMoney() {
-    $Id("btn_OK").disabled = "";
+    var btnId = GetBtnOKId();
+    $Id(btnId).disabled = "";
     try { accountAllMoney(); } catch (e) { }
     return true;
 }
@@ -1403,7 +1098,7 @@ function btn_OK() {
 }
 
 function btn_OKClick() {
-    if (!$Id("chkAgrrement").checked) {
+    if (!$Id(GetCheckAgreementId()).checked) {
         alert("请先阅读用户电话短信投注协议，谢谢！");
         return false;
     }
@@ -1570,17 +1265,14 @@ function mOver(obj, type) {
 
 //当页面加载完后，要执行的系列事件
 function PageEvent() {
-
     //第二步（根据url参数显示相应的内容）
     var fromUrlParam = location.search;
     if (fromUrlParam.indexOf("CoBuy") != -1) {
         newCoBuy(29);
     }
     else {
-
         newBuy(29);
     }
-
     scrollTo(0, 147);
 }
 

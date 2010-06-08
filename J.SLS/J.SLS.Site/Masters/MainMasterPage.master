@@ -4,7 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title><%= SiteName %></title>
+    <title>
+        <%= SiteName %></title>
     <!--CSS样式定义和导入CSS样式-->
 
     <script type="text/javascript" src="~/JavaScript/jquery-1.2.3.pack.js"></script>
@@ -109,31 +110,31 @@
         };
 
         window.onload = function() {
-//            function Each(list, fun) {
-//                for (var i = 0, len = list.length; i < len; i++) { fun(list[i], i); }
-//            };
+            //            function Each(list, fun) {
+            //                for (var i = 0, len = list.length; i < len; i++) { fun(list[i], i); }
+            //            };
 
-//            var objs = $1("idNum").getElementsByTagName("li");
+            //            var objs = $1("idNum").getElementsByTagName("li");
 
-//            var tv = new TransformView("idTransformView", "idSlider", 237, 3, {
-//                onStart: function() { Each(objs, function(o, i) { o.className = tv.Index == i ? "on" : ""; }) } //按钮样式
-//            });
+            //            var tv = new TransformView("idTransformView", "idSlider", 237, 3, {
+            //                onStart: function() { Each(objs, function(o, i) { o.className = tv.Index == i ? "on" : ""; }) } //按钮样式
+            //            });
 
-//            tv.Start();
+            //            tv.Start();
 
-//            Each(objs, function(o, i) {
-//                o.onmouseover = function() {
-//                    o.className = "on";
-//                    tv.Auto = false;
-//                    tv.Index = i;
-//                    tv.Start();
-//                }
-//                o.onmouseout = function() {
-//                    o.className = "";
-//                    tv.Auto = true;
-//                    tv.Start();
-//                }
-//            })
+            //            Each(objs, function(o, i) {
+            //                o.onmouseover = function() {
+            //                    o.className = "on";
+            //                    tv.Auto = false;
+            //                    tv.Index = i;
+            //                    tv.Start();
+            //                }
+            //                o.onmouseout = function() {
+            //                    o.className = "";
+            //                    tv.Auto = true;
+            //                    tv.Start();
+            //                }
+            //            })
         }
     </script>
 
@@ -208,7 +209,7 @@
 
             var s_str = "<table style='border:White 1px solid; background-color:#659FCB;width:400px;' cellspacing=\"0\" cellpadding=\"0\"><tr><td style='padding:5px;'><div style='background-image:url(<%=LoginTopSrcUrl %>); height:55px;'></div><table style='background-image:url(<%=LoginBackSrcUrl %>)' width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" valign=\"middle\"><tr style=\"padding-top: 10px;\"><td width=\"20%\" style=\"height: 24px;\" align=\"right\">用户名：";
             s_str += "</td><td width=\"80%\" style=\"height: 24px\" align=\"left\"><input id=\"tbUserName\" class='in_text' type=\"text\" onkeypress=\"if (window.event.keyCode == 13) {tbPassword.focus();}\" class='in_text' style=\"width:204px;\"/>";
-            s_str += "</td></tr><tr><td style=\"height: 29px\"><div align=\"right\">密&nbsp; 码：</div></td><td align=\"left\" style=\"height: 29px\"><input class='in_text' id=\"tbPassWord\" type=\"password\" style=\"width:204px;\" />";
+            s_str += "</td></tr><tr><td style=\"height: 29px\"><div align=\"right\">密&nbsp; 码：</div></td><td align=\"left\" style=\"height: 29px\"><input class='in_text' id=\"tbPassword\" type=\"password\" style=\"width:204px;\" />";
             s_str += "</tr><tr><td height=\"33\" align=\"right\">验证码：</td><td align=\"left\"><table cellspacing=\"0\" cellpadding=\"0\"><tr><td>";
             s_str += "<input name=\"tbCheckCode\" class='in_text' type=\"text\" id=\"tbCheckCode\" style=\"width:64px;\"/></td><td><img id=\"imCheckCode\" name=\"imCheckCode\" style=\"height:24px;width:64px;\"></td><td style='padding-left:10px;'>";
             s_str += "<a href=\"JavaScript:ReloadImage();\" style='color:#0266C5;'>看不清</a></td></tr></table></td></tr><tr><td></td><td height=\"33\" align='left'><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\"><tr style='padding-top:8px;padding-bottom:10px'><td align=\"left\">";
@@ -258,26 +259,13 @@
 
             var inputCheckCode = document.getElementById("Login_Iframe").contentWindow.document.getElementById("ShoveCheckCode1_tbCode").value;
 
-            var Result = Home_Room_UserControls_WebHead.Login(UserName, PassWord, CheckCode, inputCheckCode, 1).value;
-
-
-            if (Result == null || isNaN(Result)) {
-                Result = Home_Room_UserControls_WebHead.Login(UserName, PassWord, CheckCode, inputCheckCode, 1).value;
-            }
-
+            var Result = Masters_MainMasterPage.Login(UserName, PassWord, CheckCode, inputCheckCode).value;
             if (Result == null) {
                 alert("登录异常，请重试一次，谢谢。可能是网络延时原因。");
-
                 return;
             }
 
-            if (isNaN(Result)) {
-                alert(Result);
-
-                return;
-            }
-
-            Masters_MainMasterPage.SetLoginedUserId(Result);
+            document.getElementById("<%=HidUserID.ClientID %>").value = Result;
 
             UserInit();
             Cancel();
@@ -398,6 +386,7 @@
             src="<%=LoginIframeUrl %>"></iframe>
     </div>
     <div class="user_box main_box">
+        <asp:HiddenField ID="HidUserID" runat="server" Value="" />
         <div class="con_box">
             <div class="center">
                 <div class="Header">
@@ -413,8 +402,8 @@
                         <span style="margin-left: 5px;"></span>
                         <asp:HyperLink ID="hlnkRegister" runat="server" NavigateUrl="~/Users/Register.aspx"
                             CssClass="red">注册</asp:HyperLink>
-                        <a href="javascript:void(0);" style="margin-left: 35px; color: #5c1b02;">设为首页</a><a href="javascript:void(0);" style="margin-left: 30px;
-                            color: #5c1b02;">加入收藏</a></div>
+                        <a href="javascript:void(0);" style="margin-left: 35px; color: #5c1b02;">设为首页</a><a
+                            href="javascript:void(0);" style="margin-left: 30px; color: #5c1b02;">加入收藏</a></div>
                     <div class="Online">
                         <p>
                             <a href="#">
