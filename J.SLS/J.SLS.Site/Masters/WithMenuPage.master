@@ -27,7 +27,7 @@
         <div class="MenuItemRight">
         </div>
         <div class="MenuItemLeft">
-            <a href="DataBehaviour.aspx">数据走势</a></div>
+            <asp:HyperLink ID="hlnkTrendCharts" NavigateUrl="~/TrendCharts/Default.aspx" runat="server">数据走势</asp:HyperLink></div>
         <div class="MenuItemRight">
         </div>
         <div class="MenuItemLeft">
