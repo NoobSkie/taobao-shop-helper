@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using J.SkyMusic.Facade;
 using J.SLS.Common;
+using J.SkyMusic.DbFacade.Services;
 
 public partial class Admins_ChangePassword : BasePage
 {

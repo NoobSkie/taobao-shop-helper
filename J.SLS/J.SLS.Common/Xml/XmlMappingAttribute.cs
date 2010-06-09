@@ -17,8 +17,9 @@ namespace J.SLS.Common.Xml
         }
         public XmlMappingAttribute(string mappingName, int index, MappingType mappingType, XmlObjectType objectType)
         {
-            MappingType = mappingType;
+            MappingName = mappingName;
             Index = index;
+            MappingType = mappingType;
             ObjectType = objectType;
         }
 

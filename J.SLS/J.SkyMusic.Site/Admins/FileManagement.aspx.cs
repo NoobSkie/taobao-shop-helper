@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using J.SkyMusic.Facade;
 using System.Configuration;
 
 public partial class Admins_FileManagement : BaseAdminPage
@@ -33,10 +32,10 @@ public partial class Admins_FileManagement : BaseAdminPage
             CanUploadScriptExtension = ConfigurationManager.AppSettings["CanUploadScriptExtension"].ToLower();
             CanUploadStyleExtension = ConfigurationManager.AppSettings["CanUploadStyleExtension"].ToLower();
 
-            ResFileFacade facade = PageHelper.GetResFileFacade(this.Page);
-            IList<ResFileInfo> list = facade.GetImageFileList(".jpg", ".gif", ".png", ".tiff");
-            rptFileList.DataSource = list;
-            rptFileList.DataBind();
+            //ResFileFacade facade = PageHelper.GetResFileFacade(this.Page);
+            //IList<ResFileInfo> list = facade.GetImageFileList(".jpg", ".gif", ".png", ".tiff");
+            //rptFileList.DataSource = list;
+            //rptFileList.DataBind();
         }
     }
 

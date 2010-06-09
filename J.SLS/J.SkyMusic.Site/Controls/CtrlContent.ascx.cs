@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using J.SkyMusic.Facade;
+using J.SkyMusic.DbFacade.Services;
 
 public partial class Controls_CtrlContent : System.Web.UI.UserControl
 {
@@ -21,30 +21,27 @@ public partial class Controls_CtrlContent : System.Web.UI.UserControl
         }
     }
 
-    public HtmlItem ContentItem { get; set; }
+    public HtmlItemFullInfo ContentItem { get; set; }
 
-    private void LoadScripts(HtmlItem htmlItem)
+    private void LoadScripts(HtmlItemFullInfo htmlItem)
     {
-        if (htmlItem.IncludeScriptFileList != null && htmlItem.IncludeScriptFileList.Count > 0)
-        {
-        }
+        //if (htmlItem.IncludeScriptFileList != null && htmlItem.IncludeScriptFileList.Count > 0)
+        //{
+        //}
     }
 
-    private void LoadStyles(HtmlItem htmlItem)
+    private void LoadStyles(HtmlItemFullInfo htmlItem)
     {
-        if (htmlItem.IncludeStyleFileList != null && htmlItem.IncludeStyleFileList.Count > 0)
-        {
-        }
+        //if (htmlItem.IncludeStyleFileList != null && htmlItem.IncludeStyleFileList.Count > 0)
+        //{
+        //}
     }
 
-    private void LoadContent(HtmlItem htmlItem)
+    private void LoadContent(HtmlItemFullInfo htmlItem)
     {
-        if (htmlItem.IncludeStyleFileList != null && htmlItem.IncludeStyleFileList.Count > 0)
-        {
-            lblTitle.Text = ContentItem.Title;
-            lblCreateTime.Text = ContentItem.CreateTime.ToString("yyyy年MM月dd日 hh:mm:ss");
-            lblUpdateTime.Text = ContentItem.LastUpdateTime.ToString("yyyy年MM月dd日 hh:mm:ss");
-            lblContent.Text = ContentItem.Content;
-        }
+        lblTitle.Text = htmlItem.Title;
+        lblCreateTime.Text = htmlItem.CreateTime.ToString("yyyy年MM月dd日 hh:mm:ss");
+        lblUpdateTime.Text = htmlItem.LastUpdateTime.ToString("yyyy年MM月dd日 hh:mm:ss");
+        lblContent.Text = htmlItem.Content;
     }
 }

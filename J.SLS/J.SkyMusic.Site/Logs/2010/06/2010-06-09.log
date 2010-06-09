@@ -1,0 +1,28 @@
+****************** 6/9/2010 4:20:02 PM ******************
+Category: Param
+Source: Param
+Type: Error
+
+Exception Type: J.SLS.Common.Exceptions.FacadeException
+Exception Source: 
+Exception TargetSite: 
+Exception Message: Get parameter by key error. - AdministratorPassword
+Exception Data: 
+null
+Stack Trace: 
+
+    Exception Type: System.NullReferenceException
+    Exception Source: J.SkyMusic.DbFacade
+    Exception TargetSite: J.SLS.Database.DBAccess.ILHDBAccess get_DbAccess()
+    Exception Message: Object reference not set to an instance of an object.
+    Exception Data: 
+    null
+    Stack Trace: 
+       at J.SkyMusic.DbFacade.Services.BaseFacade.get_DbAccess() in D:\TOP\taobao-shop-helper\站点\Src\J.SkyMusic.DbFacade\Services\BaseFacade.cs:line 18
+   at J.SkyMusic.DbFacade.Services.ParamFacade.GetParam(String key) in D:\TOP\taobao-shop-helper\站点\Src\J.SkyMusic.DbFacade\Services\ParamFacade.cs:line 19
+        null
+
+
+*****************END*******************
+
+

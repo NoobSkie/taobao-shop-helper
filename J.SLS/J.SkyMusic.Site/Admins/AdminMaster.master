@@ -42,6 +42,9 @@
     <script type="text/javascript">
 
         <%= CheckOpenerScript %>
+
+        var url = window.location.pathname + window.location.search;
+        window.parent.location.hash = "#" + url;
     
     </script>
 

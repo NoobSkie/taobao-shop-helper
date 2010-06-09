@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using J.SkyMusic.Facade;
 using System.Web.Caching;
 using System.Web.UI;
+using J.SkyMusic.DbFacade.Services;
 
 public static class DataCache
 {
-    public static IList<MenuItem> GetTopMenuList(Page _page)
+    public static IList<MenuItemInfo> GetTopMenuList(Page _page)
     {
         PageFacade facade = PageHelper.GetPageFacade(_page);
-        IList<MenuItem> list = facade.GetTopMenuList();
+        IList<MenuItemInfo> list = facade.GetTopMenuList();
         return list;
         //object cache = _page.Cache.Get("TopMenuList");
         //if (cache == null)
@@ -27,10 +27,10 @@ public static class DataCache
         //}
     }
 
-    public static IList<MenuItem> GetSecondMenuList(Page _page, string parentId)
+    public static IList<MenuItemInfo> GetSecondMenuList(Page _page, string parentId)
     {
         PageFacade facade = PageHelper.GetPageFacade(_page);
-        IList<MenuItem> list = facade.GetChildrenMenuList(parentId);
+        IList<MenuItemInfo> list = facade.GetChildrenMenuList(parentId);
         return list;
     }
 

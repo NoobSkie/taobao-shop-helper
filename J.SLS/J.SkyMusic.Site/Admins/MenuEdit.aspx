@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admins/AdminMaster.master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admins/AdminMaster.master" AutoEventWireup="true" ValidateRequest="false" EnableEventValidation="false"
     CodeFile="MenuEdit.aspx.cs" Inherits="Admins_MenuEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ph_head" runat="Server">
@@ -7,7 +7,7 @@
     <script type="text/javascript">
 
         function TopMenuChanged(menuId) {
-            if (menuId == "") {
+            if (menuId != "") {
                 if (document.getElementById("<%= rbtnAuto.ClientID %>").checked) {
                     document.getElementById("<%= rbtnInner.ClientID %>").checked = true;
                     document.getElementById("<%= rbtnInner.ClientID %>").click();
@@ -23,6 +23,7 @@
             if (menuType == "1") {
                 document.getElementById("divInner").style.display = "";
                 document.getElementById("divOuter").style.display = "none";
+                BindChildrenHtml(document.getElementById("<%= ddlLinkList.ClientID %>"));
             }
             else if (menuType == "2") {
                 document.getElementById("divInner").style.display = "none";
@@ -31,6 +32,69 @@
             else {
                 document.getElementById("divInner").style.display = "none";
                 document.getElementById("divOuter").style.display = "none";
+            }
+        }
+
+        function ClearHtmlItems() {
+            var obj = document.getElementById("<%= ddlLinkHtml.ClientID %>");
+            while (obj.options.length > 0) {
+                obj.remove(0);
+            }
+            var p = document.getElementById("<%= ddlLinkList.ClientID %>");
+            var v = p.options[p.selectedIndex].value;
+            if (v != "_NONE") {
+                var o = document.createElement("option");
+                o.value = "";
+                o.text = "<无>";
+                obj.add(o);
+            }
+        }
+
+        var htmlCache = new Array();
+        function BindChildrenHtml(parentObj) {
+            ClearHtmlItems();
+            var listId = parentObj.options[parentObj.selectedIndex].value;
+            var obj = document.getElementById("<%= ddlLinkHtml.ClientID %>");
+            if (listId == "") {
+                obj.style.display = "none";
+            }
+            else {
+                obj.style.display = "";
+                var s0 = "<%= SplitChar0 %>";
+                for (var i = 0; i < htmlCache.length; i++) {
+                    var items = htmlCache[i].split(s0);
+                    if (items[0] == listId) {
+                        BindHtmlItems(items[1]);
+                        return;
+                    }
+                }
+                try {
+                    var response = Admins_MenuEdit.GetHtmlItemsById(listId);
+                    if (response == null || response.value == null) {
+                        return;
+                    }
+                    htmlCache.push(listId + s0 + response.value);
+                    BindHtmlItems(response.value);
+                }
+                catch (e) {
+                    alert("读取列表失败！");
+                }
+            }
+        }
+
+        function BindHtmlItems(response) {
+            var s1 = "<%= SplitChar1 %>";
+            var s2 = "<%= SplitChar2 %>";
+            var itemList = response.split(s1);
+            var obj = document.getElementById("<%= ddlLinkHtml.ClientID %>");
+            for (var i = 0; i < itemList.length; i++) {
+                var infos = itemList[i].split(s2);
+                if (infos.length == 3) {
+                    var o = document.createElement("option");
+                    o.value = infos[0];
+                    o.text = infos[1] + "(" + infos[2] + ")";
+                    obj.add(o);
+                }
             }
         }
     
@@ -60,7 +124,8 @@
             </div>
             <div class="LayoutRow">
                 <span class="Title">上级菜单</span>
-                <asp:DropDownList ID="ddlTopMenu" runat="server" Width="350" DataTextField="Name" DataValueField="Id">
+                <asp:DropDownList ID="ddlTopMenu" runat="server" Width="350" DataTextField="Name"
+                    DataValueField="Id">
                 </asp:DropDownList>
             </div>
             <div class="LayoutRow">
@@ -70,10 +135,12 @@
                     <asp:RadioButton ID="rbtnInner" runat="server" GroupName="LinkType" Text="内部链接" />
                 </span><span>
                     <asp:RadioButton ID="rbtnOuter" runat="server" GroupName="LinkType" Text="外部链接" /></span>
-            </div>
-            <div class="LayoutContainer">
                 <div id="divInner">
-                    <asp:DropDownList ID="ddlInnerLink" Width="350" runat="server">
+                    <asp:DropDownList ID="ddlLinkList" Width="250" CssClass="DdlList" DataTextField="Name"
+                        DataValueField="Id" runat="server">
+                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddlLinkHtml" Width="500" CssClass="DdlItem" DataTextField="Name"
+                        DataValueField="Id" runat="server">
                     </asp:DropDownList>
                 </div>
                 <div id="divOuter">
@@ -92,6 +159,10 @@
         document.getElementById("<%= ddlTopMenu.ClientID %>").onchange = function() {
             var menuId = this.options[this.selectedIndex].value;
             TopMenuChanged(menuId);
+        }
+
+        document.getElementById("<%= ddlLinkList.ClientID %>").onchange = function() {
+            BindChildrenHtml(this);
         }
 
         document.getElementById("<%= rbtnAuto.ClientID %>").onclick = function() {

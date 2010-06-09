@@ -2,29 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using J.SkyMusic.Facade;
 using System.Web.UI;
+using J.SkyMusic.DbFacade.Services;
 
 public static class PageHelper
 {
     public static PageFacade GetPageFacade(Page _page)
     {
-        string dbUrl = "~/App_Data";
-        string dirPath = _page.Server.MapPath(dbUrl);
-        return new PageFacade(dirPath);
+        return new PageFacade();
     }
 
     public static ParamFacade GetParamFacade(Page _page)
     {
-        string dbUrl = "~/App_Data";
-        string dirPath = _page.Server.MapPath(dbUrl);
-        return new ParamFacade(dirPath);
+        return new ParamFacade();
     }
 
-    public static ResFileFacade GetResFileFacade(Page _page)
-    {
-        string dbUrl = "~/UploadFiles/Inner";
-        string dirPath = _page.Server.MapPath(dbUrl);
-        return new ResFileFacade(dirPath);
-    }
+    //public static ResFileFacade GetResFileFacade(Page _page)
+    //{
+    //    string dbUrl = "~/UploadFiles/Inner";
+    //    string dirPath = _page.Server.MapPath(dbUrl);
+    //    return new ResFileFacade(dirPath);
+    //}
 }

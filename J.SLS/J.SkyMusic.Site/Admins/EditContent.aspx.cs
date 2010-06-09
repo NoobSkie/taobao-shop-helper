@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using J.SkyMusic.Facade;
+using J.SkyMusic.DbFacade.Services;
 
 public partial class Admins_EditContent : System.Web.UI.Page
 {
@@ -27,13 +27,12 @@ public partial class Admins_EditContent : System.Web.UI.Page
             title = name1;
         }
         string content = txtContent.Text;
-        HtmlItem html = new HtmlItem();
-        html.Id = Guid.NewGuid().ToString("N").ToUpper();
+        HtmlItemFullInfo html = new HtmlItemFullInfo();
         html.Name = name1;
         html.ListName = name2;
         html.Title = title;
         html.Content = content;
         PageFacade facade = PageHelper.GetPageFacade(this.Page);
-        facade.AddContent(html);
+        facade.AddHtml(html);
     }
 }

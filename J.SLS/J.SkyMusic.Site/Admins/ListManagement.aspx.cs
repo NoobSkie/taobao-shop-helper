@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using J.SkyMusic.Facade;
+using J.SkyMusic.DbFacade.Services;
 
 public partial class Admins_ListManagement : BaseAdminPage
 {
@@ -13,7 +13,7 @@ public partial class Admins_ListManagement : BaseAdminPage
         if (!IsPostBack)
         {
             PageFacade facade = PageHelper.GetPageFacade(this.Page);
-            IList<J.SkyMusic.Facade.ListItem> list = facade.GetListItems();
+            IList<ListItemInfo> list = facade.GetListItems();
             rptList.DataSource = list;
             rptList.DataBind();
         }
