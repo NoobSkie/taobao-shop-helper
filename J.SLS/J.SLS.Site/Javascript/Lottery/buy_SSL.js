@@ -80,7 +80,7 @@ function GetServerTime_callback(response) {
     }
 
     var serverTime = response.value;
-    var IsuseEndTime = new Date($Id("HidIsuseEndTime").value.replace(new RegExp("-", "g"), "/"));
+    var IsuseEndTime = new Date($Id(GetHidIsuseEndTime()).value.replace(new RegExp("-", "g"), "/"));
     var TimePoor = new Date(serverTime.replace(new RegExp("-", "g"), "/")).getTime() - new Date().getTime();
     var to = IsuseEndTime.getTime() - new Date(serverTime.replace(new RegExp("-", "g"), "/")).getTime();
 
@@ -118,7 +118,7 @@ function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
     }
 
     var serverTime = new Date().getTime() + tPoor;
-    var IsuseEndTime = new Date($Id("HidIsuseEndTime").value.replace(new RegExp("-", "g"), "/"));
+    var IsuseEndTime = new Date($Id(GetHidIsuseEndTime()).value.replace(new RegExp("-", "g"), "/"));
     var to = IsuseEndTime.getTime() - serverTime;
 
     var d = Math.floor(to / (1000 * 60 * 60 * 24));
@@ -130,7 +130,7 @@ function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
         if (d < 0) {
             //当计时结束，要2秒后重新启动彩种加载函数
             $Id("toCurrIsuseEndTime").innerHTML = "本期已截止投注";
-            
+
             var lottery = setTimeout("loadLottery(" + lotteryID + ");", 20000);
 
             return;
@@ -150,20 +150,18 @@ function showIsuseTime(eTime, tPoor, goTime, lotteryID) {
 
 //获取当前投注奖期信息，及追号奖期，及时服务器时间
 var time_GetIsuseInfo = null;
-function GetIsuseInfo(lotteryID) {
-    currentLotteryID = lotteryID;
+function GetIsuseInfo() {
     try {
-        Lottery_SHSSL_Buy.GetIsuseInfo(lotteryID, GetIsuseInfo_callback);
+        Lottery_SHSSL_Buy.GetIsuseInfo(currentGameName, GetIsuseInfo_callback);
     }
     catch (e) {
-
-        time_GetIsuseInfo = setTimeout("GetIsuseInfo(" + lotteryID + ");", 2000);
+        time_GetIsuseInfo = setTimeout("GetIsuseInfo();", 2000);
     }
 }
 
 function GetIsuseInfo_callback(response) {
-    if (response == null || response.value == null||response.value.split('|').length != 3) {
-        time_GetIsuseInfo = setTimeout("GetIsuseInfo(" + currentLotteryID + ");", 2000);
+    if (response == null || response.value == null) {
+        time_GetIsuseInfo = setTimeout("GetIsuseInfo();", 2000);
         return;
     }
 
@@ -172,60 +170,60 @@ function GetIsuseInfo_callback(response) {
         clearTimeout(time_GetIsuseInfo);
     }
 
-//    var v = response.value;
-//    var arrInfo = v.split('|');
+    //    var v = response.value;
+    //    var arrInfo = v.split('|');
 
-//    var currIsuse = arrInfo[0];
-//    var chaseIsuse = arrInfo[1];
-//    var miss = arrInfo[2];
+    //    var currIsuse = arrInfo[0];
+    //    var chaseIsuse = arrInfo[1];
+    //    var miss = arrInfo[2];
 
-//    if ($Id("tbPlayTypeName").value == "直选单式" || $Id("tbPlayTypeName").value == "直选复式") {
-//        window.BindMiss = function() {
-//            var Miss_s = miss.split(';');
+    //    if ($Id("tbPlayTypeName").value == "直选单式" || $Id("tbPlayTypeName").value == "直选复式") {
+    //        window.BindMiss = function() {
+    //            var Miss_s = miss.split(';');
 
-//            if (Miss_s.length == 3) {
-//                for (var i = 0; i < 3; i++) {
-//                    var Miss = Miss_s[i].split(',');
+    //            if (Miss_s.length == 3) {
+    //                for (var i = 0; i < 3; i++) {
+    //                    var Miss = Miss_s[i].split(',');
 
-//                    if (Miss.length != 10)
-//                        continue;
+    //                    if (Miss.length != 10)
+    //                        continue;
 
-//                    for (var j = 0; j < 10; j++) {
-//                        var o_Miss = document.iframe_playtypes.document.all["Miss_" + (i.toString()) + "_" + j.toString()];
-//                        o_Miss.innerHTML = Miss[j];
-//                    }
+    //                    for (var j = 0; j < 10; j++) {
+    //                        var o_Miss = document.iframe_playtypes.document.all["Miss_" + (i.toString()) + "_" + j.toString()];
+    //                        o_Miss.innerHTML = Miss[j];
+    //                    }
 
-//                    var T_Miss = Miss;
-//                    T_Miss.sort(function(a, b) { return a - b });
-//                    var MaxNumber = T_Miss[T_Miss.length - 1];
+    //                    var T_Miss = Miss;
+    //                    T_Miss.sort(function(a, b) { return a - b });
+    //                    var MaxNumber = T_Miss[T_Miss.length - 1];
 
-//                    for (var j = 0; j < 10; j++) {
-//                        var o_Miss = document.iframe_playtypes.document.all["Miss_" + (i.toString()) + "_" + j.toString()];
-//                        if (o_Miss.innerHTML == MaxNumber) {
-//                            o_Miss.className = "red12";
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
+    //                    for (var j = 0; j < 10; j++) {
+    //                        var o_Miss = document.iframe_playtypes.document.all["Miss_" + (i.toString()) + "_" + j.toString()];
+    //                        if (o_Miss.innerHTML == MaxNumber) {
+    //                            o_Miss.className = "red12";
+    //                        }
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
 
-//    $Id("div_QH_Today").innerHTML = chaseIsuse;
+    //    $Id("div_QH_Today").innerHTML = chaseIsuse;
 
-//    try {
-//        var firstChase = $Id("div_QH_Today").childNodes[0].rows[0].cells[0].childNodes[0];
-//        if (firstChase != undefined) {
-//            firstChase.checked = true;
-//            check(firstChase);
-//        }
-//    } catch (e) { }
+    //    try {
+    //        var firstChase = $Id("div_QH_Today").childNodes[0].rows[0].cells[0].childNodes[0];
+    //        if (firstChase != undefined) {
+    //            firstChase.checked = true;
+    //            check(firstChase);
+    //        }
+    //    } catch (e) { }
 
-//    var arrcurrIsuse = currIsuse.split(',');
-//    $Id("HidIsuseID").value = arrcurrIsuse[0];
-//    currIsuseName.innerText = arrcurrIsuse[1];
-//    currIsuseEndTime.innerText = arrcurrIsuse[2].replace("/", "-").replace("/", "-");
-//    $Id("HidIsuseEndTime").value = arrcurrIsuse[2];
-    
+    //    var arrcurrIsuse = currIsuse.split(',');
+    //    $Id("HidIsuseID").value = arrcurrIsuse[0];
+    //    currIsuseName.innerText = arrcurrIsuse[1];
+    //    currIsuseEndTime.innerText = arrcurrIsuse[2].replace("/", "-").replace("/", "-");
+    //    $Id("HidIsuseEndTime").value = arrcurrIsuse[2];
+
     var currIsuse = response.value;
     var arrcurrIsuse = currIsuse.split(',');
     $Id(GetHidIsuseID()).value = arrcurrIsuse[0];
@@ -412,7 +410,7 @@ function loadLottery(lotteryID) {
     }
 
     //获取当前投注奖期信息(获取当前期号信息及服务器的时间)
-    GetIsuseInfo(lotteryID);
+    GetIsuseInfo();
 }
 
 //---------------------------------------投注功能区代码-------------------------------------------------
@@ -653,7 +651,7 @@ function accountAllMoney() {
     var lastNum = 0;
     var lastShare = 0;
     var BuyShare = 0;
-    
+
     arrTable[0] = window.$Id("div_QH_Today");
     for (j = 0; j < arrTable.length; j++) {
         var objs = arrTable[j].getElementsByTagName("input");
@@ -841,7 +839,7 @@ function clickPlayType(t) {
     document.getElementById('tbPlayTypeID').value = t;
 
     $Id('tbPlayTypeName').value = playTypeName;
-   
+
     HidBtnRand(playTypeName);
 
     resetPage();
@@ -1110,12 +1108,7 @@ function btn_OKClick() {
 
     var multiple = StrToInt(o_tb_Multiple.value);
     var SumNum = StrToInt(o_lab_Num.innerText);
-    var Share = StrToInt(o_tb_Share.value);
-    var BuyShare = StrToInt(o_tb_BuyShare.value);
-    var AssureShare = StrToInt(o_tb_AssureShare.value);
     var SumMoney = StrToInt(o_lab_SumMoney.innerText);
-    var AssureMoney = StrToFloat(o_lab_AssureMoney.innerText);
-    var BuyMoney = StrToFloat(o_lab_BuyMoney.innerText);
 
     if (SumNum < 1) {
         alert("请输入投注内容。");
@@ -1126,110 +1119,29 @@ function btn_OKClick() {
         o_tb_Multiple.focus();
         return false;
     }
-    if (Share < 1) {
-        alert("请输入正确的份数。");
-        o_tb_Share.focus();
-        return false;
-    }
-    if (StrToFloat(o_lab_ShareMoney.innerText) < 1) {
-        alert("每份金额不能小于 1 元。");
-        o_tb_Share.focus();
+
+    if ((SumMoney < o_tb_Price) || (SumMoney > 1000000)) {
+        alert("单个方案的总金额必须在" + o_tb_Price + "元至 1000000 元之间。");
         return false;
     }
 
-    //追号
-    if ($Id("Chase").checked) {
-        if (StrToInt($Id("LbSumMoney").innerText) > 0) {
+//    var TipStr = '您要发起' + LotteryName + $Id("tbPlayTypeName").value + '方案，详细内容：\n\n';
+//    TipStr += "　　注　数：　" + SumNum + "\n";
+//    TipStr += "　　倍　数：　" + multiple + "\n";
+//    TipStr += "　　总金额：　" + o_lab_SumMoney.innerText + " 元\n\n";
+//    TipStr += "　　总份数：　" + Share + " 份\n";
+//    TipStr += "　　每　份：　" + o_lab_ShareMoney.innerText + " 元\n\n";
+//    TipStr += "　　保　底：　" + AssureShare + " 份，" + o_lab_AssureMoney.innerText + " 元\n";
+//    TipStr += "　　购　买：　" + BuyShare + " 份，" + o_lab_BuyMoney.innerText + " 元\n\n";
 
-            if (StrToInt($Id("tbAutoStopAtWinMoney").value) < 0) {
-                alert("追号截止金额错误!");
-
-                return;
-            }
-
-            $Id("tb_hide_ChaseBuyedMoney").value = $Id("LbChaseMoney").innerText;
-
-            var TipStr = '您要申请' + LotteryName + $Id("tbPlayTypeName").value + '投注，详细内容：\n\n';
-
-            TipStr += "　　您的认购和保底保底金额：　" + $Id("LbChaseMoney").innerText + " 元\n\n";
-
-            if (!confirm(TipStr + "按“确定”即表示您已阅读《" + LotteryName + "用户投注协议》并立即提交代购方案，确定要提交投注方案吗？"))
-                return false;
-        }
-        else {
-            alert("请输入投注内容!");
-            return false;
-        }
-    }
-    else {
-
-        var Opt_InitiateSchemeLimitScale = 0;
-
-        if ((Opt_InitiateSchemeLimitLowerScaleMoney > 0) && (Opt_InitiateSchemeLimitUpperScaleMoney > Opt_InitiateSchemeLimitLowerScaleMoney) && (Opt_InitiateSchemeLimitUpperScale > 0) && (Opt_InitiateSchemeLimitLowerScale > Opt_InitiateSchemeLimitUpperScale)) {
-            if (SumMoney <= Opt_InitiateSchemeLimitLowerScaleMoney) {
-                Opt_InitiateSchemeLimitScale = Opt_InitiateSchemeLimitLowerScale;
-            }
-            else if (SumMoney >= Opt_InitiateSchemeLimitUpperScaleMoney) {
-                Opt_InitiateSchemeLimitScale = Opt_InitiateSchemeLimitUpperScale;
-            }
-            else {
-                Opt_InitiateSchemeLimitScale = Opt_InitiateSchemeLimitLowerScale - ((SumMoney - Opt_InitiateSchemeLimitLowerScaleMoney) * ((Opt_InitiateSchemeLimitLowerScale - Opt_InitiateSchemeLimitUpperScale) / (Opt_InitiateSchemeLimitUpperScaleMoney - Opt_InitiateSchemeLimitLowerScaleMoney)));
-            }
-        }
-        else if (Opt_InitiateSchemeLimitLowerScale == Opt_InitiateSchemeLimitUpperScale) {
-            Opt_InitiateSchemeLimitScale = Opt_InitiateSchemeLimitLowerScale;
-        }
-
-        if (Opt_InitiateSchemeLimitScale <= 0) {
-            Opt_InitiateSchemeLimitScale = 0.1;
-        }
-
-        if ((BuyShare) < Math.round(Share * Opt_InitiateSchemeLimitScale)) {
-            if (Opt_InitiateSchemeLimitLowerScale == Opt_InitiateSchemeLimitUpperScale) {
-                alert("发起人最少必须认购 " + (Opt_InitiateSchemeLimitLowerScale * 100) + "%。(" + Math.round(Share * Opt_InitiateSchemeLimitLowerScale) + ' 份， ' + (Math.round(Share * Opt_InitiateSchemeLimitLowerScale) * StrToFloat(o_lab_ShareMoney.innerText)) + ' 元)');
-            }
-            else {
-                alert("此方案发起人认购(不含保底)最少必须达到 " + Math.round(Share * Opt_InitiateSchemeLimitScale) + " 份。\r\n\r\n" +
-                    "发起方案最少认购比例说明：\r\n" +
-                    "方案金额小于或等于 " + Opt_InitiateSchemeLimitLowerScaleMoney + " 元，最少认购 " + Opt_InitiateSchemeLimitLowerScale * 100 + "%，\r\n" +
-                    "方案金额大于或等于 " + Opt_InitiateSchemeLimitUpperScaleMoney + " 元，最少认购 " + Opt_InitiateSchemeLimitUpperScale * 100 + "%，\r\n" +
-                    "方案金额在 " + Opt_InitiateSchemeLimitLowerScaleMoney + " 元至 " + Opt_InitiateSchemeLimitUpperScaleMoney + " 元之间的最少认购比例平滑递减。\r\n\r\n" +
-                    "此方案金额的最少认购比例是 " + Round(Opt_InitiateSchemeLimitScale, 2) * 100 + "% 。");
-            }
-
-            o_tb_BuyShare.focus();
-            return false;
-        }
-
-        if ((BuyShare + AssureShare) > Share) {
-            alert("保底和购买的份数大于总份数。");
-            o_tb_AssureShare.focus();
-            return false;
-        }
-
-        if ((SumMoney < o_tb_Price) || (SumMoney > 1000000)) {
-            alert("单个方案的总金额必须在" + o_tb_Price + "元至 1000000 元之间。");
-            return false;
-        }
-
-        var TipStr = '您要发起' + LotteryName + $Id("tbPlayTypeName").value + '方案，详细内容：\n\n';
-        TipStr += "　　注　数：　" + SumNum + "\n";
-        TipStr += "　　倍　数：　" + multiple + "\n";
-        TipStr += "　　总金额：　" + o_lab_SumMoney.innerText + " 元\n\n";
-        TipStr += "　　总份数：　" + Share + " 份\n";
-        TipStr += "　　每　份：　" + o_lab_ShareMoney.innerText + " 元\n\n";
-        TipStr += "　　保　底：　" + AssureShare + " 份，" + o_lab_AssureMoney.innerText + " 元\n";
-        TipStr += "　　购　买：　" + BuyShare + " 份，" + o_lab_BuyMoney.innerText + " 元\n\n";
-
-        if (!confirm(TipStr + "按“确定”即表示您已阅读《" + LotteryName + "投注协议》并立即提交方案，确定要提交方案吗？"))
-            return false;
-    }
+    var TipStr = '您要投注方案，详细内容：\n\n';
+    if (!confirm(TipStr + "按“确定”即表示您已阅读《投注协议》并立即提交方案，确定要提交方案吗？"))
+        return false;
 
     $Id("tb_hide_SumMoney").value = o_lab_SumMoney.innerText;
-    $Id("tb_hide_AssureMoney").value = o_lab_AssureMoney.innerText;
     $Id("tb_hide_SumNum").value = o_lab_Num.innerText;
 
-    __doPostBack('btn_OK', '');
+    __doPostBack(GetBtnOKName(), '');
 }
 
 function Cancel() {

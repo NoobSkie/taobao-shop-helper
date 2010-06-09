@@ -10,21 +10,12 @@ using System.Web.UI.WebControls;
 
 public abstract class BaseMaster : System.Web.UI.MasterPage
 {
-    private BaseHelper _h = null;
-    private BaseHelper helper
-    {
-        get
-        {
-            if (_h == null)
-            {
-                _h = new BaseHelper(this.Page);
-            }
-            return _h;
-        }
-    }
+    private BaseHelper helper = null;
 
     protected override void OnInit(EventArgs e)
     {
+        helper = new BaseHelper(this.Page);
+
         base.OnInit(e);
     }
 
@@ -42,11 +33,7 @@ public abstract class BaseMaster : System.Web.UI.MasterPage
     {
         get
         {
-            if (CurrentUser == null)
-            {
-                return "";
-            }
-            return CurrentUser.UserId;
+            return helper.UserId;
         }
     }
 
@@ -57,20 +44,7 @@ public abstract class BaseMaster : System.Web.UI.MasterPage
 
     public UserInfo CurrentUser
     {
-        get
-        {
-            UserInfo user = helper.CurrentUser;
-            if (user == null)
-            {
-                HiddenField hidd = this.FindControl("HidUserID") as HiddenField;
-                if (hidd.Value != "")
-                {
-                    UserFacade facade = new UserFacade();
-                    user = facade.GetUserInfo(hidd.Value);
-                }
-            }
-            return user;
-        }
+        get { return helper.CurrentUser; }
         set { helper.CurrentUser = value; }
     }
 

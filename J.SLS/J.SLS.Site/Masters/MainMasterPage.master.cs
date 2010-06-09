@@ -14,6 +14,10 @@ public partial class Masters_MainMasterPage : BaseMaster
     protected void Page_Load(object sender, EventArgs e)
     {
         AjaxPro.Utility.RegisterTypeForAjax(typeof(Masters_MainMasterPage));
+        if (IsPostBack && HidUserID.Value != "" && CurrentUser == null)
+        {
+            SetCurrentUser(HidUserID.Value);
+        }
     }
 
     public string AlipayLoginSrcUrl { get { return base.ResolveUrl("~/Images/zfb_button2.jpg"); } }

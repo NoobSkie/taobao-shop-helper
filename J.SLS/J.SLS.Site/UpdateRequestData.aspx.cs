@@ -30,7 +30,7 @@ public partial class UpdateRequestData : BasePage
                     Response.Write(Server.UrlDecode(str) + "<br />");
                     i++;
                 }
-                facade.ModifyCurrentUpdateTime();
+                facade.ModifyCurrentUpdateTime(DateTime.Now);
                 Response.Write("<br />");
                 Response.Write("<b>成功同步 " + i + "条请求数据！</b><br />");
             }
