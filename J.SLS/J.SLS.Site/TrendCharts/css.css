@@ -1,0 +1,131 @@
+body {
+	font-size: 12px;
+	margin: 0px;
+	padding: 0px;
+}
+#box {
+	width:1002px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0px;
+	background-color: #FFF;
+	overflow: hidden;
+}	
+.red14 { FONT-SIZE: 14px;COLOR: #FF0065; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.red14 A:link { FONT-FAMILY: "tahoma"; COLOR: #FF0065; TEXT-DECORATION: none;}
+.red14 A:active { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+.red14 A:visited { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+.red14 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.red14_2 { FONT-SIZE: 16px;COLOR: #cc0000; FONT-FAMILY: tahoma; LINE-HEIGHT: 20px; font-weight:bold;}
+
+.red12 { FONT-SIZE: 12px;COLOR: #cc0000; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.red18 {
+	FONT-SIZE: 12px;
+	COLOR: #cc0000;
+	FONT-FAMILY: "ËÎÌו";
+	line-height: 24px;
+}
+.red12 A:link { FONT-FAMILY: tahoma; COLOR: #cc0000; TEXT-DECORATION: underline;}
+.red12 A:active { FONT-FAMILY: tahoma;COLOR: #cc0000; TEXT-DECORATION: underline;}
+.red12 A:visited { FONT-FAMILY: tahoma;COLOR: #cc0000; TEXT-DECORATION: underline;}
+.red12 A:hover { FONT-FAMILY: tahoma;COLOR: #CC0000; TEXT-DECORATION: none;}
+
+.red12_2 { FONT-SIZE: 12px;COLOR: #FF0065; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.red12_2 A:link { FONT-FAMILY: "tahoma"; COLOR: #FF0065; TEXT-DECORATION: underline;}
+.red12_2 A:active { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: underline;}
+.red12_2 A:visited { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: underline;}
+.red12_2 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.blue12 { FONT-SIZE: 12px;COLOR:#1F6598; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.blue12_3 { FONT-SIZE: 12px;COLOR:#1F6598; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 16px; }
+.blue12 A:link { FONT-FAMILY: "tahoma"; COLOR:#1F6598; TEXT-DECORATION: none;}
+.blue12 A:active { FONT-FAMILY: "tahoma";COLOR:#1F6598; TEXT-DECORATION: none;}
+.blue12 A:visited { FONT-FAMILY: "tahoma";COLOR:#1F6598; TEXT-DECORATION: none;}
+
+.blue12_3 A:link { FONT-FAMILY: "tahoma"; COLOR:#1F6598; TEXT-DECORATION: none;}
+.blue12_3 A:active { FONT-FAMILY: tahoma;COLOR:#1F6598; TEXT-DECORATION: underline;}
+.blue12_3 A:visited { FONT-FAMILY: tahoma;COLOR:#1F6598; TEXT-DECORATION: none;}
+.blue12_3 A:hover { FONT-FAMILY: tahoma;COLOR:#CC0000; TEXT-DECORATION: underline;}
+
+
+.blue12_2 A:link { FONT-FAMILY: tahoma; COLOR:#1F6598; TEXT-DECORATION: underline;}
+.blue12_2 A:active { FONT-FAMILY: tahoma;COLOR:#1F6598; TEXT-DECORATION: underline;}
+.blue12_2 A:visited { FONT-FAMILY: tahoma;COLOR:#1F6598; TEXT-DECORATION: underline;}
+.blue12_2 A:hover { FONT-FAMILY: tahoma;COLOR:#CC0000; TEXT-DECORATION: underline;}
+
+.blue12_4 A:link { FONT-FAMILY: tahoma; COLOR:#1F6598;TEXT-DECORATION: none;}
+.blue12_4 A:active { FONT-FAMILY: tahoma;COLOR:#1F6598; TEXT-DECORATION: none;}
+.blue12_4 A:visited { FONT-FAMILY: tahoma;COLOR:#1F6598;TEXT-DECORATION: none;}
+.blue12_4 A:hover {
+	FONT-FAMILY: tahoma;
+	COLOR:#1F6598;
+	TEXT-DECORATION: none;
+	font-weight: bold;
+}
+
+
+.blue14 { FONT-SIZE: 14px;COLOR: #216699; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.blue14 A:link { FONT-FAMILY: "tahoma"; COLOR: #216699; TEXT-DECORATION: none;}
+.blue14 A:active { FONT-FAMILY: "tahoma";COLOR: #216699; TEXT-DECORATION: none;}
+.blue14 A:visited { FONT-FAMILY: "tahoma";COLOR: #216699; TEXT-DECORATION: none;}
+.blue14 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.hui12 { FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.hui12_2{ FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: tahoma; LINE-HEIGHT: 18px; }
+.hui12_2 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: none;}
+.hui12_2 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui12_2 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui12_2 A:hover { FONT-FAMILY: tahoma;COLOR: #CC0000; TEXT-DECORATION: underline;}
+
+.yellow12 { FONT-SIZE: 12px;COLOR: #FFFF00; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.yellow12 A:link { FONT-FAMILY: "tahoma"; COLOR: #FFFF00; TEXT-DECORATION: none;}
+.yellow12 A:active { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+.yellow12 A:visited { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+.yellow12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+
+.hui14 { FONT-SIZE: 14px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.hui14 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: none;}
+.hui14 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui14 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui14 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.hui14_2 { FONT-SIZE: 14px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px;}
+.hui14_2 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: none;}
+.hui14_2 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui14_2 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui14_2 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: none;}
+
+.hui12 { FONT-SIZE: 12px;COLOR: #666666; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; }
+.hui12 A:link { FONT-FAMILY: "tahoma"; COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:active { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:visited { FONT-FAMILY: "tahoma";COLOR: #666666; TEXT-DECORATION: none;}
+.hui12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FF0065; TEXT-DECORATION: underline;}
+
+.bai14 { FONT-SIZE: 14px;COLOR: #FFFFFF; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.bai14 A:link { FONT-FAMILY: "tahoma"; COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai14 A:active { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai14 A:visited { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai14 A:hover { FONT-FAMILY: "tahoma";COLOR: #FFFF00; TEXT-DECORATION: none;}
+
+.bai12 { FONT-SIZE: 12px;COLOR: #FFFFFF; FONT-FAMILY: "tahoma"; LINE-HEIGHT: 20px; font-weight:bold;}
+.bai12 A:link { FONT-FAMILY: "tahoma"; COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai12 A:active { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai12 A:visited { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.bai12 A:hover { FONT-FAMILY: "tahoma";COLOR: #FFFFFF; TEXT-DECORATION: none;}
+.table {border: 1px solid #BDD2E9;}
+.table1 {border: 1px solid #dddddd;}
+
+.hei12{ FONT-SIZE: 12px;COLOR: #000000; FONT-FAMILY: tahoma; LINE-HEIGHT: 20px; font-weight:normal;}
+.hei12 A:link { FONT-FAMILY: tahoma; COLOR: #000000; TEXT-DECORATION: none;}
+.hei12 A:active { FONT-FAMILY: "tahoma";COLOR: #000000; TEXT-DECORATION: none;}
+.hei12 A:visited { FONT-FAMILY: tahoma;COLOR: #000000; TEXT-DECORATION: none;}
+.hei12 A:hover {
+	FONT-FAMILY: tahoma;
+	COLOR:#000000;
+	TEXT-DECORATION: none;
+	font-weight: bold;
+}
+.wenben {
+	height: 14px;
+}
