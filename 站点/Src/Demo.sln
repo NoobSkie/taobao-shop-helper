@@ -12,7 +12,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "J.SkyMusic.Site", "..\..\J.SLS\J.SkyMusic.Site\", "{67A25B66-FAB8-40C3-8DCF-815F253E01C7}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
-		ProjectReferences = "{04C28C5B-3E43-4DEE-8D62-DCC7B1662658}|J.SkyMusic.Facade.dll;{B981D79D-0FCC-49B1-89FF-042ACE758AEF}|J.SkyMusic.Domain.dll;{30F7EBF8-D985-4D02-BDE6-89F392B6545D}|J.SLS.Common.dll;{D322F3DB-C7F4-4F11-A062-52B8CF0C82C8}|J.SLS.Database.dll;"
+		ProjectReferences = "{30F7EBF8-D985-4D02-BDE6-89F392B6545D}|J.SLS.Common.dll;{D322F3DB-C7F4-4F11-A062-52B8CF0C82C8}|J.SLS.Database.dll;{2D268E43-ECAA-43B3-AF02-560942C1BD2B}|J.SkyMusic.DbFacade.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/J.SkyMusic.Site"
 		Debug.AspNetCompiler.PhysicalPath = "..\..\J.SLS\J.SkyMusic.Site\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\J.SkyMusic.Site\"
@@ -51,6 +51,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Demo", "Demo\", "{17D325FA-
 		VWDPort = "14831"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J.SkyMusic.DbFacade", "J.SkyMusic.DbFacade\J.SkyMusic.DbFacade.csproj", "{2D268E43-ECAA-43B3-AF02-560942C1BD2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2D268E43-ECAA-43B3-AF02-560942C1BD2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D268E43-ECAA-43B3-AF02-560942C1BD2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D268E43-ECAA-43B3-AF02-560942C1BD2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D268E43-ECAA-43B3-AF02-560942C1BD2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
