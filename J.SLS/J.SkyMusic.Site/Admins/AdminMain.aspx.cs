@@ -14,15 +14,12 @@ public partial class Admins_AdminMain : BasePage
         {
             PageFacade facade = PageHelper.GetPageFacade(this.Page);
             IList<MenuItemInfo> topMenus = facade.GetTopMenuList();
-            rptMenus.DataSource = topMenus;
-            rptMenus.DataBind();
-        }
-    }
+            IList<ListItemInfo> lists = facade.GetListItems();
+            rptAddPageMenu.DataSource = lists;
+            rptAddPageMenu.DataBind();
 
-    protected void rptMenus_ItemDataBound(object sender, RepeaterItemEventArgs e)
-    {
-        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-        {
+            rptListManagerMenu.DataSource = lists;
+            rptListManagerMenu.DataBind();
         }
     }
 }

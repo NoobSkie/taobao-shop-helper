@@ -14,7 +14,7 @@ namespace J.SkyMusic.DbFacade.Domains
         [EntityMappingField("Name")]
         public string Name { get; set; }
 
-        [EntityMappingField("CreateTime")]
+        [EntityMappingField("CreateTime", NeedUpdate = false)]
         public DateTime CreateTime { get; internal set; }
 
         [EntityMappingField("LastUpdateTime")]

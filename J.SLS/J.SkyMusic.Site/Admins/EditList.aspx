@@ -3,25 +3,39 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ph_head" runat="Server">
     <link href="editlist.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+
+        function CheckSave() {
+            var name = document.getElementById("<%= txtName.ClientID %>").value;
+            if (name == "") {
+                alert("请填入列表名称！");
+                return false;
+            }
+            return true;
+        }
+    
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ph_content" runat="Server">
     <div class="Summary">
-        <asp:Label ID="lblTitle" runat="server" Text="编辑文章内容"></asp:Label>
+        <asp:Label ID="lblTitle" runat="server"></asp:Label>
     </div>
     <div class="Content">
-        <div class="Operator">
-            <asp:LinkButton ID="lbtnSave" runat="server" OnClick="lbtnSave_Click"><span>保存</span></asp:LinkButton><asp:HyperLink
-                ID="hlnkCancel" runat="server"><span>返回</span></asp:HyperLink>
-        </div>
         <div class="TipDiv">
-            <span id="lblJsErrorMsg"></span>
-        </div>
+            <asp:Label ID="lblInformation" Visible="false" runat="server"></asp:Label></div>
         <div class="ContentLayout">
-            <div>
-                <asp:Label ID="lblNameTag" runat="server" Text="列表名称"></asp:Label>
-                <asp:TextBox ID="txtName" runat="server"></asp:TextBox><asp:Button ID="btnSave" runat="server"
-                    Text="修改名称" />
+            <div class="LayoutRow">
+                <asp:Label ID="lblNameTag" CssClass="Title" runat="server" Text="列表名称"></asp:Label>
+                <asp:TextBox ID="txtName" runat="server" Width="350"></asp:TextBox>
             </div>
+        </div>
+        <div class="Operator">
+            <asp:HyperLink ID="hlnkAddSub" runat="server"><span>添加子页面</span></asp:HyperLink>
+            <asp:LinkButton ID="lbtnSave" runat="server" OnClientClick="return CheckSave();"
+                OnClick="lbtnSave_Click"><span>保存</span></asp:LinkButton><asp:HyperLink ID="hlnkCancel"
+                    NavigateUrl="ListManagement.aspx" runat="server"><span>返回列表管理</span></asp:HyperLink>
         </div>
         <div class="ListDiv">
             <asp:Repeater ID="rptHtmlList" runat="server">

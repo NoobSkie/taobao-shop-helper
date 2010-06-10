@@ -16,6 +16,18 @@
             location.href = url;
         }
 
+        function AlertAndRedirectAndRefreshParent(msg, url) {
+            alert(msg);
+            var parent = window.parent;
+            if (parent != window) {
+                window.parent.location.hash = "#" + url;
+                window.parent.location.reload();
+            }
+            else {
+                location.href = url;
+            }
+        }
+
         function CheckOpener() {
             var parent = window.parent;
             if (parent != window) {

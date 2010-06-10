@@ -77,7 +77,12 @@ public class BaseHelper
 
     public void JavascriptAlertAndRedirect(string msg, string url)
     {
-        ScriptManager.RegisterStartupScript(_page, _page.GetType(), "AlertChangePassword", "AlertAndRedirect('" + msg + "', '" + url + "');", true);
+        ScriptManager.RegisterStartupScript(_page, _page.GetType(), "AlertAndRedirect", "AlertAndRedirect('" + msg + "', '" + url + "');", true);
+    }
+
+    public void JavascriptAlertAndRedirectAndRefreshParent(string msg, string url)
+    {
+        ScriptManager.RegisterStartupScript(_page, _page.GetType(), "AlertAndRedirectAndRefreshParent", "AlertAndRedirectAndRefreshParent('" + msg + "', '" + url + "');", true);
     }
 
     public void RedirectToUrl(string url)

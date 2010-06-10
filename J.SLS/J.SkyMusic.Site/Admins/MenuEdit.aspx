@@ -33,6 +33,9 @@
                 document.getElementById("divInner").style.display = "none";
                 document.getElementById("divOuter").style.display = "none";
             }
+            if (window.parent && window.parent.SetIframeHeight) {
+                window.parent.SetIframeHeight();
+            }
         }
 
         function ClearHtmlItems() {

@@ -45,6 +45,11 @@ public class BasePage : System.Web.UI.Page
         helper.JavascriptAlertAndRedirect(msg, url);
     }
 
+    public void JavascriptAlertAndRedirectAndRefreshParent(string msg, string url)
+    {
+        helper.JavascriptAlertAndRedirectAndRefreshParent(msg, url);
+    }
+
     public void RedirectToUrl(string url)
     {
         helper.RedirectToUrl(url);

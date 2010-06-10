@@ -1,4 +1,29 @@
-﻿.ListDiv
+﻿.ContentLayout
+{
+}
+.ContentLayout .LayoutRow
+{
+    min-height:40px;
+    line-height: 38px;
+    clear: both;
+}
+.ContentLayout .LayoutRow input,select
+{
+    margin-left: 12px;
+    margin-top: 8px;
+}
+.ContentLayout .LayoutRow:hover
+{
+    background-color: lightgray;
+}
+.ContentLayout .LayoutRow span.Title
+{
+    margin-left: 20px;
+    width: 110px;
+    display: inline-block;
+    float: left;
+}
+.ListDiv
 {
     clear: both;
 }

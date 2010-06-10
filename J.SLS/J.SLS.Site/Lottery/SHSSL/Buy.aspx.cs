@@ -125,12 +125,21 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
             userProfile.BonusPhone = CurrentUser.Mobile;
 
             List<string> anteCodes = new List<string>();
-            lotteryNumber = lotteryNumber.Replace(" + ", "#").Replace(' ', ',');
-            anteCodes.AddRange(lotteryNumber.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
+            foreach (string code in lotteryNumber.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                string str = "";
+                foreach (char c in code)
+                {
+                    str += c.ToString() + ",";
+                }
+                anteCodes.Add(str.TrimEnd(','));
+            }
+            //lotteryNumber = lotteryNumber.Replace(" + ", "#").Replace(' ', ',');
+            //anteCodes.AddRange(lotteryNumber.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
 
             TicketInfo ticket = new TicketInfo();
             ticket.TicketId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
-            ticket.BuyType = BuyType.A101;   // TODO
+            ticket.BuyType = BuyType.B201;   // TODO
             ticket.Money = money.ToString("0.00");
             ticket.Amount = multiple.ToString();
             ticket.AnteCodes = anteCodes;
@@ -140,6 +149,7 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
             HPBuyRequestInfo.Body requestBody = new HPBuyRequestInfo.Body();
             requestBody._Request = new HPBuyRequestInfo.Body.Request();
             requestBody._Request.TicketList = new XmlMappingList<TicketInfo>();
+            requestBody._Request.TicketList.Add(ticket);
             requestBody._Request.TicketList.Add(ticket);
 
             string bodyXml = requestBody.ToXmlString("body");

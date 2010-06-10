@@ -21,7 +21,7 @@ namespace HPGatewayModels
             this.MethodTypes.Clear();
             this.CreatePlayMethods(lotteryType);
         }
-        
+
 
         /// <summary>
         /// 根据彩票种类(如：上海福彩，重庆福彩，江西福彩，山东体彩)，创建彩票玩法
@@ -67,7 +67,7 @@ namespace HPGatewayModels
             playName = playName.ToUpper();
             foreach (PlayMethod methodType in this.MethodTypes)
             {
-                if (methodType.LotteryType == lotteryType && methodType.PlayName == playName)
+                if (methodType.LotteryType == lotteryType && (methodType.PlayName == playName || methodType.GameName.Equals(playName, StringComparison.OrdinalIgnoreCase)))
                     return methodType;
             }
 

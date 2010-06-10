@@ -83,7 +83,7 @@ table
 #header
 {
     width: 920px;
-    margin: 0 15px;
+    margin: 0px;
     background: #1e4262 url('../Images/header-background.png') no-repeat left bottom;
     height: 56px;
     font-family: verdana;

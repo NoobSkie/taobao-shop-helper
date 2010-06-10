@@ -18,7 +18,7 @@ namespace J.SkyMusic.DbFacade.Domains
         public void AddEntity<T>(T entity)
             where T : PageEntityBase
         {
-            entity.Id = Guid.NewGuid().ToString("N");
+            entity.Id = Guid.NewGuid().ToString("N").ToUpper();
             entity.CreateTime = DateTime.Now;
             entity.LastUpdateTime = DateTime.Now;
             persistence.Add(entity);

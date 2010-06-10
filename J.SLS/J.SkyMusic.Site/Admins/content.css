@@ -8,7 +8,7 @@ body
 .Summary
 {
     text-align: left;
-    background-color: lightgray;
+    background-color: #99CCFF;
 }
 .Summary span
 {
@@ -29,6 +29,9 @@ body
 }
 .Content .Operator
 {
+    margin-top: 16px;
+    margin-bottom: 12px;
+    text-align: center;
 }
 .Content .Operator a
 {
@@ -53,8 +56,6 @@ body
 .Content .TipDiv
 {
     clear:both;
-    display: block;
-    height: 40px;
     border: 1px solid red;
 }
 .Content .TipDiv span

@@ -50,9 +50,24 @@
                             <div class="yuimenu">
                                 <div class="bd">
                                     <ul>
-                                        <li id="submenu_firefox" class="yuimenuitem"><a href="javascript:void(0);">企业简介</a></li><li
-                                            id="submenu_mobile" class="yuimenuitem"><a href="javascript:void(0);">师资情况</a></li><li
-                                                id="submenu_thunderbird" class="yuimenuitem"><a href="javascript:void(0);">基地分布</a></li></ul>
+                                        <asp:Repeater ID="rptAddPageMenu" runat="server">
+                                            <ItemTemplate>
+                                                <li id="menu_products2">
+                                                    <asp:HyperLink ID="hlnkMenu1" NavigateUrl='<%# Eval("Id", "EditContent.aspx?id={0}") %>'
+                                                        Target="iframe_sub" runat="server"><%# Eval("Name") %></asp:HyperLink>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                        <li id="submenu_firefox" class="yuimenuitem"><a href="EditContent.aspx" target="iframe_sub">独立子页面</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="Li6"><a href="MenuManagement.aspx" target="iframe_sub">菜单管理</a>
+                            <div class="yuimenu">
+                                <div class="bd">
+                                    <ul>
+                                        <li id="Li7" class="yuimenuitem"><a href="MenuEdit.aspx">添加菜单</a></li></ul>
                                 </div>
                             </div>
                         </li>
@@ -60,37 +75,29 @@
                             <div class="yuimenu">
                                 <div class="bd">
                                     <ul>
-                                        <li id="Li5" class="yuimenuitem"><a href="javascript:void(0);">添加新列表</a></li>
-                                        <li id="Li2" class="yuimenuitem"><a href="javascript:void(0);">企业简介</a></li><li id="Li3"
-                                            class="yuimenuitem"><a href="javascript:void(0);">师资情况</a></li><li id="Li4" class="yuimenuitem">
-                                                <a href="javascript:void(0);">基地分布</a></li></ul>
+                                        <li id="Li5" class="yuimenuitem"><a href="EditList.aspx" target="iframe_sub">添加新列表</a></li>
+                                        <asp:Repeater ID="rptListManagerMenu" runat="server">
+                                            <ItemTemplate>
+                                                <li id="menu_products2">
+                                                    <asp:HyperLink ID="hlnkMenu1" NavigateUrl='<%# Eval("Id", "EditList.aspx?id={0}") %>'
+                                                        Target="iframe_sub" runat="server"><%# Eval("Name") %></asp:HyperLink>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </ul>
                                 </div>
                             </div>
                         </li>
-                        <li id="Li6"><a href="javascript:void(0);">菜单管理</a>
+                        <li id="Li8"><a href="javascript:void(0);">系统配置</a>
                             <div class="yuimenu">
                                 <div class="bd">
                                     <ul>
-                                        <li id="Li7" class="yuimenuitem"><a href="javascript:void(0);">添加菜单</a></li></ul>
+                                        <li id="Li9" class="yuimenuitem"><a href="javascript:void(0);">修改后台管理密码</a></li>
+                                        <li id="Li10" class="yuimenuitem"><a href="javascript:void(0);">修改站点名称</a></li>
+                                        <li id="Li2" class="yuimenuitem"><a href="javascript:void(0);">文件上传管理</a></li></ul>
                                 </div>
                             </div>
                         </li>
-                        <asp:Repeater ID="rptMenus" runat="server" OnItemDataBound="rptMenus_ItemDataBound">
-                            <ItemTemplate>
-                                <li id="menu_products2">
-                                    <asp:HyperLink ID="hlnkMenu1" NavigateUrl='<%# Eval("Id", "EditList.aspx?id={0}") %>'
-                                        Target="iframe_sub" runat="server"><%# Eval("Name") %></asp:HyperLink>
-                                    <div class="yuimenu">
-                                        <div class="bd">
-                                            <ul>
-                                                <li id="submenu_firefox" class="yuimenuitem"><a href="javascript:void(0);">企业简介</a></li><li
-                                                    id="submenu_mobile" class="yuimenuitem"><a href="javascript:void(0);">师资情况</a></li><li
-                                                        id="submenu_thunderbird" class="yuimenuitem"><a href="javascript:void(0);">基地分布</a></li></ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ItemTemplate>
-                        </asp:Repeater>
                     </ul>
                 </div>
             </div>
