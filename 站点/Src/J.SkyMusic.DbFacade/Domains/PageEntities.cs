@@ -29,32 +29,44 @@ namespace J.SkyMusic.DbFacade.Domains
     [EntityMappingTable("T_Page_Html")]
     public class HtmlItemEntity : PageEntityBase
     {
+        [EntityMappingField("ListName")]
         public string ListName { get; set; }
 
+        [EntityMappingField("TitleHtml")]
         public string Title { get; set; }
 
+        [EntityMappingField("ContentHtml")]
         public string Content { get; set; }
 
+        [EntityMappingField("ParentListId", NeedUpdate = false)]
         public string ItsListId { get; set; }
     }
 
     [EntityMappingTable("T_Page_Menus")]
     public class MenuItemEntity : PageEntityBase
     {
+        [EntityMappingField("PIndex")]
         public int Index { get; set; }
 
+        [EntityMappingField("IsInner")]
         public bool IsInner { get; set; }
 
+        [EntityMappingField("IsListType")]
         public bool IsListType { get; set; }
 
+        [EntityMappingField("InnerItemId")]
         public string InnerId { get; set; }
 
+        [EntityMappingField("OuterUrl")]
         public string OuterUrl { get; set; }
 
+        [EntityMappingField("ParentId")]
         public string ParentId { get; set; }
 
+        [EntityMappingField("IsNewWindow")]
         public bool IsOpenNewWindow { get; set; }
 
+        [EntityMappingField("PLevel")]
         public int Level { get; set; }
     }
 }

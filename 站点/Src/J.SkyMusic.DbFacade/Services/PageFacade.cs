@@ -12,116 +12,244 @@ namespace J.SkyMusic.DbFacade.Services
     {
         public IList<ListItemInfo> GetListItems()
         {
-            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-            return persistence.GetAll<ListItemInfo>(new SortInfo("CreateTime", SortDirection.Desc));
+            try
+            {
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                return persistence.GetAll<ListItemInfo>(new SortInfo("CreateTime", SortDirection.Desc));
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "GetListItems", ex);
+            }
         }
 
         public IList<HtmlItemInfo> GetHtmlItemsByParent(string listId)
         {
-            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-            Criteria cri = new Criteria();
-            if (string.IsNullOrEmpty(listId))
+            try
             {
-                cri.Add(Expression.Or(
-                    Expression.IsNull("ItsListId"),
-                    Expression.Equal("ItsListId", "")));
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                Criteria cri = new Criteria();
+                if (string.IsNullOrEmpty(listId))
+                {
+                    cri.Add(Expression.Or(
+                        Expression.IsNull("ItsListId"),
+                        Expression.Equal("ItsListId", "")));
+                }
+                else
+                {
+                    cri.Add(Expression.Equal("ItsListId", listId));
+                }
+                return persistence.GetList<HtmlItemInfo>(cri, new SortInfo("LastUpdateTime", SortDirection.Desc));
             }
-            else
+            catch (Exception ex)
             {
-                cri.Add(Expression.Equal("ItsListId", listId));
+                throw HandleException("Page", "GetHtmlItemsByParent - " + listId, ex);
             }
-            return persistence.GetList<HtmlItemInfo>(cri, new SortInfo("LastUpdateTime", SortDirection.Desc));
         }
 
         public HtmlItemFullInfo GetHtmlItemById(string htmlId)
         {
-            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-            return persistence.GetByKey<HtmlItemFullInfo>(htmlId);
+            try
+            {
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                return persistence.GetByKey<HtmlItemFullInfo>(htmlId);
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "GetHtmlItemById - " + htmlId, ex);
+            }
         }
 
         public IList<MenuItemInfo> GetTopMenuList()
         {
-            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-            Criteria cri = new Criteria();
-            cri.Add(Expression.Or(
-                Expression.IsNull("ParentId"),
-                Expression.Equal("ParentId", "")));
-            return persistence.GetList<MenuItemInfo>(cri, new SortInfo("Index"));
+            try
+            {
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                Criteria cri = new Criteria();
+                cri.Add(Expression.Or(
+                    Expression.IsNull("ParentId"),
+                    Expression.Equal("ParentId", "")));
+                return persistence.GetList<MenuItemInfo>(cri, new SortInfo("Index"));
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "GetTopMenuList", ex);
+            }
         }
 
         public IList<MenuItemInfo> GetChildrenMenuList(string parentId)
         {
-            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-            Criteria cri = new Criteria();
-            cri.Add(Expression.Equal("ParentId", parentId));
-            return persistence.GetList<MenuItemInfo>(cri, new SortInfo("Index"));
+            try
+            {
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                Criteria cri = new Criteria();
+                cri.Add(Expression.Equal("ParentId", parentId));
+                return persistence.GetList<MenuItemInfo>(cri, new SortInfo("Index"));
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "GetChildrenMenuList - " + parentId, ex);
+            }
         }
 
         public void AddList(ListItemInfo list)
         {
-            list.Name = list.Name.Trim();
+            try
+            {
+                list.Name = list.Name.Trim();
 
-            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-            Criteria cri = new Criteria();
-            cri.Add(Expression.Equal("Name", list.Name));
-            if (!string.IsNullOrEmpty(list.Id))
-            {
-                cri.Add(Expression.NotEqual("Id", list.Id));
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                Criteria cri = new Criteria();
+                cri.Add(Expression.Equal("Name", list.Name));
+                if (!string.IsNullOrEmpty(list.Id))
+                {
+                    cri.Add(Expression.NotEqual("Id", list.Id));
+                }
+                IList<ListItemInfo> tmpList = persistence.GetList<ListItemInfo>(cri);
+                if (tmpList.Count > 0)
+                {
+                    throw new FacadeException("列表名称已经存在，请重新输入！");
+                }
+                ListItemEntity entity = new ListItemEntity();
+                entity.Name = list.Name;
+                PageManager manager = new PageManager(DbAccess);
+                manager.AddEntity<ListItemEntity>(entity);
+                list.Id = entity.Id;
             }
-            IList<ListItemInfo> tmpList = persistence.GetList<ListItemInfo>(cri);
-            if (tmpList.Count > 0)
+            catch (Exception ex)
             {
-                throw new FacadeException("列表名称已经存在，请重新输入！");
+                throw HandleException("Page", "AddList - " + list.Name, ex);
             }
-            ListItemEntity entity = new ListItemEntity();
-            entity.Name = list.Name;
-            PageManager manager = new PageManager(DbAccess);
-            manager.AddEntity<ListItemEntity>(entity);
-            list.Id = entity.Id;
         }
 
         public void ModifyListName(string listId, string newName)
         {
-            newName = newName.Trim();
-
-            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-            Criteria cri = new Criteria();
-            cri.Add(Expression.Equal("Name", newName));
-            cri.Add(Expression.NotEqual("Id", listId));
-            IList<ListItemInfo> tmpList = persistence.GetList<ListItemInfo>(cri);
-            if (tmpList.Count > 0)
+            try
             {
-                throw new FacadeException("列表名称已经存在，请重新输入！");
+                newName = newName.Trim();
+
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                Criteria cri = new Criteria();
+                cri.Add(Expression.Equal("Name", newName));
+                cri.Add(Expression.NotEqual("Id", listId));
+                IList<ListItemInfo> tmpList = persistence.GetList<ListItemInfo>(cri);
+                if (tmpList.Count > 0)
+                {
+                    throw new FacadeException("列表名称已经存在，请重新输入！");
+                }
+                ListItemEntity entity = new ListItemEntity();
+                entity.Id = listId;
+                entity.Name = newName;
+                PageManager manager = new PageManager(DbAccess);
+                manager.ModifyEntity<ListItemEntity>(entity);
             }
-            ListItemEntity entity = new ListItemEntity();
-            entity.Id = listId;
-            entity.Name = newName;
-            PageManager manager = new PageManager(DbAccess);
-            manager.ModifyEntity<ListItemEntity>(entity);
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "ModifyListName - " + listId + " : " + newName, ex);
+            }
         }
 
         public void AddHtml(HtmlItemFullInfo item)
         {
+            try
+            {
+                HtmlItemEntity entity = new HtmlItemEntity();
+                entity.Content = item.Content;
+                entity.ItsListId = item.ItsListId;
+                entity.ListName = item.ListName;
+                entity.Name = item.Name;
+                entity.Title = item.Title;
+
+                PageManager manager = new PageManager(DbAccess);
+                manager.AddEntity<HtmlItemEntity>(entity);
+                item.Id = entity.Id;
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "AddHtml - " + item.Name, ex);
+            }
+        }
+
+        public void ModifyHtml(HtmlItemFullInfo item)
+        {
+            try
+            {
+                HtmlItemEntity entity = new HtmlItemEntity();
+                entity.Id = item.Id;
+                entity.Content = item.Content;
+                entity.ListName = item.ListName;
+                entity.Name = item.Name;
+                entity.Title = item.Title;
+
+                PageManager manager = new PageManager(DbAccess);
+                manager.ModifyEntity<HtmlItemEntity>(entity);
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "ModifyHtml - " + item.Name, ex);
+            }
         }
 
         public void AddMenu(MenuItemInfo menu)
         {
+            try
+            {
+                MenuItemEntity entity = new MenuItemEntity();
+                entity.Index = menu.Index;
+                entity.InnerId = menu.InnerId;
+                entity.IsInner = menu.IsInner;
+                entity.IsListType = menu.IsListType;
+                entity.IsOpenNewWindow = menu.IsOpenNewWindow;
+                entity.Level = menu.Level;
+                entity.Name = menu.Name;
+                entity.OuterUrl = menu.OuterUrl;
+                entity.ParentId = menu.ParentId;
+
+                PageManager manager = new PageManager(DbAccess);
+                manager.AddEntity<MenuItemEntity>(entity);
+                menu.Id = entity.Id;
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "AddMenu - " + menu.Name, ex);
+            }
         }
 
         public ListItemInfo GetListItemById(string id)
         {
-            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-            return persistence.GetByKey<ListItemInfo>(id);
+            try
+            {
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                return persistence.GetByKey<ListItemInfo>(id);
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "GetListItemById - " + id, ex);
+            }
         }
 
         public ListItemInfo GetListItemByMenu(string menuId)
         {
-            return null;
+            try
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "GetListItemByMenu - " + menuId, ex);
+            }
         }
 
         public HtmlItemInfo GetHtmlItemByMenu(string menuId)
         {
-            return null;
+            try
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "GetHtmlItemByMenu - " + menuId, ex);
+            }
         }
     }
 }

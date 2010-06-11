@@ -9,7 +9,7 @@ namespace J.SkyMusic.DbFacade.Services
     public class PageItemInfo
     {
         [EntityMappingField("Id", IsKey = true)]
-        public string Id { get; internal set; }
+        public string Id { get; set; }
 
         [EntityMappingField("Name")]
         public string Name { get; set; }

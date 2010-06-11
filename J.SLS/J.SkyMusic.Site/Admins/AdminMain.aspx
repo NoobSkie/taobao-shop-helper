@@ -53,7 +53,7 @@
                                         <asp:Repeater ID="rptAddPageMenu" runat="server">
                                             <ItemTemplate>
                                                 <li id="menu_products2">
-                                                    <asp:HyperLink ID="hlnkMenu1" NavigateUrl='<%# Eval("Id", "EditContent.aspx?id={0}") %>'
+                                                    <asp:HyperLink ID="hlnkMenu1" NavigateUrl='<%# Eval("Id", "EditContent.aspx?lid={0}") %>'
                                                         Target="iframe_sub" runat="server"><%# Eval("Name") %></asp:HyperLink>
                                                 </li>
                                             </ItemTemplate>
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li id="Li1"><a href="javascript:void(0);">列表管理</a>
+                        <li id="Li1"><a href="ListManagement.aspx" target="iframe_sub">列表管理</a>
                             <div class="yuimenu">
                                 <div class="bd">
                                     <ul>

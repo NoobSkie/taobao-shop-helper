@@ -1,0 +1,9 @@
+﻿.ContentLayout
+{
+}
+.ContentLayout .LayoutRow
+{
+    min-height:40px;
+    line-height: 38px;
+    clear: both;
+}

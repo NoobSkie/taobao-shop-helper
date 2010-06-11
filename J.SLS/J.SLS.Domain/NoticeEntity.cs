@@ -39,4 +39,35 @@ namespace J.SLS.Domain
         [EntityMappingField("XmlHeader")]
         public string XmlHeader { get; set; }
     }
+
+    [EntityMappingTable("T_Notice_Response")]
+    public class NoticeResponseEntity
+    {
+        [EntityMappingField("Id", IsKey = true, IsAutoField = true)]
+        public long Id { get; set; }
+
+        [EntityMappingField("NoticeId")]
+        public string NoticeId { get; set; }
+
+        [EntityMappingField("NoticeVersion")]
+        public string NoticeVersion { get; set; }
+
+        [EntityMappingField("MessengerId")]
+        public string MessengerId { get; set; }
+
+        [EntityMappingField("TranType")]
+        public int TranType { get; set; }
+
+        [EntityMappingField("Timestamp")]
+        public string Timestamp { get; set; }
+
+        [EntityMappingField("ResponseTime")]
+        public DateTime ResponseTime { get; set; }
+
+        [EntityMappingField("ResponseXml")]
+        public string ResponseXml { get; set; }
+
+        [EntityMappingField("FullResponseText")]
+        public string FullResponseText { get; set; }
+    }
 }

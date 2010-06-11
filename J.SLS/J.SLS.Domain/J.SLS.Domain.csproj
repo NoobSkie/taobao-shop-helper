@@ -49,6 +49,8 @@
     <Compile Include="IssueManager.cs" />
     <Compile Include="NoticeEntity.cs" />
     <Compile Include="NoticeManager.cs" />
+    <Compile Include="TicketEntity.cs" />
+    <Compile Include="TicketManager.cs" />
     <Compile Include="UserEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserManager.cs" />

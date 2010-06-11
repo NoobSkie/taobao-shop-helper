@@ -39,6 +39,7 @@ public partial class Admins_MenuEdit : BaseAdminPage
         {
             menu.InnerId = ddlLinkHtml.SelectedValue;
         }
+        menu.IsInner = !rbtnOuter.Checked;
         menu.IsOpenNewWindow = cbOpenNewWindow.Checked;
         menu.Level = string.IsNullOrEmpty(parentId) ? 0 : 1;
         menu.Name = txtName.Text;

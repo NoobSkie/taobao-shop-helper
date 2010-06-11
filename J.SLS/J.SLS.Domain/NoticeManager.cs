@@ -21,6 +21,12 @@ namespace J.SLS.Domain
             persistence.Add(entity);
         }
 
+        public void AddNoticeResponse(NoticeResponseEntity entity)
+        {
+            entity.ResponseTime = DateTime.Now;
+            persistence.Add(entity);
+        }
+
         public IList<NoticeEntity> GetNoticeListFrom(DateTime fromTime)
         {
             Criteria cri = new Criteria();

@@ -47,12 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseFacade.cs" />
+    <Compile Include="CoreBizInfos.cs" />
     <Compile Include="HPCommunicationFacade.cs" />
     <Compile Include="HPCommunicationObjects.cs" />
     <Compile Include="IssueNoticeFacade.cs" />
     <Compile Include="NoticeBaseInfo.cs" />
-    <Compile Include="XmlNoticeFacade.cs" />
-    <Compile Include="XmlNoticeInfo.cs" />
     <Compile Include="LotteryFacade.cs" />
     <Compile Include="LotteryInfo.cs" />
     <Compile Include="UserFacade.cs" />

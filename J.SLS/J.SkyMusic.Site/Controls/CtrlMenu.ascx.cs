@@ -39,7 +39,7 @@ public partial class Controls_CtrlMenu : System.Web.UI.UserControl
             }
             else
             {
-                if (item.Level == 1)
+                if (item.Level == 0)
                 {
                     hlnkUrl.NavigateUrl = string.Format("~/ShowMenu.aspx?m1={0}", item.Id);
                 }
@@ -48,6 +48,21 @@ public partial class Controls_CtrlMenu : System.Web.UI.UserControl
                     if (item.IsOpenNewWindow)
                     {
                         hlnkUrl.Target = "_blank";
+                    }
+                    if (item.IsInner)
+                    {
+                        if (item.IsListType)
+                        {
+                            hlnkUrl.NavigateUrl = string.Format("~/ShowList.aspx?m1={0}&m2={1}&id={2}", ParentId ?? "", item.Id, item.InnerId);
+                        }
+                        else
+                        {
+                            hlnkUrl.NavigateUrl = string.Format("~/ShowContent.aspx?m1={0}&m2={1}&id={2}", ParentId ?? "", item.Id, item.InnerId);
+                        }
+                    }
+                    else
+                    {
+                        hlnkUrl.NavigateUrl = item.OuterUrl;
                     }
                     //switch (item.Type)
                     //{
