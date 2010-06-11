@@ -29,9 +29,6 @@ namespace J.SkyMusic.DbFacade.Domains
     [EntityMappingTable("T_Page_Html")]
     public class HtmlItemEntity : PageEntityBase
     {
-        [EntityMappingField("ListName")]
-        public string ListName { get; set; }
-
         [EntityMappingField("TitleHtml")]
         public string Title { get; set; }
 

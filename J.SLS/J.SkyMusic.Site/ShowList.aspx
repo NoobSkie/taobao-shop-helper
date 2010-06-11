@@ -11,15 +11,15 @@
             <ItemTemplate>
                 <div class="Row">
                     <asp:HyperLink ID="hlnkName" CssClass="Name" runat="server"></asp:HyperLink>
-                    <asp:Image ID="imgNew" CssClass="New" runat="server" />
                     <asp:Label ID="lblUpdateTime" CssClass="UpdateTime" runat="server"></asp:Label>
+                    <asp:Image ID="imgNew" CssClass="New" runat="server" />
                 </div>
             </ItemTemplate>
             <AlternatingItemTemplate>
                 <div class="Row Alternating">
                     <asp:HyperLink ID="hlnkName" CssClass="Name" runat="server"></asp:HyperLink>
-                    <asp:Image ID="imgNew" CssClass="New" runat="server" />
                     <asp:Label ID="lblUpdateTime" CssClass="UpdateTime" runat="server"></asp:Label>
+                    <asp:Image ID="imgNew" CssClass="New" runat="server" />
                 </div>
             </AlternatingItemTemplate>
         </asp:Repeater>

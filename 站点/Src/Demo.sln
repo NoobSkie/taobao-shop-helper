@@ -31,7 +31,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "J.SkyMusic.Site", "..\..\J.
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Demo", "Demo\", "{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J.SkyMusic.DbFacade", "J.SkyMusic.DbFacade\J.SkyMusic.DbFacade.csproj", "{2D268E43-ECAA-43B3-AF02-560942C1BD2B}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Demo", "Demo\", "{58620A3C-B503-4C6D-BB75-8E3DA5C9BA00}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
 		Debug.AspNetCompiler.VirtualPath = "/Demo"
@@ -50,8 +52,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Demo", "Demo\", "{17D325FA-
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "14831"
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J.SkyMusic.DbFacade", "J.SkyMusic.DbFacade\J.SkyMusic.DbFacade.csproj", "{2D268E43-ECAA-43B3-AF02-560942C1BD2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,14 +79,14 @@ Global
 		{67A25B66-FAB8-40C3-8DCF-815F253E01C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67A25B66-FAB8-40C3-8DCF-815F253E01C7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{67A25B66-FAB8-40C3-8DCF-815F253E01C7}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{17D325FA-1ACF-4195-88F8-486CBC7FAEEA}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{2D268E43-ECAA-43B3-AF02-560942C1BD2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2D268E43-ECAA-43B3-AF02-560942C1BD2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D268E43-ECAA-43B3-AF02-560942C1BD2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D268E43-ECAA-43B3-AF02-560942C1BD2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58620A3C-B503-4C6D-BB75-8E3DA5C9BA00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58620A3C-B503-4C6D-BB75-8E3DA5C9BA00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58620A3C-B503-4C6D-BB75-8E3DA5C9BA00}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{58620A3C-B503-4C6D-BB75-8E3DA5C9BA00}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

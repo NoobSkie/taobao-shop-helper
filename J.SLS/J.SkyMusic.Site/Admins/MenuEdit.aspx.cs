@@ -21,6 +21,18 @@ public partial class Admins_MenuEdit : BaseAdminPage
         {
             BindParentMenuList();
             BindInnerLinkList();
+            if (!IsAdd)
+            {
+                BindMenuInfo(Request["id"]);
+            }
+        }
+    }
+
+    private bool IsAdd
+    {
+        get
+        {
+            return string.IsNullOrEmpty(Request["id"]);
         }
     }
 
@@ -47,6 +59,50 @@ public partial class Admins_MenuEdit : BaseAdminPage
         menu.ParentId = parentId;
 
         facade.AddMenu(menu);
+    }
+
+    private void BindMenuInfo(string menuId)
+    {
+        PageFacade facade = PageHelper.GetPageFacade(this.Page);
+        MenuItemInfo menuItem = facade.GetMenuById(menuId);
+        txtName.Text = menuItem.Name;
+        txtIndex.Text = menuItem.Index.ToString();
+        if (string.IsNullOrEmpty(menuItem.ParentId))
+        {
+            ddlTopMenu.SelectedValue = "";
+        }
+        else
+        {
+            ddlTopMenu.SelectedValue = menuItem.ParentId;
+            if (menuItem.IsInner)
+            {
+                rbtnInner.Checked = true;
+                if (menuItem.IsListType)
+                {
+                    ddlLinkList.SelectedValue = menuItem.InnerId;
+                }
+                else
+                {
+                    HtmlItemInfo htmlItem = facade.GetHtmlItemById(menuItem.InnerId);
+                    if (string.IsNullOrEmpty(htmlItem.ItsListId))
+                    {
+                        ddlLinkList.SelectedValue = htmlItem.ItsListId ?? "";
+                        ddlLinkHtml.SelectedValue = htmlItem.Id;
+                    }
+                    else
+                    {
+                        ddlLinkList.SelectedValue = htmlItem.ItsListId;
+                        ddlLinkHtml.SelectedValue = htmlItem.Id;
+                    }
+                }
+            }
+            else
+            {
+                rbtnOuter.Checked = true;
+                txtOuterUrl.Text = menuItem.OuterUrl;
+            }
+        }
+        cbOpenNewWindow.Checked = menuItem.IsOpenNewWindow;
     }
 
     private void BindParentMenuList()

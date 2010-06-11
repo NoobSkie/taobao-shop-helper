@@ -99,9 +99,9 @@ public partial class Admins_EditList : BaseAdminPage
         {
             JavascriptAlert(ex.Message);
         }
-        catch (Exception ex)
+        catch
         {
-            JavascriptAlert(@"保存列表发生未知错误，请联系系统配置人员！\\n\\n" + ex.Message);
+            JavascriptAlert(@"保存列表发生未知错误，请联系系统配置人员！");
         }
     }
 }

@@ -41,7 +41,6 @@ public partial class ShowList : System.Web.UI.Page
             {
                 p += "&m2=" + Request["m2"];
             }
-            p = p.TrimStart('&');
             hlnkName.NavigateUrl = string.Format("ShowContent.aspx?id={0}{1}", htmlItem.Id, p);
             if (htmlItem.LastUpdateTime.AddDays(7) > DateTime.Now)
             {
@@ -52,6 +51,7 @@ public partial class ShowList : System.Web.UI.Page
             {
                 imgNew.Visible = false;
             }
+            lblUpdateTime.Text = htmlItem.LastUpdateTime.ToString("(yyyy-MM-dd HH:mm:ss)");
         }
     }
 }

@@ -37,45 +37,30 @@ public partial class Controls_CtrlMenu : System.Web.UI.UserControl
             {
                 hlnkUrl.CssClass += " Selected";
             }
+            if (item.Level == 0)
+            {
+                hlnkUrl.NavigateUrl = string.Format("~/ShowMenu.aspx?m1={0}", item.Id);
+            }
             else
             {
-                if (item.Level == 0)
+                if (item.IsOpenNewWindow)
                 {
-                    hlnkUrl.NavigateUrl = string.Format("~/ShowMenu.aspx?m1={0}", item.Id);
+                    hlnkUrl.Target = "_blank";
                 }
-                else
+                if (item.IsInner)
                 {
-                    if (item.IsOpenNewWindow)
+                    if (item.IsListType)
                     {
-                        hlnkUrl.Target = "_blank";
-                    }
-                    if (item.IsInner)
-                    {
-                        if (item.IsListType)
-                        {
-                            hlnkUrl.NavigateUrl = string.Format("~/ShowList.aspx?m1={0}&m2={1}&id={2}", ParentId ?? "", item.Id, item.InnerId);
-                        }
-                        else
-                        {
-                            hlnkUrl.NavigateUrl = string.Format("~/ShowContent.aspx?m1={0}&m2={1}&id={2}", ParentId ?? "", item.Id, item.InnerId);
-                        }
+                        hlnkUrl.NavigateUrl = string.Format("~/ShowList.aspx?m1={0}&m2={1}&id={2}", ParentId ?? "", item.Id, item.InnerId);
                     }
                     else
                     {
-                        hlnkUrl.NavigateUrl = item.OuterUrl;
+                        hlnkUrl.NavigateUrl = string.Format("~/ShowContent.aspx?m1={0}&m2={1}&id={2}", ParentId ?? "", item.Id, item.InnerId);
                     }
-                    //switch (item.Type)
-                    //{
-                    //    case MenuType.OutUrl:
-                    //        hlnkUrl.NavigateUrl = item.OutUrl;
-                    //        break;
-                    //    case MenuType.ListPage:
-                    //        hlnkUrl.NavigateUrl = string.Format("~/ShowList.aspx?id={0}&m1={1}&m2={2}", item.InnerId, ParentId ?? "", item.Id);
-                    //        break;
-                    //    case MenuType.HtmlPage:
-                    //        hlnkUrl.NavigateUrl = string.Format("~/ShowContent.aspx?id={0}&m1={1}&m2={2}", item.InnerId, ParentId ?? "", item.Id);
-                    //        break;
-                    //}
+                }
+                else
+                {
+                    hlnkUrl.NavigateUrl = item.OuterUrl;
                 }
             }
         }

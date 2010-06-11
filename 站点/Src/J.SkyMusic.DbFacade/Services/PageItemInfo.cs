@@ -29,9 +29,6 @@ namespace J.SkyMusic.DbFacade.Services
     [EntityMappingTable("T_Page_Html")]
     public class HtmlItemInfo : PageItemInfo
     {
-        [EntityMappingField("ListName")]
-        public string ListName { get; set; }
-
         [EntityMappingField("ParentListId")]
         public string ItsListId { get; set; }
     }

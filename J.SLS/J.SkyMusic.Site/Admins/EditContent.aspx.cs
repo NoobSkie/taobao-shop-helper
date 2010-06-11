@@ -59,7 +59,6 @@ public partial class Admins_EditContent : BaseAdminPage
     private void BindHtmlInfo(HtmlItemFullInfo htmlItem)
     {
         txtName.Text = htmlItem.Name;
-        ftxtListName.Text = htmlItem.ListName;
         txtTitle.Text = htmlItem.Title;
         txtContent.Text = htmlItem.Content;
     }
@@ -77,11 +76,6 @@ public partial class Admins_EditContent : BaseAdminPage
         try
         {
             string name1 = txtName.Text.Trim();
-            string name2 = ftxtListName.Text.Trim();
-            if (string.IsNullOrEmpty(name2))
-            {
-                name2 = name1;
-            }
             string title = txtTitle.Text.Trim();
             if (string.IsNullOrEmpty(title))
             {
@@ -92,7 +86,6 @@ public partial class Admins_EditContent : BaseAdminPage
             PageFacade facade = PageHelper.GetPageFacade(this.Page);
             HtmlItemFullInfo html = new HtmlItemFullInfo();
             html.Name = name1;
-            html.ListName = name2;
             html.Title = title;
             html.Content = content;
             html.ItsListId = Request["lid"];

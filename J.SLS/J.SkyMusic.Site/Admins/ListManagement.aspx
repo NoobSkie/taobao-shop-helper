@@ -10,38 +10,33 @@
     </div>
     <div class="Content">
         <div class="Operator">
-            <asp:HyperLink ID="hlnkAdd" runat="server"><span>新增列表</span></asp:HyperLink><asp:HyperLink
-                ID="hlnkCancel" runat="server"><span>返回</span></asp:HyperLink>
-        </div>
-        <div class="TipDiv">
-            <span id="lblJsErrorMsg"></span>
+            <asp:HyperLink ID="hlnkAdd" NavigateUrl="EditList.aspx" runat="server"><span>新增列表</span></asp:HyperLink>
         </div>
         <div class="ListDiv">
-            <asp:Repeater ID="rptList" runat="server">
+            <asp:Repeater ID="rptList" runat="server" OnItemCommand="rptList_ItemCommand">
                 <HeaderTemplate>
                     <div class="THeader">
-                        <span class="Name">列表名称</span><span class="Code">编码</span><span class="Count">子页面数量</span><span
-                            class="Link"></span>
+                        <span class="Name">列表名称</span><span class="Code">创建时间</span><span class="Link"></span>
                     </div>
                 </HeaderTemplate>
                 <ItemTemplate>
                     <div class="TRow">
                         <asp:Label ID="lblFileName" CssClass="Name" runat="server"><%# Eval("Name")%></asp:Label>
-                        <asp:Label ID="lblFileType" CssClass="Code" runat="server"><%# Eval("Code")%></asp:Label>
-                        <asp:Label ID="lblFileSize" CssClass="Count" runat="server"><%# Eval("ChildrenCount")%></asp:Label>
+                        <asp:Label ID="lblFileType" CssClass="Code" runat="server"><%# Eval("CreateTime")%></asp:Label>
                         <span class="Link">
                             <asp:HyperLink ID="hlnkEdit" runat="server" NavigateUrl='<%# Eval("Id", "EditList.aspx?Id={0}") %>'>编辑</asp:HyperLink>
-                            <asp:LinkButton ID="lbtnDelete" runat="server">删除</asp:LinkButton></span>
+                            <asp:LinkButton ID="lbtnDelete" CommandName="Delete" CommandArgument='<%# Eval("Id") %>'
+                                OnClientClick=<%# Eval("Name", "return confirm('确定删除此列表吗？ - {0}');") %> runat="server">删除</asp:LinkButton></span>
                     </div>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
                     <div class="TRow Alternating">
                         <asp:Label ID="lblFileName" CssClass="Name" runat="server"><%# Eval("Name")%></asp:Label>
-                        <asp:Label ID="lblFileType" CssClass="Code" runat="server"><%# Eval("Code")%></asp:Label>
-                        <asp:Label ID="lblFileSize" CssClass="Count" runat="server"><%# Eval("ChildrenCount")%></asp:Label>
+                        <asp:Label ID="lblFileType" CssClass="Code" runat="server"><%# Eval("CreateTime")%></asp:Label>
                         <span class="Link">
-                            <asp:HyperLink ID="hlnkEdit" runat="server" NavigateUrl='EditList.aspx?Id=<%# Eval("Id") %>'>编辑</asp:HyperLink>
-                            <asp:LinkButton ID="lbtnDelete" runat="server">删除</asp:LinkButton></span>
+                            <asp:HyperLink ID="hlnkEdit" runat="server" NavigateUrl='<%# Eval("Id", "EditList.aspx?Id={0}") %>'>编辑</asp:HyperLink>
+                            <asp:LinkButton ID="lbtnDelete" OnClientClick=<%# Eval("Name", "return confirm('确定删除此列表吗？ - {0}');") %>
+                                runat="server">删除</asp:LinkButton></span>
                     </div>
                 </AlternatingItemTemplate>
             </asp:Repeater>

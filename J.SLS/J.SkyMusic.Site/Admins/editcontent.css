@@ -1,3 +1,30 @@
 ﻿.ContentLayout
 {
 }
+.ContentLayout .LayoutRow
+{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    line-height: 38px;
+    clear: both;
+}
+.ContentLayout .LayoutRow span.Title
+{
+    margin-left: 10px;
+    width: 100px;
+    display: inline-block;
+    font-weight: bold;
+    float: left;
+}
+.ContentLayout .LayoutRow span.Tip
+{
+    clear: both;
+    display: block;
+    line-height: 20px;
+    margin-left: 110px;
+    color: Red;
+}
+.ContentLayout .LayoutRow Input
+{
+    width: 700px;
+}

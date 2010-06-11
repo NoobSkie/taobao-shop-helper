@@ -60,6 +60,19 @@ namespace J.SkyMusic.DbFacade.Services
             }
         }
 
+        public MenuItemInfo GetMenuById(string menuId)
+        {
+            try
+            {
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                return persistence.GetByKey<MenuItemInfo>(menuId);
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "GetMenuById - " + menuId, ex);
+            }
+        }
+
         public IList<MenuItemInfo> GetTopMenuList()
         {
             try
@@ -156,7 +169,6 @@ namespace J.SkyMusic.DbFacade.Services
                 HtmlItemEntity entity = new HtmlItemEntity();
                 entity.Content = item.Content;
                 entity.ItsListId = item.ItsListId;
-                entity.ListName = item.ListName;
                 entity.Name = item.Name;
                 entity.Title = item.Title;
 
@@ -177,7 +189,6 @@ namespace J.SkyMusic.DbFacade.Services
                 HtmlItemEntity entity = new HtmlItemEntity();
                 entity.Id = item.Id;
                 entity.Content = item.Content;
-                entity.ListName = item.ListName;
                 entity.Name = item.Name;
                 entity.Title = item.Title;
 
@@ -212,6 +223,44 @@ namespace J.SkyMusic.DbFacade.Services
             catch (Exception ex)
             {
                 throw HandleException("Page", "AddMenu - " + menu.Name, ex);
+            }
+        }
+
+        public void DeleteHtml(string htmlId)
+        {
+            try
+            {
+                HtmlItemEntity entity = new HtmlItemEntity();
+                entity.Id = htmlId;
+                PageManager manager = new PageManager(DbAccess);
+                manager.DeleteEntity<HtmlItemEntity>(entity);
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "DeleteHtml - " + htmlId, ex);
+            }
+        }
+
+        public void DeleteList(string listId)
+        {
+            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+            Criteria cri = new Criteria();
+            cri.Add(Expression.Equal("ItsListId", listId));
+            IList<HtmlItemInfo> list = persistence.GetList<HtmlItemInfo>(cri);
+            if (list.Count > 0)
+            {
+                throw new FacadeException("此列表包含有子页面，请先删除列表下的全部子页面。");
+            }
+            try
+            {
+                ListItemEntity entity = new ListItemEntity();
+                entity.Id = listId;
+                PageManager manager = new PageManager(DbAccess);
+                manager.DeleteEntity<ListItemEntity>(entity);
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "DeleteList - " + listId, ex);
             }
         }
 

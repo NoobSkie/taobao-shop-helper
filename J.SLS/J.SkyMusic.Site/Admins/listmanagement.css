@@ -39,6 +39,7 @@
 }
 .ListDiv div .Name
 {
+    padding-left: 10px;
     width: 450px;
 }
 .ListDiv div .Code
