@@ -1,5 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admins/AdminMaster.master" AutoEventWireup="true" ValidateRequest="false" EnableEventValidation="false"
-    CodeFile="MenuEdit.aspx.cs" Inherits="Admins_MenuEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admins/AdminMaster.master" AutoEventWireup="true"
+    ValidateRequest="false" EnableEventValidation="false" CodeFile="MenuEdit.aspx.cs"
+    Inherits="Admins_MenuEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ph_head" runat="Server">
     <link href="menuedit.css" rel="stylesheet" type="text/css" />
@@ -58,30 +59,24 @@
             ClearHtmlItems();
             var listId = parentObj.options[parentObj.selectedIndex].value;
             var obj = document.getElementById("<%= ddlLinkHtml.ClientID %>");
-            if (listId == "") {
-                obj.style.display = "none";
+            var s0 = "<%= SplitChar0 %>";
+            for (var i = 0; i < htmlCache.length; i++) {
+                var items = htmlCache[i].split(s0);
+                if (items[0] == listId) {
+                    BindHtmlItems(items[1]);
+                    return;
+                }
             }
-            else {
-                obj.style.display = "";
-                var s0 = "<%= SplitChar0 %>";
-                for (var i = 0; i < htmlCache.length; i++) {
-                    var items = htmlCache[i].split(s0);
-                    if (items[0] == listId) {
-                        BindHtmlItems(items[1]);
-                        return;
-                    }
+            try {
+                var response = Admins_MenuEdit.GetHtmlItemsById(listId);
+                if (response == null || response.value == null) {
+                    return;
                 }
-                try {
-                    var response = Admins_MenuEdit.GetHtmlItemsById(listId);
-                    if (response == null || response.value == null) {
-                        return;
-                    }
-                    htmlCache.push(listId + s0 + response.value);
-                    BindHtmlItems(response.value);
-                }
-                catch (e) {
-                    alert("读取列表失败！");
-                }
+                htmlCache.push(listId + s0 + response.value);
+                BindHtmlItems(response.value);
+            }
+            catch (e) {
+                alert("读取列表失败！");
             }
         }
 

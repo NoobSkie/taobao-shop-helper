@@ -43,7 +43,7 @@ body
 .Menu1 ul li a
 {
     text-decoration: none; 
-    font-family: ºÚÌå;
+    font-family: »ªÎÄ²ÊÔÆ;
     font-size: 150%;
     color: #005BAA;
     font-weight: bold;
@@ -61,6 +61,7 @@ body
 {
     list-style-type: none;
     line-height: 22px;
+    border-bottom: dotted 1px red;
 }
 .Content
 {
