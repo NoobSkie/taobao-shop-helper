@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BonusEntity.cs" />
+    <Compile Include="BonusManager.cs" />
     <Compile Include="IssueEntity.cs" />
     <Compile Include="IssueManager.cs" />
     <Compile Include="NoticeEntity.cs" />

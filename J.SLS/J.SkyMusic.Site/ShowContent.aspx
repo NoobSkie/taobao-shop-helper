@@ -17,7 +17,7 @@
                 <span>更新时间：</span><asp:Label ID="lblUpdateTime" runat="server"></asp:Label>
             </div>
         </div>
-        <div class="Content">
+        <div class="HTML">
             <asp:Label ID="lblContent" runat="server"></asp:Label>
         </div>
     </div>

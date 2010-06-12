@@ -3,22 +3,32 @@ body
     margin: 0px;
     font-size: 12px;
     font-family: ËÎÌå, Tahoma, Arial;
+    background-color: #EEF3FA;
 }
 .MainForm
 {
     width: 1000px;
     text-align: left;
+    background-color: #FFFFFF;
 }
 .Header
 {
-    min-height: 80px;
-    border: solid 1px red;
+    background-image: url('../Images/menu_bg.png');
+    height: 100px;
+    background-repeat: repeat-x;
+}
+.Header .Logo
+{
+    margin-left: 30px;
+    margin-right: 35px;
+    margin-top: 20px;
+    float: left;
+}
+.TitleImage
+{
 }
 .Menu1
 {
-    line-height: 30px;
-    height: 30px;
-    border: solid 1px red;
 }
 .Menu1 ul
 {
@@ -27,13 +37,22 @@ body
 {
     list-style-type: none;
     float: left;
+    line-height: 100px;
     margin-right: 12px;
+}
+.Menu1 ul li a
+{
+    text-decoration: none; 
+    font-family: ºÚÌå;
+    font-size: 150%;
+    color: #005BAA;
+    font-weight: bold;
 }
 .Menu2
 {
-    width: 220px;
+    width: 300px;
     float: left;
-    border: solid 1px red;
+    min-height: 220px;
 }
 .Menu2 ul
 {

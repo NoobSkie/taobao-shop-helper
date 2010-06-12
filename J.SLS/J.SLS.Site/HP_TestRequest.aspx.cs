@@ -15,8 +15,7 @@ public partial class HP_TestRequest : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Write(Guid.NewGuid().ToString("N"));
-        //string str = "transType=101&transMessage=<?xml version=\"1.0\" encoding=\"GBK\"?> <message version=\"1.0\" id=\"2000212010060418663512\"><header><messengerID>200021</messengerID><timestamp>20100604142338</timestamp><transactionType>101</transactionType><digest>2a18c23517606f318f8838ad593ca71a</digest></header><body><issueNotify><issue gameName=\"ssq\" number=\"2010193\" startTime=\"2010-06-04 13:48:00\" stopTime=\"2010-06-05 13:48:00\" status=\"3\" bonusCode=\"\" salesMoney=\"-1.0\" bonusMoney=\"-1.0\"/></issueNotify></body></message>";
+        string body = "transType=108&transMessage=<?xml version=\"1.0\" encoding=\"GBK\"?> <message version=\"1.0\" id=\"2000212010061219207037\"><header><messengerID>200021</messengerID><timestamp>20100612135719</timestamp><transactionType>108</transactionType><digest>2e5b48633925f9409032fb06695ded34</digest></header><body><bonusNotify bonusNumber=\"01,02,03,04,05,06,07#08\" totalItems=\"0\" totalMoney=\"0.0\"><issue number=\"2010068\" gameName=\"307\"/></bonusNotify></body></message>";
         //str = Server.UrlDecode(str);
         //lblMessage.Text = str;
 
@@ -24,9 +23,9 @@ public partial class HP_TestRequest : System.Web.UI.Page
         //// string body = "transType=101&transMessage=<?xml version=\"1.0\" encoding=\"GBK\"?> <message version=\"1.0\" id=\"2000212010060518672983\"><header><messengerID>200021</messengerID><timestamp>20100605152812</timestamp><transactionType>101</transactionType><digest>5a2791e03d5fa9d9ae80c80c8a4444b9</digest></header><body><issueNotify><issue gameName=\"ssl\" number=\"2010060511\" startTime=\"2010-06-05 14:58:00\" stopTime=\"2010-06-05 15:28:00\" status=\"3\" bonusCode=\"\" salesMoney=\"-1.0\" bonusMoney=\"-1.0\"/></issueNotify></body></message>";
         //body = Server.UrlDecode(body);
         //Response.Write(body);
-        //string r = Post("http://localhost:47599/J.SLS.Site/HP_Recevie.aspx", body, 5000);
+        string r = Post("http://localhost:47599/J.SLS.Site/HP_Recevie.aspx", body, 5000);
         //// string r = Post("http://222.186.12.129:8099/HP_Recevie.aspx", body, 5000);
-        //lblMessage.Text = "<span>OK<span><br />" + Server.UrlDecode(r);
+        lblMessage.Text = "<span>OK<span><br />" + Server.UrlDecode(r);
     }
 
     public string Post(string Url, string RequestString, int TimeoutSeconds)

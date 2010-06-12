@@ -69,6 +69,18 @@ namespace J.SLS.Facade
         public decimal BonusMoney { get { return _Body.BonusMoney; } }
     }
 
+    public class BonusNoticeInfo : CommunicationObject
+    {
+        public class Body : XmlMappingObject
+        {
+            [XmlMapping("bonusNotify", 1)]
+            public BonusInfo _BonusInfo { get; set; }
+        }
+
+        [XmlMapping("body", 2)]
+        public Body _Body { get; set; }
+    }
+
     public class HPResponseInfo : CommunicationObject
     {
         public class Body : XmlMappingObject

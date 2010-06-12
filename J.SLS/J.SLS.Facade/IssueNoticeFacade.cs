@@ -45,8 +45,11 @@ namespace J.SLS.Facade
                 TranType type = (TranType)Enum.Parse(typeof(TranType), parameters["transType"]);
                 switch (type)
                 {
-                    case TranType.Request101:  // 奖期通知请求
+                    case TranType.Request101:   // 奖期通知请求
                         AddIssuseNotify(parameters["transMessage"]);
+                        break;
+                    case TranType.Request108:   // 返奖通知请求
+                        AddBonusNotify(parameters["transMessage"]);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException("不支持的通知类型 - " + type);
@@ -131,7 +134,48 @@ namespace J.SLS.Facade
             }
             catch (Exception ex)
             {
-                string errMsg = "添加通知到数据库失败！" + xml;
+                string errMsg = "添加奖期通知失败！" + xml;
+                throw HandleException(LogCategory.Notice, errMsg, ex);
+            }
+        }
+
+        public BonusNoticeInfo AddBonusNotify(string xml)
+        {
+            BonusNoticeInfo info = XmlAnalyzer.AnalyseXmlToCommunicationObject<BonusNoticeInfo>(xml);
+            try
+            {
+                BonusEntity bonusEntity = new BonusEntity();
+                bonusEntity.GameName = info._Body._BonusInfo._Issue.GameName;
+                bonusEntity.IssuseNumber = info._Body._BonusInfo._Issue.Number;
+                bonusEntity.BonusNumber = info._Body._BonusInfo.BonusNumber;
+                bonusEntity.TotalItems = info._Body._BonusInfo.TotalItems;
+                bonusEntity.TotalMoney = info._Body._BonusInfo.TotalMoney;
+                bonusEntity.NoticeId = info.Id;
+                using (ILHDBTran tran = BeginTran())
+                {
+                    BonusManager bonusManager = new BonusManager(tran);
+                    bonusManager.AddBonus(bonusEntity);
+                    List<BonusDetailEntity> bonusDetailList = new List<BonusDetailEntity>();
+                    foreach (BonusInfo.BonusItem bonusItem in info._Body._BonusInfo._BonusItemList)
+                    {
+                        BonusDetailEntity detail = new BonusDetailEntity();
+                        detail.TicketId = bonusItem.TicketId;
+                        detail.BonusLevel = bonusItem.BonusLevel;
+                        detail.PlayType = (int)bonusItem.PlayType;
+                        detail.Money = bonusItem.Money;
+                        detail.IsBombBonus = bonusItem.IsBombBonus;
+                        detail.Size = bonusItem.Size;
+                        detail.GameName = bonusEntity.GameName;
+                        detail.IssuseNumber = bonusEntity.IssuseNumber;
+                        bonusManager.AddBonusDetail(detail);
+                    }
+                    tran.Commit();
+                }
+                return info;
+            }
+            catch (Exception ex)
+            {
+                string errMsg = "添加返奖通知失败！" + xml;
                 throw HandleException(LogCategory.Notice, errMsg, ex);
             }
         }

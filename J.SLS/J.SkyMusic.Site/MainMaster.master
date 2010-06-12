@@ -17,9 +17,12 @@
         <div class="MainForm">
             <div class="Header">
                 <uc1:CtrlHeader ID="ctrlHeader" runat="server" />
+                <div class="Menu1">
+                    <uc2:CtrlMenu ID="ctrlMenu1" runat="server" />
+                </div>
             </div>
-            <div class="Menu1">
-                <uc2:CtrlMenu ID="ctrlMenu1" runat="server" />
+            <div class="TitleImage">
+                <asp:Image ID="imgTitle" ImageUrl="~/Images/header.png" runat="server" />
             </div>
             <div class="Menu2">
                 <uc2:CtrlMenu ID="ctrlMenu2" runat="server" />

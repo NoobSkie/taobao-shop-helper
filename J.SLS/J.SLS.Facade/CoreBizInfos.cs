@@ -116,4 +116,55 @@ namespace J.SLS.Facade
         [XmlMapping("bonusPhone", 7, MappingType = MappingType.Attribute)]
         public string BonusPhone { get; set; }
     }
+
+    /// <summary>
+    /// 返奖对象信息
+    /// </summary>
+    public class BonusInfo : XmlMappingObject
+    {
+        public class BonusItem : XmlMappingObject
+        {
+            [XmlMapping("playType", 0, MappingType.Attribute)]
+            public BuyType PlayType { get; set; }
+
+            /// <summary>
+            /// 用户投注的中奖金额，如果是大奖，那么金额为0 。
+            /// </summary>
+            [XmlMapping("money", 1, MappingType.Attribute)]
+            public decimal Money { get; set; }
+
+            /// <summary>
+            /// 是否为大奖中奖记录，其中：true表示是大奖，false表示不是大奖。
+            /// </summary>
+            [XmlMapping("isBombBonus", 2, MappingType.Attribute)]
+            public bool IsBombBonus { get; set; }
+
+            [XmlMapping("bonusLevel", 3, MappingType.Attribute)]
+            public int BonusLevel { get; set; }
+
+            /// <summary>
+            /// 某一票中奖中的某个特定奖等个数，比如中了5个二等奖。
+            /// </summary>
+            [XmlMapping("size", 4, MappingType.Attribute)]
+            public int Size { get; set; }
+
+            [XmlMapping("ticketID", 5, MappingType.Attribute)]
+            public string TicketId { get; set; }
+        }
+
+        [XmlMapping("bonusNumber", 0, MappingType.Attribute)]
+        public string BonusNumber { get; set; }
+
+        [XmlMapping("totalItems", 1, MappingType.Attribute)]
+        public int TotalItems { get; set; }
+
+        [XmlMapping("totalMoney", 2, MappingType.Attribute)]
+        public decimal TotalMoney { get; set; }
+
+        [XmlMapping("issue", 3)]
+        public IssueInfo _Issue { get; set; }
+
+        [XmlMapping("bonusItem", 4, ObjectType = XmlObjectType.List)]
+        public XmlMappingList<BonusItem> _BonusItemList { get; set; }
+    }
 }

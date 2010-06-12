@@ -1,3 +1,37 @@
 .ContentLayout
 {
+    padding-left: 10px;
+    padding-right: 30px;
 }
+.ContentLayout .Title
+{
+    line-height: 40px;
+    font-size: 200%;
+    font-weight: bold;
+    display: block;
+}
+.ContentLayout .Time
+{
+    display: block;
+    overflow: hidden;
+    line-height: 30px;
+    border-bottom: solid 1px gray;
+    margin-bottom: 18px;
+}
+.ContentLayout .Time .CreateTime
+{
+    float: left;
+    margin-right: 45px;
+}
+.ContentLayout .Time .UpdateTime
+{
+    padding-left: 45px;
+}
+.ContentLayout .HTML
+{
+    display: block;
+    overflow: hidden;
+    line-height: 24px;
+    text-indent: 24px;
+}
+
