@@ -32,11 +32,12 @@ public partial class Controls_CtrlMenu : System.Web.UI.UserControl
         {
             MenuItemInfo item = e.Item.DataItem as MenuItemInfo;
             HyperLink hlnkUrl = e.Item.FindControl("hlnkUrl") as HyperLink;
+            
             hlnkUrl.Text = item.Name;
-            if (!string.IsNullOrEmpty(SelectedMenuId) && item.Id.Equals(SelectedMenuId, StringComparison.OrdinalIgnoreCase))
-            {
-                hlnkUrl.CssClass += " Selected";
-            }
+            //if (!string.IsNullOrEmpty(SelectedMenuId) && item.Id.Equals(SelectedMenuId, StringComparison.OrdinalIgnoreCase))
+            //{
+            //    hlnkUrl.CssClass += " Selected";
+            //}
             if (item.Level == 0)
             {
                 hlnkUrl.NavigateUrl = string.Format("~/ShowMenu.aspx?m1={0}", item.Id);

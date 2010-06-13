@@ -1,8 +1,9 @@
-body
+ï»¿body
 {
+    padding: 0px;
     margin: 0px;
     font-size: 12px;
-    font-family: ËÎÌå, Tahoma, Arial;
+    font-family: å®‹ä½“, Tahoma, Arial;
     background-color: #EEF3FA;
 }
 .MainForm
@@ -26,6 +27,20 @@ body
 }
 .TitleImage
 {
+    height: 260px;
+    background-image: url('../Images/header.png');
+    background-repeat: no-repeat;
+}
+.SplitLeft
+{
+    float: left;
+    width: 14px;
+    min-height: 230px;
+    background-image: url('../Images/split_bg_left.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .Menu1
 {
@@ -37,16 +52,21 @@ body
 {
     list-style-type: none;
     float: left;
-    line-height: 100px;
+    height: 100px;
+    padding-top: 52px;
     margin-right: 12px;
+    /*
+    background-image: url('../Images/split_bg_menu.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    */
 }
 .Menu1 ul li a
 {
-    text-decoration: none; 
-    font-family: »ªÎÄ²ÊÔÆ;
+    text-decoration: none;
+    font-family: é»‘ä½“;
     font-size: 150%;
     color: #005BAA;
-    font-weight: bold;
 }
 .Menu2
 {
@@ -56,15 +76,41 @@ body
 }
 .Menu2 ul
 {
+    margin-top: 40px;
 }
 .Menu2 ul li
 {
     list-style-type: none;
-    line-height: 22px;
-    border-bottom: dotted 1px red;
+    height: 47px;
+    border-bottom: dashed 1px #336AAD;
+    text-align: center;
+}
+.Menu2 ul li a
+{
+    text-decoration: none;
+    color: #6690C0;
+    line-height: 47px;
+    font-family: é»‘ä½“;
+    font-size: 150%;
+}
+.Menu2 ul li.Selected
+{
+    background-image: url('../Images/menu2_bg_selected.png');
+    background-repeat: repeat-x;
+}
+.Menu2 ul li:hover
+{
+    background-image: url('../Images/menu2_bg_selected.png');
+    background-repeat: repeat-x;
+}
+.Menu2 ul:first-child
+{
+    border-top: dotted 1px #336AAD;
+    border-top: dashed 1px #336AAD;
 }
 .Content
 {
+    padding: 20px;
 }
 .Footer
 {
