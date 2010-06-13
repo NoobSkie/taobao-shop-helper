@@ -19,44 +19,99 @@ namespace J.SLS.Domain
         /// <summary>
         /// 投注方式。如：单式、复式、胆拖
         /// </summary>
-        [EntityMappingField("BuyType")]
+        [EntityMappingField("BuyType", NeedUpdate = false)]
         public int BuyType { get; set; }
 
         /// <summary>
         /// 该票的倍投数, 默认为1 倍。
         /// </summary>
-        [EntityMappingField("Amount")]
+        [EntityMappingField("Amount", NeedUpdate = false)]
         public int Amount { get; set; }
 
         /// <summary>
         /// 当前票的购买金额。
         /// </summary>
-        [EntityMappingField("Money")]
+        [EntityMappingField("Money", NeedUpdate = false)]
         public decimal Money { get; set; }
 
         /// <summary>
         /// 购彩用户信息
         /// </summary>
-        [EntityMappingField("UserId")]
+        [EntityMappingField("UserId", NeedUpdate = false)]
         public string UserId { get; set; }
 
-        [EntityMappingField("GameName")]
+        [EntityMappingField("GameName", NeedUpdate = false)]
         public string GameName { get; set; }
 
-        [EntityMappingField("IssuseNumber")]
+        [EntityMappingField("IssuseNumber", NeedUpdate = false)]
         public string IssuseNumber { get; set; }
+
+        [EntityMappingField("RequestTime", NeedUpdate = false)]
+        public DateTime RequestTime { get; set; }
+
+        [EntityMappingField("Status")]
+        public int Status { get; set; }
+
+        [EntityMappingField("ResponseCode")]
+        public string ResponseCode { get; set; }
+
+        [EntityMappingField("ResponseMessage")]
+        public string ResponseMessage { get; set; }
+
+        [EntityMappingField("ResponseTime")]
+        public DateTime? ResponseTime { get; set; }
     }
 
     [EntityMappingTable("T_Ticket_AnteCodes")]
-    public class TicketAnteCode
+    public class TicketAnteCodeEntity
     {
-        [EntityMappingField("TicketId", IsKey = true)]
+        [EntityMappingField("Id", IsKey = true, IsAutoField = true)]
+        public long Id { get; set; }
+
+        [EntityMappingField("TicketId", NeedUpdate = false)]
         public string TicketId { get; set; }
 
         /// <summary>
         /// 投注号码
         /// </summary>
-        [EntityMappingField("AnteCode", IsKey = true)]
+        [EntityMappingField("AnteCode", NeedUpdate = false)]
         public string AnteCode { get; set; }
+    }
+
+    [EntityMappingTable("T_Ticket_Detail")]
+    public class TicketDetailEntity
+    {
+        [EntityMappingField("Id", IsKey = true, IsAutoField = true)]
+        public long Id { get; set; }
+
+        [EntityMappingField("UserId", NeedUpdate = false)]
+        public string UserId { get; set; }
+
+        [EntityMappingField("TicketId", NeedUpdate = false)]
+        public string TicketId { get; set; }
+
+        [EntityMappingField("Balance_Before", NeedUpdate = false)]
+        public decimal BalanceBefore { get; set; }
+
+        [EntityMappingField("Freeze_Before", NeedUpdate = false)]
+        public decimal FreezeBefore { get; set; }
+
+        [EntityMappingField("PayMoney", NeedUpdate = false)]
+        public decimal PayMoney { get; set; }
+
+        [EntityMappingField("Balance_After", NeedUpdate = false)]
+        public decimal BalanceAfter { get; set; }
+
+        [EntityMappingField("Freeze_After", NeedUpdate = false)]
+        public decimal FreezeAfter { get; set; }
+
+        [EntityMappingField("Status", NeedUpdate = false)]
+        public int Status { get; set; }
+
+        [EntityMappingField("Message", NeedUpdate = false)]
+        public string Message { get; set; }
+
+        [EntityMappingField("CurrentTime", NeedUpdate = false)]
+        public DateTime CurrentTime { get; set; }
     }
 }

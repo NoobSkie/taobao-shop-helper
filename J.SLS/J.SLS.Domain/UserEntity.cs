@@ -40,4 +40,17 @@ namespace J.SLS.Domain
         [EntityMappingField("Mobile")]
         public string Mobile { get; set; }
     }
+
+    [EntityMappingTable("T_User_Balance")]
+    public class UserBalanceEntity
+    {
+        [EntityMappingField("UserId", IsKey = true)]
+        public string UserId { get; set; }
+
+        [EntityMappingField("Balance")]
+        public decimal? Balance { get; set; }
+
+        [EntityMappingField("Freeze")]
+        public decimal? Freeze { get; set; }
+    }
 }

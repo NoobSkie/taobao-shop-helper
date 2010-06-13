@@ -37,9 +37,28 @@ namespace J.SLS.Facade
         public string Mobile { get; set; }
 
         [EntityMappingField("Balance")]
-        public double Balance { get; set; }
+        public decimal? Balance { get; set; }
 
         [EntityMappingField("Freeze")]
-        public double Freeze { get; set; }
+        public decimal? Freeze { get; set; }
+
+        public decimal EnableMoney
+        {
+            get
+            {
+                if (Balance.HasValue)
+                {
+                    if (Freeze.HasValue)
+                    {
+                        return Balance.Value - Freeze.Value;
+                    }
+                    else
+                    {
+                        return Balance.Value;
+                    }
+                }
+                return 0;
+            }
+        }
     }
 }

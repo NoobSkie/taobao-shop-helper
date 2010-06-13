@@ -298,4 +298,23 @@ namespace J.SLS.Common
         /// </summary>
         B230 = 230,
     }
+
+    /// <summary>
+    /// 投注票的状态
+    /// </summary>
+    public enum TicketStatus
+    {
+        /// <summary>
+        /// 发请求中
+        /// </summary>
+        Requesting = 0,
+        /// <summary>
+        /// 确定落地
+        /// </summary>
+        Determinate = 1,
+        /// <summary>
+        /// 有错误发生的
+        /// </summary>
+        Error = 2,
+    }
 }

@@ -85,5 +85,6 @@ namespace J.SLS.Common.Logs
         public const string Lottery = "Lottery";
         public const string Notice = "Notice";
         public const string Issue = "Issue";
+        public const string Ticket = "Ticket";
     }
 }

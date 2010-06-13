@@ -63,5 +63,36 @@ namespace J.SLS.Domain
             [EntityMappingField("Password")]
             public string Password { get; set; }
         }
+
+        public decimal GetEnableMoney(string userId)
+        {
+            UserBalanceEntity balance = persistence.GetByKey<UserBalanceEntity>(userId);
+            if (balance == null)
+            {
+                return 0;
+            }
+            if (balance.Balance.HasValue)
+            {
+                if (balance.Freeze.HasValue)
+                {
+                    return balance.Balance.Value - balance.Freeze.Value;
+                }
+                else
+                {
+                    return balance.Balance.Value;
+                }
+            }
+            return 0;
+        }
+
+        public UserBalanceEntity GetBalance(string userId)
+        {
+            return persistence.GetByKey<UserBalanceEntity>(userId);
+        }
+
+        public void ModifyBalance(UserBalanceEntity balance)
+        {
+            persistence.Modify(balance);
+        }
     }
 }

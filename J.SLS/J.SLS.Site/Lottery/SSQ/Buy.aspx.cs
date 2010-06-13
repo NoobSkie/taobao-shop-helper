@@ -103,7 +103,7 @@ public partial class Lottery_SSQ_Buy : LotteryBasePage
         {
             HPBuyRequestInfo requestInfo = new HPBuyRequestInfo();
 
-            double money = double.Parse(sumMoneyString);
+            decimal money = decimal.Parse(sumMoneyString);
             int multiple = int.Parse(multipleString);
             int sumNumber = int.Parse(sumNumberString);
             int playType = int.Parse(playTypeString);
@@ -135,8 +135,8 @@ public partial class Lottery_SSQ_Buy : LotteryBasePage
             TicketInfo ticket = new TicketInfo();
             ticket.TicketId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
             ticket.BuyType = BuyType.A101;   // TODO
-            ticket.Money = money.ToString("0.00");
-            ticket.Amount = multiple.ToString();
+            ticket.Money = money;
+            ticket.Amount = multiple;
             ticket.AnteCodes = anteCodes;
             ticket.IssueInfo = issueInfo;
             ticket.UserProfile = userProfile;

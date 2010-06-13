@@ -78,12 +78,22 @@ namespace J.SLS.Facade
             return ex;
         }
 
-        protected FacadeException HandleException(string category, string errMsg, Exception innerException)
+        protected FacadeException HandleException(string category, string errMsg, Exception innerException, params object[] objs)
         {
-            FacadeException ex = new FacadeException(errMsg, innerException);
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(errMsg);
+            if (objs != null && objs.Length > 0)
+            {
+                foreach (object obj in objs)
+                {
+                    sb.AppendLine(ORMHelper.GetEntityInfoMessage(objs[0]));
+                    sb.AppendLine();
+                }
+            }
+            FacadeException ex = new FacadeException(sb.ToString(), innerException);
             if (LogWriter != null)
             {
-                LogWriter.Write(category, category, ex);
+                LogWriter.Write(category, errMsg, ex);
             }
             return ex;
         }

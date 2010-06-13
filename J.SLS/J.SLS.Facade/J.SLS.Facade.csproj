@@ -54,6 +54,8 @@
     <Compile Include="NoticeBaseInfo.cs" />
     <Compile Include="LotteryFacade.cs" />
     <Compile Include="LotteryInfo.cs" />
+    <Compile Include="TicketFacade.cs" />
+    <Compile Include="TicketInfo.cs" />
     <Compile Include="UserFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInfo.cs" />

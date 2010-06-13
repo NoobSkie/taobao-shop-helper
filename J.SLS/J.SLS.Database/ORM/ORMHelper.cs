@@ -50,7 +50,7 @@ namespace J.SLS.Database.ORM
             }
         }
 
-        internal static string GetEntityInfoMessage(object entity)
+        public static string GetEntityInfoMessage(object entity)
         {
             TypeSchema entityInfo = ORMSchemaCache.GetTypeSchema(entity.GetType());
             StringBuilder infoBuilder = new StringBuilder();

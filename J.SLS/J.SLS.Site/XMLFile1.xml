@@ -1,84 +1,21 @@
-<?xml version="1.0" encoding="gb2312"?>
-<message version="1.0" id="6000012007111300000231">
-  <header>
-    <messengerID>600001</messengerID>
-    <timestamp>20071113092456</timestamp>
-    <transactionType>501</transactionType>
-    <digest>8123f913e123e123990028d9c72e0dfgds</digest>
-  </header>
-  <body>
-    <lotteryRequest>
-      <ticket id="600001200705101234567890"
-          playType="201" money="8.00" amount="2">
-        <issue number="2007051" gameName="3d"/>
-        <userProfile userName="huangzhiyu" cardType="1"
-            mail="wangye@sun.com" cardNumber="430525800815722"
-            mobile="13612736754" realName="王绎之"
-            bonusPhone=" (0755)65079323" />
-        <anteCode>1,2,3</anteCode>
-        <anteCode>5,6,3</anteCode>
-      </ticket>
-      <ticket id="600001200705101234567891" playType="101"
-          money="6.00" amount="1">
-        <issue gameName="601" number="2007052"/>
-        <userProfile userName="huangzhiyu" cardType="3"
-            mail="ramon@phoenix.com" cardNumber="G03355390"
-            bonusPhone=" (023)76526753" mobile="13098191231"
-            realName="李侠"/>
-        <anteCode>1,2,3,4,5,6#01</anteCode>
-        <anteCode>1,2,3,4,5,6#02</anteCode>
-        <anteCode>1,2,3,4,5,6#03</anteCode>
-      </ticket>
-    </lotteryRequest>
-  </body>
-</message>
-
-
 <?xml version="1.0" encoding="GBK"?>
-<message version="1.0" id="2000212010061002825985">
+<message version="1.0" id="2000212010061301549964">
   <header>
     <messengerID>200021</messengerID>
-    <timestamp>20100610101352</timestamp>
+    <timestamp>20100613145426</timestamp>
     <transactionType>103</transactionType>
-    <digest>5bf659d65c06ae1375fc5ab1a5b899eb</digest>
+    <digest>1359ccaf87f79ebd3a070738f1070889</digest>
   </header>
   <body>
     <lotteryRequest>
-      <ticket id="200021201006100000000001" playType="201" money="2" amount="1">
-        <issue gameName="ssl" number="2010061001"/>
-        <userProfile userName=" 钟家宇" cardType="1" mail="zhongjy001@gmail.com" cardNumber="510212198105057410" mobile="15902307117" realName="钟家宇"/>
-        <anteCode>1,2,3</anteCode>
-      </ticket>
-      <ticket id="200021201006100000000001" playType="201" money="2" amount="1">
-        <issue gameName="ssl" number="2010061001"/>
-        <userProfile userName=" 钟家宇" cardType="1" mail="zhongjy001@gmail.com" cardNumber="510212198105057410" mobile="15902307117" realName="钟家宇"/>
-        <anteCode>1,2,3</anteCode>
-      </ticket>
-    </lotteryRequest>
-  </body>
-</message>
-
-<?xml version="1.0" encoding="GBK"?>
-<message version="1.0" id="2000212010061004860497">
-  <header>
-    <messengerID>200021</messengerID>
-    <timestamp>20100610103224</timestamp>
-    <transactionType>103</transactionType>
-    <digest>badcd52f08789ddd31fc0b7b81240fff</digest>
-  </header>
-  <body>
-    <lotteryRequest>
-      <ticket id="2000212010061005033939" playType="201" amount="1" money="4.00">
-        <issue gameName="SSL" number="2010061002"></issue>
-        <userProfile userName="zjy" cardType="1" cardNumber="510212198105057410" mobile="15902307117" mail="zhongjy_001@163.com" realName="钟家宇" bonusPhone="15902307117"></userProfile>
-        <anteCode>0,7,8</anteCode>
-        <anteCode>4,1,7</anteCode>
-      </ticket>
-      <ticket id="2000212010061005033939" playType="201" amount="1" money="4.00">
-        <issue gameName="SSL" number="2010061002"></issue>
-        <userProfile userName="zjy" cardType="1" cardNumber="510212198105057410" mobile="15902307117" mail="zhongjy_001@163.com" realName="钟家宇" bonusPhone="15902307117"></userProfile>
-        <anteCode>0,7,8</anteCode>
-        <anteCode>4,1,7</anteCode>
+      <ticket id="2000212010061302379840" playType="201" amount="1" money="10">
+        <issue gameName="SSL" number="2010061310"></issue>
+        <userProfile userName="SLS.Agency" cardType="1" cardNumber="510212198105057410" mobile="15902307117" mail="zhongjy_001@163.com" realName="钟家宇" bonusPhone="15902307117"></userProfile>
+        <anteCode>9,6,6</anteCode>
+        <anteCode>5,4,7</anteCode>
+        <anteCode>3,9,5</anteCode>
+        <anteCode>3,1,3</anteCode>
+        <anteCode>6,8,2</anteCode>
       </ticket>
     </lotteryRequest>
   </body>

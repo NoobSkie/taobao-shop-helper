@@ -32,7 +32,7 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
 
     protected override string LotteryCode
     {
-        get { return "SSL"; }
+        get { return "ssl"; }
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -77,7 +77,15 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
 
     protected void btn_OK_Click(object sender, EventArgs e)
     {
-        DoBuy();
+        if (CurrentUser == null)
+        {
+            JavaScript.Alert(this.Page, "请先登录系统！");
+            Response.Redirect("~/Users/Login.aspx");
+        }
+        else
+        {
+            DoBuy();
+        }
     }
 
     private void DoBuy()
@@ -99,7 +107,7 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
         {
             HPBuyRequestInfo requestInfo = new HPBuyRequestInfo();
 
-            double money = double.Parse(sumMoneyString);
+            decimal money = decimal.Parse(sumMoneyString);
             int multiple = int.Parse(multipleString);
             int sumNumber = int.Parse(sumNumberString);
             int playType = int.Parse(playTypeString);
@@ -115,15 +123,6 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
             issueInfo.GameName = LotteryCode;
             issueInfo.Number = isuseNumber;
 
-            UserProfileInfo userProfile = new UserProfileInfo();
-            userProfile.UserName = CurrentUser.UserId;
-            userProfile.CardType = (J.SLS.Common.CardType)CurrentUser.CardType;
-            userProfile.CardNumber = CurrentUser.CardNumber;
-            userProfile.Mail = CurrentUser.Email;
-            userProfile.Mobile = CurrentUser.Mobile;
-            userProfile.RealName = CurrentUser.RealName;
-            userProfile.BonusPhone = CurrentUser.Mobile;
-
             List<string> anteCodes = new List<string>();
             foreach (string code in lotteryNumber.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
             {
@@ -134,22 +133,19 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
                 }
                 anteCodes.Add(str.TrimEnd(','));
             }
-            //lotteryNumber = lotteryNumber.Replace(" + ", "#").Replace(' ', ',');
-            //anteCodes.AddRange(lotteryNumber.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
 
             TicketInfo ticket = new TicketInfo();
             ticket.TicketId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
             ticket.BuyType = BuyType.B201;   // TODO
-            ticket.Money = money.ToString("0.00");
-            ticket.Amount = multiple.ToString();
+            ticket.Money = money;
+            ticket.Amount = multiple;
             ticket.AnteCodes = anteCodes;
             ticket.IssueInfo = issueInfo;
-            ticket.UserProfile = userProfile;
+            ticket.UserProfile = GetAgencyUserProfileInfo();
 
             HPBuyRequestInfo.Body requestBody = new HPBuyRequestInfo.Body();
             requestBody._Request = new HPBuyRequestInfo.Body.Request();
             requestBody._Request.TicketList = new XmlMappingList<TicketInfo>();
-            requestBody._Request.TicketList.Add(ticket);
             requestBody._Request.TicketList.Add(ticket);
 
             string bodyXml = requestBody.ToXmlString("body");
@@ -168,14 +164,23 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
             try
             {
                 string requestText = "transType=" + (int)TranType.Request103 + "&transMessage=" + requestXml;
+                TicketFacade ticketFacade = new TicketFacade();
+                ticketFacade.BuyTicket(ticket, CurrentUser);
                 string xml = PostManager.Post(GateWayManager.HPIssueQuery_GateWay, requestText, 1200);
-                //string xml = gateway.LotteryRequest(accountN, transType, tickets);
                 HPResponseInfo info = XmlAnalyzer.AnalyseResponse<HPResponseInfo>(xml);
-                result += info.Code + " - " + info.Message;
+                ticketFacade.UpdateTicketStatus(ticket, CurrentUser, info);
+                if (info.Code == "0000")
+                {
+                    result += "成功 - " + info.Message;
+                }
+                else
+                {
+                    throw new Exception("失败 - " + info.Code + " - " + info.Message);
+                }
             }
             catch (Exception ex)
             {
-                result += "错误 - " + ex.Message;
+                result += "失败！";
                 LogWriter.Write(LogCategory.Lottery, "投注错误", ex);
             }
             JavaScript.Alert(this.Page, result);
