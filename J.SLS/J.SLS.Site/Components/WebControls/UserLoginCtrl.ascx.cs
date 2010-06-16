@@ -28,6 +28,7 @@ public partial class Components_WebControls_UserLoginCtrl : BaseControl
                 throw new LoginException("登录失败 - 未知原因");
             }
             CurrentUser = user;
+            RedirectToDefault();
         }
         catch (Exception ex)
         {

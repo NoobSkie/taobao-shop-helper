@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using J.SLS.Database.ORM;
+using J.SLS.Common;
 
 namespace J.SLS.Facade
 {
@@ -28,10 +29,19 @@ namespace J.SLS.Facade
         public string RealName { get; set; }
 
         [EntityMappingField("CardType")]
-        public int CardType { get; set; }
+        public int IdCardType { get; set; }
 
         [EntityMappingField("CardNumber")]
-        public string CardNumber { get; set; }
+        public string IdCardNumber { get; set; }
+
+        [EntityMappingField("BankType")]
+        public int BankType { get; set; }
+
+        [EntityMappingField("BankName")]
+        public string BankName { get; set; }
+
+        [EntityMappingField("BankCardNumber")]
+        public string BankCardNumber { get; set; }
 
         [EntityMappingField("Mobile")]
         public string Mobile { get; set; }
@@ -41,6 +51,9 @@ namespace J.SLS.Facade
 
         [EntityMappingField("Freeze")]
         public decimal? Freeze { get; set; }
+
+        [EntityMappingField("RoleType")]
+        public UserRoleType UserRole { get; set; }
 
         public decimal EnableMoney
         {
@@ -60,5 +73,51 @@ namespace J.SLS.Facade
                 return 0;
             }
         }
+    }
+
+    [EntityMappingTable("V_Money_RequestGet", ReadOnly = true)]
+    public class RequestGetMoneyInfo
+    {
+        [EntityMappingField("Id", IsKey = true)]
+        public long Id { get; set; }
+
+        [EntityMappingField("UserId")]
+        public string UserId { get; set; }
+
+        [EntityMappingField("RealName")]
+        public string UserName { get; set; }
+
+        [EntityMappingField("BankType")]
+        public int BankType { get; set; }
+
+        [EntityMappingField("BankName")]
+        public string BankName { get; set; }
+
+        [EntityMappingField("BankCardNumber")]
+        public string BankCardNumber { get; set; }
+
+        [EntityMappingField("RequestMoney")]
+        public decimal RequestMoney { get; set; }
+
+        [EntityMappingField("RequestTime")]
+        public DateTime RequestTime { get; set; }
+
+        [EntityMappingField("Status")]
+        public MoneyGetStatus Status { get; set; }
+
+        [EntityMappingField("ResponseMoney")]
+        public decimal? ResponseMoney { get; set; }
+
+        [EntityMappingField("ResponseTime")]
+        public DateTime? ResponseTime { get; set; }
+
+        [EntityMappingField("ResponseMessage")]
+        public string ResponseMessage { get; set; }
+
+        [EntityMappingField("ResponseUserId")]
+        public string ResponseUserId { get; set; }
+
+        [EntityMappingField("ResponseUserName")]
+        public string ResponseUserName { get; set; }
     }
 }

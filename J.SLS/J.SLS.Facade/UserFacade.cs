@@ -71,9 +71,14 @@ namespace J.SLS.Facade
             userBaseEntity.UserId = user.UserId;
             userBaseEntity.RealName = user.RealName;
             userBaseEntity.Email = user.Email;
-            userBaseEntity.CardType = user.CardType;
-            userBaseEntity.CardNumber = user.CardNumber;
+            userBaseEntity.CardType = user.IdCardType;
+            userBaseEntity.CardNumber = user.IdCardNumber;
             userBaseEntity.Mobile = user.Mobile;
+
+            UserBalanceEntity balanceEntity = new UserBalanceEntity();
+            balanceEntity.UserId = user.UserId;
+            balanceEntity.Balance = 0;
+            balanceEntity.Freeze = 0;
 
             try
             {
@@ -83,6 +88,7 @@ namespace J.SLS.Facade
                     password = EncryptTool.MD5(password);
                     manager.AddLogin(loginEntity, password);
                     manager.AddUserBase(userBaseEntity);
+                    manager.AddBalance(balanceEntity);
                     tran.Commit();
                 }
             }
@@ -104,6 +110,186 @@ namespace J.SLS.Facade
             {
                 string errMsg = "获取用户信息失败！";
                 throw HandleException(LogCategory.SearchUser, errMsg, ex);
+            }
+        }
+
+        public void RequestGetMoney(string userId, int bankType, string bankName, string cardNumber, decimal money)
+        {
+            try
+            {
+                using (ILHDBTran tran = BeginTran())
+                {
+                    UserManager userManager = new UserManager(tran);
+                    MoneyManager moneyManager = new MoneyManager(tran);
+
+                    UserBalanceEntity balance = userManager.GetBalance(userId);
+                    if (money > balance.EnableMoney)
+                    {
+                        throw new FacadeException("余额不足");
+                    }
+                    MoneyGetDetailEntity moneyGetRequest = new MoneyGetDetailEntity();
+                    moneyGetRequest.UserId = userId;
+                    moneyGetRequest.BankType = bankType;
+                    moneyGetRequest.BankName = bankName;
+                    moneyGetRequest.BankCardNumber = cardNumber;
+                    moneyGetRequest.RequestMoney = money;
+                    moneyGetRequest.Status = (int)MoneyGetStatus.Requesting;
+                    moneyManager.AddMoneyGetRequest(moneyGetRequest);
+
+                    if (balance.Freeze.HasValue)
+                    {
+                        balance.Freeze = balance.Freeze.Value + money;
+                    }
+                    else
+                    {
+                        balance.Freeze = money;
+                    }
+                    userManager.ModifyBalance(balance);
+
+                    tran.Commit();
+                }
+            }
+            catch (FacadeException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                HandleException(LogCategory.Money, "申请提款失败！", ex);
+                throw new FacadeException("申请提款失败！");
+            }
+        }
+
+        public RequestGetMoneyInfo GetRequestMoneyInfo(long id)
+        {
+            try
+            {
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                return persistence.GetByKey<RequestGetMoneyInfo>(id);
+            }
+            catch (Exception ex)
+            {
+                string errMsg = "获取用户请求提款失败！";
+                throw HandleException(LogCategory.Money, errMsg, ex);
+            }
+        }
+
+        public IList<RequestGetMoneyInfo> GetRequestMoneyList(string userId)
+        {
+            try
+            {
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                Criteria cri = new Criteria();
+                cri.Add(Expression.Equal("UserId", userId));
+                return persistence.GetList<RequestGetMoneyInfo>(cri, new SortInfo("Status"), new SortInfo("RequestTime", SortDirection.Desc));
+            }
+            catch (Exception ex)
+            {
+                string errMsg = "获取用户请求提款失败！";
+                throw HandleException(LogCategory.Money, errMsg, ex);
+            }
+        }
+
+        public IList<RequestGetMoneyInfo> GetUnhandleRequestMoneyList()
+        {
+            try
+            {
+                ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+                Criteria cri = new Criteria();
+                cri.Add(Expression.Equal("Status", MoneyGetStatus.Requesting));
+                return persistence.GetList<RequestGetMoneyInfo>(cri, new SortInfo("RequestTime", SortDirection.Desc));
+            }
+            catch (Exception ex)
+            {
+                string errMsg = "获取用户请求提款失败！";
+                throw HandleException(LogCategory.Money, errMsg, ex);
+            }
+        }
+
+        public void AcceptRequestGetMoney(long id, string operateUserId, string message)
+        {
+            try
+            {
+                using (ILHDBTran tran = BeginTran())
+                {
+                    UserManager userManager = new UserManager(tran);
+                    MoneyManager moneyManager = new MoneyManager(tran);
+
+                    MoneyGetDetailEntity moneyGetDetail = moneyManager.GetMoneyGetDetailEntity(id);
+                    if (moneyGetDetail.Status != (int)MoneyGetStatus.Requesting)
+                    {
+                        throw new FacadeException("此请求已经被处理！");
+                    }
+                    UserBalanceEntity balance = userManager.GetBalance(moneyGetDetail.UserId);
+                    if (balance.Freeze.Value < moneyGetDetail.RequestMoney)
+                    {
+                        throw new FacadeException("用户账户发生异常，冻结金额不足！");
+                    }
+
+                    moneyGetDetail.Status = (int)MoneyGetStatus.Accepted;
+                    moneyGetDetail.ResponseUserId = operateUserId;
+                    moneyGetDetail.ResponseMoney = moneyGetDetail.RequestMoney;
+                    moneyGetDetail.ResponseMessage = message;
+                    moneyManager.ModifyMoneyGetResponseStatus(moneyGetDetail);
+
+                    balance.Freeze -= moneyGetDetail.RequestMoney;
+                    balance.Balance -= moneyGetDetail.RequestMoney;
+                    userManager.ModifyBalance(balance);
+
+                    tran.Commit();
+                }
+            }
+            catch (FacadeException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                HandleException(LogCategory.Money, "处理接受提款申请失败！", ex);
+                throw new FacadeException("处理接受提款申请失败！");
+            }
+        }
+
+        public void RejectRequestGetMoney(long id, string operateUserId, string message)
+        {
+            try
+            {
+                using (ILHDBTran tran = BeginTran())
+                {
+                    UserManager userManager = new UserManager(tran);
+                    MoneyManager moneyManager = new MoneyManager(tran);
+
+                    MoneyGetDetailEntity moneyGetDetail = moneyManager.GetMoneyGetDetailEntity(id);
+                    if (moneyGetDetail.Status != (int)MoneyGetStatus.Requesting)
+                    {
+                        throw new FacadeException("此请求已经被处理！");
+                    }
+                    UserBalanceEntity balance = userManager.GetBalance(moneyGetDetail.UserId);
+                    if (balance.Freeze.Value < moneyGetDetail.RequestMoney)
+                    {
+                        throw new FacadeException("用户账户发生异常，冻结金额不足！");
+                    }
+
+                    moneyGetDetail.Status = (int)MoneyGetStatus.Rejected;
+                    moneyGetDetail.ResponseUserId = operateUserId;
+                    moneyGetDetail.ResponseMoney = moneyGetDetail.RequestMoney;
+                    moneyGetDetail.ResponseMessage = message;
+                    moneyManager.ModifyMoneyGetResponseStatus(moneyGetDetail);
+
+                    balance.Freeze -= moneyGetDetail.RequestMoney;
+                    userManager.ModifyBalance(balance);
+
+                    tran.Commit();
+                }
+            }
+            catch (FacadeException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                HandleException(LogCategory.Money, "处理拒绝提款申请失败！", ex);
+                throw new FacadeException("处理拒绝提款申请失败！");
             }
         }
     }

@@ -58,6 +58,8 @@
     <Compile Include="UserManager.cs" />
     <Compile Include="LogEntity.cs" />
     <Compile Include="LogManager.cs" />
+    <Compile Include="MoneyEntity.cs" />
+    <Compile Include="MoneyManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\J.SLS.Common\J.SLS.Common.csproj">

@@ -84,58 +84,58 @@ namespace J.SLS.Facade
         public int SystemEndAheadMinute { get; set; }
     }
 
-    /// <summary>
-    /// 玩法类型。单式，复式
-    /// </summary>
-    [EntityMappingTable("T_Lottery_PlayTypes", ReadOnly = true)]
-    public class PlayType
-    {
-        /// <summary>
-        /// 类型编号
-        /// </summary>
-        [EntityMappingField("Id", IsKey = true)]
-        public int Id { get; set; }
+    ///// <summary>
+    ///// 玩法类型。单式，复式
+    ///// </summary>
+    //[EntityMappingTable("T_Lottery_PlayTypes", ReadOnly = true)]
+    //public class PlayTypeInfo
+    //{
+    //    /// <summary>
+    //    /// 类型编号
+    //    /// </summary>
+    //    [EntityMappingField("Id", IsKey = true)]
+    //    public int Id { get; set; }
 
-        /// <summary>
-        /// 彩票ID
-        /// </summary>
-        [EntityMappingField("LotteryId")]
-        public int LotteryId { get; set; }
+    //    /// <summary>
+    //    /// 彩票ID
+    //    /// </summary>
+    //    [EntityMappingField("LotteryId")]
+    //    public int LotteryId { get; set; }
 
-        /// <summary>
-        /// 玩法名称
-        /// </summary>
-        [EntityMappingField("Name")]
-        public string Name { get; set; }
+    //    /// <summary>
+    //    /// 玩法名称
+    //    /// </summary>
+    //    [EntityMappingField("Name")]
+    //    public string Name { get; set; }
 
-        /// <summary>
-        /// 用戶截至投注、撤單時間提前分鐘數。超過這個時間，進行系統處理：保底滿員，未滿撤單。
-        /// </summary>
-        [EntityMappingField("SystemEndAheadMinute")]
-        public int SystemEndAheadMinute { get; set; }
+    //    /// <summary>
+    //    /// 用戶截至投注、撤單時間提前分鐘數。超過這個時間，進行系統處理：保底滿員，未滿撤單。
+    //    /// </summary>
+    //    [EntityMappingField("SystemEndAheadMinute")]
+    //    public int SystemEndAheadMinute { get; set; }
 
-        /// <summary>
-        /// 单注价格
-        /// </summary>
-        [EntityMappingField("Price")]
-        public decimal Price { get; set; }
+    //    /// <summary>
+    //    /// 单注价格
+    //    /// </summary>
+    //    [EntityMappingField("Price")]
+    //    public decimal Price { get; set; }
 
-        /// <summary>
-        /// 此賣法的文件名
-        /// </summary>
-        [EntityMappingField("BuyFileName")]
-        public string BuyFileName { get; set; }
+    //    /// <summary>
+    //    /// 此賣法的文件名
+    //    /// </summary>
+    //    [EntityMappingField("BuyFileName")]
+    //    public string BuyFileName { get; set; }
 
-        /// <summary>
-        /// 最大允许的跟单人数
-        /// </summary>
-        [EntityMappingField("MaxFollowSchemeNumberOf")]
-        public int MaxFollowSchemeNumberOf { get; set; }
+    //    /// <summary>
+    //    /// 最大允许的跟单人数
+    //    /// </summary>
+    //    [EntityMappingField("MaxFollowSchemeNumberOf")]
+    //    public int MaxFollowSchemeNumberOf { get; set; }
 
-        /// <summary>
-        /// 能投注的最大倍数
-        /// </summary>
-        [EntityMappingField("MaxMultiple")]
-        public int MaxMultiple { get; set; }
-    }
+    //    /// <summary>
+    //    /// 能投注的最大倍数
+    //    /// </summary>
+    //    [EntityMappingField("MaxMultiple")]
+    //    public int MaxMultiple { get; set; }
+    //}
 }

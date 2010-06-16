@@ -18,6 +18,13 @@ namespace J.SLS.Common
         Error = 2,
     }
 
+    public enum UserRoleType
+    {
+        OuterUser = 0,
+        Administrator = 1,
+        BalanceManager = 2,
+    }
+
     /// <summary>
     /// 奖期状态
     /// </summary>
@@ -316,5 +323,24 @@ namespace J.SLS.Common
         /// 有错误发生的
         /// </summary>
         Error = 2,
+    }
+
+    /// <summary>
+    /// 提款状态
+    /// </summary>
+    public enum MoneyGetStatus
+    {
+        /// <summary>
+        /// 请求中
+        /// </summary>
+        Requesting = 0,
+        /// <summary>
+        /// 已通过
+        /// </summary>
+        Accepted = 1,
+        /// <summary>
+        /// 已拒绝
+        /// </summary>
+        Rejected = 2,
     }
 }

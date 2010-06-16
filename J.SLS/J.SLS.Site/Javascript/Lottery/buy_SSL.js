@@ -225,6 +225,9 @@ function GetIsuseInfo_callback(response) {
     //    $Id("HidIsuseEndTime").value = arrcurrIsuse[2];
 
     var currIsuse = response.value;
+    if (currIsuse == "") {
+        return;
+    }
     var arrcurrIsuse = currIsuse.split(',');
     $Id(GetHidIsuseID()).value = arrcurrIsuse[0];
     currIsuseName.innerText = arrcurrIsuse[1];

@@ -80,8 +80,8 @@ public partial class Users_Register : BasePage
         {
             cardType = 3;
         }
-        userInfo.CardType = cardType;
-        userInfo.CardNumber = txtCardNum.Text.Trim();
+        userInfo.IdCardType = cardType;
+        userInfo.IdCardNumber = txtCardNum.Text.Trim();
         userInfo.Mobile = txtMobile.Text.Trim();
         try
         {

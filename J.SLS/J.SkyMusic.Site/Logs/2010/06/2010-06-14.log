@@ -1,0 +1,106 @@
+****************** 2010/6/14 0:14:26 ******************
+Category: Page
+Source: Page
+Type: Error
+
+Exception Type: J.SLS.Common.Exceptions.FacadeException
+Exception Source: 
+Exception TargetSite: 
+Exception Message: GetTopMenuList
+Exception Data: 
+null
+Stack Trace: 
+
+    Exception Type: J.SLS.Database.ORM.ORMException
+    Exception Source: J.SLS.Database
+    Exception TargetSite: System.Collections.Generic.IList`1[T] GetList[T](J.SLS.Database.ORM.Criteria, J.SLS.Database.ORM.SortInfo[])
+    Exception Message: Select object list by criteria error, detail:
+Criteria Info:
+(ParentId IS NULL OR ParentId = )
+
+Sort Info:
+Order Field Number: 1
+Index[Asc]
+
+
+    Exception Data: 
+    null
+    Stack Trace: 
+       在 J.SLS.Database.ORM.ObjectPersistence.GetList[T](Criteria criteria, SortInfo[] orderBy) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\ORM\ObjectPersistence.cs:行号 225
+   在 J.SkyMusic.DbFacade.Services.PageFacade.GetTopMenuList() 位置 D:\BB Docs\外水1-20100518\Src\站点\Src\J.SkyMusic.DbFacade\Services\PageFacade.cs:行号 85
+        Exception Type: System.Data.SqlClient.SqlException
+        Exception Source: .Net SqlClient Data Provider
+        Exception TargetSite: Void OnError(System.Data.SqlClient.SqlException, Boolean)
+        Exception Message: Cannot open database "SkyMusic_Site" requested by the login. The login failed.
+Login failed for user 'sony-VAIO\sony'.
+        Exception Data: 
+        HelpLink.ProdName=Microsoft SQL Server
+        HelpLink.EvtSrc=MSSQLServer
+        HelpLink.EvtID=4060
+        HelpLink.BaseHelpUrl=http://go.microsoft.com/fwlink
+        HelpLink.LinkId=20476
+        Stack Trace: 
+           在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnection owningObject)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(String host, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, Int64 timerStart)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 J.SLS.Database.DBAccess.DbEngine.OpenDB(DbConnection dbConn, String connString) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\DBAccess\DbEngine.cs:行号 37
+   在 J.SLS.Database.DBAccess.DbEngine.CreateConnection() 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\DBAccess\DbEngine.cs:行号 28
+   在 J.SLS.Database.DBAccess.DbEngine.Util.InitDbCommand(DbCommand cmd) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\DBAccess\DbEngine.cs:行号 201
+   在 J.SLS.Database.DBAccess.DbEngine.<>c__DisplayClass1.<InitDbCommand>b__0(Util item) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\DBAccess\DbEngine.cs:行号 77
+   在 J.SLS.Database.DBAccess.DbEngine.Util.DoAction(Action`1 action) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\DBAccess\DbEngine.cs:行号 148
+   在 J.SLS.Database.DBAccess.DbEngine.Util.DoAction(DbEngine db, Action`1 action) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\DBAccess\DbEngine.cs:行号 186
+   在 J.SLS.Database.DBAccess.DbEngine.InitDbCommand(DbCommand cmd) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\DBAccess\DbEngine.cs:行号 75
+   在 J.SLS.Database.DBAccess.LHDBAccess.CreateDbCommand() 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\DBAccess\LHDBAccess.cs:行号 51
+   在 J.SLS.Database.ORM.DbCommandCreator.GetDbCommandByEntity(List`1 fieldPropertyList, Object entity) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\ORM\DbCommandCreator\DbCommandCreator.cs:行号 47
+   在 J.SLS.Database.ORM.SelectCommandCreator.GetDbCommand(Criteria criteria, SortInfo[] orderBy) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\ORM\DbCommandCreator\SelectCommandCreator.cs:行号 274
+   在 J.SLS.Database.ORM.SelectCommandCreator.GetDbCommand() 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\ORM\DbCommandCreator\SelectCommandCreator.cs:行号 114
+   在 J.SLS.Database.ORM.ObjectPersistence.GetList[T](Criteria criteria, SortInfo[] orderBy) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\ORM\ObjectPersistence.cs:行号 213
+            null
+
+
+
+*****************END*******************
+
+
+****************** 2010/6/14 0:52:25 ******************
+Category: Page
+Source: Page
+Type: Error
+
+Exception Type: J.SLS.Common.Exceptions.FacadeException
+Exception Source: 
+Exception TargetSite: 
+Exception Message: GetHtmlItemById - 
+Exception Data: 
+null
+Stack Trace: 
+
+    Exception Type: J.SLS.Common.Exceptions.PreconditionException
+    Exception Source: J.SLS.Common
+    Exception TargetSite: Void IsNotNullOrEmpty(System.String, System.String)
+    Exception Message: object is null or empty, it can not be executed
+    Exception Data: 
+    null
+    Stack Trace: 
+       在 J.SLS.Common.PreconditionAssert.IsNotNullOrEmpty(String value, String message) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Common\PreconditionAssert.cs:行号 27
+   在 J.SLS.Database.ORM.ObjectPersistence.GetByKey[T](Object keyValue) 位置 D:\BB Docs\外水1-20100518\Src\J.SLS\J.SLS.Database\ORM\ObjectPersistence.cs:行号 28
+   在 J.SkyMusic.DbFacade.Services.PageFacade.GetHtmlItemById(String htmlId) 位置 D:\BB Docs\外水1-20100518\Src\站点\Src\J.SkyMusic.DbFacade\Services\PageFacade.cs:行号 55
+        null
+
+
+*****************END*******************
+
+

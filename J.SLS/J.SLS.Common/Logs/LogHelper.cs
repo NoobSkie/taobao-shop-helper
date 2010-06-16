@@ -86,5 +86,7 @@ namespace J.SLS.Common.Logs
         public const string Notice = "Notice";
         public const string Issue = "Issue";
         public const string Ticket = "Ticket";
+        public const string Distribute = "Distribute";
+        public const string Money = "Money";
     }
 }

@@ -76,6 +76,22 @@ namespace J.SLS.Facade
             return null;
         }
 
+        public IssuseInfo GetPrevIsuse(string gameName)
+        {
+            Criteria cri = new Criteria();
+            cri.Add(Expression.Equal("GameName", gameName));
+            cri.Add(Expression.GreaterThanEqual("Status", IssueStatus.Finished));
+
+            ObjectPersistence persistence = new ObjectPersistence(DbAccess);
+            int totalCount;
+            IList<IssuseInfo> list = persistence.GetList<IssuseInfo>(cri, 0, 1, out totalCount, new SortInfo("StopTime", SortDirection.Desc));
+            if (list.Count > 0)
+            {
+                return list[0];
+            }
+            return null;
+        }
+
         public IList<EndAheadMinuteInfo> GetEndAheadMinuteList()
         {
             string sql = "SELECT DISTINCT [GameName],[SystemEndAheadMinute] FROM [T_Lottery_PlayTypes]";

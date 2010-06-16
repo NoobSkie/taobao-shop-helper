@@ -53,19 +53,20 @@
     list-style-type: none;
     float: left;
     height: 100px;
-    padding-top: 52px;
+    margin-top: 10px;
     margin-right: 12px;
-    /*
     background-image: url('../Images/split_bg_menu.png');
     background-repeat: no-repeat;
     background-position: left;
-    */
 }
 .Menu1 ul li a
 {
+    line-height: 100px;
+    margin-left: 12px;
     text-decoration: none;
-    font-family: 黑体;
-    font-size: 150%;
+    font-family: 幼圆;
+    font-weight: bold;
+    font-size: 127%;
     color: #005BAA;
 }
 .Menu2
@@ -82,7 +83,7 @@
 {
     list-style-type: none;
     height: 47px;
-    border-bottom: dashed 1px #336AAD;
+    border-bottom: dotted 1px #336AAD;
     text-align: center;
 }
 .Menu2 ul li a
@@ -90,8 +91,9 @@
     text-decoration: none;
     color: #6690C0;
     line-height: 47px;
-    font-family: 黑体;
-    font-size: 150%;
+    font-family: 幼圆;
+    font-weight: bold;
+    font-size: 120%;
 }
 .Menu2 ul li.Selected
 {
@@ -106,7 +108,6 @@
 .Menu2 ul:first-child
 {
     border-top: dotted 1px #336AAD;
-    border-top: dashed 1px #336AAD;
 }
 .Content
 {
@@ -114,4 +115,26 @@
 }
 .Footer
 {
+    background-color: #FFFFFF;
+}
+.Footer .Spliter
+{
+    width: 1000px;
+    background-image: url('../Images/split_bg_bottom.png');
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top: 36px;
+    padding-bottom: 10px;
+    background-color: #FFFFFF;
+}
+.Footer .Spliter span,a
+{
+    text-decoration: none;
+    color: #6690C0;
+    line-height: 28px;
+    font-family: 幼圆;
+    font-weight: bold;
+    font-size: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
 }

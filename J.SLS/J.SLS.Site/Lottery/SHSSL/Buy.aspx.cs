@@ -38,6 +38,32 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         AjaxPro.Utility.RegisterTypeForAjax(typeof(Lottery_SHSSL_Buy));
+
+        if (!IsPostBack)
+        {
+            IssuseInfo isuseInfo = lotteryFacade.GetPrevIsuse(LotteryCode);
+            if (isuseInfo != null)
+            {
+                lblPrevInfo.Text = isuseInfo.IssuseNumber + "期开奖：";
+                string[] codes = isuseInfo.BonusCode.Split(',');
+                if (codes.Length == 3)
+                {
+                    lblNum1.Text = codes[0];
+                    lblNum2.Text = codes[1];
+                    lblNum3.Text = codes[2];
+                }
+            }
+            if (CurrentUser == null)
+            {
+                CtrlInnerUserInfo1.Visible = false;
+                CtrlInnerLogin1.Visible = true;
+            }
+            else
+            {
+                CtrlInnerUserInfo1.Visible = true;
+                CtrlInnerLogin1.Visible = false;
+            }
+        }
     }
 
     #region 客户端AJAX调用
@@ -123,20 +149,14 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
             issueInfo.GameName = LotteryCode;
             issueInfo.Number = isuseNumber;
 
-            List<string> anteCodes = new List<string>();
-            foreach (string code in lotteryNumber.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                string str = "";
-                foreach (char c in code)
-                {
-                    str += c.ToString() + ",";
-                }
-                anteCodes.Add(str.TrimEnd(','));
-            }
+            BuyType buyType;
+            List<string> anteCodes;
+            // 分析选择的玩法类型和号码
+            GetAnteCodes(playType, lotteryNumber, out buyType, out anteCodes);
 
             TicketInfo ticket = new TicketInfo();
             ticket.TicketId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
-            ticket.BuyType = BuyType.B201;   // TODO
+            ticket.BuyType = buyType;
             ticket.Money = money;
             ticket.Amount = multiple;
             ticket.AnteCodes = anteCodes;
@@ -159,6 +179,12 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
             string headerXml = requestHeader.ToXmlString("header");
 
             string requestXml = "<?xml version=\"1.0\" encoding=\"GBK\"?><message version=\"1.0\" id=\"" + messageId + "\">" + headerXml + bodyXml + "</message>";
+
+            //Response.Write("投注方式：" + (int)ticket.BuyType);
+            //Response.Write("<br />");
+            //Response.Write("投注金额：" + money);
+            //Response.Write("<br /><br />");
+            //Response.Write(string.Join("<br />", anteCodes.ToArray()));
 
             string result = @"投注结果\n\n";
             try
@@ -184,12 +210,134 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
                 LogWriter.Write(LogCategory.Lottery, "投注错误", ex);
             }
             JavaScript.Alert(this.Page, result);
-            return;
         }
         catch
         {
             JavaScript.Alert(this.Page, "输入有错误，请仔细检查。");
             return;
         }
+    }
+
+    delegate string GetAnteCode(string orginCode);
+
+    private void GetAnteCodes(int playTypeValue, string numbers, out BuyType buyType, out List<string> anteCodes)
+    {
+        GetAnteCode action;
+        switch (playTypeValue)
+        {
+            case 2901:  // 直选单式
+                buyType = BuyType.B201;
+                action = new GetAnteCode(GetSingleCodeFormat);
+                break;
+            case 2902:  // 直选复式
+                buyType = BuyType.B208;
+                action = new GetAnteCode(GetManyCodeFormat);
+                break;
+            case 2903:  // 组选单式
+                buyType = BuyType.B202;
+                action = new GetAnteCode(GetSingleCodeFormat);
+                break;
+            //case 2904:  // 组选6
+            //    buyType = BuyType.B230;
+            //    action = new GetAnteCode(GetSingleCodeFormat);
+            //    break;
+            //case 2905:  // 组选3
+            //    buyType = BuyType.B230;
+            //    action = new GetAnteCode(GetSingleCodeFormat);
+            //    break;
+            case 2908:  // 前二单式
+                buyType = BuyType.B201;
+                action = new GetAnteCode(GetSingleCodeFormat_Left);
+                break;
+            case 2909:  // 前二复式
+                buyType = BuyType.B208;
+                action = new GetAnteCode(GetManyCodeFormat_Left2);
+                break;
+            case 2910:  // 后二单式
+                buyType = BuyType.B201;
+                action = new GetAnteCode(GetSingleCodeFormat_Right);
+                break;
+            case 2911:  // 后二复式
+                buyType = BuyType.B208;
+                action = new GetAnteCode(GetManyCodeFormat_Right2);
+                break;
+            case 2912:  // 前一单式
+                buyType = BuyType.B201;
+                action = new GetAnteCode(GetSingleCodeFormat_Left);
+                break;
+            case 2913:  // 前一复式
+                buyType = BuyType.B208;
+                action = new GetAnteCode(GetManyCodeFormat_Left1);
+                break;
+            case 2914:  // 后一单式
+                buyType = BuyType.B201;
+                action = new GetAnteCode(GetSingleCodeFormat_Right);
+                break;
+            case 2915:  // 后一复式
+                buyType = BuyType.B208;
+                action = new GetAnteCode(GetManyCodeFormat_Right1);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException("玩法类型超出范围：" + playTypeValue);
+        }
+
+        anteCodes = new List<string>();
+        foreach (string code in numbers.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
+        {
+            string anteCode = action(code);
+            anteCodes.Add(anteCode);
+        }
+    }
+
+    private string GetSingleCodeFormat(string number)
+    {
+        string str = "";
+        foreach (char c in number)
+        {
+            str += c.ToString() + ",";
+        }
+        return str.TrimEnd(',');
+    }
+
+    private string GetSingleCodeFormat_Left(string number)
+    {
+        number = number.PadRight(3, '_');
+        return GetSingleCodeFormat(number);
+    }
+
+    private string GetSingleCodeFormat_Right(string number)
+    {
+        number = number.PadLeft(3, '_');
+        return GetSingleCodeFormat(number);
+    }
+
+    private string GetManyCodeFormat(string number)
+    {
+        number = number.TrimStart('(').TrimEnd(')');
+        return number.Replace(")(", ",");
+    }
+
+    private string GetManyCodeFormat_Left1(string number)
+    {
+        number = number.TrimStart('(').TrimEnd(')');
+        return number + ",_,_";
+    }
+
+    private string GetManyCodeFormat_Left2(string number)
+    {
+        number = number + "(_)";
+        return GetManyCodeFormat(number);
+    }
+
+    private string GetManyCodeFormat_Right1(string number)
+    {
+        number = number.TrimStart('(').TrimEnd(')');
+        return "_,_," + number;
+    }
+
+    private string GetManyCodeFormat_Right2(string number)
+    {
+        number = "(_)" + number;
+        return GetManyCodeFormat(number);
     }
 }

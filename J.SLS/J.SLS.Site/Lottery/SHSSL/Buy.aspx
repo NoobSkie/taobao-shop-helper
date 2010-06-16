@@ -2,6 +2,10 @@
     AutoEventWireup="true" CodeFile="Buy.aspx.cs" Inherits="Lottery_SHSSL_Buy" %>
 
 <%@ Register Assembly="Shove.Web.UI.4 For.NET 3.5" Namespace="Shove.Web.UI" TagPrefix="ShoveWebUI" %>
+<%@ Register Src="../../Components/WebControls/CtrlInnerUserInfo.ascx" TagName="CtrlInnerUserInfo"
+    TagPrefix="uc1" %>
+<%@ Register Src="../../Components/WebControls/CtrlInnerLogin.ascx" TagName="CtrlInnerLogin"
+    TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 
     <script type="text/javascript" src="../../JavaScript/Lottery/ExplorerCheck.js"></script>
@@ -22,11 +26,8 @@
     <asp:HiddenField ID="HidIsuseID" runat="server" />
     <asp:HiddenField ID="HidIsuseNumber" runat="server" />
     <div class="center">
-        <div style="margin: 15px auto;">
-            您好！&nbsp;faacai&nbsp;&nbsp;&nbsp;&nbsp;您的余额：<strong class="red">￥888.00</strong>
-            元&nbsp;&nbsp;&nbsp;&nbsp;积分：<strong class="red">888</strong><a href="#">中奖查询</a><a
-                href="#" class="red">充值</a><a href="#">提现</a><a href="#">我的658</a><asp:HyperLink
-                    ID="hlnkLogout" NavigateUrl="~/Users/Logout.aspx" runat="server">安全退出</asp:HyperLink></div>
+        <uc1:CtrlInnerUserInfo ID="CtrlInnerUserInfo1" runat="server" />
+        <uc2:CtrlInnerLogin ID="CtrlInnerLogin1" runat="server" />
         <!-- 期信息开始 -->
         <div style="border: #C0DBF9 1px solid; background-image: url(../images/l.jpg); background-repeat: repeat-x;
             background-position: top; margin-bottom: 5px; height: 100%; overflow: hidden;">
@@ -39,21 +40,17 @@
                 <div>
                     <div>
                         <div style="float: left; height: 28px; line-height: 28px; font-size: 14px; font-weight: bold;">
-                            20100024期开奖：</div>
+                            <asp:Label ID="lblPrevInfo" runat="server" Text="20100024期开奖："></asp:Label></div>
                         <div class="Ball">
-                            07</div>
+                            <asp:Label ID="lblNum1" runat="server" Text="27"></asp:Label></div>
                         <div class="Ball">
-                            16</div>
+                            <asp:Label ID="lblNum2" runat="server" Text="27"></asp:Label></div>
                         <div class="Ball">
-                            26</div>
-                        <div class="Ball">
-                            27</div>
-                        <div class="Ball">
-                            29</div>
+                            <asp:Label ID="lblNum3" runat="server" Text="27"></asp:Label></div>
                     </div>
                     <div style="clear: left; height: 48px; line-height: 48px;">
-                        <span style="font-size: 18px; font-weight: bold; color: Blue;">重庆时时彩：2元赢取10万元</span>
-                        每周一、三、六开奖</div>
+                        <span style="font-size: 18px; font-weight: bold; color: Blue;">上海时时乐：2元赢取1000元</span>
+                        每30分钟一期，全天23期</div>
                     <div>
                         当期第<span id="currIsuseName" style="font-weight: bold; color: #fe8625;"></span>期&nbsp;&nbsp;投注截止时间：<span
                             id="currIsuseEndTime" style="background-color: Red; color: White; font-weight: bold;"></span>&nbsp;&nbsp;离投注截止还有：<span
@@ -68,7 +65,7 @@
         <!-- 期信息结束 -->
         <!-- 选项卡开始 -->
         <div id="TabMenu" style="margin-top: 15px; border-bottom: #FF6600 2px solid; text-align: center;
-            padding-bottom: 0px; width: 100%;">
+            padding-bottom: 0px; width: 100%; display: block; overflow: hidden;">
             <div style="float: left; width: 10px;">
             </div>
             <div class="redMenu" onclick="GotoNewBuy();">
@@ -85,10 +82,11 @@
                 border-left: #fe8625 1px solid; border-right: #fe8625 1px solid;">
                 <tbody>
                     <tr>
-                        <td width='70' height='28' align='center' bgcolor='#F7FCFF' class='black12'>
+                        <td width='70' style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;"
+                            align="center" bgcolor="#f7b809">
                             选择玩法
                         </td>
-                        <td bgcolor='#FFFFFF' class='black12' style='padding-left: 5px; padding-top: 5px;'>
+                        <td style="border-bottom: #fe8625 1px solid;">
                             <table width='100%' cellpadding='0' border='0' cellspacing='0' style='text-align: center;
                                 margin-top: 5px;' id='tbPlayTypeMenu29'>
                                 <tr>
@@ -128,34 +126,19 @@
                                         onmouseout='mOver(this,2)'>
                                         前二后二
                                     </td>
-                                    <td width='1'>
-                                    </td>
-                                    <td class='nsplay' onclick='clickPlayClass(6,this);' onmouseover='mOver(this,1)'
-                                        onmouseout='mOver(this,2)'>
-                                        和值
-                                    </td>
                                     <td>
                                         &nbsp;
-                                    </td>
-                                </tr>
-                            </table>
-                            <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                                <tr>
-                                    <td height='1' bgcolor='#FFFFFF'>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height='2' bgcolor='#6699CC'>
                                     </td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
                     <tr id='playTypes'>
-                        <td height='30' bgcolor='#F7FCFF' align='center'>
+                        <td style="border-bottom: #fe8625 1px solid; height: 36px; border-right: #fe8625 1px solid;"
+                            align="center" bgcolor="#f7b809">
                             投注方式
                         </td>
-                        <td bgcolor='#FFFFFF' style='padding-left: 5px; text-align: left;'>
+                        <td style="border-bottom: #fe8625 1px solid;">
                             <span id='playTypes0'>
                                 <input type='radio' name='playType' id='playType2901' value='2901' checked='checked'
                                     onclick='clickPlayType(this.value)' />直选单式
@@ -176,9 +159,6 @@
                                 <input type='radio' name='playType' id='playType2909' value='2909' onclick='clickPlayType(this.value)' />前二复式
                                 <input type='radio' name='playType' id='playType2910' value='2910' onclick='clickPlayType(this.value)' />后二单式
                                 <input type='radio' name='playType' id='playType2911' value='2911' onclick='clickPlayType(this.value)' />后二复式<br />
-                            </span><span id='playTypes6' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2906' value='2906' onclick='clickPlayType(this.value)' />直选
-                                <input type='radio' name='playType' id='playType2907' value='2907' onclick='clickPlayType(this.value)' />组选
                             </span><span id="labShowWinMoney"></span>
                         </td>
                     </tr>

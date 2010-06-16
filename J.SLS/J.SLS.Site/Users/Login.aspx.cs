@@ -37,7 +37,14 @@ public partial class Users_Login : BasePage
             }
             CurrentUser = user;
             lblMessage.Visible = false;
-            RedirectToDefault();
+            if (!string.IsNullOrEmpty(Request["ReturnUrl"]))
+            {
+                RedirectToUrl(Request["ReturnUrl"]);
+            }
+            else
+            {
+                RedirectToDefault();
+            }
         }
         catch (Exception ex)
         {

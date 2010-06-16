@@ -29,21 +29,6 @@
     <div class="center" style="clear: left;">
         <uc2:UserDisplayArea ID="UserDisplayArea1" runat="server" />
         <!--登录-->
-        <div class="left_bottom fl cl">
-            <a href="Register.aspx">
-                <img src="Images/bt_reg.jpg" /></a> <a href="HelpCenter.aspx">
-                    <img src="Images/bt_begin.jpg" /></a> <a href="#">
-                        <img src="Images/bt_pay.jpg" /></a>
-            <div class="contract">
-                <ul>
-                    <li>客服热线：400-800-5286</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-        </div>
-        <!--客服热线-->
         <div class="right_bottom fr">
             <div class="title">
                 <strong>彩票游戏</strong>
@@ -129,6 +114,21 @@
             </div>
             <!--未成年警告-->
         </div>
+        <div class="left_bottom fl cl">
+            <a href="Register.aspx">
+                <img src="Images/bt_reg.jpg" /></a> <a href="HelpCenter.aspx">
+                    <img src="Images/bt_begin.jpg" /></a> <a href="#">
+                        <img src="Images/bt_pay.jpg" /></a>
+            <div class="contract">
+                <ul>
+                    <li>客服热线：400-800-5286</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <!--客服热线-->
         <div class="link1 fl cl">
             <img src="Images/link_helper.jpg" class="fr" alt="" />
             合作伙伴：

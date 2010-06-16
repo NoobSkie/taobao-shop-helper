@@ -16,5 +16,9 @@ public partial class Components_WebControls_UserInfoCtrl : BaseControl
         {
             lblUserName.Text = CurrentUser.UserName;
         }
+        else
+        {
+            this.Visible = false;
+        }
     }
 }

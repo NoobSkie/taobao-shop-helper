@@ -49,7 +49,12 @@ namespace J.SLS.Facade
                         AddIssuseNotify(parameters["transMessage"]);
                         break;
                     case TranType.Request108:   // 返奖通知请求
-                        AddBonusNotify(parameters["transMessage"]);
+                        // 添加返奖通知
+                        BonusNoticeInfo bonusNotice = AddBonusNotify(parameters["transMessage"]);
+                        // 派奖
+                        string gameName = bonusNotice._Body._BonusInfo._Issue.GameName;
+                        string issueNumber = bonusNotice._Body._BonusInfo._Issue.Number;
+                        DistributeBonus(gameName, issueNumber);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException("不支持的通知类型 - " + type);
@@ -151,6 +156,7 @@ namespace J.SLS.Facade
                 bonusEntity.TotalItems = info._Body._BonusInfo.TotalItems;
                 bonusEntity.TotalMoney = info._Body._BonusInfo.TotalMoney;
                 bonusEntity.NoticeId = info.Id;
+                bonusEntity.IsDistributed = false;
                 using (ILHDBTran tran = BeginTran())
                 {
                     BonusManager bonusManager = new BonusManager(tran);
@@ -177,6 +183,70 @@ namespace J.SLS.Facade
             {
                 string errMsg = "添加返奖通知失败！" + xml;
                 throw HandleException(LogCategory.Notice, errMsg, ex);
+            }
+        }
+
+        public void DistributeBonus(string gameName, string issueNumber)
+        {
+            try
+            {
+                using (ILHDBTran tran = BeginTran())
+                {
+                    BonusManager bonusManger = new BonusManager(tran);
+                    UserManager userManager = new UserManager(tran);
+
+                    BonusEntity bonusEntity = bonusManger.GetBonus(gameName, issueNumber);
+                    if (bonusEntity == null)
+                    {
+                        throw new Exception("要分派的奖期信息不存在 - " + gameName + ":" + issueNumber);
+                    }
+                    if (bonusEntity.IsDistributed)
+                    {
+                        throw new Exception("此奖期已经派奖 - " + gameName + ":" + issueNumber);
+                    }
+                    IList<BonusDetailEntity> bonusDetailList = bonusManger.GetBonusDetailList(gameName, issueNumber);
+                    TicketManager ticketManager = new TicketManager(tran);
+                    foreach (BonusDetailEntity bonusDetail in bonusDetailList)
+                    {
+                        TicketEntity ticket = ticketManager.GetTicket(bonusDetail.TicketId);
+                        if (ticket != null)
+                        {
+                            BonusDistributeEntity bonusDistribute = new BonusDistributeEntity();
+                            bonusDistribute.TicketId = bonusDetail.TicketId;
+                            bonusDistribute.BonusLevel = bonusDetail.BonusLevel;
+                            bonusDistribute.UserId = ticket.UserId;
+                            bonusDistribute.GameName = bonusDetail.GameName;
+                            bonusDistribute.IssuseNumber = bonusDetail.IssuseNumber;
+                            bonusDistribute.PlayType = bonusDetail.PlayType;
+                            bonusDistribute.IsBombBonus = bonusDetail.IsBombBonus;
+                            bonusDistribute.BonusSize = bonusDetail.Size;
+                            bonusDistribute.Money = bonusDetail.Money;
+
+                            bonusManger.AddBonusDistribute(bonusDistribute);
+
+                            UserBalanceEntity balanceEntity = userManager.GetBalance(ticket.UserId);
+                            if (balanceEntity == null)
+                            {
+                                throw new Exception("异常 - 彩民的账户不存在 - " + ticket.UserId);
+                            }
+                            if (!balanceEntity.Balance.HasValue)
+                            {
+                                throw new Exception("异常 - 彩民的账户为空 - " + ticket.UserId);
+                            }
+                            balanceEntity.Balance += bonusDetail.Money;
+                            userManager.ModifyBalance(balanceEntity);
+                        }
+                    }
+                    bonusEntity.IsDistributed = true;
+                    bonusManger.ModifyBonusDistrbite(bonusEntity);
+
+                    tran.Commit();
+                }
+            }
+            catch (Exception ex)
+            {
+                string errMsg = "派奖失败 - " + gameName + ":" + issueNumber;
+                throw HandleException(LogCategory.Distribute, errMsg, ex);
             }
         }
     }

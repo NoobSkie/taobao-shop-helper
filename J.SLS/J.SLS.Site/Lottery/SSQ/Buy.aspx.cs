@@ -119,15 +119,6 @@ public partial class Lottery_SSQ_Buy : LotteryBasePage
             issueInfo.GameName = LotteryCode;
             issueInfo.Number = isuseNumber;
 
-            UserProfileInfo userProfile = new UserProfileInfo();
-            userProfile.UserName = CurrentUser.UserId;
-            userProfile.CardType = (J.SLS.Common.CardType)CurrentUser.CardType;
-            userProfile.CardNumber = CurrentUser.CardNumber;
-            userProfile.Mail = CurrentUser.Email;
-            userProfile.Mobile = CurrentUser.Mobile;
-            userProfile.RealName = CurrentUser.RealName;
-            userProfile.BonusPhone = CurrentUser.Mobile;
-
             List<string> anteCodes = new List<string>();
             lotteryNumber = lotteryNumber.Replace(" + ", "#").Replace(' ', ',');
             anteCodes.AddRange(lotteryNumber.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
@@ -139,7 +130,7 @@ public partial class Lottery_SSQ_Buy : LotteryBasePage
             ticket.Amount = multiple;
             ticket.AnteCodes = anteCodes;
             ticket.IssueInfo = issueInfo;
-            ticket.UserProfile = userProfile;
+            ticket.UserProfile = GetAgencyUserProfileInfo();
 
             HPBuyRequestInfo.Body requestBody = new HPBuyRequestInfo.Body();
             requestBody._Request = new HPBuyRequestInfo.Body.Request();

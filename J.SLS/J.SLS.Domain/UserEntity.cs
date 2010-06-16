@@ -52,5 +52,24 @@ namespace J.SLS.Domain
 
         [EntityMappingField("Freeze")]
         public decimal? Freeze { get; set; }
+
+        public decimal EnableMoney
+        {
+            get
+            {
+                if (Balance.HasValue)
+                {
+                    if (Freeze.HasValue)
+                    {
+                        return Balance.Value - Freeze.Value;
+                    }
+                    else
+                    {
+                        return Balance.Value;
+                    }
+                }
+                return 0;
+            }
+        }
     }
 }
