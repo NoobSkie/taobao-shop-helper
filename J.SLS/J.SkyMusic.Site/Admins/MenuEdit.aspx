@@ -95,6 +95,46 @@
                 }
             }
         }
+
+        function SaveMenu() {
+            // public string SaveMenu(string name, string index, string topMenuId, bool isInner, string innerId, bool isNewWindow, string outerUrl)
+            try {
+                var id = document.getElementById("<%= hiddCurrentId.ClientID %>").value;
+                var name = document.getElementById("<%= txtName.ClientID %>").value;
+                var index = document.getElementById("<%= txtIndex.ClientID %>").value;
+                var topMenuObj = document.getElementById("<%= ddlTopMenu.ClientID %>");
+                var topMenuId = topMenuObj.options[topMenuObj.selectedIndex].value;
+
+                var isInner = !document.getElementById("<%= rbtnOuter.ClientID %>").checked;
+                var innerId = "";
+                var innerObj = document.getElementById("<%= rbtnInner.ClientID %>");
+                if (innerObj.checked) {
+                    var htmlObj = document.getElementById("<%= ddlLinkHtml.ClientID %>");
+                    var htmlId = htmlObj.options[htmlObj.selectedIndex].value;
+                    if (htmlId == "") {
+                        var listObj = document.getElementById("<%= ddlLinkList.ClientID %>");
+                        var listId = htmlObj.options[htmlObj.selectedIndex].value;
+                        innerId = listId;
+                    }
+                    else {
+                        innerId = htmlId;
+                    }
+                }
+
+                var isNewWindow = document.getElementById("<%= cbOpenNewWindow.ClientID %>").checked;
+                var outerUrl = document.getElementById("<%= txtOuterUrl.ClientID %>").value;
+                var response = Admins_MenuEdit.SaveMenu(id, name, index, topMenuId, isInner, innerId, isNewWindow, outerUrl);
+                if (response == null || response.value == null) {
+                    alert("保存菜单失败！");
+                    return;
+                }
+                alert(response.value);
+                window.location = "MenuManagement.aspx";
+            }
+            catch (e) {
+                alert("保存菜单失败！");
+            }
+        }
     
     </script>
 
@@ -102,11 +142,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ph_content" runat="Server">
     <div class="Summary">
         <asp:Label ID="lblTitle" runat="server" Text="编辑菜单"></asp:Label>
+        <asp:HiddenField ID="hiddCurrentId" runat="server" />
     </div>
     <div class="Content">
         <div class="Operator">
-            <asp:LinkButton ID="lbtnSave" runat="server" OnClick="lbtnSave_Click"><span>保存</span></asp:LinkButton><asp:HyperLink
-                ID="hlnkCancel" runat="server"><span>返回</span></asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" NavigateUrl="javascript:SaveMenu();" runat="server"><span>保存</span></asp:HyperLink>
+            <asp:HyperLink ID="hlnkCancel" runat="server"><span>返回</span></asp:HyperLink>
         </div>
         <div class="TipDiv">
             <span id="lblJsErrorMsg"></span>

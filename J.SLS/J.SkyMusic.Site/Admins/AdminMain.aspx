@@ -58,7 +58,6 @@
                                                 </li>
                                             </ItemTemplate>
                                         </asp:Repeater>
-                                        <li id="submenu_firefox" class="yuimenuitem"><a href="EditContent.aspx" target="iframe_sub">独立子页面</a></li>
                                     </ul>
                                 </div>
                             </div>

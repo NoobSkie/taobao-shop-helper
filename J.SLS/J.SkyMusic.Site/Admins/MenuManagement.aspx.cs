@@ -31,4 +31,24 @@ public partial class Admins_MenuManagement : BaseAdminPage
             rptMenu2.DataBind();
         }
     }
+    protected void rptMenu1_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName == "Delete")
+        {
+            string menuId = e.CommandArgument.ToString();
+            PageFacade facade = PageHelper.GetPageFacade(this.Page);
+            facade.DeleteMenu(menuId);
+
+            string url = string.Format("MenuManagement.aspx");
+            JavascriptAlertAndRedirect("删除菜单成功", url);
+        }
+    }
+    protected void rptMenu1_ItemCreated(object sender, RepeaterItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        {
+            Repeater rptMenu2 = e.Item.FindControl("rptMenu2") as Repeater;
+            rptMenu2.ItemCommand += rptMenu1_ItemCommand;
+        }
+    }
 }

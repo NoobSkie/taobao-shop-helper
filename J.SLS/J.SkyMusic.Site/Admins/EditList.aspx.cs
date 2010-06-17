@@ -18,22 +18,33 @@ public partial class Admins_EditList : BaseAdminPage
             {
                 lblNameTag.Visible = false;
                 string id = Request["id"];
-                ListItemInfo listItem = facade.GetListItemById(id);
-                if (listItem != null)
+                if (id == Guid.Empty.ToString("N"))
                 {
-                    lblTitle.Text = "编辑列表 - " + listItem.Name;
-                    txtName.Text = listItem.Name;
+                    lblTitle.Text = "编辑列表 - <其他>";
+                    txtName.Text = "<其他>";
+                    txtName.Enabled = false;
+                    hlnkAddSub.Enabled = false;
+                    lbtnSave.Enabled = false;
                 }
                 else
                 {
-                    lblTitle.Text = "编辑列表 - 发生错误";
-                    lblInformation.Visible = true;
-                    lblInformation.Text = "此列表不存在，可能已经被删除！";
-                    lblInformation.CssClass = "Error";
+                    ListItemInfo listItem = facade.GetListItemById(id);
+                    if (listItem != null)
+                    {
+                        lblTitle.Text = "编辑列表 - " + listItem.Name;
+                        txtName.Text = listItem.Name;
+                    }
+                    else
+                    {
+                        lblTitle.Text = "编辑列表 - 发生错误";
+                        lblInformation.Visible = true;
+                        lblInformation.Text = "此列表不存在，可能已经被删除！";
+                        lblInformation.CssClass = "Error";
 
-                    hlnkAddSub.Enabled = false;
-                    lbtnSave.Enabled = false;
-                    return;
+                        hlnkAddSub.Enabled = false;
+                        lbtnSave.Enabled = false;
+                        return;
+                    }
                 }
                 IList<HtmlItemInfo> list = facade.GetHtmlItemsByParent(id);
                 rptHtmlList.DataSource = list;

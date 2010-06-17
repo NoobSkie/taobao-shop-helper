@@ -15,7 +15,7 @@ public partial class Admins_EditContent : BaseAdminPage
         {
             PageFacade facade = PageHelper.GetPageFacade(this.Page);
             string listId = Request["lid"];
-            if (!string.IsNullOrEmpty(listId))
+            if (!string.IsNullOrEmpty(listId) && listId != Guid.Empty.ToString("N"))
             {
                 ListItemInfo listItem = facade.GetListItemById(listId);
                 if (listItem != null)
@@ -40,7 +40,7 @@ public partial class Admins_EditContent : BaseAdminPage
             {
                 if (IsAdd)
                 {
-                    lblTitle.Text = "添加独立子页面";
+                    lblTitle.Text = "添加子页面 -> <其他>";
                 }
                 else
                 {
@@ -49,7 +49,7 @@ public partial class Admins_EditContent : BaseAdminPage
                     if (htmlItem != null)
                     {
                         BindHtmlInfo(htmlItem);
-                        lblTitle.Text = "编辑页面 -> " + htmlItem.Name;
+                        lblTitle.Text = "编辑页面 -> <其他> -> " + htmlItem.Name;
                     }
                 }
             }
@@ -88,7 +88,14 @@ public partial class Admins_EditContent : BaseAdminPage
             html.Name = name1;
             html.Title = title;
             html.Content = content;
-            html.ItsListId = Request["lid"];
+            if (string.IsNullOrEmpty(Request["lid"]) || Request["lid"] == Guid.Empty.ToString("N"))
+            {
+                html.ItsListId = null;
+            }
+            else
+            {
+                html.ItsListId = Request["lid"];
+            }
 
             string msg, url;
             if (IsAdd)
@@ -102,14 +109,7 @@ public partial class Admins_EditContent : BaseAdminPage
                 facade.ModifyHtml(html);
                 msg = string.Format("修改页面成功 - \"{0}\"", name1);
             }
-            if (string.IsNullOrEmpty(Request["lid"]))
-            {
-                url = "SingleList.aspx";
-            }
-            else
-            {
-                url = string.Format("EditList.aspx?id={0}", Request["lid"] ?? "");
-            }
+            url = string.Format("EditList.aspx?id={0}", Request["lid"] ?? "");
             JavascriptAlertAndRedirect(msg, url);
         }
         catch (FacadeException ex)

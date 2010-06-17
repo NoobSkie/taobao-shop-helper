@@ -15,7 +15,14 @@ namespace J.SkyMusic.DbFacade.Services
             try
             {
                 ObjectPersistence persistence = new ObjectPersistence(DbAccess);
-                return persistence.GetAll<ListItemInfo>(new SortInfo("CreateTime", SortDirection.Desc));
+                IList<ListItemInfo> list = persistence.GetAll<ListItemInfo>(new SortInfo("CreateTime", SortDirection.Desc));
+                ListItemInfo other = new ListItemInfo();
+                other.Id = Guid.Empty.ToString("N");
+                other.Name = "<其他>";
+                other.CreateTime = DateTime.Now;
+                other.LastUpdateTime = DateTime.Now;
+                list.Insert(0, other);
+                return list;
             }
             catch (Exception ex)
             {
@@ -29,7 +36,7 @@ namespace J.SkyMusic.DbFacade.Services
             {
                 ObjectPersistence persistence = new ObjectPersistence(DbAccess);
                 Criteria cri = new Criteria();
-                if (string.IsNullOrEmpty(listId))
+                if (string.IsNullOrEmpty(listId) || listId == Guid.Empty.ToString("N"))
                 {
                     cri.Add(Expression.Or(
                         Expression.IsNull("ItsListId"),
@@ -223,6 +230,46 @@ namespace J.SkyMusic.DbFacade.Services
             catch (Exception ex)
             {
                 throw HandleException("Page", "AddMenu - " + menu.Name, ex);
+            }
+        }
+
+        public void ModifyMenu(MenuItemInfo menu)
+        {
+            try
+            {
+                MenuItemEntity entity = new MenuItemEntity();
+                entity.Id = menu.Id;
+                entity.Index = menu.Index;
+                entity.InnerId = menu.InnerId;
+                entity.IsInner = menu.IsInner;
+                entity.IsListType = menu.IsListType;
+                entity.IsOpenNewWindow = menu.IsOpenNewWindow;
+                entity.Level = menu.Level;
+                entity.Name = menu.Name;
+                entity.OuterUrl = menu.OuterUrl;
+                entity.ParentId = menu.ParentId;
+
+                PageManager manager = new PageManager(DbAccess);
+                manager.ModifyEntity<MenuItemEntity>(entity);
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "AddMenu - " + menu.Name, ex);
+            }
+        }
+
+        public void DeleteMenu(string menuId)
+        {
+            try
+            {
+                MenuItemEntity entity = new MenuItemEntity();
+                entity.Id = menuId;
+                PageManager manager = new PageManager(DbAccess);
+                manager.DeleteEntity<MenuItemEntity>(entity);
+            }
+            catch (Exception ex)
+            {
+                throw HandleException("Page", "DeleteMenu - " + menuId, ex);
             }
         }
 

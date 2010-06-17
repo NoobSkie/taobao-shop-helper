@@ -23,6 +23,7 @@ public partial class Admins_MenuEdit : BaseAdminPage
             BindInnerLinkList();
             if (!IsAdd)
             {
+                hiddCurrentId.Value = Request["id"];
                 BindMenuInfo(Request["id"]);
             }
         }
@@ -36,11 +37,45 @@ public partial class Admins_MenuEdit : BaseAdminPage
         }
     }
 
+    [AjaxMethod(HttpSessionStateRequirement.None)]
+    public string SaveMenu(string id, string name, string index, string topMenuId, bool isInner, string innerId, bool isNewWindow, string outerUrl)
+    {
+        PageFacade facade = PageHelper.GetPageFacade(this.Page);
+        MenuItemInfo menu = new MenuItemInfo();
+        if (!string.IsNullOrEmpty(id))
+        {
+            menu = facade.GetMenuById(id);
+        }
+        menu.Index = int.Parse(index);
+        menu.InnerId = innerId;
+        menu.IsInner = isInner;
+        menu.IsOpenNewWindow = isNewWindow;
+        menu.Level = string.IsNullOrEmpty(topMenuId) ? 0 : 1;
+        menu.Name = name;
+        menu.OuterUrl = outerUrl;
+        menu.ParentId = topMenuId;
+        string msg;
+        if (string.IsNullOrEmpty(id))
+        {
+            facade.AddMenu(menu);
+            msg = "新增菜单成功";
+        }
+        else
+        {
+            facade.ModifyMenu(menu);
+            msg = "修改菜单成功";
+        }
+        return msg;
+    }
+
     protected void lbtnSave_Click(object sender, EventArgs e)
     {
         PageFacade facade = PageHelper.GetPageFacade(this.Page);
         MenuItemInfo menu = new MenuItemInfo();
-
+        if (!IsAdd)
+        {
+            menu = facade.GetMenuById(Request["id"]);
+        }
         string parentId = ddlTopMenu.SelectedValue;
         menu.Index = int.Parse(txtIndex.Text);
         if (ddlLinkHtml.SelectedValue == "")
@@ -57,8 +92,19 @@ public partial class Admins_MenuEdit : BaseAdminPage
         menu.Name = txtName.Text;
         menu.OuterUrl = txtOuterUrl.Text;
         menu.ParentId = parentId;
-
-        facade.AddMenu(menu);
+        string msg;
+        if (IsAdd)
+        {
+            facade.AddMenu(menu);
+            msg = "新增菜单成功";
+        }
+        else
+        {
+            facade.ModifyMenu(menu);
+            msg = "修改菜单成功";
+        }
+        string url = string.Format("MenuManagement.aspx");
+        JavascriptAlertAndRedirect(msg, url);
     }
 
     private void BindMenuInfo(string menuId)
