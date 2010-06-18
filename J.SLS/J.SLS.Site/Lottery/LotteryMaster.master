@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Masters/WithTopLotteryMenu.master" AutoEventWireup="true"
+    CodeFile="LotteryMaster.master.cs" Inherits="Lottery_LotteryMaster" %>
+
+<%@ Register Assembly="Shove.Web.UI.4 For.NET 3.5" Namespace="Shove.Web.UI" TagPrefix="ShoveWebUI" %>
+<%@ Register Src="~/Components/WebControls/CtrlInnerUserInfo.ascx" TagName="CtrlInnerUserInfo"
+    TagPrefix="uc1" %>
+<%@ Register Src="~/Components/WebControls/CtrlInnerLogin.ascx" TagName="CtrlInnerLogin"
+    TagPrefix="uc2" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+
+    <script type="text/javascript" src="../../JavaScript/Lottery/ExplorerCheck.js"></script>
+
+    <script type="text/javascript" src="../../JavaScript/Lottery/Public.js"></script>
+
+    <link type="text/css" href="../../CSS/BuyLottery.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="../../JavaScript/Lottery/Marquee.js"></script>
+
+    <link rel="shortcut icon" href="../../favicon.ico" />
+    <asp:ContentPlaceHolder ID="ph_Header" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
+    <uc1:CtrlInnerUserInfo ID="CtrlInnerUserInfo1" runat="server" />
+    <uc2:CtrlInnerLogin ID="CtrlInnerLogin1" runat="server" />
+    <asp:ContentPlaceHolder ID="ph_IssuseInfo" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- 选项卡开始 -->
+    <div id="TabMenu" style="margin-top: 15px; border-bottom: #FF6600 2px solid; text-align: center;
+        padding-bottom: 0px; width: 100%; display: block; overflow: hidden;">
+        <div style="float: left; width: 10px;">
+        </div>
+        <div class="redMenu" onclick="GotoNewBuy();">
+            选号投注
+        </div>
+        <div style="float: left; width: 2px;">
+        </div>
+        <div class="whiteMenu1" onclick="GotoPlayIntroduce();">
+            <strong>玩法介绍</strong></div>
+    </div>
+    <!-- 选项卡结束 -->
+    <!-- 玩法介绍开始 -->
+    <div id="divPlayTypeIntroduce" style="display: none;">
+        <iframe id="iframePlayTypeIntroduce" name="iframePlayTypeIntroduce" width="100%"
+            frameborder="0" scrolling="no" onload="document.getElementById('iframePlayTypeIntroduce').style.height=iframePlayTypeIntroduce.document.body.scrollHeight;">
+        </iframe>
+    </div>
+    <!-- 玩法介绍结束 -->
+</asp:Content>

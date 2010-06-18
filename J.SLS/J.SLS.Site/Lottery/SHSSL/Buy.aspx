@@ -10,13 +10,13 @@
 
     <script type="text/javascript" src="../../JavaScript/Lottery/ExplorerCheck.js"></script>
 
-    <script src="../../JavaScript/Lottery/Public.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../JavaScript/Lottery/Public.js"></script>
 
-    <script src="../../JavaScript/Lottery/buy_SSL.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../JavaScript/Lottery/buy_SSL.js"></script>
 
-    <link href="../../CSS/BuyLottery.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="../../CSS/BuyLottery.css" rel="stylesheet" />
 
-    <script src="../../JavaScript/Lottery/Marquee.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../JavaScript/Lottery/Marquee.js"></script>
 
     <link rel="shortcut icon" href="../../favicon.ico" />
 </asp:Content>

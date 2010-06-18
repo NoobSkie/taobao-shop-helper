@@ -1,0 +1,47 @@
+首先欢迎您选择易宝支付提供的支付接入服务。此目录的例子是C#代码版本，您可以直接把所有文件放在VS应用的目录下，进行测试运行。
+1)文件列表说明
+首页
+|----index.html
+
+支付请求文件，通过此文件发起支付请求，商家可以在此文件中写入自己的订单信息等，然后把请求提交给易宝支付
+|----Req.aspx
+
+支付结果返回文件，通过此文件商家判断对应订单的支付成功状态，并且根据结果修改自己数据库中的订单状态
+|----Callback.aspx
+
+订单查询文件，通过此文件商家查询订单的支付状态
+|----QueryOrderStatus.aspx
+
+订单退款文件，通过此文件商家提交订单退款请求
+|----Refund.aspx
+
+配置文件主用来设置编码方式  <globalization   requestEncoding="gb2312"   responseEncoding="gb2312"
+|----Web.config
+			
+	
+2)商家测试可以先用易宝支付的测试商家测试成功，然后在文件中修改成自己的商户编号和密钥信息。测试帐号如下:
+p1_MerId = "10001126856";
+keyValue = "69cl522AV6q613Ii4W6u8K6XuW8vM1N6bFgyv769220IuYe9u37N4y7rI4Pl";
+商户编号和密钥需要同时修改才有效！
+
+3)请在web.config文件中修改请求地址,使用测试环境进行测试后再换上生产环境正式使用支付接口。
+设置请求地址
+authorizationURL="http://tech.yeepay.com:8080/robot/debug.action";//测试环境
+queryRefundReqURL = "https://www.yeepay.com/app-merchant-proxy/command"; //查询退款生产环境
+authorizationURL="https://www.yeepay.com/app-merchant-proxy/node";   //支付接口生产环境
+	
+4)易宝支付支持在商家选择银行和在易宝支付网关选择银行的两种方式。
+可以通过设定Req.aspx中pd_FrpId的值来进行调整。
+如：
+pd_FrpId=""  	 	到易宝支付支付网关再选择银行
+pd_FrpId="1000000-NET"	直接进行易宝支付会员支付
+pd_FrpId="ICBC-NET"	直接进行中国工商银行在线支付
+pd_FrpId="SZX-NET"	直接进行神州行卡在线支付
+其它银行编号请参考易宝支付的文档说明。
+
+5)本地的STR，商户编号和KEY的查找位置(在出现“交易签名无效”的错误时需要查找STR)
+str:在 YeePay_HTMLCommon.log 中
+商户编号与商户密钥:在web.config中查找
+
+6)log保存地址配置
+YeePay_HTMLCommon.log 日志文件默认的保存路径与文件夹在同一目录下

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{914C0496-7A48-4755-9974-8ACDB2CBA9B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>com.yeepay.utils.Buy</RootNamespace>
+    <AssemblyName>com.yeepay.utils.Buy</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Buy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\com.yeepay.bank\com.yeepay.bank.csproj">
+      <Project>{3CDA0373-0E1D-4F58-B667-E7C581CBE901}</Project>
+      <Name>com.yeepay.bank</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.yeepay.model.BuyBankDirectConnectResult\com.yeepay.model.BuyBankDirectConnectResult.csproj">
+      <Project>{79099876-307C-4792-A964-40DB7F545E99}</Project>
+      <Name>com.yeepay.model.BuyBankDirectConnectResult</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.yeepay.model.BuyCallbackResult\com.yeepay.model.BuyCallbackResult.csproj">
+      <Project>{F8001D2F-F1F5-4C38-BCF9-E5C8E83BC151}</Project>
+      <Name>com.yeepay.model.BuyCallbackResult</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.yeepay.model.BuyQueryOrdDetailResult\com.yeepay.model.BuyQueryOrdDetailResult.csproj">
+      <Project>{7BE4D92F-3420-4354-A2D0-9A9C10410ABC}</Project>
+      <Name>com.yeepay.model.BuyQueryOrdDetailResult</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.yeepay.model.BuyRefundOrdResult\com.yeepay.model.BuyRefundOrdResult.csproj">
+      <Project>{F1113F26-5FD9-40A7-AD5E-752F3A72CB50}</Project>
+      <Name>com.yeepay.model.BuyRefundOrdResult</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.yeepay.utils.Digest\com.yeepay.utils.Digest.csproj">
+      <Project>{1EF2CBEF-A22A-47F1-9997-E116B1233563}</Project>
+      <Name>com.yeepay.utils.Digest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.yeepay.utils.FormatQueryString\com.yeepay.utils.FormatQueryString.csproj">
+      <Project>{3D0E43A1-3452-47D7-8EED-DC77A84BBADF}</Project>
+      <Name>com.yeepay.utils.FormatQueryString</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.yeepay.utils.HmacMD5\com.yeepay.utils.HmacMD5.csproj">
+      <Project>{F0401189-6A44-497D-817E-24D02C18BFAD}</Project>
+      <Name>com.yeepay.utils.HmacMD5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.yeepay.utils.HttpUtils\com.yeepay.utils.HttpUtils.csproj">
+      <Project>{C21B9274-884A-40FA-B2AD-CBDE21ED19D2}</Project>
+      <Name>com.yeepay.utils.HttpUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

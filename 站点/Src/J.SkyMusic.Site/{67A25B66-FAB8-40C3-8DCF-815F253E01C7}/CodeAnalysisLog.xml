@@ -1,0 +1,1135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 9.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="1.36">
+ <Targets>
+  <Target Name="C:\Users\zjy\AppData\Local\Temp\tmp4F6A.tmp.cadir\bin\App_Code.dll">
+   <Modules>
+    <Module Name="app_code.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="BaseAdminPage" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CheckIsAdminLogin()" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Login" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseAdminPage.cs" Line="17">Replace the term 'Login' in member name 'BaseAdminPage.CheckIsAdminLogin()' with the preferred alternate 'LogOn'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="BaseHelper" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="DeclareTypesInNamespaces" Category="Microsoft.Design" CheckId="CA1050" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Certainty="95" Level="Error">'BaseHelper' should be declared inside a namespace.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#AdminLogined" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Logined" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="52">Correct the spelling of 'Logined' in member name 'BaseHelper.AdminLogined' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetParamsUrl(System.String,System.Collections.Generic.Dictionary`2&lt;System.String,System.String&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Params" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="115">Correct the spelling of 'Params' in member name 'BaseHelper.GetParamsUrl(string, Dictionary&lt;string, string&gt;)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="115">Change the type of parameter 'url' of method 'BaseHelper.GetParamsUrl(string, Dictionary&lt;string, string&gt;)' from string to System.Uri, or provide an overload of 'BaseHelper.GetParamsUrl(string, Dictionary&lt;string, string&gt;)', that allows 'url' to be passed as a System.Uri object.</Issue>
+            </Message>
+            <Message TypeName="UriReturnValuesShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1055" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="115">Change the return type of 'BaseHelper.GetParamsUrl(string, Dictionary&lt;string, string&gt;)' from string to System.Uri.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#JavascriptAlert(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Javascript" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeCompoundWord" Certainty="80" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="74">The discrete term 'Javascript' in member name 'BaseHelper.JavascriptAlert(string)' should be expressed as a compound word, 'JavaScript'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#JavascriptAlertAndRedirect(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Javascript" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeCompoundWord" Certainty="80" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="79">The discrete term 'Javascript' in member name 'BaseHelper.JavascriptAlertAndRedirect(string, string)' should be expressed as a compound word, 'JavaScript'.</Issue>
+            </Message>
+            <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="79">Change the type of parameter 'url' of method 'BaseHelper.JavascriptAlertAndRedirect(string, string)' from string to System.Uri, or provide an overload of 'BaseHelper.JavascriptAlertAndRedirect(string, string)', that allows 'url' to be passed as a System.Uri object.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#JavascriptAlertAndRedirectAndRefreshParent(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Javascript" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeCompoundWord" Certainty="80" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="84">The discrete term 'Javascript' in member name 'BaseHelper.JavascriptAlertAndRedirectAndRefreshParent(string, string)' should be expressed as a compound word, 'JavaScript'.</Issue>
+            </Message>
+            <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="84">Change the type of parameter 'url' of method 'BaseHelper.JavascriptAlertAndRedirectAndRefreshParent(string, string)' from string to System.Uri, or provide an overload of 'BaseHelper.JavascriptAlertAndRedirectAndRefreshParent(string, string)', that allows 'url' to be passed as a System.Uri object.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RedirectToError(System.Int32,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="className" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="110">Parameter 'className' of 'BaseHelper.RedirectToError(int, string, string)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+            <Message Id="errorCode" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="110">Parameter 'errorCode' of 'BaseHelper.RedirectToError(int, string, string)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+            <Message Id="message" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="110">Parameter 'message' of 'BaseHelper.RedirectToError(int, string, string)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RedirectToLogin(System.Web.UI.Page,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Login" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="94">Replace the term 'Login' in member name 'BaseHelper.RedirectToLogin(Page, string)' with the preferred alternate 'LogOn'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RedirectToUrl(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseHelper.cs" Line="89">Change the type of parameter 'url' of method 'BaseHelper.RedirectToUrl(string)' from string to System.Uri, or provide an overload of 'BaseHelper.RedirectToUrl(string)', that allows 'url' to be passed as a System.Uri object.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="BaseMaster" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Warning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseMaster.cs" Line="11">'BaseMaster.BaseMaster()' initializes field 'BaseMaster.helper' of type 'BaseHelper' to null. Remove this initialization because it will be done automatically by the runtime.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetParamsUrl(System.String,System.Collections.Generic.Dictionary`2&lt;System.String,System.String&gt;)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Params" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseMaster.cs" Line="64">Correct the spelling of 'Params' in member name 'BaseMaster.GetParamsUrl(string, Dictionary&lt;string, string&gt;)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseMaster.cs" Line="64">Change the type of parameter 'url' of method 'BaseMaster.GetParamsUrl(string, Dictionary&lt;string, string&gt;)' from string to System.Uri, or provide an overload of 'BaseMaster.GetParamsUrl(string, Dictionary&lt;string, string&gt;)', that allows 'url' to be passed as a System.Uri object.</Issue>
+            </Message>
+            <Message TypeName="UriReturnValuesShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1055" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseMaster.cs" Line="64">Change the return type of 'BaseMaster.GetParamsUrl(string, Dictionary&lt;string, string&gt;)' from string to System.Uri.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#IsAdminLogined" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Logined" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseMaster.cs" Line="29">Correct the spelling of 'Logined' in member name 'BaseMaster.IsAdminLogined' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#JavascriptAlert(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Javascript" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeCompoundWord" Certainty="80" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseMaster.cs" Line="39">The discrete term 'Javascript' in member name 'BaseMaster.JavascriptAlert(string)' should be expressed as a compound word, 'JavaScript'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#JavascriptAlertAndRedirect(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Javascript" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeCompoundWord" Certainty="80" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseMaster.cs" Line="44">The discrete term 'Javascript' in member name 'BaseMaster.JavascriptAlertAndRedirect(string, string)' should be expressed as a compound word, 'JavaScript'.</Issue>
+            </Message>
+            <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseMaster.cs" Line="44">Change the type of parameter 'url' of method 'BaseMaster.JavascriptAlertAndRedirect(string, string)' from string to System.Uri, or provide an overload of 'BaseMaster.JavascriptAlertAndRedirect(string, string)', that allows 'url' to be passed as a System.Uri object.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RedirectToLogin(System.Web.UI.Page,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Login" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseMaster.cs" Line="54">Replace the term 'Login' in member name 'BaseMaster.RedirectToLogin(Page, string)' with the preferred alternate 'LogOn'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RedirectToUrl(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BaseMaster.cs" Line="49">Change the type of parameter 'url' of method 'BaseMaster.RedirectToUrl(string)' from string to System.Uri, or provide an overload of 'BaseMaster.RedirectToUrl(string)', that allows 'url' to be passed as a System.Uri object.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="BasePage" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Warning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="11">'BasePage.BasePage()' initializes field 'BasePage.helper' of type 'BaseHelper' to null. Remove this initialization because it will be done automatically by the runtime.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetParamsUrl(System.String,System.Collections.Generic.Dictionary`2&lt;System.String,System.String&gt;)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Params" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="69">Correct the spelling of 'Params' in member name 'BasePage.GetParamsUrl(string, Dictionary&lt;string, string&gt;)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="69">Change the type of parameter 'url' of method 'BasePage.GetParamsUrl(string, Dictionary&lt;string, string&gt;)' from string to System.Uri, or provide an overload of 'BasePage.GetParamsUrl(string, Dictionary&lt;string, string&gt;)', that allows 'url' to be passed as a System.Uri object.</Issue>
+            </Message>
+            <Message TypeName="UriReturnValuesShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1055" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="69">Change the return type of 'BasePage.GetParamsUrl(string, Dictionary&lt;string, string&gt;)' from string to System.Uri.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#IsAdminLogined" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Logined" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="29">Correct the spelling of 'Logined' in member name 'BasePage.IsAdminLogined' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#JavascriptAlert(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Javascript" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeCompoundWord" Certainty="80" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="39">The discrete term 'Javascript' in member name 'BasePage.JavascriptAlert(string)' should be expressed as a compound word, 'JavaScript'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#JavascriptAlertAndRedirect(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Javascript" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeCompoundWord" Certainty="80" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="44">The discrete term 'Javascript' in member name 'BasePage.JavascriptAlertAndRedirect(string, string)' should be expressed as a compound word, 'JavaScript'.</Issue>
+            </Message>
+            <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="44">Change the type of parameter 'url' of method 'BasePage.JavascriptAlertAndRedirect(string, string)' from string to System.Uri, or provide an overload of 'BasePage.JavascriptAlertAndRedirect(string, string)', that allows 'url' to be passed as a System.Uri object.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#JavascriptAlertAndRedirectAndRefreshParent(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Javascript" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeCompoundWord" Certainty="80" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="49">The discrete term 'Javascript' in member name 'BasePage.JavascriptAlertAndRedirectAndRefreshParent(string, string)' should be expressed as a compound word, 'JavaScript'.</Issue>
+            </Message>
+            <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="49">Change the type of parameter 'url' of method 'BasePage.JavascriptAlertAndRedirectAndRefreshParent(string, string)' from string to System.Uri, or provide an overload of 'BasePage.JavascriptAlertAndRedirectAndRefreshParent(string, string)', that allows 'url' to be passed as a System.Uri object.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RedirectToLogin(System.Web.UI.Page,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Login" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="59">Replace the term 'Login' in member name 'BasePage.RedirectToLogin(Page, string)' with the preferred alternate 'LogOn'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RedirectToUrl(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="BasePage.cs" Line="54">Change the type of parameter 'url' of method 'BasePage.RedirectToUrl(string)' from string to System.Uri, or provide an overload of 'BasePage.RedirectToUrl(string)', that allows 'url' to be passed as a System.Uri object.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="DataCache" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="DeclareTypesInNamespaces" Category="Microsoft.Design" CheckId="CA1050" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Certainty="95" Level="Error">'DataCache' should be declared inside a namespace.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#GetParam(System.Web.UI.Page,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Param" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="DataCache.cs" Line="38">Correct the spelling of 'Param' in member name 'DataCache.GetParam(Page, string)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PageHelper" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="DeclareTypesInNamespaces" Category="Microsoft.Design" CheckId="CA1050" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Certainty="95" Level="Error">'PageHelper' should be declared inside a namespace.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#GetPageFacade(System.Web.UI.Page)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="_page" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="PageHelper.cs" Line="11">Parameter '_page' of 'PageHelper.GetPageFacade(Page)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetParamFacade(System.Web.UI.Page)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Param" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="PageHelper.cs" Line="16">Correct the spelling of 'Param' in member name 'PageHelper.GetParamFacade(Page)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+            <Message Id="_page" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\App_Code" File="PageHelper.cs" Line="16">Parameter '_page' of 'PageHelper.GetParamFacade(Page)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\zjy\AppData\Local\Temp\tmp4F6A.tmp.cadir\bin\App_Web_4szgbje6.dll">
+   <Modules>
+    <Module Name="app_web_4szgbje6.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Admins_AdminLogin" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_AdminLogin'.</Issue>
+          </Message>
+          <Message Id="Login" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">Replace the term 'Login' in type name 'Admins_AdminLogin' with the preferred alternate 'LogOn'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#btnLogin" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="btn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'btn' in member name 'Admins_AdminLogin.btnLogin' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+            <Message Id="Login" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error">Replace the term 'Login' in member name 'Admins_AdminLogin.btnLogin' with the preferred alternate 'LogOn'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btnLogin_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="btn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="AdminLogin.aspx.cs" Line="27">Correct the casing of 'btn' in member name 'Admins_AdminLogin.btnLogin_Click(object, EventArgs)' by changing it to 'Btn'.</Issue>
+            </Message>
+            <Message Id="btn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="AdminLogin.aspx.cs" Line="27">Correct the spelling of 'btn' in member name 'Admins_AdminLogin.btnLogin_Click(object, EventArgs)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+            <Message Id="Login" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="AdminLogin.aspx.cs" Line="27">Replace the term 'Login' in member name 'Admins_AdminLogin.btnLogin_Click(object, EventArgs)' with the preferred alternate 'LogOn'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblMessage" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Admins_AdminLogin.lblMessage' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admins_ChangePassword" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_ChangePassword'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#btnOk" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="btn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'btn' in member name 'Admins_ChangePassword.btnOk' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btnOk_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="btn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="ChangePassword.aspx.cs" Line="28">Correct the casing of 'btn' in member name 'Admins_ChangePassword.btnOk_Click(object, EventArgs)' by changing it to 'Btn'.</Issue>
+            </Message>
+            <Message Id="btn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="ChangePassword.aspx.cs" Line="28">Correct the spelling of 'btn' in member name 'Admins_ChangePassword.btnOk_Click(object, EventArgs)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblMessage" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Admins_ChangePassword.lblMessage' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admins_Default" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_Default'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#hlnk" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="hlnk" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'hlnk' in member name 'Admins_Default.hlnk' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admins_EditContent" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_EditContent'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#hlnkCancel" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="hlnk" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'hlnk' in member name 'Admins_EditContent.hlnkCancel' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblTitle" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Admins_EditContent.lblTitle' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lbtnSave" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbtn' in member name 'Admins_EditContent.lbtnSave' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lbtnSave_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditContent.aspx.cs" Line="119">Modify 'Admins_EditContent.lbtnSave_Click(object, EventArgs)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditContent.aspx.cs" Line="75">Correct the casing of 'lbtn' in member name 'Admins_EditContent.lbtnSave_Click(object, EventArgs)' by changing it to 'Lbtn'.</Issue>
+            </Message>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditContent.aspx.cs" Line="75">Correct the spelling of 'lbtn' in member name 'Admins_EditContent.lbtnSave_Click(object, EventArgs)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+            <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditContent.aspx.cs" Line="97">Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Admins_EditContent.lbtnSave_Click(object, EventArgs)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditContent.aspx.cs" Line="103">Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Admins_EditContent.lbtnSave_Click(object, EventArgs)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditContent.aspx.cs" Line="111">Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Admins_EditContent.lbtnSave_Click(object, EventArgs)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admins_EditList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_EditList'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#hlnkAddSub" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="hlnk" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'hlnk' in member name 'Admins_EditList.hlnkAddSub' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#hlnkCancel" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="hlnk" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'hlnk' in member name 'Admins_EditList.hlnkCancel' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblInformation" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Admins_EditList.lblInformation' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblNameTag" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="NameTag" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeDiscreteTerm" Certainty="80" Level="Error">The compound word 'NameTag' in member name 'Admins_EditList.lblNameTag' exists as a discrete term. If your usage is intended to be single word, case it as 'Nametag' or strip the first token entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Admins_EditList.lblNameTag' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblTitle" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Admins_EditList.lblTitle' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lbtnSave" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbtn' in member name 'Admins_EditList.lbtnSave' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lbtnSave_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditList.aspx.cs" Line="102">Modify 'Admins_EditList.lbtnSave_Click(object, EventArgs)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditList.aspx.cs" Line="62">Correct the casing of 'lbtn' in member name 'Admins_EditList.lbtnSave_Click(object, EventArgs)' by changing it to 'Lbtn'.</Issue>
+            </Message>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditList.aspx.cs" Line="62">Correct the spelling of 'lbtn' in member name 'Admins_EditList.lbtnSave_Click(object, EventArgs)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+            <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditList.aspx.cs" Line="79">Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Admins_EditList.lbtnSave_Click(object, EventArgs)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditList.aspx.cs" Line="93">Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Admins_EditList.lbtnSave_Click(object, EventArgs)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="NonBreaking">
+             <Issue Name="IsNullOrEmpty" Certainty="95" Level="Warning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="EditList.aspx.cs" Line="64">Replace the call to 'string.operator ==(string, string)' in 'Admins_EditList.lbtnSave_Click(object, EventArgs)' with a call to 'String.IsNullOrEmpty'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admins_FileManagement" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_FileManagement'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#hlnkUpload" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="hlnk" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'hlnk' in member name 'Admins_FileManagement.hlnkUpload' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lbtnUpload" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbtn' in member name 'Admins_FileManagement.lbtnUpload' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lbtnUpload_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="FileManagement.aspx.cs" Line="43">Correct the casing of 'lbtn' in member name 'Admins_FileManagement.lbtnUpload_Click(object, EventArgs)' by changing it to 'Lbtn'.</Issue>
+            </Message>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="FileManagement.aspx.cs" Line="43">Correct the spelling of 'lbtn' in member name 'Admins_FileManagement.lbtnUpload_Click(object, EventArgs)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="FileManagement.aspx.cs" Line="31">Because the behavior of 'string.ToLower()' could vary based on the current user's locale settings, replace this call in 'Admins_FileManagement.Page_Load(object, EventArgs)' with a call to 'string.ToLower(CultureInfo)'. If the result of 'string.ToLower(CultureInfo)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="FileManagement.aspx.cs" Line="32">Because the behavior of 'string.ToLower()' could vary based on the current user's locale settings, replace this call in 'Admins_FileManagement.Page_Load(object, EventArgs)' with a call to 'string.ToLower(CultureInfo)'. If the result of 'string.ToLower(CultureInfo)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="FileManagement.aspx.cs" Line="33">Because the behavior of 'string.ToLower()' could vary based on the current user's locale settings, replace this call in 'Admins_FileManagement.Page_Load(object, EventArgs)' with a call to 'string.ToLower(CultureInfo)'. If the result of 'string.ToLower(CultureInfo)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admins_ListManagement" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_ListManagement'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#hlnkAdd" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="hlnk" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'hlnk' in member name 'Admins_ListManagement.hlnkAdd' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblTitle" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Admins_ListManagement.lblTitle' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#rptList_ItemCommand(System.Object,System.Web.UI.WebControls.RepeaterCommandEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="ListManagement.aspx.cs" Line="24">Consider changing the type of parameter 'e' in 'Admins_ListManagement.rptList_ItemCommand(object, RepeaterCommandEventArgs)' from 'RepeaterCommandEventArgs' to its base type 'CommandEventArgs'. This method appears to only require base class members in its implementation. Suppress this violation if there is a compelling reason to require the more derived type in the method signature.</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="ListManagement.aspx.cs" Line="44">Modify 'Admins_ListManagement.rptList_ItemCommand(object, RepeaterCommandEventArgs)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+            <Message Id="rpt" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="ListManagement.aspx.cs" Line="24">Correct the casing of 'rpt' in member name 'Admins_ListManagement.rptList_ItemCommand(object, RepeaterCommandEventArgs)' by changing it to 'Rpt'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admins_MenuEdit" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_MenuEdit'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#BindMenuInfo(System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="MenuEdit.aspx.cs" Line="69">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'Admins_MenuEdit.BindMenuInfo(string)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#cbOpenNewWindow" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="cb" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'cb' in member name 'Admins_MenuEdit.cbOpenNewWindow' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ddlLinkHtml" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="ddl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'ddl' in member name 'Admins_MenuEdit.ddlLinkHtml' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ddlLinkList" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="ddl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'ddl' in member name 'Admins_MenuEdit.ddlLinkList' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ddlTopMenu" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="ddl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'ddl' in member name 'Admins_MenuEdit.ddlTopMenu' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetHtmlItemsById(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="MenuEdit.aspx.cs" Line="136">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'Admins_MenuEdit.GetHtmlItemsById(string)' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#hlnkCancel" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="hlnk" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'hlnk' in member name 'Admins_MenuEdit.hlnkCancel' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblTitle" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Admins_MenuEdit.lblTitle' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lbtnSave" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbtn' in member name 'Admins_MenuEdit.lbtnSave' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lbtnSave_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="MenuEdit.aspx.cs" Line="40">Correct the casing of 'lbtn' in member name 'Admins_MenuEdit.lbtnSave_Click(object, EventArgs)' by changing it to 'Lbtn'.</Issue>
+            </Message>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="MenuEdit.aspx.cs" Line="40">Correct the spelling of 'lbtn' in member name 'Admins_MenuEdit.lbtnSave_Click(object, EventArgs)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="MenuEdit.aspx.cs" Line="45">Because the behavior of 'int.Parse(string)' could vary based on the current user's locale settings, replace this call in 'Admins_MenuEdit.lbtnSave_Click(object, EventArgs)' with a call to 'int.Parse(string, IFormatProvider)'. If the result of 'int.Parse(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="NonBreaking">
+             <Issue Name="IsNullOrEmpty" Certainty="95" Level="Warning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="MenuEdit.aspx.cs" Line="46">Replace the call to 'string.operator ==(string, string)' in 'Admins_MenuEdit.lbtnSave_Click(object, EventArgs)' with a call to 'String.IsNullOrEmpty'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#rbtnAuto" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="rbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'rbtn' in member name 'Admins_MenuEdit.rbtnAuto' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#rbtnInner" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="rbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'rbtn' in member name 'Admins_MenuEdit.rbtnInner' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#rbtnOuter" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="rbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'rbtn' in member name 'Admins_MenuEdit.rbtnOuter' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admins_MenuManagement" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_MenuManagement'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#rptMenu1_ItemDataBound(System.Object,System.Web.UI.WebControls.RepeaterItemEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="rpt" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Admins" File="MenuManagement.aspx.cs" Line="23">Correct the casing of 'rpt' in member name 'Admins_MenuManagement.rptMenu1_ItemDataBound(object, RepeaterItemEventArgs)' by changing it to 'Rpt'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admins_SingleList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_SingleList'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#hlnkAddSub" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="hlnk" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'hlnk' in member name 'Admins_SingleList.hlnkAddSub' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#hlnkCancel" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="hlnk" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'hlnk' in member name 'Admins_SingleList.hlnkCancel' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admins_UploadFile" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_UploadFile'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#hlnkAddFile" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="hlnk" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'hlnk' in member name 'Admins_UploadFile.hlnkAddFile' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblTitle" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Admins_UploadFile.lblTitle' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lbtnUpload" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbtn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbtn' in member name 'Admins_UploadFile.lbtnUpload' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\zjy\AppData\Local\Temp\tmp4F6A.tmp.cadir\bin\App_Web_ievyotk0.dll">
+   <Modules>
+    <Module Name="app_web_ievyotk0.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="ShowContent" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#lblContent" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'ShowContent.lblContent' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblCreateTime" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'ShowContent.lblCreateTime' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblTitle" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'ShowContent.lblTitle' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblUpdateTime" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'ShowContent.lblUpdateTime' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site" File="ShowContent.aspx.cs" Line="24">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'ShowContent.Page_Load(object, EventArgs)' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site" File="ShowContent.aspx.cs" Line="25">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'ShowContent.Page_Load(object, EventArgs)' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ShowList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#lblTitle" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'ShowList.lblTitle' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#rptList_ItemDataBound(System.Object,System.Web.UI.WebControls.RepeaterItemEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="rpt" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site" File="ShowList.aspx.cs" Line="27">Correct the casing of 'rpt' in member name 'ShowList.rptList_ItemDataBound(object, RepeaterItemEventArgs)' by changing it to 'Rpt'.</Issue>
+            </Message>
+            <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site" File="ShowList.aspx.cs" Line="54">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'ShowList.rptList_ItemDataBound(object, RepeaterItemEventArgs)' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site" File="ShowList.aspx.cs" Line="44">Because the behavior of 'string.Format(string, object, object)' could vary based on the current user's locale settings, replace this call in 'ShowList.rptList_ItemDataBound(object, RepeaterItemEventArgs)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\zjy\AppData\Local\Temp\tmp4F6A.tmp.cadir\bin\App_Web_nykkvp8x.dll">
+   <Modules>
+    <Module Name="app_web_nykkvp8x.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Admins_AdminMain" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_AdminMain'.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Admins_AdminMaster" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Admins" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Admins' in type name 'Admins_AdminMaster'.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\zjy\AppData\Local\Temp\tmp4F6A.tmp.cadir\bin\App_Web_vqsrjdwf.dll">
+   <Modules>
+    <Module Name="app_web_vqsrjdwf.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Controls_CtrlContent" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#lblContent" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Controls_CtrlContent.lblContent' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblCreateTime" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Controls_CtrlContent.lblCreateTime' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblTitle" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Controls_CtrlContent.lblTitle' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#lblUpdateTime" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="lbl" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'lbl' in member name 'Controls_CtrlContent.lblUpdateTime' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#LoadContent(J.SkyMusic.DbFacade.Services.HtmlItemFullInfo)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Controls" File="CtrlContent.ascx.cs" Line="43">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'Controls_CtrlContent.LoadContent(HtmlItemFullInfo)' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Controls" File="CtrlContent.ascx.cs" Line="44">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'Controls_CtrlContent.LoadContent(HtmlItemFullInfo)' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#LoadScripts(J.SkyMusic.DbFacade.Services.HtmlItemFullInfo)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="htmlItem" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Controls" File="CtrlContent.ascx.cs" Line="27">Parameter 'htmlItem' of 'Controls_CtrlContent.LoadScripts(HtmlItemFullInfo)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#LoadStyles(J.SkyMusic.DbFacade.Services.HtmlItemFullInfo)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="htmlItem" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Controls" File="CtrlContent.ascx.cs" Line="34">Parameter 'htmlItem' of 'Controls_CtrlContent.LoadStyles(HtmlItemFullInfo)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Controls_CtrlHeader" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#imgLogo" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="img" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'img' in member name 'Controls_CtrlHeader.imgLogo' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Controls_CtrlMenu" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#rptMenuList_ItemDataBound(System.Object,System.Web.UI.WebControls.RepeaterItemEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="rpt" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Controls" File="CtrlMenu.ascx.cs" Line="30">Correct the casing of 'rpt' in member name 'Controls_CtrlMenu.rptMenuList_ItemDataBound(object, RepeaterItemEventArgs)' by changing it to 'Rpt'.</Issue>
+            </Message>
+            <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Controls" File="CtrlMenu.ascx.cs" Line="43">Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Controls_CtrlMenu.rptMenuList_ItemDataBound(object, RepeaterItemEventArgs)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message Id="System.String.Format(System.String,System.Object,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2010-06-17 01:59:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Controls" File="CtrlMenu.ascx.cs" Line="55">Because the behavior of 'string.Format(string, object, object, object)' could vary based on the current user's locale settings, replace this call in 'Controls_CtrlMenu.rptMenuList_ItemDataBound(object, RepeaterItemEventArgs)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\TOP\taobao-shop-helper\J.SLS\J.SkyMusic.Site\Controls" File="CtrlMenu.ascx.cs" Line="59">Because the behavior of 'string.Format(string, object, object, object)' could vary based on the current user's locale settings, replace this call in 'Controls_CtrlMenu.rptMenuList_ItemDataBound(object, RepeaterItemEventArgs)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702">
+   <Name>Compound words should be cased correctly</Name>
+   <Description>Avoid creating compound words from terms which exist in the dictionary as discrete terms. Do not create a compound word such as 'StopWatch' or 'PopUp'. These terms are recognized in the dictionary and should be cased as 'Stopwatch' and 'Popup'.</Description>
+   <Resolution Name="MemberShouldBeCompoundWord">The discrete term '{0}' in member name {1} should be expressed as a compound word, '{2}'.</Resolution>
+   <Resolution Name="MemberShouldBeDiscreteTerm">The compound word '{0}' in member name {1} exists as a discrete term. If your usage is intended to be single word, case it as '{2}' or strip the first token entirely if it represents any sort of Hungarian notation.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/bb264474(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="80">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011">
+   <Name>Consider passing base types as parameters</Name>
+   <Description>Using base types as parameters to methods improves re-use of these methods if you only use methods &amp; properties from the parameter's base class. E.g. use Stream instead of FileStream as a parameter when only calling Stream.Read(), this makes the method work on all kind of streams instead of just File streams.</Description>
+   <Resolution Name="Default">Consider changing the type of parameter {0} in {1} from {2} to its base type {3}. This method appears to only require base class members in its implementation. Suppress this violation if there is a compelling reason to require the more derived type in the method signature.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/3hk32yyz(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="50">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="DeclareTypesInNamespaces" Category="Microsoft.Design" CheckId="CA1050">
+   <Name>Declare types in namespaces</Name>
+   <Description>A type should be defined inside a namespace to avoid duplication.</Description>
+   <Resolution Name="Default">{0} should be declared inside a namespace.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/ms182134(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+   <Name>Do not catch general exception types</Name>
+   <Description>You should not catch Exception or SystemException. Catching generic exception types can hide run-time problems from the library user, and can complicate debugging. You should catch only those exceptions that you can handle gracefully.</Description>
+   <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/ms182137(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="DesignRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805">
+   <Name>Do not initialize unnecessarily</Name>
+   <Description>Do not make initializations that have already been done by the runtime.</Description>
+   <Resolution Name="Default">{0} initializes field {1} of type {2} to {3}. Remove this initialization because it will be done automatically by the runtime.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/ms182274(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+   <Name>Identifiers should be cased correctly</Name>
+   <Description>Type, namespace, and member identifiers are Pascal-cased. Parameter identifiers are camel-cased. Two letter acronyms within these identifiers should be upper-cased, for example, use System.IO instead of System.Io. Acronyms of three or more letters should be Pascal-cased, for example, use System.Xml instead of System.XML. The pascal-casing convention capitalizes the first letter of each word, as in BackColor. The camel-casing convention formats the first letter of the first word in lowercase and capitalizes the first letter of all subsequent words, as in backgroundColor. Although it may be common practice for some two letter acronyms to not be fully capitalized, violations of this rule should not be excluded for this reason. For example, 'DbConnection', is common but incorrect; use DBConnection. A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</Description>
+   <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/ms182240(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="85">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+   <Name>Identifiers should be spelled correctly</Name>
+   <Description>The individual words that make up an identifier should not be abbreviated and should be spelled correctly. If this rule generates a false positive on a term that should be recognized, add the word to the FxCop custom dictionary.</Description>
+   <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+   <Resolution Name="Type">Correct the spelling of '{0}' in type name {1}.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/bb264492(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">CriticalWarning</MessageLevel>
+   <File Name="NamingRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+   <Name>Review unused parameters</Name>
+   <Description>Review parameters in non-virtual methods that are not used in the method body to ensure no correctness exists around failure to access them. Unused parameters incur maintenance and performance costs. Sometimes a violation of this rule can point to an implementation bug in the method (i.e. the parameter should actually have been used in the method body). Exclude warnings of this rule if the parameter has to exist because of backward compatibility.</Description>
+   <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/ms182268(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="UsageRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304">
+   <Name>Specify CultureInfo</Name>
+   <Description>If an overload exists that takes a CultureInfo argument, it should always be called in favor of an overload that does not. The CultureInfo type contains culture-specific information required for performing numeric and string operations, such as casing, formatting, and string comparisons. In scenarios where conversion and parsing behavior should never change between cultures, specify CultureInfo.InvariantCulture, otherwise, specify CultureInfo.CurrentCulture.</Description>
+   <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/ms182189(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>Specify IFormatProvider</Name>
+   <Description>If an overload exists that takes an IFormatProvider argument, it should always be called in favor of an overload that does not. Some methods in the runtime convert a value to or from a string representation and take a string parameter that contains one or more characters, called format specifiers, which indicate how the value is to be converted. If the meaning of the format specifier varies by culture, a formatting object supplies the actual characters used in the string representation. In scenarios where sorting and comparison behavior should never change between cultures, specify CultureInfo.InvariantCulture, otherwise, specify CultureInfo.CurrentCulture.</Description>
+   <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/ms182190(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820">
+   <Name>Test for empty strings using string length</Name>
+   <Description>To test for empty strings, check if String.Length is equal to zero. Constructs such as "".Equals(someString) and String.Empty.Equals(someString) are less efficient than testing the string length. Replace these with checks for someString.Length == 0.</Description>
+   <Resolution Name="IsNullOrEmpty">Replace the call to {0} in {1} with a call to 'String.IsNullOrEmpty'.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/ms182279(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054">
+   <Name>URI parameters should not be strings</Name>
+   <Description>If a parameter name contains "uri" or "url" or "urn", and it's typed as string, the parameter type should be changed to System.Uri, unless there is an overload method where the same parameter is typed as System.Uri.</Description>
+   <Resolution Name="Default">Change the type of parameter {0} of method {1} from string to System.Uri, or provide an overload of {1}, that allows {0} to be passed as a System.Uri object.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/ms182174(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="60">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="UriReturnValuesShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1055">
+   <Name>URI return values should not be strings</Name>
+   <Description>If a function name contains "uri" or "url" or "urn" and the return type is string, the return type should be changed to System.Uri.</Description>
+   <Resolution Name="Default">Change the return type of {0} from string to System.Uri.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/ms182176(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="60">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726">
+   <Name>Use preferred terms</Name>
+   <Description>Use preferred terms over deprecated alternates.</Description>
+   <Resolution Name="Member">Replace the term '{0}' in member name {1} with the preferred alternate '{2}'.</Resolution>
+   <Resolution Name="Type">Replace the term '{0}' in type name {1} with the preferred alternate '{2}'.</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/library/ms182258(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="9.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>
