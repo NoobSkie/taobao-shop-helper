@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/WithTopLotteryMenu.master"
+<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/WithTopLotteryMenu.master"
     AutoEventWireup="true" CodeFile="Buy.aspx.cs" Inherits="Lottery_SHSSL_Buy" %>
 
 <%@ Register Assembly="Shove.Web.UI.4 For.NET 3.5" Namespace="Shove.Web.UI" TagPrefix="ShoveWebUI" %>
@@ -28,19 +28,19 @@
     <div class="center">
         <uc1:CtrlInnerUserInfo ID="CtrlInnerUserInfo1" runat="server" />
         <uc2:CtrlInnerLogin ID="CtrlInnerLogin1" runat="server" />
-        <!-- 期信息开始 -->
+        <!-- ����Ϣ��ʼ -->
         <div style="border: #C0DBF9 1px solid; background-image: url(../images/l.jpg); background-repeat: repeat-x;
             background-position: top; margin-bottom: 5px; height: 100%; overflow: hidden;">
             <div style="float: left; width: 19%; text-align: center; vertical-align: middle;
                 height: 100%; overflow: hidden;">
-                <asp:Image ID="LotteryImg" ImageUrl="~/Images/22_5.gif" runat="server" AlternateText="时时彩"
+                <asp:Image ID="LotteryImg" ImageUrl="~/Images/22_5.gif" runat="server" AlternateText="ʱʱ��"
                     Width="105" Height="108" />
             </div>
             <div style="float: left; width: 80%; margin-top: 6px;">
                 <div>
                     <div>
                         <div style="float: left; height: 28px; line-height: 28px; font-size: 14px; font-weight: bold;">
-                            <asp:Label ID="lblPrevInfo" runat="server" Text="20100024期开奖："></asp:Label></div>
+                            <asp:Label ID="lblPrevInfo" runat="server" Text="20100024�ڿ�����"></asp:Label></div>
                         <div class="Ball">
                             <asp:Label ID="lblNum1" runat="server" Text="27"></asp:Label></div>
                         <div class="Ball">
@@ -49,34 +49,34 @@
                             <asp:Label ID="lblNum3" runat="server" Text="27"></asp:Label></div>
                     </div>
                     <div style="clear: left; height: 48px; line-height: 48px;">
-                        <span style="font-size: 18px; font-weight: bold; color: Blue;">上海时时乐：2元赢取1000元</span>
-                        每30分钟一期，全天23期</div>
+                        <span style="font-size: 18px; font-weight: bold; color: Blue;">�Ϻ�ʱʱ�֣�2ԪӮȡ1000Ԫ</span>
+                        ÿ30����һ�ڣ�ȫ��23��</div>
                     <div>
-                        当期第<span id="currIsuseName" style="font-weight: bold; color: #fe8625;"></span>期&nbsp;&nbsp;投注截止时间：<span
-                            id="currIsuseEndTime" style="background-color: Red; color: White; font-weight: bold;"></span>&nbsp;&nbsp;离投注截止还有：<span
+                        ���ڵ�<span id="currIsuseName" style="font-weight: bold; color: #fe8625;"></span>��&nbsp;&nbsp;Ͷע��ֹʱ�䣺<span
+                            id="currIsuseEndTime" style="background-color: Red; color: White; font-weight: bold;"></span>&nbsp;&nbsp;��Ͷע��ֹ���У�<span
                                 id="toCurrIsuseEndTime" style="background-color: Red; color: White; font-weight: bold;"></span></div>
                     <span id="currIsuseEndTime11" class="black12" style="display: none;"></span>
                     <div style="height: 24px; line-height: 24px;">
-                        <a href="DataBehaviour.aspx" class="red">时时彩走势图</a> <a href="DrawaLotteryInfo.aspx"
-                            class="red">时时彩中奖查询</a></div>
+                        <a href="DataBehaviour.aspx" class="red">ʱʱ������ͼ</a> <a href="DrawaLotteryInfo.aspx"
+                            class="red">ʱʱ���н���ѯ</a></div>
                 </div>
             </div>
         </div>
-        <!-- 期信息结束 -->
-        <!-- 选项卡开始 -->
+        <!-- ����Ϣ���� -->
+        <!-- ѡ���ʼ -->
         <div id="TabMenu" style="margin-top: 15px; border-bottom: #FF6600 2px solid; text-align: center;
             padding-bottom: 0px; width: 100%; display: block; overflow: hidden;">
             <div style="float: left; width: 10px;">
             </div>
             <div class="redMenu" onclick="GotoNewBuy();">
-                选号投注
+                ѡ��Ͷע
             </div>
             <div style="float: left; width: 2px;">
             </div>
             <div class="whiteMenu1" onclick="GotoPlayIntroduce();">
-                <strong>玩法介绍</strong></div>
+                <strong>�淨����</strong></div>
         </div>
-        <!-- 选项卡结束 -->
+        <!-- ѡ����� -->
         <div id="divNewBuy" style="clear: both;">
             <table border="0" cellpadding="0" cellspacing="0" width="650" style="border-bottom: #fe8625 1px solid;
                 border-left: #fe8625 1px solid; border-right: #fe8625 1px solid;">
@@ -84,7 +84,7 @@
                     <tr>
                         <td width='70' style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;"
                             align="center" bgcolor="#f7b809">
-                            选择玩法
+                            ѡ���淨
                         </td>
                         <td style="border-bottom: #fe8625 1px solid;">
                             <table width='100%' cellpadding='0' border='0' cellspacing='0' style='text-align: center;
@@ -95,36 +95,36 @@
                                     </td>
                                     <td class='msplay' onclick='clickPlayClass(0,this);' onmouseover='mOver(this,1)'
                                         onmouseout='mOver(this,2)'>
-                                        直选
+                                        ֱѡ
                                     </td>
                                     <td width='1'>
                                     </td>
                                     <td class='nsplay' onclick='clickPlayClass(1,this);' onmouseover='mOver(this,1)'
                                         onmouseout='mOver(this,2)'>
-                                        组选单式
+                                        ��ѡ��ʽ
                                     </td>
                                     <td width='1'>
                                     </td>
                                     <td class='nsplay' onclick='clickPlayClass(2,this);' onmouseover='mOver(this,1)'
                                         onmouseout='mOver(this,2)'>
-                                        组选6
+                                        ��ѡ6
                                     </td>
                                     <td width='1'>
                                     </td>
                                     <td class='nsplay' onclick='clickPlayClass(3,this);' onmouseover='mOver(this,1)'
                                         onmouseout='mOver(this,2)'>
-                                        组选3
+                                        ��ѡ3
                                     </td>
                                     <td width='1'>
                                     </td>
                                     <td class='nsplay' onclick='clickPlayClass(4,this)' onmouseover='mOver(this,1)' onmouseout='mOver(this,2)'>
-                                        前一后一
+                                        ǰһ��һ
                                     </td>
                                     <td width='1'>
                                     </td>
                                     <td class='nsplay' onclick='clickPlayClass(5,this);' onmouseover='mOver(this,1)'
                                         onmouseout='mOver(this,2)'>
-                                        前二后二
+                                        ǰ�����
                                     </td>
                                     <td>
                                         &nbsp;
@@ -136,29 +136,29 @@
                     <tr id='playTypes'>
                         <td style="border-bottom: #fe8625 1px solid; height: 36px; border-right: #fe8625 1px solid;"
                             align="center" bgcolor="#f7b809">
-                            投注方式
+                            Ͷע��ʽ
                         </td>
                         <td style="border-bottom: #fe8625 1px solid;">
                             <span id='playTypes0'>
                                 <input type='radio' name='playType' id='playType2901' value='2901' checked='checked'
-                                    onclick='clickPlayType(this.value)' />直选单式
-                                <input type='radio' name='playType' id='playType2902' value='2902' onclick='clickPlayType(this.value)' />直选复式
+                                    onclick='clickPlayType(this.value)' />ֱѡ��ʽ
+                                <input type='radio' name='playType' id='playType2902' value='2902' onclick='clickPlayType(this.value)' />ֱѡ��ʽ
                             </span><span id='playTypes1' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2903' value='2903' onclick='clickPlayType(this.value)' />组选单式
+                                <input type='radio' name='playType' id='playType2903' value='2903' onclick='clickPlayType(this.value)' />��ѡ��ʽ
                             </span><span id='playTypes2' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2904' value='2904' onclick='clickPlayType(this.value)' />组选6
+                                <input type='radio' name='playType' id='playType2904' value='2904' onclick='clickPlayType(this.value)' />��ѡ6
                             </span><span id='playTypes3' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2905' value='2905' onclick='clickPlayType(this.value)' />组选3
+                                <input type='radio' name='playType' id='playType2905' value='2905' onclick='clickPlayType(this.value)' />��ѡ3
                             </span><span id='playTypes4' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2912' value='2912' onclick='clickPlayType(this.value)' />前一单式
-                                <input type='radio' name='playType' id='playType2913' value='2913' onclick='clickPlayType(this.value)' />前一复式
-                                <input type='radio' name='playType' id='playType2914' value='2914' onclick='clickPlayType(this.value)' />后一单式
-                                <input type='radio' name='playType' id='playType2915' value='2915' onclick='clickPlayType(this.value)' />后一复式<br />
+                                <input type='radio' name='playType' id='playType2912' value='2912' onclick='clickPlayType(this.value)' />ǰһ��ʽ
+                                <input type='radio' name='playType' id='playType2913' value='2913' onclick='clickPlayType(this.value)' />ǰһ��ʽ
+                                <input type='radio' name='playType' id='playType2914' value='2914' onclick='clickPlayType(this.value)' />��һ��ʽ
+                                <input type='radio' name='playType' id='playType2915' value='2915' onclick='clickPlayType(this.value)' />��һ��ʽ<br />
                             </span><span id='playTypes5' style='display: none;'>
-                                <input type='radio' name='playType' id='playType2908' value='2908' onclick='clickPlayType(this.value)' />前二单式
-                                <input type='radio' name='playType' id='playType2909' value='2909' onclick='clickPlayType(this.value)' />前二复式
-                                <input type='radio' name='playType' id='playType2910' value='2910' onclick='clickPlayType(this.value)' />后二单式
-                                <input type='radio' name='playType' id='playType2911' value='2911' onclick='clickPlayType(this.value)' />后二复式<br />
+                                <input type='radio' name='playType' id='playType2908' value='2908' onclick='clickPlayType(this.value)' />ǰ����ʽ
+                                <input type='radio' name='playType' id='playType2909' value='2909' onclick='clickPlayType(this.value)' />ǰ����ʽ
+                                <input type='radio' name='playType' id='playType2910' value='2910' onclick='clickPlayType(this.value)' />�����ʽ
+                                <input type='radio' name='playType' id='playType2911' value='2911' onclick='clickPlayType(this.value)' />�����ʽ<br />
                             </span><span id="labShowWinMoney"></span>
                         </td>
                     </tr>
@@ -166,7 +166,7 @@
                 <tr>
                     <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;" align="center"
                         bgcolor="#f7b809">
-                        选号
+                        ѡ��
                     </td>
                     <td valign="top" style="border-bottom: #fe8625 1px solid;" align="center">
                         <iframe id="iframe_playtypes" name="iframe_playtypes" width="100%" frameborder="0"
@@ -177,7 +177,7 @@
                 <tr>
                     <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;" align="center"
                         bgcolor="#ffdf6e">
-                        投注内容
+                        Ͷע����
                     </td>
                     <td style="border-bottom: #fe8625 1px solid; padding: 15px;">
                         <table border="0" cellpadding="0" cellspacing="0" style="border-bottom: #fe8625 3px solid;
@@ -193,25 +193,25 @@
                                     <table width="100%" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td height="30">
-                                                <input id="btn_2_Rand" name="btn_2_Rand" type="button" value="机选1注" onclick="if(this.disabled){this.style.cursor='';return false;}return iframe_playtypes.btn_2_RandClick();"
+                                                <input id="btn_2_Rand" name="btn_2_Rand" type="button" value="��ѡ1ע" onclick="if(this.disabled){this.style.cursor='';return false;}return iframe_playtypes.btn_2_RandClick();"
                                                     style="cursor: pointer; width: 80px;" />
                                             </td>
                                         </tr>
                                         <tr>
                                             <td height="30">
-                                                <input id="btn_2_Rand5" name="btn_2_Rand5" type="button" value="机选5注" onclick="if(this.disabled){this.style.cursor='';return false;}return iframe_playtypes.btn_2_RandManyClick(5);"
+                                                <input id="btn_2_Rand5" name="btn_2_Rand5" type="button" value="��ѡ5ע" onclick="if(this.disabled){this.style.cursor='';return false;}return iframe_playtypes.btn_2_RandManyClick(5);"
                                                     style="cursor: pointer; width: 80px;" />
                                             </td>
                                         </tr>
                                         <tr>
                                             <td height="30">
-                                                <input type="button" name="btn_ClearSelect" id="btn_ClearSelect" value="删除选择" style="cursor: pointer;
+                                                <input type="button" name="btn_ClearSelect" id="btn_ClearSelect" value="ɾ��ѡ��" style="cursor: pointer;
                                                     width: 80px;" onclick="return btn_ClearSelectClick();" />
                                             </td>
                                         </tr>
                                         <tr>
                                             <td height="30">
-                                                <input type="button" name="btn_Clear" id="btn_Clear" value="清空全部" style="cursor: pointer;
+                                                <input type="button" name="btn_Clear" id="btn_Clear" value="���ȫ��" style="cursor: pointer;
                                                     width: 80px;" onclick="return btn_ClearClick();" />
                                             </td>
                                         </tr>
@@ -224,13 +224,49 @@
                             padding: 15px; margin-top: 15px; background-color: #fef4d1" width="100%">
                             <tr>
                                 <td>
-                                    您选择了<span class="red" id="lab_Num">0</span>注，倍数：<input type="text" onkeypress="return InputMask_Number();"
+                                    ��ѡ����<span class="red" id="lab_Num">0</span>ע��������<input type="text" onkeypress="return InputMask_Number();"
                                         id="tb_Multiple" name="tb_Multiple" onblur="CheckMultiple();" value="1" maxlength="3"
-                                        style="width: 30px;" />总金额<span class="red" id="lab_SumMoney">0.00</span>元。<span
-                                            class="red" style="font-weight: bold">[注]</span>投注倍数最高为999倍。
+                                        style="width: 30px;" />�ܽ��<span class="red" id="lab_SumMoney">0.00</span>Ԫ��<span
+                                            class="red" style="font-weight: bold">[ע]</span>Ͷע�������Ϊ999����
                                 </td>
                             </tr>
                         </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: #fe8625 1px solid; height: 36px; border-right: #fe8625 1px solid;" align="center"
+                        bgcolor="#f7b809">
+                        ׷�ź���
+                    </td>
+                    <td valign="top" style="border-bottom: #fe8625 1px solid;" align="center">
+                        <asp:CheckBox ID="cbGoNumber" Text="��Ҫ׷��" runat="server" />
+                    </td>
+                </tr>
+                <tr id="trGoNumberIssuse">
+                    <td style="border-bottom: #fe8625 1px solid; border-right: #fe8625 1px solid;" align="center"
+                        bgcolor="#f7b809">
+                        ׷�Ž���
+                    </td>
+                    <td valign="top" style="border-bottom: #fe8625 1px solid;" align="center">
+                        <asp:GridView ID="gvIssueList" runat="server" Width="100%" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:TemplateField HeaderText="ѡ��">
+                                    <HeaderTemplate>
+                                        <asp:CheckBox ID="cbGoNumberSelectAll" runat="server" Text="ѡ��" />
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <asp:CheckBox ID="cbGoNumberSelectIssuse" runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField HeaderText="�ں�" DataField="IssuseNumber" />
+                                <asp:TemplateField HeaderText="Ͷע����">
+                                    <ItemTemplate>
+                                        <asp:TextBox ID="txtGoNumberAmount" runat="server"></asp:TextBox>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="������"></asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
                     </td>
                 </tr>
                 <tr>
@@ -240,9 +276,9 @@
                             Width="170px" Height="32px" CausesValidation="False" BackgroupImage="../../Images/b4.jpg"
                             BorderStyle="None" OnClientClick="return CreateLogin('btn_OKClick();');" OnClick="btn_OK_Click" />
                         <asp:CheckBox ID="chkAgrrement" runat="server" Checked="true" />
-                        我已经阅读并同意 <span class="blue12">
+                        ���Ѿ��Ķ���ͬ�� <span class="blue12">
                             <asp:HyperLink runat="server" ID="hlAgreement" NavigateUrl="../Home/Room/BuyProtocol.aspx?LotteryID=28"
-                                Target="_blank">《用户电话短信投注协议》</asp:HyperLink></span>
+                                Target="_blank">���û��绰����ͶעЭ�顷</asp:HyperLink></span>
                     </td>
                 </tr>
             </table>
@@ -254,7 +290,7 @@
         </div>
     </div>
     <asp:PlaceHolder ID="phFoot" runat="server"></asp:PlaceHolder>
-    <input id="tbPlayTypeName" name="tbPlayTypeName" type="hidden" value="单式" />
+    <input id="tbPlayTypeName" name="tbPlayTypeName" type="hidden" value="��ʽ" />
     <input id="tb_LotteryNumber" name="tb_LotteryNumber" type="hidden" />
     <input id="tb_SchemeFileName" name="tb_SchemeFileName" type="hidden" />
     <input id="tb_hide_SumMoney" name="tb_hide_SumMoney" type="hidden" />

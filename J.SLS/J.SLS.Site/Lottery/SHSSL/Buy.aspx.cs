@@ -66,6 +66,43 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
         }
     }
 
+    private IList<IssuseInfo> GetNext10IssuseList(string gameName)
+    {
+        List<IssuseInfo> issuseList = new List<IssuseInfo>();
+        IssuseInfo isuseInfo = lotteryFacade.GetCurrentIsuse(gameName);
+        if (isuseInfo != null)
+        {
+            issuseList.Add(isuseInfo);
+            string currentIsssueNumber = isuseInfo.IssuseNumber;
+            string year = currentIsssueNumber.Substring(0, 4);
+            string month = currentIsssueNumber.Substring(4, 2);
+            string day = currentIsssueNumber.Substring(6, 2);
+            string numString = currentIsssueNumber.Substring(8, 2);
+            DateTime dt = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+            int number = int.Parse(numString);
+            int index = 0;
+            while (true)
+            {
+                if (index >= 10)
+                {
+                    break;
+                }
+                number++;
+                if (number > 23)
+                {
+                    number = 1;
+                    dt = dt.AddDays(1);
+                }
+                string issueString = dt.ToString("yyyyMMdd") + number.ToString().PadLeft(2, '0');
+                IssuseInfo info = new IssuseInfo();
+                info.GameName = gameName;
+                info.IssuseNumber = issueString;
+                issuseList.Add(info);
+            }
+        }
+        return issuseList;
+    }
+
     #region 客户端AJAX调用
 
     [AjaxMethod(HttpSessionStateRequirement.None)]
