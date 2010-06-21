@@ -16,7 +16,7 @@ public partial class UpdateRequestData : BasePage
     {
         try
         {
-            IssueNoticeFacade facade = new IssueNoticeFacade();
+            NoticeFacade facade = new NoticeFacade();
             DateTime fromTime = facade.GetCurrentUpdateTime();
             string r = Post("http://222.186.12.129:8099/GetResponseText.aspx", fromTime.ToString("yyyy-MM-dd HH:mm:ss"), 5000);
             if (!string.IsNullOrEmpty(r))

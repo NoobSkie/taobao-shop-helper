@@ -33,9 +33,10 @@
 }
 .SplitLeft
 {
+    display: block;
     float: left;
     width: 14px;
-    min-height: 230px;
+    min-height: 130px;
     background-image: url('../Images/split_bg_left.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -107,11 +108,12 @@
 }
 .Menu2 ul:first-child
 {
-    border-top: dotted 1px #336AAD;
+    /* border-top: dotted 1px #336AAD; */
 }
 .Content
 {
     padding: 20px;
+    min-height: 430px;
 }
 .Footer
 {

@@ -164,5 +164,61 @@ namespace J.SLS.Facade
                 throw HandleException(LogCategory.Ticket, "更新投注状态失败！ - " + ex.Message, ex, ticket, response);
             }
         }
+
+        public void ChaseTicket(IList<ChaseAddInfo> chaseList)
+        {
+            try
+            {
+                using (ILHDBTran tran = BeginTran())
+                {
+                    UserManager userManager = new UserManager(tran);
+                    TicketManager ticketManager = new TicketManager(tran);
+
+                    foreach (ChaseAddInfo chase in chaseList)
+                    {
+                        ChaseEntity chaseEntity = new ChaseEntity();
+                        chaseEntity.TicketId = chase.TicketId;
+                        chaseEntity.GameName = chase.GameName;
+                        chaseEntity.IssuseNumber = chase.IssuseNumber;
+                        chaseEntity.Amount = chase.Amount;
+                        chaseEntity.Money = chase.Money;
+                        chaseEntity.UserId = chase.UserId;
+                        chaseEntity.Status = (int)ChaseStatus.Chasing;
+                        ticketManager.AddTicketChase(chaseEntity);
+
+                        UserBalanceEntity balance = userManager.GetBalance(chase.UserId);
+                        if (balance == null)
+                        {
+                            throw new FacadeException("帐户不存在，请先充值！");
+                        }
+                        decimal balanceMoney = balance.Balance.HasValue ? balance.Balance.Value : 0;
+                        decimal freezeMoney = balance.Freeze.HasValue ? balance.Freeze.Value : 0;
+                        decimal enableMoney = balanceMoney - freezeMoney;
+                        if (enableMoney < chase.Money)
+                        {
+                            throw new FacadeException("帐户余额不足，请先充值！");
+                        }
+                        // 更新用户余额 - 冻结金额
+                        balance.Freeze += chase.Money;
+                        userManager.ModifyBalance(balance);
+                    }
+                    tran.Commit();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw HandleException(LogCategory.Ticket, "添加追号失败！", ex);
+            }
+        }
+
+        public void AutoBuyChaseTicket(string gameName, string issueNumber)
+        {
+            TicketManager ticketManager = new TicketManager(DbAccess);
+            IList<ChaseEntity> chaseList = ticketManager.GetChaseListByIssue(gameName, issueNumber, (int)ChaseStatus.Chasing);
+            foreach (ChaseEntity chase in chaseList)
+            {
+
+            }
+        }
     }
 }

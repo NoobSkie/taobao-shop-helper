@@ -42,18 +42,33 @@ namespace J.SLS.Facade
         /// 奖期信息
         /// </summary>
         [XmlMapping("issue", 5)]
-        public IssueInfo IssueInfo { get; set; }
+        public IssueMappingInfo IssueInfo { get; set; }
 
         /// <summary>
         /// 购彩用户信息
         /// </summary>
         [XmlMapping("userProfile", 6)]
-        public UserProfileInfo UserProfile { get; set; }
+        public UserMappingInfo UserProfile { get; set; }
 
         /// <summary>
         /// 投注号码
         /// </summary>
         [XmlMapping("anteCode", 7, ObjectType = XmlObjectType.List)]
         public List<string> AnteCodes { get; set; }
+    }
+
+    public class ChaseAddInfo
+    {
+        public string TicketId { get; set; }
+
+        public string GameName { get; set; }
+
+        public string IssuseNumber { get; set; }
+
+        public int Amount { get; set; }
+
+        public decimal Money { get; set; }
+
+        public string UserId { get; set; }
     }
 }

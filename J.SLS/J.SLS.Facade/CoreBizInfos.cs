@@ -7,7 +7,7 @@ using J.SLS.Common;
 
 namespace J.SLS.Facade
 {
-    public class IssueInfo : XmlMappingObject
+    public class IssueMappingInfo : XmlMappingObject
     {
         /// <summary>
         /// 游戏名称。如 ssq
@@ -22,7 +22,7 @@ namespace J.SLS.Facade
         public string Number { get; set; }
     }
 
-    public class UserProfileInfo : XmlMappingObject
+    public class UserMappingInfo : XmlMappingObject
     {
         /// <summary>
         /// 彩民用户在代理商系统的登录名。最大长度20
@@ -70,7 +70,7 @@ namespace J.SLS.Facade
     /// <summary>
     /// 返奖对象信息
     /// </summary>
-    public class BonusInfo : XmlMappingObject
+    public class BonusMappingInfo : XmlMappingObject
     {
         public class BonusItem : XmlMappingObject
         {
@@ -112,7 +112,7 @@ namespace J.SLS.Facade
         public decimal TotalMoney { get; set; }
 
         [XmlMapping("issue", 3)]
-        public IssueInfo _Issue { get; set; }
+        public IssueMappingInfo _Issue { get; set; }
 
         [XmlMapping("bonusItem", 4, ObjectType = XmlObjectType.List)]
         public XmlMappingList<BonusItem> _BonusItemList { get; set; }

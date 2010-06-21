@@ -10,7 +10,7 @@ using J.SLS.Database.DBAccess;
 
 namespace J.SLS.Facade
 {
-    public class IssueNoticeFacade : BaseFacade
+    public class NoticeFacade : BaseFacade
     {
         public DateTime GetCurrentUpdateTime()
         {
@@ -162,7 +162,7 @@ namespace J.SLS.Facade
                     BonusManager bonusManager = new BonusManager(tran);
                     bonusManager.AddBonus(bonusEntity);
                     List<BonusDetailEntity> bonusDetailList = new List<BonusDetailEntity>();
-                    foreach (BonusInfo.BonusItem bonusItem in info._Body._BonusInfo._BonusItemList)
+                    foreach (BonusMappingInfo.BonusItem bonusItem in info._Body._BonusInfo._BonusItemList)
                     {
                         BonusDetailEntity detail = new BonusDetailEntity();
                         detail.TicketId = bonusItem.TicketId;

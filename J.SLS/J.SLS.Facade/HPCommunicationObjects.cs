@@ -74,7 +74,7 @@ namespace J.SLS.Facade
         public class Body : XmlMappingObject
         {
             [XmlMapping("bonusNotify", 1)]
-            public BonusInfo _BonusInfo { get; set; }
+            public BonusMappingInfo _BonusInfo { get; set; }
         }
 
         [XmlMapping("body", 2)]

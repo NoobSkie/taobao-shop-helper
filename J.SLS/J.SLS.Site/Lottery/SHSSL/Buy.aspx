@@ -19,6 +19,50 @@
     <script type="text/javascript" src="../../JavaScript/Lottery/Marquee.js"></script>
 
     <link rel="shortcut icon" href="../../favicon.ico" />
+
+    <script type="text/javascript">
+
+        function CheckAmountNumber(obj) {
+            var txt = obj.value;
+            if (txt == "") {
+                obj.value = "0";
+            }
+            if (isNaN(txt)) {
+                alert("请输入正确的倍数！");
+                obj.value = "0";
+            }
+            var amount = Number(txt);
+            if (amount < 0) {
+                obj.value = "0";
+            }
+            if (amount > 999) {
+                obj.value = "999";
+            }
+        }
+
+        function SelectChase(obj, amountId) {
+            document.getElementById(amountId).disabled = !obj.checked;
+            if (obj.checked) {
+                if (document.getElementById(amountId).value == "0") {
+                    document.getElementById(amountId).value = "1";
+                }
+                document.getElementById(amountId).focus();
+            }
+        }
+
+        function SelectAllChase(obj) {
+            var inputList = document.getElementsByTagName("input");
+            for (var i = 0; i < inputList.length; i++) {
+                if (inputList[i].type == "checkbox" && inputList[i].id.indexOf("_cbGoNumberSelectIssuse") > 0) {
+                    if (inputList[i].checked != obj.checked) {
+                        inputList[i].click();
+                    }
+                }
+            }
+        }
+    
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
     <input id="tbPlayTypeID" name="tbPlayTypeID" type="hidden" />
@@ -234,8 +278,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-bottom: #fe8625 1px solid; height: 36px; border-right: #fe8625 1px solid;" align="center"
-                        bgcolor="#f7b809">
+                    <td style="border-bottom: #fe8625 1px solid; height: 36px; border-right: #fe8625 1px solid;"
+                        align="center" bgcolor="#f7b809">
                         追号合买
                     </td>
                     <td valign="top" style="border-bottom: #fe8625 1px solid;" align="center">
@@ -248,7 +292,8 @@
                         追号奖期
                     </td>
                     <td valign="top" style="border-bottom: #fe8625 1px solid;" align="center">
-                        <asp:GridView ID="gvIssueList" runat="server" Width="100%" AutoGenerateColumns="False">
+                        <asp:GridView ID="gvIssueList" runat="server" Width="100%" AutoGenerateColumns="False"
+                            OnRowDataBound="gvIssueList_RowDataBound">
                             <Columns>
                                 <asp:TemplateField HeaderText="选择">
                                     <HeaderTemplate>
@@ -261,12 +306,54 @@
                                 <asp:BoundField HeaderText="期号" DataField="IssuseNumber" />
                                 <asp:TemplateField HeaderText="投注倍数">
                                     <ItemTemplate>
-                                        <asp:TextBox ID="txtGoNumberAmount" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtGoNumberAmount" Enabled="false" runat="server">0</asp:TextBox>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="购买金额"></asp:TemplateField>
                             </Columns>
                         </asp:GridView>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <div>
+                            <table cellpadding="0" cellspacing="1" style="width: 100%; text-align: center; background-color: #E2EAED;">
+                                <tbody style="background-color: White;">
+                                    <tr>
+                                        <td style="width: 10%;">
+                                            <input type="checkbox" name="cb_All" id="cb_All" onclick="Cb_CheckAll();" />选择
+                                        </td>
+                                        <td style="width: 20%;">
+                                            期号
+                                        </td>
+                                        <td style="width: 13%;">
+                                            投注倍数
+                                        </td>
+                                        <td style="width: 14%;">
+                                            购买金额
+                                        </td>
+                                        <td style="width: 12%;">
+                                            总份数
+                                        </td>
+                                        <td style="width: 13%;">
+                                            认购份数
+                                        </td>
+                                        <td style="width: 15%;">
+                                            保底份数
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="div_QH_Today" style="height: 200px; overflow: scroll; width: 100%; overflow-x: hidden;">
+                                <table id="RpToday" cellpadding="0" cellspacing="1" style="width: 100%; text-align: center;
+                                    background-color: #E2EAED;">
+                                    <tbody style="background-color: White;">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 <tr>

@@ -45,9 +45,9 @@ public abstract class LotteryBasePage : BasePage
         }
     }
 
-    protected UserProfileInfo GetAgencyUserProfileInfo()
+    protected UserMappingInfo GetAgencyUserProfileInfo()
     {
-        UserProfileInfo userProfile = new UserProfileInfo();
+        UserMappingInfo userProfile = new UserMappingInfo();
         userProfile.UserName = "200021";
         userProfile.CardType = J.SLS.Common.CardType.IdCard;
         userProfile.CardNumber = "200021";

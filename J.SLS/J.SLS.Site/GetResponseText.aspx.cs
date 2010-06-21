@@ -16,7 +16,7 @@ public partial class GetResponseText : BasePage
         try
         {
             DateTime fromTime = GetRequestDate();
-            IssueNoticeFacade facade = new IssueNoticeFacade();
+            NoticeFacade facade = new NoticeFacade();
             IList<string> list = facade.GetRequestTextList(fromTime);
             string r = string.Join("@", list.ToArray());
             byte[] bytes = Encoding.GetEncoding("gb2312").GetBytes(Server.UrlEncode(r));

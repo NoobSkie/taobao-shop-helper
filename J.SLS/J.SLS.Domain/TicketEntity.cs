@@ -114,4 +114,32 @@ namespace J.SLS.Domain
         [EntityMappingField("CurrentTime", NeedUpdate = false)]
         public DateTime CurrentTime { get; set; }
     }
+
+    [EntityMappingTable("T_Chase_List")]
+    public class ChaseEntity
+    {
+        [EntityMappingField("TicketId", IsKey = true)]
+        public string TicketId { get; set; }
+
+        [EntityMappingField("GameName", IsKey = true)]
+        public string GameName { get; set; }
+
+        [EntityMappingField("IssueNumber", IsKey = true)]
+        public string IssuseNumber { get; set; }
+
+        [EntityMappingField("Amount", NeedUpdate = false)]
+        public int Amount { get; set; }
+
+        [EntityMappingField("Money", NeedUpdate = false)]
+        public decimal Money { get; set; }
+
+        [EntityMappingField("UserId", NeedUpdate = false)]
+        public string UserId { get; set; }
+
+        [EntityMappingField("Status")]
+        public int Status { get; set; }
+
+        [EntityMappingField("ChaseTicketId")]
+        public string ChaseTicketId { get; set; }
+    }
 }

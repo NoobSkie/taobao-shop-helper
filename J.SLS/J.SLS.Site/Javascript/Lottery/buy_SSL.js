@@ -1128,14 +1128,14 @@ function btn_OKClick() {
         return false;
     }
 
-//    var TipStr = '您要发起' + LotteryName + $Id("tbPlayTypeName").value + '方案，详细内容：\n\n';
-//    TipStr += "　　注　数：　" + SumNum + "\n";
-//    TipStr += "　　倍　数：　" + multiple + "\n";
-//    TipStr += "　　总金额：　" + o_lab_SumMoney.innerText + " 元\n\n";
-//    TipStr += "　　总份数：　" + Share + " 份\n";
-//    TipStr += "　　每　份：　" + o_lab_ShareMoney.innerText + " 元\n\n";
-//    TipStr += "　　保　底：　" + AssureShare + " 份，" + o_lab_AssureMoney.innerText + " 元\n";
-//    TipStr += "　　购　买：　" + BuyShare + " 份，" + o_lab_BuyMoney.innerText + " 元\n\n";
+    //    var TipStr = '您要发起' + LotteryName + $Id("tbPlayTypeName").value + '方案，详细内容：\n\n';
+    //    TipStr += "　　注　数：　" + SumNum + "\n";
+    //    TipStr += "　　倍　数：　" + multiple + "\n";
+    //    TipStr += "　　总金额：　" + o_lab_SumMoney.innerText + " 元\n\n";
+    //    TipStr += "　　总份数：　" + Share + " 份\n";
+    //    TipStr += "　　每　份：　" + o_lab_ShareMoney.innerText + " 元\n\n";
+    //    TipStr += "　　保　底：　" + AssureShare + " 份，" + o_lab_AssureMoney.innerText + " 元\n";
+    //    TipStr += "　　购　买：　" + BuyShare + " 份，" + o_lab_BuyMoney.innerText + " 元\n\n";
 
     var TipStr = '您要投注方案，详细内容：\n\n';
     if (!confirm(TipStr + "按“确定”即表示您已阅读《投注协议》并立即提交方案，确定要提交方案吗？"))

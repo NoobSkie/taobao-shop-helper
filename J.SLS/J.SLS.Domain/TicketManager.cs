@@ -31,6 +31,20 @@ namespace J.SLS.Domain
             persistence.Add(ticketDetail);
         }
 
+        public void AddTicketChase(ChaseEntity chaseEntity)
+        {
+            persistence.Add(chaseEntity);
+        }
+
+        public IList<ChaseEntity> GetChaseListByIssue(string gameName, string issueNumber, int status)
+        {
+            Criteria cri = new Criteria();
+            cri.Add(Expression.Equal("GameName", gameName));
+            cri.Add(Expression.Equal("IssueNumber", issueNumber));
+            cri.Add(Expression.Equal("Status", status));
+            return persistence.GetList<ChaseEntity>(cri);
+        }
+
         public void ModifyTicket(TicketEntity ticket)
         {
             persistence.Modify(ticket);

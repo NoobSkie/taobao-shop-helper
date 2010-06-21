@@ -115,7 +115,7 @@ public partial class Lottery_SSQ_Buy : LotteryBasePage
             string messageId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
             string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
 
-            IssueInfo issueInfo = new IssueInfo();
+            IssueMappingInfo issueInfo = new IssueMappingInfo();
             issueInfo.GameName = LotteryCode;
             issueInfo.Number = isuseNumber;
 

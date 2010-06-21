@@ -15,7 +15,7 @@ public partial class HP_Recevie : BasePage
         string requestString = Server.UrlDecode(GetRequestMessage());
         try
         {
-            IssueNoticeFacade facade = new IssueNoticeFacade();
+            NoticeFacade facade = new NoticeFacade();
             CommunicationObject noticeInfo = facade.HandleNotice(requestString);
             string accountUserName = GetAgenceAccountUserName();
             string accountPassword = GetAgenceAccountPassword();

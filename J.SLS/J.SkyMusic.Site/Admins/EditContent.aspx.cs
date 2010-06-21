@@ -15,6 +15,7 @@ public partial class Admins_EditContent : BaseAdminPage
         {
             PageFacade facade = PageHelper.GetPageFacade(this.Page);
             string listId = Request["lid"];
+            hlnkCancel.NavigateUrl = string.Format("EditList.aspx?id={0}", Request["lid"] ?? "");
             if (!string.IsNullOrEmpty(listId) && listId != Guid.Empty.ToString("N"))
             {
                 ListItemInfo listItem = facade.GetListItemById(listId);

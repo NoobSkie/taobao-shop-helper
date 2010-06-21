@@ -64,6 +64,20 @@ namespace J.SLS.Common
         Complete = 7,
     }
 
+    /// <summary>
+    /// 追号状态
+    /// </summary>
+    public enum ChaseStatus
+    {
+        /// <summary>
+        /// 追号中
+        /// </summary>
+        Chasing = 0,
+        Finished = 1,
+        Canceled = 2,
+        Error = 9,
+    }
+
     public enum MappingType
     {
         Element = 0,

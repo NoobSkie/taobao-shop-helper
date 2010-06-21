@@ -32,6 +32,10 @@
     display: block;
     overflow: hidden;
     line-height: 24px;
+}
+.ContentLayout .HTML p
+{
     text-indent: 24px;
 }
+
 

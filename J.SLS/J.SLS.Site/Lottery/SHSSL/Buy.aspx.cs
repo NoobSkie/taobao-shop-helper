@@ -63,6 +63,9 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
                 CtrlInnerUserInfo1.Visible = true;
                 CtrlInnerLogin1.Visible = false;
             }
+            IList<IssuseInfo> list = GetNext10IssuseList(LotteryCode);
+            gvIssueList.DataSource = list;
+            gvIssueList.DataBind();
         }
     }
 
@@ -72,7 +75,7 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
         IssuseInfo isuseInfo = lotteryFacade.GetCurrentIsuse(gameName);
         if (isuseInfo != null)
         {
-            issuseList.Add(isuseInfo);
+            // issuseList.Add(isuseInfo);
             string currentIsssueNumber = isuseInfo.IssuseNumber;
             string year = currentIsssueNumber.Substring(0, 4);
             string month = currentIsssueNumber.Substring(4, 2);
@@ -83,7 +86,7 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
             int index = 0;
             while (true)
             {
-                if (index >= 10)
+                if (index++ >= 10)
                 {
                     break;
                 }
@@ -182,7 +185,7 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
             string messageId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
             string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
 
-            IssueInfo issueInfo = new IssueInfo();
+            IssueMappingInfo issueInfo = new IssueMappingInfo();
             issueInfo.GameName = LotteryCode;
             issueInfo.Number = isuseNumber;
 
@@ -376,5 +379,20 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
     {
         number = "(_)" + number;
         return GetManyCodeFormat(number);
+    }
+    protected void gvIssueList_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            TextBox txtGoNumberAmount = e.Row.FindControl("txtGoNumberAmount") as TextBox;
+            txtGoNumberAmount.Attributes["onchange"] = "CheckAmountNumber(this);";
+            CheckBox cbGoNumberSelectIssuse = e.Row.FindControl("cbGoNumberSelectIssuse") as CheckBox;
+            cbGoNumberSelectIssuse.Attributes["onclick"] = "SelectChase(this, '" + txtGoNumberAmount.ClientID + "');";
+        }
+        if (e.Row.RowType == DataControlRowType.Header)
+        {
+            CheckBox cbGoNumberSelectAll = e.Row.FindControl("cbGoNumberSelectAll") as CheckBox;
+            cbGoNumberSelectAll.Attributes["onclick"] = "SelectAllChase(this);";
+        }
     }
 }

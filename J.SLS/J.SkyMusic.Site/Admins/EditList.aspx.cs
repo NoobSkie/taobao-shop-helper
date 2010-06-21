@@ -23,7 +23,6 @@ public partial class Admins_EditList : BaseAdminPage
                     lblTitle.Text = "编辑列表 - <其他>";
                     txtName.Text = "<其他>";
                     txtName.Enabled = false;
-                    hlnkAddSub.Enabled = false;
                     lbtnSave.Enabled = false;
                 }
                 else
