@@ -6,15 +6,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using J.SkyMusic.DbFacade.Services;
 
-public partial class _Default : BasePage
+public partial class Index : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             IList<MenuItemInfo> menu1List = DataCache.GetTopMenuList(this.Page);
-            ctrlMenu1.MenuList = menu1List;
-            ctrlSubMenu4.TopMenuList = menu1List;
+            rptMenuList.DataSource = menu1List;
+            rptMenuList.DataBind();
         }
     }
 }

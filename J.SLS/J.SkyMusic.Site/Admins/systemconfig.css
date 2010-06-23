@@ -1,5 +1,6 @@
 ﻿.ContentLayout
 {
+    padding: 10px;
 }
 .ContentLayout .LayoutRow
 {
@@ -11,7 +12,7 @@
 .ContentLayout .LayoutRow span.Title
 {
     margin-left: 10px;
-    width: 100px;
+    width: 140px;
     display: inline-block;
     font-weight: bold;
     float: left;

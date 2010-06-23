@@ -28,6 +28,9 @@
             <div class="LayoutRow">
                 <span class="Title">QQ号码</span><asp:TextBox ID="txtQQ" CssClass="Input" runat="server"></asp:TextBox>
             </div>
+            <div class="LayoutRow">
+                <span class="Title">自动播放背景音乐</span><asp:CheckBox ID="cbAutoMusic" runat="server" />
+            </div>
         </div>
     </div>
 </asp:Content>

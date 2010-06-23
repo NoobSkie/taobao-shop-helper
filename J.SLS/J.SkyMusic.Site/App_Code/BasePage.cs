@@ -70,6 +70,18 @@ public class BasePage : System.Web.UI.Page
         }
     }
 
+    public string AutoPlayMusic
+    {
+        get
+        {
+            if (this.Application["AutoPlayMusic"] == null)
+            {
+                return GetParamValue("AutoPlayMusic", "0");
+            }
+            return (string)this.Application["AutoPlayMusic"];
+        }
+    }
+
     private string GetParamValue(string key, string defaultValue)
     {
         ParamFacade facade = new ParamFacade();

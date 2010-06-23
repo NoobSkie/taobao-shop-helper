@@ -38,6 +38,11 @@ public partial class Admins_SystemConfig : BaseAdminPage
             {
                 txtQQ.Text = paraQQNumber.Value;
             }
+            ParamInfo paraAutoPlayMusic = facade.GetParam("AutoPlayMusic");
+            if (paraAutoPlayMusic != null)
+            {
+                cbAutoMusic.Checked = paraAutoPlayMusic.Value == "1";
+            }
         }
     }
 
@@ -72,6 +77,11 @@ public partial class Admins_SystemConfig : BaseAdminPage
             paraInfo.Value = txtQQ.Text;
             facade.SaveParam(paraInfo);
             Application["QQNumber"] = null;
+
+            paraInfo.Key = "AutoPlayMusic";
+            paraInfo.Value = cbAutoMusic.Checked ? "1" : "0";
+            facade.SaveParam(paraInfo);
+            Application["AutoPlayMusic"] = null;
 
             JavascriptAlertAndRedirectAndRefreshParent("保存系统参数成功！", Request.Url.AbsoluteUri);
         }
