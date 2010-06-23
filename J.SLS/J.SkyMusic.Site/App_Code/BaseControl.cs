@@ -5,10 +5,9 @@ using System.Web;
 using System.Configuration;
 using J.SLS.Common.Logs;
 using System.Web.UI;
-using System.Text;
 using J.SkyMusic.DbFacade.Services;
 
-public class BasePage : System.Web.UI.Page
+public class BaseControl : System.Web.UI.UserControl
 {
     public string SiteName
     {
@@ -128,73 +127,5 @@ public class BasePage : System.Web.UI.Page
     public void JavascriptAlert(string msg)
     {
         ScriptManager.RegisterStartupScript(this, this.GetType(), "AlertMsg", "alert('" + msg.Replace("'", "''") + "');", true);
-    }
-
-    public void JavascriptAlertAndRedirect(string msg, string url)
-    {
-        ScriptManager.RegisterStartupScript(this, this.GetType(), "AlertAndRedirect", "AlertAndRedirect('" + msg + "', '" + url + "');", true);
-    }
-
-    public void JavascriptAlertAndRedirectAndRefreshParent(string msg, string url)
-    {
-        ScriptManager.RegisterStartupScript(this, this.GetType(), "AlertAndRedirectAndRefreshParent", "AlertAndRedirectAndRefreshParent('" + msg + "', '" + url + "');", true);
-    }
-
-    public void RedirectToUrl(string url)
-    {
-        this.Response.Redirect(url, false);
-    }
-
-    public void RedirectToLogin(Page basePage, string message)
-    {
-        Dictionary<string, string> parameters = new Dictionary<string, string>();
-        if (basePage != null)
-        {
-            parameters.Add("ReturnUrl", basePage.Request.Url.AbsoluteUri);
-        }
-        if (!string.IsNullOrEmpty(message))
-        {
-            parameters.Add("Message", message);
-        }
-        string url = GetParamsUrl("~/Admins/AdminLogin.aspx", parameters);
-        url = this.ResolveClientUrl(url);
-        this.Response.Redirect(url);
-    }
-
-    public void RedirectToError(int errorCode, string message, string className)
-    {
-        this.Response.Redirect("~/Error.aspx", false);
-    }
-
-    public string GetParamsUrl(string url, Dictionary<string, string> parameters)
-    {
-        string mainUrl = url;
-        int i = url.IndexOf('?');
-        if (i > 0)
-        {
-            mainUrl = url.Substring(0, i);
-            string query = url.Substring(i + 1);
-            foreach (string item in query.Split('&'))
-            {
-                string[] keyValue = item.Split('=');
-                if (keyValue.Length >= 2)
-                {
-                    if (!parameters.ContainsKey(keyValue[0]))
-                    {
-                        parameters.Add(keyValue[0], keyValue[1]);
-                    }
-                }
-            }
-        }
-        if (parameters.Count > 0)
-        {
-            StringBuilder queryBuilder = new StringBuilder();
-            foreach (KeyValuePair<string, string> item in parameters)
-            {
-                queryBuilder.AppendFormat("&{0}={1}", item.Key, this.Server.UrlEncode(item.Value));
-            }
-            mainUrl += "?" + queryBuilder.ToString().TrimStart('&');
-        }
-        return mainUrl;
     }
 }

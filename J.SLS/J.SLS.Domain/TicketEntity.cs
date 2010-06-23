@@ -124,7 +124,7 @@ namespace J.SLS.Domain
         [EntityMappingField("GameName", IsKey = true)]
         public string GameName { get; set; }
 
-        [EntityMappingField("IssueNumber", IsKey = true)]
+        [EntityMappingField("IssuseNumber", IsKey = true)]
         public string IssuseNumber { get; set; }
 
         [EntityMappingField("Amount", NeedUpdate = false)]
@@ -141,5 +141,14 @@ namespace J.SLS.Domain
 
         [EntityMappingField("ChaseTicketId")]
         public string ChaseTicketId { get; set; }
+
+        [EntityMappingField("ResponseTime")]
+        public DateTime? ResponseTime { get; set; }
+
+        [EntityMappingField("ResponseCode")]
+        public string ResponseCode { get; set; }
+
+        [EntityMappingField("ResponseMessage")]
+        public string ResponseMessage { get; set; }
     }
 }

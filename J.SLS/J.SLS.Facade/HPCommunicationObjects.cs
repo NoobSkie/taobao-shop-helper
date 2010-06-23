@@ -112,18 +112,18 @@ namespace J.SLS.Facade
             public class Request : XmlMappingObject
             {
                 [XmlMapping("ticket", 1, ObjectType = XmlObjectType.List)]
-                public XmlMappingList<TicketInfo> TicketList { get; set; }
+                public XmlMappingList<TicketMappingInfo> TicketList { get; set; }
             }
 
             [XmlMapping("lotteryRequest", 1)]
             public Request _Request { get; set; }
 
-            public XmlMappingList<TicketInfo> TicketList { get { return _Request.TicketList; } }
+            public XmlMappingList<TicketMappingInfo> TicketList { get { return _Request.TicketList; } }
         }
 
         [XmlMapping("body", 2)]
         public Body _Body { get; set; }
 
-        public XmlMappingList<TicketInfo> TicketList { get { return _Body.TicketList; } }
+        public XmlMappingList<TicketMappingInfo> TicketList { get { return _Body.TicketList; } }
     }
 }

@@ -7,6 +7,7 @@ using J.SLS.Common;
 using J.SLS.Common.Logs;
 using J.SLS.Domain;
 using J.SLS.Database.DBAccess;
+using System.Threading;
 
 namespace J.SLS.Facade
 {
@@ -135,6 +136,14 @@ namespace J.SLS.Facade
                 IssuseManager issuseManager = new IssuseManager(DbAccess);
                 issuseManager.SaveIssue(issueEntity);
 
+                if (info.Status == IssueStatus.Started)
+                {
+                    TicketFacade ticketFacade = new TicketFacade();
+                    ticketFacade.AutoBuyChaseTicket(issueEntity.GameName, issueEntity.IssuseNumber);
+                }
+                //Thread thread = new Thread(AutoChaseTicket);
+                //thread.Start(issueEntity);
+
                 return info;
             }
             catch (Exception ex)
@@ -142,6 +151,13 @@ namespace J.SLS.Facade
                 string errMsg = "添加奖期通知失败！" + xml;
                 throw HandleException(LogCategory.Notice, errMsg, ex);
             }
+        }
+
+        private void AutoChaseTicket(object issueObject)
+        {
+            IssueEntity issueEntity = issueObject as IssueEntity;
+            TicketFacade ticketFacade = new TicketFacade();
+            ticketFacade.AutoBuyChaseTicket(issueEntity.GameName, issueEntity.IssuseNumber);
         }
 
         public BonusNoticeInfo AddBonusNotify(string xml)

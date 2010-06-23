@@ -7,15 +7,103 @@ using J.SLS.Common;
 using J.SLS.Database.DBAccess;
 using J.SLS.Common.Logs;
 using J.SLS.Common.Exceptions;
+using J.SLS.Common.Xml;
+using HPGatewayModels;
+using System.Configuration;
 
 namespace J.SLS.Facade
 {
     public class TicketFacade : BaseFacade
     {
+        public HPResponseInfo DoBuy(UserInfo user, string gameName, string issueNumber
+            , BuyType buyType, List<string> anteCodes, decimal money, int multiple)
+        {
+            try
+            {
+                HPBuyRequestInfo requestInfo = new HPBuyRequestInfo();
+                string messengerId = GetAgenceAccountUserName();
+                string userPassword = GetAgenceAccountPassword();
+                string messageId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
+                string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+
+                IssueMappingInfo issueInfo = new IssueMappingInfo();
+                issueInfo.GameName = gameName;
+                issueInfo.Number = issueNumber;
+
+                TicketMappingInfo ticket = new TicketMappingInfo();
+                ticket.TicketId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
+                ticket.BuyType = buyType;
+                ticket.Money = money;
+                ticket.Amount = multiple;
+                ticket.AnteCodes = anteCodes;
+                ticket.IssueInfo = issueInfo;
+                ticket.UserProfile = GetAgencyUserProfileInfo();
+
+                HPBuyRequestInfo.Body requestBody = new HPBuyRequestInfo.Body();
+                requestBody._Request = new HPBuyRequestInfo.Body.Request();
+                requestBody._Request.TicketList = new XmlMappingList<TicketMappingInfo>();
+                requestBody._Request.TicketList.Add(ticket);
+
+                string bodyXml = requestBody.ToXmlString("body");
+
+                CommunicationObject.RequestHeaderObject requestHeader = new CommunicationObject.RequestHeaderObject();
+                requestHeader.MessengerId = GetAgenceAccountUserName();
+                requestHeader.Timestamp = timestamp;
+                requestHeader.TransactionType = TranType.Request103;
+                requestHeader.Digest = PostManager.MD5(messageId + timestamp + userPassword + bodyXml, "gb2312");
+
+                string headerXml = requestHeader.ToXmlString("header");
+                string requestXml = "<?xml version=\"1.0\" encoding=\"GBK\"?><message version=\"1.0\" id=\"" + messageId + "\">" + headerXml + bodyXml + "</message>";
+                string requestText = "transType=" + (int)TranType.Request103 + "&transMessage=" + requestXml;
+
+                BuyTicket(ticket, user);
+                string xml = PostManager.Post(GateWayManager.HPIssueQuery_GateWay, requestText, 1200);
+                HPResponseInfo info = XmlAnalyzer.AnalyseResponse<HPResponseInfo>(xml);
+                UpdateTicketStatus(ticket, user, info);
+
+                return info;
+            }
+            catch (Exception ex)
+            {
+                throw HandleException(LogCategory.Ticket, "认购失败！", ex);
+            }
+        }
+
+        private UserMappingInfo GetAgencyUserProfileInfo()
+        {
+            UserMappingInfo userProfile = new UserMappingInfo();
+            userProfile.UserName = "200021";
+            userProfile.CardType = J.SLS.Common.CardType.IdCard;
+            userProfile.CardNumber = "200021";
+            userProfile.Mail = "zhongjy_001@163.com";
+            userProfile.Mobile = "15902307117";
+            userProfile.RealName = "200021";
+            userProfile.BonusPhone = "15902307117";
+            return userProfile;
+        }
+
+        private string GetAgenceAccountUserName()
+        {
+            if (ConfigurationManager.AppSettings["AgenceAccount"] == null)
+            {
+                throw new ArgumentNullException("未配置代理商账号！");
+            }
+            return ConfigurationManager.AppSettings["AgenceAccount"];
+        }
+
+        private string GetAgenceAccountPassword()
+        {
+            if (ConfigurationManager.AppSettings["AgencePassword"] == null)
+            {
+                throw new ArgumentNullException("未配置代理商账号！");
+            }
+            return ConfigurationManager.AppSettings["AgencePassword"];
+        }
+
         /// <summary>
         /// 投注购票
         /// </summary>
-        public void BuyTicket(TicketInfo ticket, UserInfo user)
+        public void BuyTicket(TicketMappingInfo ticket, UserInfo user)
         {
             try
             {
@@ -84,7 +172,7 @@ namespace J.SLS.Facade
         /// <summary>
         /// 更新投注响应状态
         /// </summary>
-        public void UpdateTicketStatus(TicketInfo ticket, UserInfo user, HPResponseInfo response)
+        public void UpdateTicketStatus(TicketMappingInfo ticket, UserInfo user, HPResponseInfo response)
         {
             try
             {
@@ -214,10 +302,58 @@ namespace J.SLS.Facade
         public void AutoBuyChaseTicket(string gameName, string issueNumber)
         {
             TicketManager ticketManager = new TicketManager(DbAccess);
+            UserManager userManager = new UserManager(DbAccess);
             IList<ChaseEntity> chaseList = ticketManager.GetChaseListByIssue(gameName, issueNumber, (int)ChaseStatus.Chasing);
             foreach (ChaseEntity chase in chaseList)
             {
+                try
+                {
+                    UserFacade userFacade = new UserFacade();
+                    UserInfo user = userFacade.GetUserInfo(chase.UserId);
+                    if (user == null)
+                    {
+                        throw new Exception("用户不存在 - " + chase.UserId);
+                    }
+                    UserBalanceEntity balance = userManager.GetBalance(chase.UserId);
+                    if (balance == null)
+                    {
+                        throw new Exception("用户帐户不存在 - " + chase.UserId);
+                    }
+                    TicketEntity ticket = ticketManager.GetTicket(chase.TicketId);
+                    if (ticket == null)
+                    {
+                        throw new Exception("追号的票不存在 - " + chase.TicketId);
+                    }
+                    IList<TicketAnteCodeEntity> anteCodeList = ticketManager.GetAnteCodeListByTicket(chase.TicketId);
+                    List<string> codes = new List<string>();
+                    foreach (TicketAnteCodeEntity anteCodeEntity in anteCodeList)
+                    {
+                        codes.Add(anteCodeEntity.AnteCode);
+                    }
+                    balance.Freeze -= chase.Money;
+                    userManager.ModifyBalance(balance);
+                    HPResponseInfo response = DoBuy(user, gameName, issueNumber, (BuyType)ticket.BuyType, codes, chase.Money, chase.Amount);
+                    if (response.Code == "0000")
+                    {
+                        chase.Status = (int)ChaseStatus.Finished;
+                    }
+                    else
+                    {
+                        chase.Status = (int)ChaseStatus.Error;
+                    }
+                    chase.ResponseCode = response.Code;
+                    chase.ResponseMessage = response.Message;
+                    ticketManager.ModifyChaseStatus(chase);
+                }
+                catch (Exception ex)
+                {
+                    chase.Status = (int)ChaseStatus.Error;
+                    chase.ResponseCode = "9999";
+                    chase.ResponseMessage = "未知异常 - " + ex.Message;
+                    ticketManager.ModifyChaseStatus(chase);
 
+                    HandleException(LogCategory.Ticket, "自动认购追号失败！", ex, chase);
+                }
             }
         }
     }

@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using J.SkyMusic.DbFacade.Services;
 
-public partial class MainMaster : System.Web.UI.MasterPage
+public partial class MainMaster : BaseMaster
 {
     protected void Page_Load(object sender, EventArgs e)
     {

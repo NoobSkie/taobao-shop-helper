@@ -7,7 +7,7 @@ using System;
 
 namespace J.SLS.Database.Configuration
 {
-    public class SqlConnectionConfiguration : ConnectionConfiguration
+    public class OleDbConnectionConfiguration : ConnectionConfiguration
     {
         [ConfigurationProperty("PartialConnectionString", DefaultValue = "", IsKey = false, IsRequired = true)]
         public string PartialConnectionString
@@ -39,7 +39,7 @@ namespace J.SLS.Database.Configuration
 
         public override RDatabaseType DatabaseType
         {
-            get { return RDatabaseType.MSSQL; }
+            get { return RDatabaseType.OleDB; }
         }
 
         public override string ConnectionString

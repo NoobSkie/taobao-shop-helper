@@ -15,8 +15,8 @@ public partial class HP_Recevie : BasePage
         string requestString = Server.UrlDecode(GetRequestMessage());
         try
         {
-            NoticeFacade facade = new NoticeFacade();
-            CommunicationObject noticeInfo = facade.HandleNotice(requestString);
+            NoticeFacade noticeFacade = new NoticeFacade();
+            CommunicationObject noticeInfo = noticeFacade.HandleNotice(requestString);
             string accountUserName = GetAgenceAccountUserName();
             string accountPassword = GetAgenceAccountPassword();
             // 响应的交易类型，如请求奖期通知101，则响应为501.
@@ -40,7 +40,7 @@ public partial class HP_Recevie : BasePage
             sb.Append("</message>");
 
             string rtnResponse = "transType=" + (int)returnType + "&transMessage=" + sb.ToString();
-            facade.AddNotifyResponse(noticeInfo, rtnResponse, sb.ToString());
+            noticeFacade.AddNotifyResponse(noticeInfo, rtnResponse, sb.ToString());
 
             //Response.Write(rtnResponse);
             byte[] bytes = Encoding.GetEncoding("GBK").GetBytes(rtnResponse);

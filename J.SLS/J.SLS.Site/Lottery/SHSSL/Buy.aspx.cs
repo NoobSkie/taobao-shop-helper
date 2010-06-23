@@ -175,66 +175,18 @@ public partial class Lottery_SHSSL_Buy : LotteryBasePage
 
             decimal money = decimal.Parse(sumMoneyString);
             int multiple = int.Parse(multipleString);
-            int sumNumber = int.Parse(sumNumberString);
             int playType = int.Parse(playTypeString);
-            int lotteryId = int.Parse(lotteryIdString);
-            long isuseId = long.Parse(issueIdString);
-
-            string messengerId = GetAgenceAccountUserName();
-            string userPassword = GetAgenceAccountPassword();
-            string messageId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
-            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-
-            IssueMappingInfo issueInfo = new IssueMappingInfo();
-            issueInfo.GameName = LotteryCode;
-            issueInfo.Number = isuseNumber;
 
             BuyType buyType;
             List<string> anteCodes;
             // 分析选择的玩法类型和号码
             GetAnteCodes(playType, lotteryNumber, out buyType, out anteCodes);
 
-            TicketInfo ticket = new TicketInfo();
-            ticket.TicketId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
-            ticket.BuyType = buyType;
-            ticket.Money = money;
-            ticket.Amount = multiple;
-            ticket.AnteCodes = anteCodes;
-            ticket.IssueInfo = issueInfo;
-            ticket.UserProfile = GetAgencyUserProfileInfo();
-
-            HPBuyRequestInfo.Body requestBody = new HPBuyRequestInfo.Body();
-            requestBody._Request = new HPBuyRequestInfo.Body.Request();
-            requestBody._Request.TicketList = new XmlMappingList<TicketInfo>();
-            requestBody._Request.TicketList.Add(ticket);
-
-            string bodyXml = requestBody.ToXmlString("body");
-
-            CommunicationObject.RequestHeaderObject requestHeader = new CommunicationObject.RequestHeaderObject();
-            requestHeader.MessengerId = GetAgenceAccountUserName();
-            requestHeader.Timestamp = timestamp;
-            requestHeader.TransactionType = TranType.Request103;
-            requestHeader.Digest = PostManager.MD5(messageId + timestamp + userPassword + bodyXml, "gb2312");
-
-            string headerXml = requestHeader.ToXmlString("header");
-
-            string requestXml = "<?xml version=\"1.0\" encoding=\"GBK\"?><message version=\"1.0\" id=\"" + messageId + "\">" + headerXml + bodyXml + "</message>";
-
-            //Response.Write("投注方式：" + (int)ticket.BuyType);
-            //Response.Write("<br />");
-            //Response.Write("投注金额：" + money);
-            //Response.Write("<br /><br />");
-            //Response.Write(string.Join("<br />", anteCodes.ToArray()));
-
             string result = @"投注结果\n\n";
             try
             {
-                string requestText = "transType=" + (int)TranType.Request103 + "&transMessage=" + requestXml;
                 TicketFacade ticketFacade = new TicketFacade();
-                ticketFacade.BuyTicket(ticket, CurrentUser);
-                string xml = PostManager.Post(GateWayManager.HPIssueQuery_GateWay, requestText, 1200);
-                HPResponseInfo info = XmlAnalyzer.AnalyseResponse<HPResponseInfo>(xml);
-                ticketFacade.UpdateTicketStatus(ticket, CurrentUser, info);
+                HPResponseInfo info = ticketFacade.DoBuy(CurrentUser, LotteryCode, isuseNumber, buyType, anteCodes, money, multiple);
                 if (info.Code == "0000")
                 {
                     result += "成功 - " + info.Message;

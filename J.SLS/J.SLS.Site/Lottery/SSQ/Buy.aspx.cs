@@ -123,18 +123,18 @@ public partial class Lottery_SSQ_Buy : LotteryBasePage
             lotteryNumber = lotteryNumber.Replace(" + ", "#").Replace(' ', ',');
             anteCodes.AddRange(lotteryNumber.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
 
-            TicketInfo ticket = new TicketInfo();
+            TicketMappingInfo ticket = new TicketMappingInfo();
             ticket.TicketId = messengerId + DateTime.Now.ToString("yyyyMMdd") + PostManager.EightSerialNumber;
             ticket.BuyType = BuyType.A101;   // TODO
             ticket.Money = money;
             ticket.Amount = multiple;
             ticket.AnteCodes = anteCodes;
             ticket.IssueInfo = issueInfo;
-            ticket.UserProfile = GetAgencyUserProfileInfo();
+            //ticket.UserProfile = GetAgencyUserProfileInfo();
 
             HPBuyRequestInfo.Body requestBody = new HPBuyRequestInfo.Body();
             requestBody._Request = new HPBuyRequestInfo.Body.Request();
-            requestBody._Request.TicketList = new XmlMappingList<TicketInfo>();
+            requestBody._Request.TicketList = new XmlMappingList<TicketMappingInfo>();
             requestBody._Request.TicketList.Add(ticket);
 
             string bodyXml = requestBody.ToXmlString("body");

@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>后台管理 - <%= SiteName %></title>
     <link href="layout.css" rel="stylesheet" type="text/css" />
     <link href="min.css" rel="stylesheet" type="text/css" />
 
@@ -92,7 +92,7 @@
                                 <div class="bd">
                                     <ul>
                                         <li id="Li9" class="yuimenuitem"><a href="javascript:void(0);">修改后台管理密码</a></li>
-                                        <li id="Li10" class="yuimenuitem"><a href="javascript:void(0);">修改站点名称</a></li>
+                                        <li id="Li10" class="yuimenuitem"><a href="SystemConfig.aspx">系统参数设置</a></li>
                                         <li id="Li2" class="yuimenuitem"><a href="javascript:void(0);">文件上传管理</a></li></ul>
                                 </div>
                             </div>

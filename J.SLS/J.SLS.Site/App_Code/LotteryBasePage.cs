@@ -45,19 +45,6 @@ public abstract class LotteryBasePage : BasePage
         }
     }
 
-    protected UserMappingInfo GetAgencyUserProfileInfo()
-    {
-        UserMappingInfo userProfile = new UserMappingInfo();
-        userProfile.UserName = "200021";
-        userProfile.CardType = J.SLS.Common.CardType.IdCard;
-        userProfile.CardNumber = "200021";
-        userProfile.Mail = "zhongjy_001@163.com";
-        userProfile.Mobile = "15902307117";
-        userProfile.RealName = "200021";
-        userProfile.BonusPhone = "15902307117";
-        return userProfile;
-    }
-
     public static string BuildIsuseAdditionasXmlFor1Team(int Count, params string[] str)
     {
         string str2 = "<Teams>";

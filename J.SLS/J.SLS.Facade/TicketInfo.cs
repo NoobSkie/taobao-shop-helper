@@ -7,9 +7,9 @@ using J.SLS.Common;
 
 namespace J.SLS.Facade
 {
-    public class TicketInfo : XmlMappingObject
+    public class TicketMappingInfo : XmlMappingObject
     {
-        public TicketInfo()
+        public TicketMappingInfo()
         {
             Amount = 1;
         }

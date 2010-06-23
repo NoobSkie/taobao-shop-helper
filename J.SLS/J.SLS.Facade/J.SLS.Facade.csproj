@@ -63,6 +63,10 @@
     <Compile Include="CommonFacade.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MyLottery\HPGateWayProj\HPGatewayModes\HPGatewayModels.csproj">
+      <Project>{AC997CA3-CACB-4000-A9AC-D5B8ABDD7EAA}</Project>
+      <Name>HPGatewayModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\J.SLS.Common\J.SLS.Common.csproj">
       <Project>{30F7EBF8-D985-4D02-BDE6-89F392B6545D}</Project>
       <Name>J.SLS.Common</Name>

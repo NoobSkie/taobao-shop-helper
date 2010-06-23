@@ -36,11 +36,18 @@ namespace J.SLS.Domain
             persistence.Add(chaseEntity);
         }
 
+        public IList<TicketAnteCodeEntity> GetAnteCodeListByTicket(string ticketId)
+        {
+            Criteria cri = new Criteria();
+            cri.Add(Expression.Equal("TicketId", ticketId));
+            return persistence.GetList<TicketAnteCodeEntity>(cri);
+        }
+
         public IList<ChaseEntity> GetChaseListByIssue(string gameName, string issueNumber, int status)
         {
             Criteria cri = new Criteria();
             cri.Add(Expression.Equal("GameName", gameName));
-            cri.Add(Expression.Equal("IssueNumber", issueNumber));
+            cri.Add(Expression.Equal("IssuseNumber", issueNumber));
             cri.Add(Expression.Equal("Status", status));
             return persistence.GetList<ChaseEntity>(cri);
         }
@@ -48,6 +55,12 @@ namespace J.SLS.Domain
         public void ModifyTicket(TicketEntity ticket)
         {
             persistence.Modify(ticket);
+        }
+
+        public void ModifyChaseStatus(ChaseEntity chase)
+        {
+            chase.ResponseTime = DateTime.Now;
+            persistence.Modify(chase);
         }
 
         public TicketEntity GetTicket(string ticketId)

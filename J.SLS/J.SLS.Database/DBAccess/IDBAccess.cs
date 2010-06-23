@@ -13,7 +13,7 @@ namespace J.SLS.Database.DBAccess
     public enum RDatabaseType
     {
         MSSQL,
-        Oracle
+        OleDB,
     }
 
     /// <summary>

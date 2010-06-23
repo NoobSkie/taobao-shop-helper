@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ConnectionConfiguration.cs" />
+    <Compile Include="Configuration\OleDbConnectionConfiguration.cs" />
     <Compile Include="Configuration\SqlConnectionConfiguration.cs" />
+    <Compile Include="DBAccess\LHDBOleDB.cs" />
     <Compile Include="DBAccess\SqlParameterNotMatchException.cs" />
     <Compile Include="DBAccess\DbAccessException.cs" />
     <Compile Include="DBAccess\DbEngine.cs" />

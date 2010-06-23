@@ -43,7 +43,7 @@ namespace J.SkyMusic.DbFacade.Services
             }
             catch (Exception ex)
             {
-                throw HandleException("Param", "Save parameter error. - " + param.Key, ex);
+                throw HandleException("Param", "保存系统参数失败 - " + param.Key, ex);
             }
         }
     }
