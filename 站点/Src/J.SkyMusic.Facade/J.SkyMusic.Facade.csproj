@@ -64,10 +64,6 @@
       <Project>{D322F3DB-C7F4-4F11-A062-52B8CF0C82C8}</Project>
       <Name>J.SLS.Database</Name>
     </ProjectReference>
-    <ProjectReference Include="..\J.SkyMusic.Domain\J.SkyMusic.Domain.csproj">
-      <Project>{B981D79D-0FCC-49B1-89FF-042ACE758AEF}</Project>
-      <Name>J.SkyMusic.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

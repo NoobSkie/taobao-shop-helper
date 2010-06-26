@@ -37,6 +37,13 @@ namespace J.SLS.Database.Configuration
             set { base["UseEncryption"] = value; }
         }
 
+        [ConfigurationProperty("IsPartialFull", DefaultValue = false, IsKey = false, IsRequired = false)]
+        public bool IsPartialFull
+        {
+            get { return (bool)base["IsPartialFull"]; }
+            set { base["IsPartialFull"] = value; }
+        }
+
         public override RDatabaseType DatabaseType
         {
             get { return RDatabaseType.MSSQL; }
@@ -46,23 +53,34 @@ namespace J.SLS.Database.Configuration
         {
             get
             {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(PartialConnectionString);
-                if (!builder.IntegratedSecurity)
+                try
                 {
-                    if (User != null)
+                    if (IsPartialFull)
                     {
-                        string userId = User;
-                        if (UseEncryption) { userId = DecryptString(userId); }
-                        builder.UserID = userId;
+                        return PartialConnectionString;
                     }
-                    if (Password != null)
+                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(PartialConnectionString);
+                    if (!builder.IntegratedSecurity)
                     {
-                        string password = Password;
-                        if (UseEncryption) { password = DecryptString(password); }
-                        builder.Password = password;
+                        if (User != null)
+                        {
+                            string userId = User;
+                            if (UseEncryption) { userId = DecryptString(userId); }
+                            builder.UserID = userId;
+                        }
+                        if (Password != null)
+                        {
+                            string password = Password;
+                            if (UseEncryption) { password = DecryptString(password); }
+                            builder.Password = password;
+                        }
                     }
+                    return builder.ToString();
                 }
-                return builder.ToString();
+                catch (Exception ex)
+                {
+                    throw new Exception("获取连接字符串错误 - " + PartialConnectionString, ex);
+                }
             }
         }
 

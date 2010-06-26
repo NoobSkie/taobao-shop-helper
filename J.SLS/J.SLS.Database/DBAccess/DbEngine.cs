@@ -31,10 +31,17 @@ namespace J.SLS.Database.DBAccess
 
         private void OpenDB(DbConnection dbConn, string connString)
         {
-            dbConn.ConnectionString = connString;
-            if (dbConn.State == ConnectionState.Closed)
+            try
             {
-                dbConn.Open();
+                dbConn.ConnectionString = connString;
+                if (dbConn.State == ConnectionState.Closed)
+                {
+                    dbConn.Open();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("打开数据库连接失败 - " + connString, ex);
             }
         }
 
