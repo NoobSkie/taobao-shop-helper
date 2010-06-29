@@ -34,16 +34,11 @@
                 </div>
             </div>
             <div class="TitleImage">
-                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-                    width="165" height="37" style="float: right; margin-right: 3px; margin-top: 208px;"
-                    id="niftyPlayer1" align="bottom">
-                    <param name="movie" value="Player/niftyplayer.swf?file=Player/liangzhu.mp3&as=<%= AutoPlayMusic %>">
-                    <param name="quality" value="high">
-                    <param name="bgcolor" value="#FFFFFF">
-                    <embed src="Player/niftyplayer.swf?file=Player/liangzhu.mp3&as=0" quality="high"
-                        bgcolor="#FFFFFF" width="165" height="37" name="niftyPlayer1" align="" type="application/x-shockwave-flash"
-                        swliveconnect="true" pluginspage="http://www.macromedia.com/go/getflashplayer">
-		</embed>
+                <object data="dewplayer-bubble.swf" width="250" height="65" name="dewplayer"
+                    id="dewplayer" type="application/x-shockwave-flash">
+                    <param name="movie" value="dewplayer-bubble.swf" />
+                    <param name="flashvars" value="mp3=Player/liangzhu.mp3" />
+                    <param name="wmode" value="transparent" />
                 </object>
             </div>
             <div id="divSubMenu" class="Menu2">
