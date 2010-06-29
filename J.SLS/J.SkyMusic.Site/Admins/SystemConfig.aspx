@@ -17,6 +17,9 @@
                 <span class="Title">站点名称</span><asp:TextBox ID="txtSiteName" CssClass="Input" runat="server"></asp:TextBox>
             </div>
             <div class="LayoutRow">
+                <span class="Title">LOGO文件名称</span><asp:TextBox ID="txtLogoFileName" CssClass="Input" runat="server"></asp:TextBox>
+            </div>
+            <div class="LayoutRow">
                 <span class="Title">总公司地址</span><asp:TextBox ID="txtAddress" CssClass="Input" runat="server"></asp:TextBox>
             </div>
             <div class="LayoutRow">

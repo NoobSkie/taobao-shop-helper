@@ -69,6 +69,30 @@ public class BaseControl : System.Web.UI.UserControl
         }
     }
 
+    public string AutoPlayMusic
+    {
+        get
+        {
+            if (this.Application["AutoPlayMusic"] == null)
+            {
+                return GetParamValue("AutoPlayMusic", "0");
+            }
+            return (string)this.Application["AutoPlayMusic"];
+        }
+    }
+
+    public string LogoFileName
+    {
+        get
+        {
+            if (this.Application["LogoFileName"] == null)
+            {
+                return GetParamValue("LogoFileName", "logo.png");
+            }
+            return (string)this.Application["LogoFileName"];
+        }
+    }
+
     private string GetParamValue(string key, string defaultValue)
     {
         ParamFacade facade = new ParamFacade();

@@ -31,6 +31,13 @@
     background-image: url('../Images/header.png');
     background-repeat: no-repeat;
 }
+.MusicPlayer
+{
+    width: 200px;
+    position: relative;
+    left: 790px;
+    top: -30px;
+}
 .SplitLeft
 {
     display: block;

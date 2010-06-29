@@ -5,13 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Controls_CtrlHeader : BaseControl
+public partial class Controls_CtrlBackground : BaseControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            imgLogo.ImageUrl = "~/Images/" + LogoFileName;
-        }
+
     }
 }

@@ -5,6 +5,7 @@
 <%@ Register Src="Controls/CtrlMenu.ascx" TagName="CtrlMenu" TagPrefix="uc2" %>
 <%@ Register Src="Controls/CtrlFooter.ascx" TagName="CtrlFooter" TagPrefix="uc3" %>
 <%@ Register Src="Controls/CtrlSubMenu.ascx" TagName="CtrlSubMenu" TagPrefix="uc4" %>
+<%@ Register Src="Controls/CtrlBackground.ascx" TagName="CtrlBackground" TagPrefix="uc5" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -12,12 +13,19 @@
         <%= SiteName %></title>
     <link href="Styles/MainLayout.css" rel="stylesheet" type="text/css" />
 
+    <script type="text/javascript" src="swfobject.js"></script>
+
     <script type="text/javascript">
 
         function SetIframeHeight() {
             var a = iframe_sub.document.body.scrollHeight;
             // var c = iframe_sub.document.documentElement.scrollHeight;
             document.getElementById('iframe_sub').style.height = a;
+        }
+        
+        function play() {
+            var dewp = document.getElementById("dewplayer");
+            if (dewp != null) dewp.dewplay();
         }
     
     </script>
@@ -33,14 +41,7 @@
                     <uc2:CtrlMenu ID="ctrlMenu1" runat="server" />
                 </div>
             </div>
-            <div class="TitleImage">
-                <object data="dewplayer-bubble.swf" width="250" height="65" name="dewplayer"
-                    id="dewplayer" type="application/x-shockwave-flash">
-                    <param name="movie" value="dewplayer-bubble.swf" />
-                    <param name="flashvars" value="mp3=Player/liangzhu.mp3" />
-                    <param name="wmode" value="transparent" />
-                </object>
-            </div>
+            <uc5:CtrlBackground ID="CtrlBackground1" runat="server" />
             <div id="divSubMenu" class="Menu2">
                 <uc4:CtrlSubMenu ID="ctrlSubMenu4" runat="server" />
             </div>
@@ -56,5 +57,14 @@
         </div>
     </center>
     </form>
+
+    <script type="text/javascript">
+
+        if ("<%= AutoPlayMusic %>" == "1") {
+            play();
+        }
+    
+    </script>
+
 </body>
 </html>

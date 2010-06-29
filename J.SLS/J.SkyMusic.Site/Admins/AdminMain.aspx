@@ -92,7 +92,7 @@
                                 <div class="bd">
                                     <ul>
                                         <li id="Li9" class="yuimenuitem"><a href="javascript:void(0);">修改后台管理密码</a></li>
-                                        <li id="Li10" class="yuimenuitem"><a href="SystemConfig.aspx">系统参数设置</a></li>
+                                        <li id="Li10" class="yuimenuitem"><a target="iframe_sub" href="SystemConfig.aspx">系统参数设置</a></li>
                                         <li id="Li2" class="yuimenuitem"><a href="javascript:void(0);">文件上传管理</a></li></ul>
                                 </div>
                             </div>

@@ -18,6 +18,11 @@ public partial class Admins_SystemConfig : BaseAdminPage
             {
                 txtSiteName.Text = paraSiteName.Value;
             }
+            ParamInfo paraLogoFileName = facade.GetParam("LogoFileName");
+            if (paraLogoFileName != null)
+            {
+                txtLogoFileName.Text = paraLogoFileName.Value;
+            }
             ParamInfo paraAddress = facade.GetParam("Address");
             if (paraAddress != null)
             {
@@ -57,6 +62,11 @@ public partial class Admins_SystemConfig : BaseAdminPage
             paraInfo.Value = txtSiteName.Text;
             facade.SaveParam(paraInfo);
             Application["SiteName"] = null;
+
+            paraInfo.Key = "LogoFileName";
+            paraInfo.Value = txtLogoFileName.Text;
+            facade.SaveParam(paraInfo);
+            Application["LogoFileName"] = null;
 
             paraInfo.Key = "Address";
             paraInfo.Value = txtAddress.Text;

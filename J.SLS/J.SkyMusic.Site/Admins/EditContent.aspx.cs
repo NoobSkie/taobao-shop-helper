@@ -15,8 +15,12 @@ public partial class Admins_EditContent : BaseAdminPage
         {
             PageFacade facade = PageHelper.GetPageFacade(this.Page);
             string listId = Request["lid"];
-            hlnkCancel.NavigateUrl = string.Format("EditList.aspx?id={0}", Request["lid"] ?? "");
-            if (!string.IsNullOrEmpty(listId) && listId != Guid.Empty.ToString("N"))
+            if (string.IsNullOrEmpty(listId))
+            {
+                listId = Guid.Empty.ToString("N");
+            }
+            hlnkCancel.NavigateUrl = string.Format("EditList.aspx?id={0}", listId);
+            if (listId != Guid.Empty.ToString("N"))
             {
                 ListItemInfo listItem = facade.GetListItemById(listId);
                 if (listItem != null)
@@ -89,13 +93,18 @@ public partial class Admins_EditContent : BaseAdminPage
             html.Name = name1;
             html.Title = title;
             html.Content = content;
-            if (string.IsNullOrEmpty(Request["lid"]) || Request["lid"] == Guid.Empty.ToString("N"))
+            string listId = Request["lid"];
+            if (string.IsNullOrEmpty(listId))
+            {
+                listId = Guid.Empty.ToString("N");
+            }
+            if (listId == Guid.Empty.ToString("N"))
             {
                 html.ItsListId = null;
             }
             else
             {
-                html.ItsListId = Request["lid"];
+                html.ItsListId = listId;
             }
 
             string msg, url;
@@ -110,7 +119,7 @@ public partial class Admins_EditContent : BaseAdminPage
                 facade.ModifyHtml(html);
                 msg = string.Format("修改页面成功 - \"{0}\"", name1);
             }
-            url = string.Format("EditList.aspx?id={0}", Request["lid"] ?? "");
+            url = string.Format("EditList.aspx?id={0}", listId);
             JavascriptAlertAndRedirect(msg, url);
         }
         catch (FacadeException ex)

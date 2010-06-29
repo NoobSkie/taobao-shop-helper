@@ -1,2 +1,2 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CtrlHeader.ascx.cs" Inherits="Controls_CtrlHeader" %>
-<asp:Image ID="imgLogo" CssClass="Logo" runat="server" ImageUrl="~/Images/logo.png" />
+<asp:Image ID="imgLogo" CssClass="Logo" runat="server" />
