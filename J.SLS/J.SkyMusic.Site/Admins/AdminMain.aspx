@@ -66,7 +66,7 @@
                             <div class="yuimenu">
                                 <div class="bd">
                                     <ul>
-                                        <li id="Li7" class="yuimenuitem"><a href="MenuEdit.aspx">添加菜单</a></li></ul>
+                                        <li id="Li7" class="yuimenuitem"><a href="MenuEdit.aspx" target="iframe_sub">添加菜单</a></li></ul>
                                 </div>
                             </div>
                         </li>

@@ -14,6 +14,14 @@
         <div>
             <asp:Image ID="imgLogo" CssClass="Logo" runat="server" ImageUrl="~/Images/logo.png" /></div>
         <div>
+            <span style="line-height: 30px;">重庆天子之歌钢琴公司</span>
+            <br />
+            <span style="line-height: 30px;">重庆天之歌钢琴学校</span>
+        </div>
+        <div>
+            <span style="color: Red; line-height: 50px;"><b>让艺术完美你的人生</b></span>
+        </div>
+        <div style="display: none;">
             <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
                 width="165" height="37" id="niftyPlayer1" align="bottom">
                 <param name="movie" value="Player/niftyplayer.swf?file=Player/liangzhu.mp3&as=<%= AutoPlayMusic %>">
