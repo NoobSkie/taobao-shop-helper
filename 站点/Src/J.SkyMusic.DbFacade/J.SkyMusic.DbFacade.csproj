@@ -48,11 +48,15 @@
   <ItemGroup>
     <Compile Include="Domains\LogEntity.cs" />
     <Compile Include="Domains\LogManager.cs" />
+    <Compile Include="Domains\NoticeEntity.cs" />
+    <Compile Include="Domains\NoticeManager.cs" />
     <Compile Include="Domains\PageEntities.cs" />
     <Compile Include="Domains\PageManager.cs" />
     <Compile Include="Domains\ParamManager.cs" />
     <Compile Include="Domains\ParamEntity.cs" />
     <Compile Include="Services\BaseFacade.cs" />
+    <Compile Include="Services\NoticeFacade.cs" />
+    <Compile Include="Services\NoticeInfo.cs" />
     <Compile Include="Services\PageFacade.cs" />
     <Compile Include="Services\PageItemInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
