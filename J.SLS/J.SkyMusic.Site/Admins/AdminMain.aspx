@@ -62,6 +62,14 @@
                                 </div>
                             </div>
                         </li>
+                        <li id="Li3"><a href="NoticeManagement.aspx" target="iframe_sub">通知管理</a>
+                            <div class="yuimenu">
+                                <div class="bd">
+                                    <ul>
+                                        <li id="Li4" class="yuimenuitem"><a href="EditNotice.aspx" target="iframe_sub">添加通知</a></li></ul>
+                                </div>
+                            </div>
+                        </li>
                         <li id="Li6"><a href="MenuManagement.aspx" target="iframe_sub">菜单管理</a>
                             <div class="yuimenu">
                                 <div class="bd">

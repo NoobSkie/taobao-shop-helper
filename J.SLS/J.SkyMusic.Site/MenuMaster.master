@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MenuMaster.master.cs" Inherits="MenuMaster" EnableViewState="false" %>
+
+<%@ Register Src="Controls/CtrlHeader.ascx" TagName="CtrlHeader" TagPrefix="uc1" %>
+<%@ Register Src="Controls/CtrlMenu.ascx" TagName="CtrlMenu" TagPrefix="uc2" %>
+<%@ Register Src="Controls/CtrlFooter.ascx" TagName="CtrlFooter" TagPrefix="uc3" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <%= SiteName %></title>
+    <link href="Styles/MainLayout.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <center>
+        <div class="MainForm">
+            <div class="Header">
+                <uc1:CtrlHeader ID="ctrlHeader" runat="server" />
+                <div class="Menu1">
+                    <uc2:CtrlMenu ID="ctrlMenu1" runat="server" />
+                </div>
+            </div>
+            <asp:ContentPlaceHolder ID="content" runat="server">
+            </asp:ContentPlaceHolder>
+            <div class="Footer">
+                <uc3:CtrlFooter ID="ctrlFooter" runat="server" />
+            </div>
+        </div>
+    </center>
+    </form>
+</body>
+</html>

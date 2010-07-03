@@ -15,6 +15,11 @@ namespace J.SkyMusic.DbFacade.Domains
             persistence = new ObjectPersistence(dbAccess);
         }
 
+        public NoticeEntity GetNotice(string id)
+        {
+            return persistence.GetByKey<NoticeEntity>(id);
+        }
+
         public void AddNotice(NoticeEntity entity)
         {
             entity.CreateTime = DateTime.Now;
@@ -28,7 +33,7 @@ namespace J.SkyMusic.DbFacade.Domains
             persistence.Modify(entity);
         }
 
-        public void DeleteNotice(long id)
+        public void DeleteNotice(string id)
         {
             persistence.Delete(new NoticeEntity { Id = id });
         }

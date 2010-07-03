@@ -15,14 +15,14 @@
 .Header
 {
     background-image: url('../Images/menu_bg.png');
-    height: 100px;
+    height: 80px;
     background-repeat: repeat-x;
 }
 .Header .Logo
 {
     margin-left: 30px;
     margin-right: 35px;
-    margin-top: 20px;
+    margin-top: 8px;
     float: left;
 }
 .TitleImage
@@ -60,8 +60,7 @@
 {
     list-style-type: none;
     float: left;
-    height: 100px;
-    margin-top: 10px;
+    height: 80px;
     margin-right: 12px;
     background-image: url('../Images/split_bg_menu.png');
     background-repeat: no-repeat;
@@ -69,7 +68,7 @@
 }
 .Menu1 ul li a
 {
-    line-height: 100px;
+    line-height: 80px;
     margin-left: 12px;
     text-decoration: none;
     font-family: 幼圆;
@@ -117,6 +116,41 @@
 {
     /* border-top: dotted 1px #336AAD; */
 }
+.NoticeBox
+{
+    clear: both;
+    display: block;
+    height: 60px;
+    border: solid 1px #fec698;
+    background: #fef7dc;
+    margin-bottom: 2px;
+    text-align: center;
+}
+.NoticeBox ul
+{
+    margin: 0px;
+    list-style-type: disc;
+    list-style-position: outside;
+    overflow: hidden;
+}
+.NoticeBox ul li
+{
+    float: left;
+    line-height: 60px;
+    padding: px;
+    margin-right: 32px;
+}
+.NoticeBox a
+{
+    color: #2986D1;
+    font-family: 黑体;
+    font-size: 14px;
+    line-height: 60px;
+}
+.HiddenDiv
+{
+    display: none;
+}
 .Content
 {
     padding: 20px;
@@ -136,7 +170,7 @@
     padding-bottom: 10px;
     background-color: #FFFFFF;
 }
-.Footer .Spliter span,a
+.Footer .Spliter span, a
 {
     text-decoration: none;
     color: #6690C0;

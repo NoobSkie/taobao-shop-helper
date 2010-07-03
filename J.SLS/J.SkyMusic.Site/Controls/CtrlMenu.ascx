@@ -30,11 +30,11 @@
 </script>
 
 <ul>
-    <asp:Repeater ID="rptMenuList" runat="server">
+    <asp:Repeater ID="rptMenuList" runat="server" 
+        onitemdatabound="rptMenuList_ItemDataBound">
         <ItemTemplate>
-            <li><a href="javascript:void(0);" onclick="<%# Eval("Id", "ShowSubMenu('{0}');") %>">
-                <%# Eval("Name") %></a></li>
+            <li>
+                <asp:HyperLink ID="hlnkMenu" runat="server"></asp:HyperLink></li>
         </ItemTemplate>
     </asp:Repeater>
 </ul>
-

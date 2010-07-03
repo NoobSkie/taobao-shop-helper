@@ -9,8 +9,11 @@ namespace J.SkyMusic.DbFacade.Services
     [EntityMappingTable("T_Notice_List")]
     public class NoticeInfo
     {
-        [EntityMappingField("Id", IsKey = true, IsAutoField = true)]
-        public long Id { get; set; }
+        [EntityMappingField("Id", IsKey = true)]
+        public string Id { get; set; }
+
+        [EntityMappingField("Name")]
+        public string Name { get; set; }
 
         [EntityMappingField("Title")]
         public string Title { get; set; }

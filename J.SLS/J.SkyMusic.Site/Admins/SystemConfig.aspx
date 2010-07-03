@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admins/AdminMaster.master" AutoEventWireup="true" CodeFile="SystemConfig.aspx.cs" Inherits="Admins_SystemConfig" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admins/AdminMaster.master" AutoEventWireup="true"
+    CodeFile="SystemConfig.aspx.cs" Inherits="Admins_SystemConfig" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ph_head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ph_head" runat="Server">
     <link href="systemconfig.css" rel="stylesheet" type="text/css" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ph_content" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ph_content" runat="Server">
     <div class="Summary">
         <asp:Label ID="lblTitle" runat="server" Text="系统参数配置"></asp:Label>
     </div>
@@ -17,7 +18,8 @@
                 <span class="Title">站点名称</span><asp:TextBox ID="txtSiteName" CssClass="Input" runat="server"></asp:TextBox>
             </div>
             <div class="LayoutRow">
-                <span class="Title">LOGO文件名称</span><asp:TextBox ID="txtLogoFileName" CssClass="Input" runat="server"></asp:TextBox>
+                <span class="Title">LOGO文件名称</span><asp:TextBox ID="txtLogoFileName" CssClass="Input"
+                    runat="server"></asp:TextBox>
             </div>
             <div class="LayoutRow">
                 <span class="Title">总公司地址</span><asp:TextBox ID="txtAddress" CssClass="Input" runat="server"></asp:TextBox>
@@ -32,9 +34,12 @@
                 <span class="Title">QQ号码</span><asp:TextBox ID="txtQQ" CssClass="Input" runat="server"></asp:TextBox>
             </div>
             <div class="LayoutRow">
+                <span class="Title">通知切换延迟（毫秒）</span><asp:TextBox ID="txtDelay" CssClass="Input"
+                    runat="server"></asp:TextBox>
+            </div>
+            <div class="LayoutRow">
                 <span class="Title">自动播放背景音乐</span><asp:CheckBox ID="cbAutoMusic" runat="server" />
             </div>
         </div>
     </div>
 </asp:Content>
-

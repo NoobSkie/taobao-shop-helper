@@ -43,6 +43,11 @@ public partial class Admins_SystemConfig : BaseAdminPage
             {
                 txtQQ.Text = paraQQNumber.Value;
             }
+            ParamInfo paraNoticeDelay = facade.GetParam("NoticeDelay");
+            if (paraNoticeDelay != null)
+            {
+                txtDelay.Text = paraNoticeDelay.Value;
+            }
             ParamInfo paraAutoPlayMusic = facade.GetParam("AutoPlayMusic");
             if (paraAutoPlayMusic != null)
             {
@@ -87,6 +92,11 @@ public partial class Admins_SystemConfig : BaseAdminPage
             paraInfo.Value = txtQQ.Text;
             facade.SaveParam(paraInfo);
             Application["QQNumber"] = null;
+
+            paraInfo.Key = "NoticeDelay";
+            paraInfo.Value = txtDelay.Text;
+            facade.SaveParam(paraInfo);
+            Application["NoticeDelay"] = null;
 
             paraInfo.Key = "AutoPlayMusic";
             paraInfo.Value = cbAutoMusic.Checked ? "1" : "0";

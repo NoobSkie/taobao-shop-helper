@@ -1,0 +1,65 @@
+.ListDiv
+{
+    clear: both;
+}
+.ListDiv div
+{
+    clear:both;
+    height: 30px;
+    line-height: 30px;
+}
+.ListDiv div span
+{
+    float: left;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ListDiv div.THeader
+{
+    border-bottom: solid 2px #3366FF;
+}
+.ListDiv div.THeader span
+{
+    font-weight: bold;
+}
+.ListDiv div.TRow
+{
+}
+.ListDiv div.TRow:hover
+{
+    background-color: #EEEEEE;
+}
+.ListDiv div.Alternating
+{
+}
+.ListDiv div.TRow span
+{
+}
+.ListDiv div .Name
+{
+    padding-left: 10px;
+    width: 250px;
+}
+.ListDiv div .Code
+{
+    width: 130px;
+}
+.ListDiv div .Boolean
+{
+    width: 80px;
+}
+.ListDiv div .Count
+{
+    width: 90px;
+    text-align:right;
+}
+.ListDiv div .Link
+{
+    width: 80px;
+    text-align:center;
+}
+.ListDiv div .Link a
+{
+}

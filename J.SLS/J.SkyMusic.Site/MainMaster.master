@@ -5,6 +5,18 @@
 <head runat="server">
     <title></title>
     <link href="Styles/SubPageLayout.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+
+        function playMusic(url) {
+            if (window.parent != window) {
+                window.parent.playMusicByUrl(url);
+            }
+            else {
+                alert("参数错误！！！请通过主页播放！！");
+            }
+        }
+    
+    </script>
     <asp:ContentPlaceHolder ID="ph_head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

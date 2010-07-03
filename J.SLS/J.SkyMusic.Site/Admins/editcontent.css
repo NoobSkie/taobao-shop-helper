@@ -24,7 +24,11 @@
     margin-left: 110px;
     color: Red;
 }
-.ContentLayout .LayoutRow Input
+.ContentLayout .LayoutRow .Input
 {
     width: 700px;
+}
+.ContentLayout .LayoutRow .CheckOption
+{
+    margin-right: 20px;
 }

@@ -81,6 +81,18 @@ public class BaseControl : System.Web.UI.UserControl
         }
     }
 
+    public string NoticeDelay
+    {
+        get
+        {
+            if (this.Application["NoticeDelay"] == null)
+            {
+                return GetParamValue("NoticeDelay", "3000");
+            }
+            return (string)this.Application["NoticeDelay"];
+        }
+    }
+
     public string LogoFileName
     {
         get

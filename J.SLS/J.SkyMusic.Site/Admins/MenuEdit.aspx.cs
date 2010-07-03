@@ -111,6 +111,10 @@ public partial class Admins_MenuEdit : BaseAdminPage
     {
         PageFacade facade = PageHelper.GetPageFacade(this.Page);
         MenuItemInfo menuItem = facade.GetMenuById(menuId);
+        if (menuItem == null)
+        {
+            return;
+        }
         txtName.Text = menuItem.Name;
         txtIndex.Text = menuItem.Index.ToString();
         if (string.IsNullOrEmpty(menuItem.ParentId))
@@ -127,20 +131,23 @@ public partial class Admins_MenuEdit : BaseAdminPage
                 {
                     ddlLinkList.SelectedValue = menuItem.InnerId;
                 }
-                else
-                {
-                    HtmlItemInfo htmlItem = facade.GetHtmlItemById(menuItem.InnerId);
-                    if (string.IsNullOrEmpty(htmlItem.ItsListId))
-                    {
-                        ddlLinkList.SelectedValue = htmlItem.ItsListId ?? "";
-                        ddlLinkHtml.SelectedValue = htmlItem.Id;
-                    }
-                    else
-                    {
-                        ddlLinkList.SelectedValue = htmlItem.ItsListId;
-                        ddlLinkHtml.SelectedValue = htmlItem.Id;
-                    }
-                }
+                //else
+                //{
+                //    if (menuItem.InnerId != null)
+                //    {
+                //        HtmlItemInfo htmlItem = facade.GetHtmlItemById(menuItem.InnerId);
+                //        if (string.IsNullOrEmpty(htmlItem.ItsListId))
+                //        {
+                //            ddlLinkList.SelectedValue = htmlItem.ItsListId ?? "";
+                //            ddlLinkHtml.SelectedValue = htmlItem.Id;
+                //        }
+                //        else
+                //        {
+                //            ddlLinkList.SelectedValue = htmlItem.ItsListId;
+                //            ddlLinkHtml.SelectedValue = htmlItem.Id;
+                //        }
+                //    }
+                //}
             }
             else
             {

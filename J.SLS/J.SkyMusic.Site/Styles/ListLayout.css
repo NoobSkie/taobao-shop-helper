@@ -1,11 +1,77 @@
-.ListLayout
+﻿.ListLayout
 {
+    clear: both;
+    font-size: 13px;
+}
+.ListTitle
+{
+    float: left;
+    height: 30px;
+    margin-right: 6px;
+    margin-bottom: 15px;
+}
+.GrayTitle
+{
+    height: 30px;
+}
+.HiddenGray
+{
+    display: none;
+}
+.ListTitle .Left
+{
+    display: block;
+    width: 10px;
+    float: left;
+}
+.ListTitle .Center
+{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    color: White;
+    font-family: 黑体;
+    font-size: 15px;
+    padding-left: 14px;
+    padding-right: 14px;
+    background-image: url('../Images/listheader_bg_red_center.png');
+}
+.ListTitle .Right
+{
+    display: block;
+    width: 10px;
+    float: left;
+}
+.GrayTitle .Left
+{
+    display: block;
+    width: 10px;
+    float: left;
+}
+.GrayTitle .Center
+{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    font-family: 黑体;
+    font-size: 15px;
+    padding-left: 14px;
+    padding-right: 14px;
+    background-image: url('../Images/listheader_bg_gray_center.png');
+}
+.GrayTitle .Right
+{
+    display: block;
+    width: 10px;
+    float: left;
 }
 .ListLayout .Row
 {
+    line-height: 32px;
 }
 .ListLayout .Alternating
 {
+    background-color: #EEF3FA;
 }
 .ListLayout .Row .Name
 {

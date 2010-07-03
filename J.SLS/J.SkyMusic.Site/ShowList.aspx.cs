@@ -16,13 +16,23 @@ public partial class ShowList : System.Web.UI.Page
             string listId = Request["id"];
             if (!string.IsNullOrEmpty(listId))
             {
+                ListItemInfo list = facade.GetListItemById(listId);
+                string[] names = list.Name.Split(new char[] { '#' }, 2);
+                lblTitle.Text = names[0];
+                if (names.Length > 1)
+                {
+                    hasEName = true;
+                    lblGrayTitle.Text = names[1];
+                }
+
                 IList<HtmlItemInfo> htmlList = facade.GetHtmlItemsByParent(listId);
                 rptList.DataSource = htmlList;
                 rptList.DataBind();
             }
         }
     }
-
+    private bool hasEName = false;
+    protected bool HasEName { get { return hasEName; } }
     protected void rptList_ItemDataBound(object sender, RepeaterItemEventArgs e)
     {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
