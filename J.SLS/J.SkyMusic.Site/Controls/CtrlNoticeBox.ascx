@@ -1,15 +1,15 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CtrlNoticeBox.ascx.cs"
     Inherits="Controls_CtrlNoticeBox" %>
 <div class="<%= HasNotice?"NoticeBox":"HiddenDiv" %>" id="divNoticeContainer">
-    <%--    <marquee id="noticContainer" height="60" scrollamount="3" direction="left" onmouseover="this.stop()" onmouseout="this.start()">
---%>
+    <marquee id="noticContainer" height="60" scrollamount="3" direction="left" onmouseover="this.stop()"
+        onmouseout="this.start()">
     <asp:Repeater ID="rptNoticeList" runat="server" OnItemDataBound="rptNoticeList_ItemDataBound">
         <ItemTemplate>
             <asp:HyperLink ID="hlnk" Target="_blank" runat="server"></asp:HyperLink>
         </ItemTemplate>
     </asp:Repeater>
-    <%--    </marquee>
---%></div>
+    </marquee>
+</div>
 
 <script type="text/javascript">
 
@@ -45,9 +45,9 @@
         currentDisplayNoticeNum = nextNum;
     }
     
-    var hasNotice = '<%= HasNotice %>'.toLowerCase();
-    if(hasNotice=='true'){
-        setInterval("ShowNext();", <%= NoticeDelay %>);
-    }
+//    var hasNotice = '<%= HasNotice %>'.toLowerCase();
+//    if(hasNotice=='true'){
+//        setInterval("ShowNext();", <%= NoticeDelay %>);
+//    }
 </script>
 

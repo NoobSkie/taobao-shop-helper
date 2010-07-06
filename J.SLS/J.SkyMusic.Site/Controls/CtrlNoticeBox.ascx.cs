@@ -40,10 +40,10 @@ public partial class Controls_CtrlNoticeBox : BaseControl
                 name = "<b>" + name + "</b>";
             }
             hlnk.Text = name;
-            if (e.Item.ItemIndex != 0)
-            {
-                hlnk.Attributes["style"] = "display: none;";
-            }
+            //if (e.Item.ItemIndex != 0)
+            //{
+            //    hlnk.Attributes["style"] = "display: none;";
+            //}
             if (notice.IsHasDetail)
             {
                 hlnk.NavigateUrl = string.Format("~/ShowNotice.aspx?n={0}", notice.Id);

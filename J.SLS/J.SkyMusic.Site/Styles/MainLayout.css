@@ -15,15 +15,25 @@
 .Header
 {
     background-image: url('../Images/menu_bg.png');
-    height: 80px;
+    height: 100px;
     background-repeat: repeat-x;
 }
 .Header .Logo
 {
-    margin-left: 30px;
+    margin-left: 20px;
     margin-right: 35px;
     margin-top: 8px;
     float: left;
+}
+.Header .Logo img
+{
+    margin-left: 10px;
+    margin-bottom: 8px;
+}
+.Header .Logo .Name1
+{
+    margin-right: 20px;
+    margin-bottom: 2px;
 }
 .TitleImage
 {
@@ -60,7 +70,7 @@
 {
     list-style-type: none;
     float: left;
-    height: 80px;
+    height: 90px;
     margin-right: 12px;
     background-image: url('../Images/split_bg_menu.png');
     background-repeat: no-repeat;
@@ -68,7 +78,7 @@
 }
 .Menu1 ul li a
 {
-    line-height: 80px;
+    line-height: 90px;
     margin-left: 12px;
     text-decoration: none;
     font-family: 幼圆;
@@ -138,7 +148,7 @@
     float: left;
     line-height: 60px;
     padding: px;
-    margin-right: 32px;
+    margin-right: 52px;
 }
 .NoticeBox a
 {
@@ -146,6 +156,7 @@
     font-family: 黑体;
     font-size: 14px;
     line-height: 60px;
+    margin-right: 32px;
 }
 .HiddenDiv
 {

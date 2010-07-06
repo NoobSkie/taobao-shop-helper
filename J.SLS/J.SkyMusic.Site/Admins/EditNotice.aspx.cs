@@ -89,10 +89,6 @@ public partial class Admins_EditNotice : BaseAdminPage
             }
             JavascriptAlertAndRedirect(msg, "NoticeManagement.aspx");
         }
-        catch (FacadeException ex)
-        {
-            JavascriptAlert(ex.Message);
-        }
         catch
         {
             JavascriptAlert(@"保存通知发生未知错误，请联系系统配置人员！");
