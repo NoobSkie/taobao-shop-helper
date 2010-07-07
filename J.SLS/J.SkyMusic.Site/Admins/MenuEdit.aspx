@@ -55,6 +55,13 @@
         }
 
         function SelectListItem(listObj, value) {
+            for (var i = 0; i < listObj.options.length; i++) {
+                if (listObj.options[i].value == value) {
+                    listObj.selectedIndex = i;
+                    return true;
+                }
+            }
+            return false;
         }
 
         var htmlCache = new Array();
@@ -150,7 +157,7 @@
     <div class="Content">
         <div class="Operator">
             <asp:HyperLink ID="HyperLink1" NavigateUrl="javascript:SaveMenu();" runat="server"><span>保存</span></asp:HyperLink>
-            <asp:HyperLink ID="hlnkCancel" runat="server"><span>返回</span></asp:HyperLink>
+            <asp:HyperLink ID="hlnkCancel" NavigateUrl="MenuManagement.aspx" runat="server"><span>返回</span></asp:HyperLink>
         </div>
         <div class="TipDiv">
             <span id="lblJsErrorMsg"></span>
@@ -237,7 +244,6 @@
                     return;
                 }
                 var spliter = "<%= SplitChar3 %>";
-                alert(spliter);
                 var arr = info.split(spliter);
                 // menuInfos[0] = menuItem.Name;
                 // menuInfos[1] = menuItem.Index.ToString();
@@ -250,8 +256,31 @@
                 // menuInfos[8] = menuItem.IsOpenNewWindow ? "1" : "0";
                 document.getElementById("<%= txtName.ClientID %>").value = arr[0];
                 document.getElementById("<%= txtIndex.ClientID %>").value = arr[1];
-                document.getElementById("<%= ddlTopMenu.ClientID %>").value = arr[1];
-                alert(arr.length);
+                SelectListItem(document.getElementById("<%= ddlTopMenu.ClientID %>"), arr[2]);
+                TopMenuChanged(arr[2]);
+                if (arr[3] == "1") {    // 内部链接
+                    if (arr[5] == "") { // 自动
+                        document.getElementById("<%= rbtnAuto.ClientID %>").click();
+                    }
+                    else {
+                        document.getElementById("<%= rbtnInner.ClientID %>").click();
+                        var ddl = document.getElementById("<%= ddlLinkList.ClientID %>");
+                        if (arr[4] == "1") {    // 列表
+                            SelectListItem(ddl, arr[5]);
+                            BindChildrenHtml(ddl);
+                        }
+                        else {
+                            SelectListItem(ddl, arr[6]);
+                            BindChildrenHtml(ddl);
+                            SelectListItem(document.getElementById("<%= ddlLinkHtml.ClientID %>"), arr[5]);
+                        }
+                    }
+                }
+                else {
+                    document.getElementById("<%= rbtnOuter.ClientID %>").click();
+                    document.getElementById("<%= txtOuterUrl.ClientID %>").value = arr[7];
+                }
+                document.getElementById("<%= cbOpenNewWindow.ClientID %>").checked = (arr[8] == "1");
             }
         }
     
