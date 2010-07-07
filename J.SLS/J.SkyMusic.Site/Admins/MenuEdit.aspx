@@ -54,6 +54,9 @@
             }
         }
 
+        function SelectListItem(listObj, value) {
+        }
+
         var htmlCache = new Array();
         function BindChildrenHtml(parentObj) {
             ClearHtmlItems();
@@ -216,7 +219,41 @@
             MenuTypeChanged("2");
         }
 
-        document.getElementById("<%= rbtnAuto.ClientID %>").click();
+        window.onload = function() {
+            var isAdd = '<%= IsAdd %>';
+            if (isAdd.toLowerCase() == 'true') {
+                document.getElementById("<%= rbtnAuto.ClientID %>").click();
+            }
+            else {
+                var id = document.getElementById("<%= hiddCurrentId.ClientID %>").value;
+                var response = Admins_MenuEdit.GetMenuInfo(id);
+                if (response == null || response.value == null) {
+                    alert("加载菜单失败！");
+                    return;
+                }
+                var info = response.value;
+                if (info == "") {
+                    alert("菜单数据错误！可能是菜单已被删除！请刷新后重试！");
+                    return;
+                }
+                var spliter = "<%= SplitChar3 %>";
+                alert(spliter);
+                var arr = info.split(spliter);
+                // menuInfos[0] = menuItem.Name;
+                // menuInfos[1] = menuItem.Index.ToString();
+                // menuInfos[2] = menuItem.ParentId;
+                // menuInfos[3] = menuItem.IsInner ? "1" : "0";
+                // menuInfos[4] = menuItem.IsListType ? "1" : "0";
+                // menuInfos[5] = menuItem.InnerId;
+                // menuInfos[6] = "";  // parent list id
+                // menuInfos[7] = menuItem.OuterUrl;
+                // menuInfos[8] = menuItem.IsOpenNewWindow ? "1" : "0";
+                document.getElementById("<%= txtName.ClientID %>").value = arr[0];
+                document.getElementById("<%= txtIndex.ClientID %>").value = arr[1];
+                document.getElementById("<%= ddlTopMenu.ClientID %>").value = arr[1];
+                alert(arr.length);
+            }
+        }
     
     </script>
 

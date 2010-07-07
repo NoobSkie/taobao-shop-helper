@@ -13,6 +13,7 @@ public partial class Admins_MenuEdit : BaseAdminPage
     protected string SplitChar0 = ((char)23).ToString();
     protected string SplitChar1 = ((char)24).ToString();
     protected string SplitChar2 = ((char)25).ToString();
+    protected string SplitChar3 = ((char)26).ToString();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -24,12 +25,20 @@ public partial class Admins_MenuEdit : BaseAdminPage
             if (!IsAdd)
             {
                 hiddCurrentId.Value = Request["id"];
-                BindMenuInfo(Request["id"]);
+                // BindMenuInfo(Request["id"]);
             }
         }
     }
 
-    private bool IsAdd
+    public string CurrentId
+    {
+        get
+        {
+            return Request["id"];
+        }
+    }
+
+    public bool IsAdd
     {
         get
         {
@@ -50,6 +59,7 @@ public partial class Admins_MenuEdit : BaseAdminPage
         menu.InnerId = innerId;
         menu.IsInner = isInner;
         menu.IsOpenNewWindow = isNewWindow;
+        menu.IsListType = string.IsNullOrEmpty(innerId);
         menu.Level = string.IsNullOrEmpty(topMenuId) ? 0 : 1;
         menu.Name = name;
         menu.OuterUrl = outerUrl;
@@ -68,94 +78,79 @@ public partial class Admins_MenuEdit : BaseAdminPage
         return msg;
     }
 
-    protected void lbtnSave_Click(object sender, EventArgs e)
-    {
-        PageFacade facade = PageHelper.GetPageFacade(this.Page);
-        MenuItemInfo menu = new MenuItemInfo();
-        if (!IsAdd)
-        {
-            menu = facade.GetMenuById(Request["id"]);
-        }
-        string parentId = ddlTopMenu.SelectedValue;
-        menu.Index = int.Parse(txtIndex.Text);
-        if (ddlLinkHtml.SelectedValue == "")
-        {
-            menu.InnerId = ddlLinkList.SelectedValue;
-        }
-        else
-        {
-            menu.InnerId = ddlLinkHtml.SelectedValue;
-        }
-        menu.IsInner = !rbtnOuter.Checked;
-        menu.IsOpenNewWindow = cbOpenNewWindow.Checked;
-        menu.Level = string.IsNullOrEmpty(parentId) ? 0 : 1;
-        menu.Name = txtName.Text;
-        menu.OuterUrl = txtOuterUrl.Text;
-        menu.ParentId = parentId;
-        string msg;
-        if (IsAdd)
-        {
-            facade.AddMenu(menu);
-            msg = "新增菜单成功";
-        }
-        else
-        {
-            facade.ModifyMenu(menu);
-            msg = "修改菜单成功";
-        }
-        string url = string.Format("MenuManagement.aspx");
-        JavascriptAlertAndRedirect(msg, url);
-    }
-
-    private void BindMenuInfo(string menuId)
+    [AjaxMethod(HttpSessionStateRequirement.None)]
+    public string GetMenuInfo(string menuId)
     {
         PageFacade facade = PageHelper.GetPageFacade(this.Page);
         MenuItemInfo menuItem = facade.GetMenuById(menuId);
         if (menuItem == null)
         {
-            return;
+            return "";
         }
-        txtName.Text = menuItem.Name;
-        txtIndex.Text = menuItem.Index.ToString();
-        if (string.IsNullOrEmpty(menuItem.ParentId))
+        string[] menuInfos = new string[9];
+        menuInfos[0] = menuItem.Name;
+        menuInfos[1] = menuItem.Index.ToString();
+        menuInfos[2] = menuItem.ParentId;
+        menuInfos[3] = menuItem.IsInner ? "1" : "0";
+        menuInfos[4] = menuItem.IsListType ? "1" : "0";
+        menuInfos[5] = menuItem.InnerId;
+        menuInfos[6] = "";  // parent list id
+        menuInfos[7] = menuItem.OuterUrl;
+        menuInfos[8] = menuItem.IsOpenNewWindow ? "1" : "0";
+        if (!string.IsNullOrEmpty(menuItem.ParentId))
         {
-            ddlTopMenu.SelectedValue = "";
-        }
-        else
-        {
-            ddlTopMenu.SelectedValue = menuItem.ParentId;
             if (menuItem.IsInner)
             {
-                rbtnInner.Checked = true;
-                if (menuItem.IsListType)
+                if (!menuItem.IsListType && !string.IsNullOrEmpty(menuItem.InnerId))
                 {
-                    ddlLinkList.SelectedValue = menuItem.InnerId;
+                    HtmlItemInfo htmlItem = facade.GetHtmlItemById(menuItem.InnerId);
+                    if (!string.IsNullOrEmpty(htmlItem.ItsListId))
+                    {
+                        menuInfos[6] = htmlItem.ItsListId;
+                    }
                 }
-                //else
-                //{
-                //    if (menuItem.InnerId != null)
-                //    {
-                //        HtmlItemInfo htmlItem = facade.GetHtmlItemById(menuItem.InnerId);
-                //        if (string.IsNullOrEmpty(htmlItem.ItsListId))
-                //        {
-                //            ddlLinkList.SelectedValue = htmlItem.ItsListId ?? "";
-                //            ddlLinkHtml.SelectedValue = htmlItem.Id;
-                //        }
-                //        else
-                //        {
-                //            ddlLinkList.SelectedValue = htmlItem.ItsListId;
-                //            ddlLinkHtml.SelectedValue = htmlItem.Id;
-                //        }
-                //    }
-                //}
-            }
-            else
-            {
-                rbtnOuter.Checked = true;
-                txtOuterUrl.Text = menuItem.OuterUrl;
             }
         }
-        cbOpenNewWindow.Checked = menuItem.IsOpenNewWindow;
+        return string.Join(SplitChar3, menuInfos);
+        //txtName.Text = menuItem.Name;
+        //txtIndex.Text = menuItem.Index.ToString();
+        //if (string.IsNullOrEmpty(menuItem.ParentId))
+        //{
+        //    ddlTopMenu.SelectedValue = "";
+        //}
+        //else
+        //{
+        //    ddlTopMenu.SelectedValue = menuItem.ParentId;
+        //    if (menuItem.IsInner)
+        //    {
+        //        rbtnInner.Checked = true;
+        //        if (menuItem.IsListType)
+        //        {
+        //            if (!string.IsNullOrEmpty(menuItem.InnerId))
+        //            {
+        //                ddlLinkList.SelectedValue = menuItem.InnerId;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (!string.IsNullOrEmpty(menuItem.InnerId))
+        //            {
+        //                HtmlItemInfo htmlItem = facade.GetHtmlItemById(menuItem.InnerId);
+        //                if (!string.IsNullOrEmpty(htmlItem.ItsListId))
+        //                {
+        //                    ddlLinkList.SelectedValue = htmlItem.ItsListId;
+        //                    ddlLinkHtml.SelectedValue = htmlItem.Id;
+        //                }
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        rbtnOuter.Checked = true;
+        //        txtOuterUrl.Text = menuItem.OuterUrl;
+        //    }
+        //}
+        //cbOpenNewWindow.Checked = menuItem.IsOpenNewWindow;
     }
 
     private void BindParentMenuList()
