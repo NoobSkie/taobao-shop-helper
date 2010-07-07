@@ -132,6 +132,10 @@
         if (showMusicPlayer != 'true') {
             document.getElementById("dewplayer_content").style.display = "none";
         }
+
+        window.onload = function() {
+            <%= AutoPlayScript %>
+        }
     </script>
 
 </div>

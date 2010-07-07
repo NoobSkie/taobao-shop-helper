@@ -38,7 +38,7 @@
                     NavigateUrl="ListManagement.aspx" runat="server"><span>返回列表管理</span></asp:HyperLink>
         </div>
         <div class="ListDiv">
-            <asp:Repeater ID="rptHtmlList" runat="server">
+            <asp:Repeater ID="rptHtmlList" runat="server" OnItemCommand="rptHtmlList_ItemCommand">
                 <HeaderTemplate>
                     <div class="THeader">
                         <span class="Name">子页面名称</span><span class="CreateTime">创建时间</span><span class="LastUpdateTime">最后更新</span><span
@@ -51,8 +51,9 @@
                         <asp:Label ID="lblFileType" CssClass="CreateTime" runat="server"><%# Eval("CreateTime", "{0:yyyy-MM-dd HH:mm:ss}")%></asp:Label>
                         <asp:Label ID="lblFileSize" CssClass="LastUpdateTime" runat="server"><%# Eval("LastUpdateTime", "{0:yyyy-MM-dd HH:mm:ss}")%></asp:Label>
                         <span class="Link">
-                            <asp:HyperLink ID="hlnkEdit" runat="server" NavigateUrl='<%# Eval("Id", "EditContent.aspx?Id={0}") %>'>编辑</asp:HyperLink>
-                            <asp:LinkButton ID="lbtnDelete" runat="server">删除</asp:LinkButton></span>
+                            <asp:HyperLink ID="hlnkEdit" runat="server" NavigateUrl='<%# "EditContent.aspx?id=" + Eval("Id") + "&lid=" + Eval("ItsListId") %>'>编辑</asp:HyperLink>
+                            <asp:LinkButton ID="lbtnDelete" CommandName="Delete" CommandArgument='<%# Eval("Id") %>'
+                                OnClientClick=<%# Eval("Name", "return confirm('确定删除此列表吗？ - {0}');") %> runat="server">删除</asp:LinkButton></span>
                     </div>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
@@ -61,8 +62,9 @@
                         <asp:Label ID="lblFileType" CssClass="CreateTime" runat="server"><%# Eval("CreateTime", "{0:yyyy-MM-dd HH:mm:ss}")%></asp:Label>
                         <asp:Label ID="lblFileSize" CssClass="LastUpdateTime" runat="server"><%# Eval("LastUpdateTime", "{0:yyyy-MM-dd HH:mm:ss}")%></asp:Label>
                         <span class="Link">
-                            <asp:HyperLink ID="hlnkEdit" runat="server" NavigateUrl='<%# Eval("Id", "EditContent.aspx?Id={0}") %>'>编辑</asp:HyperLink>
-                            <asp:LinkButton ID="lbtnDelete" runat="server">删除</asp:LinkButton></span>
+                            <asp:HyperLink ID="hlnkEdit" runat="server" NavigateUrl='<%# "EditContent.aspx?id=" + Eval("Id") + "&lid=" + Eval("ItsListId") %>'>编辑</asp:HyperLink>
+                            <asp:LinkButton ID="lbtnDelete" CommandName="Delete" CommandArgument='<%# Eval("Id") %>'
+                                OnClientClick=<%# Eval("Name", "return confirm('确定删除此列表吗？ - {0}');") %> runat="server">删除</asp:LinkButton></span>
                     </div>
                 </AlternatingItemTemplate>
             </asp:Repeater>

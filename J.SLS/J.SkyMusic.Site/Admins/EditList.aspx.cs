@@ -114,4 +114,26 @@ public partial class Admins_EditList : BaseAdminPage
             JavascriptAlert(@"保存列表发生未知错误，请联系系统配置人员！");
         }
     }
+    protected void rptHtmlList_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName == "Delete")
+        {
+            try
+            {
+                PageFacade facade = PageHelper.GetPageFacade(this.Page);
+                string htmlId = e.CommandArgument.ToString();
+                facade.DeleteHtml(htmlId);
+                string url = "EditList.aspx?id=" + Request["id"];
+                JavascriptAlertAndRedirect("删除列表成功！", url);
+            }
+            catch (FacadeException ex)
+            {
+                JavascriptAlert(ex.Message);
+            }
+            catch
+            {
+                JavascriptAlert(@"删除文章发生未知错误，请联系系统配置人员！");
+            }
+        }
+    }
 }

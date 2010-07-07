@@ -37,10 +37,17 @@ public partial class Admins_MenuManagement : BaseAdminPage
         {
             string menuId = e.CommandArgument.ToString();
             PageFacade facade = PageHelper.GetPageFacade(this.Page);
-            facade.DeleteMenu(menuId);
-
+            IList<MenuItemInfo> subList = facade.GetChildrenMenuList(menuId);
             string url = string.Format("MenuManagement.aspx");
-            JavascriptAlertAndRedirect("删除菜单成功", url);
+            if (subList.Count > 0)
+            {
+                JavascriptAlertAndRedirect("请先删除此菜单下的所有子菜单，再删除此菜单！", url);
+            }
+            else
+            {
+                facade.DeleteMenu(menuId);
+                JavascriptAlertAndRedirect("删除菜单成功", url);
+            }
         }
     }
     protected void rptMenu1_ItemCreated(object sender, RepeaterItemEventArgs e)
